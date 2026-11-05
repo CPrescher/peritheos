@@ -1,6 +1,7 @@
 [build-system]
 requires = ["maturin>=1.15,<2"]
-build-backend = "maturin"
+build-backend = "peritheos_build"
+backend-path = ["."]
 
 [project]
 name = "peritheos"
@@ -39,6 +40,12 @@ dependencies = [
     "numpy>=1.22.0",
     "scipy>=1.9.3",
 ]
+
+[project.optional-dependencies]
+data = ["peritheos-datasets==0.17.4"]
+
+[tool.uv.sources]
+peritheos-datasets = {path = "packages/peritheos-datasets"}
 
 [project.urls]
 "Homepage" = "https://github.com/cprescher/peritheos"

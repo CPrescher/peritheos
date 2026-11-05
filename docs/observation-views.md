@@ -1,5 +1,12 @@
 # Source observation views
 
+Observation values are optional in published installations. Install
+`peritheos[data]` for the explicitly selected source scopes; dataset metadata
+and EOS evaluation remain available without the extra. Some research examples
+below use sources outside that selection and require the full research checkout
+or original inputs under their recorded terms. No runtime download occurs.
+
+
 An EOS record, a source table and the observations to plot are different things.
 One table can contain several samples, phases, pressure gauges, volume bases,
 fit masks, and calculated comparison values. Fitting eligibility must not decide

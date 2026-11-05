@@ -1,5 +1,13 @@
 # Licensing of Peritheos code and scientific data
 
+The source checkout retains complete research evidence. Published builds now
+export a runtime package without experimental observation values and a separate
+optional `peritheos-datasets` package selected by `peritheos[data]`. Each has its
+own source archive. The runtime archive installs a shorter, scope-specific
+version of this guide. The source inventory below describes research resources,
+not a claim that every resource is installed by either package. This split is
+unreleased; previously published 0.17.4 archives are unchanged.
+
 Peritheos code uses the **MIT (Expat) license**. The scientific data bundled
 with that code have **source-specific terms**. An article citation establishes
 scientific provenance; it is not, by itself, a permission to redistribute.
@@ -69,8 +77,9 @@ and structural data and to author inputs with limited provenance-only use.
 The installed [CIF license review](datasets/cif-license-review.json) records
 source URLs, hashes and the current COD data declaration for the three named
 COD CIFs. It preserves legacy headers and structural values. The He (2023)
-thesis-derived brucite CIF remains a separate unresolved source-rights case;
-its contributor-only CC0 notice is not a thesis reuse grant.
+thesis-derived brucite CIF was subsequently replaced by COD 1000054 and its
+original evidence preserved privately. Its source grant remains unresolved;
+the replacement does not relicense that former thesis transcription.
 
 ## Installed packages and downstream redistribution
 

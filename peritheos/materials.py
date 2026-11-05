@@ -1207,6 +1207,11 @@ class Material:
         for metadata in self.datasets:
             if metadata.get("identifier") == identifier:
                 return Dataset.from_mapping(metadata)
+        availability = self.eosmat_metadata.get("data_availability", {})
+        if identifier in availability.get("dataset_identifiers", []):
+            from peritheos._optional_data import unavailable_dataset
+
+            unavailable_dataset(self.identifier, identifier, availability)
         available = [str(item.get("identifier")) for item in self.datasets]
         suggestions = get_close_matches(identifier, sorted(available), n=3, cutoff=0.5)
         hint = f" Did you mean: {', '.join(suggestions)}?" if suggestions else ""

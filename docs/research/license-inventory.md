@@ -41,6 +41,19 @@ Tateno workbook/Chidester ZIP exclusions under `Unreleased`. It is a
 source-tree overlay, not an archive inventory of 0.17.4 or later builds. Published 0.17.4 archives have not been rewritten.
 Later declarations are not represented as notices already included in 0.17.3.
 
+## Current distribution boundary
+
+The unreleased Python split exports a main runtime archive without observation
+values or detailed research archives, plus a separate optional dataset archive.
+The `local` inventory below remains an inventory of research checkout resources,
+not a promise that those files are included by either build. The optional
+package uses the explicit source-scoped allowlist in
+`packages/peritheos-datasets/datasets.json` (44 entries); its installed manifest
+records exact admitted declarations and resource hashes. No scope is extended
+to adjacent source files. The runtime export retains structure/EOS parameters,
+dataset descriptions and checksums, scientific qualifications and evidence links.
+Remaining structure/parameter compilation rights still need assessment.
+
 ## Dataset findings
 
 | Local status | Entries | Meaning |

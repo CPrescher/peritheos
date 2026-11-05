@@ -1,5 +1,36 @@
 # Loading observation datasets
 
+The default installation contains dataset descriptions and checksums, not
+experimental observation values. To add the selected, source-scoped datasets:
+
+```bash
+python -m pip install "peritheos[data]"
+```
+
+`data` requests the matching `peritheos-datasets` package. It does not change
+the library implementation. A complete installed-package example is:
+
+```python
+from peritheos import get_material
+
+mgo = get_material("mgo")
+observations = mgo.get_dataset("zhu_2025_mgo_pvt")
+pv = observations.as_pressure_volume()
+print(len(observations), pv.pressure_unit, pv.volume_unit)
+```
+
+No runtime download occurs. Missing observations raise an actionable
+`DatasetError`: `dataset.package_not_installed`, `dataset.not_distributed`, or
+`dataset.package_version_mismatch`. EOS evaluation and fitting your own data
+work without the optional package. User-authored standalone EOSMAT files with
+inline rows or explicitly supplied local CSV resources remain supported.
+
+The research examples below also cover datasets outside the optional selection.
+Those examples require the full research checkout or the original inputs under
+their recorded source terms. A listed dataset identifier is not a promise that
+its observations are included in the optional package. Material metadata links
+the source evidence through `data_availability`.
+
 For reuse and redistribution, see [code and data licensing](licensing.md).
 Dataset source terms are separate from the library's MIT code license.
 

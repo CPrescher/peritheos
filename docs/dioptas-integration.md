@@ -1,5 +1,13 @@
 # Dioptas and `.eosmat`
 
+The normal Peritheos distribution supplies structures and EOS parameters
+without experimental observations. Consumers must treat observation access as
+optional: `peritheos[data]` adds selected source-scoped datasets and other evidence
+is linked from material metadata. Dataset descriptions can be present even when
+their values are not installed. This does not change EOS evaluation or require
+network access for phase calculations.
+
+
 Peritheos owns the canonical `.eosmat` material schema and bundled EOS
 material library. Dioptas consumes that library and uses the optional
 crystallographic fields to calculate and display diffraction reflections.

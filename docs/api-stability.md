@@ -7,6 +7,23 @@ change must be prominent in the changelog and release notes.
 
 ## Public API
 
+### Optional observation distribution
+
+The split Python distribution keeps EOS calculations, structures, parameters
+and scientific qualifications in `peritheos`. Experimental observation values
+are optional through `peritheos[data]`, which installs a matching
+`peritheos-datasets` version. Runtime dataset declarations remain discoverable;
+accessing absent values raises an actionable `DatasetError`, rather than
+returning an empty table. Not every research source is admitted to that package.
+
+This changes the default availability of bundled observation resources and
+detailed reconstruction evidence and must be identified prominently in the next
+release. Source-tree/editable curation and user-authored standalone EOSMAT data
+remain complete. No model, coefficient, uncertainty or scientific status is
+reinterpreted. Existing readers support the resource declarations; no new
+EOSMAT format version is introduced. Complete source documents remain authoritative
+and runtime exports include source-document fingerprints and evidence links.
+
 The supported public API consists of:
 
 - names documented in the [API reference](api.md);

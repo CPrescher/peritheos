@@ -1,5 +1,17 @@
 # Code, data and redistribution
 
+The unreleased distribution split makes experimental observations optional:
+`pip install peritheos` supplies the library, structures and EOS parameters;
+`pip install "peritheos[data]"` additionally installs `peritheos-datasets`.
+The two packages have separate source archives. The optional package contains
+44 explicitly selected entries with recorded open/author-declared source terms;
+it excludes mixed author/literature, unresolved and NC/ND sources. See the
+[installation and data-access guide](datasets.md). This reduces distributed
+source content; it is not a blanket Debian clearance of remaining structural
+facts or EOS parameter compilations. Complete research evidence remains in the
+repository. The published 0.17.4 archives are unchanged.
+
+
 The [0.17.3 license inventory](research/license-inventory.md) accounts for all
 published archive files and catalog components, including inline scientific
 data, original author artifacts and third-party code. Its
@@ -19,9 +31,9 @@ formats. Their source manifests, checksums and unchanged numerical CSVs remain.
 
 The [CIF license review](research/license-inventory.md#specific-findings-and-actions)
 records matched COD files and the current CC0 source declaration for the named
-vanadium, superhydrous-phase-B and archival brucite CIFs. He (2023)'s separate
-thesis-derived brucite CIF still has unresolved source reuse terms. Original
-CIF bytes, headers and structural values are unchanged.
+vanadium, superhydrous-phase-B and archival brucite CIFs. He (2023)'s former
+thesis structure has been replaced with CC0 COD 1000054. Original He evidence
+is preserved privately, without asserting a new source grant.
 
 The [Rust third-party notice audit](research/rust-third-party-notices.md)
 documents the complete installed notice bundle, source/archive verification,

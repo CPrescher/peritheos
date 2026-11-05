@@ -446,6 +446,9 @@ jobs:
       - name: Build wheel and source distribution
         run: uv build
 
+      - name: Build optional dataset distributions
+        run: uv build packages/peritheos-datasets --out-dir dist
+
       - name: Validate distribution metadata
         run: uv run --frozen --group release twine check dist/*
 
@@ -453,7 +456,17 @@ jobs:
         shell: bash
         run: |
           uv venv --python 3.13 "${RUNNER_TEMP}/peritheos-smoke"
-          uv pip install --python "${RUNNER_TEMP}/peritheos-smoke/bin/python" dist/*.whl
+          wheel="$(find dist -maxdepth 1 -name 'peritheos-*.whl' -print -quit)"
+          uv pip install --python "${RUNNER_TEMP}/peritheos-smoke/bin/python" "${wheel}"
           cp scripts/smoke_test_wheel.py "${RUNNER_TEMP}/smoke_test_wheel.py"
           cd "${RUNNER_TEMP}"
           "${RUNNER_TEMP}/peritheos-smoke/bin/python" smoke_test_wheel.py
+
+      - name: Smoke-test optional data installation
+        shell: bash
+        run: |
+          uv pip install --python "${RUNNER_TEMP}/peritheos-smoke/bin/python" \
+            --no-index --find-links dist "peritheos[data]"
+          cp scripts/smoke_test_datasets.py "${RUNNER_TEMP}/smoke_test_datasets.py"
+          cd "${RUNNER_TEMP}"
+          "${RUNNER_TEMP}/peritheos-smoke/bin/python" smoke_test_datasets.py

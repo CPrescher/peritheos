@@ -443,9 +443,32 @@ def _load_resource_rows(
     try:
         payload = resource_path.read_bytes()
     except (OSError, FileNotFoundError) as error:
-        raise DatasetError(
-            f"Could not read dataset resource {resource.path!r}: {error}"
-        ) from error
+        if resource_root is None:
+            from peritheos._optional_data import data_package
+
+            package = data_package()
+            if package is not None:
+                optional_path = package.joinpath("data", *path.parts)
+                if optional_path.is_file():
+                    payload = optional_path.read_bytes()
+                else:
+                    raise DatasetError(
+                        f"Dataset resource {resource.path!r} is not included in "
+                        "peritheos-datasets; consult the dataset's original source.",
+                        code="dataset.not_distributed",
+                        operation="load_dataset",
+                    ) from error
+            else:
+                raise DatasetError(
+                    f"Dataset resource {resource.path!r} is not installed. "
+                    'Install selected datasets with `python -m pip install "peritheos[data]"`.',
+                    code="dataset.package_not_installed",
+                    operation="load_dataset",
+                ) from error
+        else:
+            raise DatasetError(
+                f"Could not read dataset resource {resource.path!r}: {error}"
+            ) from error
     actual = hashlib.sha256(payload).hexdigest()
     if actual != resource.sha256:
         raise DatasetError(

@@ -5,6 +5,18 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Changed
+
+- Split experimental observation values from the default Python distribution.
+  `peritheos` retains structures, EOS parameters, uncertainties, calibration and
+  source/validation summaries; `peritheos[data]` adds the version-matched
+  `peritheos-datasets` package. Initially admit 44 explicitly source-scoped
+  entries. Preserve complete repository evidence and original numerical values;
+  build separate, standalone source archives without mutating the checkout.
+  Missing optional data report installation/source guidance. No runtime network
+  access or automatic download is introduced. This changes default observation
+  availability; the split has not yet been released.
+
 ### Fixed
 
 - Replace the He thesis brucite structural reference with the explicitly CC0

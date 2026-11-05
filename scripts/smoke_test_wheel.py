@@ -64,13 +64,14 @@ def main():
         ("chidester_2018_sources", "AM-18-56212.zip"),
     ):
         assert not data.joinpath("datasets", *source).is_file(), source
-    # Removal of containers must not remove the curated numerical resources.
+    # Runtime wheels retain structural resources and dataset declarations,
+    # while all experimental observation payloads are optional.
     for resource in (
         "kcl-tateno-2019-official-table-s1.csv",
         "chidester_2018_sources/6212_supp1.csv",
         "chidester_2018_sources/6212_supp2.csv",
     ):
-        assert data.joinpath("datasets", resource).is_file(), resource
+        assert not data.joinpath("datasets", resource).is_file(), resource
     cif_review = json.loads(
         data.joinpath("datasets", "cif-license-review.json").read_text(encoding="utf-8")
     )
@@ -120,7 +121,6 @@ def main():
     guide = data.joinpath("LICENSING.md").read_text(encoding="utf-8")
     datasets = data.joinpath("datasets")
     notices = [path for path in datasets.iterdir() if path.name.endswith(".LICENSE.md")]
-    notices.append(datasets.joinpath("ma_2024_sources", "LICENSE.md"))
     for notice in notices:
         relative = (
             "datasets/ma_2024_sources/LICENSE.md"
@@ -134,9 +134,12 @@ def main():
         )
     assert package.joinpath("data", "material-families.json").is_file()
     assert list_material_families()
-    assert package.joinpath(
+    assert not package.joinpath(
         "data", "datasets", "experimental-metal-eos-batch-47.csv"
     ).is_file()
+    for document in documents:
+        assert "data_availability" in document
+        assert all("rows" not in d for d in document.get("datasets", []))
     reference = BM2Reference(375.04, 254, 32.7)
     assert reference.pressure(375.04) == 32.7
     assert abs(reference.pressure(375.04 / 8) - 36608.7) < 1e-8

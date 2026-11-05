@@ -110,6 +110,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Export runtime source on host
+        if: runner.os != 'Linux'
+        run: python peritheos_build.py core --output .packaging/core
+
       - name: Build wheel
         uses: PyO3/maturin-action@e83996d129638aa358a18fbd1dfb82f0b0fb5d3b # v1.51.0
         with:
@@ -119,10 +123,11 @@ jobs:
           target: ${{ matrix.platform.target }}
           manylinux: ${{ matrix.platform.manylinux }}
           before-script-linux: >-
-            python3.9 scripts/generate_rust_notices.py
-            --check --verify-toolchain
+            python3.9 scripts/generate_rust_notices.py --check --verify-toolchain &&
+            python3.9 peritheos_build.py core --output .packaging/core
           args: >-
             --release --locked --compatibility pypi --out dist
+            --manifest-path .packaging/core/crates/peritheos-python/Cargo.toml
             -i ${{ runner.os == 'Linux' && format('python{0}', matrix.python-version) || 'python' }}
 
       - name: Verify host wheel compiler and notices
@@ -175,12 +180,15 @@ jobs:
           persist-credentials: false
           ref: refs/tags/${{ env.RELEASE_TAG }}
 
+      - name: Export runtime source
+        run: python3 peritheos_build.py core --output .packaging/core
+
       - name: Build source distribution
         uses: PyO3/maturin-action@e83996d129638aa358a18fbd1dfb82f0b0fb5d3b # v1.51.0
         with:
           command: sdist
           maturin-version: v1.15.0
-          args: --out dist
+          args: --manifest-path .packaging/core/crates/peritheos-python/Cargo.toml --out dist
 
       - name: Upload source distribution
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -190,9 +198,30 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+  datasets:
+    name: Optional dataset distributions
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: refs/tags/${{ env.RELEASE_TAG }}
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          enable-cache: false
+          python-version: "3.13"
+          version: "0.12.1"
+      - run: uv build packages/peritheos-datasets --out-dir dist
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: datasets
+          path: dist/*
+          if-no-files-found: error
+
   validate:
     name: Validate release distributions
-    needs: [wheels, sdist]
+    needs: [wheels, sdist, datasets]
     runs-on: ubuntu-latest
 
     steps:
@@ -231,6 +260,15 @@ jobs:
           cp scripts/smoke_test_wheel.py "${RUNNER_TEMP}/smoke_test_wheel.py"
           cd "${RUNNER_TEMP}"
           "${RUNNER_TEMP}/peritheos-smoke/bin/python" smoke_test_wheel.py
+
+      - name: Verify optional data extra
+        shell: bash
+        run: |
+          uv pip install --python "${RUNNER_TEMP}/peritheos-smoke/bin/python" \
+            --no-index --find-links dist "peritheos[data]==${RELEASE_TAG#v}"
+          cp scripts/smoke_test_datasets.py "${RUNNER_TEMP}/smoke_test_datasets.py"
+          cd "${RUNNER_TEMP}"
+          "${RUNNER_TEMP}/peritheos-smoke/bin/python" smoke_test_datasets.py
 
   publish:
     name: Publish release distributions to PyPI

@@ -1343,6 +1343,16 @@ def get_material_document(
         )
     resource = resources.files(_MATERIAL_PACKAGE).joinpath(f"{identifier}.eosmat")
     document = json.loads(resource.read_text(encoding="utf-8"))
+    if "data_availability" in document:
+        from peritheos._optional_data import dataset_declarations
+
+        declarations = dataset_declarations(identifier)
+        if declarations:
+            available_datasets = {d["identifier"]: d for d in declarations}
+            document["datasets"] = [
+                available_datasets.get(d["identifier"], d)
+                for d in document.get("datasets", [])
+            ]
     if format_version is not None:
         return convert_eosmat(document, version=format_version)
     validate_eosmat_document(document)

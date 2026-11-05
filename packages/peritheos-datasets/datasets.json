@@ -1,0 +1,773 @@
+{
+  "schema": "peritheos.optional-datasets.v1",
+  "reviewed_on": "2026-11-05",
+  "scope": "Explicit allowlist of existing recorded open/author-declared dataset scopes. No automatic admission based on filenames, citations or neighboring datasets. Mixed author/literature and unresolved/NC/ND resources excluded. Numerical data are copied unchanged.",
+  "datasets": [
+    {
+      "material": "al_bearing_phase_d",
+      "dataset": "al_bearing_phase_d_xu_2020_earthchem_pvt",
+      "declaration_sha256": "9073fd06c1f73097fb0e335a92d84aab902c728a2c52a6bfb72ffd75ea665237",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/al_bearing_phase_d.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "alumina",
+      "dataset": "alumina_shi_2022_table_s1_pvt",
+      "declaration_sha256": "987093d2d4d4957fd274531ba81033434fb88bf0a75405ae8eccc2fbe9f077e0",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/alumina.eosmat#/datasets/1",
+      "scope": ""
+    },
+    {
+      "material": "alumina_rh2o3_ii",
+      "dataset": "alumina_rh2o3_ii_shi_2022_table_s2_pvt",
+      "declaration_sha256": "40cc0af70201cec3564fd2ccbad0576223a4ed39e76d2c7238052f3956c139bf",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/alumina_rh2o3_ii.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "argon_fcc",
+      "dataset": "argon_fcc_dewaele_2021_supplement",
+      "declaration_sha256": "c4b296fda16c2e162500d533931746a1392ca3780cdacbfe1bfc10e1fdaa6f0e",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/argon_fcc.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "argon_fcc",
+      "dataset": "argon_fcc_ono_2020_table1",
+      "declaration_sha256": "1418f3d4db8674518bf928f8f3e455e667f030497e6ce661e031e93c50ff8b8a",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/argon_fcc.eosmat#/datasets/1",
+      "scope": ""
+    },
+    {
+      "material": "argon_fcc",
+      "dataset": "argon_fcc_xiao_2025_table5",
+      "declaration_sha256": "a231fdcb96bb3e86ef3dc19efbeb935be03f574b8e05dd9b9b44bee762ba323f",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/argon_fcc.eosmat#/datasets/2",
+      "scope": ""
+    },
+    {
+      "material": "b4c",
+      "dataset": "b4c_somayazulu_2023_table4_pvt",
+      "declaration_sha256": "215842c2a8fade5e7a69bc0241bc9f5a5c9f5a0135bb6d8eebbe5d769577843b",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/b4c.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "dataset": "cementite_hu_2019_table1_hugoniot",
+      "declaration_sha256": "1728509ab36e9843d05cd7f292b70cf08590fe730730b048435ce1aefa2336e6",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/cementite_nonmagnetic.eosmat#/datasets/4",
+      "scope": ""
+    },
+    {
+      "material": "chromium",
+      "dataset": "chromium_anzellini_2022_table2_compression",
+      "declaration_sha256": "eb7787bd03c7cfe44bef001fe1ee04723b40fed0b227430bc9b18d6db1b4b368",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/chromium.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "fayalite",
+      "dataset": "fayalite_bejina_2021_table1_pvt_elastic",
+      "declaration_sha256": "4cb3064449638dccdc6e46d143406d9f3c7cd97de8fb2e618bcb05f717bd58ab",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/fayalite.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "fes_vi",
+      "dataset": "fes_morard_2026_paired_kcl",
+      "declaration_sha256": "6f6871c8c6610f8be0c070ce50529c41f8453f5e0545520f77ed8182bbfde097",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/fes_vi.eosmat#/datasets/1",
+      "scope": "morard-figshare",
+      "source_scope": {
+        "id": "morard-figshare",
+        "files": [
+          "peritheos/data/datasets/fes-morard-2026-paired-kcl.csv",
+          "peritheos/data/datasets/morard_2026_sources/FeS-GSAS.csv",
+          "peritheos/data/datasets/morard_2026_sources/FeS_PTconditions.xlsx"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/morard_2026_sources/manifest.json",
+          "https://doi.org/10.6084/m9.figshare.28143683.v1"
+        ],
+        "scope": "Public deposit, distinct from final supplied Table S1 and private author fitting files.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "forsterite",
+      "dataset": "forsterite_katsura_2022_olivine_pvt",
+      "declaration_sha256": "483b50a295f9626af130f7417236749177a276fd92e6f2e207bc2e18c7b049ee",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/forsterite.eosmat#/datasets/1",
+      "scope": "katsura-data",
+      "source_scope": {
+        "id": "katsura-data",
+        "files": [
+          "docs/data/forsterite-katsura-2022-sources/forsterite-katsura-2022-source.xlsx",
+          "peritheos/data/datasets/forsterite-katsura-2022-olivine-pvt.csv"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/forsterite-katsura-2022.LICENSE.md",
+          "https://doi.org/10.5281/zenodo.5644426",
+          "https://doi.org/10.5281/zenodo.5903286"
+        ],
+        "scope": "Original Katsura workbook/MATLAB and olivine extraction; not MIT and not a grant for the 2009 paper.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "gold",
+      "dataset": "gold_sakai_2025_dewaele_2018_au_re_input",
+      "declaration_sha256": "2a85f0cf5a171cc997aa0d60b66479d8db8108af766fbd213171cfb0473ab61c",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/gold.eosmat#/datasets/2",
+      "scope": "dewaele-2018-open",
+      "source_scope": {
+        "id": "dewaele-2018-open",
+        "files": [
+          "peritheos/data/datasets/gold-dewaele-2018-tables-4-5-au-re.csv"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/sakai-2025-au.LICENSE.md",
+          "https://doi.org/10.1038/s41467-018-05294-2"
+        ],
+        "scope": "Dewaele 2018 source; do not apply Sakai 2025 NC/ND terms merely because the file is used in that recovery.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "gold",
+      "dataset": "zhu_2025_au_shock",
+      "declaration_sha256": "e43d82a0ad9f10125e307f101164b55b53deaf3a24406e89bf41ec0b5e1a60c5",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/gold.eosmat#/datasets/16",
+      "scope": "zhu-mendeley",
+      "source_scope": {
+        "id": "zhu-mendeley",
+        "files": [
+          "peritheos/data/datasets/zhu-2025-au-shock.csv",
+          "peritheos/data/datasets/zhu-2025-au-zero-pressure-thermal-expansion.csv",
+          "peritheos/data/datasets/zhu-2025-mgo-pvt.csv",
+          "peritheos/data/datasets/zhu-2025-pt-shock.csv",
+          "peritheos/data/datasets/zhu-2025-pt-zero-pressure-thermal-expansion.csv"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/zhu-2025-mendeley-data.LICENSE.md",
+          "https://doi.org/10.17632/6kxnhc2g73.3"
+        ],
+        "scope": "Five named normalized numerical datasets; original active-row tokens retained.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "gold",
+      "dataset": "zhu_2025_au_zero_pressure_thermal_expansion",
+      "declaration_sha256": "4acfc9977e246d2af0ac17aacacc5670f6878a7a7d55ff4c68a3a859e5b8ddd1",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/gold.eosmat#/datasets/17",
+      "scope": "zhu-mendeley",
+      "source_scope": {
+        "id": "zhu-mendeley",
+        "files": [
+          "peritheos/data/datasets/zhu-2025-au-shock.csv",
+          "peritheos/data/datasets/zhu-2025-au-zero-pressure-thermal-expansion.csv",
+          "peritheos/data/datasets/zhu-2025-mgo-pvt.csv",
+          "peritheos/data/datasets/zhu-2025-pt-shock.csv",
+          "peritheos/data/datasets/zhu-2025-pt-zero-pressure-thermal-expansion.csv"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/zhu-2025-mendeley-data.LICENSE.md",
+          "https://doi.org/10.17632/6kxnhc2g73.3"
+        ],
+        "scope": "Five named normalized numerical datasets; original active-row tokens retained.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "iron",
+      "dataset": "iron_zhang_2025_tables_s1_s3_s4_pvt",
+      "declaration_sha256": "4ac62dd9a78e8529067c65402d808a239afd80bd32c02d7b9848e208b1295e6e",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/iron.eosmat#/datasets/3",
+      "scope": ""
+    },
+    {
+      "material": "iron_carbide_fe7c3",
+      "dataset": "iron_carbide_fe7c3_prescher_2015_author_fit_input",
+      "declaration_sha256": "4e15ac3bc9bfe5510eae26b4519638c292fae1b90e833afb83473ff79bac0081",
+      "source_status": "author_permission_declared",
+      "rights_evidence": "peritheos/data/materials/iron_carbide_fe7c3.eosmat#/datasets/1",
+      "scope": "fe7c3-author",
+      "source_scope": {
+        "id": "fe7c3-author",
+        "files": [
+          "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-fit-export.txt",
+          "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-fit.csv",
+          "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-input.txt"
+        ],
+        "status": "author_permission_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-inputs.LICENSE.md"
+        ],
+        "scope": "Clemens Prescher author/maintainer declaration on 2026-11-04; excludes the separate Table S4 transcription.",
+        "action": "Preserve CC BY 4.0 attribution and the dated author/maintainer declaration; do not extend it to publisher files or separate Table S4.",
+        "local_only": true
+      }
+    },
+    {
+      "material": "kcl",
+      "dataset": "kcl_ma_2024_acoustic",
+      "declaration_sha256": "2ba1acaacf0998c409e8f96376a4954d56d31eb431593dcf1e04d288b08c6ded",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/kcl.eosmat#/datasets/6",
+      "scope": "ma-mendeley",
+      "source_scope": {
+        "id": "ma-mendeley",
+        "files": [
+          "peritheos/data/datasets/kcl-ma-2024-table-s1-acoustic.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s1-walker-recalibrated.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s3-model-grid.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s4-model-grid.csv",
+          "peritheos/data/datasets/ma_2024_sources/cached-cells.json",
+          "peritheos/data/datasets/ma_2024_sources/data-tables.xlsx"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+          "https://doi.org/10.17632/7svmv9hvft.1"
+        ],
+        "scope": "Named Mendeley workbook and extractions; excludes publisher DOCX.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "kcl",
+      "dataset": "kcl_ma_2024_walker",
+      "declaration_sha256": "085278fd6a2737bd81206f458f1c02f1fb8e1f0af3e2dd3799269a850d1dbbff",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/kcl.eosmat#/datasets/7",
+      "scope": "ma-mendeley",
+      "source_scope": {
+        "id": "ma-mendeley",
+        "files": [
+          "peritheos/data/datasets/kcl-ma-2024-table-s1-acoustic.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s1-walker-recalibrated.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s3-model-grid.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s4-model-grid.csv",
+          "peritheos/data/datasets/ma_2024_sources/cached-cells.json",
+          "peritheos/data/datasets/ma_2024_sources/data-tables.xlsx"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+          "https://doi.org/10.17632/7svmv9hvft.1"
+        ],
+        "scope": "Named Mendeley workbook and extractions; excludes publisher DOCX.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "kcl",
+      "dataset": "kcl_ma_2024_cold_grid",
+      "declaration_sha256": "b10d603d4a8657212cb7d7bf419f6965027d21982cfa3aa665d4ad723fe077f3",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/kcl.eosmat#/datasets/8",
+      "scope": "ma-mendeley",
+      "source_scope": {
+        "id": "ma-mendeley",
+        "files": [
+          "peritheos/data/datasets/kcl-ma-2024-table-s1-acoustic.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s1-walker-recalibrated.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s3-model-grid.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s4-model-grid.csv",
+          "peritheos/data/datasets/ma_2024_sources/cached-cells.json",
+          "peritheos/data/datasets/ma_2024_sources/data-tables.xlsx"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+          "https://doi.org/10.17632/7svmv9hvft.1"
+        ],
+        "scope": "Named Mendeley workbook and extractions; excludes publisher DOCX.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "kcl",
+      "dataset": "kcl_ma_2024_thermal_grid",
+      "declaration_sha256": "3031fc28c6a781f201307847f4fea5b146c9482baa56d072caf06f35a9852781",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/kcl.eosmat#/datasets/9",
+      "scope": "ma-mendeley",
+      "source_scope": {
+        "id": "ma-mendeley",
+        "files": [
+          "peritheos/data/datasets/kcl-ma-2024-table-s1-acoustic.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s1-walker-recalibrated.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s3-model-grid.csv",
+          "peritheos/data/datasets/kcl-ma-2024-table-s4-model-grid.csv",
+          "peritheos/data/datasets/ma_2024_sources/cached-cells.json",
+          "peritheos/data/datasets/ma_2024_sources/data-tables.xlsx"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+          "https://doi.org/10.17632/7svmv9hvft.1"
+        ],
+        "scope": "Named Mendeley workbook and extractions; excludes publisher DOCX.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "magnesite",
+      "dataset": "magnesite_yu_2024_table_s1_pvt",
+      "declaration_sha256": "64cb49eb36015d2fe75563e166e791b6dff0cfd86506112b3061fc613845b6ee",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/magnesite.eosmat#/datasets/2",
+      "scope": ""
+    },
+    {
+      "material": "mgo",
+      "dataset": "zhu_2025_mgo_pvt",
+      "declaration_sha256": "ce14c61f9856e67597bfaf6e5236547d0dbdd26e52e759af554ee54367463ab4",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/mgo.eosmat#/datasets/13",
+      "scope": "zhu-mendeley",
+      "source_scope": {
+        "id": "zhu-mendeley",
+        "files": [
+          "peritheos/data/datasets/zhu-2025-au-shock.csv",
+          "peritheos/data/datasets/zhu-2025-au-zero-pressure-thermal-expansion.csv",
+          "peritheos/data/datasets/zhu-2025-mgo-pvt.csv",
+          "peritheos/data/datasets/zhu-2025-pt-shock.csv",
+          "peritheos/data/datasets/zhu-2025-pt-zero-pressure-thermal-expansion.csv"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/zhu-2025-mendeley-data.LICENSE.md",
+          "https://doi.org/10.17632/6kxnhc2g73.3"
+        ],
+        "scope": "Five named normalized numerical datasets; original active-row tokens retained.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "mgo",
+      "dataset": "mgo_dubrovinsky_1997_cod_thermal_expansion",
+      "declaration_sha256": "0ce4bbd1d774ed30d55a94bb6df1da0709818fb3a1f0892de541ad088ba298f8",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/mgo.eosmat#/datasets/14",
+      "scope": "mgo-cod-lasl",
+      "source_scope": {
+        "id": "mgo-cod-lasl",
+        "files": [
+          "peritheos/data/datasets/mgo-dubrovinsky-1997-cod-thermal-expansion.csv",
+          "peritheos/data/datasets/mgo-fiquet-1999-cod-thermal-expansion.csv",
+          "peritheos/data/datasets/mgo-marsh-1980-lasl-single-crystal-hugoniot.csv"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC0-1.0 / public-domain source",
+        "evidence": [
+          "peritheos/data/datasets/mgo-tange-2009-redistributable-inputs.LICENSE.md"
+        ],
+        "scope": "Only these COD and LASL inputs; not a grant for all MgO data or every government-contracted publication.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "mgo",
+      "dataset": "mgo_fiquet_1999_cod_thermal_expansion",
+      "declaration_sha256": "7a59b3a209f9d374892d2f1e13c65cfa0766faf94b17523b9cdafd0c17eab7c8",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/mgo.eosmat#/datasets/15",
+      "scope": "mgo-cod-lasl",
+      "source_scope": {
+        "id": "mgo-cod-lasl",
+        "files": [
+          "peritheos/data/datasets/mgo-dubrovinsky-1997-cod-thermal-expansion.csv",
+          "peritheos/data/datasets/mgo-fiquet-1999-cod-thermal-expansion.csv",
+          "peritheos/data/datasets/mgo-marsh-1980-lasl-single-crystal-hugoniot.csv"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC0-1.0 / public-domain source",
+        "evidence": [
+          "peritheos/data/datasets/mgo-tange-2009-redistributable-inputs.LICENSE.md"
+        ],
+        "scope": "Only these COD and LASL inputs; not a grant for all MgO data or every government-contracted publication.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "mgo",
+      "dataset": "mgo_marsh_1980_lasl_single_crystal_hugoniot",
+      "declaration_sha256": "4e6a309d41b6e9497b51d474d88e1af3f8482231dd67eda0178b866b77d43e2f",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/mgo.eosmat#/datasets/16",
+      "scope": "mgo-cod-lasl",
+      "source_scope": {
+        "id": "mgo-cod-lasl",
+        "files": [
+          "peritheos/data/datasets/mgo-dubrovinsky-1997-cod-thermal-expansion.csv",
+          "peritheos/data/datasets/mgo-fiquet-1999-cod-thermal-expansion.csv",
+          "peritheos/data/datasets/mgo-marsh-1980-lasl-single-crystal-hugoniot.csv"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC0-1.0 / public-domain source",
+        "evidence": [
+          "peritheos/data/datasets/mgo-tange-2009-redistributable-inputs.LICENSE.md"
+        ],
+        "scope": "Only these COD and LASL inputs; not a grant for all MgO data or every government-contracted publication.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "dataset": "mgsio3_post_perovskite_sakai_2016_table_s1_pvt",
+      "declaration_sha256": "345e8d929fe75c1f3c2542932478316ef5e16cff9378c538beaf9253889c0c6c",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/mgsio3_post_perovskite.eosmat#/datasets/1",
+      "scope": ""
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "dataset": "mgsio3_post_perovskite_sakai_2016_table_s5_model_grid",
+      "declaration_sha256": "56d57b0b6577dfd9fb27bccb01b896472a7014f01c17ec0f7ae9089554a69b78",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/mgsio3_post_perovskite.eosmat#/datasets/2",
+      "scope": ""
+    },
+    {
+      "material": "platinum",
+      "dataset": "zhu_2025_pt_shock",
+      "declaration_sha256": "f8c7fa73e20801320204541948d1e8f160c6f43ad72c7325a336338db558d058",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/platinum.eosmat#/datasets/6",
+      "scope": "zhu-mendeley",
+      "source_scope": {
+        "id": "zhu-mendeley",
+        "files": [
+          "peritheos/data/datasets/zhu-2025-au-shock.csv",
+          "peritheos/data/datasets/zhu-2025-au-zero-pressure-thermal-expansion.csv",
+          "peritheos/data/datasets/zhu-2025-mgo-pvt.csv",
+          "peritheos/data/datasets/zhu-2025-pt-shock.csv",
+          "peritheos/data/datasets/zhu-2025-pt-zero-pressure-thermal-expansion.csv"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/zhu-2025-mendeley-data.LICENSE.md",
+          "https://doi.org/10.17632/6kxnhc2g73.3"
+        ],
+        "scope": "Five named normalized numerical datasets; original active-row tokens retained.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "platinum",
+      "dataset": "zhu_2025_pt_zero_pressure_thermal_expansion",
+      "declaration_sha256": "f675074d0970f273315d2e6b3747ec4f7215b825890350c95304201daa57170f",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/platinum.eosmat#/datasets/7",
+      "scope": "zhu-mendeley",
+      "source_scope": {
+        "id": "zhu-mendeley",
+        "files": [
+          "peritheos/data/datasets/zhu-2025-au-shock.csv",
+          "peritheos/data/datasets/zhu-2025-au-zero-pressure-thermal-expansion.csv",
+          "peritheos/data/datasets/zhu-2025-mgo-pvt.csv",
+          "peritheos/data/datasets/zhu-2025-pt-shock.csv",
+          "peritheos/data/datasets/zhu-2025-pt-zero-pressure-thermal-expansion.csv"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/zhu-2025-mendeley-data.LICENSE.md",
+          "https://doi.org/10.17632/6kxnhc2g73.3"
+        ],
+        "scope": "Five named normalized numerical datasets; original active-row tokens retained.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "rbbr",
+      "dataset": "rbbr_farla_2025_observations",
+      "declaration_sha256": "3c0fdb8c2f18e624fa8bc3bca82c13c50039a19cfd1fd27a89267b2d2466d75c",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/rbbr.eosmat#/datasets/0",
+      "scope": "farla-figshare",
+      "source_scope": {
+        "id": "farla-figshare",
+        "files": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-source-tables.json"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025.LICENSE.md",
+          "https://doi.org/10.60893/figshare.jap.28515917.v1"
+        ],
+        "scope": "Official numerical S1-S7 tables and explicit extractions; author-input calibrant facts are separate.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "rbbr",
+      "dataset": "rbbr_farla_2025_benchmarks",
+      "declaration_sha256": "f7f4c8edef72d6adafeba98a6cc07ecef750054423dc8efa654635f02e8f5f5d",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/rbbr.eosmat#/datasets/1",
+      "scope": "farla-figshare",
+      "source_scope": {
+        "id": "farla-figshare",
+        "files": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-source-tables.json"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025.LICENSE.md",
+          "https://doi.org/10.60893/figshare.jap.28515917.v1"
+        ],
+        "scope": "Official numerical S1-S7 tables and explicit extractions; author-input calibrant facts are separate.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "rbcl",
+      "dataset": "rbcl_farla_2025_observations",
+      "declaration_sha256": "26040f56b8c5debc29423e0fc2e7a2e0709a5956dbc57e882ddc6ae195696e7b",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/rbcl.eosmat#/datasets/1",
+      "scope": "farla-figshare",
+      "source_scope": {
+        "id": "farla-figshare",
+        "files": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-source-tables.json"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025.LICENSE.md",
+          "https://doi.org/10.60893/figshare.jap.28515917.v1"
+        ],
+        "scope": "Official numerical S1-S7 tables and explicit extractions; author-input calibrant facts are separate.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "rbcl",
+      "dataset": "rbcl_farla_2025_benchmarks",
+      "declaration_sha256": "30a8abf5eccb7f628e76f7dfde91a86649da56add13532179c6723f760d8c9cc",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/rbcl.eosmat#/datasets/2",
+      "scope": "farla-figshare",
+      "source_scope": {
+        "id": "farla-figshare",
+        "files": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-source-tables.json"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025.LICENSE.md",
+          "https://doi.org/10.60893/figshare.jap.28515917.v1"
+        ],
+        "scope": "Official numerical S1-S7 tables and explicit extractions; author-input calibrant facts are separate.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "rbi",
+      "dataset": "rbi_farla_2025_observations",
+      "declaration_sha256": "596c2b3b05585b3bcb04098506c45580b26efd391bb30a161d74281de15534dc",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/rbi.eosmat#/datasets/0",
+      "scope": "farla-figshare",
+      "source_scope": {
+        "id": "farla-figshare",
+        "files": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-source-tables.json"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025.LICENSE.md",
+          "https://doi.org/10.60893/figshare.jap.28515917.v1"
+        ],
+        "scope": "Official numerical S1-S7 tables and explicit extractions; author-input calibrant facts are separate.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "rbi",
+      "dataset": "rbi_farla_2025_benchmarks",
+      "declaration_sha256": "6d99f9660a35e8b1ffc6daadf8f4b2ba01a0a22e9e28b9e81edd3da41c9fe059",
+      "source_status": "open_source_declared",
+      "rights_evidence": "peritheos/data/materials/rbi.eosmat#/datasets/1",
+      "scope": "farla-figshare",
+      "source_scope": {
+        "id": "farla-figshare",
+        "files": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-benchmarks.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-observations.csv",
+          "peritheos/data/datasets/rubidium-halides-farla-2025-source-tables.json"
+        ],
+        "status": "open_source_declared",
+        "declared_license": "CC-BY-4.0",
+        "evidence": [
+          "peritheos/data/datasets/rubidium-halides-farla-2025.LICENSE.md",
+          "https://doi.org/10.60893/figshare.jap.28515917.v1"
+        ],
+        "scope": "Official numerical S1-S7 tables and explicit extractions; author-input calibrant facts are separate.",
+        "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+        "local_only": false
+      }
+    },
+    {
+      "material": "rhodium",
+      "dataset": "rhodium_rodrigo_ramon_2024_table2_compression",
+      "declaration_sha256": "11d33969f588fa11554a0e6a8f19347e5b811e3f122236b9a7fa74681e1a31fe",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/rhodium.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "ruthenium",
+      "dataset": "ruthenium_anzellini_2019_table1_compression",
+      "declaration_sha256": "891f64ad3588021b2aa3366a17c132317249387cd9bf0e3f67b13cd2eb29b13f",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/ruthenium.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "seifertite",
+      "dataset": "seifertite_sun_2019_dataset_s2_pvt",
+      "declaration_sha256": "e39d761c45b7dd7325bada8616eae2838c90442d795db3413c58701c46c0120c",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/seifertite.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "silica_cacl2",
+      "dataset": "sio2_cacl2_sun_2019_dataset_s1_pvt",
+      "declaration_sha256": "602d176288426866ab2480181a8ce48f7ae4f0fd98b4c39c62698be0fbdfa7c4",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/silica_cacl2.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "silicon",
+      "dataset": "silicon_anzellini_2019_tables1_4_6_7_compression",
+      "declaration_sha256": "3b3eb17404cf79e8a967fe2f18f7b9846fa09c6ffd64ebc99d498e856eff78c8",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/silicon.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "silicon_v",
+      "dataset": "silicon_anzellini_2019_tables1_4_6_7_compression",
+      "declaration_sha256": "7e62693d520bfc2b7ec943159086f2120beb8b8804e4b7b9d9d5455e8ad432e7",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/silicon_v.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "silicon_vii",
+      "dataset": "silicon_anzellini_2019_tables1_4_6_7_compression",
+      "declaration_sha256": "f0cdfa4588be832080117f003c861aab6212ce0a362c38f60721787daf09a9a3",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/silicon_vii.eosmat#/datasets/0",
+      "scope": ""
+    },
+    {
+      "material": "silicon_x",
+      "dataset": "silicon_anzellini_2019_tables1_4_6_7_compression",
+      "declaration_sha256": "1ca0d3c7cf4938645b97096d6ae7ce6a0383ddf3d2952f72bbea63bd4160e9b9",
+      "source_status": "open_license_declared",
+      "rights_evidence": "peritheos/data/materials/silicon_x.eosmat#/datasets/0",
+      "scope": ""
+    }
+  ]
+}

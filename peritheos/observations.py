@@ -73,11 +73,20 @@ def observation_material_fingerprint(document: Mapping[str, Any]) -> str:
 
 def observation_registry() -> dict[str, Any]:
     """Return an independent copy of the packaged, source-bound migration views."""
-    return json.loads(
+    registry = json.loads(
         resources.files("peritheos.data")
         .joinpath("observation-views.json")
         .read_text(encoding="utf-8")
     )
+    if not registry["datasets"]:
+        from peritheos._optional_data import data_package
+
+        package = data_package()
+        if package is not None:
+            return json.loads(
+                package.joinpath("observation-views.json").read_text(encoding="utf-8")
+            )
+    return registry
 
 
 def validate_observation_view(

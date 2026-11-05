@@ -78,6 +78,20 @@ for the definitions and the author-confirmed Speziale (2001) MgO example.
 pip install peritheos
 ```
 
+The normal package includes structures, EOS coefficients and scientific
+provenance without experimental observation values or research archives.
+To add the selected, source-scoped observation datasets:
+
+```bash
+pip install "peritheos[data]"
+```
+
+`data` is a packaging extra: it adds the matching `peritheos-datasets` package.
+EOS evaluation and fitting your own measurements work without that extra.
+Other original evidence remains in the cited repositories and linked material
+pages; inclusion in the optional package depends on recorded source terms.
+Neither package fetches data at runtime. See [datasets](docs/datasets.md).
+
 The latest development version can instead be installed directly from GitHub:
 
 ```bash
@@ -118,13 +132,13 @@ gold = search_eos_records(formula="Au", thermal=True, pressure_gpa=200.0)[0]
 hot_pressure = gold.pressure(volume=55.0, temperature=2000.0)
 ```
 
-Bundled observation tables have the same provenance-aware interface whether
+With `peritheos[data]` installed, selected observation tables have the same provenance-aware interface whether
 their rows are embedded in `.eosmat` or stored as packaged CSV resources. The
 resource checksum is verified automatically:
 
 ```python
-coesite = get_material("coesite")
-dataset = coesite.get_dataset("coesite_levien_1981_table7_pv")
+mgo = get_material("mgo")
+dataset = mgo.get_dataset("zhu_2025_mgo_pvt")
 pv = dataset.as_pressure_volume(pressure_unit="GPa")
 
 print(pv.volume, pv.pressure)

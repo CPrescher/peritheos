@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "build_backend"
+backend-path = ["."]
+
+[project]
+name = "peritheos-datasets"
+version = "0.17.4"
+description = "Optional source-scoped observation datasets for Peritheos"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["peritheos==0.17.4"]
+
+[tool.uv.sources]
+peritheos = {path = "../..", editable = true}

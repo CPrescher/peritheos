@@ -3641,6 +3641,11 @@ dependencies = [
     { name = "scipy", version = "1.18.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
 ]
 
+[package.optional-dependencies]
+data = [
+    { name = "peritheos-datasets" },
+]
+
 [package.dev-dependencies]
 dev = [
     { name = "jsonschema", version = "4.25.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -3675,8 +3680,10 @@ release = [
 [package.metadata]
 requires-dist = [
     { name = "numpy", specifier = ">=1.22.0" },
+    { name = "peritheos-datasets", marker = "extra == 'data'", directory = "packages/peritheos-datasets" },
     { name = "scipy", specifier = ">=1.9.3" },
 ]
+provides-extras = ["data"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -3698,6 +3705,17 @@ docs = [
     { name = "pyparsing", marker = "python_full_version < '3.10'", specifier = ">=3.0.9,<3.3" },
 ]
 release = [{ name = "twine", specifier = ">=6.2.0,<7" }]
+
+[[package]]
+name = "peritheos-datasets"
+version = "0.17.4"
+source = { directory = "packages/peritheos-datasets" }
+dependencies = [
+    { name = "peritheos" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "peritheos", editable = "." }]
 
 [[package]]
 name = "pexpect"

@@ -14,6 +14,52 @@ The Python package contains a private PyO3 extension and therefore requires a
 Rust toolchain for editable or source installs. The workspace MSRV is Rust
 1.83; the release build uses maturin 1.15.
 
+## Building the two Python distributions
+
+The repository retains complete curation inputs. Editable installs keep those
+inputs for maintenance; published wheels and source archives are separate,
+explicit exports made by the PEP 517 backend:
+
+```bash
+uv build --out-dir dist
+uv build packages/peritheos-datasets --out-dir dist
+uv run --group release twine check dist/*
+```
+
+The first command builds the library, structural CIFs and runtime material
+records without experimental observations or research archives. Dataset
+declarations retain IDs, columns, sources, checksums and fit links; inline
+observations become external resource declarations. Coefficients, model laws,
+uncertainties, calibration conventions and scientific statuses are preserved.
+Detailed audit inputs stay in the authoritative repository; exported records
+link that evidence and record its document fingerprint. No source files are
+rewritten by building. Building the core source archive also works independently
+of the optional package and the research checkout.
+
+The second command builds a pure Python data wheel and its own standalone
+source archive. `packages/peritheos-datasets/datasets.json` is the reviewed
+allowlist, with exact declaration fingerprints and source scopes. Changed
+declarations or resource hashes fail the export. Adding datasets requires a
+source-rights review and an explicit allowlist edit; neighboring artifacts are
+not copied. The initial selection has 44 entries. Mixed author/literature,
+unresolved and NC/ND sources remain excluded.
+
+`peritheos[data]` requests the optional dependency declared under
+`[project.optional-dependencies]`; `data` is not a second library build. Pin
+both project versions and the extra together when preparing a release. Configure
+the new `peritheos-datasets` PyPI project with the same trusted-publisher workflow
+and environment before publishing the first split release. Local builds do not
+publish anything. Use `uv build` for standard builds; direct `maturin build` in
+the unexported research checkout bypasses the Python build backend. The release
+workflow explicitly stages its runtime tree before invoking maturin for each
+platform.
+
+Installed-package verification must run outside the checkout, first with only
+the core wheel (`scripts/smoke_test_wheel.py`), then after installing the extra
+from local artifacts (`scripts/smoke_test_datasets.py`). The CI packaging job
+checks both. The complete repository tests continue to check the preserved
+original evidence through an editable installation.
+
 Run the native gates directly with:
 
 ```bash
