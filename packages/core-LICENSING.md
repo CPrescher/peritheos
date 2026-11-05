@@ -18,6 +18,16 @@ and the full CC0 text in the distribution's license metadata. Other inline
 structures and parameter compilations retain their individual provenance;
 this packaging split alone does not establish Debian clearance for every entry.
 
+The installed `eos-structure-rights-review.json` separately assesses all 685 EOS
+records and 234 structural/diffraction components. See
+[the compilation notice](datasets/eos-structure-compilations.LICENSE.md) for the numerical-content basis
+and exact unresolved cases: seven Holland/THERMOCALC parameter extracts, ten
+inherited peak arrays and two ICSD-linked post-perovskite topologies. These
+components remain present; no blanket clearance or source grant is asserted.
+The three COD source scopes remain separate from EOS/observation rights.
+The pinned Dioptas migration's complete upstream MIT attribution is retained
+in [the Dioptas notice](datasets/dioptas-materials.LICENSE.md); it does not clear third-party rights.
+
 Compiled Rust third-party licenses and source attributions are in
 `third_party/rust/NOTICE.md` and the complete adjacent notice bundle. A rebuild
 with another compiler requires reviewing its matching standard-library notices.
@@ -27,8 +37,9 @@ the matching `peritheos-datasets` distribution. That package admits only an
 explicit source-scoped selection and includes its own dataset notices and
 licenses. Its installed review distinguishes recorded source grants from
 maintainer factual-content assessments. Unspecified source terms remain
-unspecified, and admission is not Debian approval. Identified NC/ND cases and
-unresolved collections/mixed inputs remain held as listed in that review.
+unspecified, and admission is not Debian approval. The 21 admitted NC/ND
+numerical extractions retain source-specific qualifications; five original
+Sakai/Campbell dataset entries remain held as listed in that review.
 No installation downloads observations at runtime. Other evidence and terms
 are linked from the material's `data_availability` metadata.
 

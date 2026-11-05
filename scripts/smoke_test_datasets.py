@@ -21,6 +21,16 @@ from peritheos.observations import (
 
 def main():
     package = resources.files("peritheos_datasets")
+    assert package.joinpath("eos-structure-rights-review.json").read_bytes() == (
+        resources.files("peritheos")
+        .joinpath("data", "eos-structure-rights-review.json")
+        .read_bytes()
+    )
+    for notice in (
+        "dioptas-materials.LICENSE.md",
+        "eos-structure-compilations.LICENSE.md",
+    ):
+        assert package.joinpath("notices", notice).is_file()
     manifest = json.loads(package.joinpath("manifest.json").read_text(encoding="utf-8"))
     assert version("peritheos") == version("peritheos-datasets") == manifest["version"]
     review_bytes = package.joinpath("redistribution-review.json").read_bytes()

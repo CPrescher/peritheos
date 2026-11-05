@@ -233,7 +233,7 @@ def match_scope(path, scopes, current):
     return None
 
 
-def components(payloads, scopes, current):
+def components(payloads, scopes, current, component_review=None):
     rows = []
     for name, content in sorted(payloads.items()):
         if not name.startswith("peritheos/data/materials/") or not name.endswith(
@@ -273,6 +273,19 @@ def components(payloads, scopes, current):
         structural_source = {
             k: document[k] for k in ("reference", "source", "notes") if k in document
         }
+        if current:
+            # Keep dedicated structural provenance, not just an EOS citation.
+            structural_source.update(
+                {
+                    k: document[k]
+                    for k in (
+                        "structure_reference",
+                        "structure_provenance",
+                        "phase_references",
+                    )
+                    if k in document
+                }
+            )
         if material == "brucite" and not current:
             # Inventory the historical thesis source without redistributing its
             # superseded refinement through this generated report. Exact source
@@ -351,6 +364,34 @@ def components(payloads, scopes, current):
         ref = json.loads(row["source"])
         if row["kind"] == "eos" and isinstance(ref, dict):
             row["related_rights_evidence"] = compact(by_doi.get(ref.get("doi"), []))
+    reviewed = (
+        {e["key"]: (index, e) for index, e in enumerate(component_review["entries"])}
+        if current and component_review
+        else {}
+    )
+    for row in rows:
+        # Source-declaration status and the subsequent assessment are distinct.
+        # Never backdate an assessment into the historical release rows.
+        row.update(redistribution_assessment="", review_evidence="", remaining_issue="")
+        if row["kind"] == "dataset" or not reviewed:
+            continue
+        key = (
+            f"eos/{row['material']}/{row['identifier']}"
+            if row["kind"] == "eos"
+            else f"structure/{row['material']}"
+        )
+        index, entry = reviewed[key]
+        name = row["evidence"].split("#", 1)[0]
+        if digest(payloads[name]) != component_review["material_sha256"][name]:
+            raise ValueError(f"EOS/structure review source changed: {name}")
+        assessment = entry["assessment"]
+        rationale = component_review["rationales"][assessment]
+        row.update(
+            redistribution_assessment=assessment,
+            review_evidence=f"peritheos/data/eos-structure-rights-review.json#/entries/{index}",
+            remaining_issue=rationale if assessment.endswith("required") else "",
+            required_action=rationale,
+        )
     return rows
 
 
@@ -668,8 +709,11 @@ def inventory(directory, cargo_path):
             "Current dependency lock differs from the inventoried release; provide release-matched dependency metadata"
         )
     current = current_payloads(released)
+    component_review = json.loads(
+        (ROOT / "peritheos/data/eos-structure-rights-review.json").read_bytes()
+    )
     old_components = components(released, scopes, False)
-    new_components = components(current, scopes, True)
+    new_components = components(current, scopes, True, component_review)
     resources = []
     for state, items in (("release", old_components), ("local", new_components)):
         mapping = defaultdict(list)
@@ -801,6 +845,10 @@ def inventory(directory, cargo_path):
                     r["status"] for r in new_components if r["kind"] == "dataset"
                 ).items()
             )
+        ),
+        "local_eos_structure_assessments": component_review["counts"],
+        "eos_structure_review_sha256": digest(
+            (ROOT / "peritheos/data/eos-structure-rights-review.json").read_bytes()
         ),
         "local_file_statuses": dict(
             sorted(Counter(r["local_status"] for r in files).items())

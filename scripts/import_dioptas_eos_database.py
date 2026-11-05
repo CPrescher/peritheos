@@ -1,7 +1,9 @@
-"""Import the Dioptas material database as Peritheos-owned ``.eosmat`` data.
+"""Import the Dioptas material database as source-attributed ``.eosmat`` data.
 
 This is a provenance-preserving mechanical migration tool. It does not confer
-primary-source validation on imported EOS parameters.
+primary-source validation or ownership of third-party data on imported records.
+Preserve the pinned Dioptas MIT notice and assess earlier collection rights
+separately; format migration does not establish redistribution permission.
 """
 
 from __future__ import annotations

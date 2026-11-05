@@ -29,6 +29,16 @@ source content; it is not a blanket Debian clearance of remaining structural
 facts or EOS parameter compilations. Complete research evidence remains in the
 repository. The published 0.17.4 archives are unchanged.
 
+The [EOS/structure compilation review](research/eos-structure-compilation-rights.md)
+now accounts for all 685 parameter records and 234 structural/diffraction
+components, with exact source/runtime bindings. It preserves the pinned Dioptas
+MIT notice and separates numerical-content assessments from remaining
+collection/acquisition questions: seven Holland/THERMOCALC extracts, ten legacy
+peak lists and two ICSD-linked topologies. These 19 components remain present
+in the runtime package and need resolution or explicit downstream exclusion
+before claiming an entirely cleared archive. No source grant, scientific
+reclassification or dataset selection change is made by this review.
+
 
 The [0.17.3 license inventory](research/license-inventory.md) accounts for all
 published archive files and catalog components, including inline scientific

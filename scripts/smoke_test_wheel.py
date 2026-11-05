@@ -52,6 +52,27 @@ def main():
     for path in installed_licenses.values():
         assert path.is_file() and path.stat().st_size > 0
     data = package.joinpath("data")
+    component_review = json.loads(
+        data.joinpath("eos-structure-rights-review.json").read_bytes()
+    )
+    assert component_review["counts"]["eos_records"] == sum(
+        len(document["eos_records"]) for document in documents
+    )
+    assert component_review["counts"]["structural_components"] == len(documents)
+    for notice in (
+        "dioptas-materials.LICENSE.md",
+        "eos-structure-compilations.LICENSE.md",
+    ):
+        assert f"peritheos/data/datasets/{notice}" in license_files
+        assert data.joinpath("datasets", notice).is_file()
+    upstream_notice = data.joinpath(
+        "datasets", "dioptas-materials.LICENSE.md"
+    ).read_bytes()
+    upstream_license = upstream_notice[upstream_notice.index(b"MIT License\n") :]
+    assert (
+        hashlib.sha256(upstream_license).hexdigest()
+        == component_review["dioptas"]["license_sha256"]
+    )
     assert not data.joinpath("datasets", "brucite-he-2023-table43.cif").is_file()
     brucite = json.loads(data.joinpath("materials", "brucite.eosmat").read_bytes())
     assert brucite["source"]["structure_cod_id"] == "1000054"

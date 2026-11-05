@@ -50,3 +50,9 @@ the cited original deposits and links from the Peritheos material records.
 Code is MIT; data retain their individual terms. Full licenses and scoped notices
 are included in this distribution. A contributor dedication does not relicense
 third-party sources. Please cite the original authors and report transformations.
+
+The separate `eos-structure-rights-review.json` and compilation notice document
+the runtime package's EOS/structure assessment and unresolved collection cases.
+Their presence does not add observations or extend this dataset selection.
+The pinned Dioptas upstream MIT attribution is also preserved; it cannot clear
+third-party publications or inherited beamline-card acquisition rights.

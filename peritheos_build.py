@@ -235,6 +235,8 @@ def stage_core(destination, root=ROOT):
         "vanadium-james-1960-9012770.cif",
         "superhydrous-phase-b-koch-muller-2005-mkm0105.cif",
         "cod-cif-sources.LICENSE.md",
+        "dioptas-materials.LICENSE.md",
+        "eos-structure-compilations.LICENSE.md",
         "cif-license-review.json",
     ):
         shutil.copy2(root / "peritheos/data/datasets" / name, cifs / name)
@@ -424,6 +426,10 @@ def stage_datasets(destination, root=ROOT):
     # Retain all scoped legal notices, never the neighboring source artifacts.
     notices = package / "notices"
     notices.mkdir()
+    shutil.copy2(
+        root / "peritheos/data/eos-structure-rights-review.json",
+        package / "eos-structure-rights-review.json",
+    )
     for source in (root / "peritheos/data/datasets").glob("*.LICENSE.md"):
         shutil.copy2(source, notices / source.name)
     shutil.copy2(

@@ -53,7 +53,19 @@ package uses the explicit source-scoped allowlist in
 records exact admitted declarations and resource hashes. No scope is extended
 to adjacent source files. The runtime export retains structure/EOS parameters,
 dataset descriptions and checksums, scientific qualifications and evidence links.
-Remaining structure/parameter compilation rights still need assessment.
+Structure/parameter compilation questions are tracked separately below.
+
+The later [EOS/structure review](eos-structure-compilation-rights.md) completes
+the current component inventory: 678 EOS and 183 structural components receive
+scoped numerical-content assessments, three structures retain their named COD
+source scopes, and 36 materials contain no structural values. Seven
+Holland/THERMOCALC extracts, ten inherited peak arrays and two ICSD-linked
+topologies remain unresolved and present in runtime exports. The exact Dioptas
+upstream MIT notice is now retained. The
+[component index](../data/license-inventory/eos-structure-review.csv) and
+[EOS source-group index](../data/license-inventory/eos-source-groups.csv) name
+every component/group. New assessment columns do not change original
+source-declaration statuses or backdate clearance into published archives.
 
 The 5 November review adds a verified Zenodo source grant and an iridium source
 NC/ND qualification to the local overlay. Its factual numerical admissions are
@@ -105,9 +117,11 @@ assessment and contributor-only new metadata dedication. Both CSVs stay unchange
 | `restricted_source` | 22 | NC/ND source notices retained. Follow-up admits 21 numerical extractions on scoped applicability assessments; Sakai S8 remains held. No source work is relabeled freely licensed. |
 | `source_terms_not_recorded` | 308 | No applicable grant established by the component metadata and reviewed scopes. |
 
-The 685 EOS and 234 structure/diffraction entries have no separate
-component-level license assertions. Their citations and available provenance
-are indexed. This does **not** mean every coefficient requires author
+The 685 EOS records have no separate component-level license assertions; the
+named brucite COD structural source declaration is scoped separately. These
+source-declaration statuses remain distinct from the subsequent component
+assessments linked above. Citations and dedicated structural provenance are
+indexed. This does **not** mean every coefficient requires author
 permission or that numerical facts are proprietary. Conversely, MIT is not
 evidence of Peritheos ownership of third-party rights. Related dataset grants
 are leads for checking scope, not blanket grants for an entire material.

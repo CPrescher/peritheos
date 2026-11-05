@@ -18,6 +18,14 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Review all 685 EOS and 234 structural/diffraction components without changing
+  scientific files. Add source/runtime bindings, component/source-group indexes
+  and installed compilation notices; preserve the pinned Dioptas upstream MIT
+  attribution in both packages. Keep source grants separate from numerical-content
+  assessments and explicitly identify 19 unresolved collection/acquisition
+  components still present in the runtime export. Observation selection and
+  historical release rights statements remain unchanged.
+
 - Split experimental observation values from the default Python distribution.
   `peritheos` retains structures, EOS parameters, uncertainties, calibration and
   source/validation summaries; `peritheos[datasets]` adds the version-matched

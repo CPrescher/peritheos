@@ -420,13 +420,30 @@
     "restricted_source": 22,
     "source_terms_not_recorded": 308
   },
+  "local_eos_structure_assessments": {
+    "materials": 234,
+    "eos_records": 685,
+    "structural_components": 234,
+    "eos_source_groups": 272,
+    "migration_records": 144,
+    "assessments": {
+      "cod_source_and_numerical_changes": 3,
+      "icsd_acquisition_review_required": 2,
+      "legacy_peak_collection_review_required": 10,
+      "no_structural_values": 36,
+      "numerical_parameter_assessment": 678,
+      "numerical_structure_assessment": 183,
+      "thermodynamic_collection_review_required": 7
+    }
+  },
+  "eos_structure_review_sha256": "e9a0f6ed5f88a907c2e88e20cdab81f8180480e43b7e6583b1568d671fe95ddc",
   "local_file_statuses": {
     "author_permission_declared": 3,
     "build_metadata": 108,
-    "license_notice": 184,
+    "license_notice": 186,
     "limited_or_unspecified_source": 105,
     "mixed_author_permission": 8,
-    "mixed_scientific_content": 3403,
+    "mixed_scientific_content": 3404,
     "native_binary": 35,
     "open_license_declared": 17,
     "open_source_declared": 33,
