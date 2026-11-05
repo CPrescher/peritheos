@@ -94,3 +94,15 @@ permission for commercial distribution or ND permission for protected adaptation
 Source NC/ND flags, source values and scientific qualifications remain intact.
 The purpose is general redistribution of the optional data package; the core
 library remains independently installable without observation values.
+
+## Independent graph and pressure-integration follow-up
+
+The installed `independent_lineage_buffers` receipt adds a new partial graph
+from primary numerical resources and a new relative NNO pressure integral,
+under separately named declarations. See `independent-lineage-buffers.LICENSE.md`.
+The graph is not the author-selected S8 compilation or a recovered fit workflow;
+the NNO calculation has no absolute Gibbs baseline and differs from source
+pressure increments by up to 0.0142591277 log units. No full absolute Campbell
+regeneration is claimed. Contributor-held new selection/output rights are CC0;
+source rights and all original scientific findings remain unchanged. Both held
+original resources remain excluded.

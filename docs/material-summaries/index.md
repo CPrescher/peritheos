@@ -129,7 +129,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Forsterite](forsterite.md) | Mg2SiO4 | 3 | 3 |
 | [GeO2](geo2_rutile.md) | GeO2 | 1 | 1 |
 | [Goethite](goethite.md) | FeOOH | 1 | 1 |
-| [Gold](gold.md) | Au | 23 | 29 |
+| [Gold](gold.md) | Au | 23 | 30 |
 | [Graphite](graphite.md) | C | 1 | 1 |
 | [Hydrous silica CaCl2 type (Nisr 2017)](hydrous_silica_cacl2_nisr_2017.md) | Si0.954O2H0.184 | 1 | 2 |
 | [Hydrous stishovite (Nisr 2017)](hydrous_stishovite_nisr_2017.md) | Si0.954O2H0.184 | 1 | 2 |
@@ -178,8 +178,8 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Natural Fe9 post-perovskite](mg090fe009al0005ca0005sio3_post_perovskite.md) | Mg0.90Fe0.09Al0.005Ca0.005SiO3 | 2 | 1 |
 | [Natural magnesite (Harwood 2212)](mg0991fe0008mn0001co3_magnesite.md) | Mg0.991Fe0.008Mn0.001CO3 | 2 | 1 |
 | [Neon (fcc)](neon_fcc.md) | Ne | 3 | 5 |
-| [Nickel](nickel.md) | Ni | 6 | 5 |
-| [Nickel oxide (cubic B1 model)](nickel_oxide_b1.md) | NiO | 1 | 3 |
+| [Nickel](nickel.md) | Ni | 6 | 6 |
+| [Nickel oxide (cubic B1 model)](nickel_oxide_b1.md) | NiO | 1 | 4 |
 | [Nickel oxide (rhombohedral B1)](nickel_oxide.md) | NiO | 2 | 1 |
 | [Niobium](niobium.md) | Nb | 2 | 1 |
 | [NiS](nis.md) | NiS | 1 | 1 |

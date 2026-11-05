@@ -1,0 +1,52 @@
+{
+  "schema": "peritheos.campbell-pressure-integration.v1",
+  "doi": "10.1016/j.epsl.2009.07.022",
+  "source_location": "Table 1 and Eqs. (5)-(6), publication p.560",
+  "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0",
+  "parameter_order": [
+    "V0_cm3_mol",
+    "K0_gpa",
+    "K0_prime",
+    "theta0_k",
+    "gamma0",
+    "q",
+    "atoms_per_formula_unit"
+  ],
+  "metal_parameters": [
+    6.587,
+    179.0,
+    4.3,
+    415.0,
+    2.5,
+    1.0,
+    1.0
+  ],
+  "oxide_parameters": [
+    10.973,
+    190.0,
+    5.4,
+    480.0,
+    1.8,
+    1.0,
+    2.0
+  ],
+  "eos_reference_temperature_k": 295,
+  "thermal_law": "gamma=gamma0*(V/V0)^q; theta=theta0*(V/V0)^(-gamma); gamma*(E_D(theta,T)-E_D(theta,295))/V",
+  "formula": "delta_log10_fO2(P,T)=0.8686*1000/(R*T)*integral_0^P [V_NiO(p,T)-V_Ni(p,T)] dp",
+  "gas_constant_j_mol_k": 8.31446261815324,
+  "grid": {
+    "pressure_gpa": [
+      0,
+      100,
+      1
+    ],
+    "temperature_k": [
+      1000,
+      2600,
+      100
+    ]
+  },
+  "quadrature": "8-point Gauss-Legendre per 1 GPa interval; Debye integral 48-point Gauss-Legendre; monotone EOS branch inverted with Brent solver",
+  "output_scope": "Relative pressure contribution from mathematical 0 GPa, not absolute fugacity, not a full Table S5 regeneration, not a 1-bar Gibbs reference. No Knacke data, original output rows or polynomial approximations are generator inputs.",
+  "source_terms": "Published mathematical equations/coefficients only; no open grant asserted for original paper/workbook/Knacke compilation. Contributor-held newly generated output/arrangement rights dedicated CC0-1.0, generator MIT."
+}

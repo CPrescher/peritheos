@@ -119,13 +119,20 @@ def test_campbell_approximations_match_all_original_keys_but_are_not_originals()
 
 
 @pytest.mark.parametrize("material", ["fe_fcc", "feo", "nickel", "nickel_oxide_b1"])
-def test_new_calculated_declaration_preserves_the_complete_previous_material(material):
+def test_new_calculated_declaration_preserves_the_complete_previous_material(
+    material,
+    independent_generation_baseline,
+):
     proof = json.loads(
         (ROOT / "docs/data/morard-campbell-redistribution-followup.json").read_bytes()
     )
     document = json.loads(
         (ROOT / "peritheos/data/materials" / f"{material}.eosmat").read_bytes()
     )
+    if material in independent_generation_baseline["original_material_bytes"]:
+        document = json.loads(
+            independent_generation_baseline["original_material_bytes"][material]
+        )
     added = document["datasets"].pop()
     assert added["identifier"] == proof["prior_documents"][material]["added_identifier"]
     assert digest(document) == proof["prior_documents"][material]["semantic_sha256"]

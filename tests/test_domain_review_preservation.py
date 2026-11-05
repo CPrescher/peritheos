@@ -6,12 +6,13 @@ import json
 from pathlib import Path
 
 from scripts.merge_source_bindings import accepts_merge_binding
-from scripts.scientific_source_snapshot import scientific_sha256, scientific_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_reviewed_coefficients_units_and_source_arrays_remain_exact():
+def test_reviewed_coefficients_units_and_source_arrays_remain_exact(
+    independent_generation_baseline,
+):
     review = json.loads(
         (ROOT / "docs/data/pr27-scientific-domain-review.json").read_text(
             encoding="utf-8"
@@ -31,8 +32,11 @@ def test_reviewed_coefficients_units_and_source_arrays_remain_exact():
         followup["before_catalog_scientific_sha256"]
         == replacement["after_catalog_scientific_sha256"]
     )
-    assert scientific_sha256() == followup["after_catalog_scientific_sha256"]
-    snapshot = copy.deepcopy(scientific_snapshot())
+    assert (
+        independent_generation_baseline["proof"]["before_catalog_scientific_sha256"]
+        == followup["after_catalog_scientific_sha256"]
+    )
+    snapshot = copy.deepcopy(independent_generation_baseline["snapshot"])
     added = set(followup["added_dataset_declarations"])
     removed = set()
     for document in snapshot["documents"]:

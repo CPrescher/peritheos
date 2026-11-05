@@ -4,7 +4,7 @@ The unreleased distribution split makes experimental observations optional:
 `pip install peritheos` supplies the library, structures and EOS parameters;
 `pip install "peritheos[datasets]"` additionally installs `peritheos-datasets`.
 The two packages have separate source archives. The optional package contains
-448 explicitly selected material dataset entries, including separately assessed
+451 explicitly selected material dataset entries, including separately assessed
 numerical transcriptions. Source grants and factual-content assessments remain
 distinct; unspecified source terms are not relabeled open. Five material entries
 remain held: Sakai Table S8 and four views of the original Campbell integration collection. The [numerical redistribution review](research/numerical-dataset-redistribution.md)
@@ -19,7 +19,11 @@ original source terms and all scientific qualifications remain explicit. The
 [Sakai/Ismailova/iridium review](research/restricted-source-numerical-review.md)
 admits 21 numerical extractions on an applicability assessment, preserving all
 NC/ND source flags. This concerns general redistribution of the optional data
-package; core `peritheos` is independently installable without these values. This reduces distributed
+package; core `peritheos` is independently installable without these values.
+The [independent-generation follow-up](research/independent-lineage-buffers.md)
+adds a separate partial lineage graph and a relative NNO pressure integral. It
+does not establish full Campbell absolute-table regeneration or admit the held
+originals. This reduces distributed
 source content; it is not a blanket Debian clearance of remaining structural
 facts or EOS parameter compilations. Complete research evidence remains in the
 repository. The published 0.17.4 archives are unchanged.

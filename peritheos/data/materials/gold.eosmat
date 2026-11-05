@@ -6323,6 +6323,506 @@
         }
       },
       "notes": "Third-party source rights remain with their owners; no source-rights transfer or source CC0 claim. Fei EOS work remains paused; source measurements are used for the separate combined refit."
+    },
+    {
+      "identifier": "gold_sakai_2025_independent_calibration_lineage",
+      "kind": "calibration_lineage_index",
+      "description": "New source-evidence graph from primary numerical resources: paired measurements, reported pressure gauges and co-measured context. Broader than the held author-selected S8 index, but incomplete as a reconstruction of the authors calibration workflow.",
+      "reference": {
+        "authors": [
+          "Sakai",
+          "Kadobayashi",
+          "Nakamoto",
+          "Dekura",
+          "Ishimatsu",
+          "Kawaguchi-Imada",
+          "Seto",
+          "Sekizawa",
+          "Nitta",
+          "Shimizu"
+        ],
+        "year": 2025,
+        "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+        "source": "Communications Materials",
+        "volume": "6",
+        "locator": "68",
+        "doi": "10.1038/s43246-025-00792-5"
+      },
+      "source_location": "Independently assembled primary-source Table S1-S7 and historical table fields; full source list and selectors in provenance",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_scope": "Contributor-held new graph selection, annotations and arrangement only. Primary numerical resources retain their source-specific terms and applicability assessments. Does not copy or relicense Sakai Table S8 or publication expression.",
+      "resource": {
+        "path": "datasets/sakai-2025-independent-calibration-lineage.csv",
+        "sha256": "acdf281020772f7a57bf6d8184a159a6c32935b970121f50f955b1c5a4a561d5",
+        "media_type": "text/csv"
+      },
+      "columns": [
+        {"name": "target_material", "quantity": "source_field", "unit": "1", "role": "flag"},
+        {"name": "calibrant_or_partner", "quantity": "source_field", "unit": "1", "role": "flag"},
+        {"name": "relation", "quantity": "source_field", "unit": "1", "role": "flag"},
+        {"name": "source_doi", "quantity": "source_field", "unit": "1", "role": "flag"},
+        {"name": "source_location", "quantity": "source_field", "unit": "1", "role": "flag"},
+        {"name": "source_resource", "quantity": "source_field", "unit": "1", "role": "flag"},
+        {"name": "source_sha256", "quantity": "source_field", "unit": "1", "role": "flag"},
+        {"name": "observations", "quantity": "observation_count", "unit": "1", "role": "value"},
+        {"name": "evidence_fields", "quantity": "source_field", "unit": "1", "role": "flag"},
+        {"name": "selection", "quantity": "source_field", "unit": "1", "role": "flag"},
+        {"name": "selected_rows_sha256", "quantity": "source_field", "unit": "1", "role": "flag"}
+      ],
+      "used_by_eos_records": [],
+      "provenance": {
+        "type": "independent_source_lineage_reconstruction",
+        "generator": "scripts/generate_sakai_2025_lineage.py",
+        "source_manifest": {
+          "schema": "peritheos.sakai-independent-lineage.v1",
+          "scope": "A newly selected calibration-evidence graph assembled from primary numerical resources and ordinary calibrant fields, not a copy of the Table S8 compilation. Includes co-measurement context beyond the author-selected S8 routes; excludes unsupported/unpublished links. Does not assert recovery of the authors fit selection, stage order or IPPS-Ruby2020 reductions.",
+          "sources": {
+            "sakai_s1": {
+              "file": "rhenium-sakai-2025-table-s1-measured-pairs.csv",
+              "sha256": "38492f93caf2685c512f5f1ec41581d79681643b7712a65e8d6319e30f8361bc",
+              "doi": "10.1038/s43246-025-00792-5",
+              "source_location": "Supplementary Data 1, Table S1",
+              "reference": {
+                "authors": [
+                  "Sakai",
+                  "Kadobayashi",
+                  "Nakamoto",
+                  "Dekura",
+                  "Ishimatsu",
+                  "Kawaguchi-Imada",
+                  "Seto",
+                  "Sekizawa",
+                  "Nitta",
+                  "Shimizu"
+                ],
+                "year": 2025,
+                "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+                "source": "Communications Materials",
+                "volume": "6",
+                "locator": "68",
+                "doi": "10.1038/s43246-025-00792-5"
+              },
+              "source_declaration": "rhenium_sakai_2025_table_s1_measured_pairs"
+            },
+            "sakai_s2": {
+              "file": "platinum-sakai-2025-table-s2-measured-pairs.csv",
+              "sha256": "b833b8de31af2b10adfb284d49198516ee6e96d8eb28b4cfb54d7632ba565bf0",
+              "doi": "10.1038/s43246-025-00792-5",
+              "source_location": "Supplementary Data 1, Table S2",
+              "reference": {
+                "authors": [
+                  "Sakai",
+                  "Kadobayashi",
+                  "Nakamoto",
+                  "Dekura",
+                  "Ishimatsu",
+                  "Kawaguchi-Imada",
+                  "Seto",
+                  "Sekizawa",
+                  "Nitta",
+                  "Shimizu"
+                ],
+                "year": 2025,
+                "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+                "source": "Communications Materials",
+                "volume": "6",
+                "locator": "68",
+                "doi": "10.1038/s43246-025-00792-5"
+              },
+              "source_declaration": "platinum_sakai_2025_table_s2_measured_pairs"
+            },
+            "sakai_s3": {
+              "file": "tungsten-sakai-2025-table-s3-measured-pairs.csv",
+              "sha256": "c3ed4cb99701e78df04cb24f43e49da267bf3e3a2349fff68715d3624bf547d7",
+              "doi": "10.1038/s43246-025-00792-5",
+              "source_location": "Supplementary Data 1, Table S3",
+              "reference": {
+                "authors": [
+                  "Sakai",
+                  "Kadobayashi",
+                  "Nakamoto",
+                  "Dekura",
+                  "Ishimatsu",
+                  "Kawaguchi-Imada",
+                  "Seto",
+                  "Sekizawa",
+                  "Nitta",
+                  "Shimizu"
+                ],
+                "year": 2025,
+                "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+                "source": "Communications Materials",
+                "volume": "6",
+                "locator": "68",
+                "doi": "10.1038/s43246-025-00792-5"
+              },
+              "source_declaration": "tungsten_sakai_2025_table_s3_measured_pairs"
+            },
+            "sakai_s5": {
+              "file": "molybdenum-sakai-2025-table-s5-measured-pairs.csv",
+              "sha256": "85a170737a05c65e06989eb1e90a6d944a2eb669f7ff5fed2829778427018156",
+              "doi": "10.1038/s43246-025-00792-5",
+              "source_location": "Supplementary Data 1, Table S5",
+              "reference": {
+                "authors": [
+                  "Sakai",
+                  "Kadobayashi",
+                  "Nakamoto",
+                  "Dekura",
+                  "Ishimatsu",
+                  "Kawaguchi-Imada",
+                  "Seto",
+                  "Sekizawa",
+                  "Nitta",
+                  "Shimizu"
+                ],
+                "year": 2025,
+                "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+                "source": "Communications Materials",
+                "volume": "6",
+                "locator": "68",
+                "doi": "10.1038/s43246-025-00792-5"
+              },
+              "source_declaration": "molybdenum_sakai_2025_table_s5_measured_pairs"
+            },
+            "sakai_s6": {
+              "file": "iron-sakai-2025-table-s6-measured-pairs.csv",
+              "sha256": "fc3e4cc086b17e6e9c6645576798152439b620349633c3c4f252d9b19dfb2d91",
+              "doi": "10.1038/s43246-025-00792-5",
+              "source_location": "Supplementary Data 1, Table S6",
+              "reference": {
+                "authors": [
+                  "Sakai",
+                  "Kadobayashi",
+                  "Nakamoto",
+                  "Dekura",
+                  "Ishimatsu",
+                  "Kawaguchi-Imada",
+                  "Seto",
+                  "Sekizawa",
+                  "Nitta",
+                  "Shimizu"
+                ],
+                "year": 2025,
+                "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+                "source": "Communications Materials",
+                "volume": "6",
+                "locator": "68",
+                "doi": "10.1038/s43246-025-00792-5"
+              },
+              "source_declaration": "iron_sakai_2025_table_s6_measured_pairs"
+            },
+            "sakai_s7": {
+              "file": "mgo-sakai-2025-table-s7-measured-pairs.csv",
+              "sha256": "d99ad5d2773bc2c9d10a3928785093279c01cb306f03b4d0351d8deae12c8636",
+              "doi": "10.1038/s43246-025-00792-5",
+              "source_location": "Supplementary Data 1, Table S7",
+              "reference": {
+                "authors": [
+                  "Sakai",
+                  "Kadobayashi",
+                  "Nakamoto",
+                  "Dekura",
+                  "Ishimatsu",
+                  "Kawaguchi-Imada",
+                  "Seto",
+                  "Sekizawa",
+                  "Nitta",
+                  "Shimizu"
+                ],
+                "year": 2025,
+                "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+                "source": "Communications Materials",
+                "volume": "6",
+                "locator": "68",
+                "doi": "10.1038/s43246-025-00792-5"
+              },
+              "source_declaration": "mgo_sakai_2025_table_s7_measured_pairs"
+            },
+            "sakai_s4": {
+              "file": "gold-sakai-2025-table-s4-au-w-volumes.csv",
+              "sha256": "18b5c9c2be46eccf657aaf5616f746497460b15fbfc5da5a94de3c13390b4622",
+              "doi": "10.1038/s43246-025-00792-5",
+              "source_location": "Table S4",
+              "reference": {
+                "authors": [
+                  "Sakai",
+                  "Kadobayashi",
+                  "Nakamoto",
+                  "Dekura",
+                  "Ishimatsu",
+                  "Kawaguchi-Imada",
+                  "Seto",
+                  "Sekizawa",
+                  "Nitta",
+                  "Shimizu"
+                ],
+                "year": 2025,
+                "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+                "source": "Communications Materials",
+                "volume": "6",
+                "locator": "68",
+                "doi": "10.1038/s43246-025-00792-5"
+              },
+              "source_declaration": "gold_sakai_2025_table_s4_au_w_volumes"
+            },
+            "dewaele2004_au": {
+              "file": "gold-dewaele-2004-table1-compression.csv",
+              "sha256": "c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438",
+              "doi": "10.1103/PhysRevB.70.094112",
+              "source_location": "Table I, journal page 094112-4",
+              "reference": {
+                "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+                "year": 2004,
+                "source": "Phys. Rev. B",
+                "volume": "70",
+                "locator": "094112",
+                "doi": "10.1103/PhysRevB.70.094112"
+              },
+              "source_declaration": "gold_dewaele_2004_table1_compression"
+            },
+            "dewaele2004_pt": {
+              "file": "platinum-dewaele-2004-table1-compression.csv",
+              "sha256": "b0230e9fdd1f8a36cecc35cb79a6d56bd4ee170007a465f1842ef76544c47273",
+              "doi": "10.1103/PhysRevB.70.094112",
+              "source_location": "Table I, journal page 094112-4",
+              "reference": {
+                "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+                "year": 2004,
+                "source": "Phys. Rev. B",
+                "volume": "70",
+                "locator": "094112",
+                "doi": "10.1103/PhysRevB.70.094112"
+              },
+              "source_declaration": "platinum_dewaele_2004_table1_compression"
+            },
+            "dewaele2004_cu": {
+              "file": "copper-dewaele-2004-table1-compression.csv",
+              "sha256": "0f4535c7e29960690c098408711f63ae559be1d73bba18da73047d75f266120e",
+              "doi": "10.1103/PhysRevB.70.094112",
+              "source_location": "Table I, journal page 094112-4",
+              "reference": {
+                "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+                "year": 2004,
+                "source": "Phys. Rev. B",
+                "volume": "70",
+                "locator": "094112",
+                "doi": "10.1103/PhysRevB.70.094112"
+              },
+              "source_declaration": "copper_dewaele_2004_table1_compression"
+            },
+            "dewaele2004_w": {
+              "file": "tungsten-dewaele-2004-table1-compression.csv",
+              "sha256": "d73f1d9114c974be80175c6ade256bf17cb4a529e911480e6cd1e337394ef523",
+              "doi": "10.1103/PhysRevB.70.094112",
+              "source_location": "Table I, journal page 094112-4",
+              "reference": {
+                "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+                "year": 2004,
+                "source": "Phys. Rev. B",
+                "volume": "70",
+                "locator": "094112",
+                "doi": "10.1103/PhysRevB.70.094112"
+              },
+              "source_declaration": "tungsten_dewaele_2004_table1_compression"
+            },
+            "dewaele2008_mo": {
+              "file": "molybdenum-dewaele-2008-table2-compression.csv",
+              "sha256": "a518f3f0a53785b2c0d875bb2aee8b05db94daef6e06cdd2e96800a341684e2f",
+              "doi": "10.1103/PhysRevB.78.104102",
+              "source_location": "Table II",
+              "reference": {
+                "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
+                "year": 2008,
+                "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+                "source": "Physical Review B",
+                "doi": "10.1103/PhysRevB.78.104102"
+              },
+              "source_declaration": "molybdenum_dewaele_2008_table2_compression"
+            },
+            "takemura2008_au": {
+              "file": "gold-takemura-2008-table3-compression.csv",
+              "sha256": "04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858",
+              "doi": "10.1103/PhysRevB.78.104119",
+              "source_location": "Table III, all runs; P, P-prime, and am(111) columns",
+              "reference": {
+                "authors": ["Takemura", "Dewaele"],
+                "year": 2008,
+                "source": "Phys. Rev. B",
+                "volume": "78",
+                "locator": "104119",
+                "doi": "10.1103/PhysRevB.78.104119"
+              },
+              "source_declaration": "gold_takemura_2008_table3_compression"
+            },
+            "sakai2011_nacl": {
+              "file": "nacl-b2-sakai-2011-table1.csv",
+              "sha256": "1ce9affa3dafe81794258c10cfeb85b10f300751ff1ccc46c04b474f675e88e3",
+              "doi": "10.1063/1.3573393",
+              "source_location": "Table I",
+              "reference": {
+                "authors": ["Sakai", "Ohtani", "Hirao", "Ohishi"],
+                "year": 2011,
+                "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+                "source": "Journal of Applied Physics",
+                "volume": "109",
+                "locator": "084912",
+                "doi": "10.1063/1.3573393"
+              },
+              "source_declaration": "nacl_b2_sakai_2011_table1"
+            },
+            "dewaele2018_au": {
+              "file": "gold-dewaele-2018-tables-4-5-au-re.csv",
+              "sha256": "5346dee968a9202685bf3aa3fe4702254d901d7f6171f28894b15980b2b0a31c",
+              "doi": "10.1038/s41467-018-05294-2",
+              "source_location": "Dewaele et al. (2018), supplementary Tables 4-5, pp. 9-10",
+              "reference": {
+                "authors": ["Dewaele", "Loubeyre", "Occelli", "Marie", "Mezouar"],
+                "year": 2018,
+                "title": "Toroidal diamond anvil cell for detailed measurements under extreme static pressures",
+                "source": "Nature Communications",
+                "volume": "9",
+                "locator": "2913",
+                "doi": "10.1038/s41467-018-05294-2"
+              },
+              "source_declaration": "gold_sakai_2025_dewaele_2018_au_re_input"
+            },
+            "hirose2008_au": {
+              "file": "gold-hirose-2008-table1.csv",
+              "sha256": "f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9",
+              "doi": "10.1016/j.pepi.2008.03.002",
+              "source_location": "Table 1, page 150",
+              "reference": {
+                "authors": ["Hirose", "Sata", "Komabayashi", "Ohishi"],
+                "year": 2008,
+                "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+                "source": "Physics of the Earth and Planetary Interiors",
+                "volume": "167",
+                "locator": "149-154",
+                "doi": "10.1016/j.pepi.2008.03.002"
+              },
+              "source_declaration": "gold_hirose_2008_table1"
+            },
+            "dewaele2000_mgo": {
+              "file": "mgo-dewaele-2000-table2-pvt.csv",
+              "sha256": "22c993b8a0ae8ddbe77ef533ecf442a502b591e569bc10cd2ddaf50f6cc4d0ed",
+              "doi": "10.1029/1999JB900364",
+              "source_location": "Table 2, journal page 2872",
+              "reference": {
+                "authors": ["Dewaele", "Fiquet", "Andrault", "Hausermann"],
+                "year": 2000,
+                "title": "P-V-T equation of state of periclase from synchrotron radiation measurements",
+                "source": "J. Geophys. Res. Solid Earth",
+                "volume": "105",
+                "locator": "2869-2877",
+                "doi": "10.1029/1999JB900364"
+              },
+              "source_declaration": "mgo_dewaele_2000_table2_pvt"
+            },
+            "sata2002_nacl": {
+              "file": "nacl-b2-sata-2002-table1-sakai-input.csv",
+              "sha256": "b8ea2f4663b9b2b4e2f8b7c7ede6c63625e3f1e7bb1f93dfed2ef79651d8cb8a",
+              "doi": "10.1103/PhysRevB.65.104114",
+              "source_location": "Table I",
+              "reference": {
+                "authors": ["Sata", "Shen", "Rivers", "Sutton"],
+                "year": 2002,
+                "doi": "10.1103/PhysRevB.65.104114",
+                "source": "Physical Review B",
+                "volume": "65",
+                "locator": "104114",
+                "title": "Pressure-volume equation of state of the high-pressure B2 phase of NaCl"
+              },
+              "source_declaration": "nacl_b2_sata_2002_table1_sakai_input"
+            },
+            "anzellini2014_re": {
+              "file": "rhenium-anzellini-2014-table3-compression.csv",
+              "sha256": "6ea5f5036862f9131d489d0589ce075848a1a140234d3a3b49239064d8ffc11f",
+              "doi": "10.1063/1.4863300",
+              "source_location": "Table III",
+              "reference": {
+                "authors": ["Anzellini", "Dewaele", "Occelli", "Loubeyre", "Mezouar"],
+                "year": 2014,
+                "source": "J. Appl. Phys.",
+                "volume": "115",
+                "locator": "043511",
+                "doi": "10.1063/1.4863300"
+              },
+              "source_declaration": "rhenium_anzellini_2014_table3_compression"
+            },
+            "dewaele2006_fe": {
+              "file": "iron-dewaele-2006-epaps-compression.csv",
+              "sha256": "5babd4420a8d34ba6e5c19aeafb29d7b861b971a2ca9347e65f601bb942b38f9",
+              "doi": "10.1103/PhysRevLett.97.215504",
+              "source_location": "EPAPS E-PRLTAO-97-048648, supplementary table",
+              "reference": {
+                "authors": ["Dewaele", "Loubeyre", "Occelli", "Mezouar", "Dorogokupets", "Torrent"],
+                "year": 2006,
+                "title": "Quasihydrostatic Equation of State of Iron above 2 Mbar",
+                "source": "Physical Review Letters",
+                "volume": "97",
+                "locator": "215504",
+                "doi": "10.1103/PhysRevLett.97.215504"
+              },
+              "source_declaration": "iron_dewaele_2006_epaps_compression"
+            },
+            "fei2016_fe": {
+              "file": "iron-fei-2016-table-s1.csv",
+              "sha256": "f397c2232c60ea14d9f44cae286041546c92154b1353742d822265f0abf93a0f",
+              "doi": "10.1002/2016GL069456",
+              "source_location": "Table S1, Sheet1, rows 3–76",
+              "reference": {
+                "authors": ["Fei", "Murphy", "Shibazaki", "Shahar", "Huang"],
+                "year": 2016,
+                "title": "Thermal equation of state of hcp-iron: Constraint on the density deficit of Earth's solid inner core",
+                "source": "Geophysical Research Letters",
+                "volume": "43",
+                "locator": "6837–6843",
+                "doi": "10.1002/2016GL069456"
+              },
+              "source_declaration": "iron_fei_2016_table_s1"
+            },
+            "sakai2014_fe": {
+              "file": "sakai-2014-table2-pvt.csv",
+              "sha256": "9396523b16cd2d823c6f6e18a7e0c6741a1f7de8d20021c260d5ce5a5751d0e1",
+              "doi": "10.1016/j.pepi.2013.12.010",
+              "source_location": "Table 2, journal pp. 116–117",
+              "reference": {
+                "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
+                "year": 2014,
+                "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+                "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+                "doi": "10.1016/j.pepi.2013.12.010"
+              },
+              "source_declaration": "sakai_2014_table2_pvt"
+            },
+            "dorfman2012": {
+              "file": "dorfman-2012-tables-s1-s6-cocompression.csv",
+              "sha256": "c65d843d31085e72b63cc3377042b2e855ea83d958e34846c78c862e3a25246c",
+              "doi": "10.1029/2012JB009292",
+              "source_location": "Auxiliary Tables S1-S6",
+              "reference": {
+                "authors": ["Dorfman", "Prakapenka", "Meng", "Duffy"],
+                "year": 2012,
+                "title": "Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar",
+                "source": "Journal of Geophysical Research",
+                "doi": "10.1029/2012JB009292"
+              },
+              "source_declaration": "dorfman_2012_tables_s1_s6_cocompression"
+            }
+          },
+          "generation_inputs_exclude": [
+            "sakai-2025-table-s8-calibration-lineage.csv",
+            "sakai-2025-au-workbook-cells.json",
+            "Sakai reconstruction reports"
+          ],
+          "rights": "Contributor-held new selection, annotations and graph arrangement dedicated CC0-1.0. Primary numerical resources retain their own notices and scoped redistribution assessments. No third-party article text, captions, layout or author compilation is copied or relicensed."
+        },
+        "excludes_held_compilation_as_input": true,
+        "verification_scope": "Primary transcriptions and recorded primary provenance reused; not a new independent PDF-level audit of all studies. Exact author selection, pressure recalibration, unpublished data and stage order are not recovered."
+      },
+      "notes": "37 evidence edges. Co-measured relations are not directed fitted calibrations; no 300 K mask or Sakai source exclusions are implied. Fei2016 marker groups preserve Ne=49, MgO=18 and NaCl-B2=7. Original 35-row S8 transcription remains separate and excluded."
     }
   ]
 }

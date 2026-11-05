@@ -11,7 +11,10 @@ The two Barker supporting-study entries remain deferred. The split is unreleased
 The subsequent [collection review](shen-historical-redistribution-review.md)
 raised the selection to **427 of 453 entries, with 26 held**. The
 [Sakai/Ismailova/iridium review](restricted-source-numerical-review.md) then
-raises the current selection to **448 of 453 entries, with five held**. The
+raised the selection to **448 of 453 entries, with five held**. The
+[independent-generation follow-up](independent-lineage-buffers.md) now selects
+**451 of 456 entries, with five held**, adding a partial lineage graph and a
+relative NNO pressure integral, not full absolute Campbell tables. The
 415-entry count above describes the preceding Morard/Campbell stage.
 
 ## Morard: all 21 cold inputs identified

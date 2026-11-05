@@ -21,7 +21,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 23 |
-| Observation datasets | 29 |
+| Observation datasets | 30 |
 
 Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) is the default.
 
@@ -4475,3 +4475,22 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2008-fei-2004-speziale-2001-recalculated-pvt.csv)
 — SHA-256 `0cbe94de992f1563bf638c621a5516a3e283144a74920f4834fa0d9062ba4cd7`.
+
+### gold\_sakai\_2025\_independent\_calibration\_lineage
+
+- **Description:** New source-evidence graph from primary numerical resources: paired measurements, reported pressure gauges and co-measured context. Broader than the held author-selected S8 index, but incomplete as a reconstruction of the authors calibration workflow.
+- **Kind:** calibration\_lineage\_index
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Independently assembled primary-source Table S1-S7 and historical table fields; full source list and selectors in provenance
+- **Associated EOS records:** None declared
+- **Notes:** 37 evidence edges. Co-measured relations are not directed fitted calibrations; no 300 K mask or Sakai source exclusions are implied. Fei2016 marker groups preserve Ne=49, MgO=18 and NaCl-B2=7. Original 35-row S8 transcription remains separate and excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/sakai-2025-independent-calibration-lineage.csv)
+— SHA-256 `acdf281020772f7a57bf6d8184a159a6c32935b970121f50f955b1c5a4a561d5`.

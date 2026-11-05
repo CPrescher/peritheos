@@ -11,7 +11,6 @@ import pytest
 
 from peritheos import Dataset, get_material_document
 from peritheos_build import ROOT, digest, stage_datasets
-from scripts.scientific_source_snapshot import scientific_sha256
 
 PROOF_PATH = ROOT / "docs/data/shen-historical-redistribution-review.json"
 PROOF = json.loads(PROOF_PATH.read_bytes())
@@ -121,8 +120,12 @@ def test_historical_source_interpretations_blanks_and_branches_are_not_replaced(
 
 def test_installed_review_and_notices_bind_admissions_without_bundling_originals(
     tmp_path,
+    independent_generation_baseline,
 ):
-    assert scientific_sha256() == PROOF["catalog_scientific_sha256"]
+    assert (
+        independent_generation_baseline["proof"]["before_catalog_scientific_sha256"]
+        == PROOF["catalog_scientific_sha256"]
+    )
     prior = json.loads(
         (ROOT / "docs/data/morard-campbell-redistribution-followup.json").read_bytes()
     )
@@ -132,7 +135,7 @@ def test_installed_review_and_notices_bind_admissions_without_bundling_originals
     package = stage_datasets(tmp_path / "optional") / "peritheos_datasets"
     manifest = json.loads((package / "manifest.json").read_bytes())
     review = json.loads((package / "redistribution-review.json").read_bytes())
-    assert manifest["dataset_count"] == 448
+    assert manifest["dataset_count"] == 451
     assert review["shen_historical_review"] == PROOF
     selected = {
         e["review_key"]: e

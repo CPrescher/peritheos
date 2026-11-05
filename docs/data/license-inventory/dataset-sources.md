@@ -40,7 +40,7 @@ Generated from all 449 catalog dataset entries. Counts are entries, not independ
 | [Guignot 2007: 10.1016/j.epsl.2007.01.025](https://doi.org/10.1016/j.epsl.2007.01.025) | 2 | mgsio3_post_perovskite | source_terms_not_recorded |
 | [Komabayashi 2008: 10.1016/j.epsl.2007.10.036](https://doi.org/10.1016/j.epsl.2007.10.036) | 1 | mgsio3_post_perovskite | source_terms_not_recorded |
 | [Seagle 2008: 10.1016/j.epsl.2007.11.004](https://doi.org/10.1016/j.epsl.2007.11.004) | 2 | fe_fcc ; feo | source_terms_not_recorded |
-| [Campbell 2009: 10.1016/j.epsl.2009.07.022](https://doi.org/10.1016/j.epsl.2009.07.022) | 12 | fe_fcc ; feo ; nickel ; nickel_oxide_b1 | limited_or_unspecified_source ; source_terms_not_recorded |
+| [Campbell 2009: 10.1016/j.epsl.2009.07.022](https://doi.org/10.1016/j.epsl.2009.07.022) | 14 | fe_fcc ; feo ; nickel ; nickel_oxide_b1 | limited_or_unspecified_source ; source_terms_not_recorded |
 | [Marquardt 2009: 10.1016/j.epsl.2009.08.017](https://doi.org/10.1016/j.epsl.2009.08.017) | 3 | mg090fe010o | source_terms_not_recorded |
 | [Fischer 2011: 10.1016/j.epsl.2011.02.025](https://doi.org/10.1016/j.epsl.2011.02.025) | 2 | feo ; feo_b8_2 | source_terms_not_recorded |
 | [Fischer 2012: 10.1016/j.epsl.2012.09.022](https://doi.org/10.1016/j.epsl.2012.09.022) | 1 | fe073si027_d03 | source_terms_not_recorded |
@@ -126,7 +126,7 @@ Generated from all 449 catalog dataset entries. Counts are entries, not independ
 | [Dewaele 2021: 10.1038/s41598-021-93995-y](https://doi.org/10.1038/s41598-021-93995-y) | 1 | argon_fcc | open_license_declared |
 | [Anzellini 2022: 10.1038/s41598-022-10523-2](https://doi.org/10.1038/s41598-022-10523-2) | 1 | chromium | open_license_declared |
 | [Rodrigo-Ramon 2024: 10.1038/s41598-024-78006-0](https://doi.org/10.1038/s41598-024-78006-0) | 1 | rhodium | open_license_declared |
-| [Sakai 2025: 10.1038/s43246-025-00792-5](https://doi.org/10.1038/s43246-025-00792-5) | 19 | copper ; gold ; iron ; mgo ; molybdenum ; nacl_b2 ; platinum ; rhenium ; tungsten | restricted_source |
+| [Sakai 2025: 10.1038/s43246-025-00792-5](https://doi.org/10.1038/s43246-025-00792-5) | 20 | copper ; gold ; iron ; mgo ; molybdenum ; nacl_b2 ; platinum ; rhenium ; tungsten | limited_or_unspecified_source ; restricted_source |
 | [Anzellini 2025: 10.1038/s43246-025-00963-4](https://doi.org/10.1038/s43246-025-00963-4) | 2 | iridium | restricted_source |
 | [Tsuchiya 2015: 10.1038/srep15534](https://doi.org/10.1038/srep15534) | 1 | phase_h | source_terms_not_recorded |
 | [Sakai 2016: 10.1038/srep22652](https://doi.org/10.1038/srep22652) | 2 | mgsio3_post_perovskite | open_license_declared |

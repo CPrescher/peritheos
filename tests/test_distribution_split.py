@@ -72,7 +72,7 @@ def test_optional_export_is_exactly_allowlisted_and_source_preserving(tmp_path):
     stage = stage_datasets(tmp_path / "optional")
     package = stage / "peritheos_datasets"
     manifest = json.loads((package / "manifest.json").read_bytes())
-    assert manifest["dataset_count"] == 448
+    assert manifest["dataset_count"] == 451
     review_path = package / "redistribution-review.json"
     review = json.loads(review_path.read_bytes())
     assert (
@@ -219,6 +219,8 @@ def test_optional_install_hydrates_inline_and_csv_data_without_changing_models(
         ("fes_vi", "fes_morard_2026_author_literature_cold_pv"),
         ("nickel", "campbell_2009_independent_buffer_polynomial_grid"),
         ("gold", "gold_sakai_2025_table_s4_au_w_volumes"),
+        ("gold", "gold_sakai_2025_independent_calibration_lineage"),
+        ("nickel", "campbell_2009_independent_nno_pressure_integral"),
         ("iridium", "iridium_anzellini_2025_tables_s1_s3_pvt"),
         (
             "fe088sio3_bridgmanite",

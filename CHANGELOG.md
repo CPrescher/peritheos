@@ -10,7 +10,7 @@ All notable changes to Peritheos are documented here. The project follows
 - Split experimental observation values from the default Python distribution.
   `peritheos` retains structures, EOS parameters, uncertainties, calibration and
   source/validation summaries; `peritheos[datasets]` adds the version-matched
-  `peritheos-datasets` package. Select 448 material dataset entries after the
+  `peritheos-datasets` package. Select 451 material dataset entries after the
   numerical redistribution review: preserve the 44 earlier source declarations,
   add 363 scoped factual-content assessments, one verified Zenodo CC BY 4.0
   extraction and three author datasets with separately assessed literature inputs.
@@ -23,7 +23,11 @@ All notable changes to Peritheos are documented here. The project follows
   assessments, retaining original source terms and scientific qualifications.
   Admit 21 Sakai/Ismailova/iridium numerical extractions after source-specific
   applicability assessments; retain all original NC/ND notices and the Sakai
-  S8 literature-index hold. Hold five entries in total, including the four
+  S8 literature-index hold. Add an independently generated 37-edge primary-source
+  lineage graph and two views of a new 1717-row NNO relative pressure integral;
+  preserve their partial scope, unresolved 0.0143-log-unit source difference,
+  missing absolute Gibbs inputs and original scientific dispositions. These
+  additions bring the catalog to 456 entries. Hold five entries in total, including the four
   original Campbell integration views. Record the existing Sakai S9 first-pressure
   normalization without changing source values. Retain general redistribution
   caveats and exact installed review/manifest bindings. Preserve complete

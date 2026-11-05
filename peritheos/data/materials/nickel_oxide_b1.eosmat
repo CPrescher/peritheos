@@ -449,6 +449,71 @@
         }
       },
       "notes": "Calculated model output on 0-100 GPa and 1000-2600 K grid. A polynomial approximation, not thermochemical reintegration or a validated replacement EOS. IW actual maximum mismatch is 0.0513611263 versus source stated 0.046; NNO maximum is 0.0538999287. Original integration table and scientific dispositions are preserved. Not used for EOS fitting or validation promotion."
+    },
+    {
+      "identifier": "campbell_2009_independent_nno_pressure_integral",
+      "kind": "model_output",
+      "description": "Independent Eq. (6) pressure contribution for Ni-NiO from printed Table 1 EOS parameters: delta log10 fO2 relative to mathematical zero GPa. No standard-state Gibbs baseline is added; this is NOT absolute fugacity or complete Table S5 regeneration.",
+      "reference": {
+        "authors": ["Campbell", "Danielson", "Righter", "Seagle", "Wang", "Prakapenka"],
+        "year": 2009,
+        "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "286",
+        "locator": "556-564",
+        "doi": "10.1016/j.epsl.2009.07.022"
+      },
+      "source_location": "Table 1, Eqs. (5)-(6), p.560; newly calculated grid",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_scope": "Contributor-held newly generated output/arrangement only. Published mathematical equations/parameters are evaluated; no original table rows, publisher workbook, author software or Knacke collection are copied or relicensed.",
+      "resource": {
+        "path": "datasets/campbell-2009-independent-nno-pressure-integral.csv",
+        "sha256": "70406c2f5cb56b04dfd5d721ce2ceb94dcdfd0e97ba6687b8a5c0f8c44718981",
+        "media_type": "text/csv"
+      },
+      "columns": [
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "delta_log10_fugacity_from_zero_gpa",
+          "quantity": "relative_log10_oxygen_fugacity",
+          "unit": "1",
+          "role": "value"
+        }
+      ],
+      "used_by_eos_records": [],
+      "provenance": {
+        "type": "independent_thermodynamic_pressure_integration",
+        "generator": "scripts/generate_campbell_2009_pressure_integral.py",
+        "source_parameters": {
+          "schema": "peritheos.campbell-pressure-integration.v1",
+          "doi": "10.1016/j.epsl.2009.07.022",
+          "source_location": "Table 1 and Eqs. (5)-(6), publication p.560",
+          "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0",
+          "parameter_order": ["V0_cm3_mol", "K0_gpa", "K0_prime", "theta0_k", "gamma0", "q", "atoms_per_formula_unit"],
+          "metal_parameters": [6.587, 179.0, 4.3, 415.0, 2.5, 1.0, 1.0],
+          "oxide_parameters": [10.973, 190.0, 5.4, 480.0, 1.8, 1.0, 2.0],
+          "eos_reference_temperature_k": 295,
+          "thermal_law": "gamma=gamma0*(V/V0)^q; theta=theta0*(V/V0)^(-gamma); gamma*(E_D(theta,T)-E_D(theta,295))/V",
+          "formula": "delta_log10_fO2(P,T)=0.8686*1000/(R*T)*integral_0^P [V_NiO(p,T)-V_Ni(p,T)] dp",
+          "gas_constant_j_mol_k": 8.31446261815324,
+          "grid": {
+            "pressure_gpa": [0, 100, 1],
+            "temperature_k": [1000, 2600, 100]
+          },
+          "quadrature": "8-point Gauss-Legendre per 1 GPa interval; Debye integral 48-point Gauss-Legendre; monotone EOS branch inverted with Brent solver",
+          "output_scope": "Relative pressure contribution from mathematical 0 GPa, not absolute fugacity, not a full Table S5 regeneration, not a 1-bar Gibbs reference. No Knacke data, original output rows or polynomial approximations are generator inputs.",
+          "source_terms": "Published mathematical equations/coefficients only; no open grant asserted for original paper/workbook/Knacke compilation. Contributor-held newly generated output/arrangement rights dedicated CC0-1.0, generator MIT."
+        },
+        "comparison_with_held_outputs": {
+          "rows": 1717,
+          "rmse_delta_log10_fugacity": 0.005282584020164474,
+          "maximum_absolute_difference": 0.01425912761639836,
+          "scope": "Relative pressure contribution only. Original zero-pressure values are differenced solely for comparison; they are never generator inputs. This discrepancy is retained without parameter tuning; exact source-output parity not established."
+        }
+      },
+      "notes": "New diagnostic calculation, not measured data, not a source refit or validated replacement EOS. 0-100 GPa, 1000-2600 K is the calculation grid, not a phase-stability/experimental-coverage claim. Missing Knacke Gibbs/extrapolation details prevent full NNO reconstruction. IW also requires exact Chase extrapolation and source fcc-hcp switching. No missing inputs are inferred from held outputs or polynomials; original evidence and scientific dispositions remain unchanged."
     }
   ],
   "source": {

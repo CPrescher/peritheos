@@ -276,3 +276,65 @@ def assert_pressure_refit_report_close(assert_audit_close):
         assert_audit_close(actual, expected, rel=1e-11, abs=1e-10, float_paths=paths)
 
     return compare
+
+
+@pytest.fixture
+def independent_generation_baseline():
+    """Recover exact prior documents by removing only the three appended entries."""
+    import hashlib
+    import json
+    from pathlib import Path
+
+    from scripts.scientific_source_snapshot import (
+        scientific_sha256,
+        scientific_snapshot,
+    )
+
+    root = Path(__file__).resolve().parents[1]
+    proof = json.loads(
+        (root / "docs/data/independent-lineage-buffers.json").read_bytes()
+    )
+    assert scientific_sha256() == proof["after_catalog_scientific_sha256"]
+    originals = {}
+    for material, binding in proof["prior_documents"].items():
+        payload = (root / "peritheos/data/materials" / f"{material}.eosmat").read_text()
+        document = json.loads(payload)
+        added = document["datasets"][-1]
+        assert added["identifier"] == binding["added_identifier"]
+        # Locate actual serialized objects, including EOSMAT's compact arrays.
+        position = payload.index("[", payload.index('\n  "datasets":')) + 1
+        previous_end = None
+        decoder = json.JSONDecoder()
+        while True:
+            while payload[position].isspace() or payload[position] == ",":
+                position += 1
+            value, end = decoder.raw_decode(payload, position)
+            if value["identifier"] == binding["added_identifier"]:
+                assert previous_end is not None
+                original = (payload[:previous_end] + payload[end:]).encode()
+                break
+            previous_end = end
+            position = end
+        assert hashlib.sha256(original).hexdigest() == binding["sha256"]
+        originals[material] = original
+    snapshot = copy.deepcopy(scientific_snapshot())
+    removed = set()
+    for document in snapshot["documents"]:
+        retained = []
+        for dataset in document["datasets"]:
+            key = document["identifier"] + "/" + dataset["identifier"]
+            if key in proof["added_dataset_declarations"]:
+                removed.add(key)
+            else:
+                retained.append(dataset)
+        document["datasets"] = retained
+    assert removed == set(proof["added_dataset_declarations"])
+    assert (
+        hashlib.sha256(
+            json.dumps(
+                snapshot, sort_keys=True, separators=(",", ":"), allow_nan=False
+            ).encode()
+        ).hexdigest()
+        == proof["before_catalog_scientific_sha256"]
+    )
+    return {"proof": proof, "original_material_bytes": originals, "snapshot": snapshot}

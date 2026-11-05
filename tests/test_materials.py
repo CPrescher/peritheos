@@ -280,13 +280,16 @@ def test_eosmat_datasets_follow_selected_eos_records():
         "gold_dewaele_2004_table1_compression",
         "gold_fei_2004_table1",
         "gold_hirose_2006_table1",
+        "gold_sakai_2025_independent_calibration_lineage",
     ]
 
     with_data = Material.from_eosmat(
         source, record_identifiers=("gold_dewaele_2004_vinet_5",)
     ).to_eosmat()
     assert [dataset["identifier"] for dataset in with_data["datasets"]] == [
-        "gold_dewaele_2004_table1_compression"
+        "gold_dewaele_2004_table1_compression",
+        # Standalone provenance is retained independently of selected EOS fits.
+        "gold_sakai_2025_independent_calibration_lineage",
     ]
     assert with_data["datasets"][0]["used_by_eos_records"] == [
         "gold_dewaele_2004_vinet_5"

@@ -23,7 +23,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 1 |
-| Observation datasets | 3 |
+| Observation datasets | 4 |
 
 Ideal rocksalt structural model following Roth (1958), Introduction and Fig. 1; conventional Fm-3m cell with four Ni and four O. The reference edge is normalized to Campbell Table 1 V0, not claimed as a separate ambient cubic refinement. Roth establishes cubic paramagnetic NiO and a rhombohedral distortion below the Neel temperature (523 K at ambient pressure). Campbell reports B1 and fits one cubic-average volume model, including low-temperature MAP points; this record cannot predict magnetic ordering, rhombohedral splitting, or the pressure-dependent Neel boundary. Use the separate nickel\_oxide rhombohedral card for resolved low-temperature diffraction.
 
@@ -301,3 +301,22 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/campbell-2009-independent-polynomial-grid.csv)
 — SHA-256 `2dd69807f80c1091dd2f38dea83e91a33ee8f94abfdaa38ff57589d14c3a6155`.
+
+### campbell\_2009\_independent\_nno\_pressure\_integral
+
+- **Description:** Independent Eq. (6) pressure contribution for Ni-NiO from printed Table 1 EOS parameters: delta log10 fO2 relative to mathematical zero GPa. No standard-state Gibbs baseline is added; this is NOT absolute fugacity or complete Table S5 regeneration.
+- **Kind:** model\_output
+- **Reference:**
+    - **Authors:** Campbell; Danielson; Righter; Seagle; Wang; Prakapenka
+    - **Year:** 2009
+    - **Title:** High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers
+    - **Source:** Earth and Planetary Science Letters
+    - **Volume:** 286
+    - **Locator:** 556-564
+    - **DOI:** 10.1016/j.epsl.2009.07.022
+- **Source location:** Table 1, Eqs. (5)-(6), p.560; newly calculated grid
+- **Associated EOS records:** None declared
+- **Notes:** New diagnostic calculation, not measured data, not a source refit or validated replacement EOS. 0-100 GPa, 1000-2600 K is the calculation grid, not a phase-stability/experimental-coverage claim. Missing Knacke Gibbs/extrapolation details prevent full NNO reconstruction. IW also requires exact Chase extrapolation and source fcc-hcp switching. No missing inputs are inferred from held outputs or polynomials; original evidence and scientific dispositions remain unchanged.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/campbell-2009-independent-nno-pressure-integral.csv)
+— SHA-256 `70406c2f5cb56b04dfd5d721ce2ceb94dcdfd0e97ba6687b8a5c0f8c44718981`.

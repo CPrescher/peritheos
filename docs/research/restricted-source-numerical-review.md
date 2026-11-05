@@ -22,6 +22,12 @@ that the original publications are freely licensed or a legal guarantee.
 | Anzellini iridium Tables S1–S3 | 1 | Admit 122 primary experimental numerical rows |
 | Anzellini iridium Figure 4 | 1 | Admit 107 quantitative marker-center readouts, not artwork |
 
+The subsequent [independent-generation follow-up](independent-lineage-buffers.md)
+adds a partial 37-edge evidence graph and two views of a relative NNO pressure
+integral. The current selection is **451 of 456 entries, with five held**; the
+448-entry count above describes this earlier review stage. Full absolute
+Campbell table regeneration remains unresolved.
+
 The [bound machine-readable receipt](../data/restricted-source-numerical-review.json)
 records all 22 exact declarations/resources, source-copy hashes, decisions and
 limitations. It is embedded as `restricted_source_review` in the installed
@@ -75,7 +81,9 @@ All nine preserved raw worksheet objects match the fresh workbook exactly.
 Regenerating the 326-row Au calibration input reproduces its CSV bytes exactly.
 That file contains runs S1/S2/S3/S4/S7 from the present experiments; it is **not**
 a collection of older literature measurements. The seven individual measured
-tables contain 493 paired-volume states in total. The aggregate and individual
+tables contain 393 paired-volume states in total (corrected in the independent
+follow-up: the earlier 493 total was an arithmetic error; no source row changed).
+The aggregate and individual
 entries overlap and must not be treated as independent observations.
 
 The article's Methods, p.7, describes the diffraction/volume generation and

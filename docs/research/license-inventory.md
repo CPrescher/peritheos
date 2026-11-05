@@ -48,7 +48,7 @@ values or detailed research archives, plus a separate optional dataset archive.
 The `local` inventory below remains an inventory of research checkout resources,
 not a promise that those files are included by either build. The optional
 package uses the explicit source-scoped allowlist in
-`packages/peritheos-datasets/datasets.json` (448 entries after the
+`packages/peritheos-datasets/datasets.json` (451 entries after the
 [numerical redistribution review](numerical-dataset-redistribution.md)); its installed manifest
 records exact admitted declarations and resource hashes. No scope is extended
 to adjacent source files. The runtime export retains structure/EOS parameters,
@@ -79,6 +79,13 @@ selection. All 22 NC/ND source flags below remain: 21 are assessed admissions an
 one (Sakai S8) remains held. Core `peritheos` can be packaged without the optional
 dataset archive. No source license or published archive is changed.
 
+The [independent-generation follow-up](independent-lineage-buffers.md) adds
+three separate declarations: a new partial primary-resource lineage graph and
+two views of a relative NNO pressure integral. The catalog now has 456 entries,
+451 admitted and five original holds. Contributor-held new selection/output
+rights are CC0 scoped to those contributions; no original source is relicensed.
+These are not complete S8/absolute Campbell reproductions.
+
 ## Dataset findings
 
 | Local status | Entries | Meaning |
@@ -87,7 +94,7 @@ dataset archive. No source license or published archive is changed.
 | `open_source_declared` | 22 | A named source/deposit grant mapped to the resource, with its scope. |
 | `author_permission_declared` | 1 | Fe7C3 author input: dated author/maintainer CC BY 4.0 declaration. |
 | `mixed_author_permission` | 3 | Coesite/Morard author-held rights are CC BY 4.0; literature inputs remain separate. |
-| `limited_or_unspecified_source` | 75 | Contributor-only dedications, source qualifications, or explicitly unspecified terms. |
+| `limited_or_unspecified_source` | 78 | Contributor-only dedications, source qualifications, or explicitly unspecified terms. |
 | `restricted_source` | 22 | NC/ND source notices retained. Follow-up admits 21 numerical extractions on scoped applicability assessments; Sakai S8 remains held. No source work is relabeled freely licensed. |
 | `source_terms_not_recorded` | 308 | No applicable grant established by the component metadata and reviewed scopes. |
 

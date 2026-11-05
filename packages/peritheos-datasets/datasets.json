@@ -1,7 +1,7 @@
 {
   "schema": "peritheos.optional-datasets.v1",
   "reviewed_on": "2026-11-05",
-  "scope": "Explicit selection of recorded source/author grants and separately bound numerical-content assessments. The 448 admitted material entries retain their original source terms, attribution and scientific qualifications, including 21 numerical extractions from NC/ND sources admitted only under a scoped applicability assessment. Remaining five holds are Sakai Table S8 literature lineage and four views of the original Campbell integration collection. No new source grant, legal clearance or Debian acceptance is asserted.",
+  "scope": "Explicit source grants and separately bound numerical assessments: 451 admitted material entries. Includes a new partial primary-source calibration graph and new relative NNO pressure integral, not regenerated absolute Campbell tables or the held S8 compilation. All five original holds remain. No source permission or scientific qualification is broadened.",
   "datasets": [
     {
       "material": "al_bearing_phase_d",
@@ -4808,10 +4808,40 @@
       "scope": "restricted_source_numerical_assessment",
       "redistribution_basis": "restricted_source_numerical_assessment",
       "review_key": "tungsten/tungsten_sakai_2025_table_s3_measured_pairs"
+    },
+    {
+      "material": "gold",
+      "dataset": "gold_sakai_2025_independent_calibration_lineage",
+      "declaration_sha256": "e94151c60552a7d440b1e2f4050c748eb1c05e26fac78f5f07d42828503a5324",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/independent-lineage-buffers.json",
+      "scope": "independent_source_graph",
+      "redistribution_basis": "independent_source_graph",
+      "review_key": "gold/gold_sakai_2025_independent_calibration_lineage"
+    },
+    {
+      "material": "nickel",
+      "dataset": "campbell_2009_independent_nno_pressure_integral",
+      "declaration_sha256": "aaf8667fbd5e9c62f62521cb93bc8852f62aff3aef3c71fdeb567fb78c05b161",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/independent-lineage-buffers.json",
+      "scope": "independent_thermodynamic_evaluation",
+      "redistribution_basis": "independent_thermodynamic_evaluation",
+      "review_key": "nickel/campbell_2009_independent_nno_pressure_integral"
+    },
+    {
+      "material": "nickel_oxide_b1",
+      "dataset": "campbell_2009_independent_nno_pressure_integral",
+      "declaration_sha256": "aaf8667fbd5e9c62f62521cb93bc8852f62aff3aef3c71fdeb567fb78c05b161",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/independent-lineage-buffers.json",
+      "scope": "independent_thermodynamic_evaluation",
+      "redistribution_basis": "independent_thermodynamic_evaluation",
+      "review_key": "nickel_oxide_b1/campbell_2009_independent_nno_pressure_integral"
     }
   ],
   "redistribution_review": {
     "path": "docs/data/numerical-redistribution-review.json",
-    "sha256": "8e8dc74e596539a908a00c11fd4d463da562952b52140415898dfb3d1ddd9471"
+    "sha256": "846edf5f1a9405d5da62cb701be326b783a294efc2661cf963f6ae31721e9ca9"
   }
 }

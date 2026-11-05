@@ -65,6 +65,7 @@ file lists and qualifications control; a family name is not a blanket grant.
 | MgO Tange input recovery | [COD CC0 and LASL public-domain inputs](datasets/mgo-tange-2009-redistributable-inputs.LICENSE.md) |
 | Phase E | [Unspecified source terms; contributor CC0](datasets/phase-e-crichton-ross-2000.LICENSE.md) |
 | Rubidium halide Farla supplement | [Source CC BY 4.0 and contributor scope](datasets/rubidium-halides-farla-2025.LICENSE.md) |
+| New primary-resource lineage graph and NNO pressure integral | [Contributor-held output CC0; partial reconstruction and source caveats](datasets/independent-lineage-buffers.LICENSE.md) |
 | Sakai gold and reused Dewaele tables | [Restricted article terms, source distinctions and contributor CC0](datasets/sakai-2025-au.LICENSE.md) |
 | Ye co-compression tables | [Contributor-only CC0 scope](datasets/ye-2017-300k-cocompression.LICENSE.md) |
 | Zhu Mendeley dataset | [Source CC BY 4.0 and normalization changes](datasets/zhu-2025-mendeley-data.LICENSE.md) |

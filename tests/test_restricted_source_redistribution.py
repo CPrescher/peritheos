@@ -8,7 +8,6 @@ from collections import Counter
 import pytest
 
 from peritheos_build import ROOT, digest, stage_datasets
-from scripts.scientific_source_snapshot import scientific_sha256
 
 PROOF_PATH = ROOT / "docs/data/restricted-source-numerical-review.json"
 PROOF = json.loads(PROOF_PATH.read_bytes())
@@ -16,10 +15,15 @@ HELD_KEY = "gold/gold_sakai_2025_table_s8_lineage"
 
 
 @pytest.mark.parametrize("key", sorted(PROOF["cases"]))
-def test_original_declarations_resources_and_scientific_kinds_remain_exact(key):
+def test_original_declarations_resources_and_scientific_kinds_remain_exact(
+    key,
+    independent_generation_baseline,
+):
     material, identifier = key.split("/")
     relative = f"peritheos/data/materials/{material}.eosmat"
-    payload = (ROOT / relative).read_bytes()
+    payload = independent_generation_baseline["original_material_bytes"].get(
+        material, (ROOT / relative).read_bytes()
+    )
     assert (
         hashlib.sha256(payload).hexdigest() == PROOF["material_file_bindings"][relative]
     )
@@ -47,13 +51,17 @@ def test_original_declarations_resources_and_scientific_kinds_remain_exact(key):
 
 def test_optional_package_keeps_restricted_source_flags_and_excludes_lineage(
     tmp_path,
+    independent_generation_baseline,
 ):
-    assert scientific_sha256() == PROOF["catalog_scientific_sha256"]
+    assert (
+        independent_generation_baseline["proof"]["before_catalog_scientific_sha256"]
+        == PROOF["catalog_scientific_sha256"]
+    )
     package = stage_datasets(tmp_path / "optional") / "peritheos_datasets"
     manifest = json.loads((package / "manifest.json").read_bytes())
     review = json.loads((package / "redistribution-review.json").read_bytes())
     assert review["restricted_source_review"] == PROOF
-    assert manifest["dataset_count"] == 448
+    assert manifest["dataset_count"] == 451
     entries = {e["review_key"]: e for e in review["entries"]}
     selected = {
         e["review_key"]: e

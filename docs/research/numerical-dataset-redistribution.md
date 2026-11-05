@@ -11,7 +11,9 @@ polynomial entries. The [collection follow-up](shen-historical-redistribution-re
 twelve more entries backed by three unchanged numerical files.
 The [Sakai/Ismailova/iridium follow-up](restricted-source-numerical-review.md)
 adds 21 numerical extractions while retaining NC/ND source flags.
-**The current selection is 448 of 453 material entries, with five held**. The counts, held table and source-screen decisions below record
+The [independent-generation follow-up](independent-lineage-buffers.md) adds
+three separately named, explicitly partial generated declarations.
+**The current selection is 451 of 456 material entries, with five held**. The counts, held table and source-screen decisions below record
 the initial 409-of-449 review; the bound JSON ledger includes the follow-up.
 Original Campbell integration results remain held.
 

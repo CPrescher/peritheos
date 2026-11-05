@@ -8,8 +8,11 @@ handbook excerpt and the 20-row Anderson gold table. These are source-specific
 maintainer assessments, not new licenses, legal opinions or Debian acceptance.
 
 The subsequent [Sakai/Ismailova/iridium review](restricted-source-numerical-review.md)
-raises the current selection to **448 of 453 entries, with five held**, retaining
-all original NC/ND source flags. The 427-entry count above is historical.
+raised the selection to **448 of 453 entries, with five held**, retaining
+all original NC/ND source flags. The
+[independent-generation follow-up](independent-lineage-buffers.md) now selects
+**451 of 456 entries, with five held**, adding three separate, explicitly partial
+generated declarations. Earlier counts above are historical.
 
 All original declarations, numerical resources, published parameters, source
 rights assertions and scientific classifications are unchanged. The complete
