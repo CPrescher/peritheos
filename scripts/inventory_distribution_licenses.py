@@ -349,6 +349,27 @@ def components(payloads, scopes, current, component_review=None):
                         ),
                         required_action=scope["action"],
                     )
+        # Fresh COD reacquisition replaces the two former ICSD-linked sources.
+        # Apply only the explicit structural resource grant, never an EOS grant.
+        if current and document.get("source", {}).get("structure_cod_id") == "9009217":
+            row = rows[-1]
+            resource = "peritheos/data/" + document["source"]["structure_dataset"]
+            scope = match_scope(resource, scopes, current)
+            if (
+                scope
+                and scope["id"] == "cod-cif-current-review"
+                and not document.get("peaks")
+            ):
+                row.update(
+                    resource=resource,
+                    status=scope["status"],
+                    scope=scope["id"],
+                    scope_note="CC0 COD 9009217 structural data only; ab initio coordinates with observed cell. Explicit isotropic reference-cell scaling and pure-MgSiO3 proxy limits retained; EOS/data terms separate.",
+                    rights_statements=compact(
+                        {"structure_license": document["source"]["structure_license"]}
+                    ),
+                    required_action=scope["action"],
+                )
     by_doi = defaultdict(list)
     for row in rows:
         ref = json.loads(row["source"])

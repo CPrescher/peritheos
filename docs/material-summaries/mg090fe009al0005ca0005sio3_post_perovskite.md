@@ -26,7 +26,7 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 2 |
 | Observation datasets | 1 |
 
-Shieh et al. synthesized this phase from natural orthopyroxene (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6, normalized here per SiO3. The source establishes Cmcm and Z=4 but does not publish a composition-specific refined coordinate model. Therefore the stored positions are a pure-MgSiO3 topology proxy, and the lattice is a proxy scaled to 164.9 A^3 rather than a recovered ambient structure. The preferred BM2 and the K0'=4.4 BM3 sensitivity fit share the same Figure 2 observations.
+Shieh et al. synthesized this phase from natural orthopyroxene (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6, normalized here per SiO3. The source establishes Cmcm and Z=4 but does not publish a composition-specific refined coordinate model. Therefore the stored positions are a pure-MgSiO3 topology proxy, and the lattice is a proxy scaled to 164.9 A^3 rather than a recovered ambient structure. The preferred BM2 and the K0'=4.4 BM3 sensitivity fit share the same Figure 2 observations. Positional topology is now reacquired independently from CC0 COD 9009217 (AMCSD 0015437), whose ab initio coordinates use the observed pure-MgSiO3 cell at 121 GPa and 300 K. The scaled reference cell and all site values remain unchanged; no composition-specific refinement or Fe/Al/Ca scattering partition is inferred.
 
 ## Automatic selections
 

@@ -463,7 +463,7 @@
     }
   ],
   "peaks": [],
-  "notes": "Shieh et al. synthesized this phase from natural orthopyroxene (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6, normalized here per SiO3. The source establishes Cmcm and Z=4 but does not publish a composition-specific refined coordinate model. Therefore the stored positions are a pure-MgSiO3 topology proxy, and the lattice is a proxy scaled to 164.9 A^3 rather than a recovered ambient structure. The preferred BM2 and the K0'=4.4 BM3 sensitivity fit share the same Figure 2 observations.",
+  "notes": "Shieh et al. synthesized this phase from natural orthopyroxene (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6, normalized here per SiO3. The source establishes Cmcm and Z=4 but does not publish a composition-specific refined coordinate model. Therefore the stored positions are a pure-MgSiO3 topology proxy, and the lattice is a proxy scaled to 164.9 A^3 rather than a recovered ambient structure. The preferred BM2 and the K0'=4.4 BM3 sensitivity fit share the same Figure 2 observations. Positional topology is now reacquired independently from CC0 COD 9009217 (AMCSD 0015437), whose ab initio coordinates use the observed pure-MgSiO3 cell at 121 GPa and 300 K. The scaled reference cell and all site values remain unchanged; no composition-specific refinement or Fe/Al/Ca scattering partition is inferred.",
   "datasets": [
     {
       "identifier": "mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized",
@@ -551,8 +551,31 @@
       "locator": "855-858",
       "doi": "10.1126/science.1095932"
     },
-    "structure_location": "Pure MgSiO3 Cmcm positional topology used by the bundled mgsio3_post_perovskite material (ICSD 158959); lattice isotropically scaled to the preferred Shieh et al. V0 only for diffraction-card consistency.",
+    "structure_cod_id": "9009217",
+    "structure_amcsd_id": "0015437",
+    "structure_dataset": "datasets/mgsio3-post-perovskite-murakami-2004-cod-9009217.cif",
+    "structure_dataset_sha256": "b034f666553e0c4c9454139a17f7e44e024d362c9a1a3faedf09f7e2b55e76ce",
+    "structure_access_url": "https://www.crystallography.net/cod/9009217.cif",
+    "structure_license": "CC0-1.0 (COD data/database declaration; publication rights separate)",
+    "structure_source_kind": "COD/AMCSD archival data acquired directly from COD; no ICSD download or ICSD-derived input used for this replacement",
+    "structure_source_location": "COD 9009217, data_9009217: cell, atom-site and symmetry-operation loops; original source Murakami et al. (2004), Science 304, 855-858",
+    "structure_reference_pressure_gpa": 121.0,
+    "structure_reference_temperature_k": 300.0,
+    "structure_determination_method": "Ab initio fractional coordinates using the observed 121 GPa, 300 K cell, as explicitly identified by COD/AMCSD; not experimentally refined atomic coordinates",
+    "structure_source_cell_angstrom": {"a": 2.456, "b": 8.042, "c": 6.093},
+    "structure_source_cell_volume_a3": 120.34376913599999,
+    "structure_reference_limit": "The COD record and three CIF servers were inspected; the original Science article was not freshly re-audited. Source coordinate errors and covariance are not reported here. No pressure-dependent coordinate model is inferred.",
+    "structure_location": "Pure MgSiO3 Cmcm positional topology from CC0 COD 9009217. For compatibility, first reproduce the pure material reference at 162.2 A^3 (10-decimal axes), then isotropically scale that rounded cell to Shieh V0=164.9 A^3 and round axes to 10 decimal places. This is a diffraction proxy, not a measured ambient structure.",
     "topology_proxy": true,
-    "topology_proxy_scope": "Positions and Wyckoff topology only; no Fe/Al/Ca site occupancies or scattering partition are inferred."
+    "topology_proxy_scope": "Positions and Wyckoff topology only; no Fe/Al/Ca site occupancies or scattering partition are inferred.",
+    "structure_normalization": {
+      "method": "Isotropic scaling of the rounded 162.2 A^3 pure-MgSiO3 reference to 164.9 A^3, with axes rounded to 10 decimal places; preserve source fractional coordinates.",
+      "intermediate_material": "mgsio3_post_perovskite",
+      "intermediate_target_volume_a3": 162.2,
+      "target_volume_a3": 164.9,
+      "axis_rounding_decimal_places": 10
+    },
+    "structure_topology_proxy": true,
+    "structure_topology_proxy_scope": "Positions and Wyckoff topology only; no Fe/Al/Ca site occupancies or scattering partition are inferred."
   }
 }

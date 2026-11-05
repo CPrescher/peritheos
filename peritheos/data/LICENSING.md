@@ -42,11 +42,13 @@ of the source data.
 The component-level `eos-structure-rights-review.json` assesses the 685 EOS
 records and 234 structural/diffraction components separately from observations.
 Its source fingerprints and `eos-structure-compilations.LICENSE.md` distinguish
-numerical-content assessments, the three verified named COD resources and
-unresolved cases: seven Holland/THERMOCALC extracts, ten inherited peak lists
-and two ICSD-linked topologies. Those components remain present in the runtime
+numerical-content assessments, four verified named COD resources and
+unresolved cases: seven Holland/THERMOCALC extracts and ten inherited peak lists.
+Those 17 components remain present in the runtime
 export; this is not blanket clearance. The original Dioptas migration's complete
 MIT notice is retained separately; it cannot grant underlying third-party rights.
+The two formerly ICSD-linked post-perovskite topologies now use CC0 COD 9009217,
+preserving all numerical values and the Fe-bearing pure-MgSiO3 proxy limitation.
 
 The following is an index of the standalone dataset notices shipped with the
 package, not a list of all resources with cleared reuse terms. Their precise
@@ -63,7 +65,7 @@ file lists and qualifications control; a family name is not a blanket grant.
 | Cementite Sata/Li | [Unspecified source terms; contributor CC0](datasets/cementite-sata-2010.LICENSE.md) |
 | Cementite Takahashi, Litasov and Prescher | [Separate source scopes](datasets/cementite-sources.LICENSE.md) |
 | Coesite Bykova author inputs | [Maintainer-declared author CC BY 4.0; third-party inputs separate](datasets/coesite-bykova-2018-author-inputs.LICENSE.md) |
-| COD CIFs: vanadium, superhydrous phase B and archival brucite | [Scoped COD CC0 source declaration](datasets/cod-cif-sources.LICENSE.md) |
+| COD CIFs: vanadium, superhydrous phase B, brucite and post-perovskite | [Scoped COD CC0 source declaration](datasets/cod-cif-sources.LICENSE.md) |
 | EOS parameters and structural/diffraction components | [Numerical-content assessment and unresolved compilations](datasets/eos-structure-compilations.LICENSE.md) |
 | Dioptas material-library migration | [Exact pinned upstream MIT attribution](datasets/dioptas-materials.LICENSE.md) |
 | Diopside | [Unspecified source terms; contributor CC0](datasets/diopside.LICENSE.md) |
@@ -88,7 +90,7 @@ file format or the absence of another notice. This also applies to inline EOS
 and structural data and to author inputs with limited provenance-only use.
 
 The installed [CIF license review](datasets/cif-license-review.json) records
-source URLs, hashes and the current COD data declaration for the three named
+source URLs, hashes and the current COD data declaration for the four named
 COD CIFs. It preserves legacy headers and structural values. The He (2023)
 thesis-derived brucite CIF was subsequently replaced by COD 1000054 and its
 original evidence preserved privately. Its source grant remains unresolved;

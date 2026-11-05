@@ -1,0 +1,129 @@
+{
+  "schema": "peritheos.post-perovskite-cod-replacement.v1",
+  "reviewed_on": "2026-11-05",
+  "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
+  "scope": "Source/provenance replacement for two structural models. Values regenerated from freshly retrieved COD data match all previous lattice/site numbers; EOS records, dataset declarations/resources and scientific classifications remain unchanged.",
+  "catalog_scientific_sha256": "cfa0fff415cf0b01eb3fb2f59edfe177aba3b0153d0a78b38cf474f4a6167240",
+  "cod_id": "9009217",
+  "amcsd_id": "0015437",
+  "resource": {
+    "path": "datasets/mgsio3-post-perovskite-murakami-2004-cod-9009217.cif",
+    "sha256": "b034f666553e0c4c9454139a17f7e44e024d362c9a1a3faedf09f7e2b55e76ce",
+    "media_type": "chemical/x-cif"
+  },
+  "source_reference": {
+    "authors": [
+      "Murakami",
+      "Hirose",
+      "Kawamura",
+      "Sata",
+      "Ohishi"
+    ],
+    "year": 2004,
+    "title": "Post-perovskite phase transition in MgSiO3",
+    "source": "Science",
+    "volume": "304",
+    "locator": "855-858",
+    "doi": "10.1126/science.1095932"
+  },
+  "source_state": {
+    "pressure_gpa": 121.0,
+    "temperature_k": 300.0,
+    "space_group": "Cmcm",
+    "space_group_number": 63,
+    "formula_units_per_cell": 4,
+    "coordinate_basis": "ab initio coordinates using observed cell parameters"
+  },
+  "cif_payload_sha256_ignoring_only_svn_date_url": "bafcdfb3cc04265bcdcae93800a6d4bc2cd91255c64f008bc366223e9b1c40d3",
+  "retrievals": [
+    {
+      "id": "cod",
+      "url": "https://www.crystallography.net/cod/9009217.cif",
+      "resolved_url": "https://www.crystallography.net/cod/9009217.cif",
+      "sha256": "b034f666553e0c4c9454139a17f7e44e024d362c9a1a3faedf09f7e2b55e76ce",
+      "bytes": 2601,
+      "status": "downloaded"
+    },
+    {
+      "id": "granada",
+      "url": "https://qiserver.ugr.es/cod/9009217.cif",
+      "resolved_url": "https://qiserver.ugr.es/cod/9009217.cif",
+      "sha256": "b919b76a9db3198739f8cab30ba07ffa3954fbc52bed1d4752fe9e2ef488ca54",
+      "bytes": 2577,
+      "status": "downloaded"
+    },
+    {
+      "id": "psdi",
+      "url": "https://cod.psdi.ac.uk/cod/9009217.cif",
+      "resolved_url": "https://cod.psdi.ac.uk/cod/9009217.cif",
+      "sha256": "76c944884c844050d3f1a3442c9c0b9cd32db7345d2d0b91cf445448437c5dfd",
+      "bytes": 2572,
+      "status": "downloaded"
+    }
+  ],
+  "policy_retrievals": [
+    {
+      "id": "record",
+      "url": "https://qiserver.ugr.es/cod/9009217.html",
+      "status": "downloaded",
+      "sha256": "999bb55448a969afb6f6f8c57c2e9b0d9931154fa32f2e88cae223800594d594",
+      "bytes": 8028
+    },
+    {
+      "id": "cod-policy",
+      "url": "https://www.crystallography.net/cod/",
+      "status": "downloaded",
+      "sha256": "59957a39a570af7b9194b2c703ebdb0a20310af20b3445f5baf49c2f63f22cbd",
+      "bytes": 10804
+    },
+    {
+      "id": "mirror-policy",
+      "url": "https://qiserver.ugr.es/cod/",
+      "status": "downloaded",
+      "sha256": "464d4f1c56597295df16ce57231ad16e18984b2b6413fb8ea72865dde64cb979",
+      "bytes": 10350
+    }
+  ],
+  "private_preservation_manifest_sha256": "4efc2915a21f9d47493ee56a978e6411466a5470fa5f24483e8e86cd34cd6777",
+  "originals": "Original full EOSMAT records and previous rights/CIF reviews retained privately, with checksums; no original source-license grant is invented. Git history is preserved.",
+  "changed_root_fields": {
+    "mgsio3_post_perovskite": [
+      "notes",
+      "source"
+    ],
+    "mg090fe009al0005ca0005sio3_post_perovskite": [
+      "notes",
+      "source"
+    ]
+  },
+  "material_bindings": {
+    "mgsio3_post_perovskite": {
+      "before_sha256": "a5258ba9e04747a7f010953a27feb581816ef991c3c6a2721328ab33be2ea9dd",
+      "after_sha256": "27c752f0af543fd375453a52f70c763ca7841943b1fabb33ad248e5eb8ae7bd4",
+      "unchanged_except_notes_and_source_sha256": "b7b726dabef5f9a7f2f83292743de7ba2c4a31a49be71a66a42e2729b21051a6"
+    },
+    "mg090fe009al0005ca0005sio3_post_perovskite": {
+      "before_sha256": "ea5a8cc852fa008af171410aeeb3244c4b4ec9970fadf0f575db51df0ff28576",
+      "after_sha256": "8c416156c4d84503209bdc939394b692ee40557f53d322e037d70a0ea5258155",
+      "unchanged_except_notes_and_source_sha256": "b77f27a8bb50e754c7781f1bdf4813eb4f3ba4462d3a3e5a894fb539552ae556"
+    }
+  },
+  "bindings": {
+    "release_document": {
+      "peritheos/data/materials/mgsio3_post_perovskite.eosmat": {
+        "historical_sha256": "e8c58f8a90c2ed078187e96a21745654d517b59e197464757ce7deb248cc35d8",
+        "replacement_sha256": "2e2c62894824727123362c5ccd2e1c002fef375581a97caf9c5c59af7b4d2dac"
+      },
+      "peritheos/data/materials/mg090fe009al0005ca0005sio3_post_perovskite.eosmat": {
+        "historical_sha256": "55e85d20f988ce23089e8c2f7316f0fe06ae1c77c6db16f1fda39582604ac024",
+        "replacement_sha256": "f36a59a5aed2034cf17b99c9ca70fef548c1da91aa5cc67ac12193c6bea9d74d"
+      }
+    }
+  },
+  "limits": [
+    "CC0 is the recorded COD source declaration for this data/database, not a publication-wide grant or independent authentication of every contributor right.",
+    "The Fe-bearing material retains a pure-MgSiO3 positional topology proxy, not an inferred Fe/Al/Ca occupancy or scattering model.",
+    "Source coordinate error/covariance and pressure-dependent coordinate evolution are not supplied. The original Science article was not freshly re-audited.",
+    "The 121 GPa cell and scaled reference cells are distinct. Cell rounding is preserved through an explicit two-step mixed-material transformation, not claimed as extra measurement precision."
+  ]
+}

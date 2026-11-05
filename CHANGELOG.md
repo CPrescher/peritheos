@@ -18,11 +18,19 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Replace the two ICSD-linked post-perovskite structural inputs with freshly
+  acquired CC0 COD 9009217. Preserve original records privately and all existing
+  cell/site numbers, EOS parameters, observations and scientific dispositions.
+  Clarify ab initio coordinates using the observed high-pressure cell and the
+  Fe-bearing material's pure-MgSiO3 topology proxy. Ship the unchanged COD CIF,
+  update source bindings and notices, and reduce unresolved runtime compilation
+  cases from 19 to 17 without extending the data grant to publications or EOSs.
+
 - Review all 685 EOS and 234 structural/diffraction components without changing
   scientific files. Add source/runtime bindings, component/source-group indexes
   and installed compilation notices; preserve the pinned Dioptas upstream MIT
   attribution in both packages. Keep source grants separate from numerical-content
-  assessments and explicitly identify 19 unresolved collection/acquisition
+  assessments and explicitly identify the remaining 17 collection/acquisition
   components still present in the runtime export. Observation selection and
   historical release rights statements remain unchanged.
 

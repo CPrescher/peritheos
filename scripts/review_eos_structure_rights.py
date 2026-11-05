@@ -64,7 +64,7 @@ RATIONALES = {
         "database or acquisition-contract clearance is asserted."
     ),
     "cod_source_and_numerical_changes": (
-        "Named checksum-bound COD resource has a previously verified CC0 source "
+        "Named checksum-bound COD resource has a verified CC0 source "
         "declaration. The material's stated normalization and, for superhydrous "
         "phase B, separately attributed erratum correction remain explicit. "
         "This does not extend COD CC0 to other publications or to the EOS."
@@ -216,6 +216,7 @@ def build_review(root=ROOT):
         "dioptas": policy["dioptas"],
         "thermodynamic_source": policy["thermodynamic_source"],
         "primary_sources": policy["primary_sources"],
+        "post_perovskite_cod_replacement": policy["post_perovskite_cod_replacement"],
         "material_sha256": policy["material_sha256"],
         "rationales": RATIONALES,
         "entries": entries,

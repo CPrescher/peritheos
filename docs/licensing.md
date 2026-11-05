@@ -33,11 +33,18 @@ The [EOS/structure compilation review](research/eos-structure-compilation-rights
 now accounts for all 685 parameter records and 234 structural/diffraction
 components, with exact source/runtime bindings. It preserves the pinned Dioptas
 MIT notice and separates numerical-content assessments from remaining
-collection/acquisition questions: seven Holland/THERMOCALC extracts, ten legacy
-peak lists and two ICSD-linked topologies. These 19 components remain present
+collection/acquisition questions: seven Holland/THERMOCALC extracts and ten legacy
+peak lists. These 17 components remain present
 in the runtime package and need resolution or explicit downstream exclusion
 before claiming an entirely cleared archive. No source grant, scientific
 reclassification or dataset selection change is made by this review.
+
+The [post-perovskite COD replacement](research/post-perovskite-cod-replacement.md)
+resolves the two former ICSD-linked structural inputs through freshly acquired
+CC0 COD 9009217. All existing cell/site values regenerate exactly; source wording
+now identifies ab initio coordinates using the observed high-pressure cell.
+The Fe-bearing material retains its explicit pure-MgSiO3 topology proxy. Original
+records and earlier source evidence remain privately preserved.
 
 
 The [0.17.3 license inventory](research/license-inventory.md) accounts for all

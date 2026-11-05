@@ -53,6 +53,17 @@ def accepts_merge_binding(
         (ROOT / "docs/data/brucite-structure-replacement.json").read_bytes()
     )
     structure = replacement["bindings"].get(context, {}).get(identifier, {})
+    if bool(structure) and (
+        structure["historical_sha256"] == expected
+        and structure["replacement_sha256"] == actual
+    ):
+        return True
+    # Independent COD reacquisition changes only the two reviewed root source/
+    # notes fields; original frozen release and scientific fingerprints remain.
+    replacement = json.loads(
+        (ROOT / "docs/data/post-perovskite-cod-replacement.json").read_bytes()
+    )
+    structure = replacement["bindings"].get(context, {}).get(identifier, {})
     return bool(structure) and (
         structure["historical_sha256"] == expected
         and structure["replacement_sha256"] == actual

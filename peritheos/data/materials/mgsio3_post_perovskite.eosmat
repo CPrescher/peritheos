@@ -2069,7 +2069,7 @@
     {"element": "O", "wyckoff": "8f", "x": 0.0, "y": 0.631, "z": 0.436, "occupancy": 1.0}
   ],
   "peaks": [],
-  "notes": "Cmcm structure and fractional coordinates at 121 GPa and 300 K: Murakami et al., Science 304, 855-858 (2004), doi:10.1126/science.1095932, ICSD 158959. The measured 121 GPa cell (a=2.456, b=8.042, c=6.093 A) was isotropically expanded to the Mosenfelder V0=162.2 A^3 while preserving its axial ratios, so Dioptas' isotropic EoS scaling returns a close approximation to the measured high-pressure cell. Phase-line intensities were calculated from the cited structure using independent-atom X-ray form factors.",
+  "notes": "Pure MgSiO3 Cmcm topology reacquired from CC0 COD 9009217 (AMCSD 0015437), Murakami et al., Science 304, 855-858 (2004), doi:10.1126/science.1095932. The archival record identifies ab initio fractional coordinates using the observed 121 GPa, 300 K cell (a=2.456, b=8.042, c=6.093 A); these are not experimentally refined coordinates. The source cell is isotropically expanded to 162.2 A^3 with axes rounded to 10 decimal places for compatibility with the existing diffraction reference. This is an extrapolated display/reference cell, not a measured ambient structure. All existing lattice and site numbers are reproduced exactly from the COD input. EOS records, uncertainties, observations and scientific recommendations are unchanged. Calculated diffraction intensities from this topology are model intensities.",
   "datasets": [
     {
       "identifier": "mgsio3_post_perovskite_ono_2006_table2_compression",
@@ -2960,5 +2960,37 @@
       },
       "notes": "This is a partial fit reconstruction, not the full joint thermoelastic optimization. The complete Komabayashi table is bundled; Ono et al. (2006) remains excluded because the source identifies that Au-scale branch as systematically offset comparison data."
     }
-  ]
+  ],
+  "source": {
+    "structure_reference": {
+      "authors": ["Murakami", "Hirose", "Kawamura", "Sata", "Ohishi"],
+      "year": 2004,
+      "title": "Post-perovskite phase transition in MgSiO3",
+      "source": "Science",
+      "volume": "304",
+      "locator": "855-858",
+      "doi": "10.1126/science.1095932"
+    },
+    "structure_cod_id": "9009217",
+    "structure_amcsd_id": "0015437",
+    "structure_dataset": "datasets/mgsio3-post-perovskite-murakami-2004-cod-9009217.cif",
+    "structure_dataset_sha256": "b034f666553e0c4c9454139a17f7e44e024d362c9a1a3faedf09f7e2b55e76ce",
+    "structure_access_url": "https://www.crystallography.net/cod/9009217.cif",
+    "structure_license": "CC0-1.0 (COD data/database declaration; publication rights separate)",
+    "structure_source_kind": "COD/AMCSD archival data acquired directly from COD; no ICSD download or ICSD-derived input used for this replacement",
+    "structure_source_location": "COD 9009217, data_9009217: cell, atom-site and symmetry-operation loops; original source Murakami et al. (2004), Science 304, 855-858",
+    "structure_reference_pressure_gpa": 121.0,
+    "structure_reference_temperature_k": 300.0,
+    "structure_determination_method": "Ab initio fractional coordinates using the observed 121 GPa, 300 K cell, as explicitly identified by COD/AMCSD; not experimentally refined atomic coordinates",
+    "structure_source_cell_angstrom": {"a": 2.456, "b": 8.042, "c": 6.093},
+    "structure_source_cell_volume_a3": 120.34376913599999,
+    "structure_reference_limit": "The COD record and three CIF servers were inspected; the original Science article was not freshly re-audited. Source coordinate errors and covariance are not reported here. No pressure-dependent coordinate model is inferred.",
+    "structure_normalization": {
+      "method": "Isotropic scaling of the COD cell to target volume; axes rounded to 10 decimal places. Fractional coordinates, full occupancies and Wyckoff topology retained.",
+      "target_volume_a3": 162.2,
+      "axis_rounding_decimal_places": 10
+    },
+    "structure_cell_vs_eos": "The conventional Cmcm cell has Z=4. Reference volume 162.2 A^3 follows the existing Mosenfelder display convention; it is not an observed zero-pressure structure or a new EOS fit.",
+    "structure_topology_proxy": false
+  }
 }

@@ -60,7 +60,7 @@ def test_core_export_contains_no_observation_resources_or_research(tmp_path):
     assert not (stage / "docs/data").exists()
     assert not (stage / "peritheos/data/research").exists()
     assert not list((stage / "peritheos/data").rglob("*.csv"))
-    assert len(list((stage / "peritheos/data/datasets").glob("*.cif"))) == 3
+    assert len(list((stage / "peritheos/data/datasets").glob("*.cif"))) == 4
     assert not (stage / "peritheos/data/primary-source-audit.json").exists()
     for path in (stage / "peritheos/data/materials").glob("*.eosmat"):
         document = json.loads(path.read_bytes())

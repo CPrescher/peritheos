@@ -145,16 +145,18 @@
       "files": [
         "peritheos/data/datasets/vanadium-james-1960-9012770.cif",
         "peritheos/data/datasets/superhydrous-phase-b-koch-muller-2005-mkm0105.cif",
-        "peritheos/data/datasets/brucite-zigan-1967-cod-1000054.cif"
+        "peritheos/data/datasets/brucite-zigan-1967-cod-1000054.cif",
+        "peritheos/data/datasets/mgsio3-post-perovskite-murakami-2004-cod-9009217.cif"
       ],
       "status": "open_source_declared",
       "declared_license": "CC0-1.0 (COD data declaration)",
       "evidence": [
         "peritheos/data/datasets/cod-cif-sources.LICENSE.md",
         "peritheos/data/datasets/cif-license-review.json",
-        "https://www.crystallography.net/cod/#license"
+        "https://www.crystallography.net/cod/#license",
+        "docs/data/post-perovskite-cod-replacement.json"
       ],
-      "scope": "Only the three named COD resources. Vanadium matches the mirror exactly and superhydrous phase B matches primary COD exactly. A fresh 2026-11-05 primary brucite CIF matches the original bundled mirror copy apart from SVN Date/URL comments; brucite is now the active structural reference. All bundled COD CIF bytes are unchanged; original article rights are separate.",
+      "scope": "Only the four named COD resources, including newly acquired 9009217 shared by two post-perovskite structures. Exact original/served hashes, comment-only server differences and source limitations are recorded in the installed CIF review. Previous CIF bytes and historical source notices remain unchanged; original article rights are separate.",
       "action": "Retain COD identifiers, original scientific attribution, full CC0 text and the installed review receipt; do not extend the data grant to publications or the He thesis CIF.",
       "local_only": true
     },

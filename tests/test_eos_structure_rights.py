@@ -30,8 +30,7 @@ def test_complete_review_is_source_bound_and_scientific_content_is_unchanged():
         "eos_source_groups": 272,
         "migration_records": 144,
         "assessments": {
-            "cod_source_and_numerical_changes": 3,
-            "icsd_acquisition_review_required": 2,
+            "cod_source_and_numerical_changes": 5,
             "legacy_peak_collection_review_required": 10,
             "no_structural_values": 36,
             "numerical_parameter_assessment": 678,
@@ -104,14 +103,18 @@ def test_current_assessments_do_not_relicense_sources_or_backdate_release_rows()
     assert sakai["status"] == "source_terms_not_recorded"
     assert sakai["redistribution_assessment"] == "numerical_parameter_assessment"
     assert not sakai["remaining_issue"]
-    icsd = next(
+    replacement = next(
         r
         for r in rows
         if r["state"] == "local"
         and r["kind"] == "structure_and_diffraction"
         and r["material"] == "mgsio3_post_perovskite"
     )
-    assert icsd["remaining_issue"]
+    assert not replacement["remaining_issue"]
+    assert replacement["status"] == "open_source_declared"
+    assert (
+        replacement["redistribution_assessment"] == "cod_source_and_numerical_changes"
+    )
     # Dedicated structural sources are not silently omitted by the inventory.
     super_b = next(
         r

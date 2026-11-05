@@ -57,10 +57,12 @@ Structure/parameter compilation questions are tracked separately below.
 
 The later [EOS/structure review](eos-structure-compilation-rights.md) completes
 the current component inventory: 678 EOS and 183 structural components receive
-scoped numerical-content assessments, three structures retain their named COD
+scoped numerical-content assessments, five structures retain their named COD
 source scopes, and 36 materials contain no structural values. Seven
-Holland/THERMOCALC extracts, ten inherited peak arrays and two ICSD-linked
-topologies remain unresolved and present in runtime exports. The exact Dioptas
+Holland/THERMOCALC extracts and ten inherited peak arrays remain unresolved and
+present in runtime exports. The two formerly ICSD-linked topologies were
+[reacquired from CC0 COD 9009217](post-perovskite-cod-replacement.md), preserving
+all cell/site values and the Fe-bearing pure-MgSiO3 proxy limitation. The exact Dioptas
 upstream MIT notice is now retained. The
 [component index](../data/license-inventory/eos-structure-review.csv) and
 [EOS source-group index](../data/license-inventory/eos-source-groups.csv) name
@@ -118,7 +120,7 @@ assessment and contributor-only new metadata dedication. Both CSVs stay unchange
 | `source_terms_not_recorded` | 308 | No applicable grant established by the component metadata and reviewed scopes. |
 
 The 685 EOS records have no separate component-level license assertions; the
-named brucite COD structural source declaration is scoped separately. These
+named brucite and post-perovskite COD structural declarations are scoped separately. These
 source-declaration statuses remain distinct from the subsequent component
 assessments linked above. Citations and dedicated structural provenance are
 indexed. This does **not** mean every coefficient requires author

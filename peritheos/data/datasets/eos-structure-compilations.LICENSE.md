@@ -28,8 +28,8 @@ card collections or acquisition agreements. Other original source terms remain
 unspecified unless an exact applicable declaration is already recorded.
 No new CC0 dedication or source grant is created here.
 
-The named COD resources 1000054 (brucite), 9012770 (vanadium) and 9007379
-(superhydrous phase B) retain the CC0 declaration documented in
+The named COD resources 1000054 (brucite), 9012770 (vanadium), 9007379
+(superhydrous phase B) and 9009217 (post-perovskite) retain the CC0 declaration documented in
 `cod-cif-sources.LICENSE.md` and `cif-license-review.json`. Normalization,
 cell scaling and the separately cited superhydrous-phase-B erratum stay
 distinguishable from the archival CIF. Other inline COD identifiers are
@@ -60,16 +60,14 @@ cleared source archive:
   original cards, obtain an applicable grant or independently regenerate a
   separately identified pattern from suitably sourced structures. Matching
   calculated lines alone would not recover measured source intensities.
-* **Two ICSD-linked topology records**: mgsio3_post_perovskite and
-  mg090fe009al0005ca0005sio3_post_perovskite. Their provenance cites Murakami
-  et al. (2004), DOI `10.1126/science.1095932`, and ICSD 158959. The acquisition
-  route is not authenticated. ICSD's published terms restrict reuse, including
-  pattern collections; an ICSD citation does not prove that a particular
-  contract applied to the present transcription. Establish independent primary
-  or open-deposit lineage, or obtain permission. Isotropic cell scaling does
-  not resolve the topology's acquisition rights. Coesite-V mentions ICSD in an
-  unsuccessful search but contains no structural model; it is not one of these
-  two cases.
+
+The two formerly ICSD-linked post-perovskite topology records were subsequently
+replaced with freshly acquired CC0 COD 9009217 data. Their original records
+and reviews remain private evidence. New COD input reproduces all previous
+coordinates and scaled-cell values exactly; it does not relicense the earlier
+acquisition path. The ab initio-coordinate/observed-cell distinction and the
+Fe-bearing material's pure-MgSiO3 proxy limit remain explicit. These two cases
+are no longer unresolved distribution inputs; the 17 cases above remain.
 
 The three newer, position-only fallback lists (two Nisr hydrous-silica records
 and phase_e_fe0072) are separately assessed numerical hkl identities, calculated

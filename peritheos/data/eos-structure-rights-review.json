@@ -1,8 +1,8 @@
 {
   "schema": "peritheos.eos-structure-rights-review.v1",
   "reviewed_on": "2026-11-05",
-  "baseline_commit": "73bb757a95d1e12abb3c337b1afcfb4a01d8fe27",
-  "policy_sha256": "186c3b9932beaf1ba604546665a7ee7a87ca7e15de21f25a871a9bbdc92b1c75",
+  "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
+  "policy_sha256": "c8ef2d1056d927552d20a99e93885e760b3373401a88cdfe90290e22687ecc6a",
   "catalog_scientific_sha256": "cfa0fff415cf0b01eb3fb2f59edfe177aba3b0153d0a78b38cf474f4a6167240",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
   "limits": [
@@ -10,7 +10,7 @@
     "Copyright in expression, independent collection/database rights and acquisition contracts are separate. No universal number-of-rows exemption is used.",
     "Unknown original terms remain unknown. An article or deposit grant does not automatically cover an entire material.",
     "No new contributor dedication or source grant is made; retain existing scoped notices and scientific qualifications.",
-    "Unresolved components remain in the current runtime export; this review does not silently remove structures, peaks or EOS records. They require a follow-up before claiming an entirely cleared archive.",
+    "The remaining 17 unresolved components remain in the current runtime export; this review does not silently remove structures, peaks or EOS records. They require a follow-up before claiming an entirely cleared archive.",
     "The dataset selection, including five held original entries, is unchanged. Previously published archives and historical inventory rows remain historical evidence."
   ],
   "counts": {
@@ -20,8 +20,7 @@
     "eos_source_groups": 272,
     "migration_records": 144,
     "assessments": {
-      "cod_source_and_numerical_changes": 3,
-      "icsd_acquisition_review_required": 2,
+      "cod_source_and_numerical_changes": 5,
       "legacy_peak_collection_review_required": 10,
       "no_structural_values": 36,
       "numerical_parameter_assessment": 678,
@@ -132,6 +131,13 @@
       "content_type": "text/html"
     }
   ],
+  "post_perovskite_cod_replacement": {
+    "receipt": "docs/data/post-perovskite-cod-replacement.json",
+    "sha256": "9f3b7a161ace4c900f09e5ea63234bce9f1c82575dfaed8733ec1cd75db9a0f7",
+    "previous_policy_sha256": "186c3b9932beaf1ba604546665a7ee7a87ca7e15de21f25a871a9bbdc92b1c75",
+    "previous_review_sha256": "e9a0f6ed5f88a907c2e88e20cdab81f8180480e43b7e6583b1568d671fe95ddc",
+    "scope": "Two structural sources independently replaced with COD 9009217. All numeric/scientific model values unchanged; prior EOS decisions and remaining collection cases unchanged."
+  },
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "23757b5ebe1ce85c7cdf562e80007ddb7e5ae48544837635d48bb8c2ae65b8b5",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "8fdd24e38736fe8d8464d790a14f7b5ba9f9e3e83427f2fbdac493676acaeab2",
@@ -265,7 +271,7 @@
     "peritheos/data/materials/mg087fe013sio3_bridgmanite.eosmat": "baf8df483965d266eb278e1f50bb8860127f0b077d5c5db3fbf72400a0607fc4",
     "peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat": "b364ee7fe5237cbb998e14a3a914746281d361043c6eb9b9feaa32a869bf9250",
     "peritheos/data/materials/mg090fe009al0005ca0005sio3_bridgmanite.eosmat": "83c4df3e84e1623e114d017cc4d384de39e71ea8060413a52ca2f9cd39cbeb69",
-    "peritheos/data/materials/mg090fe009al0005ca0005sio3_post_perovskite.eosmat": "ea5a8cc852fa008af171410aeeb3244c4b4ec9970fadf0f575db51df0ff28576",
+    "peritheos/data/materials/mg090fe009al0005ca0005sio3_post_perovskite.eosmat": "8c416156c4d84503209bdc939394b692ee40557f53d322e037d70a0ea5258155",
     "peritheos/data/materials/mg090fe010o.eosmat": "44e5ee0155834d804d251a9c44faa5e84d49dc8704faba0a376e67eb3ec5c5b5",
     "peritheos/data/materials/mg092fe008o.eosmat": "a8cf19060d3f7b358915272d706af8d78bae7448465a82f43e09c463a2abe01a",
     "peritheos/data/materials/mg092fe008sio3_bridgmanite.eosmat": "360377c68e67048335e20a0cd86e5e86bf61184ec6ea8dbf9406c643f8458d06",
@@ -293,7 +299,7 @@
     "peritheos/data/materials/mgo_b2.eosmat": "b1c3bec137d916b08d09fefef419310fab9b28b88dccb8e20f4d46a037a318d0",
     "peritheos/data/materials/mgo_liquid.eosmat": "bcd41f7c8136f53e5feb6d294747193df39ab87347806470f0edf1356aa0032a",
     "peritheos/data/materials/mgsio3_liquid.eosmat": "4b3175aeb507d8a3f9dc707f6d4c860306f13b01ff00f3247acb9d18e2698697",
-    "peritheos/data/materials/mgsio3_post_perovskite.eosmat": "a5258ba9e04747a7f010953a27feb581816ef991c3c6a2721328ab33be2ea9dd",
+    "peritheos/data/materials/mgsio3_post_perovskite.eosmat": "27c752f0af543fd375453a52f70c763ca7841943b1fabb33ad248e5eb8ae7bd4",
     "peritheos/data/materials/mgsioh6_365a_phase.eosmat": "61ff971d44ce2fab5a3104eab64ee620bb2b4139c249cf75afcc12a4cad6a567",
     "peritheos/data/materials/molybdenum.eosmat": "dde317560bb05acb56e63bcac0151a75caabde4b28b0a0f8ca9b731e54781e85",
     "peritheos/data/materials/molybenum_carbide_mo2c.eosmat": "1eb9143f31971248e7e16783bbb85be2746477d512c59cfff6fca3ebad105328",
@@ -372,7 +378,7 @@
     "numerical_parameter_assessment": "Normalized numerical EOS coefficients, uncertainty/convention metadata and independently implemented equations, with source attribution. No source table layout, author software or source artwork is licensed by this assessment. Related dataset grants are not extended to these parameters. Source/collection/contract scope remains qualified in the notice.",
     "thermodynamic_collection_review_required": "Seven four-coefficient isothermal extracts share the official ds62 thermodynamic collection. The recovered artifact/README contain no explicit redistribution grant; academic availability is not general permission. Assess collection/acquisition rights or obtain an exact grant before claiming unrestricted clearance. No THERMOCALC software is shipped.",
     "numerical_structure_assessment": "Normalized lattice, symmetry, coordinate/occupancy or explicitly idealized structural facts. Preserve the cited source, proxy/normalization and missing-structure qualifications. COD references without a verified resource binding remain provenance leads, not new grants. No blanket publication, database or acquisition-contract clearance is asserted.",
-    "cod_source_and_numerical_changes": "Named checksum-bound COD resource has a previously verified CC0 source declaration. The material's stated normalization and, for superhydrous phase B, separately attributed erratum correction remain explicit. This does not extend COD CC0 to other publications or to the EOS.",
+    "cod_source_and_numerical_changes": "Named checksum-bound COD resource has a verified CC0 source declaration. The material's stated normalization and, for superhydrous phase B, separately attributed erratum correction remain explicit. This does not extend COD CC0 to other publications or to the EOS.",
     "no_structural_values": "No lattice, occupied atom-site array or peak list is supplied. Chemical identity/phase labels and source context remain; do not invent or infer a missing structural model. This is not clearance of all material metadata.",
     "legacy_peak_collection_review_required": "The exact imported hkl/d/intensity array matches the pinned MIT Dioptas source, whose notice is retained. Earlier beamline-card acquisition and collection ownership are unverified. A .jcpds extension is not proof of ICDD origin or an open license. Trace/recreate independently or obtain a grant for any protected collection before claiming clearance.",
     "icsd_acquisition_review_required": "Existing provenance cites ICSD 158959 and the Murakami publication. No authenticated acquisition path or freely licensed replacement binding was established. Published numerical facts and ICSD contract/database rights are separate. Obtain primary/open-source lineage or permission; do not claim that scaling the cell clears the copied topology."
@@ -14703,16 +14709,16 @@
       "evidence": "peritheos/data/materials/mg090fe009al0005ca0005sio3_post_perovskite.eosmat#/",
       "source_sha256": "b849a3257fefb3f244c579d364ddc85721460fcb4614d355674078fd3b4b6043",
       "runtime_sha256": "b849a3257fefb3f244c579d364ddc85721460fcb4614d355674078fd3b4b6043",
-      "assessment": "icsd_acquisition_review_required",
-      "source_license": "No new source grant established by this review",
+      "assessment": "cod_source_and_numerical_changes",
+      "source_license": "Scoped COD CC0 declaration; corrections separate",
       "site_count": 4,
       "peak_count": 0,
-      "provenance_sha256": "3a4fd6deee00f49b7bdc6c9f35bb5287adc3f0dc89b28cfe44cce50203350fc2",
+      "provenance_sha256": "5367f5ffb9b124da485c6714a218829c6c0beaad684d9d5463f2c3d04b75d222",
       "provenance_fields": [
         "source",
         "notes"
       ],
-      "cod_id": null,
+      "cod_id": "9009217",
       "legacy_source_comparison": null
     },
     {
@@ -18541,15 +18547,16 @@
       "evidence": "peritheos/data/materials/mgsio3_post_perovskite.eosmat#/",
       "source_sha256": "d68020467946b0c96195bf64f1f1fd25d4687b8326cda74be129d2ee7cf5131e",
       "runtime_sha256": "d68020467946b0c96195bf64f1f1fd25d4687b8326cda74be129d2ee7cf5131e",
-      "assessment": "icsd_acquisition_review_required",
-      "source_license": "No new source grant established by this review",
+      "assessment": "cod_source_and_numerical_changes",
+      "source_license": "Scoped COD CC0 declaration; corrections separate",
       "site_count": 4,
       "peak_count": 0,
-      "provenance_sha256": "db6c545ba0310a314965443127466f5032d661e7e492d0e120e9438d8dd5be91",
+      "provenance_sha256": "eac9a6cd655b70c198a253efe580ca7a010b69cb84a02ca78821ca49389da1f7",
       "provenance_fields": [
+        "source",
         "notes"
       ],
-      "cod_id": null,
+      "cod_id": "9009217",
       "legacy_source_comparison": null
     },
     {

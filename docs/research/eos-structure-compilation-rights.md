@@ -3,18 +3,18 @@
 Reviewed 5 November 2026 against `73bb757a`. This completes a component-level
 rights/provenance inventory of the **685 EOS records and 234 structural/diffraction
 components** in the current checkout. It does not establish universal rights
-clearance. Scientific values, source files and recommendation classifications
-are unchanged. No component is removed or newly selected for distribution.
+clearance. Scientific values and recommendation classifications
+are unchanged. A subsequent [COD replacement](post-perovskite-cod-replacement.md) changes only the two post-perovskite source/notes blocks and resolves their former ICSD acquisition cases. No EOS or observation selection changes.
 
 | Assessed content | Components | Finding |
 | --- | ---: | --- |
 | Normalized EOS parameters | 678 | Scoped numerical-content assessment; no new source grant |
 | Holland/THERMOCALC endmember extracts | 7 | Collection/acquisition review remains necessary |
 | Inline structures and numerical fallbacks | 183 | Scoped numerical-content assessment; source/proxy qualifications retained |
-| Structures tied to the three previously reviewed COD resources | 3 | Recorded COD CC0 source scope, with numerical changes distinguished |
+| Structures tied to four reviewed COD resources | 5 | Recorded COD CC0 source scope, with numerical changes distinguished |
 | Materials with no lattice, sites or peaks | 36 | No structural model values to assess; no missing values invented |
 | Inherited beamline peak arrays | 10 | Earlier acquisition/collection rights unresolved |
-| ICSD-linked post-perovskite topology | 2 | Acquisition route unresolved |
+| Former ICSD-linked post-perovskite topology | 0 unresolved | Two inputs replaced with CC0 COD 9009217; included in the five COD components |
 
 These are components, not independent experiments. The EOS references form
 **272 source groups**; repeated fits, uncertainty variants and recalibrations
@@ -29,7 +29,7 @@ has an entry for every component, its source pointer, original-content and
 runtime-export fingerprints, source references and assessment. It contains no
 observations or copies of source publications. The source-bound
 [policy](../data/eos-structure-rights-policy.json) requires all 234 material
-files to remain byte-identical. New or changed records require a new review;
+files to match their reviewed contents exactly. The separate COD replacement receipt chains the two authorized source-only changes to their predecessors. New or changed records require a new review;
 running the generator does not silently approve them.
 
 The [component index](../data/license-inventory/eos-structure-review.csv) lists
@@ -148,28 +148,24 @@ total of 24 position-only markers: indexed hkl, recalculated d and uniform
 display values. They are assessed separately from inherited intensity arrays;
 no experimental intensity or complete atomic model is inferred.
 
-### Two ICSD-linked structures
+### Resolved: two ICSD-linked structures
 
-`mgsio3_post_perovskite` and
-`mg090fe009al0005ca0005sio3_post_perovskite` cite Murakami et al. (2004),
-DOI [10.1126/science.1095932](https://doi.org/10.1126/science.1095932), and
-ICSD 158959. The former supplies the pure-MgSiO3 topology reused as a proxy
-by the latter. The original acquisition route was not authenticated. The
-[ICSD May 2021 terms](https://icsd.products.fiz-karlsruhe.de/sites/default/files/ICSD/documents/terms/ICSD_AGB_E_2021.pdf),
-section 2.5, restrict onward use and powder-pattern collections. Those terms
-are evidence of the acquisition issue, not proof that an unidentified contract
-applied to these particular coordinates.
+The [COD replacement follow-up](post-perovskite-cod-replacement.md) reacquired
+both structural inputs from CC0 COD 9009217, AMCSD 0015437. Three freshly
+retrieved CIF versions agree except for SVN Date/URL comments. The new source
+regenerates every prior cell/site number exactly. The data identify ab initio
+coordinates using the observed 121 GPa, 300 K cell; they are not experimentally
+refined positions. The natural Fe-bearing material retains its explicitly
+limited pure-MgSiO3 topology proxy. Original full records, previous rights
+reviews and source evidence are private, checksummed preservation copies.
 
-**Action:** establish an exact primary-publication/open-deposit lineage for
-the stored topology, or obtain suitable permission. Scaling the lattice does
-not resolve rights in the acquired topology. No live ICSD access or contract
-acceptance was used in this review. Coesite-V's mention of ICSD documents an
-unsuccessful source search: it has no lattice, sites or peaks and is not a
-third ICSD structure.
+This resolves the current distribution input by independent open-source
+acquisition, not by claiming a new license for the historical ICSD path.
+Coesite-V still has no structural model and is not an additional ICSD input.
 
 ## Distribution and preservation
 
-The three previously reviewed, checksum-bound COD resources retain their
+The four reviewed, checksum-bound COD resources retain their
 recorded source declaration. COD's [current mirror](https://cod.psdi.ac.uk/)
 confirms a CC0 dedication of the data and database. The new review does not
 extend it to other inline COD references without a verified resource binding.
@@ -180,7 +176,7 @@ privately preserved and excluded; it is not reinstated.
 The runtime and optional packages ship this review and the scoped compilation
 and Dioptas notices. The optional package still selects 451 material plus two
 Barker entries, using 392 CSV resources. Its original five holds are unchanged.
-The 19 components needing further review above remain in the current runtime
+The 17 components needing further review above remain in the current runtime
 export; this commit documents them rather than silently changing scientific
 content. They need resolution or explicit downstream exclusion before claiming
 an entirely cleared runtime archive. Neither the optional split nor this
@@ -188,8 +184,7 @@ assessment is Debian approval. Published 0.17.3/0.17.4 archives remain unchanged
 
 Original material files, observation resources, historical scientific reports,
 the original inventory, pinned upstream files, and freshly retrieved policy/
-THERMOCALC evidence are preserved. Only newly written notices, review metadata,
-inventory outputs, documentation, tests and packaging notice inclusion change.
+THERMOCALC evidence are preserved. The later COD replacement changes only two material source/notes blocks and adds the attributed CIF; original model values and all scientific findings are preserved. Notices, review metadata, inventory outputs, documentation, tests and packaging notice inclusion record these boundaries.
 
 Repository maintenance checks:
 

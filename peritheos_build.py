@@ -234,6 +234,7 @@ def stage_core(destination, root=ROOT):
         "brucite-zigan-1967-cod-1000054.cif",
         "vanadium-james-1960-9012770.cif",
         "superhydrous-phase-b-koch-muller-2005-mkm0105.cif",
+        "mgsio3-post-perovskite-murakami-2004-cod-9009217.cif",
         "cod-cif-sources.LICENSE.md",
         "dioptas-materials.LICENSE.md",
         "eos-structure-compilations.LICENSE.md",
