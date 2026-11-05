@@ -8,7 +8,26 @@ from pathlib import Path
 
 import pytest
 
-from scripts.generate_rust_notices import OUTPUT, crate_notices, dependency_roles
+from scripts.generate_rust_notices import (
+    OUTPUT,
+    ROOT,
+    crate_notices,
+    dependency_roles,
+    lock_checksums,
+)
+
+
+@pytest.mark.parametrize("ending", [b"\n", b"\r\n"])
+def test_locked_checksums_preserve_the_audited_registry_set_with_either_ending(ending):
+    lock = (ROOT / "Cargo.lock").read_bytes().replace(b"\r\n", b"\n")
+    checksums = lock_checksums(lock.replace(b"\n", ending))
+    manifest = json.loads((OUTPUT / "manifest.json").read_bytes())
+    assert len(manifest["packages"]) == 47
+    for package in manifest["packages"]:
+        assert (
+            checksums[(package["crate"], package["version"])]
+            == package["archive_sha256"]
+        )
 
 
 def test_committed_notices_are_complete_and_hash_bound():

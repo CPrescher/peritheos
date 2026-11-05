@@ -2,6 +2,8 @@
 *.eosmat text eol=lf
 # Audit reports also fingerprint their Python source bytes.
 *.py text eol=lf
+# The notice audit parses and fingerprints the locked dependency versions.
+Cargo.lock text eol=lf
 peritheos/data/datasets/klb1-ricolleau-2009-table-s1.tsv text eol=lf whitespace=-blank-at-eol,-blank-at-eof
 # JSON audit resources have byte-level provenance hashes.
 *.json text eol=lf

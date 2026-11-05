@@ -144,7 +144,7 @@ def crate_notices(package, expected_checksum):
 
 def lock_checksums(content):
     result = {}
-    for block in content.decode().split("[[package]]")[1:]:
+    for block in content.decode("utf-8").replace("\r\n", "\n").split("[[package]]")[1:]:
         fields = dict(re.findall(r'^([a-z_-]+) = "([^"]*)"$', block, re.M))
         if "checksum" in fields:
             result[(fields["name"], fields["version"])] = fields["checksum"]

@@ -110,6 +110,16 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      # Older release tags predate the Cargo.lock LF attribute. Restore the
+      # exact Git blob before exporting and checking those tagged sources.
+      - name: Restore locked source bytes on Windows
+        if: runner.os == 'Windows'
+        shell: python
+        run: |
+          from pathlib import Path
+          import subprocess
+          Path("Cargo.lock").write_bytes(subprocess.check_output(["git", "show", "HEAD:Cargo.lock"]))
+
       - name: Export runtime source on host
         if: runner.os != 'Linux'
         run: python peritheos_build.py core --output .packaging/core
