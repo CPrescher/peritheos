@@ -6,7 +6,7 @@ optional `peritheos-datasets` package selected by `peritheos[datasets]`. Each ha
 own source archive. The runtime archive installs a shorter, scope-specific
 version of this guide. The source inventory below describes research resources,
 not a claim that every resource is installed by either package. This split is
-unreleased; previously published 0.17.4 archives are unchanged.
+introduced in 0.18.0; previously published 0.17.4 archives are unchanged.
 
 Peritheos code uses the **MIT (Expat) license**. The scientific data bundled
 with that code have **source-specific terms**. An article citation establishes

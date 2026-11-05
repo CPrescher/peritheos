@@ -41,8 +41,11 @@ source archive. `packages/peritheos-datasets/datasets.json` is the reviewed
 allowlist, with exact declaration fingerprints and source scopes. Changed
 declarations or resource hashes fail the export. Adding datasets requires a
 source-rights review and an explicit allowlist edit; neighboring artifacts are
-not copied. The initial selection has 44 entries. Mixed author/literature,
-unresolved and NC/ND sources remain excluded.
+not copied. The reviewed selection contains 451 material entries plus two supporting-study
+entries, using 392 CSV resources. Admission distinguishes source grants from
+scoped numerical-content assessments and retains original NC/ND source notices.
+Five original material entries remain held; the installed review records their
+exact identifiers and reasons.
 
 `peritheos[datasets]` requests the optional dependency declared under
 `[project.optional-dependencies]`; `datasets` is not a second library build. Pin

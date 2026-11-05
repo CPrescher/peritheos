@@ -5,6 +5,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.18.0] - 2026-11-05
+
+**Installation change:** `pip install peritheos` installs EOS calculations,
+structures and parameters. Use `pip install "peritheos[datasets]"` to add the
+matching optional observation package. Existing installations that use bundled
+observation values should install the extra when upgrading.
+
 ### Added
 
 - Add typed supporting-study dataset access through `list_studies()`,
@@ -70,7 +77,7 @@ All notable changes to Peritheos are documented here. The project follows
   source archives without mutating the checkout.
   Missing optional data report installation/source guidance. No runtime network
   access or automatic download is introduced. This changes default observation
-  availability; the split has not yet been released.
+  availability; the two distributions are released together at the same version.
 
 ### Fixed
 
@@ -1641,7 +1648,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.17.3...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.18.0...HEAD
+[0.18.0]: https://github.com/CPrescher/peritheos/compare/v0.17.4...v0.18.0
 [0.17.3]: https://github.com/CPrescher/peritheos/compare/v0.17.2...v0.17.3
 [0.17.2]: https://github.com/CPrescher/peritheos/compare/v0.17.1...v0.17.2
 [0.17.1]: https://github.com/CPrescher/peritheos/compare/v0.17.0...v0.17.1

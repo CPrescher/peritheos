@@ -118,7 +118,7 @@ from peritheos.uncertainty import (
     PredictionUncertainty,
 )
 
-__version__ = "0.17.4"
+__version__ = "0.18.0"
 
 from peritheos.studies import get_study_dataset, get_study_document, list_studies
 
