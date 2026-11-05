@@ -1,7 +1,7 @@
 {
   "schema": "peritheos.optional-datasets.v1",
   "reviewed_on": "2026-11-05",
-  "scope": "Explicit source grants and separately bound numerical assessments: 451 admitted material entries. Includes a new partial primary-source calibration graph and new relative NNO pressure integral, not regenerated absolute Campbell tables or the held S8 compilation. All five original holds remain. No source permission or scientific qualification is broadened.",
+  "scope": "Explicit source grants and separately bound numerical assessments: 451 admitted material entries. Includes a new partial primary-source calibration graph and new relative NNO pressure integral, not regenerated absolute Campbell tables or the held S8 compilation. All five original holds remain. No source permission or scientific qualification is broadened. Also admits two Barker supporting-study entries through a separately bound study namespace. Material count 451 and five original material-entry holds remain; total selection 453.",
   "datasets": [
     {
       "material": "al_bearing_phase_d",
@@ -4842,6 +4842,28 @@
   ],
   "redistribution_review": {
     "path": "docs/data/numerical-redistribution-review.json",
-    "sha256": "846edf5f1a9405d5da62cb701be326b783a294efc2661cf963f6ae31721e9ca9"
-  }
+    "sha256": "04e13da22164ca6b3b748375c951fcb13d67d20119bc09c7e030639f12796345"
+  },
+  "study_datasets": [
+    {
+      "study": "argon_barker_1987",
+      "dataset": "argon_barker_1987_table1_liquid",
+      "declaration_sha256": "971695e506929357279cc49e9ca20028e4a0026c6d85e538d36662f02959ddb0",
+      "source_status": "limited_or_unspecified_source",
+      "redistribution_basis": "supporting_study_numerical_assessment",
+      "review_key": "study/argon_barker_1987/argon_barker_1987_table1_liquid",
+      "rights_evidence": "docs/data/barker-1987-redistribution.json",
+      "scope": "Typed access to preserved liquid/theoretical/digitized numerical evidence, no executable Barker EOS or new source grant."
+    },
+    {
+      "study": "argon_barker_1987",
+      "dataset": "argon_barker_1987_figure5_selected",
+      "declaration_sha256": "33d6c65af404794313247b30ffe7a5035a130644c79ab415dd5eb3139080f770",
+      "source_status": "limited_or_unspecified_source",
+      "redistribution_basis": "supporting_study_numerical_assessment",
+      "review_key": "study/argon_barker_1987/argon_barker_1987_figure5_selected",
+      "rights_evidence": "docs/data/barker-1987-redistribution.json",
+      "scope": "Typed access to preserved liquid/theoretical/digitized numerical evidence, no executable Barker EOS or new source grant."
+    }
+  ]
 }

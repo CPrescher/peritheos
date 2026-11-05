@@ -28,7 +28,7 @@ the built-in categories used before the hierarchy was introduced, so existing
 | `MaterialError` | `ValidationError` | invalid material or EOS record |
 | `MaterialLookupError` | `KeyError` | unknown material or record identifier |
 | `DatasetError` | `ValidationError` | invalid dataset loading, ambiguous columns, or unsupported conversion |
-| `DatasetLookupError` | `KeyError` | unknown dataset or column identifier |
+| `DatasetLookupError` | `KeyError` | unknown study, dataset or column identifier |
 
 The classes are available from `peritheos` and `peritheos.errors`. Every
 instance provides:
@@ -70,6 +70,7 @@ reports integrity and media-type failures. Examples are listed below.
 |---|---|
 | `dataset.invalid` | dataset metadata, column selection, or conversion is invalid |
 | `dataset.not_found` | dataset or column identifier does not exist |
+| `dataset.study_not_found` | supporting-study identifier does not exist in the typed study collection |
 | `dataset.checksum_mismatch` | resource bytes do not match the declared SHA-256 checksum |
 | `dataset.package_not_installed` | optional observation values are absent; install `peritheos[datasets]` for selected datasets |
 | `dataset.not_distributed` | the requested source is outside the optional package's explicit selection |

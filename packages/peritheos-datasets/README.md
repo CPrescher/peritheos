@@ -5,7 +5,8 @@ Install `peritheos[datasets]` to request the matching data package. Installing
 `peritheos` alone supplies structures, EOS parameters and scientific provenance
 without experimental observations. Neither installation downloads data at runtime.
 
-The explicit policy selects 451 material dataset entries: 44 with previously
+The explicit policy selects 451 material dataset entries plus two Barker
+supporting-study entries (453 total). The material selection comprises: 44 with previously
 recorded source/author terms, 363 admitted after a numerical factual-content
 assessment, one newly verified CC BY 4.0 deposit extraction, three author datasets
 with separately assessed numerical literature inputs, and four separately named
@@ -26,7 +27,11 @@ all-rights-reserved terms; their installed scoped notice explains the numerical
 and collection assessments, source-access limits and downstream qualifications.
 The new Campbell entries are calculated approximations, not the original
 integration tables; their source mismatch and scientific limitations remain explicit.
-Two further supporting-study entries remain outside this package interface.
+Barker Table I (seven liquid comparison rows) and selected Figure 5 readouts
+(21 theoretical curve samples, 11 Ross experimental marks) are admitted after
+a separate numerical-content assessment. Use `get_study_dataset()`; no crystal
+phase or executable Barker EOS is inferred. Its source publication copyright
+and unknown data-grant status remain explicit in the installed notice and review.
 
 Factual-content admission is a maintainer assessment, not a new source license,
 legal opinion or Debian approval. Unspecified source terms remain unspecified.

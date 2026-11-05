@@ -125,6 +125,46 @@ def runtime_document(original):
     return doc
 
 
+def runtime_study_document(original):
+    """Keep public study context and declarations, excluding private audit history."""
+    keys = (
+        "identifier",
+        "record_kind",
+        "formula",
+        "reference",
+        "determination_method",
+        "model_description",
+        "model_description_source",
+        "temperature_k",
+        "temperature_role",
+        "phase",
+        "phase_status",
+        "volume_normalization",
+        "reference_pressure_gpa",
+        "reference_volume",
+        "parameter_uncertainties",
+        "simulation_pressure_range_gpa",
+        "simulation_volume_range",
+        "parameter_uncertainties_status",
+        "experimental_comparison",
+        "comparisons",
+        "reproduction",
+        "redistribution_review",
+    )
+    doc = _summary({k: original[k] for k in keys if k in original})
+    doc["datasets"] = copy.deepcopy(original["datasets"])
+    for dataset in doc["datasets"]:
+        if "rows" in dataset:
+            raise ValueError("Study export currently requires checksum-bound resources")
+        dataset["distribution"] = {
+            "storage": "optional",
+            "package": "peritheos-datasets",
+            "note": "Declaration only; numerical values are optional.",
+        }
+    doc["source_url"] = "https://doi.org/" + original["reference"]["doi"]
+    return doc
+
+
 def stage_core(destination, root=ROOT):
     """Create a standalone source tree; never mutate the scientific checkout."""
     destination = Path(destination).resolve()
@@ -182,6 +222,11 @@ def stage_core(destination, root=ROOT):
             write_json(materials / path.name, runtime_document(original))
         elif path.name in ("__init__.py", "manifest.json"):
             shutil.copy2(path, materials / path.name)
+    for path in (root / "peritheos/data/studies").glob("*.json"):
+        original = json.loads(path.read_bytes())
+        datasets = original.get("datasets", [])
+        if datasets and all("columns" in d for d in datasets):
+            write_json(data / "studies" / path.name, runtime_study_document(original))
     # Structural CIFs and their scoped notices remain; no experimental tables.
     cifs = data / "datasets"
     cifs.mkdir()
@@ -250,7 +295,11 @@ def stage_datasets(destination, root=ROOT):
                 "Numerical redistribution review changed; review the policy binding"
             )
         review = json.loads(payload)
-        reviewed_entries = {e["review_key"]: e for e in review["entries"]}
+        reviewed_entries = {
+            e["review_key"]: e
+            for e in review["entries"] + review.get("supporting_studies", [])
+            if "review_key" in e
+        }
         write_json(package / "redistribution-review.json", review)
     definitions = {}
     resource_hashes = {}
@@ -311,6 +360,45 @@ def stage_datasets(destination, root=ROOT):
             resource_hashes[relative] = checksum
     for name, datasets in definitions.items():
         write_json(package / "declarations" / f"{name}.json", datasets)
+    study_definitions = {}
+    for entry in policy.get("study_datasets", []):
+        # A study is its own scope; it must never borrow a material approval.
+        assessment = reviewed_entries.get(entry.get("review_key"), {})
+        if "material" in entry or not (
+            assessment.get("decision") == "admit"
+            and assessment.get("basis") == entry.get("redistribution_basis")
+            and assessment.get("study") == entry["study"]
+            and assessment.get("dataset") == entry["dataset"]
+            and assessment.get("source_status") == entry["source_status"]
+            and assessment.get("declaration_sha256") == entry["declaration_sha256"]
+        ):
+            raise ValueError(f"Unapproved supporting-study scope: {entry['dataset']}")
+        documents = [
+            json.loads(path.read_bytes())
+            for path in (root / "peritheos/data/studies").glob("*.json")
+        ]
+        document = next(d for d in documents if d["identifier"] == entry["study"])
+        ds = next(
+            d for d in document["datasets"] if d["identifier"] == entry["dataset"]
+        )
+        if digest(ds) != entry["declaration_sha256"] or ds.get(
+            "resource"
+        ) != assessment.get("resource"):
+            raise ValueError(
+                f"Supporting-study declaration changed: {entry['dataset']}"
+            )
+        resource = ds["resource"]
+        relative = resource["path"]
+        source = root / "peritheos/data" / relative
+        if hashlib.sha256(source.read_bytes()).hexdigest() != resource["sha256"]:
+            raise ValueError(f"Supporting-study resource changed: {relative}")
+        target = package / "data" / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
+        resource_hashes[relative] = resource["sha256"]
+        study_definitions.setdefault(entry["study"], []).append(ds)
+    for name, datasets in study_definitions.items():
+        write_json(package / "study-declarations" / f"{name}.json", datasets)
     registry = json.loads(
         (root / "peritheos/data/observation-views.json").read_text(encoding="utf-8")
     )
@@ -328,6 +416,9 @@ def stage_datasets(destination, root=ROOT):
             "policy": policy,
             "resources": resource_hashes,
             "dataset_count": len(policy["datasets"]),
+            "study_dataset_count": len(policy.get("study_datasets", [])),
+            "total_dataset_count": len(policy["datasets"])
+            + len(policy.get("study_datasets", [])),
         },
     )
     # Retain all scoped legal notices, never the neighboring source artifacts.

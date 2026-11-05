@@ -93,6 +93,34 @@ identifier. A two-value range uses `range_semantics="contains"` by default;
 metadata do not satisfy a range filter. See [Material
 catalog](catalog.md) for signatures and examples.
 
+## Supporting-study datasets
+
+`list_studies() -> tuple[str, ...]` lists supporting studies with typed dataset
+declarations. This discovery is separate from material/EOS lookup and excludes
+prose-only research records. `get_study_document(identifier) -> dict` returns an
+independent metadata copy, retaining phase uncertainty and scientific limitations.
+Core installations include public study context and declarations; private source
+acquisition history and numerical CSV values are outside that export.
+
+`get_study_dataset(study, identifier) -> Dataset` loads the named numerical table
+through the same checksum, read-only-array and optional-package/version checks
+as material datasets. No EOS or phase is inferred from a supporting study.
+Unknown studies raise `DatasetLookupError` with `dataset.study_not_found`;
+unknown dataset identifiers use `dataset.not_found`.
+
+```python
+from peritheos import get_study_dataset
+
+liquid = get_study_dataset("argon_barker_1987", "argon_barker_1987_table1_liquid")
+assert len(liquid) == 7
+assert liquid.metadata["phase"] == "liquid"
+print(liquid["pv_over_nkt"])
+```
+
+This installed example requires `peritheos[datasets]`. See the
+[Barker source/rights review](research/barker-1987-redistribution.md) for the
+liquid comparison and selected graphical dataset qualifications.
+
 ## Observation datasets
 
 ```python

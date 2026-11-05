@@ -120,11 +120,16 @@ from peritheos.uncertainty import (
 
 __version__ = "0.17.4"
 
+from peritheos.studies import get_study_dataset, get_study_document, list_studies
+
 __all__ = [
     "CalibrationPathRecalculation",
     "CommonPressureCalibrationRoutes",
     "ConfigurationError",
     "Dataset",
+    "get_study_dataset",
+    "get_study_document",
+    "list_studies",
     "DatasetColumn",
     "DatasetError",
     "DatasetLookupError",

@@ -136,6 +136,11 @@ def test_optional_export_is_exactly_allowlisted_and_source_preserving(tmp_path):
             assert (package / "data" / name).read_bytes() == (
                 ROOT / "peritheos/data" / name
             ).read_bytes()
+    expected_files.update(
+        e["resource"]["path"]
+        for e in review.get("supporting_studies", [])
+        if e["decision"] == "admit"
+    )
     actual_files = {
         p.relative_to(package / "data").as_posix()
         for p in (package / "data").rglob("*")

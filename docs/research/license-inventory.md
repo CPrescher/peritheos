@@ -86,6 +86,13 @@ two views of a relative NNO pressure integral. The catalog now has 456 entries,
 rights are CC0 scoped to those contributions; no original source is relicensed.
 These are not complete S8/absolute Campbell reproductions.
 
+The [Barker follow-up](barker-1987-redistribution.md) separately reviews and admits
+two supporting-study resources, outside the material-component counts below.
+There are now 451 selected material entries plus two study entries, using 392
+CSV resources. Their source terms remain unspecified for numerical reuse;
+current file-level scopes and the installed `barker_review` record the factual
+assessment and contributor-only new metadata dedication. Both CSVs stay unchanged.
+
 ## Dataset findings
 
 | Local status | Entries | Meaning |

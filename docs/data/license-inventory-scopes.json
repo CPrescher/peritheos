@@ -698,6 +698,24 @@
       "scope": "Article/supplement license declaration; numerical-fact applicability needs assessment.",
       "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
       "local_only": false
+    },
+    {
+      "id": "barker-1987-reviewed-numerical-content",
+      "files": [
+        "peritheos/data/datasets/argon-barker-1987-table1-liquid.csv",
+        "peritheos/data/datasets/argon-barker-1987-figure5-selected.csv"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "No source open-data grant established; contributor-held newly added metadata/annotations CC0 only",
+      "evidence": [
+        "docs/data/barker-1987-redistribution.json",
+        "peritheos/data/datasets/argon-barker-1987.LICENSE.md",
+        "https://doi.org/10.1063/1.452187",
+        "https://doi.org/10.1063/1.451346"
+      ],
+      "scope": "Two numerical supporting-study excerpts admitted under their bound factual-content assessments. No source publication or artwork relicense. Original theoretical/experimental, liquid/solid and graphical-bound qualifications retained.",
+      "action": "Retain source attribution and scoped notices; do not present digitization as exact original measurements or independent Monte Carlo reproduction.",
+      "local_only": true
     }
   ]
 }

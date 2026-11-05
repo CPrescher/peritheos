@@ -163,7 +163,8 @@ Scientific reconstruction limitations and published EOS coefficients remain.
 
 Five material entries remain held: Sakai Table S8 (one CSV) and four views of
 the original Campbell integration-results collection (one shared CSV). The two
-Barker supporting-study entries remain outside the material-dataset interface;
-that is not a restrictive-license finding. No additional exclusion for Debian
+Barker supporting-study entries were outside the material-dataset interface at
+this review stage; their [subsequent review](barker-1987-redistribution.md) now
+admits both through a separate supporting-study interface. No additional exclusion for Debian
 is presumed here: core `peritheos` can be packaged without this optional dataset
 archive at all. The split remains unreleased and published 0.17.4 is unchanged.

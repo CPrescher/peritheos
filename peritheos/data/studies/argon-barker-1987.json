@@ -179,7 +179,63 @@
         "path": "datasets/argon-barker-1987-table1-liquid.csv",
         "sha256": "903909b3c54e10ff7550c70270cb3f3db7ee19af9e3af15b456de04c4d096dd1",
         "media_type": "text/csv"
-      }
+      },
+      "columns": [
+        {
+          "name": "label",
+          "quantity": "source_label",
+          "unit": "text",
+          "role": "flag"
+        },
+        {
+          "name": "determination_method",
+          "quantity": "determination_method",
+          "unit": "text",
+          "role": "flag"
+        },
+        {
+          "name": "temperature_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "value"
+        },
+        {
+          "name": "molar_volume_cm3_mol",
+          "quantity": "molar_volume",
+          "unit": "cm^3/mol",
+          "role": "value"
+        },
+        {
+          "name": "pv_over_nkt",
+          "quantity": "reduced_pressure",
+          "unit": "1",
+          "role": "value"
+        },
+        {
+          "name": "u_over_nkt",
+          "quantity": "reduced_internal_energy",
+          "unit": "1",
+          "role": "value"
+        }
+      ],
+      "reference": {
+        "authors": [
+          "Barker"
+        ],
+        "year": 1987,
+        "title": "High pressure equation of state for solid argon from interatomic potentials",
+        "source": "The Journal of Chemical Physics",
+        "volume": "86",
+        "issue": "3",
+        "locator": "1509-1511",
+        "doi": "10.1063/1.452187"
+      },
+      "used_by_eos_records": [],
+      "source_rights": "Source publication copyright 1987 American Institute of Physics; no separate open dataset grant established.",
+      "contributor_license": "CC0-1.0",
+      "license_scope": "CC0 dedication covers only contributor-held rights in newly added typed column metadata and review annotations. Source publications, original results, artwork and any third-party collection rights are not relicensed. Admission rests on a scoped numerical-content assessment.",
+      "rights_notice": "datasets/argon-barker-1987.LICENSE.md",
+      "notes": "All seven liquid rows, including one experimental comparator of unreported upstream origin and six theoretical results. 100 K and 27.04 cm3/mol; all source values include quantum corrections. No uncertainties reported; not a solid compression series or seven new experiments."
     },
     {
       "identifier": "argon_barker_1987_figure5_selected",
@@ -217,7 +273,106 @@
         "bound_interpretation": "conservative digitization bound, not statistical or experimental error",
         "coverage": "selected visually separable circles; merged symbols omitted",
         "experimental_origin_doi": "10.1063/1.451346"
-      }
+      },
+      "columns": [
+        {
+          "name": "point_id",
+          "quantity": "source_identifier",
+          "unit": "identifier",
+          "role": "flag"
+        },
+        {
+          "name": "series",
+          "quantity": "source_series",
+          "unit": "text",
+          "role": "flag"
+        },
+        {
+          "name": "determination_method",
+          "quantity": "determination_method",
+          "unit": "text",
+          "role": "flag"
+        },
+        {
+          "name": "temperature_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "value"
+        },
+        {
+          "name": "pixel_x",
+          "quantity": "digitization_coordinate",
+          "unit": "pixel",
+          "role": "value"
+        },
+        {
+          "name": "pixel_y",
+          "quantity": "digitization_coordinate",
+          "unit": "pixel",
+          "role": "value"
+        },
+        {
+          "name": "molar_volume_cm3_mol",
+          "quantity": "molar_volume",
+          "unit": "cm^3/mol",
+          "role": "value"
+        },
+        {
+          "name": "pressure_kbar",
+          "quantity": "pressure",
+          "unit": "kbar",
+          "role": "value"
+        },
+        {
+          "name": "pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "volume_atomic_a3",
+          "quantity": "atomic_volume",
+          "unit": "angstrom^3/atom",
+          "role": "value"
+        },
+        {
+          "name": "digitization_bound_molar_volume_cm3_mol",
+          "quantity": "molar_volume",
+          "unit": "cm^3/mol",
+          "role": "bound",
+          "of": "molar_volume_cm3_mol"
+        },
+        {
+          "name": "digitization_bound_pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "bound",
+          "of": "pressure_gpa"
+        }
+      ],
+      "reference": {
+        "authors": [
+          "Barker"
+        ],
+        "year": 1987,
+        "title": "High pressure equation of state for solid argon from interatomic potentials",
+        "source": "The Journal of Chemical Physics",
+        "volume": "86",
+        "issue": "3",
+        "locator": "1509-1511",
+        "doi": "10.1063/1.452187"
+      },
+      "used_by_eos_records": [],
+      "source_rights": "Source publication copyright 1987 American Institute of Physics; no separate open dataset grant established.",
+      "contributor_license": "CC0-1.0",
+      "license_scope": "CC0 dedication covers only contributor-held rights in newly added typed column metadata and review annotations. Source publications, original results, artwork and any third-party collection rights are not relicensed. Admission rests on a scoped numerical-content assessment.",
+      "rights_notice": "datasets/argon-barker-1987.LICENSE.md",
+      "notes": "Selected quantitative coordinates only: 21 samples of a published theoretical curve and 11 Ross1986 experimental comparison marks. No source pixels, drawn paths or copied figure layout. Graphical picking bounds are not experimental standard deviations. Solid phase is unspecified; no Monte Carlo reproduction or fit is performed."
     }
-  ]
+  ],
+  "redistribution_review": {
+    "report": "docs/research/barker-1987-redistribution.md",
+    "notice": "datasets/argon-barker-1987.LICENSE.md",
+    "scope": "Numerical-content assessment, not a source license grant or independent model reproduction."
+  }
 }

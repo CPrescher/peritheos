@@ -31,10 +31,12 @@ their recorded source terms. A listed dataset identifier is not a promise that
 its observations are included in the optional package. Material metadata links
 the source evidence through `data_availability`.
 
-The current selection contains 451 material dataset entries. The
+The current selection contains 451 material dataset entries plus two Barker
+supporting-study entries (453 total, 392 CSV resources). The
 [numerical redistribution review](research/numerical-dataset-redistribution.md)
 distinguishes source grants from factual-content assessments and lists five held
-material entries and two deferred supporting-study entries. The [Morard/Campbell follow-up](research/morard-campbell-redistribution-followup.md)
+material entries. The [Barker follow-up](research/barker-1987-redistribution.md)
+admits its two numerical resources through a separate study namespace. The [Morard/Campbell follow-up](research/morard-campbell-redistribution-followup.md)
 records the subsequent source tracing and independently calculated tables.
 The [collection review](research/shen-historical-redistribution-review.md) admits
 the Shen/Smith numerical record and two fixed historical excerpts without
@@ -48,6 +50,26 @@ contribution. The latter lacks an absolute Gibbs baseline; it is not the full
 source buffer table. These three new declarations bring the catalog to 456 entries.
 An admission does not
 turn unspecified source terms into an open license or establish Debian acceptance.
+
+Supporting studies are available without inventing a material or executable EOS:
+
+```python
+from peritheos import get_study_dataset, get_study_document, list_studies
+
+assert "argon_barker_1987" in list_studies()
+study = get_study_document("argon_barker_1987")
+assert study["reproduction"]["status"] == "not_reproduced"
+liquid = get_study_dataset("argon_barker_1987", "argon_barker_1987_table1_liquid")
+figure = get_study_dataset("argon_barker_1987", "argon_barker_1987_figure5_selected")
+assert len(liquid) == 7 and len(figure) == 32
+```
+
+The liquid table mixes one experimental comparator and six theoretical results.
+The figure data preserve 21 theoretical-curve samples and 11 Ross experimental
+marks; their bounds describe digitization, not experimental errors. No Monte
+Carlo reproduction or fitted Barker EOS is supplied. As with material datasets,
+core metadata remain discoverable while optional values require matching package
+versions. Repository/editable access retains the original resources.
 
 For reuse and redistribution, see [code and data licensing](licensing.md).
 Dataset source terms are separate from the library's MIT code license.

@@ -17,6 +17,12 @@ three separately named, explicitly partial generated declarations.
 the initial 409-of-449 review; the bound JSON ledger includes the follow-up.
 Original Campbell integration results remain held.
 
+The [Barker supporting-study follow-up](barker-1987-redistribution.md) now admits
+its two unchanged numerical resources through a separate study namespace.
+The material counts above stay unchanged; total selection is 453 entries
+(451 material plus two study entries), using 392 CSV resources. Earlier
+supporting-study deferrals below describe the initial review stage.
+
 ## Initial selection
 
 `peritheos[datasets]` now selects **409 of 449 material dataset entries**, up from

@@ -4,7 +4,8 @@ The unreleased distribution split makes experimental observations optional:
 `pip install peritheos` supplies the library, structures and EOS parameters;
 `pip install "peritheos[datasets]"` additionally installs `peritheos-datasets`.
 The two packages have separate source archives. The optional package contains
-451 explicitly selected material dataset entries, including separately assessed
+451 explicitly selected material dataset entries and two Barker supporting-study
+entries, including separately assessed
 numerical transcriptions. Source grants and factual-content assessments remain
 distinct; unspecified source terms are not relabeled open. Five material entries
 remain held: Sakai Table S8 and four views of the original Campbell integration collection. The [numerical redistribution review](research/numerical-dataset-redistribution.md)
@@ -58,6 +59,13 @@ platform roles and audited release compiler. License texts, additional source
 attributions and the full standard-library copyright document ship in both
 package formats and their license metadata. Extra native libraries trigger a
 new audit through the installed smoke check.
+
+The [Barker review](research/barker-1987-redistribution.md) admits two unchanged
+numerical resources through the supporting-study interface. No open source-data
+grant was found; inclusion relies on the scoped numerical-content assessment.
+Only newly added contributor-held metadata/annotations receive a CC0 dedication.
+The source artwork/PDF, absent crystal-phase identity and unreproduced Monte
+Carlo implementation are not supplied or relabeled by the admission.
 
 A [Morard author-data permission template](research/morard-data-permission-template.md)
 is available for file-specific confirmation. It is an unsigned draft and does

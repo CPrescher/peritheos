@@ -12,6 +12,13 @@ it does not print a self-contained numerical EOS or the potential coefficients.
 The `peritheos/data/studies/argon-barker-1987.json` now includes
 checksummed numerical assets rather than an abstract-only record.
 
+The [5 November redistribution follow-up](../research/barker-1987-redistribution.md)
+admits both unchanged numerical resources to the unreleased optional package,
+with separate typed supporting-study access. The material/EOS catalog and the
+scientific findings below are unchanged; source permission is not inferred.
+The historical source path later in this report is no longer present. The current
+Zotero copy matches the original PDF hash and is preserved in the private audit.
+
 ## Actual calculation and reference state
 
 Section II, p. 1509, uses Monte Carlo with the Barker–Fisher–Watts pair potential

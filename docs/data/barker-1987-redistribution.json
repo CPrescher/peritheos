@@ -1,0 +1,126 @@
+{
+  "schema": "peritheos.barker-redistribution.v1",
+  "reviewed_on": "2026-11-05",
+  "baseline_commit": "58f2090b",
+  "catalog_scientific_sha256": "cfa0fff415cf0b01eb3fb2f59edfe177aba3b0153d0a78b38cf474f4a6167240",
+  "study": "argon_barker_1987",
+  "original_study_sha256": "ef876eece39c97e42e68daa68c3fbcd6160d20d0f8ee8f088970d81709223f31",
+  "current_study_sha256": "e072ac5500d1960f15a6837fd2617d93a4f7a6dff98fa428ab9deb2121238c81",
+  "added_study_fields": [
+    "redistribution_review"
+  ],
+  "original_dataset_fields": {
+    "argon_barker_1987_table1_liquid": [
+      "identifier",
+      "phase",
+      "kind",
+      "description",
+      "source_location",
+      "source_pdf_sha256",
+      "resource"
+    ],
+    "argon_barker_1987_figure5_selected": [
+      "identifier",
+      "phase",
+      "kind",
+      "description",
+      "source_location",
+      "source_pdf_sha256",
+      "resource",
+      "digitization"
+    ]
+  },
+  "original_study_fields": [
+    "identifier",
+    "record_kind",
+    "formula",
+    "reference",
+    "determination_method",
+    "model_description",
+    "model_description_source",
+    "temperature_k",
+    "temperature_role",
+    "phase",
+    "phase_status",
+    "reference_pressure_gpa",
+    "reference_volume",
+    "volume_normalization",
+    "parameter_uncertainties",
+    "simulation_pressure_range_gpa",
+    "simulation_volume_range",
+    "experimental_comparison",
+    "comparisons",
+    "reproduction",
+    "source_audit",
+    "additional_isotherms_k",
+    "parameter_uncertainties_status",
+    "plot_axes",
+    "datasets"
+  ],
+  "declaration_bindings": {
+    "study/argon_barker_1987/argon_barker_1987_table1_liquid": "971695e506929357279cc49e9ca20028e4a0026c6d85e538d36662f02959ddb0",
+    "study/argon_barker_1987/argon_barker_1987_figure5_selected": "33d6c65af404794313247b30ffe7a5035a130644c79ab415dd5eb3139080f770"
+  },
+  "resource_bindings": {
+    "datasets/argon-barker-1987-table1-liquid.csv": "903909b3c54e10ff7550c70270cb3f3db7ee19af9e3af15b456de04c4d096dd1",
+    "datasets/argon-barker-1987-figure5-selected.csv": "eab4edc17dc8a0f944a7fb69610299594d931c5153f497c33811cdb48fce645e"
+  },
+  "source_evidence": {
+    "barker_pdf_sha256": "d8a43b6186bdfbeaa00b8113e5275efe396bf44bab2fc4664fa6a68c2d6a6b98",
+    "ross_pdf_sha256": "8f5f50ab785adb5f03c3d5769d1c3b91a0ec7c3e5eb3a1374faa273112aaf9c3",
+    "barker_doi": "10.1063/1.452187",
+    "ross_doi": "10.1063/1.451346",
+    "barker_inspected": "Fresh Zotero copy matches original user-supplied PDF SHA exactly. Table I on PDF page3 (printed1510), Figure5 on PDF page4 (printed1511), methods/references and copyright notice inspected; relevant pages rendered and visually checked.",
+    "ross_inspected": "Primary Ross 1986 PDF methods and experimental origin inspected. The plotted points remain digitized from Barker, not exact original Ross table rows. No pressure recalibration or uncertainty transfer is performed.",
+    "source_rights": "Barker primary PDF and IBM author-institution page identify copyright 1987 American Institute of Physics. No separate open-data grant located. Ross source grant not established. Copyright expiry, public-domain status or a new third-party license is not claimed.",
+    "acquisition": "Barker user-supplied provenance retained; Zotero copy identity does not establish the original acquisition contract. PDFs and rendered source pages remain private."
+  },
+  "cases": {
+    "argon_barker_1987_table1_liquid": {
+      "rows": 7,
+      "columns": [
+        "label",
+        "determination_method",
+        "temperature_k",
+        "molar_volume_cm3_mol",
+        "pv_over_nkt",
+        "u_over_nkt"
+      ],
+      "rationale": "Seven functional numerical comparison rows of pV/NkT and U/NkT at fixed 100 K and 27.04 cm3/mol, with ordinary potential labels. Six theoretical results and one experimental comparator of unspecified upstream origin remain distinct. The small numerical excerpt is assessed separately from original publication expression/selection, table design and caption; no separately protected substantial collection investment was established for these specific fields. This is not an automatic small-row-count exemption or proof of absent rights.",
+      "determination_counts": {
+        "experimental": 1,
+        "theoretical": 6
+      }
+    },
+    "argon_barker_1987_figure5_selected": {
+      "rows": 32,
+      "columns": [
+        "point_id",
+        "series",
+        "determination_method",
+        "temperature_k",
+        "pixel_x",
+        "pixel_y",
+        "molar_volume_cm3_mol",
+        "pressure_kbar",
+        "pressure_gpa",
+        "volume_atomic_a3",
+        "digitization_bound_molar_volume_cm3_mol",
+        "digitization_bound_pressure_gpa"
+      ],
+      "rationale": "Selected quantitative readout of 21 published theoretical-curve samples and 11 visually separable Ross 1986 experimental comparison circles. The file contains coordinate values, converted quantities and ordinary series labels, not source figure pixels, drawing paths, fitted potential software, caption or artwork. No source grant is inferred for the replot. The particular limited numerical-coordinate extraction is assessed separately from protected figure expression and independently protected collections. Upstream Ross attribution, omitted ambiguous symbols and graphical bounds remain explicit.",
+      "determination_counts": {
+        "experimental": 11,
+        "theoretical": 21
+      }
+    }
+  },
+  "limits": [
+    "Reasoned numerical-content admission, not a new source permission, legal opinion or proof that all copyright/database/contractual restrictions are absent.",
+    "CC0 covers only contributor-held rights in newly added typed metadata and review annotations. Source works and third-party rights are not dedicated.",
+    "No blanket scientific-data exemption, universal row-count threshold or copyright-expiry claim. Qualifying independent database rights remain separate from individual facts.",
+    "No source PDFs, source image pixels, artwork, captions, original table layout or vector drawing paths admitted.",
+    "Liquid experiment origin remains unspecified; solid Ross marks remain a selected graphical subset, not new Barker measurements.",
+    "Scientific status stays theoretical/not_reproduced; phase remains unspecified, no executable EOS added and no independent Monte Carlo reproduction claimed."
+  ]
+}

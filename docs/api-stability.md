@@ -15,6 +15,9 @@ are optional through `peritheos[datasets]`, which installs a matching
 `peritheos-datasets` version. Runtime dataset declarations remain discoverable;
 accessing absent values raises an actionable `DatasetError`, rather than
 returning an empty table. Not every research source is admitted to that package.
+Supporting studies with typed datasets have separate `list_studies()`,
+`get_study_document()` and `get_study_dataset()` access. They do not create
+material or EOS identities; scientific phase/model limitations remain explicit.
 
 This changes the default availability of bundled observation resources and
 detailed reconstruction evidence and must be identified prominently in the next

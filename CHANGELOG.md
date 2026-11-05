@@ -5,6 +5,17 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Add typed supporting-study dataset access through `list_studies()`,
+  `get_study_document()` and `get_study_dataset()`. Admit the two unchanged
+  Barker (1987) numerical resources after a source-specific redistribution
+  assessment: seven liquid comparison rows and 32 selected figure readouts.
+  Preserve theory/experiment roles, unspecified solid phase, graphical bounds,
+  source copyright and `not_reproduced` status. No executable Barker EOS is added.
+  Core installs retain public context; the version-matched optional package
+  supplies values, scoped notices and exact review/resource bindings.
+
 ### Changed
 
 - Split experimental observation values from the default Python distribution.

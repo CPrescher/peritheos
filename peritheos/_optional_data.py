@@ -27,7 +27,7 @@ def data_package():
     return resources.files("peritheos_datasets")
 
 
-def dataset_declarations(material):
+def _declarations(identifier, directory):
     try:
         package = data_package()
     except DatasetError as error:
@@ -38,8 +38,16 @@ def dataset_declarations(material):
         raise
     if package is None:
         return []
-    path = package.joinpath("declarations", material + ".json")
+    path = package.joinpath(directory, identifier + ".json")
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else []
+
+
+def dataset_declarations(material):
+    return _declarations(material, "declarations")
+
+
+def study_dataset_declarations(study):
+    return _declarations(study, "study-declarations")
 
 
 def unavailable_dataset(material, identifier, availability):

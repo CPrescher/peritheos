@@ -106,3 +106,12 @@ pressure increments by up to 0.0142591277 log units. No full absolute Campbell
 regeneration is claimed. Contributor-held new selection/output rights are CC0;
 source rights and all original scientific findings remain unchanged. Both held
 original resources remain excluded.
+
+## Barker supporting-study follow-up
+
+Two unchanged numerical resources are now admitted as supporting-study data:
+seven liquid comparison rows and 32 selected graphical readouts. See
+`argon-barker-1987.LICENSE.md` and installed `barker_review` for the exact scoped
+assessment. No source open-data grant was established or invented. New typed
+metadata/review annotations are contributor-only CC0. Original theory/experiment,
+phase, picking-bound, uncertainty and unreproduced-model qualifications remain.

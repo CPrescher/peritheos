@@ -5,7 +5,14 @@ import json
 from importlib import resources
 from importlib.metadata import version
 
-from peritheos import Dataset, get_material, get_material_document, observation_registry
+from peritheos import (
+    Dataset,
+    get_material,
+    get_material_document,
+    get_study_dataset,
+    get_study_document,
+    observation_registry,
+)
 from peritheos.observations import (
     observation_material_fingerprint,
     observation_source_fingerprint,
@@ -21,7 +28,12 @@ def main():
         hashlib.sha256(review_bytes).hexdigest()
         == manifest["policy"]["redistribution_review"]["sha256"]
     )
-    reviewed = {e["review_key"]: e for e in json.loads(review_bytes)["entries"]}
+    review = json.loads(review_bytes)
+    reviewed = {
+        e["review_key"]: e
+        for e in review["entries"] + review.get("supporting_studies", [])
+        if "review_key" in e
+    }
     held_files = {
         e["resource"]["path"]
         for e in reviewed.values()
@@ -35,8 +47,14 @@ def main():
             ).hexdigest()
             == checksum
         )
-    for entry in manifest["policy"]["datasets"]:
-        document = get_material_document(entry["material"])
+    for entry in manifest["policy"]["datasets"] + manifest["policy"].get(
+        "study_datasets", []
+    ):
+        document = (
+            get_study_document(entry["study"])
+            if "study" in entry
+            else get_material_document(entry["material"])
+        )
         declaration = next(
             d for d in document["datasets"] if d["identifier"] == entry["dataset"]
         )
@@ -60,6 +78,8 @@ def main():
         assert (
             hashlib.sha256(declaration_bytes).hexdigest() == entry["declaration_sha256"]
         )
+    for entry in manifest["policy"].get("study_datasets", []):
+        assert len(get_study_dataset(entry["study"], entry["dataset"])) > 0
     assert len(get_material("mgo").get_dataset("zhu_2025_mgo_pvt")) > 0
     for entry in observation_registry()["datasets"]:
         document = get_material_document(entry["material_id"])
@@ -72,7 +92,7 @@ def main():
             == entry["material_identity_sha256"]
         )
     print(
-        f"Optional data smoke passed: {manifest['dataset_count']} exact dataset declarations, {len(manifest['resources'])} resource files."
+        f"Optional data smoke passed: {manifest['dataset_count']} material and {manifest.get('study_dataset_count', 0)} study declarations, {len(manifest['resources'])} resource files."
     )
 
 
