@@ -73,7 +73,19 @@ def accepts_merge_binding(
         (ROOT / "docs/data/calculated-pattern-replacement.json").read_bytes()
     )
     structure = replacement["bindings"].get(context, {}).get(identifier, {})
-    return bool(structure) and (
+    if bool(structure) and (
         structure["historical_sha256"] == expected
         and structure["replacement_sha256"] == actual
+    ):
+        return True
+    additions = (
+        json.loads(
+            (ROOT / "docs/data/dataset-addition-source-bindings.json").read_bytes()
+        )["bindings"]
+        .get(context, {})
+        .get(identifier, {})
+    )
+    return bool(additions) and (
+        additions["historical_sha256"] == expected
+        and additions["current_sha256"] == actual
     )

@@ -158,10 +158,10 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `fe3o4` | Fe3O4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `fe3s` | Fe3S | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `fe_bearing_al_phase_d` | Al1.53Fe0.22Si0.86O6H3.33 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 1 |
-| `fe_fcc` | Fe | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 3 |
+| `fe_fcc` | Fe | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 4 |
 | `feh2` | FeH2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `feh3` | FeH3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `feo` | FeO | 5 | 4 | 3 | 1 | 0 | 0 | 1 | 6 |
+| `feo` | FeO | 5 | 4 | 3 | 1 | 0 | 0 | 1 | 7 |
 | `feo_b8_2` | FeO | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 2 |
 | `ferropericlase_fe27` | Mg0.725Fe0.268O | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `ferrous_ringwoodite` | Fe2SiO4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
@@ -176,7 +176,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `forsterite` | Mg2SiO4 | 3 | 3 | 1 | 2 | 0 | 0 | 0 | 3 |
 | `geo2_rutile` | GeO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `goethite` | FeOOH | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
-| `gold` | Au | 23 | 23 | 14 | 9 | 0 | 1 | 0 | 29 |
+| `gold` | Au | 23 | 23 | 14 | 9 | 0 | 1 | 0 | 30 |
 | `graphite` | C | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `hydrous_silica_cacl2_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
 | `hydrous_stishovite_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
@@ -268,9 +268,9 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `namg2al5sio12_cf` | NaMg2Al5SiO12 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `namg2al5sio12_nal` | NaMg2Al5SiO12 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `neon_fcc` | Ne | 3 | 3 | 1 | 2 | 0 | 0 | 0 | 5 |
-| `nickel` | Ni | 6 | 6 | 5 | 1 | 0 | 0 | 0 | 4 |
+| `nickel` | Ni | 6 | 6 | 5 | 1 | 0 | 0 | 0 | 6 |
 | `nickel_oxide` | NiO | 2 | 2 | 1 | 0 | 1 | 0 | 0 | 1 |
-| `nickel_oxide_b1` | NiO | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 2 |
+| `nickel_oxide_b1` | NiO | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 4 |
 | `niobium` | Nb | 2 | 2 | 1 | 1 | 0 | 0 | 0 | 1 |
 | `nis` | NiS | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `orthoenstatite` | MgSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |

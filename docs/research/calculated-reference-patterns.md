@@ -115,10 +115,10 @@ uv run python -m scripts.review_eos_structure_rights --check
 uv run python -m scripts.generate_material_summaries --check
 ```
 
-Two additional historical checks remain stale: the older frozen-release check
-fails first on the unchanged `fe_fcc` document, and the coverage snapshot
-predates seven already-added dataset declarations across five other materials.
-The coverage's whole-catalog checksum also changes with these new patterns.
-Neither historical baseline is repinned here. The current scientific-preservation
-receipt, exact ten source pairs and current package exports are checked
-separately; these checks do not constitute experimental validation.
+At the time of this review, the frozen-release binding check and catalog
+coverage snapshot predated seven previously added calculated dataset declarations.
+Release 0.18.0 preparation repairs these checks through exact
+[additive source bindings](../data/dataset-addition-source-bindings.json) and a
+regenerated coverage overview. Removing only the seven named additions recovers
+already accepted predecessor hashes; historical source pins and all scientific
+values remain unchanged. These checks do not constitute experimental validation.
