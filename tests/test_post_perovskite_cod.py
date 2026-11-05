@@ -126,7 +126,7 @@ def test_only_root_source_and_notes_change_with_exact_frozen_source_pairs():
         actual = hashlib.sha256(
             json.dumps(normalized, sort_keys=True, separators=(",", ":")).encode()
         ).hexdigest()
-        name = str(path.relative_to(ROOT))
+        name = path.relative_to(ROOT).as_posix()
         before = PROOF["bindings"]["release_document"][name]["historical_sha256"]
         assert accepts_merge_binding("release_document", name, before, actual)
         assert not accepts_merge_binding("release_document", name, "0" * 64, actual)

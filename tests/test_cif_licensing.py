@@ -100,7 +100,9 @@ def test_superseded_he_structure_is_not_a_distribution_input():
 
 
 def test_inventory_retains_historical_provenance_without_thesis_refinement():
-    with (ROOT / "docs/data/license-inventory/catalog-components.csv").open() as f:
+    with (ROOT / "docs/data/license-inventory/catalog-components.csv").open(
+        encoding="utf-8", newline=""
+    ) as f:
         rows = [
             r
             for r in csv.DictReader(f)

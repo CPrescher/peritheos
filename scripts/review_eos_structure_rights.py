@@ -117,13 +117,13 @@ def build_review(root=ROOT):
     policy_bytes = (root / POLICY).read_bytes()
     policy = json.loads(policy_bytes)
     paths = sorted((root / "peritheos/data/materials").glob("*.eosmat"))
-    actual = {str(p.relative_to(root)) for p in paths}
+    actual = {p.relative_to(root).as_posix() for p in paths}
     if actual != set(policy["material_sha256"]):
         raise ValueError("Material set changed; a new rights review is required")
     entries, groups = [], defaultdict(list)
     migrations = []
     for path in paths:
-        relative = str(path.relative_to(root))
+        relative = path.relative_to(root).as_posix()
         content = path.read_bytes()
         if hashlib.sha256(content).hexdigest() != policy["material_sha256"][relative]:
             raise ValueError(f"Reviewed material changed: {relative}")

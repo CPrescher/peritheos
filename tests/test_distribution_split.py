@@ -17,7 +17,14 @@ from peritheos_build import (
     stage_core,
     stage_datasets,
     version,
+    write_json,
 )
+
+
+def test_exported_json_has_portable_checksum_bytes(tmp_path):
+    path = tmp_path / "receipt.json"
+    write_json(path, {"source": "Brügger"})
+    assert path.read_bytes() == '{\n  "source": "Brügger"\n}\n'.encode("utf-8")
 
 
 def test_every_runtime_export_preserves_models_structures_and_scientific_status():

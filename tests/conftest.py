@@ -299,7 +299,11 @@ def independent_generation_baseline():
     )
     originals = {}
     for material, binding in proof["prior_documents"].items():
-        payload = (root / "peritheos/data/materials" / f"{material}.eosmat").read_text()
+        payload = (
+            (root / "peritheos/data/materials" / f"{material}.eosmat")
+            .read_bytes()
+            .decode("utf-8")
+        )
         document = json.loads(payload)
         added = document["datasets"][-1]
         assert added["identifier"] == binding["added_identifier"]
