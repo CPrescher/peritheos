@@ -4,10 +4,10 @@ The unreleased distribution split makes experimental observations optional:
 `pip install peritheos` supplies the library, structures and EOS parameters;
 `pip install "peritheos[datasets]"` additionally installs `peritheos-datasets`.
 The two packages have separate source archives. The optional package contains
-427 explicitly selected material dataset entries, including separately assessed
+448 explicitly selected material dataset entries, including separately assessed
 numerical transcriptions. Source grants and factual-content assessments remain
-distinct; unspecified source terms are not relabeled open. Twenty-six material entries
-remain held. The [numerical redistribution review](research/numerical-dataset-redistribution.md)
+distinct; unspecified source terms are not relabeled open. Five material entries
+remain held: Sakai Table S8 and four views of the original Campbell integration collection. The [numerical redistribution review](research/numerical-dataset-redistribution.md)
 records every decision and the collection, source and Debian qualifications.
 The [Morard/Campbell follow-up](research/morard-campbell-redistribution-followup.md)
 identifies all selected cold-row sources and separately calculated buffer
@@ -15,7 +15,11 @@ polynomial approximations; original Campbell integration tables remain held. See
 [installation and data-access guide](datasets.md). The
 [Shen/Smith and historical collection review](research/shen-historical-redistribution-review.md)
 adds three unchanged numerical resources under source-specific assessments;
-original source terms and all scientific qualifications remain explicit. This reduces distributed
+original source terms and all scientific qualifications remain explicit. The
+[Sakai/Ismailova/iridium review](research/restricted-source-numerical-review.md)
+admits 21 numerical extractions on an applicability assessment, preserving all
+NC/ND source flags. This concerns general redistribution of the optional data
+package; core `peritheos` is independently installable without these values. This reduces distributed
 source content; it is not a blanket Debian clearance of remaining structural
 facts or EOS parameter compilations. Complete research evidence remains in the
 repository. The published 0.17.4 archives are unchanged.

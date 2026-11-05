@@ -9,7 +9,9 @@ The [Morard/Campbell follow-up](morard-campbell-redistribution-followup.md)
 subsequently admits two traced Morard inputs and four newly calculated Campbell
 polynomial entries. The [collection follow-up](shen-historical-redistribution-review.md) then admits
 twelve more entries backed by three unchanged numerical files.
-**The current selection is 427 of 453 material entries, with 26 held**. The counts, held table and source-screen decisions below record
+The [Sakai/Ismailova/iridium follow-up](restricted-source-numerical-review.md)
+adds 21 numerical extractions while retaining NC/ND source flags.
+**The current selection is 448 of 453 material entries, with five held**. The counts, held table and source-screen decisions below record
 the initial 409-of-449 review; the bound JSON ledger includes the follow-up.
 Original Campbell integration results remain held.
 
@@ -113,7 +115,12 @@ cold-data inputs need their original studies identified and assessed; author-fil
 permission does not clear the unidentified literature inputs. These holds do not
 remove evidence from the research checkout.
 
-## Held entries
+## Held entries at the initial review stage
+
+This is the historical hold table. Current holds are Sakai Table S8 and the four
+Campbell integration views; use the installed ledger or latest follow-up for
+current decisions. The source-screen findings above also describe the initial
+stage and are superseded only where the later bound reviews explicitly say so.
 
 | Material / dataset | Hold basis | Resource |
 | --- | --- | --- |

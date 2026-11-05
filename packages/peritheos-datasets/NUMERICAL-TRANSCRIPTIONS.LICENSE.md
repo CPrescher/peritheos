@@ -20,8 +20,11 @@ The factual-content assessments distinguish individual values from protected
 expression and independently protected compilations/databases. They do not
 claim that every scientific table is unprotected, that all experimental data
 are exempt from database rights, or that a particular row count guarantees
-an insubstantial extraction. The original Campbell integration collection and known NC/ND cases remain held as
-listed in the review. Source access and scientific verification are not grants.
+an insubstantial extraction. The original Campbell integration collection and
+Sakai Table S8 remain held as listed in the review. The other 21 reviewed NC/ND
+numerical extractions are admitted only under the source-specific applicability
+assessment explained in `restricted-source-numerical.LICENSE.md`; their source
+notices remain unchanged. Source access and scientific verification are not grants.
 
 ## Rights and attribution remain separate
 
@@ -80,3 +83,14 @@ for source-specific reasoning and access limits. This does not rely on a row-cou
 threshold or blanket experimental-data exemption. The historical database-term
 assessment does not extinguish publication copyright or create a worldwide public-
 domain declaration. No source license grant or Debian acceptance is asserted.
+
+## Sakai, Ismailova and iridium follow-up
+
+The installed `restricted_source_review` receipt records 21 admitted numerical
+extractions and one retained Sakai S8 literature-index hold. Its scoped notice
+explains the applicable-rights reasoning for primary numerical measurements,
+mathematical outputs and quantitative marker centers. This does not use NC
+permission for commercial distribution or ND permission for protected adaptations.
+Source NC/ND flags, source values and scientific qualifications remain intact.
+The purpose is general redistribution of the optional data package; the core
+library remains independently installable without observation values.

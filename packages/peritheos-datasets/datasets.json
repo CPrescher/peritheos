@@ -1,7 +1,7 @@
 {
   "schema": "peritheos.optional-datasets.v1",
   "reviewed_on": "2026-11-05",
-  "scope": "Explicit selection of recorded source/author grants and separately bound numerical-content assessments. The 427 admitted material entries retain their original source terms, attribution and scientific qualifications. This includes separately calculated Campbell polynomial approximations, the traced Morard inputs, the Shen/Smith primary-experiment collection and two fixed historical numerical excerpts. No new source grant or Debian acceptance is asserted. Remaining holds are the known NC/ND cases and original Campbell integration collection.",
+  "scope": "Explicit selection of recorded source/author grants and separately bound numerical-content assessments. The 448 admitted material entries retain their original source terms, attribution and scientific qualifications, including 21 numerical extractions from NC/ND sources admitted only under a scoped applicability assessment. Remaining five holds are Sakai Table S8 literature lineage and four views of the original Campbell integration collection. No new source grant, legal clearance or Debian acceptance is asserted.",
   "datasets": [
     {
       "material": "al_bearing_phase_d",
@@ -4598,10 +4598,220 @@
       "scope": "primary_experiment_collection_assessment",
       "redistribution_basis": "primary_experiment_collection_assessment",
       "review_key": "tungsten/shen_smith_2026_table_s1_simultaneous_volumes"
+    },
+    {
+      "material": "copper",
+      "dataset": "copper_sakai_2025_table_s9_rs_eos_grid",
+      "declaration_sha256": "313f3d3020211f85c8ba4383ced4ea38024a200472e611837b8fbb7f1ca61d9e",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#copper/copper_sakai_2025_table_s9_rs_eos_grid",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "copper/copper_sakai_2025_table_s9_rs_eos_grid"
+    },
+    {
+      "material": "fe088sio3_bridgmanite",
+      "dataset": "fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography",
+      "declaration_sha256": "7d98b6c4a3d6bf95906d84abe14e428119f60d15603fa19da95df13c84daac12",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#fe088sio3_bridgmanite/fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "fe088sio3_bridgmanite/fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography"
+    },
+    {
+      "material": "gold",
+      "dataset": "gold_sakai_2025_calibration_paired_volumes",
+      "declaration_sha256": "ddd9efc4b5ef04133e2a6aa4369057e092b96311b9a2647cb68b60581547d1e6",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#gold/gold_sakai_2025_calibration_paired_volumes",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "gold/gold_sakai_2025_calibration_paired_volumes"
+    },
+    {
+      "material": "gold",
+      "dataset": "gold_sakai_2025_table_s4_au_w_volumes",
+      "declaration_sha256": "3b5cf7094367add9018a5859504f4b678627a32a2a8d4253b518e9ec768769b9",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#gold/gold_sakai_2025_table_s4_au_w_volumes",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "gold/gold_sakai_2025_table_s4_au_w_volumes"
+    },
+    {
+      "material": "gold",
+      "dataset": "gold_sakai_2025_table_s14_cu_anchor",
+      "declaration_sha256": "fe5cf30d5ff370597a470a2264ebcdd8b19fb091b45edc33d02ccbfdd1aa2ff1",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#gold/gold_sakai_2025_table_s14_cu_anchor",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "gold/gold_sakai_2025_table_s14_cu_anchor"
+    },
+    {
+      "material": "gold",
+      "dataset": "gold_sakai_2025_table_s9_rs_eos_grid",
+      "declaration_sha256": "0517375f6cfc7308bd0768e39debfb2575f2a48831938d473b5aa260301c0ea1",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#gold/gold_sakai_2025_table_s9_rs_eos_grid",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "gold/gold_sakai_2025_table_s9_rs_eos_grid"
+    },
+    {
+      "material": "iridium",
+      "dataset": "iridium_anzellini_2025_tables_s1_s3_pvt",
+      "declaration_sha256": "ace02043eb014371512941d063e2d39984cdebc5a208e7ec2a75c7102138efe6",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#iridium/iridium_anzellini_2025_tables_s1_s3_pvt",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "iridium/iridium_anzellini_2025_tables_s1_s3_pvt"
+    },
+    {
+      "material": "iridium",
+      "dataset": "iridium_anzellini_2025_figure4_300k_830k_vector_digitized",
+      "declaration_sha256": "835e88c485c840aab46ae29f060216059708ac9fa361dbe6baa71434efcbcc16",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#iridium/iridium_anzellini_2025_figure4_300k_830k_vector_digitized",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "iridium/iridium_anzellini_2025_figure4_300k_830k_vector_digitized"
+    },
+    {
+      "material": "iron",
+      "dataset": "iron_sakai_2025_table_s9_rs_eos_grid",
+      "declaration_sha256": "26db319c33683ed0e40d0a4f4a7b0d8310647e4d3418c280d76f4e8a3b9d2e2d",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#iron/iron_sakai_2025_table_s9_rs_eos_grid",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "iron/iron_sakai_2025_table_s9_rs_eos_grid"
+    },
+    {
+      "material": "iron",
+      "dataset": "iron_sakai_2025_table_s6_measured_pairs",
+      "declaration_sha256": "8f85f2a2175189f434bb4960b28dab347c0942d446b367c922c4f87eb4cf6447",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#iron/iron_sakai_2025_table_s6_measured_pairs",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "iron/iron_sakai_2025_table_s6_measured_pairs"
+    },
+    {
+      "material": "mgo",
+      "dataset": "mgo_sakai_2025_table_s9_rs_eos_grid",
+      "declaration_sha256": "5e5735b093d326a9c752a88c936f404050a1068d363b4b82d9b4dfe8bef90901",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#mgo/mgo_sakai_2025_table_s9_rs_eos_grid",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "mgo/mgo_sakai_2025_table_s9_rs_eos_grid"
+    },
+    {
+      "material": "mgo",
+      "dataset": "mgo_sakai_2025_table_s7_measured_pairs",
+      "declaration_sha256": "2cca64bc0085dcd44942c2f1fa9a326ce7049db53253e1ec8f379d7acab87978",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#mgo/mgo_sakai_2025_table_s7_measured_pairs",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "mgo/mgo_sakai_2025_table_s7_measured_pairs"
+    },
+    {
+      "material": "molybdenum",
+      "dataset": "molybdenum_sakai_2025_table_s9_rs_eos_grid",
+      "declaration_sha256": "19c6eb72354fd14ddebf274f666e487fe1b20357edf85db83c17911591a40448",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#molybdenum/molybdenum_sakai_2025_table_s9_rs_eos_grid",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "molybdenum/molybdenum_sakai_2025_table_s9_rs_eos_grid"
+    },
+    {
+      "material": "molybdenum",
+      "dataset": "molybdenum_sakai_2025_table_s5_measured_pairs",
+      "declaration_sha256": "8a529b7884e9578050a127d23882470e2d1ef95b93badbe2757407e30f9a570f",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#molybdenum/molybdenum_sakai_2025_table_s5_measured_pairs",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "molybdenum/molybdenum_sakai_2025_table_s5_measured_pairs"
+    },
+    {
+      "material": "nacl_b2",
+      "dataset": "nacl_b2_sakai_2025_table_s9_rs_eos_grid",
+      "declaration_sha256": "8f7a943dbe9413c0375f2f96f9fec3041b71866f4b24990eaa74a3957d97e9cc",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#nacl_b2/nacl_b2_sakai_2025_table_s9_rs_eos_grid",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "nacl_b2/nacl_b2_sakai_2025_table_s9_rs_eos_grid"
+    },
+    {
+      "material": "platinum",
+      "dataset": "platinum_sakai_2025_table_s9_rs_eos_grid",
+      "declaration_sha256": "2e3b8bc0c5f59c1c713acc0e54099087f8b38485129ed7452467fb6bc6d97b52",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#platinum/platinum_sakai_2025_table_s9_rs_eos_grid",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "platinum/platinum_sakai_2025_table_s9_rs_eos_grid"
+    },
+    {
+      "material": "platinum",
+      "dataset": "platinum_sakai_2025_table_s2_measured_pairs",
+      "declaration_sha256": "82ddd84886d44c9a0f1b8f9c8cccd901e25220771fd69960cfb5c4cf52b77742",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#platinum/platinum_sakai_2025_table_s2_measured_pairs",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "platinum/platinum_sakai_2025_table_s2_measured_pairs"
+    },
+    {
+      "material": "rhenium",
+      "dataset": "rhenium_sakai_2025_table_s9_rs_eos_grid",
+      "declaration_sha256": "899ddb779cc9e4259c8f99ebd3b344de992d664d39665411afb7f9846e65301d",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#rhenium/rhenium_sakai_2025_table_s9_rs_eos_grid",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "rhenium/rhenium_sakai_2025_table_s9_rs_eos_grid"
+    },
+    {
+      "material": "rhenium",
+      "dataset": "rhenium_sakai_2025_table_s1_measured_pairs",
+      "declaration_sha256": "cd142d900561542021e08e26e853abebd7176d920234506c4b0c24ed8f5f0c09",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#rhenium/rhenium_sakai_2025_table_s1_measured_pairs",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "rhenium/rhenium_sakai_2025_table_s1_measured_pairs"
+    },
+    {
+      "material": "tungsten",
+      "dataset": "tungsten_sakai_2025_table_s9_rs_eos_grid",
+      "declaration_sha256": "3c8f450447361f44df2a95bff0ac4608a7062102813598cd90a2073fb6cf8f97",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#tungsten/tungsten_sakai_2025_table_s9_rs_eos_grid",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "tungsten/tungsten_sakai_2025_table_s9_rs_eos_grid"
+    },
+    {
+      "material": "tungsten",
+      "dataset": "tungsten_sakai_2025_table_s3_measured_pairs",
+      "declaration_sha256": "1e96c374bb378dcebe3b8282229fe3859592491ee1ff8b1f87a0a42dd7c95f51",
+      "source_status": "restricted_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#tungsten/tungsten_sakai_2025_table_s3_measured_pairs",
+      "scope": "restricted_source_numerical_assessment",
+      "redistribution_basis": "restricted_source_numerical_assessment",
+      "review_key": "tungsten/tungsten_sakai_2025_table_s3_measured_pairs"
     }
   ],
   "redistribution_review": {
     "path": "docs/data/numerical-redistribution-review.json",
-    "sha256": "80a15a64b8ea38d3f9dbca9223f2542d6dc7cbcad347de52ba2344c1c7831f66"
+    "sha256": "8e8dc74e596539a908a00c11fd4d463da562952b52140415898dfb3d1ddd9471"
   }
 }

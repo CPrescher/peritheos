@@ -72,7 +72,7 @@ def test_optional_export_is_exactly_allowlisted_and_source_preserving(tmp_path):
     stage = stage_datasets(tmp_path / "optional")
     package = stage / "peritheos_datasets"
     manifest = json.loads((package / "manifest.json").read_bytes())
-    assert manifest["dataset_count"] == 427
+    assert manifest["dataset_count"] == 448
     review_path = package / "redistribution-review.json"
     review = json.loads(review_path.read_bytes())
     assert (
@@ -218,6 +218,12 @@ def test_optional_install_hydrates_inline_and_csv_data_without_changing_models(
         ("coesite", "coesite_i_iii_bykova_2018_author_fit_export"),
         ("fes_vi", "fes_morard_2026_author_literature_cold_pv"),
         ("nickel", "campbell_2009_independent_buffer_polynomial_grid"),
+        ("gold", "gold_sakai_2025_table_s4_au_w_volumes"),
+        ("iridium", "iridium_anzellini_2025_tables_s1_s3_pvt"),
+        (
+            "fe088sio3_bridgmanite",
+            "fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography",
+        ),
     ]:
         document = get_material_document(name)
         declaration = next(
@@ -228,9 +234,7 @@ def test_optional_install_hydrates_inline_and_csv_data_without_changing_models(
     # Version-compatible installation does not imply every research dataset is admitted.
     document = get_material_document("gold")
     with pytest.raises(DatasetError) as error:
-        Material.from_eosmat(document).get_dataset(
-            "gold_sakai_2025_table_s4_au_w_volumes"
-        )
+        Material.from_eosmat(document).get_dataset("gold_sakai_2025_table_s8_lineage")
     assert error.value.code == "dataset.not_distributed"
     # Corrupt optional bytes fail the same checksum verification as core resources.
     declaration = next(

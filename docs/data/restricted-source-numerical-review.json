@@ -1,0 +1,687 @@
+{
+  "schema": "peritheos.restricted-source-numerical-review.v1",
+  "reviewed_on": "2026-11-05",
+  "baseline_commit": "294a651f",
+  "scope": "22 existing Sakai/Ismailova/iridium entries: admit 21 existing numerical resources; retain one literature-lineage compilation hold. Original declarations, CSV bytes, scientific classifications and coefficients unchanged. Source permissions are not invented or broadened.",
+  "catalog_scientific_sha256": "0b6613957dc3ad639272ece80ae1f8c5ccc78266984107dcec4937dd38004d6c",
+  "material_file_bindings": {
+    "peritheos/data/materials/copper.eosmat": "54624387736f32bb8fc182f3472767bfbdfb816d6c91d45b4a96290c5a6b420f",
+    "peritheos/data/materials/fe088sio3_bridgmanite.eosmat": "d347dac9658c1dacdc8bfcbdc3b4073ea0973c303036682555d4daa77f419bf8",
+    "peritheos/data/materials/gold.eosmat": "088a72c5efb540fb63a4a3b83723c73fbcb40f477ace023f4a15f872e15b76be",
+    "peritheos/data/materials/iridium.eosmat": "a1b2ad65ad6efc1da2f645d0b0e97062037964100a46494ed3ac8003a13c4f6a",
+    "peritheos/data/materials/iron.eosmat": "c580009d59ed2224383bbc31f897d05581ff788fbe10c9a4de26985c69ce8efb",
+    "peritheos/data/materials/mgo.eosmat": "027516fc44bdca4200ac08ca4f0dd9e1e24009ca60b742883249da0eab451248",
+    "peritheos/data/materials/molybdenum.eosmat": "dde317560bb05acb56e63bcac0151a75caabde4b28b0a0f8ca9b731e54781e85",
+    "peritheos/data/materials/nacl_b2.eosmat": "61354e5d5b566724dc311d9324d679b8463efc82468de219fb6cd40fabb88b14",
+    "peritheos/data/materials/platinum.eosmat": "cf23af9492ff1b17c87ac91547948aa2e3d5f6ec738e2cf7d60d7e1a1003878c",
+    "peritheos/data/materials/rhenium.eosmat": "ddef3061ea023a3b417497a890fa46b7e7572f62eb6663bd0f8b14fbf2f2ec16",
+    "peritheos/data/materials/tungsten.eosmat": "c0e85791ed89ac04eeaeb36e0706f4439941179d8f6680fa86b09bae5c19cf63"
+  },
+  "resource_bindings": {
+    "peritheos/data/datasets/copper-sakai-2025-table-s9-rs-eos-grid.csv": "43b9be203ad89da7c91bcaf6333c890142becd691191bfd87de1cd317fbc9ca5",
+    "peritheos/data/datasets/fe088sio3-bridgmanite-ismailova-2016-table-s2-selected-crystallography.csv": "2fa03e31214c2bbddabcaa67aaff4921ab04d04431c124856fb228f7dad77591",
+    "peritheos/data/datasets/sakai-2025-au-calibration-paired-volumes.csv": "2edda47994f2e8a176d40859b75a1a52c380e90b74f329b72a2b6d5e1a42dc36",
+    "peritheos/data/datasets/gold-sakai-2025-table-s4-au-w-volumes.csv": "18b5c9c2be46eccf657aaf5616f746497460b15fbfc5da5a94de3c13390b4622",
+    "peritheos/data/datasets/sakai-2025-table-s8-calibration-lineage.csv": "810504e57349dd7e38ca00d8e77a97b8c7cc06a61c8d8057615b8366ba11e8e6",
+    "peritheos/data/datasets/sakai-2025-table-s14-cu-anchor-calculated.csv": "8fe53fd7360840834745acd45b19e050be4c4bb34f156530c3b3618324f3f3c5",
+    "peritheos/data/datasets/gold-sakai-2025-table-s9-rs-eos-grid.csv": "c6ce297beef3b23e6be063b8809599323a7412bb5aa835bcaeb4293f16624a65",
+    "peritheos/data/datasets/iridium-anzellini-2025-tables-s1-s3-pvt.csv": "2133efc7b402be8d804d098ef8badfe0e46d8a7ffc91351ca71bffaf6fc85250",
+    "peritheos/data/datasets/iridium-anzellini-2025-figure4-300k-830k-vector-digitized.csv": "097f35f293d7f6d93d286e86ed72166e7660817132e481b43e3301cac2d7bd8d",
+    "peritheos/data/datasets/iron-sakai-2025-table-s9-rs-eos-grid.csv": "3e9705f05ddf2bd674b6eae14d7de0281dd42afcf89e986a022ab1174867bfe2",
+    "peritheos/data/datasets/iron-sakai-2025-table-s6-measured-pairs.csv": "fc3e4cc086b17e6e9c6645576798152439b620349633c3c4f252d9b19dfb2d91",
+    "peritheos/data/datasets/mgo-sakai-2025-table-s9-rs-eos-grid.csv": "2593fde0a35bd11bc4dbea03fb86e7b9e88687f1510ea8c174c9162d2c2f0652",
+    "peritheos/data/datasets/mgo-sakai-2025-table-s7-measured-pairs.csv": "d99ad5d2773bc2c9d10a3928785093279c01cb306f03b4d0351d8deae12c8636",
+    "peritheos/data/datasets/molybdenum-sakai-2025-table-s9-rs-eos-grid.csv": "1f3bcfeda9c29d1e08328868d491f13d8d105bcc44b977e28fa749844566968c",
+    "peritheos/data/datasets/molybdenum-sakai-2025-table-s5-measured-pairs.csv": "85a170737a05c65e06989eb1e90a6d944a2eb669f7ff5fed2829778427018156",
+    "peritheos/data/datasets/nacl_b2-sakai-2025-table-s9-rs-eos-grid.csv": "241365ad28e7bcce5d378965c64b91ff09d8a21d92ef24b50bf7ff98fcb86d19",
+    "peritheos/data/datasets/platinum-sakai-2025-table-s9-rs-eos-grid.csv": "f3f2a2737dc29add29775e9973e32e37d4372fc3fa0b1aff846df8646259a6cf",
+    "peritheos/data/datasets/platinum-sakai-2025-table-s2-measured-pairs.csv": "b833b8de31af2b10adfb284d49198516ee6e96d8eb28b4cfb54d7632ba565bf0",
+    "peritheos/data/datasets/rhenium-sakai-2025-table-s9-rs-eos-grid.csv": "ddf159d5e99f776f368cc977463e6eb219e501bde08da6fae41f6126628738a1",
+    "peritheos/data/datasets/rhenium-sakai-2025-table-s1-measured-pairs.csv": "38492f93caf2685c512f5f1ec41581d79681643b7712a65e8d6319e30f8361bc",
+    "peritheos/data/datasets/tungsten-sakai-2025-table-s9-rs-eos-grid.csv": "96efd4a74899ae8c6e3d17214c2a26eb32aa71057d36fe87940b6b82fe19dd01",
+    "peritheos/data/datasets/tungsten-sakai-2025-table-s3-measured-pairs.csv": "c3ed4cb99701e78df04cb24f43e49da267bf3e3a2349fff68715d3624bf547d7"
+  },
+  "declaration_bindings": {
+    "copper/copper_sakai_2025_table_s9_rs_eos_grid": "313f3d3020211f85c8ba4383ced4ea38024a200472e611837b8fbb7f1ca61d9e",
+    "fe088sio3_bridgmanite/fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography": "7d98b6c4a3d6bf95906d84abe14e428119f60d15603fa19da95df13c84daac12",
+    "gold/gold_sakai_2025_calibration_paired_volumes": "ddd9efc4b5ef04133e2a6aa4369057e092b96311b9a2647cb68b60581547d1e6",
+    "gold/gold_sakai_2025_table_s4_au_w_volumes": "3b5cf7094367add9018a5859504f4b678627a32a2a8d4253b518e9ec768769b9",
+    "gold/gold_sakai_2025_table_s8_lineage": "feb1c093382f4eafca77cfe561befba22491cb124601ca6e6e66a243391559e2",
+    "gold/gold_sakai_2025_table_s14_cu_anchor": "fe5cf30d5ff370597a470a2264ebcdd8b19fb091b45edc33d02ccbfdd1aa2ff1",
+    "gold/gold_sakai_2025_table_s9_rs_eos_grid": "0517375f6cfc7308bd0768e39debfb2575f2a48831938d473b5aa260301c0ea1",
+    "iridium/iridium_anzellini_2025_tables_s1_s3_pvt": "ace02043eb014371512941d063e2d39984cdebc5a208e7ec2a75c7102138efe6",
+    "iridium/iridium_anzellini_2025_figure4_300k_830k_vector_digitized": "835e88c485c840aab46ae29f060216059708ac9fa361dbe6baa71434efcbcc16",
+    "iron/iron_sakai_2025_table_s9_rs_eos_grid": "26db319c33683ed0e40d0a4f4a7b0d8310647e4d3418c280d76f4e8a3b9d2e2d",
+    "iron/iron_sakai_2025_table_s6_measured_pairs": "8f85f2a2175189f434bb4960b28dab347c0942d446b367c922c4f87eb4cf6447",
+    "mgo/mgo_sakai_2025_table_s9_rs_eos_grid": "5e5735b093d326a9c752a88c936f404050a1068d363b4b82d9b4dfe8bef90901",
+    "mgo/mgo_sakai_2025_table_s7_measured_pairs": "2cca64bc0085dcd44942c2f1fa9a326ce7049db53253e1ec8f379d7acab87978",
+    "molybdenum/molybdenum_sakai_2025_table_s9_rs_eos_grid": "19c6eb72354fd14ddebf274f666e487fe1b20357edf85db83c17911591a40448",
+    "molybdenum/molybdenum_sakai_2025_table_s5_measured_pairs": "8a529b7884e9578050a127d23882470e2d1ef95b93badbe2757407e30f9a570f",
+    "nacl_b2/nacl_b2_sakai_2025_table_s9_rs_eos_grid": "8f7a943dbe9413c0375f2f96f9fec3041b71866f4b24990eaa74a3957d97e9cc",
+    "platinum/platinum_sakai_2025_table_s9_rs_eos_grid": "2e3b8bc0c5f59c1c713acc0e54099087f8b38485129ed7452467fb6bc6d97b52",
+    "platinum/platinum_sakai_2025_table_s2_measured_pairs": "82ddd84886d44c9a0f1b8f9c8cccd901e25220771fd69960cfb5c4cf52b77742",
+    "rhenium/rhenium_sakai_2025_table_s9_rs_eos_grid": "899ddb779cc9e4259c8f99ebd3b344de992d664d39665411afb7f9846e65301d",
+    "rhenium/rhenium_sakai_2025_table_s1_measured_pairs": "cd142d900561542021e08e26e853abebd7176d920234506c4b0c24ed8f5f0c09",
+    "tungsten/tungsten_sakai_2025_table_s9_rs_eos_grid": "3c8f450447361f44df2a95bff0ac4608a7062102813598cd90a2073fb6cf8f97",
+    "tungsten/tungsten_sakai_2025_table_s3_measured_pairs": "1e96c374bb378dcebe3b8282229fe3859592491ee1ff8b1f87a0a42dd7c95f51"
+  },
+  "cases": {
+    "copper/copper_sakai_2025_table_s9_rs_eos_grid": {
+      "case": "sakai_grids",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Formula-generated pressure/volume/ratio checkpoints, not measured data. Numerical mathematical results on a regular compression grid are assessed separately from the source workbook, layout and software; none of those containers or expressions is copied. Original values remain unchanged, including ambient ratio rounding and the existing zeroed first pressure. This is not a newly regenerated grid or an independent parameter refit. No separately protected compilation investment was established for these homogeneous calculated checkpoints. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 26,
+        "columns": [
+          "pressure_gpa",
+          "volume_a3",
+          "volume_ratio"
+        ]
+      }
+    },
+    "fe088sio3_bridgmanite/fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography": {
+      "case": "ismailova",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Four selected pressure/lattice/volume checkpoints and reported high-temperature-condition tokens, with errors and missing values preserved. This extracts numerical fields rather than the full crystallographic table, structural refinements, prose or layout. The source describes primary experiments; no separately assembled database or substantial independent collection investment was established for this limited functional excerpt. This is not a row-count safe harbor or the complete compression/fit series. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 4,
+        "columns": [
+          "source_order",
+          "pressure_source_token",
+          "pressure_gpa",
+          "pressure_uncertainty_gpa",
+          "reported_high_temperature_condition_source_token",
+          "reported_high_temperature_condition_k",
+          "reported_high_temperature_condition_uncertainty_k",
+          "lattice_a_source_token",
+          "lattice_a_angstrom",
+          "lattice_a_uncertainty_angstrom",
+          "lattice_b_source_token",
+          "lattice_b_angstrom",
+          "lattice_b_uncertainty_angstrom",
+          "lattice_c_source_token",
+          "lattice_c_angstrom",
+          "lattice_c_uncertainty_angstrom",
+          "volume_source_token",
+          "volume_a3_conventional_cell",
+          "volume_uncertainty_a3"
+        ]
+      }
+    },
+    "gold/gold_sakai_2025_calibration_paired_volumes": {
+      "case": "sakai_measurements",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Primary simultaneous XRD measurements from the authors own runs S1-S7, with numerical volumes/errors, literal numeric tokens, run/phase identities and ordinary apparatus labels. The 326-row Au ancestry file is an overlapping subset of those new experiments, not an external literature compilation. Functional numerical fields and measurement sequence are assessed separately from workbook expression. The source describes data creation and in-measurement processing; no separate substantial database investment independent of that creation was established. Full numerical-table reuse is acknowledged, not called insubstantial. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 326,
+        "columns": [
+          "source_table",
+          "source_sheet",
+          "source_row",
+          "run",
+          "apparatus",
+          "au_relevance",
+          "source_marker",
+          "material_1",
+          "phase_1",
+          "material_2",
+          "phase_2",
+          "volume_1_a3",
+          "volume_1_a3_source_token",
+          "volume_1_error_a3",
+          "volume_1_error_a3_source_token",
+          "volume_2_a3",
+          "volume_2_a3_source_token",
+          "volume_2_error_a3",
+          "volume_2_error_a3_source_token",
+          "secondary_a_angstrom",
+          "secondary_a_angstrom_source_token",
+          "secondary_a_error_angstrom",
+          "secondary_a_error_angstrom_source_token",
+          "secondary_c_angstrom",
+          "secondary_c_angstrom_source_token",
+          "secondary_c_error_angstrom",
+          "secondary_c_error_angstrom_source_token",
+          "secondary_c_over_a",
+          "secondary_c_over_a_source_token",
+          "secondary_c_over_a_error",
+          "secondary_c_over_a_error_source_token",
+          "pt_uniaxial_stress_gpa",
+          "pt_uniaxial_stress_gpa_source_token",
+          "mgo_uniaxial_stress_gpa",
+          "mgo_uniaxial_stress_gpa_source_token"
+        ],
+        "source_tables": {
+          "S1": 139,
+          "S2": 33,
+          "S3": 54,
+          "S4": 19,
+          "S7": 81
+        }
+      }
+    },
+    "gold/gold_sakai_2025_table_s4_au_w_volumes": {
+      "case": "sakai_measurements",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Primary simultaneous XRD measurements from the authors own runs S1-S7, with numerical volumes/errors, literal numeric tokens, run/phase identities and ordinary apparatus labels. The 326-row Au ancestry file is an overlapping subset of those new experiments, not an external literature compilation. Functional numerical fields and measurement sequence are assessed separately from workbook expression. The source describes data creation and in-measurement processing; no separate substantial database investment independent of that creation was established. Full numerical-table reuse is acknowledged, not called insubstantial. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 19,
+        "columns": [
+          "source_table",
+          "source_sheet",
+          "source_row",
+          "run",
+          "apparatus",
+          "au_relevance",
+          "source_marker",
+          "material_1",
+          "phase_1",
+          "material_2",
+          "phase_2",
+          "volume_1_a3",
+          "volume_1_a3_source_token",
+          "volume_1_error_a3",
+          "volume_1_error_a3_source_token",
+          "volume_2_a3",
+          "volume_2_a3_source_token",
+          "volume_2_error_a3",
+          "volume_2_error_a3_source_token",
+          "secondary_a_angstrom",
+          "secondary_a_angstrom_source_token",
+          "secondary_a_error_angstrom",
+          "secondary_a_error_angstrom_source_token",
+          "secondary_c_angstrom",
+          "secondary_c_angstrom_source_token",
+          "secondary_c_error_angstrom",
+          "secondary_c_error_angstrom_source_token",
+          "secondary_c_over_a",
+          "secondary_c_over_a_source_token",
+          "secondary_c_over_a_error",
+          "secondary_c_over_a_error_source_token",
+          "pt_uniaxial_stress_gpa",
+          "pt_uniaxial_stress_gpa_source_token",
+          "mgo_uniaxial_stress_gpa",
+          "mgo_uniaxial_stress_gpa_source_token"
+        ],
+        "source_tables": {
+          "S4": 19
+        }
+      }
+    },
+    "gold/gold_sakai_2025_table_s8_lineage": {
+      "case": "sakai_lineage",
+      "decision": "hold",
+      "source_status": "restricted_source",
+      "basis": "source_nc_nd",
+      "assessment": "Retain hold after individual review: Table S8 is a recent 35-row selection of pre-existing literature/calibrant relationships, including author notes. Unlike S1-S7 or formula grids, independent obtaining/verification/presentation and original selection are plausible here; the inspected evidence does not resolve their protection or substantiality. Numerical-facts reasoning alone does not justify copying this assembled index under unrestricted terms. Obtain a file-specific CC BY 4.0/CC0 grant covering held rights from the relevant rightsholders, or independently reconstruct factual links from primary sources with new selection/presentation and a fresh collection-rights assessment. This is a hold on this resource, not a finding that each bibliographic fact is protected.",
+      "profile": {
+        "rows": 35,
+        "columns": [
+          "source_row",
+          "reference",
+          "reference_number",
+          "material",
+          "pressure_calibrant",
+          "note"
+        ]
+      }
+    },
+    "gold/gold_sakai_2025_table_s14_cu_anchor": {
+      "case": "sakai_anchor",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Numerical volume and two calculated Cu pressure-scale columns only, generated from published mathematical pressure laws; these are scale-conversion inputs, not experiments. The unrelated literature-observation columns of source Table S14 and the source layout/formulas are not copied. No independent collection investment was established for the selected mathematical outputs. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 36,
+        "columns": [
+          "source_row",
+          "volume_a3",
+          "fratanduono_2020_pressure_gpa",
+          "sakai_rs_pressure_gpa",
+          "kind"
+        ]
+      }
+    },
+    "gold/gold_sakai_2025_table_s9_rs_eos_grid": {
+      "case": "sakai_grids",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Formula-generated pressure/volume/ratio checkpoints, not measured data. Numerical mathematical results on a regular compression grid are assessed separately from the source workbook, layout and software; none of those containers or expressions is copied. Original values remain unchanged, including ambient ratio rounding and the existing zeroed first pressure. This is not a newly regenerated grid or an independent parameter refit. No separately protected compilation investment was established for these homogeneous calculated checkpoints. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 26,
+        "columns": [
+          "pressure_gpa",
+          "volume_a3",
+          "volume_ratio"
+        ]
+      }
+    },
+    "iridium/iridium_anzellini_2025_tables_s1_s3_pvt": {
+      "case": "iridium_table",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Primary laser-heated XRD/pyrometry numerical results from eight authors runs, plus ordinary run labels; includes all 122 tabulated rows. The mean temperature is separately identified arithmetic, source calibrant blanks and printed Delta-T values remain. The source describes generating and analyzing these experiments; no separate substantial database investment independent of creation was established. This is full table reuse, not an insubstantiality claim. No source prose, caption or layout is admitted. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 122,
+        "columns": [
+          "run",
+          "iridium_lattice_a_angstrom",
+          "mgo_lattice_a_angstrom",
+          "kcl_lattice_a_angstrom",
+          "pressure_gpa",
+          "upstream_temperature_k",
+          "upstream_temperature_uncertainty_k",
+          "downstream_temperature_k",
+          "downstream_temperature_uncertainty_k",
+          "mean_temperature_k",
+          "temperature_difference_k"
+        ],
+        "run_counts": {
+          "1": 8,
+          "2": 9,
+          "3": 34,
+          "4": 17,
+          "5": 15,
+          "6": 19,
+          "7": 15,
+          "8": 5
+        }
+      }
+    },
+    "iridium/iridium_anzellini_2025_figure4_300k_830k_vector_digitized": {
+      "case": "iridium_plot",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Quantitative marker-center coordinates and ordinary series identifiers only, with independent linear scientific-axis mapping. No source image pixels, circle/vector paths, fitted curves, legend, caption or source graphical arrangement is distributed. The 91 ambient-temperature coordinates refer to Monteseguro (2019) measurements and 16 coordinates to new 830 K observations. The former source is separately CC BY 4.0, but this does not relicense the 2025 replot. Both series are admitted only under the numerical-coordinate/primary-result assessment; no separate protected compilation investment was established in this extraction. Graphical bounds remain distinct from experimental errors. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 107,
+        "columns": [
+          "plot_order",
+          "series_order",
+          "temperature_k",
+          "pressure_gpa",
+          "volume_a3_conventional_cell",
+          "plot_x_pt",
+          "plot_y_pt",
+          "pressure_digitization_uncertainty_gpa",
+          "volume_digitization_uncertainty_a3",
+          "source_series",
+          "source_marker",
+          "used_in_reconstructed_fit"
+        ],
+        "temperature_counts": {
+          "300": 91,
+          "830": 16
+        }
+      }
+    },
+    "iron/iron_sakai_2025_table_s9_rs_eos_grid": {
+      "case": "sakai_grids",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Formula-generated pressure/volume/ratio checkpoints, not measured data. Numerical mathematical results on a regular compression grid are assessed separately from the source workbook, layout and software; none of those containers or expressions is copied. Original values remain unchanged, including ambient ratio rounding and the existing zeroed first pressure. This is not a newly regenerated grid or an independent parameter refit. No separately protected compilation investment was established for these homogeneous calculated checkpoints. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 26,
+        "columns": [
+          "pressure_gpa",
+          "volume_a3",
+          "volume_ratio"
+        ]
+      }
+    },
+    "iron/iron_sakai_2025_table_s6_measured_pairs": {
+      "case": "sakai_measurements",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Primary simultaneous XRD measurements from the authors own runs S1-S7, with numerical volumes/errors, literal numeric tokens, run/phase identities and ordinary apparatus labels. The 326-row Au ancestry file is an overlapping subset of those new experiments, not an external literature compilation. Functional numerical fields and measurement sequence are assessed separately from workbook expression. The source describes data creation and in-measurement processing; no separate substantial database investment independent of that creation was established. Full numerical-table reuse is acknowledged, not called insubstantial. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 19,
+        "columns": [
+          "source_table",
+          "source_sheet",
+          "source_row",
+          "run",
+          "target",
+          "calibrant",
+          "target_volume_a3",
+          "target_volume_source_cell",
+          "target_volume_source_token",
+          "target_error_a3",
+          "target_error_source_token",
+          "calibrant_volume_a3",
+          "calibrant_volume_source_cell",
+          "calibrant_volume_source_token",
+          "calibrant_error_a3",
+          "calibrant_error_source_token"
+        ],
+        "source_tables": {
+          "S6": 19
+        }
+      }
+    },
+    "mgo/mgo_sakai_2025_table_s9_rs_eos_grid": {
+      "case": "sakai_grids",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Formula-generated pressure/volume/ratio checkpoints, not measured data. Numerical mathematical results on a regular compression grid are assessed separately from the source workbook, layout and software; none of those containers or expressions is copied. Original values remain unchanged, including ambient ratio rounding and the existing zeroed first pressure. This is not a newly regenerated grid or an independent parameter refit. No separately protected compilation investment was established for these homogeneous calculated checkpoints. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 26,
+        "columns": [
+          "pressure_gpa",
+          "volume_a3",
+          "volume_ratio"
+        ]
+      }
+    },
+    "mgo/mgo_sakai_2025_table_s7_measured_pairs": {
+      "case": "sakai_measurements",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Primary simultaneous XRD measurements from the authors own runs S1-S7, with numerical volumes/errors, literal numeric tokens, run/phase identities and ordinary apparatus labels. The 326-row Au ancestry file is an overlapping subset of those new experiments, not an external literature compilation. Functional numerical fields and measurement sequence are assessed separately from workbook expression. The source describes data creation and in-measurement processing; no separate substantial database investment independent of that creation was established. Full numerical-table reuse is acknowledged, not called insubstantial. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 81,
+        "columns": [
+          "source_table",
+          "source_sheet",
+          "source_row",
+          "run",
+          "target",
+          "calibrant",
+          "target_volume_a3",
+          "target_volume_source_cell",
+          "target_volume_source_token",
+          "target_error_a3",
+          "target_error_source_token",
+          "calibrant_volume_a3",
+          "calibrant_volume_source_cell",
+          "calibrant_volume_source_token",
+          "calibrant_error_a3",
+          "calibrant_error_source_token"
+        ],
+        "source_tables": {
+          "S7": 81
+        }
+      }
+    },
+    "molybdenum/molybdenum_sakai_2025_table_s9_rs_eos_grid": {
+      "case": "sakai_grids",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Formula-generated pressure/volume/ratio checkpoints, not measured data. Numerical mathematical results on a regular compression grid are assessed separately from the source workbook, layout and software; none of those containers or expressions is copied. Original values remain unchanged, including ambient ratio rounding and the existing zeroed first pressure. This is not a newly regenerated grid or an independent parameter refit. No separately protected compilation investment was established for these homogeneous calculated checkpoints. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 26,
+        "columns": [
+          "pressure_gpa",
+          "volume_a3",
+          "volume_ratio"
+        ]
+      }
+    },
+    "molybdenum/molybdenum_sakai_2025_table_s5_measured_pairs": {
+      "case": "sakai_measurements",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Primary simultaneous XRD measurements from the authors own runs S1-S7, with numerical volumes/errors, literal numeric tokens, run/phase identities and ordinary apparatus labels. The 326-row Au ancestry file is an overlapping subset of those new experiments, not an external literature compilation. Functional numerical fields and measurement sequence are assessed separately from workbook expression. The source describes data creation and in-measurement processing; no separate substantial database investment independent of that creation was established. Full numerical-table reuse is acknowledged, not called insubstantial. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 48,
+        "columns": [
+          "source_table",
+          "source_sheet",
+          "source_row",
+          "run",
+          "target",
+          "calibrant",
+          "target_volume_a3",
+          "target_volume_source_cell",
+          "target_volume_source_token",
+          "target_error_a3",
+          "target_error_source_token",
+          "calibrant_volume_a3",
+          "calibrant_volume_source_cell",
+          "calibrant_volume_source_token",
+          "calibrant_error_a3",
+          "calibrant_error_source_token"
+        ],
+        "source_tables": {
+          "S5": 48
+        }
+      }
+    },
+    "nacl_b2/nacl_b2_sakai_2025_table_s9_rs_eos_grid": {
+      "case": "sakai_grids",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Formula-generated pressure/volume/ratio checkpoints, not measured data. Numerical mathematical results on a regular compression grid are assessed separately from the source workbook, layout and software; none of those containers or expressions is copied. Original values remain unchanged, including ambient ratio rounding and the existing zeroed first pressure. This is not a newly regenerated grid or an independent parameter refit. No separately protected compilation investment was established for these homogeneous calculated checkpoints. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 26,
+        "columns": [
+          "pressure_gpa",
+          "volume_a3",
+          "volume_ratio"
+        ]
+      }
+    },
+    "platinum/platinum_sakai_2025_table_s9_rs_eos_grid": {
+      "case": "sakai_grids",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Formula-generated pressure/volume/ratio checkpoints, not measured data. Numerical mathematical results on a regular compression grid are assessed separately from the source workbook, layout and software; none of those containers or expressions is copied. Original values remain unchanged, including ambient ratio rounding and the existing zeroed first pressure. This is not a newly regenerated grid or an independent parameter refit. No separately protected compilation investment was established for these homogeneous calculated checkpoints. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 26,
+        "columns": [
+          "pressure_gpa",
+          "volume_a3",
+          "volume_ratio"
+        ]
+      }
+    },
+    "platinum/platinum_sakai_2025_table_s2_measured_pairs": {
+      "case": "sakai_measurements",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Primary simultaneous XRD measurements from the authors own runs S1-S7, with numerical volumes/errors, literal numeric tokens, run/phase identities and ordinary apparatus labels. The 326-row Au ancestry file is an overlapping subset of those new experiments, not an external literature compilation. Functional numerical fields and measurement sequence are assessed separately from workbook expression. The source describes data creation and in-measurement processing; no separate substantial database investment independent of that creation was established. Full numerical-table reuse is acknowledged, not called insubstantial. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 33,
+        "columns": [
+          "source_table",
+          "source_sheet",
+          "source_row",
+          "run",
+          "target",
+          "calibrant",
+          "target_volume_a3",
+          "target_volume_source_cell",
+          "target_volume_source_token",
+          "target_error_a3",
+          "target_error_source_token",
+          "calibrant_volume_a3",
+          "calibrant_volume_source_cell",
+          "calibrant_volume_source_token",
+          "calibrant_error_a3",
+          "calibrant_error_source_token"
+        ],
+        "source_tables": {
+          "S2": 33
+        }
+      }
+    },
+    "rhenium/rhenium_sakai_2025_table_s9_rs_eos_grid": {
+      "case": "sakai_grids",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Formula-generated pressure/volume/ratio checkpoints, not measured data. Numerical mathematical results on a regular compression grid are assessed separately from the source workbook, layout and software; none of those containers or expressions is copied. Original values remain unchanged, including ambient ratio rounding and the existing zeroed first pressure. This is not a newly regenerated grid or an independent parameter refit. No separately protected compilation investment was established for these homogeneous calculated checkpoints. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 26,
+        "columns": [
+          "pressure_gpa",
+          "volume_a3",
+          "volume_ratio"
+        ]
+      }
+    },
+    "rhenium/rhenium_sakai_2025_table_s1_measured_pairs": {
+      "case": "sakai_measurements",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Primary simultaneous XRD measurements from the authors own runs S1-S7, with numerical volumes/errors, literal numeric tokens, run/phase identities and ordinary apparatus labels. The 326-row Au ancestry file is an overlapping subset of those new experiments, not an external literature compilation. Functional numerical fields and measurement sequence are assessed separately from workbook expression. The source describes data creation and in-measurement processing; no separate substantial database investment independent of that creation was established. Full numerical-table reuse is acknowledged, not called insubstantial. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 139,
+        "columns": [
+          "source_table",
+          "source_sheet",
+          "source_row",
+          "run",
+          "target",
+          "calibrant",
+          "target_volume_a3",
+          "target_volume_source_cell",
+          "target_volume_source_token",
+          "target_error_a3",
+          "target_error_source_token",
+          "calibrant_volume_a3",
+          "calibrant_volume_source_cell",
+          "calibrant_volume_source_token",
+          "calibrant_error_a3",
+          "calibrant_error_source_token"
+        ],
+        "source_tables": {
+          "S1": 139
+        }
+      }
+    },
+    "tungsten/tungsten_sakai_2025_table_s9_rs_eos_grid": {
+      "case": "sakai_grids",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Formula-generated pressure/volume/ratio checkpoints, not measured data. Numerical mathematical results on a regular compression grid are assessed separately from the source workbook, layout and software; none of those containers or expressions is copied. Original values remain unchanged, including ambient ratio rounding and the existing zeroed first pressure. This is not a newly regenerated grid or an independent parameter refit. No separately protected compilation investment was established for these homogeneous calculated checkpoints. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 26,
+        "columns": [
+          "pressure_gpa",
+          "volume_a3",
+          "volume_ratio"
+        ]
+      }
+    },
+    "tungsten/tungsten_sakai_2025_table_s3_measured_pairs": {
+      "case": "sakai_measurements",
+      "decision": "admit",
+      "source_status": "restricted_source",
+      "basis": "restricted_source_numerical_assessment",
+      "assessment": "Primary simultaneous XRD measurements from the authors own runs S1-S7, with numerical volumes/errors, literal numeric tokens, run/phase identities and ordinary apparatus labels. The 326-row Au ancestry file is an overlapping subset of those new experiments, not an external literature compilation. Functional numerical fields and measurement sequence are assessed separately from workbook expression. The source describes data creation and in-measurement processing; no separate substantial database investment independent of that creation was established. Full numerical-table reuse is acknowledged, not called insubstantial. The source NC/ND declaration remains restricted_source. Admission is a scoped maintainer numerical-content assessment, not a new grant, an assertion of license compliance for protected adaptations, proof that database rights/contracts are absent, or Debian approval.",
+      "profile": {
+        "rows": 54,
+        "columns": [
+          "source_table",
+          "source_sheet",
+          "source_row",
+          "run",
+          "target",
+          "calibrant",
+          "target_volume_a3",
+          "target_volume_source_cell",
+          "target_volume_source_token",
+          "target_error_a3",
+          "target_error_source_token",
+          "calibrant_volume_a3",
+          "calibrant_volume_source_cell",
+          "calibrant_volume_source_token",
+          "calibrant_error_a3",
+          "calibrant_error_source_token"
+        ],
+        "source_tables": {
+          "S3": 54
+        }
+      }
+    }
+  },
+  "source_evidence": {
+    "sakai-primary": {
+      "sha256": "49ac913ab33167c50ab0da2dd654f31db1a3dd6b299ad07ad5d63b2df4ad23e3",
+      "location": "Methods p.7, Results/calibration path pp.2-3, data availability p.8 and final-page CC BY-NC-ND notice"
+    },
+    "sakai-workbook": {
+      "sha256": "c559b29fea9c793831e4bc6deef4d62712b5e78821fc420969f709cbd1060ff9",
+      "location": "Tables S1-S9 and selected E/F/G numerical columns of S14; Table S8 inspected separately",
+      "verification": "Fresh official XLSX matches prior hash; all nine preserved raw worksheet objects match exactly, and 326-row paired CSV regenerates byte-for-byte. Existing S1-S7 resources bind to those raw cells. S9 ratios and volumes checked numerically at serialization precision; the existing first pressure is 0 rather than workbook A6=-0.0002242214081267206 GPa. No source evidence is silently repaired."
+    },
+    "sakai-supplement": {
+      "sha256": "63c62c71de8a332dda23b0dbe4da3bd745766fa2a6fbe2c0dfd443b64b0321cb",
+      "location": "Supplementary experimental/calibration methods; prior checksum matched"
+    },
+    "ismailova-primary": {
+      "sha256": "8bf29b1a9ff20b3e4d9a61ed6c0f2a4e5314b76a8ddba15534a5bcd79dbdb76e",
+      "location": "First-page CC BY-NC 4.0 notice and experimental methods; Zotero copy"
+    },
+    "ismailova-supplement": {
+      "sha256": "5ab1c1c60e7d5486299cf5f0653d05b6b8bed6957a382e839ba292e2456ecd34",
+      "location": "Table S2, PDF p.18; exact official repository supplement",
+      "url": "https://knowledge.uchicago.edu/api/records/z7csb-zr884/files/1600427_sm.pdf/content",
+      "verification": "Fresh repository supplement matches prior SHA-256 and MD5; all four pressure, a/b/c/V and temperature tokens visually compared on p.18. High-temperature conditions are not reclassified as EOS regression temperatures; missing first temperature remains absent."
+    },
+    "iridium-primary": {
+      "sha256": "3c531753df70d77a32433c6663dc54b6796650d9412a2edbd981b130ea91aa01",
+      "location": "Methods and Figure 4, PDF p.3; final-page CC BY-NC-ND notice",
+      "verification": "Fresh execution of maintained vector-center extractor reproduces all 107 CSV rows byte-for-byte. Only coordinates/labels are distributed, not source drawing paths. 0.75 GPa and 0.08 A^3 are graphical bounds, not measured uncertainties."
+    },
+    "iridium-supplement": {
+      "sha256": "f661efccbb391e92cb6adf3070c4a21a01f5fba0a2306075175948f344980f73",
+      "location": "Supplementary Tables 1-3, PDF pp.7-9; experimental numerical results",
+      "verification": "Fresh supplement matches prior source hash. Numerical table structure/calibrant roles and printed tokens inspected; prior exact transcription tests retained, not a claim of a second independent 122-row manual transcription."
+    },
+    "monteseguro-primary": {
+      "sha256": "a0dccb0a383e653dc182f8c81fcb9305a49a77e12d0d5a53754b9d0cd29b24f3",
+      "location": "Figure 2 and final-page CC BY 4.0 notice; ancestry only, not permission for 2025 replot"
+    }
+  },
+  "legal_context": [
+    {
+      "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.en",
+      "scope": "Sections 1(a), 1(g), 2(a), 4: NC/ND applies within licensed rights; protected adaptations and qualifying database extraction remain restricted. Numerical conversion is not a license to distribute protected adaptations."
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/legalcode.en",
+      "scope": "Sections 1, 2, 4: source NC terms remain where licensed copyright/similar rights apply."
+    },
+    {
+      "url": "https://creativecommons.org/faq/#which-components-of-databases-are-protected-by-copyright",
+      "scope": "Individual facts distinguished from creative expression and independent collection/database rights; no blanket scientific-data exemption."
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/urhg/__87a.html",
+      "scope": "Separate obtaining, verification or presentation investment must be considered; normalization and experimental origin alone do not defeat qualifying database rights."
+    }
+  ],
+  "limits": [
+    "Reasoned maintainer applicability assessment, not legal advice or Debian acceptance. No universal numerical row-count threshold.",
+    "Full source experimental tables are acknowledged; overlapping aggregate/individual entries do not create independent observations.",
+    "Contributor CC0 applies only where actually dedicated and within rights held. No new CC0/CC BY grant for these source works.",
+    "No exhaustive contract/acquisition audit; valid third-party restrictions are not overridden. A separate explicit data grant would give stronger redistribution evidence.",
+    "No PDFs, workbook containers, figures, copied captions/prose or author software admitted. Originals are retained privately and canonical research resources stay unchanged.",
+    "Barker supporting-study omissions and original Campbell collection holds are outside this follow-up."
+  ]
+}

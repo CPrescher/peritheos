@@ -132,7 +132,7 @@ def test_installed_review_and_notices_bind_admissions_without_bundling_originals
     package = stage_datasets(tmp_path / "optional") / "peritheos_datasets"
     manifest = json.loads((package / "manifest.json").read_bytes())
     review = json.loads((package / "redistribution-review.json").read_bytes())
-    assert manifest["dataset_count"] == 427
+    assert manifest["dataset_count"] == 448
     assert review["shen_historical_review"] == PROOF
     selected = {
         e["review_key"]: e
@@ -160,5 +160,5 @@ def test_installed_review_and_notices_bind_admissions_without_bundling_originals
         p.suffix.lower() in {".pdf", ".xlsx", ".xls"} for p in package.rglob("*")
     )
     held = [e for e in review["entries"] if e["decision"] == "hold"]
-    assert len(held) == 26
+    assert len(held) == 5
     assert {e["basis"] for e in held} == {"source_nc_nd", "large_collection"}

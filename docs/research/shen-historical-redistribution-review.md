@@ -1,11 +1,15 @@
 # Shen/Smith and historical numerical collection review
 
 Reviewed 5 November 2026 against the preserved sources and checkout at
-`db93e2cf`. The unreleased `peritheos[datasets]` selection now admits **427 of
+`db93e2cf`. At this stage the unreleased `peritheos[datasets]` selection admitted **427 of
 453 material dataset entries**. This adds **12 entries backed by three unchanged
 CSV files**: ten views of the shared Shen/Smith results, the 25-cell copper
 handbook excerpt and the 20-row Anderson gold table. These are source-specific
 maintainer assessments, not new licenses, legal opinions or Debian acceptance.
+
+The subsequent [Sakai/Ismailova/iridium review](restricted-source-numerical-review.md)
+raises the current selection to **448 of 453 entries, with five held**, retaining
+all original NC/ND source flags. The 427-entry count above is historical.
 
 All original declarations, numerical resources, published parameters, source
 rights assertions and scientific classifications are unchanged. The complete

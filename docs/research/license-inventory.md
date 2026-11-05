@@ -48,7 +48,7 @@ values or detailed research archives, plus a separate optional dataset archive.
 The `local` inventory below remains an inventory of research checkout resources,
 not a promise that those files are included by either build. The optional
 package uses the explicit source-scoped allowlist in
-`packages/peritheos-datasets/datasets.json` (427 entries after the
+`packages/peritheos-datasets/datasets.json` (448 entries after the
 [numerical redistribution review](numerical-dataset-redistribution.md)); its installed manifest
 records exact admitted declarations and resource hashes. No scope is extended
 to adjacent source files. The runtime export retains structure/EOS parameters,
@@ -72,6 +72,13 @@ It assesses the complete experimental collection and the fixed historical
 excerpts individually. No original source-rights assertion or scientific
 classification changes; the rights-status totals below remain unchanged.
 
+The [Sakai/Ismailova/iridium follow-up](restricted-source-numerical-review.md)
+admits 21 existing numerical extractions after assessing applicable rights.
+This concerns general redistribution of `peritheos-datasets`, not a Debian-only
+selection. All 22 NC/ND source flags below remain: 21 are assessed admissions and
+one (Sakai S8) remains held. Core `peritheos` can be packaged without the optional
+dataset archive. No source license or published archive is changed.
+
 ## Dataset findings
 
 | Local status | Entries | Meaning |
@@ -81,7 +88,7 @@ classification changes; the rights-status totals below remain unchanged.
 | `author_permission_declared` | 1 | Fe7C3 author input: dated author/maintainer CC BY 4.0 declaration. |
 | `mixed_author_permission` | 3 | Coesite/Morard author-held rights are CC BY 4.0; literature inputs remain separate. |
 | `limited_or_unspecified_source` | 75 | Contributor-only dedications, source qualifications, or explicitly unspecified terms. |
-| `restricted_source` | 22 | Source NC/ND terms require an applicability assessment or separate grant. Not a finding that every fact/calculated output inherits them. |
+| `restricted_source` | 22 | NC/ND source notices retained. Follow-up admits 21 numerical extractions on scoped applicability assessments; Sakai S8 remains held. No source work is relabeled freely licensed. |
 | `source_terms_not_recorded` | 308 | No applicable grant established by the component metadata and reviewed scopes. |
 
 The 685 EOS and 234 structure/diffraction entries have no separate
@@ -117,9 +124,13 @@ terms. The latter records CC BY-NC-ND 4.0 source terms for the affected recovery
 The inventory distinguishes observations, lineage tables and calculated RS
 grids: reading coefficients and computing values does not automatically create
 a copyrighted adaptation. Dewaele (2018)'s separately licensed CC BY 4.0 input
-is explicitly separated from the Sakai source flag. Assess which protected
-elements were reproduced; where permission is needed, obtain a separate grant
-or exclude the affected content from a cleared source archive.
+is explicitly separated from the Sakai source flag. The follow-up admits the
+primary numerical tables, mathematical outputs and four Ismailova checkpoints;
+Sakai S8 remains held because its assembled literature selection needs further
+collection-rights review or a suitable grant. The same follow-up admits the
+iridium numerical tables and marker-center readouts, not source artwork. Source
+NC/ND declarations remain explicit; any applicable protected adaptation/database
+rights still require permission. See the bound receipt for general reuse limits.
 
 **Tateno KCl workbook.** `kcl_variant_sources/6779TableS1 revised.xlsx` came
 from the official MSA supplement `AM-19-56779.zip`, associated with

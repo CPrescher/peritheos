@@ -20,3 +20,15 @@ pressure coordinate, and marks Sakai's excluded rows separately.
 The reused Dewaele2004, Takemura2008 and Hirose2008 resources retain their
 existing provenance and source-rights declarations. There is no blanket
 claim of CC0 or another open license for all third-party material.
+
+## Numerical admission follow-up, 5 November 2026
+
+The optional data package admits S1-S7 primary numerical fields, the overlapping
+326-row Au calibration subset, nine calculated S9 grids and selected calculated
+S14 E/F/G columns under the scoped applicability assessment in
+`restricted-source-numerical.LICENSE.md`. This is not an NC authorization for
+commercial distribution, ND authorization for protected adaptations, or a new
+source grant. Table S8's assembled literature index remains held. Source notices
+and all original values remain unchanged. The existing S9 first pressure is
+zero rather than workbook A6=-0.0002242214081267206 GPa; both are preserved and
+the normalization is documented in the installed review.

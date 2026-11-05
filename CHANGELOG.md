@@ -10,7 +10,7 @@ All notable changes to Peritheos are documented here. The project follows
 - Split experimental observation values from the default Python distribution.
   `peritheos` retains structures, EOS parameters, uncertainties, calibration and
   source/validation summaries; `peritheos[datasets]` adds the version-matched
-  `peritheos-datasets` package. Select 427 material dataset entries after the
+  `peritheos-datasets` package. Select 448 material dataset entries after the
   numerical redistribution review: preserve the 44 earlier source declarations,
   add 363 scoped factual-content assessments, one verified Zenodo CC BY 4.0
   extraction and three author datasets with separately assessed literature inputs.
@@ -21,8 +21,12 @@ All notable changes to Peritheos are documented here. The project follows
   Admit ten views of the shared Shen/Smith experimental numerical collection and
   the fixed AIP copper/Anderson gold excerpts after individual collection-rights
   assessments, retaining original source terms and scientific qualifications.
-  Hold 26 entries, including newly identified iridium NC/ND sources; retain source
-  licensing caveats and exact installed review/manifest bindings. Preserve complete
+  Admit 21 Sakai/Ismailova/iridium numerical extractions after source-specific
+  applicability assessments; retain all original NC/ND notices and the Sakai
+  S8 literature-index hold. Hold five entries in total, including the four
+  original Campbell integration views. Record the existing Sakai S9 first-pressure
+  normalization without changing source values. Retain general redistribution
+  caveats and exact installed review/manifest bindings. Preserve complete
   repository evidence and original numerical values; build separate, standalone
   source archives without mutating the checkout.
   Missing optional data report installation/source guidance. No runtime network

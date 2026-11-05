@@ -8,7 +8,12 @@ The primary source is Ismailova et al., “Stability of Fe,Al-bearing bridgmanit
 
 The institutional record deposits only the article PDF and supplementary PDF; it lists no separate CSV, spreadsheet, CIF archive, or complete numerical Figure 3 dataset. The article's data-availability statement directs requests for additional related data to the authors. Author contact is therefore the only identified route to the missing complete compression/decompression series and paired calibrant observations.
 
-The article and supplement are distributed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Peritheos does not redistribute the source PDF. It bundles a four-row factual CSV transcription of the EOS-relevant Table S2 columns with attribution and the source license recorded on the dataset. Commercial users of the broader MIT-licensed package should treat this dataset's explicit CC BY-NC metadata as the governing source-use notice.
+The article and supplement are distributed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Peritheos does not redistribute the source PDF. It bundles a four-row factual CSV transcription of the EOS-relevant Table S2 columns with attribution and the source license recorded on the dataset. The original review treated this explicit CC BY-NC notice as governing dataset reuse.
+The [5 November numerical redistribution follow-up](../research/restricted-source-numerical-review.md)
+now admits this four-state numerical excerpt under a scoped applicable-rights
+assessment, while retaining the source CC BY-NC declaration verbatim. That
+assessment supersedes a blanket restriction on these numerical facts; it does
+not grant commercial permission for protected source content or database rights.
 
 ## Published parameterization
 

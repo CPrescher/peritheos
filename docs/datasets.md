@@ -31,14 +31,17 @@ their recorded source terms. A listed dataset identifier is not a promise that
 its observations are included in the optional package. Material metadata links
 the source evidence through `data_availability`.
 
-The current selection contains 427 material dataset entries. The
+The current selection contains 448 material dataset entries. The
 [numerical redistribution review](research/numerical-dataset-redistribution.md)
-distinguishes source grants from factual-content assessments and lists 26 held
+distinguishes source grants from factual-content assessments and lists five held
 material entries and two deferred supporting-study entries. The [Morard/Campbell follow-up](research/morard-campbell-redistribution-followup.md)
 records the subsequent source tracing and independently calculated tables.
 The [collection review](research/shen-historical-redistribution-review.md) admits
 the Shen/Smith numerical record and two fixed historical excerpts without
-asserting new source licenses.
+asserting new source licenses. The
+[Sakai/Ismailova/iridium review](research/restricted-source-numerical-review.md)
+admits 21 further numerical extractions while preserving source NC/ND notices.
+Sakai Table S8 and the original Campbell integration results remain held.
 An admission does not
 turn unspecified source terms into an open license or establish Debian acceptance.
 
