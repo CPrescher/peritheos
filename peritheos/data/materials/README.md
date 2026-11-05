@@ -224,7 +224,14 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 409 distinct datasets with 28,271 retained rows, represented by 449 material-document links to 543 EOS records.
+The source checkout contains 412 distinct datasets with 33,459 retained rows,
+represented by 456 material-document links to 543 EOS records. These totals
+include held research evidence and calculated grids. Standard `peritheos`
+installations retain declarations without observation values;
+`peritheos[datasets]` adds the reviewed selection of 451 material entries plus
+two supporting-study entries using 392 CSV resources. See
+[the distribution notices](../LICENSING.md) for admission and source-rights scopes.
+
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets do not validate the source-author Chen EOS. A separate
@@ -368,4 +375,4 @@ Tateno (2019) Holmes-Pt MGD and linear thermal, Tateno Sokolova-Pt linear therma
 and Chidester (2021) Vinet+MGD. The
 [source report](../../../docs/literature-reproductions/kcl-published-variants.md)
 retains their pressure-coordinate, effective-temperature and refit limitations.
-The official Tateno workbook is bundled and the corrected Pt pairing is logged.
+The official Tateno workbook is preserved privately; its numerical transcriptions and corrected Pt pairing remain documented.

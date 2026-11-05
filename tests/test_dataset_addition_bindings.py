@@ -60,3 +60,44 @@ def test_removing_only_reviewed_additions_recovers_accepted_predecessors():
             binding["historical_sha256"],
             fingerprint(document),
         )
+
+
+def test_reconstruction_cohorts_keep_exact_dataset_and_document_predecessors():
+    proof = json.loads(
+        (ROOT / "docs/data/dataset-addition-source-bindings.json").read_bytes()
+    )
+    for context in ("uncertainty_datasets", "similar_document"):
+        for material, binding in proof["bindings"][context].items():
+            entry = proof["materials"][material]
+            document = copy.deepcopy(load_eosmat(ROOT / entry["path"]))
+            for record in document["eos_records"]:
+                record.get("evidence", {}).get("reproduction", {}).pop(
+                    "assessment", None
+                )
+            current = (
+                document["datasets"] if context == "uncertainty_datasets" else document
+            )
+            assert fingerprint(current) == binding["current_sha256"]
+            assert accepts_merge_binding(
+                context, material, binding["historical_sha256"], fingerprint(current)
+            )
+            document["datasets"] = [
+                d
+                for d in document["datasets"]
+                if d["identifier"] not in entry["appended_declarations"]
+            ]
+            previous = (
+                document["datasets"] if context == "uncertainty_datasets" else document
+            )
+            assert fingerprint(previous) == binding["previous_reviewed_sha256"]
+            assert fingerprint(previous) == binding[
+                "historical_sha256"
+            ] or accepts_merge_binding(
+                context, material, binding["historical_sha256"], fingerprint(previous)
+            )
+            assert not accepts_merge_binding(
+                context, material, "0" * 64, fingerprint(current)
+            )
+            assert not accepts_merge_binding(
+                context, material, binding["historical_sha256"], "0" * 64
+            )
