@@ -524,7 +524,7 @@
   The exact MgO implementation also uses the 2016 correction to its earlier
   anharmonic coefficient. Peritheos follows the accompanying workbook
   calculation path when it differs from the typeset equations; see
-  [Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
+  [Paper versus spreadsheet](equations/thermal/multi-oscillator.md#paper-versus-spreadsheet).
 - Suzuki, A. (2016). Pressure-volume-temperature equation of state of
   epsilon-FeOOH to 11 GPa and 700 K. *Journal of Mineralogical and
   Petrological Sciences*, 111, 420--424.

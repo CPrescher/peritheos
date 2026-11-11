@@ -3,7 +3,7 @@
 `BM2Reference` requires V0, K0 and P0, with V0/K0 defined at P0; ordinary BM2
 remains referenced to zero pressure. Native v4 and explicit v3 exports retain
 this model identifier and its parameters. A reader without the model must
-reject it. See the [reference-state convention](equation-reference.md#finite-pressure-bm2-reference)
+reject it. See the [reference-state convention](equations/isothermal/birch-murnaghan.md#finite-pressure-bm2-reference)
 and [complete standalone example](examples/bm2-reference.eosmat).
 
 EOSMAT v4 is a simpler **native material format**. The `.eosmat` file itself is

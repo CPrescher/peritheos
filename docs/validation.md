@@ -415,7 +415,7 @@ The Sokolova diamond model includes numerical regression cases derived from the
 accompanying Excel calculation. These intentionally validate spreadsheet
 compatibility rather than a separate literal transcription of the journal
 article's printed equations; the distinction is documented under
-[Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
+[Paper versus spreadsheet](equations/thermal/multi-oscillator.md#paper-versus-spreadsheet).
 The catalog additionally checks all eleven Sokolova records against the 2013
 Tables 1 and 4 and regresses MgO at eight compressions against the 2016
 pressure-calculation values printed in Figure 2. Fei catalog tests verify all

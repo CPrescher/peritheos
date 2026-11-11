@@ -491,7 +491,7 @@ parameter. Consumers must honor an explicit value or reject the record. They
 must not silently replace `variable_exponent` with the integrated default.
 
 The complete equations and the distinction between the two laws are in the
-[thermal equation reference](equation-reference.md#mie-gruneisen-debye-and-einstein).
+[thermal equation reference](equations/thermal/mie-gruneisen.md).
 
 ### MGD thermal-pressure baseline
 

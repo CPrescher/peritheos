@@ -564,7 +564,7 @@ this pressure by about 3.245 GPa. Table 1’s ambient expansion observations
 independently check the fixed expansion law; they do not validate brucite at
 ambient pressure above its dehydration temperature.
 
-The [equation documentation](../equation-reference.md#temperature-dependent-reference-state)
+The [equation documentation](../equations/thermal/reference-state.md)
 defines the runtime law. The broad staged diagnostic retains the original
 conditional reconstruction separately.
 

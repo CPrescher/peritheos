@@ -147,7 +147,7 @@ an isotherm between reference temperatures.
 0 K cold curve, respectively. Their added thermal pressure need not vanish at
 `Tr`; `thermal_pressure_increment(V,T)` still measures the pressure difference
 from `Tr` at fixed volume. See the
-[MGD reference-state equations](equation-reference.md#thermal-pressure-and-its-reference-state).
+[MGD reference-state equations](equations/thermal/mie-gruneisen.md#thermal-pressure-and-its-reference-state).
 
 With `Tr=None`, the double-Debye Helmholtz classes consume a 0 K
 motionless-ion cold curve (`Vinet`, `BM2`, `BM3`, or `BM4`) and add absolute

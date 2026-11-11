@@ -5,6 +5,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Changed
+
+- Split the manual's equation reference into individual model-family pages with
+  isothermal and thermal inventories, breadcrumb navigation, a persistent model
+  label, and explicit model endings. Preserve scientific content and existing
+  equation-section bookmarks.
+
 ## [0.18.0] - 2026-11-05
 
 **Installation change:** `pip install peritheos` installs EOS calculations,
