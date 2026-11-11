@@ -6,6 +6,11 @@ theme:
   name: material
   features:
     - navigation.top
+    - navigation.path
+    - navigation.indexes
+    - navigation.tracking
+    - navigation.footer
+    - toc.follow
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -24,7 +29,10 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+extra_css:
+  - stylesheets/equations.css
 extra_javascript:
+  - javascripts/equation-links.js
   - javascripts/mathjax.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
 nav:
@@ -35,9 +43,39 @@ nav:
   - EOS reconstruction reports: reconstruction-reports/index.md
   - Observation datasets: datasets.md
   - Dataset pressure reductions: dataset-pressure-reductions.md
-  - EOS models: models.md
+  - EOS models:
+      - Overview and model selection: models.md
+      - Equation index: equation-reference.md
+      - Isothermal models:
+          - Overview: models/isothermal.md
+          - Birch-Murnaghan family: equations/isothermal/birch-murnaghan.md
+          - Natural-strain family: equations/isothermal/natural-strain.md
+          - Murnaghan: equations/isothermal/murnaghan.md
+          - Vinet: equations/isothermal/vinet.md
+          - Baonza pseudospinodal: equations/isothermal/baonza.md
+          - Generalized Rydberg-Stacey: equations/isothermal/rydberg-stacey.md
+          - Morse and Sun-Morse: equations/isothermal/morse.md
+          - Modified Tait: equations/isothermal/modified-tait.md
+          - Holzapfel: equations/isothermal/holzapfel.md
+      - Thermal models:
+          - Overview: models/thermal.md
+          - Debye plus quadratic thermal pressure: equations/thermal/debye-quadratic.md
+          - Double-Debye Helmholtz: equations/thermal/double-debye.md
+          - Temperature-dependent reference state: equations/thermal/reference-state.md
+          - Mie-Gruneisen Debye and Einstein: equations/thermal/mie-gruneisen.md
+          - Variable-exponent Debye-temperature law: equations/thermal/variable-exponent-debye.md
+          - Tange 2009 MgO thermal model: equations/thermal/tange-2009.md
+          - Asymptotic-power-law Debye with T2 excess: equations/thermal/asymptotic-debye-excess.md
+          - Sound-velocity quasi-Debye Helmholtz EOS: equations/thermal/sound-velocity-debye.md
+          - Linear thermal pressure: equations/thermal/linear-thermal-pressure.md
+          - Second-order temperature-compression thermal pressure: equations/thermal/second-order-taylor.md
+          - Logarithmic-volume linear thermal pressure: equations/thermal/log-volume-thermal-pressure.md
+          - Holland--Powell thermal pressure: equations/thermal/holland-powell.md
+          - Dewaele 2006 hcp-Fe thermal pressure scale: equations/thermal/dewaele-2006.md
+          - Dorogokupets--Oganov 2007 four-oscillator model: equations/thermal/dorogokupets-oganov-2007.md
+          - Multi-oscillator Gruneisen thermal pressure: equations/thermal/multi-oscillator.md
+          - Monatomic Debye and anharmonic Helmholtz energy: equations/thermal/debye-anharmonic.md
   - Shock Hugoniots: hugoniots.md
-  - Equation reference: equation-reference.md
   - Thermoelastic properties: thermoelastic-properties.md
   - Fitting data: fitting.md
   - Tutorial notebooks:

@@ -217,7 +217,7 @@ contains runnable quick starts and links to the model and fitting modules.
 `BM4` references through `isothermal::ReferenceEnergyEos`. The reference
 energy is consistent with pressure for both the absolute cold-curve mode and
 the reference-isotherm mode. See the
-[equation reference](equation-reference.md#double-debye-helmholtz) for the
+[equation reference](equations/thermal/double-debye.md) for the
 energy definitions and reference-temperature conventions.
 
 Existing concrete Vinet models retain their default type parameter. Since

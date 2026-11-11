@@ -1,0 +1,36 @@
+/* Keep the equation family visible while reading a long derivation. */
+.md-typeset .eos-context {
+  position: sticky;
+  top: 2.4rem;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  margin: 0 0 1.2rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--md-default-fg-color--lighter);
+  background: var(--md-default-bg-color);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.md-typeset .eos-context a {
+  flex-shrink: 0;
+}
+
+/* Separate derivation topics without suggesting a change of model. */
+.md-typeset .eos-context ~ h2 {
+  padding-top: 1rem;
+  border-top: 1px solid var(--md-default-fg-color--lighter);
+  scroll-margin-top: 7rem;
+}
+
+.md-typeset .eos-context ~ h3 {
+  scroll-margin-top: 7rem;
+}
+
+@media print {
+  .md-typeset .eos-context {
+    position: static;
+  }
+}

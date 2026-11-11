@@ -1,33 +1,19 @@
 # EOS models
 
+Start with a model category. Each equation family has its own page, including
+its formulas, parameter conventions, limits, and source qualifications.
+
 ## Isothermal models
 
-| Import | Parameters after `V0`, `K0` | Notes |
-|---|---|---|
-| [`BM2`](equation-reference.md#birch-murnaghan-family) | none | Second-order Birch-Murnaghan; implied `K0_prime = 4` |
-| [`BM2Reference`](equation-reference.md#finite-pressure-bm2-reference) | required `P0` | BM2 pressure increment above `P0`; `V0` and `K0` refer to that pressure |
-| [`BM3`](equation-reference.md#birch-murnaghan-family) | `K0_prime` | Standard third-order Eulerian finite strain |
-| [`BM4`](equation-reference.md#birch-murnaghan-family) | `K0_prime`, `K0_double_prime` | Fourth-order Eulerian finite strain |
-| [`Murnaghan`](equation-reference.md#murnaghan) | `K0_prime` | Assumes bulk modulus linear in pressure |
-| [`NaturalStrain2`](equation-reference.md#natural-strain-family) | none | Hencky strain; implied `K0_prime = 2` |
-| [`NaturalStrain3`](equation-reference.md#natural-strain-family) | `K0_prime` | Third-order Poirier-Tarantola logarithmic EOS |
-| [`NaturalStrain4`](equation-reference.md#natural-strain-family) | `K0_prime`, `K0_double_prime` | Fourth-order natural strain |
-| [`ModifiedTait`](equation-reference.md#modified-tait) | `K0_prime`, `K0_double_prime` | Analytically invertible Tait family |
-| [`Baonza`](equation-reference.md#baonza-pseudospinodal) | `K0_prime` | Pseudospinodal form with the conventional fixed exponent beta=0.85 |
-| [`Vinet`](equation-reference.md#vinet) | `K0_prime` | Rydberg-Vinet interatomic-potential form |
-| [`RydbergStacey`](equation-reference.md#generalized-rydberg-stacey) | `K0_prime`, `K_infinity_prime` | Generalized high-compression Rydberg form with an adjustable infinite-pressure derivative |
-| [`Morse3`](equation-reference.md#morse-and-sun-morse) | `K0_prime` | Three-dimensional Morse-potential form |
-| [`SunMorse3`](equation-reference.md#morse-and-sun-morse) | `K0_prime` | Volume-analytic Sun--Morse form with n=3 |
-| [`SunMorse4`](equation-reference.md#morse-and-sun-morse) | `K0_prime` | Volume-analytic Sun--Morse form with n=4 |
-| [`Holzapfel`](equation-reference.md#holzapfel) | `K0_prime`, `n`, `Z` | High-compression form with strict molar units |
+[Browse isothermal models](models/isothermal.md) for reference-isotherm equations,
+including the Birch–Murnaghan, natural-strain, Vinet, and modified-Tait families.
+The inventory lists their constructor parameters and links to each family.
 
-All isothermal models implement:
+## Thermal models
 
-```python
-pressure(V)
-bulk_modulus(V)
-volume(P)
-```
+[Browse thermal models](models/thermal.md) for reference-EOS requirements,
+thermal parameters, and caloric capabilities. Follow a model name to its equations
+and reference-state conventions.
 
 ## Shock Hugoniot models
 
@@ -39,92 +25,7 @@ isotherms for thermal EOS composition. Hugoniot and equilibrium models share
 the `EquationOfState` base interface; the canonical namespaced import is
 `peritheos.eos.hugoniot` and `peritheos.hugoniot` remains compatible.
 
-## Thermal models
-
-Most thermal EOS classes wrap an isothermal `rt_eos`, which defines pressure on the
-reference isotherm at `Tr`. The thermal model usually adds the pressure change away
-from that temperature, so the combined model evaluates
-$P(V,T)=P_{ref}(V)+\Delta P_{th}(V,T)$ with
-$\Delta P_{th}(V,T_r)=0$. Pressure, volume, and temperature inversion all use
-this combined relation. The reference and thermal parameters can also be fitted
-together with [`fit_joint_eos`](fitting.md#joint-reference-and-thermal-fitting).
-`SecondOrderTaylorThermalPressure` instead adds an absolute pressure polynomial
-to a cold curve; its `Tr` is an expansion coordinate, not the temperature of
-the reference EOS.
-`AsymptoticDebyeTabulatedPressure` likewise uses an absolute 0 K cold curve,
-with a separate ambient volume for its phonon law and bounded electronic and
-residual pressure tables. See the [Yokoo PVT model](literature-reproductions/yokoo-2009-pvt-library.md)
-for its reference conventions and derived reconstruction limits.
-`DoubleDebyeHelmholtz` and `DoubleDebyeLogMomentHelmholtz` can either represent
-the absolute simulated free energy or, when their optional `Tr` is supplied,
-add the simulated non-cold contribution relative to `Tr` to an experimental
-reference isotherm.
-
-Both double-Debye models support `Vinet`, `BM2`, `BM3`, and `BM4` with a
-matching reference energy, so total pressure remains the negative volume
-derivative of total Helmholtz energy. The same choices apply in Python, Rust,
-and `.eosmat` files. Changing a published reference curve creates a new
-composition whose accuracy must be checked separately.
-
-The allowed reference EOS depends on the thermal formulation. The
-Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure models
-accept any isothermal `EosBase` model;
-`LogVolumeThermalPressure` additionally requires `V0`,
-`HollandPowellThermalPressure` requires `K0`, and `ThermalModifiedTait`
-requires `ModifiedTait`.
-Because thermal pressure is calculated from molar energy divided
-by molar volume, energy-based models require the volume convention described
-under [Units and reference states](units.md). The volume-independent linear
-correction instead inherits the reference EOS volume convention.
-
-For Debye and Einstein models, `n` is the number of atoms per formula unit,
-with the same formula unit defining the molar volume. It is not $Z$, the
-number of formula units in a crystallographic cell. For hcp Fe, the standard
-choice is `n=1` with volume per mole of Fe; $Z=2$ is used to convert its
-two-atom cell volume. See the
-[MGD equations, derivations, and worked calculation](equation-reference.md#mie-gruneisen-debye-and-einstein)
-and [normalization examples](units.md#atom-count-and-molar-volume-basis).
-
-| Import | Reference EOS | Thermal parameters | Caloric model |
-|---|---|---|---|
-| [`AsymptoticDebyeTabulatedPressure`](literature-reproductions/yokoo-2009-pvt-library.md) | cold `EosBase` exposing `V0` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n`, `cold_volume_ratio`; pressure tables and numerical bounds | pressure only |
-| [`DoubleDebyeHelmholtz`](equation-reference.md#double-debye-helmholtz) | `Vinet`, `BM2`, `BM3`, or `BM4`: 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0`, `Tr` | double Debye + $T^2$ |
-| [`DoubleDebyeLogMomentHelmholtz`](equation-reference.md#logarithmic-moment-double-debye-variant) | `Vinet`, `BM2`, `BM3`, or `BM4`: 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; cutoff A, cutoff B, and `theta_0` parameter triples; optional `n`, `anharmonic_a`, `phi0`, `Tr` | logarithmic-moment double Debye + $T^2$ |
-| [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `Cvmax`, `debye_temperature_law`, `thermal_pressure_reference` | Debye |
-| [`MieGruneisenEinstein`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
-| [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
-| [`AsymptoticPowerLawMieGruneisenDebyeExcess`](equation-reference.md#asymptotic-power-law-debye-with-t2-excess) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n`, `beta0`, `m` | Debye plus volume-dependent $T^2$ excess |
-| [`SoundVelocityDebyeHelmholtz`](equation-reference.md#sound-velocity-quasi-debye-helmholtz-eos) | any `EosBase` with `bulk_modulus` | `Tr`, molar mass, `n`, and longitudinal/shear velocity intercepts and slopes | sound-derived Debye |
-| [`Dewaele2006`](equation-reference.md#dewaele-2006-hcp-fe-thermal-pressure-scale) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `gamma_inf`, `beta`, anharmonic and electronic terms, `n` | Debye + $T^2$ |
-| [`Dewaele2006`](equation-reference.md#dewaele-2006-hcp-fe-thermal-pressure-scale) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `gamma_inf`, `beta`, anharmonic and electronic terms, `n` | Debye + $T^2$ |
-| [`SoundVelocityDebyeHelmholtz`](equation-reference.md#sound-velocity-quasi-debye-helmholtz-eos) | any `EosBase` with `bulk_modulus` | `Tr`, molar mass, `n`, and longitudinal/shear velocity intercepts and slopes | sound-derived Debye |
-| [`AsymptoticPowerLawMieGruneisenDebyeExcess`](equation-reference.md#asymptotic-power-law-debye-with-t2-excess) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n`, `beta0`, `m` | Debye plus volume-dependent $T^2$ excess |
-| [`DorogokupetsOganov2007`](equation-reference.md#dorogokupets-oganov-2007-four-oscillator-model) | any `EosBase` | Four oscillator modes, `gamma0`, `gamma_inf`, `beta`, anharmonic, electronic, and defect parameters | generalized Bose + Einstein |
-| [`LinearThermalPressure`](equation-reference.md#linear-thermal-pressure) | any `EosBase` | `Tr`, `alpha_KT` | none |
-| [`SecondOrderTaylorThermalPressure`](equation-reference.md#second-order-temperature-compression-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `eta0`, `c0`--`c5` | none |
-| [`LogVolumeThermalPressure`](equation-reference.md#logarithmic-volume-linear-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `alpha_KT_ref`, `dK_dT_V` | none |
-| [`ThermalReferenceStateEOS`](equation-reference.md#temperature-dependent-reference-state) | reference EOS exposing `V0`, `K0` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1`, `thermal_expansion_law`, `reference_volume_law` | none |
-| [`HollandPowellThermalPressure`](equation-reference.md#holland-powell-thermal-pressure) | reference EOS exposing `K0` | `Tr`, `theta`, `alpha0`, `n` | Holland-Powell Einstein pressure |
-| [`ThermalModifiedTait`](equation-reference.md#thermal-modified-tait) | `ModifiedTait` | `Tr`, `theta`, `alpha0`, `n` | Holland-Powell Einstein pressure |
-| [`MultiOscillatorGruneisenThermalEOS`](equation-reference.md#multi-oscillator-gruneisen-thermal-pressure) | any `EosBase` | mode, Gruneisen, anharmonic, electronic parameters plus `n` | Multi-mode |
-
-`ThermalModifiedTait` is the modified-Tait compatibility form;
-`HollandPowell2011` remains its alias.
-
-`MultiOscillatorGruneisenThermalEOS` accepts the complete optional `beta` and generalized Bose-mode
-terms. Its defaults (`beta=mb=mb1=0`) disable those additions and preserve the
-reduced configuration used by existing Peritheos and simplified Dioptas-style
-parameter sets. Temperature inversion, including `temperature_from_volumes`,
-uses the same active terms and works with both configurations.
-
-The Sokolova catalog composition of `MultiOscillatorGruneisenThermalEOS` is intentionally compatible with the calculation path and
-numerical results of the accompanying Excel workbook. It is not a literal
-transcription of the equations typeset in the journal article, which differ
-from the workbook in several consequential details. Do not use the printed
-paper equations alone to reproduce Peritheos values; see
-[Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
-
-### Selecting a model
+## Selecting a model
 
 - Use BM3 or Vinet for a conventional three-parameter compression fit.
 - Use modified Tait or a fourth-order natural-strain EOS when reliable second
@@ -145,13 +46,6 @@ paper equations alone to reproduce Peritheos values; see
 - Use `Dewaele2006` for the source-specific hcp-Fe pressure scale used by
   Dewaele et al. (2006), including its intrinsic-anharmonic and electronic
   pressure terms.
-- Use `Dewaele2006` for the source-specific hcp-Fe pressure scale used by
-  Dewaele et al. (2006), including its intrinsic-anharmonic and electronic
-  pressure terms.
-- Use `SoundVelocityDebyeHelmholtz` when a source derives the Debye temperature
-  from a cold-curve bulk modulus and published longitudinal/shear
-  velocity-density regressions. Those four regression coefficients are part of
-  the model definition and must not be silently substituted.
 - Use `DorogokupetsOganov2007` only for the paper's complete four-oscillator
   Helmholtz formulation. It is distinct from the later Sokolova workbook
   model even though the authors and physical terms overlap.
