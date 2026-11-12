@@ -54,6 +54,15 @@ normalization differs substantially from Figure 4, especially for Du. Original
 normalization files, specimen treatment and masks are still needed to identify
 the actual author workflow. No author was contacted.
 
+**Dataset influence follow-up:** the [32-case study](literature-reproductions/grossular-angel-2022-dataset-influence.md)
+finds that Conrad's three retained modulus points dominate the excess K′.
+Omitting them gives K′ near the source under both fixed normalizations;
+θ remains discrepant. Original Table 6 transcription and the published
+two-outlier exclusion are confirmed. The most specific remaining questions
+are Conrad's actual Kₛ inputs, preprocessing and assigned modulus errors,
+along with confirmation of pressure inputs and the joint fit sequence.
+This does not justify removing the data. No author was contacted.
+
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,
 scale-factor groups, assigned coordinate errors and weights (including the

@@ -7,6 +7,14 @@ The published coefficients remain unchanged.
 
 ## Outcome and comparison scope
 
+The [dataset influence study](grossular-angel-2022-dataset-influence.md)
+identifies Conrad's three retained moduli as the dominant upward influence
+on K′ in this reconstruction. Omitting them gives K′=5.06290 under plotted
+normalization and 5.06004 under linear 298 K normalization, versus 5.06534
+published. Literal transcription and the published outlier mask check out;
+original modulus processing and assigned errors remain unknown. These are
+deletion diagnostics, not evidence to discard Conrad or replace the source EOS.
+
 The latest [20-case normalization/specimen study](grossular-angel-2022-normalization-specimen.md)
 separates those inputs at fixed error assumptions. Linear 298 K normalization
 lowers θ by 16.6 K; relaxed offsets can move θ across the source value.

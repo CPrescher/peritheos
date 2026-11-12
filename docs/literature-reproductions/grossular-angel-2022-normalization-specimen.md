@@ -1,5 +1,10 @@
 # Grossular: normalization and Isaak specimen tests
 
+**Subsequent investigation:** the [dataset influence study](grossular-angel-2022-dataset-influence.md)
+finds that Conrad's three retained moduli dominate the upward K′ shift in
+the reconstructed joint fit. Its deletion controls change row selection;
+this page retains the original 20 normalization/specimen comparisons.
+
 User-requested controlled diagnostics, 12 November 2026. This follows the
 [219-row estimated-error study](grossular-angel-2022-full-sensitivity.md).
 

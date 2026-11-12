@@ -67,6 +67,14 @@ with relaxed offsets is a diagnostic control, not recovered author processing.
 
 ## Decision and comparison scope
 
+The [grossular dataset influence study](grossular-angel-2022-dataset-influence.md)
+subsequently identifies the three retained Conrad moduli as the dominant
+upward K′ influence under both plotted and linear 298 K normalization.
+Omitting those rows gives K′=5.06290 and 5.06004, respectively, but does not
+reproduce θ or recover the author workflow. The literal table and published
+outlier mask are confirmed; Conrad input processing/weights remain unresolved.
+All deletion fits remain diagnostic and not recommended for prediction.
+
 The two published **q-compromise pressure parameterizations** are accepted:
 `pyrope_angel_2022_bm3_q_compromise_debye` and
 `grossular_angel_2022_bm3_q_compromise_debye`. The existing Milani (2015)

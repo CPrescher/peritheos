@@ -1,0 +1,55 @@
+{
+  "checked_on": "2026-11-12",
+  "method": "Compared retained factual transcription to cached primary table image and extracted final primary text. No source observations or errors altered. No new fits or row-mask searches.",
+  "sources": [
+    {
+      "source": "Conrad et al. 1999 final Table6, p379",
+      "url": "https://doi.org/10.2138/am-1999-0321",
+      "cached_file": "/Users/clemens/Programming/peritheos/output/grossular-full-audit-2026-11-12/sources/conrad-1999.pdf",
+      "sha256": "7f4e3bde789196fba446e3c65eae1f1583928a081b57333bc3130f58c303627c"
+    },
+    {
+      "source": "Angel et al. 2022 final Fig3 caption, p8",
+      "url": "https://doi.org/10.1007/s00410-022-01918-5",
+      "cached_file": "/Users/clemens/Programming/peritheos/output/garnet-angel-2022-audit/sources/article.pdf",
+      "sha256": "eebef304cc8ef328f3d9219d9006f94791e4680e42d92655a396890eac81b692"
+    },
+    {
+      "source": "Angel et al. 2022 Supplement S1, pS3",
+      "url": "https://doi.org/10.1007/s00410-022-01918-5",
+      "cached_file": "/Users/clemens/Programming/peritheos/output/garnet-angel-2022-audit/sources/supplement.pdf",
+      "sha256": "e32726ebdb7b7e4ab85f246a29677dde3a5fa4b08a33d6af308329ff195e5f88"
+    }
+  ],
+  "findings": [
+    "All five Conrad C11/C12 values and printed errors match final Table6; KS derived as(C11+2C12)/3, not independently measured as a separate quantity.",
+    "Angel Fig3 caption explicitly excludes the two highest-pressure Conrad points; S1 gives five available and three used, with assigned sigmaP0.1GPa. The retained pressures1.6,3.5,6.95GPa are consistent with that mask.",
+    "Conrad Table6 labels parenthetical uncertainties1standard deviation; covariance is absent. Original analysis assumes1%velocity precision in Christoffel inversion(p377), which is not a directly supplied KS error.",
+    "No modulus scale is fitted for Conrad in the existing six-parameter reconstructed fit. Whether the author preprocessed the original Cij-derived KS or assigned different KS errors remains unknown.",
+    "This diagnostic does not infer that Conrad was omitted or that the data are erroneous."
+  ],
+  "conrad_covariance_qualification": "Selected effective pressure errors at the constrained published-Kprime fit are dominated by assigned0.1GPa pressure widths. The covariance-compatible KS width upper bound is unchanged; unknown Cij covariance alone can only lower this already small contribution at the same coefficient state.",
+  "selected_row_scores": [
+    {
+      "source_row": 1,
+      "pressure_gpa": 1.6,
+      "common_effective_pressure_error_gpa": 0.10017874287368729,
+      "assigned_pressure_variance_fraction": 0.9964347044390154,
+      "local_upward_kprime_contribution": -0.005366752084186176
+    },
+    {
+      "source_row": 2,
+      "pressure_gpa": 3.5,
+      "common_effective_pressure_error_gpa": 0.10164861918154827,
+      "assigned_pressure_variance_fraction": 0.967825438696383,
+      "local_upward_kprime_contribution": 0.026663203176552585
+    },
+    {
+      "source_row": 3,
+      "pressure_gpa": 6.95,
+      "common_effective_pressure_error_gpa": 0.1004645061038927,
+      "assigned_pressure_variance_fraction": 0.9907742091148054,
+      "local_upward_kprime_contribution": 0.13236710220734438
+    }
+  ]
+}
