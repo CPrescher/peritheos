@@ -26,6 +26,17 @@ but no tested multiplier reproduces both published thermal central values.
 Direct same-coefficient property checks at 27 states agree with official
 EosFit; the original fitting workflow remains unrecovered.
 
+## Grossular follow-up: 12 November 2026
+
+The [grossular observation audit](grossular-angel-2022.md) recovers upstream
+values corresponding to 161 of the 220 nominal S1 channels. Seven Thiéblot
+expansion and 52 Gwanmesia modulus values remain unrecovered. Normalization
+counts and the Isaak expansion specimen/reduction are unresolved. Nine
+same-coefficient official EosFit property checks pass. A separately declared
+95-channel partial refit converges from two starts to K0=167.373 GPa,
+K0′=4.96395, θ0=744.384 K and γ0=1.16605. It is diagnostic and does not
+reproduce the full author workflow or replace the published coefficients.
+
 ## Decision and comparison scope
 
 The two published **q-compromise pressure parameterizations** are accepted:

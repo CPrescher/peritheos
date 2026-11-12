@@ -1,0 +1,1701 @@
+{
+  "audit_date": "2026-11-12",
+  "scope": "partial_original_observation_audit",
+  "source_coefficients_changed": false,
+  "author_workflow_reproduced": false,
+  "nominal_s1_used_count": 220,
+  "nominal_channels_recovered": 161,
+  "nominal_channels_unrecovered": 59,
+  "count_qualification": "S1 used counts sum to 220, but its normalization-anchor footnote conflicts with some unchanged original/used counts. Recovered counts identify upstream channels, not 161 confirmed author-fit residuals. Isaak expansion specimen identity is unresolved.",
+  "gas_constant_j_mol_k": 8.314000129699707,
+  "source_nonzero_covariance_parameters": [
+    2,
+    3,
+    11,
+    18,
+    53,
+    54
+  ],
+  "volume_shape_comparisons": {
+    "milani_vt": {
+      "protocol": "Fixed source EOS; one constant molar-volume scale profiled with diagonal reported volume errors only. Temperature errors and shared calibration/anchor covariance are omitted. This is a conditional shape check, not the original normalization or a formal goodness-of-fit test.",
+      "profiled_volume_at_298k_cm3_mol": 125.27946325909491,
+      "residual_summary_cm3_mol": {
+        "count": 35,
+        "mean": 0.0025006280676060605,
+        "rms": 0.024727664482737072,
+        "max_absolute": 0.06209996031884657
+      },
+      "volume_error_only_standardized_rms": 1.398267159657879,
+      "rows": [
+        {
+          "row": 1,
+          "T": 100.0,
+          "V": 124.95339862924,
+          "sV": 0.024841330635,
+          "calculated_volume_cm3_mol": 124.93573411163224,
+          "observed_minus_calculated_cm3_mol": 0.01766451760775567
+        },
+        {
+          "row": 2,
+          "T": 110.0,
+          "V": 124.958668002405,
+          "sV": 0.024841330635,
+          "calculated_volume_cm3_mol": 124.9419232228328,
+          "observed_minus_calculated_cm3_mol": 0.01674477957220688
+        },
+        {
+          "row": 3,
+          "T": 120.0,
+          "V": 124.96694844595,
+          "sV": 0.02408856304,
+          "calculated_volume_cm3_mol": 124.9495159184102,
+          "observed_minus_calculated_cm3_mol": 0.017432527539796183
+        },
+        {
+          "row": 4,
+          "T": 130.0,
+          "V": 124.9744761219,
+          "sV": 0.024841330635,
+          "calculated_volume_cm3_mol": 124.95854263375581,
+          "observed_minus_calculated_cm3_mol": 0.01593348814418505
+        },
+        {
+          "row": 5,
+          "T": 150.0,
+          "V": 124.99856468493999,
+          "sV": 0.024841330635,
+          "calculated_volume_cm3_mol": 124.98085835207159,
+          "observed_minus_calculated_cm3_mol": 0.017706332868399954
+        },
+        {
+          "row": 6,
+          "T": 170.0,
+          "V": 125.02265324797999,
+          "sV": 0.02559409823,
+          "calculated_volume_cm3_mol": 125.00857385194504,
+          "observed_minus_calculated_cm3_mol": 0.014079396034944125
+        },
+        {
+          "row": 7,
+          "T": 190.0,
+          "V": 125.06254993051499,
+          "sV": 0.02559409823,
+          "calculated_volume_cm3_mol": 125.0411858743948,
+          "observed_minus_calculated_cm3_mol": 0.02136405612019132
+        },
+        {
+          "row": 8,
+          "T": 210.0,
+          "V": 125.09115509912499,
+          "sV": 0.02559409823,
+          "calculated_volume_cm3_mol": 125.07812832171597,
+          "observed_minus_calculated_cm3_mol": 0.013026777409024248
+        },
+        {
+          "row": 9,
+          "T": 230.0,
+          "V": 125.113738126975,
+          "sV": 0.026346865825000003,
+          "calculated_volume_cm3_mol": 125.11885112026644,
+          "observed_minus_calculated_cm3_mol": -0.005112993291447765
+        },
+        {
+          "row": 10,
+          "T": 276.0,
+          "V": 125.21235068191999,
+          "sV": 0.027852401015,
+          "calculated_volume_cm3_mol": 125.22426208629207,
+          "observed_minus_calculated_cm3_mol": -0.011911404372085599
+        },
+        {
+          "row": 11,
+          "T": 293.0,
+          "V": 125.25902227281,
+          "sV": 0.015055351900000001,
+          "calculated_volume_cm3_mol": 125.26662871953957,
+          "observed_minus_calculated_cm3_mol": -0.007606446729568006
+        },
+        {
+          "row": 12,
+          "T": 301.0,
+          "V": 125.261280575595,
+          "sV": 0.021830260254999997,
+          "calculated_volume_cm3_mol": 125.28710560009041,
+          "observed_minus_calculated_cm3_mol": -0.025825024495418347
+        },
+        {
+          "row": 13,
+          "T": 303.0,
+          "V": 125.27181932192501,
+          "sV": 0.017313654685000002,
+          "calculated_volume_cm3_mol": 125.29227563427217,
+          "observed_minus_calculated_cm3_mol": -0.020456312347164385
+        },
+        {
+          "row": 14,
+          "T": 323.0,
+          "V": 125.33881563788,
+          "sV": 0.018819189875,
+          "calculated_volume_cm3_mol": 125.34502433644886,
+          "observed_minus_calculated_cm3_mol": -0.006208698568855198
+        },
+        {
+          "row": 15,
+          "T": 348.0,
+          "V": 125.41258686219,
+          "sV": 0.015808119495,
+          "calculated_volume_cm3_mol": 125.41339299568254,
+          "observed_minus_calculated_cm3_mol": -0.0008061334925457686
+        },
+        {
+          "row": 16,
+          "T": 373.0,
+          "V": 125.482594248525,
+          "sV": 0.01806642228,
+          "calculated_volume_cm3_mol": 125.48411299391798,
+          "observed_minus_calculated_cm3_mol": -0.0015187453929712547
+        },
+        {
+          "row": 17,
+          "T": 423.0,
+          "V": 125.66401123892,
+          "sV": 0.02107749266,
+          "calculated_volume_cm3_mol": 125.63143327096107,
+          "observed_minus_calculated_cm3_mol": 0.032577967958928866
+        },
+        {
+          "row": 18,
+          "T": 448.0,
+          "V": 125.73176032247,
+          "sV": 0.01656088709,
+          "calculated_volume_cm3_mol": 125.70757977793522,
+          "observed_minus_calculated_cm3_mol": 0.024180544534772253
+        },
+        {
+          "row": 19,
+          "T": 473.0,
+          "V": 125.81080091994498,
+          "sV": 0.023335795444999998,
+          "calculated_volume_cm3_mol": 125.78514859176707,
+          "observed_minus_calculated_cm3_mol": 0.02565232817791241
+        },
+        {
+          "row": 20,
+          "T": 523.0,
+          "V": 125.94705185464,
+          "sV": 0.036885612155,
+          "calculated_volume_cm3_mol": 125.94402417722699,
+          "observed_minus_calculated_cm3_mol": 0.0030276774130015838
+        },
+        {
+          "row": 21,
+          "T": 523.0,
+          "V": 125.97942086122501,
+          "sV": 0.015808119495,
+          "calculated_volume_cm3_mol": 125.94402417722699,
+          "observed_minus_calculated_cm3_mol": 0.03539668399801599
+        },
+        {
+          "row": 22,
+          "T": 573.0,
+          "V": 126.137502056175,
+          "sV": 0.01957195747,
+          "calculated_volume_cm3_mol": 126.10721062995087,
+          "observed_minus_calculated_cm3_mol": 0.030291426224124507
+        },
+        {
+          "row": 23,
+          "T": 623.0,
+          "V": 126.29784155391,
+          "sV": 0.01656088709,
+          "calculated_volume_cm3_mol": 126.27411118757493,
+          "observed_minus_calculated_cm3_mol": 0.023730366335072972
+        },
+        {
+          "row": 24,
+          "T": 673.0,
+          "V": 126.47097810076,
+          "sV": 0.01656088709,
+          "calculated_volume_cm3_mol": 126.44429893482999,
+          "observed_minus_calculated_cm3_mol": 0.02667916593000541
+        },
+        {
+          "row": 25,
+          "T": 698.0,
+          "V": 126.55077146583001,
+          "sV": 0.015808119495,
+          "calculated_volume_cm3_mol": 126.5305251308495,
+          "observed_minus_calculated_cm3_mol": 0.02024633498051287
+        },
+        {
+          "row": 26,
+          "T": 723.0,
+          "V": 126.64411464761001,
+          "sV": 0.017313654685000002,
+          "calculated_volume_cm3_mol": 126.61746399906077,
+          "observed_minus_calculated_cm3_mol": 0.02665064854923571
+        },
+        {
+          "row": 27,
+          "T": 773.0,
+          "V": 126.80144307496501,
+          "sV": 0.017313654685000002,
+          "calculated_volume_cm3_mol": 126.79337906264347,
+          "observed_minus_calculated_cm3_mol": 0.008064012321540304
+        },
+        {
+          "row": 28,
+          "T": 798.0,
+          "V": 126.881236440035,
+          "sV": 0.01656088709,
+          "calculated_volume_cm3_mol": 126.88231354633922,
+          "observed_minus_calculated_cm3_mol": -0.0010771063042227524
+        },
+        {
+          "row": 29,
+          "T": 823.0,
+          "V": 126.98587113574,
+          "sV": 0.01806642228,
+          "calculated_volume_cm3_mol": 126.97187631416254,
+          "observed_minus_calculated_cm3_mol": 0.013994821577455241
+        },
+        {
+          "row": 30,
+          "T": 873.0,
+          "V": 127.13491911955,
+          "sV": 0.018819189875,
+          "calculated_volume_cm3_mol": 127.15283170832924,
+          "observed_minus_calculated_cm3_mol": -0.017912588779239513
+        },
+        {
+          "row": 31,
+          "T": 898.0,
+          "V": 127.21847632259501,
+          "sV": 0.01656088709,
+          "calculated_volume_cm3_mol": 127.24420164327964,
+          "observed_minus_calculated_cm3_mol": -0.025725320684628628
+        },
+        {
+          "row": 32,
+          "T": 923.0,
+          "V": 127.29977522285499,
+          "sV": 0.017313654685000002,
+          "calculated_volume_cm3_mol": 127.33615400112639,
+          "observed_minus_calculated_cm3_mol": -0.03637877827139846
+        },
+        {
+          "row": 33,
+          "T": 973.0,
+          "V": 127.47215900211,
+          "sV": 0.01656088709,
+          "calculated_volume_cm3_mol": 127.52177697152464,
+          "observed_minus_calculated_cm3_mol": -0.049617969414640584
+        },
+        {
+          "row": 34,
+          "T": 998.0,
+          "V": 127.570771557055,
+          "sV": 0.015808119495,
+          "calculated_volume_cm3_mol": 127.61543594552283,
+          "observed_minus_calculated_cm3_mol": -0.0446643884678366
+        },
+        {
+          "row": 35,
+          "T": 1023.0,
+          "V": 127.647553851745,
+          "sV": 0.01656088709,
+          "calculated_volume_cm3_mol": 127.70965381206385,
+          "observed_minus_calculated_cm3_mol": -0.06209996031884657
+        }
+      ]
+    },
+    "du_vt": {
+      "protocol": "Fixed source EOS; one constant molar-volume scale profiled with diagonal reported volume errors only. Temperature errors and shared calibration/anchor covariance are omitted. This is a conditional shape check, not the original normalization or a formal goodness-of-fit test.",
+      "profiled_volume_at_298k_cm3_mol": 125.2248021078792,
+      "residual_summary_cm3_mol": {
+        "count": 13,
+        "mean": 0.007675644368520606,
+        "rms": 0.042938607359625625,
+        "max_absolute": 0.07836906205304217
+      },
+      "volume_error_only_standardized_rms": 4.922615667635953,
+      "rows": [
+        {
+          "row": 1,
+          "T": 296.1,
+          "V": 125.27558315990001,
+          "sV": 0.015055351900000001,
+          "calculated_volume_cm3_mol": 125.21986533622248,
+          "observed_minus_calculated_cm3_mol": 0.05571782367752576
+        },
+        {
+          "row": 2,
+          "T": 393.7,
+          "V": 125.411081327,
+          "sV": 0.007527675950000001,
+          "calculated_volume_cm3_mol": 125.48945038905305,
+          "observed_minus_calculated_cm3_mol": -0.07836906205304217
+        },
+        {
+          "row": 3,
+          "T": 447.1,
+          "V": 125.58421787385,
+          "sV": 0.007527675950000001,
+          "calculated_volume_cm3_mol": 125.64996617782384,
+          "observed_minus_calculated_cm3_mol": -0.06574830397384801
+        },
+        {
+          "row": 4,
+          "T": 501.2,
+          "V": 125.82510350425,
+          "sV": 0.015055351900000001,
+          "calculated_volume_cm3_mol": 125.81926076855068,
+          "observed_minus_calculated_cm3_mol": 0.005842735699317814
+        },
+        {
+          "row": 5,
+          "T": 547.4,
+          "V": 125.96060167134999,
+          "sV": 0.015055351900000001,
+          "calculated_volume_cm3_mol": 125.96817672728011,
+          "observed_minus_calculated_cm3_mol": -0.007575055930118424
+        },
+        {
+          "row": 6,
+          "T": 581.0,
+          "V": 126.09609983844999,
+          "sV": 0.007527675950000001,
+          "calculated_volume_cm3_mol": 126.07864406784915,
+          "observed_minus_calculated_cm3_mol": 0.01745577060083292
+        },
+        {
+          "row": 7,
+          "T": 584.9,
+          "V": 126.09609983844999,
+          "sV": 0.015055351900000001,
+          "calculated_volume_cm3_mol": 126.09157498010478,
+          "observed_minus_calculated_cm3_mol": 0.0045248583452064395
+        },
+        {
+          "row": 8,
+          "T": 633.6,
+          "V": 126.32193011694999,
+          "sV": 0.015055351900000001,
+          "calculated_volume_cm3_mol": 126.25481760780885,
+          "observed_minus_calculated_cm3_mol": 0.06711250914113975
+        },
+        {
+          "row": 9,
+          "T": 678.4,
+          "V": 126.47248363595,
+          "sV": 0.007527675950000001,
+          "calculated_volume_cm3_mol": 126.40768450725973,
+          "observed_minus_calculated_cm3_mol": 0.06479912869026805
+        },
+        {
+          "row": 10,
+          "T": 727.7,
+          "V": 126.60798180305,
+          "sV": 0.007527675950000001,
+          "calculated_volume_cm3_mol": 126.57863379858411,
+          "observed_minus_calculated_cm3_mol": 0.02934800446588781
+        },
+        {
+          "row": 11,
+          "T": 767.5,
+          "V": 126.72842461825,
+          "sV": 0.022583027850000006,
+          "calculated_volume_cm3_mol": 126.71858619555225,
+          "observed_minus_calculated_cm3_mol": 0.009838422697754368
+        },
+        {
+          "row": 12,
+          "T": 816.5,
+          "V": 126.87897813724999,
+          "sV": 0.015055351900000001,
+          "calculated_volume_cm3_mol": 126.89314099868221,
+          "observed_minus_calculated_cm3_mol": -0.014162861432225782
+        },
+        {
+          "row": 13,
+          "T": 859.6,
+          "V": 127.05964236005,
+          "sV": 0.015055351900000001,
+          "calculated_volume_cm3_mol": 127.04864295318794,
+          "observed_minus_calculated_cm3_mol": 0.01099940686206935
+        }
+      ]
+    },
+    "bosenick_vt": {
+      "protocol": "Fixed source EOS; one constant molar-volume scale profiled with diagonal reported volume errors only. Temperature errors and shared calibration/anchor covariance are omitted. This is a conditional shape check, not the original normalization or a formal goodness-of-fit test.",
+      "profiled_volume_at_298k_cm3_mol": 125.28852787333487,
+      "residual_summary_cm3_mol": {
+        "count": 20,
+        "mean": -0.0007153186172438097,
+        "rms": 0.0253105806551351,
+        "max_absolute": 0.04959421301853695
+      },
+      "volume_error_only_standardized_rms": 1.5593251837956508,
+      "rows": [
+        {
+          "row": 1,
+          "T": 295.0,
+          "V": 125.293,
+          "sV": 0.016,
+          "calculated_volume_cm3_mol": 125.28078096792395,
+          "observed_minus_calculated_cm3_mol": 0.012219032076060898
+        },
+        {
+          "row": 2,
+          "T": 270.0,
+          "V": 125.226,
+          "sV": 0.019,
+          "calculated_volume_cm3_mol": 125.21876787978107,
+          "observed_minus_calculated_cm3_mol": 0.007232120218930049
+        },
+        {
+          "row": 3,
+          "T": 245.0,
+          "V": 125.134,
+          "sV": 0.013000000000000001,
+          "calculated_volume_cm3_mol": 125.16062735429148,
+          "observed_minus_calculated_cm3_mol": -0.026627354291477445
+        },
+        {
+          "row": 4,
+          "T": 245.0,
+          "V": 125.14,
+          "sV": 0.016,
+          "calculated_volume_cm3_mol": 125.16062735429148,
+          "observed_minus_calculated_cm3_mol": -0.020627354291477218
+        },
+        {
+          "row": 5,
+          "T": 220.0,
+          "V": 125.115,
+          "sV": 0.013000000000000001,
+          "calculated_volume_cm3_mol": 125.10710123763955,
+          "observed_minus_calculated_cm3_mol": 0.007898762360440514
+        },
+        {
+          "row": 6,
+          "T": 195.0,
+          "V": 125.058,
+          "sV": 0.013000000000000001,
+          "calculated_volume_cm3_mol": 125.05908567514179,
+          "observed_minus_calculated_cm3_mol": -0.0010856751417804844
+        },
+        {
+          "row": 7,
+          "T": 195.0,
+          "V": 125.055,
+          "sV": 0.016,
+          "calculated_volume_cm3_mol": 125.05908567514179,
+          "observed_minus_calculated_cm3_mol": -0.004085675141780598
+        },
+        {
+          "row": 8,
+          "T": 170.0,
+          "V": 125.026,
+          "sV": 0.013000000000000001,
+          "calculated_volume_cm3_mol": 125.01761886594157,
+          "observed_minus_calculated_cm3_mol": 0.008381134058424777
+        },
+        {
+          "row": 9,
+          "T": 145.0,
+          "V": 125.001,
+          "sV": 0.016,
+          "calculated_volume_cm3_mol": 124.98379922046564,
+          "observed_minus_calculated_cm3_mol": 0.017200779534363164
+        },
+        {
+          "row": 10,
+          "T": 145.0,
+          "V": 124.988,
+          "sV": 0.016,
+          "calculated_volume_cm3_mol": 124.98379922046564,
+          "observed_minus_calculated_cm3_mol": 0.004200779534357935
+        },
+        {
+          "row": 11,
+          "T": 120.0,
+          "V": 124.985,
+          "sV": 0.013000000000000001,
+          "calculated_volume_cm3_mol": 124.95855665926113,
+          "observed_minus_calculated_cm3_mol": 0.026443340738865118
+        },
+        {
+          "row": 12,
+          "T": 120.0,
+          "V": 124.944,
+          "sV": 0.019,
+          "calculated_volume_cm3_mol": 124.95855665926113,
+          "observed_minus_calculated_cm3_mol": -0.0145566592611317
+        },
+        {
+          "row": 13,
+          "T": 95.0,
+          "V": 124.931,
+          "sV": 0.013000000000000001,
+          "calculated_volume_cm3_mol": 124.94218492903198,
+          "observed_minus_calculated_cm3_mol": -0.01118492903198387
+        },
+        {
+          "row": 14,
+          "T": 95.0,
+          "V": 124.922,
+          "sV": 0.019,
+          "calculated_volume_cm3_mol": 124.94218492903198,
+          "observed_minus_calculated_cm3_mol": -0.02018492903198421
+        },
+        {
+          "row": 15,
+          "T": 70.0,
+          "V": 124.973,
+          "sV": 0.013000000000000001,
+          "calculated_volume_cm3_mol": 124.93369411044364,
+          "observed_minus_calculated_cm3_mol": 0.03930588955635983
+        },
+        {
+          "row": 16,
+          "T": 70.0,
+          "V": 124.903,
+          "sV": 0.022,
+          "calculated_volume_cm3_mol": 124.93369411044364,
+          "observed_minus_calculated_cm3_mol": -0.03069411044363335
+        },
+        {
+          "row": 17,
+          "T": 45.0,
+          "V": 124.893,
+          "sV": 0.013000000000000001,
+          "calculated_volume_cm3_mol": 124.93059421301854,
+          "observed_minus_calculated_cm3_mol": -0.03759421301853649
+        },
+        {
+          "row": 18,
+          "T": 45.0,
+          "V": 124.881,
+          "sV": 0.019,
+          "calculated_volume_cm3_mol": 124.93059421301854,
+          "observed_minus_calculated_cm3_mol": -0.04959421301853695
+        },
+        {
+          "row": 19,
+          "T": 20.0,
+          "V": 124.963,
+          "sV": 0.013000000000000001,
+          "calculated_volume_cm3_mol": 124.92997654887517,
+          "observed_minus_calculated_cm3_mol": 0.0330234511248193
+        },
+        {
+          "row": 20,
+          "T": 20.0,
+          "V": 124.976,
+          "sV": 0.057,
+          "calculated_volume_cm3_mol": 124.92997654887517,
+          "observed_minus_calculated_cm3_mol": 0.04602345112482453
+        }
+      ]
+    },
+    "rodehorst_vt": {
+      "protocol": "Fixed source EOS; one constant molar-volume scale profiled with diagonal reported volume errors only. Temperature errors and shared calibration/anchor covariance are omitted. This is a conditional shape check, not the original normalization or a formal goodness-of-fit test.",
+      "profiled_volume_at_298k_cm3_mol": 125.23850662290968,
+      "residual_summary_cm3_mol": {
+        "count": 9,
+        "mean": -3.7303318912841455e-06,
+        "rms": 0.05640762731322841,
+        "max_absolute": 0.09617736406524102
+      },
+      "volume_error_only_standardized_rms": 1.7780726283584494,
+      "rows": [
+        {
+          "row": 1,
+          "T": 103.0,
+          "V": 124.94417752730828,
+          "sV": 0.0316581530896896,
+          "calculated_volume_cm3_mol": 124.89660203645958,
+          "observed_minus_calculated_cm3_mol": 0.0475754908487005
+        },
+        {
+          "row": 2,
+          "T": 156.0,
+          "V": 125.00750452941189,
+          "sV": 0.031668849315000476,
+          "calculated_volume_cm3_mol": 124.9477649520016,
+          "observed_minus_calculated_cm3_mol": 0.05973957741028357
+        },
+        {
+          "row": 3,
+          "T": 205.0,
+          "V": 125.0708529257727,
+          "sV": 0.03167954734695357,
+          "calculated_volume_cm3_mol": 125.02762986264449,
+          "observed_minus_calculated_cm3_mol": 0.04322306312820956
+        },
+        {
+          "row": 4,
+          "T": 261.0,
+          "V": 125.1659156424504,
+          "sV": 0.03169559778233741,
+          "calculated_volume_cm3_mol": 125.14737077413918,
+          "observed_minus_calculated_cm3_mol": 0.01854486831122415
+        },
+        {
+          "row": 5,
+          "T": 273.0,
+          "V": 125.22931754026254,
+          "sV": 0.03170630033089608,
+          "calculated_volume_cm3_mol": 125.17602176895207,
+          "observed_minus_calculated_cm3_mol": 0.05329577131047358
+        },
+        {
+          "row": 7,
+          "T": 348.0,
+          "V": 125.35618556021136,
+          "sV": 0.031727710847940106,
+          "calculated_volume_cm3_mol": 125.37239257489485,
+          "observed_minus_calculated_cm3_mol": -0.01620701468348784
+        },
+        {
+          "row": 8,
+          "T": 398.0,
+          "V": 125.41965168957464,
+          "sV": 0.031738418816425466,
+          "calculated_volume_cm3_mol": 125.51582905363988,
+          "observed_minus_calculated_cm3_mol": -0.09617736406524102
+        },
+        {
+          "row": 9,
+          "T": 448.0,
+          "V": 125.57841072351512,
+          "sV": 0.0317651966416986,
+          "calculated_volume_cm3_mol": 125.66648318096112,
+          "observed_minus_calculated_cm3_mol": -0.08807245744600323
+        },
+        {
+          "row": 10,
+          "T": 498.0,
+          "V": 125.80089836483504,
+          "sV": 0.03180270456682439,
+          "calculated_volume_cm3_mol": 125.82285387263622,
+          "observed_minus_calculated_cm3_mol": -0.02195550780118083
+        }
+      ]
+    }
+  },
+  "milani_compression": {
+    "protocol": "Seven loaded rows; measured ambient row retained as normalization anchor. V=125.35*Vobs/Vambient. Equivalent quartz volumes inferred from the rounded original pressures using the author 1997 quartz EOS, then pressures calculated with Scheidl 2016 BM4. Original paired quartz readings are missing. T=298 K adopted; shared anchor covariance not used for a significance test.",
+    "source_s1_discrepancy": "S1 says Milani 2015, 0-8.4 GPa; Milani 2017 deposit Table 3 has eight rows ending at 7.674 GPa, consistent with the 2017 citation in the article/EOS file. No pyrope table substituted.",
+    "residual_summary_cm3_mol": {
+      "count": 7,
+      "mean": 0.009036209590647104,
+      "rms": 0.013181716113618324,
+      "max_absolute": 0.026308200401700788
+    },
+    "rows": [
+      {
+        "row": 2,
+        "original_pressure_gpa": 1.013,
+        "recalibrated_pressure_gpa": 1.0120480130343745,
+        "recalibrated_pressure_error_gpa": 0.009074766235764668,
+        "calculated_equivalent_quartz_volume_a3": 110.15860717205891,
+        "normalized_molar_volume_cm3_mol": 124.61266478003293,
+        "calculated_molar_volume_cm3_mol": 124.6039949271503,
+        "observed_minus_calculated_cm3_mol": 0.008669852882633222
+      },
+      {
+        "row": 3,
+        "original_pressure_gpa": 2.392,
+        "recalibrated_pressure_gpa": 2.405616575588686,
+        "recalibrated_pressure_error_gpa": 0.0101092340770756,
+        "calculated_equivalent_quartz_volume_a3": 106.96506766757534,
+        "normalized_molar_volume_cm3_mol": 123.62754274967855,
+        "calculated_molar_volume_cm3_mol": 123.61893758654217,
+        "observed_minus_calculated_cm3_mol": 0.008605163136380156
+      },
+      {
+        "row": 4,
+        "original_pressure_gpa": 3.568,
+        "recalibrated_pressure_gpa": 3.592189099112032,
+        "recalibrated_pressure_error_gpa": 0.010062891662940015,
+        "calculated_equivalent_quartz_volume_a3": 104.66071598325762,
+        "normalized_molar_volume_cm3_mol": 122.84200584015284,
+        "calculated_molar_volume_cm3_mol": 122.81569763975114,
+        "observed_minus_calculated_cm3_mol": 0.026308200401700788
+      },
+      {
+        "row": 5,
+        "original_pressure_gpa": 4.715,
+        "recalibrated_pressure_gpa": 4.742042044548824,
+        "recalibrated_pressure_error_gpa": 0.01098055525175159,
+        "calculated_equivalent_quartz_volume_a3": 102.68750533344937,
+        "normalized_molar_volume_cm3_mol": 122.08207607820518,
+        "calculated_molar_volume_cm3_mol": 122.06603096843104,
+        "observed_minus_calculated_cm3_mol": 0.016045109774140087
+      },
+      {
+        "row": 6,
+        "original_pressure_gpa": 6.559,
+        "recalibrated_pressure_gpa": 6.567513690953373,
+        "recalibrated_pressure_error_gpa": 0.01471508407896767,
+        "calculated_equivalent_quartz_volume_a3": 99.94204095389937,
+        "normalized_molar_volume_cm3_mol": 120.93803910258723,
+        "calculated_molar_volume_cm3_mol": 120.92913626218592,
+        "observed_minus_calculated_cm3_mol": 0.008902840401304957
+      },
+      {
+        "row": 7,
+        "original_pressure_gpa": 7.149,
+        "recalibrated_pressure_gpa": 7.144485650526831,
+        "recalibrated_pressure_error_gpa": 0.01169746237818192,
+        "calculated_equivalent_quartz_volume_a3": 99.15269990483299,
+        "normalized_molar_volume_cm3_mol": 120.58330479349172,
+        "calculated_molar_volume_cm3_mol": 120.58245554078461,
+        "observed_minus_calculated_cm3_mol": 0.0008492527071126688
+      },
+      {
+        "row": 8,
+        "original_pressure_gpa": 7.674,
+        "recalibrated_pressure_gpa": 7.654753106618945,
+        "recalibrated_pressure_error_gpa": 0.018412136103346795,
+        "calculated_equivalent_quartz_volume_a3": 98.48103080033367,
+        "normalized_molar_volume_cm3_mol": 120.27451271975679,
+        "calculated_molar_volume_cm3_mol": 120.28063967192553,
+        "observed_minus_calculated_cm3_mol": -0.00612695216874215
+      }
+    ]
+  },
+  "moduli": {
+    "kono": {
+      "calculated_modulus_multiplier_to_observed_scale": 0.99455,
+      "residual_summary_gpa": {
+        "count": 36,
+        "mean": -0.058656665741164064,
+        "rms": 1.5958083060795658,
+        "max_absolute": 3.515597926499396
+      },
+      "qualification": "Fixed published coefficients and source modulus scale. Ambient T absent from Bass/Conrad tables is adopted as 298 K. No missing modulus error or covariance is synthesized. Conrad KS is derived from measured C11/C12, not an independent bulk-modulus measurement.",
+      "rows": [
+        {
+          "row": 1,
+          "pressure_gpa": 4.93,
+          "temperature_k": 300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 191.5,
+          "reported_ks_error_gpa": 2.3000000000000003,
+          "calculated_ks_gpa": 192.6944997614902,
+          "calculated_ks_on_observed_scale_gpa": 191.64431473779007,
+          "observed_minus_calculated_gpa": -0.14431473779006865,
+          "selected": true
+        },
+        {
+          "row": 2,
+          "pressure_gpa": 5.39,
+          "temperature_k": 300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 197.4,
+          "reported_ks_error_gpa": 2.4000000000000004,
+          "calculated_ks_gpa": 194.9468624739838,
+          "calculated_ks_on_observed_scale_gpa": 193.8844020735006,
+          "observed_minus_calculated_gpa": 3.515597926499396,
+          "selected": true
+        },
+        {
+          "row": 3,
+          "pressure_gpa": 6.76,
+          "temperature_k": 300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 202.2,
+          "reported_ks_error_gpa": 2.4000000000000004,
+          "calculated_ks_gpa": 201.6216541145054,
+          "calculated_ks_on_observed_scale_gpa": 200.52281609958135,
+          "observed_minus_calculated_gpa": 1.6771839004186404,
+          "selected": true
+        },
+        {
+          "row": 4,
+          "pressure_gpa": 7.26,
+          "temperature_k": 300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 203.9,
+          "reported_ks_error_gpa": 2.4000000000000004,
+          "calculated_ks_gpa": 204.04573677693034,
+          "calculated_ks_on_observed_scale_gpa": 202.9336875114961,
+          "observed_minus_calculated_gpa": 0.9663124885039167,
+          "selected": true
+        },
+        {
+          "row": 5,
+          "pressure_gpa": 7.54,
+          "temperature_k": 300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 205.2,
+          "reported_ks_error_gpa": 2.5,
+          "calculated_ks_gpa": 205.4005201422261,
+          "calculated_ks_on_observed_scale_gpa": 204.28108730745097,
+          "observed_minus_calculated_gpa": 0.9189126925490143,
+          "selected": true
+        },
+        {
+          "row": 6,
+          "pressure_gpa": 8.44,
+          "temperature_k": 300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 206.4,
+          "reported_ks_error_gpa": 2.5,
+          "calculated_ks_gpa": 209.74237276056547,
+          "calculated_ks_on_observed_scale_gpa": 208.5992768290204,
+          "observed_minus_calculated_gpa": -2.1992768290203912,
+          "selected": true
+        },
+        {
+          "row": 7,
+          "pressure_gpa": 9.17,
+          "temperature_k": 300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 212.9,
+          "reported_ks_error_gpa": 2.6,
+          "calculated_ks_gpa": 213.2501545563377,
+          "calculated_ks_on_observed_scale_gpa": 212.08794121400567,
+          "observed_minus_calculated_gpa": 0.8120587859943385,
+          "selected": true
+        },
+        {
+          "row": 8,
+          "pressure_gpa": 11.82,
+          "temperature_k": 300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 225.6,
+          "reported_ks_error_gpa": 2.7,
+          "calculated_ks_gpa": 225.88524752125002,
+          "calculated_ks_on_observed_scale_gpa": 224.65417292225922,
+          "observed_minus_calculated_gpa": 0.9458270777407733,
+          "selected": true
+        },
+        {
+          "row": 9,
+          "pressure_gpa": 14.27,
+          "temperature_k": 300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 234.2,
+          "reported_ks_error_gpa": 2.8000000000000003,
+          "calculated_ks_gpa": 237.43981382958907,
+          "calculated_ks_on_observed_scale_gpa": 236.14576684421783,
+          "observed_minus_calculated_gpa": -1.945766844217843,
+          "selected": true
+        },
+        {
+          "row": 10,
+          "pressure_gpa": 8.47,
+          "temperature_k": 450.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 205.7,
+          "reported_ks_error_gpa": 2.5,
+          "calculated_ks_gpa": 208.0220768191233,
+          "calculated_ks_on_observed_scale_gpa": 206.88835650045908,
+          "observed_minus_calculated_gpa": -1.1883565004590935,
+          "selected": true
+        },
+        {
+          "row": 11,
+          "pressure_gpa": 12.09,
+          "temperature_k": 450.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 224.9,
+          "reported_ks_error_gpa": 2.7,
+          "calculated_ks_gpa": 225.3300246057423,
+          "calculated_ks_on_observed_scale_gpa": 224.101975971641,
+          "observed_minus_calculated_gpa": 0.7980240283590092,
+          "selected": true
+        },
+        {
+          "row": 12,
+          "pressure_gpa": 14.54,
+          "temperature_k": 450.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 232.5,
+          "reported_ks_error_gpa": 2.8000000000000003,
+          "calculated_ks_gpa": 236.8896250089042,
+          "calculated_ks_on_observed_scale_gpa": 235.5985765526057,
+          "observed_minus_calculated_gpa": -3.0985765526056923,
+          "selected": true
+        },
+        {
+          "row": 13,
+          "pressure_gpa": 8.6,
+          "temperature_k": 600.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 204.8,
+          "reported_ks_error_gpa": 2.5,
+          "calculated_ks_gpa": 206.469911813944,
+          "calculated_ks_on_observed_scale_gpa": 205.34465079455802,
+          "observed_minus_calculated_gpa": -0.5446507945580095,
+          "selected": true
+        },
+        {
+          "row": 14,
+          "pressure_gpa": 12.4,
+          "temperature_k": 600.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 222.7,
+          "reported_ks_error_gpa": 2.7,
+          "calculated_ks_gpa": 224.65804699096364,
+          "calculated_ks_on_observed_scale_gpa": 223.4336606348629,
+          "observed_minus_calculated_gpa": -0.7336606348629005,
+          "selected": true
+        },
+        {
+          "row": 15,
+          "pressure_gpa": 14.78,
+          "temperature_k": 600.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 231.7,
+          "reported_ks_error_gpa": 2.8000000000000003,
+          "calculated_ks_gpa": 235.89506934235038,
+          "calculated_ks_on_observed_scale_gpa": 234.60944121443458,
+          "observed_minus_calculated_gpa": -2.909441214434594,
+          "selected": true
+        },
+        {
+          "row": 16,
+          "pressure_gpa": 8.87,
+          "temperature_k": 750.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 203.5,
+          "reported_ks_error_gpa": 2.4000000000000004,
+          "calculated_ks_gpa": 205.44808404552924,
+          "calculated_ks_on_observed_scale_gpa": 204.32839198748113,
+          "observed_minus_calculated_gpa": -0.8283919874811261,
+          "selected": true
+        },
+        {
+          "row": 17,
+          "pressure_gpa": 12.56,
+          "temperature_k": 750.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 222.3,
+          "reported_ks_error_gpa": 2.7,
+          "calculated_ks_gpa": 223.13159530698508,
+          "calculated_ks_on_observed_scale_gpa": 221.91552811256201,
+          "observed_minus_calculated_gpa": 0.38447188743799643,
+          "selected": true
+        },
+        {
+          "row": 18,
+          "pressure_gpa": 14.93,
+          "temperature_k": 750.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 230.5,
+          "reported_ks_error_gpa": 2.8000000000000003,
+          "calculated_ks_gpa": 234.33622754891354,
+          "calculated_ks_on_observed_scale_gpa": 233.05909510877197,
+          "observed_minus_calculated_gpa": -2.55909510877197,
+          "selected": true
+        },
+        {
+          "row": 19,
+          "pressure_gpa": 9.15,
+          "temperature_k": 900.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 202.9,
+          "reported_ks_error_gpa": 2.4000000000000004,
+          "calculated_ks_gpa": 204.39698362206943,
+          "calculated_ks_on_observed_scale_gpa": 203.28302006132915,
+          "observed_minus_calculated_gpa": -0.3830200613291481,
+          "selected": true
+        },
+        {
+          "row": 20,
+          "pressure_gpa": 12.77,
+          "temperature_k": 900.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 221.2,
+          "reported_ks_error_gpa": 2.7,
+          "calculated_ks_gpa": 221.76572085081395,
+          "calculated_ks_on_observed_scale_gpa": 220.55709767217704,
+          "observed_minus_calculated_gpa": 0.6429023278229522,
+          "selected": true
+        },
+        {
+          "row": 21,
+          "pressure_gpa": 15.13,
+          "temperature_k": 900.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 230.8,
+          "reported_ks_error_gpa": 2.8000000000000003,
+          "calculated_ks_gpa": 232.93647533800427,
+          "calculated_ks_on_observed_scale_gpa": 231.66697154741215,
+          "observed_minus_calculated_gpa": -0.8669715474121347,
+          "selected": true
+        },
+        {
+          "row": 22,
+          "pressure_gpa": 9.4,
+          "temperature_k": 1050.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 201.7,
+          "reported_ks_error_gpa": 2.4000000000000004,
+          "calculated_ks_gpa": 203.1542633517248,
+          "calculated_ks_on_observed_scale_gpa": 202.0470726164579,
+          "observed_minus_calculated_gpa": -0.34707261645792187,
+          "selected": true
+        },
+        {
+          "row": 23,
+          "pressure_gpa": 13.01,
+          "temperature_k": 1050.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 220.2,
+          "reported_ks_error_gpa": 2.6,
+          "calculated_ks_gpa": 220.4968320008794,
+          "calculated_ks_on_observed_scale_gpa": 219.29512426647463,
+          "observed_minus_calculated_gpa": 0.9048757335253583,
+          "selected": true
+        },
+        {
+          "row": 24,
+          "pressure_gpa": 15.64,
+          "temperature_k": 1050.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 229.8,
+          "reported_ks_error_gpa": 2.8000000000000003,
+          "calculated_ks_gpa": 232.9522808614565,
+          "calculated_ks_on_observed_scale_gpa": 231.68269093076157,
+          "observed_minus_calculated_gpa": -1.8826909307615551,
+          "selected": true
+        },
+        {
+          "row": 25,
+          "pressure_gpa": 9.39,
+          "temperature_k": 1200.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 200.4,
+          "reported_ks_error_gpa": 2.4000000000000004,
+          "calculated_ks_gpa": 200.61840268119664,
+          "calculated_ks_on_observed_scale_gpa": 199.52503238658412,
+          "observed_minus_calculated_gpa": 0.8749676134158904,
+          "selected": true
+        },
+        {
+          "row": 26,
+          "pressure_gpa": 13.35,
+          "temperature_k": 1200.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 219.4,
+          "reported_ks_error_gpa": 2.6,
+          "calculated_ks_gpa": 219.6752560077869,
+          "calculated_ks_on_observed_scale_gpa": 218.47802586254448,
+          "observed_minus_calculated_gpa": 0.9219741374555213,
+          "selected": true
+        },
+        {
+          "row": 27,
+          "pressure_gpa": 16.0,
+          "temperature_k": 1200.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 229.2,
+          "reported_ks_error_gpa": 2.8000000000000003,
+          "calculated_ks_gpa": 232.2337843068182,
+          "calculated_ks_on_observed_scale_gpa": 230.96811018234604,
+          "observed_minus_calculated_gpa": -1.7681101823460494,
+          "selected": true
+        },
+        {
+          "row": 28,
+          "pressure_gpa": 9.52,
+          "temperature_k": 1350.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 199.5,
+          "reported_ks_error_gpa": 2.4000000000000004,
+          "calculated_ks_gpa": 198.7383772386739,
+          "calculated_ks_on_observed_scale_gpa": 197.65525308272314,
+          "observed_minus_calculated_gpa": 1.844746917276865,
+          "selected": true
+        },
+        {
+          "row": 29,
+          "pressure_gpa": 13.79,
+          "temperature_k": 1350.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 219.0,
+          "reported_ks_error_gpa": 2.6,
+          "calculated_ks_gpa": 219.31129807224517,
+          "calculated_ks_on_observed_scale_gpa": 218.11605149775144,
+          "observed_minus_calculated_gpa": 0.8839485022485576,
+          "selected": true
+        },
+        {
+          "row": 30,
+          "pressure_gpa": 16.37,
+          "temperature_k": 1350.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 228.2,
+          "reported_ks_error_gpa": 2.7,
+          "calculated_ks_gpa": 231.54354951489506,
+          "calculated_ks_on_observed_scale_gpa": 230.2816371700389,
+          "observed_minus_calculated_gpa": -2.0816371700389027,
+          "selected": true
+        },
+        {
+          "row": 31,
+          "pressure_gpa": 10.09,
+          "temperature_k": 1500.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 198.6,
+          "reported_ks_error_gpa": 2.4000000000000004,
+          "calculated_ks_gpa": 198.98628017764034,
+          "calculated_ks_on_observed_scale_gpa": 197.90180495067221,
+          "observed_minus_calculated_gpa": 0.6981950493277793,
+          "selected": true
+        },
+        {
+          "row": 32,
+          "pressure_gpa": 14.06,
+          "temperature_k": 1500.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 219.2,
+          "reported_ks_error_gpa": 2.6,
+          "calculated_ks_gpa": 218.12298729252083,
+          "calculated_ks_on_observed_scale_gpa": 216.9342170117766,
+          "observed_minus_calculated_gpa": 2.2657829882233784,
+          "selected": true
+        },
+        {
+          "row": 33,
+          "pressure_gpa": 16.64,
+          "temperature_k": 1500.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 228.0,
+          "reported_ks_error_gpa": 2.7,
+          "calculated_ks_gpa": 230.36818983255156,
+          "calculated_ks_on_observed_scale_gpa": 229.11268319796417,
+          "observed_minus_calculated_gpa": -1.1126831979641736,
+          "selected": true
+        },
+        {
+          "row": 34,
+          "pressure_gpa": 10.71,
+          "temperature_k": 1650.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 201.2,
+          "reported_ks_error_gpa": 2.4000000000000004,
+          "calculated_ks_gpa": 199.46799051350607,
+          "calculated_ks_on_observed_scale_gpa": 198.38088996520747,
+          "observed_minus_calculated_gpa": 2.8191100347925158,
+          "selected": true
+        },
+        {
+          "row": 35,
+          "pressure_gpa": 14.46,
+          "temperature_k": 1650.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 217.7,
+          "reported_ks_error_gpa": 2.6,
+          "calculated_ks_gpa": 217.5450660262385,
+          "calculated_ks_on_observed_scale_gpa": 216.3594454163955,
+          "observed_minus_calculated_gpa": 1.3405545836045007,
+          "selected": true
+        },
+        {
+          "row": 36,
+          "pressure_gpa": 16.91,
+          "temperature_k": 1650.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 227.2,
+          "reported_ks_error_gpa": 2.7,
+          "calculated_ks_gpa": 229.18241388705115,
+          "calculated_ks_on_observed_scale_gpa": 227.93336973136672,
+          "observed_minus_calculated_gpa": -0.7333697313667358,
+          "selected": true
+        }
+      ]
+    },
+    "isaak_ggd": {
+      "calculated_modulus_multiplier_to_observed_scale": 1,
+      "residual_summary_gpa": {
+        "count": 22,
+        "mean": -0.0034529279712632965,
+        "rms": 0.6044974459386728,
+        "max_absolute": 1.1291501762167115
+      },
+      "qualification": "Fixed published coefficients and source modulus scale. Ambient T absent from Bass/Conrad tables is adopted as 298 K. No missing modulus error or covariance is synthesized. Conrad KS is derived from measured C11/C12, not an independent bulk-modulus measurement.",
+      "rows": [
+        {
+          "row": 1,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 167.77,
+          "reported_ks_error_gpa": 0.71,
+          "calculated_ks_gpa": 168.1579919998683,
+          "calculated_ks_on_observed_scale_gpa": 168.1579919998683,
+          "observed_minus_calculated_gpa": -0.3879919998682908,
+          "selected": true
+        },
+        {
+          "row": 2,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 350.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 166.98,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 167.5597132218664,
+          "calculated_ks_on_observed_scale_gpa": 167.5597132218664,
+          "observed_minus_calculated_gpa": -0.579713221866399,
+          "selected": true
+        },
+        {
+          "row": 3,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 400.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 166.24,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 166.89933445734647,
+          "calculated_ks_on_observed_scale_gpa": 166.89933445734647,
+          "observed_minus_calculated_gpa": -0.6593344573464606,
+          "selected": true
+        },
+        {
+          "row": 4,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 450.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 165.53,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 166.1927857403644,
+          "calculated_ks_on_observed_scale_gpa": 166.1927857403644,
+          "observed_minus_calculated_gpa": -0.6627857403643986,
+          "selected": true
+        },
+        {
+          "row": 5,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 500.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 164.9,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 165.4512468796152,
+          "calculated_ks_on_observed_scale_gpa": 165.4512468796152,
+          "observed_minus_calculated_gpa": -0.5512468796152064,
+          "selected": true
+        },
+        {
+          "row": 6,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 550.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 164.31,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 164.68263921163006,
+          "calculated_ks_on_observed_scale_gpa": 164.68263921163006,
+          "observed_minus_calculated_gpa": -0.37263921163005875,
+          "selected": true
+        },
+        {
+          "row": 7,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 600.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 163.29,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 163.8926647563836,
+          "calculated_ks_on_observed_scale_gpa": 163.8926647563836,
+          "observed_minus_calculated_gpa": -0.6026647563836036,
+          "selected": true
+        },
+        {
+          "row": 8,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 650.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 162.28,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 163.0855003413517,
+          "calculated_ks_on_observed_scale_gpa": 163.0855003413517,
+          "observed_minus_calculated_gpa": -0.8055003413516886,
+          "selected": true
+        },
+        {
+          "row": 9,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 700.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 161.63,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 162.26425870215937,
+          "calculated_ks_on_observed_scale_gpa": 162.26425870215937,
+          "observed_minus_calculated_gpa": -0.6342587021593715,
+          "selected": true
+        },
+        {
+          "row": 10,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 750.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 161.09,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 161.43129740997728,
+          "calculated_ks_on_observed_scale_gpa": 161.43129740997728,
+          "observed_minus_calculated_gpa": -0.34129740997727254,
+          "selected": true
+        },
+        {
+          "row": 11,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 800.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 160.31,
+          "reported_ks_error_gpa": 1.02,
+          "calculated_ks_gpa": 160.588428796647,
+          "calculated_ks_on_observed_scale_gpa": 160.588428796647,
+          "observed_minus_calculated_gpa": -0.27842879664700604,
+          "selected": true
+        },
+        {
+          "row": 12,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 850.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 159.58,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 159.737064930221,
+          "calculated_ks_on_observed_scale_gpa": 159.737064930221,
+          "observed_minus_calculated_gpa": -0.1570649302209972,
+          "selected": true
+        },
+        {
+          "row": 13,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 900.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 158.93,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 158.87831940388318,
+          "calculated_ks_on_observed_scale_gpa": 158.87831940388318,
+          "observed_minus_calculated_gpa": 0.05168059611682452,
+          "selected": true
+        },
+        {
+          "row": 14,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 950.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 158.08,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 158.01307996254747,
+          "calculated_ks_on_observed_scale_gpa": 158.01307996254747,
+          "observed_minus_calculated_gpa": 0.06692003745254738,
+          "selected": true
+        },
+        {
+          "row": 15,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 1000.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 157.49,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 157.1420611214746,
+          "calculated_ks_on_observed_scale_gpa": 157.1420611214746,
+          "observed_minus_calculated_gpa": 0.3479388785254116,
+          "selected": true
+        },
+        {
+          "row": 16,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 1050.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 156.89,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 156.26584284108074,
+          "calculated_ks_on_observed_scale_gpa": 156.26584284108074,
+          "observed_minus_calculated_gpa": 0.6241571589192461,
+          "selected": true
+        },
+        {
+          "row": 17,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 1100.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 156.22,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 155.38489933690315,
+          "calculated_ks_on_observed_scale_gpa": 155.38489933690315,
+          "observed_minus_calculated_gpa": 0.8351006630968527,
+          "selected": true
+        },
+        {
+          "row": 18,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 1150.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 155.25,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 154.49962081020627,
+          "calculated_ks_on_observed_scale_gpa": 154.49962081020627,
+          "observed_minus_calculated_gpa": 0.7503791897937333,
+          "selected": true
+        },
+        {
+          "row": 19,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 1200.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 154.35,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 153.6103300293972,
+          "calculated_ks_on_observed_scale_gpa": 153.6103300293972,
+          "observed_minus_calculated_gpa": 0.7396699706027903,
+          "selected": true
+        },
+        {
+          "row": 20,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 1250.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 153.37,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 152.71729511870922,
+          "calculated_ks_on_observed_scale_gpa": 152.71729511870922,
+          "observed_minus_calculated_gpa": 0.6527048812907879,
+          "selected": true
+        },
+        {
+          "row": 21,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 1300.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 152.58,
+          "reported_ks_error_gpa": 1.2,
+          "calculated_ks_gpa": 151.82073951995196,
+          "calculated_ks_on_observed_scale_gpa": 151.82073951995196,
+          "observed_minus_calculated_gpa": 0.7592604800480558,
+          "selected": true
+        },
+        {
+          "row": 22,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 1350.0,
+          "temperature_adopted": false,
+          "observed_ks_gpa": 152.05,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 150.9208498237833,
+          "calculated_ks_on_observed_scale_gpa": 150.9208498237833,
+          "observed_minus_calculated_gpa": 1.1291501762167115,
+          "selected": true
+        }
+      ]
+    },
+    "bass": {
+      "calculated_modulus_multiplier_to_observed_scale": 1,
+      "residual_summary_gpa": {
+        "count": 1,
+        "mean": 0.21966098192754657,
+        "rms": 0.21966098192754657,
+        "max_absolute": 0.21966098192754657
+      },
+      "qualification": "Fixed published coefficients and source modulus scale. Ambient T absent from Bass/Conrad tables is adopted as 298 K. No missing modulus error or covariance is synthesized. Conrad KS is derived from measured C11/C12, not an independent bulk-modulus measurement.",
+      "rows": [
+        {
+          "row": 1,
+          "pressure_gpa": 0.0001,
+          "temperature_k": 298.0,
+          "temperature_adopted": true,
+          "observed_ks_gpa": 168.4,
+          "reported_ks_error_gpa": 0.7,
+          "calculated_ks_gpa": 168.18033901807246,
+          "calculated_ks_on_observed_scale_gpa": 168.18033901807246,
+          "observed_minus_calculated_gpa": 0.21966098192754657,
+          "selected": true
+        }
+      ]
+    },
+    "conrad": {
+      "calculated_modulus_multiplier_to_observed_scale": 1,
+      "residual_summary_gpa": {
+        "count": 3,
+        "mean": 0.8512586259280113,
+        "rms": 2.0711292048180048,
+        "max_absolute": 2.828418689873075
+      },
+      "qualification": "Fixed published coefficients and source modulus scale. Ambient T absent from Bass/Conrad tables is adopted as 298 K. No missing modulus error or covariance is synthesized. Conrad KS is derived from measured C11/C12, not an independent bulk-modulus measurement.",
+      "rows": [
+        {
+          "row": 1,
+          "pressure_gpa": 1.6,
+          "temperature_k": 298.0,
+          "temperature_adopted": true,
+          "observed_ks_gpa": 174.53666666666666,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 176.22818592478967,
+          "calculated_ks_on_observed_scale_gpa": 176.22818592478967,
+          "observed_minus_calculated_gpa": -1.6915192581230087,
+          "selected": true
+        },
+        {
+          "row": 2,
+          "pressure_gpa": 3.5,
+          "temperature_k": 298.0,
+          "temperature_adopted": true,
+          "observed_ks_gpa": 187.09333333333333,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 185.67645688729937,
+          "calculated_ks_on_observed_scale_gpa": 185.67645688729937,
+          "observed_minus_calculated_gpa": 1.4168764460339673,
+          "selected": true
+        },
+        {
+          "row": 3,
+          "pressure_gpa": 6.95,
+          "temperature_k": 298.0,
+          "temperature_adopted": true,
+          "observed_ks_gpa": 205.39333333333335,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 202.56491464346027,
+          "calculated_ks_on_observed_scale_gpa": 202.56491464346027,
+          "observed_minus_calculated_gpa": 2.828418689873075,
+          "selected": true
+        },
+        {
+          "row": 4,
+          "pressure_gpa": 7.7,
+          "temperature_k": 298.0,
+          "temperature_adopted": true,
+          "observed_ks_gpa": 214.26999999999998,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 206.19511415180807,
+          "calculated_ks_on_observed_scale_gpa": 206.19511415180807,
+          "observed_minus_calculated_gpa": 8.074885848191911,
+          "selected": false
+        },
+        {
+          "row": 5,
+          "pressure_gpa": 10.0,
+          "temperature_k": 298.0,
+          "temperature_adopted": true,
+          "observed_ks_gpa": 225.23000000000002,
+          "reported_ks_error_gpa": null,
+          "calculated_ks_gpa": 217.24488189322886,
+          "calculated_ks_on_observed_scale_gpa": 217.24488189322886,
+          "observed_minus_calculated_gpa": 7.985118106771154,
+          "selected": false
+        }
+      ]
+    }
+  },
+  "isaak_expansion_identity": {
+    "reference_temperature_assumption": "293 K adopted for this illustrative ratio comparison from the stated start of the dilatometer runs. The tabulated strain reference is described as ambient, not independently established here as exactly 293 K.",
+    "finding": "Primary Table 2 observed strain is GR-2B (76.1% grossular, 22.1% andradite), not the 96.53% grossular GGD specimen listed for this expansion set in S1. Endmember alpha in Table 2 is a calculated compositional estimate, not measured endmember volumes. The original author input is needed to identify which column/reduction entered the 15 expansion channels.",
+    "included_in_endmember_refit": false,
+    "rows": [
+      {
+        "row": 1,
+        "temperature_k": 300.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.00013,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0001428901658231,
+        "difference": -1.2890165823176147e-05
+      },
+      {
+        "row": 2,
+        "temperature_k": 350.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.00119,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0012161247513387,
+        "difference": -2.61247513386742e-05
+      },
+      {
+        "row": 3,
+        "temperature_k": 400.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.00234,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0023641506256502,
+        "difference": -2.4150625650198876e-05
+      },
+      {
+        "row": 4,
+        "temperature_k": 450.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.00354,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0035692364795528,
+        "difference": -2.9236479552663397e-05
+      },
+      {
+        "row": 5,
+        "temperature_k": 500.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.00479,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0048195839370906,
+        "difference": -2.9583937090515988e-05
+      },
+      {
+        "row": 6,
+        "temperature_k": 550.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.00609,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0061071612274415,
+        "difference": -1.716122744155335e-05
+      },
+      {
+        "row": 7,
+        "temperature_k": 600.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.00741,
+        "source_eos_volume_ratio_to_adopted_293k": 1.007426378163492,
+        "difference": -1.6378163492092312e-05
+      },
+      {
+        "row": 8,
+        "temperature_k": 650.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.00876,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0087732670533336,
+        "difference": -1.3267053333487766e-05
+      },
+      {
+        "row": 9,
+        "temperature_k": 700.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.01013,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0101449658104642,
+        "difference": -1.4965810464229179e-05
+      },
+      {
+        "row": 10,
+        "temperature_k": 750.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.01151,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0115393840197702,
+        "difference": -2.938401977026217e-05
+      },
+      {
+        "row": 11,
+        "temperature_k": 800.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.01291,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0129549820791206,
+        "difference": -4.4982079120625684e-05
+      },
+      {
+        "row": 12,
+        "temperature_k": 850.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.01434,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0143906218344971,
+        "difference": -5.0621834497110996e-05
+      },
+      {
+        "row": 13,
+        "temperature_k": 900.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.01579,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0158454634547973,
+        "difference": -5.546345479734427e-05
+      },
+      {
+        "row": 14,
+        "temperature_k": 950.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.01725,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0173188928694994,
+        "difference": -6.889286949940399e-05
+      },
+      {
+        "row": 15,
+        "temperature_k": 1000.0,
+        "gr2b_tabulated_one_plus_volume_strain": 1.01871,
+        "source_eos_volume_ratio_to_adopted_293k": 1.0188104698236684,
+        "difference": -0.00010046982366840318
+      }
+    ]
+  }
+}

@@ -1,0 +1,456 @@
+{
+  "checked_on": "2026-11-12",
+  "scope": "Access attempts, not proof a dataset is absent; some candidate URLs were inferred and returned404",
+  "attempts": [
+    {
+      "file": "milani-2017-author-v2.pdf",
+      "url": "https://iris.unito.it/retrieve/e27ce42b-5be0-2581-e053-d805fe0acbaa/Grossular_manuscript_aperto.pdf",
+      "status": 403,
+      "bytes": 5845,
+      "sha256": "3fab937be88b36b36e07d56736b6c2d06e2f9a95cae80beacf719ce776b57d68",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "rodehorst-2002.pdf",
+      "url": "https://rruff.info/doclib/am/vol87/AM87_542.pdf",
+      "status": 403,
+      "bytes": 1542,
+      "sha256": "af682c779f1942eb499f8e3bc2cdb540758a8e4aa12132252c50cbbfc57cae0c",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "file": "conrad-1999.pdf",
+      "url": "https://rruff.info/doclib/am/vol84/AM84_374.pdf",
+      "status": 403,
+      "bytes": 1542,
+      "sha256": "7f4e3bde789196fba446e3c65eae1f1583928a081b57333bc3130f58c303627c",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "file": "bosenick-1997.pdf",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/97JB01612",
+      "status": 403,
+      "bytes": 5592,
+      "sha256": "cff34f1c8c2efe74659bab55a6178e6ebed3995cde7b50758a5ff3fa6cbdfb78",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "gwanmesia-2014-elsevier.xml",
+      "url": "https://api.elsevier.com/content/article/doi/10.1016/j.pepi.2013.09.010?httpAccept=text/xml",
+      "status": 200,
+      "bytes": 1901,
+      "sha256": "5cc05b8b58167087ea692bac7f6300caff6c48fdc605b0c673cefdb6c1d52bda",
+      "content_type": "text/xml;charset=UTF-8"
+    },
+    {
+      "file": "isaak-1992.pdf",
+      "url": "https://link.springer.com/content/pdf/10.1007/BF00198608.pdf",
+      "status": 200,
+      "bytes": 1637635,
+      "sha256": "cff6e85a04da1faae074ad7ae251502046005038505dc4d4e6b9f98ebf9e0d5b",
+      "content_type": "application/pdf"
+    },
+    {
+      "file": "rodehorst-2002-arizona.pdf",
+      "url": "https://rruff.geo.arizona.edu/doclib/am/vol87/AM87_542.pdf",
+      "error": "HTTPSConnectionPool(host='rruff.geo.arizona.edu', port=443): Max retries exceeded with url: /doclib/am/vol87/AM87_542.pdf (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x10a78c550>, 'Connection to rruff.geo.arizona.edu timed out. (connect timeout=30)'))"
+    },
+    {
+      "file": "conrad-1999-arizona.pdf",
+      "url": "https://rruff.geo.arizona.edu/doclib/am/vol84/AM84_374.pdf",
+      "error": "HTTPSConnectionPool(host='rruff.geo.arizona.edu', port=443): Max retries exceeded with url: /doclib/am/vol84/AM84_374.pdf (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x10a671e80>, 'Connection to rruff.geo.arizona.edu timed out. (connect timeout=30)'))"
+    },
+    {
+      "file": "milani-2017-bitstream.pdf",
+      "url": "https://iris.unito.it/bitstream/2318/1633354/3/Grossular_manuscript_aperto.pdf",
+      "status": 403,
+      "bytes": 5740,
+      "sha256": "8ad86faf445c57d2d714bb34ef4512214a51d314cfcf5f511ba84029b8749ef1",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "milani-2017-lab.html",
+      "url": "https://www.mineralogylab.com/publications/",
+      "status": 200,
+      "bytes": 265975,
+      "sha256": "6c11b56e1a03cb36d4c373e40d6b40423183265acbff3eb5ead67779890416d9",
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://www.mineralogylab.com/2017/04/thermo-elastic-behavior-of-grossular-garnet/",
+        "https://www.mineralogylab.com/2017/04/thermo-elastic-behavior-of-grossular-garnet/",
+        "https://www.mineralogylab.com/2017/04/thermo-elastic-behavior-of-grossular-garnet/",
+        "https://www.mineralogylab.com/2017/04/thermo-elastic-behavior-of-grossular-garnet/",
+        "https://www.mineralogylab.com/2017/04/thermo-elastic-behavior-of-grossular-garnet/"
+      ]
+    },
+    {
+      "file": "thieblot-1998-metadata.json",
+      "url": "https://api.crossref.org/works?query.title=High-temperature%20thermal%20expansion%20and%20decomposition%20of%20garnets&rows=1",
+      "status": 200,
+      "bytes": 2182,
+      "sha256": "11871d4d6b7ca9193c45455270eb6a06737638013c102985e59e6399704686ad",
+      "content_type": "application/json",
+      "doi": "10.1127/ejm/10/1/0007"
+    },
+    {
+      "file": "bass-1989.pdf",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/JB094iB06p07621",
+      "status": 403,
+      "bytes": 5632,
+      "sha256": "1f85fe07bf1b39076a810de7d54759b3c4c1b754c02d3e172fb70a5e321a1bda",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "milani-2017-padova.html",
+      "url": "https://www.research.unipd.it/handle/11577/3250459",
+      "status": 403,
+      "bytes": 5618,
+      "sha256": "b28155e4402d1b3f0c44c22ff85af128508d5b1c1121a3736895b0fd7624cdce",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "thieblot-1998-ejm.pdf",
+      "url": "https://ejm.copernicus.org/articles/10/7/1998/ejm-10-7-1998.pdf",
+      "status": 404,
+      "bytes": 69946,
+      "sha256": "30874dc781c6040c19350054902eed088f73b1f442bc0e9b22c8e49bc48c1d6e",
+      "content_type": "text/html"
+    },
+    {
+      "file": "milani-2017-msadeposit-new.html",
+      "url": "https://msaweb.org/MSA/AmMin/TOC/2017/Apr2017_data/Apr2017_data.html",
+      "status": 406,
+      "bytes": 226,
+      "sha256": "80a265bed528211aa708dcd58f7a95db36eeb7f873c6fe4ddab0b3a1dc0973a4",
+      "content_type": "text/html; charset=iso-8859-1"
+    },
+    {
+      "file": "bosenick-1997-agu.pdf",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/97JB01612",
+      "status": 403,
+      "bytes": 5595,
+      "sha256": "27c073a49981b836d02829b6006737f874d4a20a2eb8f6a6239383b8034ce7d9",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "milani-2017-publisher.html",
+      "url": "https://www.degruyterbrill.com/document/doi/10.2138/am-2017-5855/html",
+      "status": 202,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "milani-2017-publisher.pdf",
+      "url": "https://www.degruyterbrill.com/document/doi/10.2138/am-2017-5855/pdf",
+      "status": 202,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "bosenick-1997-author.pdf",
+      "url": "https://www.researchgate.net/profile/Charles-Geiger/publication/235764549_Powder_X_ray_diffraction_study_of_synthetic_pyrope-grossular_garnets_between_20_and_295_K/links/09e415134e37f633f8000000/Powder-X-ray-diffraction-study-of-synthetic-pyrope-grossular-garnets-between-20-and-295-K.pdf",
+      "status": 403,
+      "bytes": 20179,
+      "sha256": "1513c39a41702d95fa1cf1d1c401265d12c8b6f45d73a43b72dca9d6a0c80dd7",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "rodehorst-2002-msa.pdf",
+      "url": "https://www.minsocam.org/msa/AmMin/TOC/Articles_Free/2002/Rodehorst_p542-549_02.pdf",
+      "error": "HTTPSConnectionPool(host='www.minsocam.org', port=443): Max retries exceeded with url: /msa/AmMin/TOC/Articles_Free/2002/Rodehorst_p542-549_02.pdf (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x106460550>: Failed to establish a new connection: [Errno 61] Connection refused'))"
+    },
+    {
+      "file": "rodehorst-2002-rruffnet.pdf",
+      "url": "https://rruff.net/doclib/am/vol87/AM87_542.pdf",
+      "resolved": "https://www.rruff.net/doclib/am/vol87/AM87_542.pdf",
+      "status": 403,
+      "bytes": 1542,
+      "sha256": "af682c779f1942eb499f8e3bc2cdb540758a8e4aa12132252c50cbbfc57cae0c",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "file": "conrad-1999-rruffnet.pdf",
+      "url": "https://rruff.net/doclib/am/vol84/AM84_374.pdf",
+      "error": "HTTPSConnectionPool(host='www.rruff.net', port=443): Read timed out. (read timeout=20)"
+    },
+    {
+      "file": "milani-2017-rruffnet.pdf",
+      "url": "https://rruff.net/rruff_1.0/uploads/AM102_851.pdf",
+      "resolved": "https://www.rruff.net/rruff_1.0/uploads/AM102_851.pdf",
+      "status": 403,
+      "bytes": 1545,
+      "sha256": "5ff29439d40946089c4a219371f50c591ffeb86e576553eafd6b2ee73b37c289",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "file": "milani-2017-deposit-http.html",
+      "url": "http://www.minsocam.org/MSA/AmMin/TOC/2017/Apr2017_data/Apr2017_data.html",
+      "resolved": "http://www.minsocam.org/MSA/AmMin/TOC/2017/Apr2017_data/Apr2017_data.html",
+      "status": 200,
+      "bytes": 18993,
+      "sha256": "e16b4401c395c6fca3ca12713ac5c878c9e841b4ad09610ce58b86e7154e928a",
+      "type": "text/html; charset=\"UTF-8\""
+    },
+    {
+      "file": "milani-2017-rruff.pdf",
+      "url": "https://rruff.info/uploads/AM102_851.pdf",
+      "resolved": "https://www.rruff.net/uploads/AM102_851.pdf",
+      "status": 403,
+      "bytes": 1535,
+      "sha256": "eba2119e2698a629536461b849b9ea640b016abad32dfd6ec20dd191dba10950",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "file": "bosenick-1997-rruff.pdf",
+      "url": "https://rruff.info/doclib/jgr/1997/97JB01612.pdf",
+      "resolved": "https://www.rruff.net/doclib/jgr/1997/97JB01612.pdf",
+      "status": 403,
+      "bytes": 1543,
+      "sha256": "bac244632922cb47cd64a2974291cfb09a504f08a058438bc87eae9c49e749e4",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "file": "conrad-doi.json",
+      "url": "https://api.crossref.org/works?query.title=The%20high-pressure%20single-crystal%20elasticity%20of%20pyrope%20grossular%20and%20andradite&rows=1",
+      "resolved": "https://api.crossref.org/works?query.title=The%20high-pressure%20single-crystal%20elasticity%20of%20pyrope%20grossular%20and%20andradite&rows=1",
+      "status": 200,
+      "bytes": 2395,
+      "sha256": "07b682b5a9712025e620fdfa67363946e995f8828e338ff7615593564ea7dbdc",
+      "type": "application/json",
+      "doi": "10.2138/am-1999-0321"
+    },
+    {
+      "file": "AM-17-45855.zip",
+      "url": "http://www.minsocam.org/MSA/AmMin/TOC/2017/Apr2017_data/AM-17-45855.zip",
+      "status": 200,
+      "bytes": 590124,
+      "sha256": "d4fe35eff48af584f0a18aa2a514591794271713750e9de168a3414f0511d6df"
+    },
+    {
+      "file": "rodehorst-2002-msa-http.pdf",
+      "url": "http://www.minsocam.org/msa/AmMin/TOC/Articles_Free/2002/Rodehorst_p542-549_02.pdf",
+      "status": 404,
+      "bytes": 256,
+      "sha256": "1316c7202260ac01e118e5095056813258d40be330f092dabbec201e3f7c6c3a",
+      "type": "text/html; charset=iso-8859-1"
+    },
+    {
+      "file": "conrad-1999-msa-http.pdf",
+      "url": "http://www.minsocam.org/msa/AmMin/TOC/Articles_Free/1999/Conrad_p374-383_99.pdf",
+      "status": 200,
+      "bytes": 156622,
+      "sha256": "1d1d3379f3bbcfe2db08633cf1de7856b18c03b40581def469d61aa63cdcf574",
+      "type": "application/pdf"
+    },
+    {
+      "file": "milani-2017-msa-http.pdf",
+      "url": "http://www.minsocam.org/msa/AmMin/TOC/Articles_Free/2017/Milani_p851-859_17.pdf",
+      "status": 404,
+      "bytes": 253,
+      "sha256": "4b990f802adba8cf44d5d1e25f73b192d0dda4d7570cbd83417360f9831082ca",
+      "type": "text/html; charset=iso-8859-1"
+    },
+    {
+      "file": "thieblot-1998-publisher.html",
+      "url": "https://www.schweizerbart.de/papers/ejm/detail/10/77966/High_temperature_thermal_expansion_and_decomposition_of_garnets",
+      "status": 200,
+      "bytes": 19967,
+      "sha256": "d4b01c8e8a571b36aef21e71f98a6bd4200d77b734ed8d38260280ec0e9077d9",
+      "type": "text/html; charset=utf8",
+      "links": []
+    },
+    {
+      "file": "milani-2017-unito-http.pdf",
+      "url": "http://iris.unito.it/retrieve/handle/2318/1633354/318908/Grossular_manuscript_aperto.pdf",
+      "resolved": "http://iris.unito.it/retrieve/handle/2318/1633354/318908/Grossular_manuscript_aperto.pdf",
+      "status": 403,
+      "bytes": 5751,
+      "sha256": "fb4447df5af26aae6a850e839130abfa24fc0399aaa3dc9d169509134f9b4643",
+      "type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "rodehorst-2002-rruff-http.pdf",
+      "url": "http://rruff.info/doclib/am/vol87/AM87_542.pdf",
+      "error": "HTTPSConnectionPool(host='www.rruff.net', port=443): Max retries exceeded with url: /doclib/am/vol87/AM87_542.pdf (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x1061e2210>, 'Connection to www.rruff.net timed out. (connect timeout=25)'))"
+    },
+    {
+      "file": "msa-2002-toc.html",
+      "url": "http://www.minsocam.org/MSA/AmMin/TOC/2002/Apr02.html",
+      "resolved": "http://www.minsocam.org/MSA/AmMin/TOC/2002/Apr02.html",
+      "status": 200,
+      "bytes": 19909,
+      "sha256": "8a98698febb0bc043af6bff78e1fb41f66130cac88b11d0b7ae369d021735fc1",
+      "type": "text/html; charset=\"UTF-8\"",
+      "links": [
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Dutrow_p373_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Henry_p375_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Henry_p375-382_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Waters_p383_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Waters_p383-396_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Grevel_p397_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Grevel_p397-404_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Whitney_p405_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Whitney_p405-416_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Cavosie_p417_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Cavosie_p417-423_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Harlov_p424_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Harlov_p424-432_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Cesare_p433_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Cesare_p433-444_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Zhang_p445_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Zhang_p445-453_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Ogasawara_p454_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Ogasawara_p454-461_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Najorka_p462_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Najorka_p462-477_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Ernst_p478_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Ernst_p478-490_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Wilke_p491_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Wilke_p491-500_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Barbier_p501_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Barbier_p501-513_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Dyar_p514_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Dyar_p514-522_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Hovis_p523_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Hovis_p523-532_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Shaw_p533_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Shaw_p533-541_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Rodehorst_p542_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Rodehorst_p542-549_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Burns_p550_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Burns_p550-557_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Angel_p558_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Angel_p558-561_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Glass_p562_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Glass_p562-565_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Zhang_p566_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Zhang_p566-571_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Kroeker_p572_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Kroeker_p572-579_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Biliniski_p580_02.pdf",
+        "http://www.minsocam.org/processIP.lasso?year=2002&filename=Biliniski_p580_591_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Sposito_p592_02.pdf",
+        "../Abstracts/2002_Abstracts/Apr02_Abstracts/Hejny_p592_02.pdf"
+      ]
+    },
+    {
+      "file": "msa-2002-marapr-toc.html",
+      "url": "http://www.minsocam.org/MSA/AmMin/TOC/2002/MarApr02.html",
+      "resolved": "http://www.minsocam.org/errors/notfound.html",
+      "status": 200,
+      "bytes": 2889,
+      "sha256": "b4a353e749f669ff7def9bf54cd2d2a2019a66ea22b281333cf0995bbedc355f",
+      "type": "text/html; charset=\"UTF-8\"",
+      "links": []
+    },
+    {
+      "file": "msa-2017-apr-toc.html",
+      "url": "http://www.minsocam.org/MSA/AmMin/TOC/2017/Apr2017.html",
+      "resolved": "http://www.minsocam.org/errors/notfound.html",
+      "status": 200,
+      "bytes": 2889,
+      "sha256": "b4a353e749f669ff7def9bf54cd2d2a2019a66ea22b281333cf0995bbedc355f",
+      "type": "text/html; charset=\"UTF-8\"",
+      "links": []
+    },
+    {
+      "file": "thieblot-doi.html",
+      "url": "https://doi.org/10.1127/ejm/10/1/0007",
+      "resolved": "https://www.schweizerbart.de//papers/ejm/detail/10/83211/High_temperature_thermal_expansion_and_decompositi?af=crossref",
+      "status": 200,
+      "bytes": 18260,
+      "sha256": "8689cbcda9d09b9948fa4096fa9d574ccd060ef806e440079378e0316d774c25",
+      "type": "text/html; charset=utf8",
+      "links": [
+        "/content/papers_preview/download/83211"
+      ]
+    },
+    {
+      "file": "rodehorst-2002-msalink.pdf",
+      "url": "http://www.minsocam.org/processIP.lasso?year=2002&filename=Rodehorst_p542-549_02.pdf",
+      "error": "HTTPConnectionPool(host='www.minsocam.org', port=80): Read timed out. (read timeout=25)"
+    },
+    {
+      "file": "thieblot-1998-preview.pdf",
+      "url": "https://www.schweizerbart.de/content/papers_preview/download/83211",
+      "resolved": "https://content4.schweizerbart.de//download/by9IW336daOT08NE55Y81OBlLYUCEI",
+      "status": 200,
+      "bytes": 238533,
+      "sha256": "3246fbdd1c09b1b7cdd432b2c7ed7216e741fff5c3624e71a8d77dcec2108451",
+      "type": "application/pdf"
+    },
+    {
+      "file": "gwanmesia-2014-main.html",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0031920113001441",
+      "resolved": "https://www.sciencedirect.com/science/article/pii/S0031920113001441",
+      "status": 403,
+      "bytes": 832982,
+      "sha256": "d7526f417b9d3b5d3299436454f7a2affbe53622e497230f0fa8dc657ec27bd3",
+      "type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "bosenick-1997-wiley.pdf",
+      "url": "https://onlinelibrary.wiley.com/doi/pdf/10.1029/97JB01612",
+      "status": 403,
+      "bytes": 5563,
+      "sha256": "357e4905472efec3b08909456a7cca9c66bc4e1eaaa104f8dce85366a045b592",
+      "type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "bass-1989-wiley.pdf",
+      "url": "https://onlinelibrary.wiley.com/doi/pdf/10.1029/JB094iB06p07621",
+      "status": 403,
+      "bytes": 5581,
+      "sha256": "d905385246578505c6d83a754d54223b3f75eef8eb53f0f1e456efd0e8e3f189",
+      "type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "rodehorst-2002.pdf",
+      "url": "http://www.minsocam.org/MSA/AmMin/TOC/Articles_Free/2002/Rodehorst_p542-549_02.pdf",
+      "status": 404,
+      "bytes": 256,
+      "sha256": "925ee238db3d3d7d51b37a8d1342a4d43d7552c690c684d933a9a631916941c5",
+      "type": "text/html; charset=iso-8859-1"
+    },
+    {
+      "file": "milani-2017-author.pdf",
+      "url": "https://iris.unito.it/retrieve/handle/2318/1633354/318908/Grossular_manuscript_aperto.pdf",
+      "resolved_url": "https://iris.unito.it/retrieve/handle/2318/1633354/318908/Grossular_manuscript_aperto.pdf",
+      "status": 403,
+      "sha256": "8a2e352ecee32084dfefeb31a508e9fede8c22a6b1e6551ffc276f77d59fed81",
+      "bytes": 5794,
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "file": "milani-2017-msadeposit.html",
+      "url": "https://www.minsocam.org/MSA/AmMin/TOC/2017/Apr2017_data/Apr2017_data.html",
+      "error": "HTTPSConnectionPool(host='www.minsocam.org', port=443): Max retries exceeded with url: /MSA/AmMin/TOC/2017/Apr2017_data/Apr2017_data.html (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1093a47d0>: Failed to establish a new connection: [Errno 61] Connection refused'))"
+    },
+    {
+      "file": "kono-2010-springer.pdf",
+      "url": "https://link.springer.com/content/pdf/10.1007/s12583-010-0112-2.pdf",
+      "resolved_url": "https://link.springer.com/content/pdf/10.1007/s12583-010-0112-2.pdf",
+      "status": 200,
+      "sha256": "fb4b4c732920de205798c153c1dd77a57c12fefbc2e4bae505fb2ef59cd84a0b",
+      "bytes": 797054,
+      "content_type": "application/pdf"
+    },
+    {
+      "file": "kono-2010-hep.html",
+      "url": "https://journal.hep.com.cn/jes/EN/10.1007/s12583-010-0112-2",
+      "error": "HTTPSConnectionPool(host='journal.hep.com.cn', port=443): Max retries exceeded with url: /jes/EN/10.1007/s12583-010-0112-2 (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'journal.hep.com.cn'. (_ssl.c:1028)\")))"
+    },
+    {
+      "file": "gwanmesia-2014-doi.json",
+      "url": "https://api.crossref.org/works?query.title=Elasticity%20and%20sound%20velocities%20of%20polycrystalline%20grossular%20garnet&rows=1",
+      "resolved_url": "https://api.crossref.org/works?query.title=Elasticity%20and%20sound%20velocities%20of%20polycrystalline%20grossular%20garnet&rows=1",
+      "status": 200,
+      "sha256": "32e09badf4157cad43d00ebdaed9d99f23cd266480e00daa9841884952c359ee",
+      "bytes": 23214,
+      "content_type": "application/json",
+      "doi": "10.1016/j.pepi.2013.09.010"
+    }
+  ]
+}

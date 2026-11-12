@@ -107,7 +107,7 @@ Original audit code: `not_refittable`.
 **Limitations and qualifications:**
 
 - Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.
-- Complete joint V/Ks input project, exact point masks, rescalings, weights (including increased Hartwig weights), and fit covariance confidence convention.
+- Complete grossular joint V/Ks project, missing Gwanmesia/Thieblot rows, Isaak expansion reduction, normalization anchors, assigned errors and original fit confidence convention.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 - No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
 
@@ -123,7 +123,7 @@ Original audit code: `not_refittable`.
 
 Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
-Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. The raw Milani (2015) pyrope PV subset is retained separately, but is not the rescaled 2022 fit input.
+Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered grossular observations and a conditional 95-channel diagnostic are retained separately; they are not the original joint fit input. See docs/literature-reproductions/grossular-angel-2022.md.
 
 Parameter covariance is supplied in the complete EOSMAT source.
 
@@ -144,7 +144,7 @@ Parameter covariance is supplied in the complete EOSMAT source.
     - **Status:** not\_available
     - **Audit date:** 2026-11-08
     - **Source locations:** Official supplementary EOS files 1-4; Official supplementary PDF, Tables S1/S2; Author parameter downloads, March 2023 filenames
-    - **Finding:** The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. The raw Milani (2015) pyrope PV subset is retained separately, but is not the rescaled 2022 fit input.
+    - **Finding:** The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered grossular observations and a conditional 95-channel diagnostic are retained separately; they are not the original joint fit input. See docs/literature-reproductions/grossular-angel-2022.md.
 - **Numerical reproduction:**
     - **Report:** docs/data/garnet-angel-2022/audit.json
     - **Scope:** source\_parameterization\_only
@@ -161,7 +161,7 @@ Parameter covariance is supplied in the complete EOSMAT source.
 - **Methods:**
     - **Kind:** equation\_of\_state
     - **Material:** quartz
-    - **Source location:** Methodology: Data sources; supplementary Tables S1 and S2
+    - **Source location:** Methodology: Data sources; supplementary Table S1
     - **Reference:**
         - **Authors:** Scheidl
         - **Year:** 2016
@@ -172,7 +172,7 @@ Parameter covariance is supplied in the complete EOSMAT source.
 - **Recalculation:**
     - **Status:** missing\_calibrant\_observations
     - **Notes:** Joint multi-source fit uses source-specific calibrations and refined scale factors. Complete paired calibrant inputs and transformed joint fit project are not recovered.
-- **Notes:** Milani quartz-calibrated PV inputs were recalculated by Angel (2022) from Angel (1997) to Scheidl (2016). Other series use ruby/Au/NaCl/MgO as described in supplementary S1/S2; no single substitute pressure scale is assigned.
+- **Notes:** Milani quartz-calibrated PV inputs were recalculated by Angel (2022) from Angel (1997) to Scheidl (2016). Other grossular series use ruby/Au/NaCl as described in supplementary S1; no single substitute pressure scale is assigned.
 
 </details>
 

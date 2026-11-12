@@ -33,7 +33,7 @@ Record: `grossular_angel_2022_bm3_q_compromise_debye` · Model: `BM3`
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
 - Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.
-- Complete joint V/Ks input project, exact point masks, rescalings, weights (including increased Hartwig weights), and fit covariance confidence convention.
+- Complete grossular joint V/Ks project, missing Gwanmesia/Thieblot rows, Isaak expansion reduction, normalization anchors, assigned errors and original fit confidence convention.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 - No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
 
@@ -62,6 +62,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 
 ### Detailed evidence and existing plots
 
+- [Supporting source report: grossular-angel-2022](../literature-reproductions/grossular-angel-2022.md).
 - [Related illustrated report explicitly naming this EOS: garnet-angel-2022](../literature-reproductions/garnet-angel-2022.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).

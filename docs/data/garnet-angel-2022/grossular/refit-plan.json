@@ -1,0 +1,23 @@
+{
+  "declared_on": "2026-11-12",
+  "scope": "One conditional partial-data diagnostic, not the full Angel refinement or a replacement EOS",
+  "model": "Unchanged source BM3 plus constant-theta Debye thermal pressure and operational EosFit KS conversion; V0=125.35 cm3/mol, Tr=298 K, n=20 fixed; R=float32(8.314).",
+  "selection": {
+    "milani_2017_vt": 35,
+    "milani_2017_pv": 7,
+    "du_2015_vt": 13,
+    "kono_2010_ks": 36,
+    "isaak_1992_ks_with_explicit_errors": 3,
+    "bass_1989_ambient_ks": 1,
+    "total": 95
+  },
+  "exclusions": "No unrecovered Thiéblot/Gwanmesia observations; no Isaak GR-2B expansion as measured endmember volumes; no interpolated errors for the other 19 Isaak modulus rows; no Conrad modulus errors synthesized from unreported C11/C12 covariance. Indexed-only Bosenick/Rodehorst tables enter fixed-source comparisons, not this fit.",
+  "objective": "IRLS effective-variance pressure residuals, including reported coordinate errors when available. Missing error terms are omitted, not known zero. Milani PV normalized to its measured ambient anchor, pressures transformed from rounded original values by the author quartz 1997/2016 EOSs. Shared anchor/calibration covariance omitted. Two VT datasets each receive one freely fitted instrumental volume multiplier; Kono receives a freely fitted calculated-modulus multiplier. These three nuisance fits differ from the original pre-normalization workflow.",
+  "ambient_temperature": "Absent numerical ambient temperatures in Milani PV/Bass inputs adopted as 298 K. Not recovered thermometer readings.",
+  "free_parameters": ["K0_gpa", "K0_prime", "theta0_k", "gamma0", "scale_milani_vt", "scale_du_vt", "scale_kono_ks"],
+  "starts": "Published coefficients and a second numerical start [170,4.8,800,1.15] with unit nuisance scales. Same rows, objective and bounds; no search for agreement by modifying selections or weights.",
+  "bounds": {"lower": [50,2,50,0.05,0.95,0.95,0.95], "upper": [350,10,3000,4,1.05,1.05,1.05]},
+  "compute_cap": "At most 30 IRLS iterations and 400 least-squares function evaluations per iteration per start.",
+  "uncertainty": "Local inverse-Jacobian covariance conditional on diagonal included errors and fitted nuisance scales; not recovered source confidence intervals or physical validation.",
+  "stopping_rule": "Record convergence and differences. Do not tune weights, select alternative models or replace published coefficients. Exact author-workflow reproduction remains unavailable."
+}
