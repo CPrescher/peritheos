@@ -12,7 +12,6 @@ from peritheos_build import ROOT, digest, stage_core
 from scripts.merge_source_bindings import accepts_merge_binding
 from scripts.scientific_source_snapshot import (
     assert_snapshot_lineage,
-    scientific_sha256,
     scientific_snapshot,
 )
 
@@ -25,7 +24,9 @@ INPUTS = json.loads(
 
 
 def test_replacement_preserves_every_non_authorized_field_and_scientific_history():
-    assert scientific_sha256() == PROOF["after_catalog_scientific_sha256"]
+    assert_snapshot_lineage(
+        scientific_snapshot(), PROOF["after_catalog_scientific_sha256"]
+    )
     assert_snapshot_lineage(
         scientific_snapshot(), PROOF["before_catalog_scientific_sha256"]
     )

@@ -1,0 +1,24 @@
+{
+  "scope": "Read-only discrepancy in the prior 685-entry ledger, before adding the two garnet rows. Existing entries and classifications are preserved.",
+  "records": [
+    {
+      "record_identifier": "akimotoite_wang_2004_t0150_bm3",
+      "differing_fields": [
+        "source_notes"
+      ],
+      "saved_status": "parity",
+      "fresh_status": "parity"
+    },
+    {
+      "record_identifier": "cementite_nonmagnetic_sata_2010_bm3",
+      "differing_fields": [
+        "recommendation_audit",
+        "recommendation_date",
+        "qualification"
+      ],
+      "saved_status": "parity",
+      "fresh_status": "parity"
+    }
+  ],
+  "top_level_policy_drift": true
+}

@@ -1,9 +1,9 @@
 {
   "schema": "peritheos.eos-structure-rights-policy.v1",
-  "reviewed_on": "2026-11-05",
+  "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "c0d4a555a1750ee5cd69ba18ec6dda841297b662d1c9bbbaa51d2c7e0ce2fd7c",
+  "catalog_scientific_sha256": "e63779b4e77be476f6e865daaec8f74bddd094a6d8550641f84218f80769c595",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "23757b5ebe1ce85c7cdf562e80007ddb7e5ae48544837635d48bb8c2ae65b8b5",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "8fdd24e38736fe8d8464d790a14f7b5ba9f9e3e83427f2fbdac493676acaeab2",
@@ -195,7 +195,7 @@
     "peritheos/data/materials/platinum.eosmat": "cf23af9492ff1b17c87ac91547948aa2e3d5f6ec738e2cf7d60d7e1a1003878c",
     "peritheos/data/materials/praseodymium_dioxide.eosmat": "3e24b84b4318f25f21d7f65834d848f2bdf85e2b95bb045ee32c485c52f27815",
     "peritheos/data/materials/pseudowollastonite.eosmat": "9e3068a5d497a4c4ba6286ce682f2e042ed573a3edd3e18276abf163d86b0d79",
-    "peritheos/data/materials/pyrope.eosmat": "1a5c6a8ccc92cf71f4f7fafb2a3e4d1166a9292096f7e5358afc691aa9cfa600",
+    "peritheos/data/materials/pyrope.eosmat": "b6d7da408758d24042854895c1ceb3af8fff21bd768efb7fba552280a3192c8c",
     "peritheos/data/materials/qandilite.eosmat": "cb29544f139233077888d2894b6c64f4d1024a118f8fae23f8eafe3de7b084cf",
     "peritheos/data/materials/rbbr.eosmat": "e71ec69c206926717fc3b827286426765aba6e1e1a3c0a63b984bc37fd08d8e6",
     "peritheos/data/materials/rbcl.eosmat": "e1b7e14e7b5444374fcc098cc4216da77036046ba06157df54fd6138147dec70",
@@ -238,7 +238,8 @@
     "peritheos/data/materials/zircon.eosmat": "3d7bdb07da0849a3b6833bd302b534a241641d4d1a0d91267738c13f9b1b482f",
     "peritheos/data/materials/zirconium_alpha.eosmat": "03b344530b2b11b3260497c59d4595fb07abaa9416487c1afb9657d1955d64c5",
     "peritheos/data/materials/zirconium_beta.eosmat": "7ca3b9a338f1d254ed8c85ab842e1726e48e86fe616b28f307151344ae8e7e5d",
-    "peritheos/data/materials/zirconium_omega.eosmat": "9ca986a36f8ad246a529d24f8db65b68458cb5c96ec9521816c88f4660713ecf"
+    "peritheos/data/materials/zirconium_omega.eosmat": "9ca986a36f8ad246a529d24f8db65b68458cb5c96ec9521816c88f4660713ecf",
+    "peritheos/data/materials/grossular.eosmat": "492eb1da10193140b4edceff5d7016c90ea7daabc940288a64c6dd08c0972ba0"
   },
   "dioptas": {
     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
@@ -423,5 +424,10 @@
   "calculated_pattern_replacement": {
     "receipt": "docs/data/calculated-pattern-replacement.json",
     "sha256": "ea1c440f612fd8116fac944626bb544fa659a48e40ffe38837e50fb8b8c10ec4"
+  },
+  "garnet_2022_additions": {
+    "notice": "peritheos/data/datasets/garnet-angel-2022.LICENSE.md",
+    "scope": "New Angel (2022) EOS parameters/covariance and Wang (2019) grossular structure under their separately attributed CC-BY-4.0 publication grants; source claims and all old qualifications retained.",
+    "preservation": "docs/data/garnet-angel-2022/integration-preservation.json"
   }
 }

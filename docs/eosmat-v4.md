@@ -19,6 +19,12 @@ coefficients remain in the source document and round-trip exports.
 
 ## Small material files
 
+`QCompromiseDebye` is the explicit thermal model for constant Debye temperature
+and constant γ/V, with parameters `Tr`, `theta0`, `gamma0`, `n`. It requires
+`formula_units_per_cell` for cell-to-molar conversion. It has no q parameter;
+readers without this model must reject it. Native v4 and explicit v3 exports
+preserve the model and its source covariance. See the [garnet audit](literature-reproductions/garnet-angel-2022.md).
+
 This complete file contains fictional teaching coefficients:
 
 ```json

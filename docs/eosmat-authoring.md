@@ -1,5 +1,11 @@
 # Creating and editing EOSMAT
 
+For the published garnet q-compromise pressure approximation, use the named
+thermal model `QCompromiseDebye` with `Tr`, `theta0`, `gamma0`, `n` and a known
+crystallographic Z. Do not represent it as full MGD with a chosen q. See the
+[source audit](literature-reproductions/garnet-angel-2022.md) and
+[executable example](examples/garnet-q-compromise.py).
+
 An explicitly supported finite-pressure BM2 law uses `BM2Reference` with V0,
 K0 and P0. V0 and K0 are values at P0; retain the source's actual reference
 notation in its provenance. Do not put high-pressure reference values in an

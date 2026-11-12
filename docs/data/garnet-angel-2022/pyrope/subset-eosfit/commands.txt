@@ -1,0 +1,33 @@
+log /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/subset-eosfit/run.log
+load /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/subset-eosfit/initial.eos
+read /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/subset-eosfit/milani_vt.dat
+read /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/subset-eosfit/hartwig_vt.dat
+a
+read /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/subset-eosfit/zou_pv.dat
+a
+read /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/subset-eosfit/zou_ks.dat
+a
+group
+3
+53,-92
+
+
+fit
+n
+n
+y
+y
+y
+y
+y
+y
+n
+y
+y
+y
+
+y
+n
+save /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/subset-eosfit/joint-fitted.eos
+y
+exit

@@ -1,0 +1,58 @@
+{
+  "scope": "Audit transcriptions of source observations; not registered catalog datasets and not the recovered Angel 2022 joint input project.",
+  "transcribed_on": "2026-11-08",
+  "publisher_files_storage": "Private audit output; no publisher DOC/PDF redistributed here.",
+  "sources": [
+    {
+      "doi": "10.1016/j.lithos.2015.03.017",
+      "authors": "Milani et al. (2015)",
+      "source_location": "Official supplementary Appendix A, Table A1, all 33 rows",
+      "download": "https://ars.els-cdn.com/content/image/1-s2.0-S0024493715001097-mmc1.doc",
+      "download_sha256": "0cf5e8d66d9f809fe22b3d7417a778fac8dd3795f2d9a79b4a70a0309067f763",
+      "transcription": "milani-2015-table-a1.csv",
+      "observation_kind": "single-crystal diffraction unit-cell parameters and volumes",
+      "volume_basis": "Conventional cubic cell, Z=8 Mg3Al2Si3O12 formula units",
+      "uncertainty": "Source explicitly calls parenthetic values standard deviations. Temperature errors are not tabulated; missing remains missing.",
+      "verification": "All rows inspected in a rendered copy of the official DOC, independently converted using LibreOffice; numerical extraction used macOS textutil HTML tables.",
+      "source_terms": "Elsevier source; no open redistribution license established for publisher document. Factual numerical transcription and its arrangement do not grant rights in the source document.",
+      "transcription_sha256": "958198c6d58916e9620e785415e446856771c5aa2e81b9af3cde2a58698bd46b"
+    },
+    {
+      "doi": "10.1063/1.4736407",
+      "authors": "Zou et al. (2012b)",
+      "source_location": "Table I, article page 014910-4, PDF page 5, all 40 rows and all 9 columns",
+      "download": "https://www.mattwhitaker.net/docs/zou2012b.pdf",
+      "download_sha256": "1be49ec036bd92656995167dc5a7f140a82405ddbf5a45fed325a4456eea67da",
+      "transcription": "zou-2012b-table-i.csv",
+      "observation_kind": "Diffraction volumes, density, measured ultrasonic velocities and derived elastic moduli at measured P,T; moduli are not independent of the tabulated velocities/density",
+      "volume_basis": "Conventional cubic cell, Z=8; preserve original V0 column header but entries are volumes at each experimental state, not ambient V0.",
+      "uncertainty": "Parenthetic reported errors retained without assigning an unverified confidence level. No T errors tabulated. Angel 2022 S2 assigns 2 percent T errors; that assignment is separately identifiable in the audit.",
+      "verification": "All 40 rows and headers checked against rendered original PDF page 5; source row 37 density 3.8086(1) retained literally, without correcting a suspected error.",
+      "source_terms": "Copyright 2012 American Institute of Physics. Author-hosted PDF states redistribution subject to AIP license or copyright. No PDF redistributed; factual numerical transcription and its arrangement do not grant source-document rights.",
+      "transcription_sha256": "4f37ba759209cc6e4ef4f74d45539794f5eb559f9e82421c9394a60ffe940b03"
+    }
+  ],
+  "additional_checks": [
+    {
+      "doi": "10.1007/s10973-020-09396-2",
+      "finding": "Springer HTML and PDF endpoint return subscription preview HTML, not a PDF. Numerical 12-row VT table not recovered. Abstract says measurements 100-630 K; Angel 2022 S2 lists 100-650 K. Neither replaces the missing original rows."
+    },
+    {
+      "doi": "10.1016/S0012-821X(02)00851-8",
+      "download": "https://repository.geologyscience.ru/bitstream/handle/123456789/30263/Sino_02.pdf?isAllowed=y&sequence=1",
+      "download_sha256": "0e8fa9419d404182bd43b00ec73c906e4414fd62a6c64b4a13ea2d1b1d4ba937",
+      "finding": "Full primary article recovered. Tables report fitted elastic constants and temperature slopes; individual pyrope KS(T) points appear graphically in Figure 2, not a numerical 12-row table. Not digitized or invented."
+    },
+    {
+      "finding": "Local Zotero searched pyrope (no items) and garnet (Milani 2015 found); Milani primary PDF read from existing attachment J4XWKU8I. No library records modified."
+    },
+    {
+      "doi": "10.1007/s002690050118",
+      "finding": "Springer PDF endpoint returned preview HTML. Numerical PV table not yet recovered from a primary document in this follow-up."
+    },
+    {
+      "doi": "10.1007/s10973-020-09396-2",
+      "followup": "The publisher separate Table 3 URL recovered all 12 measured rows after the article/PDF preview checks. See hartwig-galkin-2021-source.json. The full text, 2022 weights and original joint project remain unrecovered."
+    }
+  ]
+}

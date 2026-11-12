@@ -12,6 +12,17 @@ All notable changes to Peritheos are documented here. The project follows
   label, and explicit model endings. Preserve scientific content and existing
   equation-section bookmarks.
 
+### Added
+
+- Add audited Angel (2022) pyrope and grossular thermal pressure records,
+  source covariance and diffraction-ready grossular. Preserve the existing
+  pyrope record and default. Retain the original joint-fit input gap and
+  printed-versus-covariance uncertainty qualification.
+- Add `QCompromiseDebye` in Python, Rust and EOSMAT with native fitting,
+  uncertainty and inversion. Verify its constant-theta, constant-gamma/V
+  pressure law against independent quadrature and official EosFit calculations;
+  caloric potentials remain explicitly unsupported.
+
 ## [0.18.0] - 2026-11-05
 
 **Installation change:** `pip install peritheos` installs EOS calculations,

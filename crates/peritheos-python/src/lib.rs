@@ -19,9 +19,9 @@ use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure,
     DebyeTemperatureLaw, Dewaele2006, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters,
     HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
-    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
-    ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
-    ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
+    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, QCompromiseDebye,
+    ReferenceStateEos, ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters,
+    ThermalExpansionLaw, ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
     VariableQMieGruneisenDebye,
 };
 use peritheos::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
@@ -621,6 +621,7 @@ enum ThermalModel {
     Dewaele2006(Dewaele2006<RtModel>),
     DorogokupetsOganov2007(DorogokupetsOganov2007<RtModel>),
     LinearThermalPressure(LinearThermalPressure<RtModel>),
+    QCompromiseDebye(QCompromiseDebye<RtModel>),
     DebyeQuadraticThermalPressure(DebyeQuadraticThermalPressure<RtModel>),
     DebyeAnharmonicHelmholtz(DebyeAnharmonicHelmholtz<RtModel>),
     LogVolumeThermalPressure(LogVolumeThermalPressure<RtModel>),
@@ -641,6 +642,7 @@ impl ThermalModel {
             Self::Dewaele2006(_) => "Dewaele2006",
             Self::DorogokupetsOganov2007(_) => "DorogokupetsOganov2007",
             Self::LinearThermalPressure(_) => "LinearThermalPressure",
+            Self::QCompromiseDebye(_) => "QCompromiseDebye",
             Self::DebyeQuadraticThermalPressure(_) => "DebyeQuadraticThermalPressure",
             Self::DebyeAnharmonicHelmholtz(_) => "DebyeAnharmonicHelmholtz",
             Self::LogVolumeThermalPressure(_) => "LogVolumeThermalPressure",
@@ -669,6 +671,9 @@ impl ThermalModel {
                 evaluate_dorogokupets_quantity(&model, quantity, first, second)
             }
             Self::LinearThermalPressure(model) => {
+                evaluate_thermal_quantity(&model, quantity, first, second)
+            }
+            Self::QCompromiseDebye(model) => {
                 evaluate_thermal_quantity(&model, quantity, first, second)
             }
             Self::DebyeAnharmonicHelmholtz(model) => match quantity {
@@ -732,6 +737,9 @@ impl ThermalModel {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::LinearThermalPressure(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::QCompromiseDebye(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::DebyeAnharmonicHelmholtz(model) => {
@@ -988,6 +996,22 @@ impl PyThermalEos {
                 .and_then(|model| model.with_thermal_pressure_reference(baseline))
                 .and_then(|model| model.with_zero_point_pressure(include_zero_point))
                 .map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    fn q_compromise_debye(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        n: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: ThermalModel::QCompromiseDebye(
+                QCompromiseDebye::new(rt_eos.model, tr, theta0, gamma0, n)
+                    .map_err(to_python_error)?,
             ),
         })
     }

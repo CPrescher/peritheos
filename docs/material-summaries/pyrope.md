@@ -20,7 +20,7 @@ and recommendation for use are distinct assessments.
 | Pressure unit | GPa |
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
-| Stored EOS records | 1 |
+| Stored EOS records | 2 |
 | Observation datasets | 1 |
 
 Garnet coordinates from Armbruster et al., Am. Mineral. 77, 512-521 (1992); cell parameter is the cube root of the fitted V0.
@@ -35,12 +35,14 @@ Garnet coordinates from Armbruster et al., Am. Mineral. 77, 512-521 (1992); cell
 | Record | Model | Reference temperature (K) | Source status | Availability |
 | --- | --- | --- | --- | --- |
 | [Milani et al. (2015), BM3](#record-pyrope_milani_2015_bm3_1) | BM3 | 298.0 | primary source validated | Executable |
+| [Angel et al. (2022), BM3 + q-compromise Debye](#record-pyrope_angel_2022_bm3_q_compromise_debye) | BM3 + QCompromiseDebye | 298.0 | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Milani et al. (2015), BM3](#record-pyrope_milani_2015_bm3_1) | 1506.15 ± 0.16 | 163.7 ± 1.7 | 6.4 ± 0.4 |
+| [Angel et al. (2022), BM3 + q-compromise Debye](#record-pyrope_angel_2022_bm3_q_compromise_debye) | 1502.854277355018 (fixed) | 169.339 ± 0.3 | 4.55314 ± 0.05 |
 
 Errors are shown only when supplied, with their source meaning; a bare
 central value does not imply zero uncertainty. A dash means this parameter
@@ -193,6 +195,148 @@ Parameter covariance is not supplied.
 <summary>Parameter provenance</summary>
 
 - **Origin of the parameterization:** Measurements or their experimental reduction determine this EOS; source: Primary article abstract and reported BM3 fits for pyrope and almandine.
+
+</details>
+
+<a id="record-pyrope_angel_2022_bm3_q_compromise_debye"></a>
+
+## Angel et al. (2022), BM3 + q-compromise Debye
+
+Identifier: `pyrope_angel_2022_bm3_q_compromise_debye`.
+
+Availability: **Executable**.
+
+
+- **Origin of the parameterization:** experimental
+- **Reference:**
+    - **Authors:** Angel; Gilio; Mazzucchelli; Alvaro
+    - **Year:** 2022
+    - **Title:** Garnet EoS: a critical review and synthesis
+    - **Source:** Contributions to Mineralogy and Petrology
+    - **Volume:** 177
+    - **Locator:** 54
+    - **DOI:** 10.1007/s00410-022-01918-5
+- **Reference temperature (K):** 298.0
+- **Reported pressure coverage (GPa):** \[0.0, 33.4\]
+- **Reported temperature coverage (K):** \[100.0, 1700.0\]
+- **Reported error confidence level:** Not specified
+
+| Component | Parameter | Value | Reported error | Fixed |
+| --- | --- | --- | --- | --- |
+| Primary | V0 | 1502.854277355018 | Not reported | Yes |
+| Primary | K0 | 169.339 | 0.3 | Not listed |
+| Primary | K0\_prime | 4.55314 | 0.05 | Not listed |
+| Thermal | Tr | 298.0 | Not reported | Yes |
+| Thermal | theta0 | 771.096 | 28.0 | Not listed |
+| Thermal | gamma0 | 1.1847 | 0.012 | Not listed |
+| Thermal | n | 20.0 | Not reported | Yes |
+
+Values use the source model's parameter units. Primary `V0` uses
+the conventional-cell volume declared above. Errors retain their reported
+meaning; an absent error is unknown, and absence of covariance does not
+establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** source equation.
+
+**Comparison basis:** Published parameterization verified by independent quadrature and official EosFit checks; complete original joint fit is unavailable.
+
+[Open reconstruction report](../reconstruction-reports/pyrope.md#record-pyrope_angel_2022_bm3_q_compromise_debye)
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.
+- Complete joint V/Ks input project, exact point masks, rescalings, weights (including increased Hartwig weights), and fit covariance confidence convention.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fit kind:** source\_curve\_validation\_only
+- **Fixed parameters:** V0; Tr; n
+- **Dataset identifiers:** None declared
+
+</details>
+
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. The raw Milani (2015) pyrope PV subset is retained separately, but is not the rescaled 2022 fit input.
+
+Parameter covariance is supplied in the complete EOSMAT source.
+
+
+<details markdown="1">
+<summary>Scientific validation and usage qualifications</summary>
+
+- **Status:** primary\_source\_validated
+- **Audit date:** 2026-11-08
+- **Note:** Source parameterization and volume conventions independently verified. Complete original joint fit remains unrecovered; this is not author-workflow or experimental validation.
+- **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; covariance; validity
+- **Primary source check:**
+    - **DOI:** 10.1007/s00410-022-01918-5
+    - **Access URL:** https://doi.org/10.1007/s00410-022-01918-5
+    - **Locations:** Methodology: EoS models and EoS refinement; Table 1; Official supplementary EOS file 2; Supplementary Table S2
+    - **Finding:** Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.
+- **Primary data check:**
+    - **Status:** partial
+    - **Audit date:** 2026-11-08
+    - **Source locations:** Official supplementary EOS files 1-4; Official supplementary PDF, Tables S1/S2; Author parameter downloads, March 2023 filenames
+    - **Finding:** The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. The raw Milani (2015) pyrope PV subset is retained separately, but is not the rescaled 2022 fit input.
+- **Numerical reproduction:**
+    - **Report:** docs/data/garnet-angel-2022/audit.json
+    - **Scope:** source\_parameterization\_only
+    - **Finding:** Independent SI quadrature agrees over 20 mathematical test states per material; Table 1 derived reference expansivity reproduced. Official EosFit checks retained separately. Calculated checkpoints are not observations.
+
+</details>
+
+
+<details markdown="1">
+<summary>Pressure calibration</summary>
+
+- **Status:** partially\_resolved
+- **Audit date:** 2026-11-08
+- **Methods:**
+    - **Kind:** equation\_of\_state
+    - **Material:** quartz
+    - **Source location:** Methodology: Data sources; supplementary Tables S1 and S2
+    - **Reference:**
+        - **Authors:** Scheidl
+        - **Year:** 2016
+        - **Source:** Journal of Applied Crystallography
+        - **Volume:** 49
+        - **Locator:** 2129-2137
+    - **Notes:** Recalibration of the Milani PV subset explicitly stated by Angel (2022); this is one component of the multi-source fit.
+- **Recalculation:**
+    - **Status:** missing\_calibrant\_observations
+    - **Notes:** Joint multi-source fit uses source-specific calibrations and refined scale factors. Complete paired calibrant inputs and transformed joint fit project are not recovered.
+- **Notes:** Milani quartz-calibrated PV inputs were recalculated by Angel (2022) from Angel (1997) to Scheidl (2016). Other series use ruby/Au/NaCl/MgO as described in supplementary S1/S2; no single substitute pressure scale is assigned.
+
+</details>
+
+
+<details markdown="1">
+<summary>Parameter provenance</summary>
+
+- **Origin of the parameterization:** Joint synthesis of experimental volume and adiabatic bulk-modulus observations, selected for consistency with measured heat capacities; includes adopted fixed molar V0.
+- **Source file:** docs/data/garnet-angel-2022/sources/pyrope-official.eos
+- **Source parameters:**
+    - **V0 cm3 mol:** 113.13
+    - **K0 gpa:** 169.339
+    - **K0 prime:** 4.55314
+    - **Theta0 k:** 771.096
+    - **Gamma0:** 1.1847
+    - **N:** 20
+- **Volume conversion:** Vcell\[A3\] = Vm\[cm3/mol\] \* 8 \* 1e24 / NA, NA=6.02214076e23 mol^-1. Native volume=Vm/10 J/bar/mol.
+- **Uncertainty:** Inline errors are the unchanged printed Table 1 widths; confidence is unspecified. The source-file covariance is retained independently and is used for propagation. It is conditional on fixed V0 and all source model/selection/calibration assumptions; omitted nuisance scale factors are marginalized by taking the EOS submatrix. No error is invented for adopted V0.
+- **Covariance gamma0 standard error:** 0.011600862036935014
+- **Printed gamma0 error:** 0.012
 
 </details>
 

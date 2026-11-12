@@ -1,0 +1,408 @@
+***********************************************************************************************************************
+*                                                                                                                     *
+*                                                     EOSFIT7c                                                        *
+*                                                                                                                     *
+*             Authors: RJ ANGEL, J GONZALEZ-PLATAS, M ALVARO, ML MAZZUCCHELLI                                         *
+*        Version date: 13-May-2021                                                                                    *
+*             Version:  7.60                                                                                          *
+*                                                                                                                     *
+*                                                                                                                     *
+*        INCLUDING LEAST SQUARES BY I.G. WOOD & J. PIPER AND USING THE CrysFML EOS MODULE.                            *
+*                                                                                                                     *
+*        EosFit7c: Angel, Gonzalez-Platas, Alvaro (2014) Zeitschrift fuer Kristallographie, 229:405-419.              *
+*        Phase Transitions: Angel et al (2017) Contribs Min Pet, DOI:10.1007/s00410-017-1349-x                        *
+*        Fitting Moduli: Milani et al. (2017) Amer Min, DOI:10.2138/am-2017-5855                                      *
+*                                                                                                                     *
+*        Development currently supported by ERC grant 714936, TrueDepths to M. Alvaro, and                            *
+*                          Agencia Estatal de Investigacion under                                                     *
+*        National Program of Sciences and Technological Materials (PID2019-106383GB-C44) to J. Gonzalez-Platas        *
+*        For more information see the help system                                                                     *
+*                                                                                                                     *
+*                                                                                                                     *
+*        Current date and time: 12-NOV-2026 11:57                                                                     *
+*                                                                                                                     *
+***********************************************************************************************************************
+
+EOSFIT-7.6>
+
+Successfully opened file with eos
+Named /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/hartwig-weight-eosfit/500/joint-fitted.eos
+
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: DIAGNOSTIC Hartwig weight 500, 191 channels; not author project
+Eos Saved: 12-NOV-2026 at 11:57
+ 
+   System: Cubic
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  113.130           :Reference pressure volume: units are cm3/mol
+      K0:  169.5(6)          :Bulk modulus: units are GPa
+      Kp:  4.51(9)           :dK/dP: dimensionless
+     Kpp: -0.0275            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+           with q-compromise
+ 
+   Temperature of reference:   298.00 K
+ 
+   ThMGD:  738(10)           :Debye temperature in K
+   Natom:  20.0000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  1.194(8)          :Gruneisen parameter at Tref,Pref
+ 
+ 
+  Shear modulus Information
+---------------------------
+ 
+   Model: Polynomial
+      G0:  94.0000           :Shear modulus at Pref, Tref, in pressure units [FIXED VALUE]
+   dG/dP:  1.30000           :Pressure derivative of shear modulus: no units [FIXED VALUE]
+    d2G/:  0.00000           :2nd Pressure derivative of shear modulus: P^-1 [FIXED VALUE]
+    d3G/:  0.00000           :3rd Pressure derivative of shear modulus: P^-2 [FIXED VALUE]
+   dG/dT: -0.0100            :Temperature derivative of shear modulus [FIXED VALUE]
+ 
+ 
+
+EOSFIT-7.6> 
+ 
+  EOS Information
+-------------------
+ 
+    Title: DIAGNOSTIC Hartwig weight 500, 191 channels; not author project
+Eos Saved: 12-NOV-2026 at 11:57
+ 
+   System: Cubic
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  113.130           :Reference pressure volume: units are cm3/mol
+      K0:  169.5(6)          :Bulk modulus: units are GPa
+      Kp:  4.51(9)           :dK/dP: dimensionless
+     Kpp: -0.0275            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+           with q-compromise
+ 
+   Temperature of reference:   298.00 K
+ 
+   ThMGD:  738(10)           :Debye temperature in K
+   Natom:  20.0000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  1.194(8)          :Gruneisen parameter at Tref,Pref
+ 
+ 
+  Shear modulus Information
+---------------------------
+ 
+   Model: Polynomial
+      G0:  94.0000           :Shear modulus at Pref, Tref, in pressure units [FIXED VALUE]
+   dG/dP:  1.30000           :Pressure derivative of shear modulus: no units [FIXED VALUE]
+    d2G/:  0.00000           :2nd Pressure derivative of shear modulus: P^-1 [FIXED VALUE]
+    d3G/:  0.00000           :3rd Pressure derivative of shear modulus: P^-2 [FIXED VALUE]
+   dG/dT: -0.0100            :Temperature derivative of shear modulus [FIXED VALUE]
+ 
+ 
+    Do you want to change these EoS parameters or the EoS type? (Y/N) <N>?
+
+
+ INPUT PRESSURE AND TEMPERATURE (K) (<cr> TO EXIT) :
+     At  P =    0.000 and T =    103.0K The parameter values are:
+
+     V      112.7762  esd =     0.0012   cm3/mol
+     K      171.8720  esd =     0.5672   GPa
+     Kp       4.4954  esd =     0.0860
+     Kpp     -0.0267  esd =     0.0011   /GPa
+     dK/dT   -0.0043  esd =     0.0001   GPa/K
+     alpha    0.5535  esd =     0.0018   /K both multiplied by   1.0x10^5
+
+     Ks     171.9886  esd =     0.5675
+
+     Pth     -0.5346
+
+     Gamma    1.1905
+     G       95.9500
+     DebT   738.2650
+
+  Calculated Heat Capacities in J/mol/K:
+     Cv      90.1234
+     Cp      90.1845
+
+  V/V(0,T)   1.00000  esd =    0.00002
+  V/V(0,Tref)0.99687  esd =    0.00001
+
+  Strain f   0.00000  esd =    0.00000 esd calculated from esd(V) only
+  NormP     171.8720  esd =    0.00000 esd calculated from esd(V) only
+
+
+
+ INPUT PRESSURE AND TEMPERATURE (K) (<cr> TO EXIT) :
+     At  P =    0.000 and T =    150.0K The parameter values are:
+
+     V      112.8217  esd =     0.0011   cm3/mol
+     K      171.5602  esd =     0.5718   GPa
+     Kp       4.4972  esd =     0.0859
+     Kpp     -0.0268  esd =     0.0011   /GPa
+     dK/dT   -0.0089  esd =     0.0002   GPa/K
+     alpha    1.1603  esd =     0.0039   /K both multiplied by   1.0x10^5
+
+     Ks     171.9158  esd =     0.5730
+
+     Pth     -0.4652
+
+     Gamma    1.1909
+     G       95.4800
+     DebT   738.2650
+
+  Calculated Heat Capacities in J/mol/K:
+     Cv     188.5726
+     Cp     188.9635
+
+  V/V(0,T)   1.00000  esd =    0.00001
+  V/V(0,Tref)0.99728  esd =    0.00001
+
+  Strain f   0.00000  esd =    0.00000 esd calculated from esd(V) only
+  NormP     171.5602  esd =    0.00000 esd calculated from esd(V) only
+
+
+
+ INPUT PRESSURE AND TEMPERATURE (K) (<cr> TO EXIT) :
+     At  P =    0.000 and T =    297.5K The parameter values are:
+
+     V      113.1287  esd =     0.0000   cm3/mol
+     K      169.4738  esd =     0.6029   GPa
+     Kp       4.5098  esd =     0.0865
+     Kpp     -0.0275  esd =     0.0011   /GPa
+     dK/dT   -0.0178  esd =     0.0003   GPa/K
+     alpha    2.3269  esd =     0.0083   /K both multiplied by   1.0x10^5
+
+     Ks     170.8748  esd =     0.6079
+
+     Pth     -0.0020
+
+     Gamma    1.1942
+     G       94.0050
+     DebT   738.2650
+
+  Calculated Heat Capacities in J/mol/K:
+     Cv     373.5717
+     Cp     376.6599
+
+  V/V(0,T)   1.00000  esd =    0.00000
+  V/V(0,Tref)0.99999  esd =    0.00000
+
+  Strain f   0.00000  esd =    0.00000 esd calculated from esd(V) only
+  NormP     169.4738  esd =    0.00000 esd calculated from esd(V) only
+
+
+
+ INPUT PRESSURE AND TEMPERATURE (K) (<cr> TO EXIT) :
+     At  P =    0.000 and T =    600.0K The parameter values are:
+
+     V      114.0693  esd =     0.0037   cm3/mol
+     K      163.2359  esd =     0.7019   GPa
+     Kp       4.5491  esd =     0.0881
+     Kpp     -0.0296  esd =     0.0012   /GPa
+     dK/dT   -0.0222  esd =     0.0004   GPa/K
+     alpha    2.9943  esd =     0.0129   /K both multiplied by   1.0x10^5
+
+     Ks     166.7672  esd =     0.7171
+
+     Pth      1.3753
+
+     Gamma    1.2041
+     G       90.9800
+     DebT   738.2650
+
+  Calculated Heat Capacities in J/mol/K:
+     Cv     463.0286
+     Cp     473.0451
+
+  V/V(0,T)   1.00000  esd =    0.00005
+  V/V(0,Tref)1.00830  esd =    0.00003
+
+  Strain f   0.00000  esd =    0.00000 esd calculated from esd(V) only
+  NormP     163.2359  esd =    0.00000 esd calculated from esd(V) only
+
+
+
+ INPUT PRESSURE AND TEMPERATURE (K) (<cr> TO EXIT) :
+     At  P =    0.000 and T =    650.0K The parameter values are:
+
+     V      114.2417  esd =     0.0045   cm3/mol
+     K      162.1168  esd =     0.7209   GPa
+     Kp       4.5564  esd =     0.0884
+     Kpp     -0.0300  esd =     0.0012   /GPa
+     dK/dT   -0.0225  esd =     0.0004   GPa/K
+     alpha    3.0479  esd =     0.0136   /K both multiplied by   1.0x10^5
+
+     Ks     165.9900  esd =     0.7381
+
+     Pth      1.6211
+
+     Gamma    1.2059
+     G       90.4800
+     DebT   738.2650
+
+  Calculated Heat Capacities in J/mol/K:
+     Cv     468.0896
+     Cp     479.2728
+
+  V/V(0,T)   1.00000  esd =    0.00006
+  V/V(0,Tref)1.00983  esd =    0.00004
+
+  Strain f   0.00000  esd =    0.00000 esd calculated from esd(V) only
+  NormP     162.1168  esd =    0.00000 esd calculated from esd(V) only
+
+
+
+ INPUT PRESSURE AND TEMPERATURE (K) (<cr> TO EXIT) :
+     At  P =    0.000 and T =   1073.0K The parameter values are:
+
+     V      115.8102  esd =     0.0126   cm3/mol
+     K      152.2807  esd =     0.8919   GPa
+     Kp       4.6251  esd =     0.0915
+     Kpp     -0.0341  esd =     0.0016   /GPa
+     dK/dT   -0.0238  esd =     0.0005   GPa/K
+     alpha    3.3774  esd =     0.0198   /K both multiplied by   1.0x10^5
+
+     Ks     159.0272  esd =     0.9314
+
+     Pth      3.7641
+
+     Gamma    1.2225
+     G       86.2500
+     DebT   738.2650
+
+  Calculated Heat Capacities in J/mol/K:
+     Cv     487.2293
+     Cp     508.8150
+
+  V/V(0,T)   1.00000  esd =    0.00015
+  V/V(0,Tref)1.02369  esd =    0.00011
+
+  Strain f   0.00000  esd =    0.00000 esd calculated from esd(V) only
+  NormP     152.2807  esd =    0.00000 esd calculated from esd(V) only
+
+
+
+ INPUT PRESSURE AND TEMPERATURE (K) (<cr> TO EXIT) :
+     At  P =   10.000 and T =    300.0K The parameter values are:
+
+     V      107.3564  esd =     0.0113   cm3/mol
+     K      213.3557  esd =     0.5047   GPa
+     Kp       4.2918  esd =     0.0788
+     Kpp     -0.0175  esd =     0.0006   /GPa
+     dK/dT   -0.0170  esd =     0.0003   GPa/K
+     alpha    1.8567  esd =     0.0044   /K both multiplied by   1.0x10^5
+
+     Ks     214.7024  esd =     0.5079
+
+     Pth      0.0079
+
+     Gamma    1.1333
+     G      106.9800
+     DebT   738.2650
+
+  Calculated Heat Capacities in J/mol/K:
+     Cv     375.2628
+     Cp     377.6315
+
+  V/V(0,T)   0.94892  esd =    0.00010
+  V/V(0,Tref)0.94897  esd =    0.00010
+
+  Strain f   0.01779  esd =    0.00004 esd calculated from esd(V) only
+  NormP     171.7355  esd =    0.37948 esd calculated from esd(V) only
+
+
+
+ INPUT PRESSURE AND TEMPERATURE (K) (<cr> TO EXIT) :
+     At  P =   10.000 and T =   1000.0K The parameter values are:
+
+     V      109.1333  esd =     0.0091   cm3/mol
+     K      198.7396  esd =     0.3763   GPa
+     Kp       4.3549  esd =     0.0808
+     Kpp     -0.0201  esd =     0.0007   /GPa
+     dK/dT   -0.0223  esd =     0.0004   GPa/K
+     alpha    2.5788  esd =     0.0049   /K both multiplied by   1.0x10^5
+
+     Ks     204.6436  esd =     0.3874
+
+     Pth      3.3892
+
+     Gamma    1.1520
+     G       99.9800
+     DebT   738.2650
+
+  Calculated Heat Capacities in J/mol/K:
+     Cv     485.5058
+     Cp     499.9290
+
+  V/V(0,T)   0.94466  esd =    0.00012
+  V/V(0,Tref)0.96467  esd =    0.00008
+
+  Strain f   0.01934  esd =    0.00003 esd calculated from esd(V) only
+  NormP     156.7280  esd =    0.25631 esd calculated from esd(V) only
+
+
+
+ INPUT PRESSURE AND TEMPERATURE (K) (<cr> TO EXIT) :
+     At  P =   19.860 and T =   1700.0K The parameter values are:
+
+     V      105.9704  esd =     0.0131   cm3/mol
+     K      225.5230  esd =     0.6761   GPa
+     Kp       4.2447  esd =     0.0772
+     Kpp     -0.0156  esd =     0.0005   /GPa
+     dK/dT   -0.0221  esd =     0.0004   GPa/K
+     alpha    2.3130  esd =     0.0069   /K both multiplied by   1.0x10^5
+
+     Ks     235.4429  esd =     0.7058
+
+     Pth      7.0169
+
+     Gamma    1.1186
+     G      105.7980
+     DebT   738.2650
+
+  Calculated Heat Capacities in J/mol/K:
+     Cv     494.1677
+     Cp     515.9042
+
+  V/V(0,T)   0.89468  esd =    0.00027
+  V/V(0,Tref)0.93671  esd =    0.00012
+
+  Strain f   0.03851  esd =    0.00004 esd calculated from esd(V) only
+  NormP     142.8030  esd =    0.19407 esd calculated from esd(V) only
+
+
+
+ INPUT PRESSURE AND TEMPERATURE (K) (<cr> TO EXIT) :
+EOSFIT-7.6>

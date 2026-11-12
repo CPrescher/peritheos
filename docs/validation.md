@@ -59,7 +59,7 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 685
+fit for every record with sufficient direct observations and documents all 687
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
 diagnostics. The current campaign finds 357 scoped numerical parity matches and 72 additional numerically similar results.
@@ -83,7 +83,7 @@ confidence convention. Sakai (2011) contributes eight conditional fixed-V0
 parity matches within printed error widths, with weighting and marker-averaging
 qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-b2.md).
 [61 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 177 records cannot be
+recover at least one published coefficient, while 179 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Seventeen further records have source reconstructions without an independent
 EOS refit. There are no unresolved extraction or solver failures. The

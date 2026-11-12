@@ -1,0 +1,403 @@
+{
+  "scope": "source_parameterization_only",
+  "author_workflow_reproduced": false,
+  "source_doi": "10.1007/s00410-022-01918-5",
+  "records": {
+    "pyrope": {
+      "source_file": "sources/pyrope-official.eos",
+      "source_sha256": "afe05fba08073b72a38bf20c03a180ff091ee89b41c9bf1c727fb19679977b33",
+      "source_parameters": {
+        "1": 113.13,
+        "2": 169.339,
+        "3": 4.55314,
+        "11": 771.096,
+        "13": 20.0,
+        "14": 1.0,
+        "18": 1.1847
+      },
+      "volume0_cell_a3": 1502.854277355018,
+      "covariance_parameter_order": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "theta0",
+        "gamma0"
+      ],
+      "covariance": [
+        [
+          0.098058,
+          -0.011083,
+          -0.10287,
+          0.00075834
+        ],
+        [
+          -0.011083,
+          0.0020312,
+          -0.053391,
+          -0.00011528
+        ],
+        [
+          -0.10287,
+          -0.053391,
+          780.44,
+          0.279
+        ],
+        [
+          0.00075834,
+          -0.00011528,
+          0.279,
+          0.00013458
+        ]
+      ],
+      "covariance_standard_errors": [
+        0.3131421402494401,
+        0.04506883623969006,
+        27.936356240569385,
+        0.011600862036935014
+      ],
+      "alpha_298k_inverse_k": 2.2564254054483373e-05,
+      "table1_alpha_inverse_k": 2.256e-05,
+      "maximum_independent_difference_gpa": 1.2776979474438122e-10,
+      "calculated_checks_not_observations": [
+        {
+          "volume_cm3_mol": 96.1605,
+          "temperature_k": 90.0,
+          "independent_pressure_gpa": 39.40271737322895,
+          "native_pressure_gpa": 39.40271737321946,
+          "difference_gpa": -9.492850949754938e-12
+        },
+        {
+          "volume_cm3_mol": 96.1605,
+          "temperature_k": 298.0,
+          "independent_pressure_gpa": 39.918885770177766,
+          "native_pressure_gpa": 39.91888577017779,
+          "difference_gpa": 2.1316282072803006e-14
+        },
+        {
+          "volume_cm3_mol": 96.1605,
+          "temperature_k": 700.0,
+          "independent_pressure_gpa": 41.75356458060745,
+          "native_pressure_gpa": 41.75356458064128,
+          "difference_gpa": 3.382893964953837e-11
+        },
+        {
+          "volume_cm3_mol": 96.1605,
+          "temperature_k": 1000.0,
+          "independent_pressure_gpa": 43.256296503312136,
+          "native_pressure_gpa": 43.25629650337366,
+          "difference_gpa": 6.152589548946708e-11
+        },
+        {
+          "volume_cm3_mol": 96.1605,
+          "temperature_k": 1700.0,
+          "independent_pressure_gpa": 46.85011764894507,
+          "native_pressure_gpa": 46.85011764907284,
+          "difference_gpa": 1.2776979474438122e-10
+        },
+        {
+          "volume_cm3_mol": 107.47349999999999,
+          "temperature_k": 90.0,
+          "independent_pressure_gpa": 9.247528099843413,
+          "native_pressure_gpa": 9.247528099833872,
+          "difference_gpa": -9.540812584418745e-12
+        },
+        {
+          "volume_cm3_mol": 107.47349999999999,
+          "temperature_k": 298.0,
+          "independent_pressure_gpa": 9.76369649679223,
+          "native_pressure_gpa": 9.763696496792202,
+          "difference_gpa": -2.842170943040401e-14
+        },
+        {
+          "volume_cm3_mol": 107.47349999999999,
+          "temperature_k": 700.0,
+          "independent_pressure_gpa": 11.598375307221916,
+          "native_pressure_gpa": 11.598375307255695,
+          "difference_gpa": 3.377920165803516e-11
+        },
+        {
+          "volume_cm3_mol": 107.47349999999999,
+          "temperature_k": 1000.0,
+          "independent_pressure_gpa": 13.101107229926598,
+          "native_pressure_gpa": 13.101107229988076,
+          "difference_gpa": 6.147793385480327e-11
+        },
+        {
+          "volume_cm3_mol": 107.47349999999999,
+          "temperature_k": 1700.0,
+          "independent_pressure_gpa": 16.69492837555954,
+          "native_pressure_gpa": 16.694928375687258,
+          "difference_gpa": 1.277165040391992e-10
+        },
+        {
+          "volume_cm3_mol": 113.13,
+          "temperature_k": 90.0,
+          "independent_pressure_gpa": -0.5161683969488167,
+          "native_pressure_gpa": -0.5161683969583304,
+          "difference_gpa": -9.513723142617891e-12
+        },
+        {
+          "volume_cm3_mol": 113.13,
+          "temperature_k": 298.0,
+          "independent_pressure_gpa": 0.0,
+          "native_pressure_gpa": 0.0,
+          "difference_gpa": 0.0
+        },
+        {
+          "volume_cm3_mol": 113.13,
+          "temperature_k": 700.0,
+          "independent_pressure_gpa": 1.8346788104296867,
+          "native_pressure_gpa": 1.8346788104634946,
+          "difference_gpa": 3.380784541207049e-11
+        },
+        {
+          "volume_cm3_mol": 113.13,
+          "temperature_k": 1000.0,
+          "independent_pressure_gpa": 3.3374107331343685,
+          "native_pressure_gpa": 3.3374107331958744,
+          "difference_gpa": 6.150591147502382e-11
+        },
+        {
+          "volume_cm3_mol": 113.13,
+          "temperature_k": 1700.0,
+          "independent_pressure_gpa": 6.93123187876731,
+          "native_pressure_gpa": 6.931231878895057,
+          "difference_gpa": 1.27746702105469e-10
+        },
+        {
+          "volume_cm3_mol": 116.5239,
+          "temperature_k": 90.0,
+          "independent_pressure_gpa": -5.1961748853761796,
+          "native_pressure_gpa": -5.196174885385707,
+          "difference_gpa": -9.527489908123243e-12
+        },
+        {
+          "volume_cm3_mol": 116.5239,
+          "temperature_k": 298.0,
+          "independent_pressure_gpa": -4.680006488427363,
+          "native_pressure_gpa": -4.680006488427376,
+          "difference_gpa": -1.3322676295501878e-14
+        },
+        {
+          "volume_cm3_mol": 116.5239,
+          "temperature_k": 700.0,
+          "independent_pressure_gpa": -2.8453276779976764,
+          "native_pressure_gpa": -2.8453276779638816,
+          "difference_gpa": 3.3794744780379915e-11
+        },
+        {
+          "volume_cm3_mol": 116.5239,
+          "temperature_k": 1000.0,
+          "independent_pressure_gpa": -1.3425957552929946,
+          "native_pressure_gpa": -1.342595755231502,
+          "difference_gpa": 6.149258879872832e-11
+        },
+        {
+          "volume_cm3_mol": 116.5239,
+          "temperature_k": 1700.0,
+          "independent_pressure_gpa": 2.251225390339947,
+          "native_pressure_gpa": 2.25122539046768,
+          "difference_gpa": 1.277333794291735e-10
+        }
+      ],
+      "unresolved_fit_inputs": "Complete joint V/Ks input project, exact point masks, rescalings, weights (including increased Hartwig weights), and fit covariance confidence convention."
+    },
+    "grossular": {
+      "source_file": "sources/grossular-official.eos",
+      "source_sha256": "279139b3835582e97e5419283271151a9b10491f7eef89e986ce4e84e9d3dca5",
+      "source_parameters": {
+        "1": 125.35,
+        "2": 167.002,
+        "3": 5.06534,
+        "11": 749.825,
+        "13": 20.0,
+        "14": 1.0,
+        "18": 1.15602
+      },
+      "volume0_cell_a3": 1665.1885765619334,
+      "covariance_parameter_order": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "theta0",
+        "gamma0"
+      ],
+      "covariance": [
+        [
+          0.038718,
+          0.0022213,
+          -0.16156,
+          0.0001981
+        ],
+        [
+          0.0022213,
+          0.0054026,
+          -0.027319,
+          -4.0539e-05
+        ],
+        [
+          -0.16156,
+          -0.027319,
+          166.37,
+          0.055808
+        ],
+        [
+          0.0001981,
+          -4.0539e-05,
+          0.055808,
+          2.598e-05
+        ]
+      ],
+      "covariance_standard_errors": [
+        0.196768899981679,
+        0.07350238091381801,
+        12.898449519225169,
+        0.005097057974949863
+      ],
+      "alpha_298k_inverse_k": 2.047409254051984e-05,
+      "table1_alpha_inverse_k": 2.047e-05,
+      "maximum_independent_difference_gpa": 1.1284129186606151e-10,
+      "calculated_checks_not_observations": [
+        {
+          "volume_cm3_mol": 106.5475,
+          "temperature_k": 90.0,
+          "independent_pressure_gpa": 40.5515935866888,
+          "native_pressure_gpa": 40.551593586680184,
+          "difference_gpa": -8.618883384770015e-12
+        },
+        {
+          "volume_cm3_mol": 106.5475,
+          "temperature_k": 298.0,
+          "independent_pressure_gpa": 41.02014034535341,
+          "native_pressure_gpa": 41.020140345353425,
+          "difference_gpa": 1.4210854715202004e-14
+        },
+        {
+          "volume_cm3_mol": 106.5475,
+          "temperature_k": 700.0,
+          "independent_pressure_gpa": 42.647229587560496,
+          "native_pressure_gpa": 42.647229587590495,
+          "difference_gpa": 2.999911430379143e-11
+        },
+        {
+          "volume_cm3_mol": 106.5475,
+          "temperature_k": 1000.0,
+          "independent_pressure_gpa": 43.97363299243385,
+          "native_pressure_gpa": 43.9736329924883,
+          "difference_gpa": 5.444888984129648e-11
+        },
+        {
+          "volume_cm3_mol": 106.5475,
+          "temperature_k": 1700.0,
+          "independent_pressure_gpa": 47.14156733745778,
+          "native_pressure_gpa": 47.14156733757062,
+          "difference_gpa": 1.1284129186606151e-10
+        },
+        {
+          "volume_cm3_mol": 119.0825,
+          "temperature_k": 90.0,
+          "independent_pressure_gpa": 9.287248603813454,
+          "native_pressure_gpa": 9.28724860380479,
+          "difference_gpa": -8.665068662594422e-12
+        },
+        {
+          "volume_cm3_mol": 119.0825,
+          "temperature_k": 298.0,
+          "independent_pressure_gpa": 9.75579536247806,
+          "native_pressure_gpa": 9.75579536247803,
+          "difference_gpa": -2.842170943040401e-14
+        },
+        {
+          "volume_cm3_mol": 119.0825,
+          "temperature_k": 700.0,
+          "independent_pressure_gpa": 11.382884604685144,
+          "native_pressure_gpa": 11.382884604715098,
+          "difference_gpa": 2.9954705382806424e-11
+        },
+        {
+          "volume_cm3_mol": 119.0825,
+          "temperature_k": 1000.0,
+          "independent_pressure_gpa": 12.709288009558495,
+          "native_pressure_gpa": 12.709288009612902,
+          "difference_gpa": 5.440625727715087e-11
+        },
+        {
+          "volume_cm3_mol": 119.0825,
+          "temperature_k": 1700.0,
+          "independent_pressure_gpa": 15.877222354582429,
+          "native_pressure_gpa": 15.877222354695228,
+          "difference_gpa": 1.127986593019159e-10
+        },
+        {
+          "volume_cm3_mol": 125.35,
+          "temperature_k": 90.0,
+          "independent_pressure_gpa": -0.4685467586646055,
+          "native_pressure_gpa": -0.46854675867324075,
+          "difference_gpa": -8.635259174383236e-12
+        },
+        {
+          "volume_cm3_mol": 125.35,
+          "temperature_k": 298.0,
+          "independent_pressure_gpa": 0.0,
+          "native_pressure_gpa": 0.0,
+          "difference_gpa": 0.0
+        },
+        {
+          "volume_cm3_mol": 125.35,
+          "temperature_k": 700.0,
+          "independent_pressure_gpa": 1.627089242207085,
+          "native_pressure_gpa": 1.627089242237067,
+          "difference_gpa": 2.99820168692122e-11
+        },
+        {
+          "volume_cm3_mol": 125.35,
+          "temperature_k": 1000.0,
+          "independent_pressure_gpa": 2.9534926470804366,
+          "native_pressure_gpa": 2.953492647134871,
+          "difference_gpa": 5.4434234897371425e-11
+        },
+        {
+          "volume_cm3_mol": 125.35,
+          "temperature_k": 1700.0,
+          "independent_pressure_gpa": 6.12142699210437,
+          "native_pressure_gpa": 6.121426992217197,
+          "difference_gpa": 1.1282708101134631e-10
+        },
+        {
+          "volume_cm3_mol": 129.1105,
+          "temperature_k": 90.0,
+          "independent_pressure_gpa": -5.049086677407315,
+          "native_pressure_gpa": -5.049086677415963,
+          "difference_gpa": -8.64819327262012e-12
+        },
+        {
+          "volume_cm3_mol": 129.1105,
+          "temperature_k": 298.0,
+          "independent_pressure_gpa": -4.580539918742709,
+          "native_pressure_gpa": -4.580539918742723,
+          "difference_gpa": -1.3322676295501878e-14
+        },
+        {
+          "volume_cm3_mol": 129.1105,
+          "temperature_k": 700.0,
+          "independent_pressure_gpa": -2.953450676535624,
+          "native_pressure_gpa": -2.9534506765056556,
+          "difference_gpa": 2.9968472148311776e-11
+        },
+        {
+          "volume_cm3_mol": 129.1105,
+          "temperature_k": 1000.0,
+          "independent_pressure_gpa": -1.6270472716622728,
+          "native_pressure_gpa": -1.627047271607852,
+          "difference_gpa": 5.4420912221075923e-11
+        },
+        {
+          "volume_cm3_mol": 129.1105,
+          "temperature_k": 1700.0,
+          "independent_pressure_gpa": 1.5408870733616604,
+          "native_pressure_gpa": 1.5408870734744742,
+          "difference_gpa": 1.1281375833505081e-10
+        }
+      ],
+      "unresolved_fit_inputs": "Complete joint V/Ks input project, exact point masks, rescalings, weights (including increased Hartwig weights), and fit covariance confidence convention."
+    }
+  }
+}

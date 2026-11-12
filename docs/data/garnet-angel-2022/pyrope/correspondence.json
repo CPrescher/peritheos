@@ -1,0 +1,28 @@
+{
+  "status": "awaiting_author_reply",
+  "author": "Ross Angel",
+  "recipient_email": "rossjohn.angel@cnr.it",
+  "sender": "Clemens Prescher",
+  "user_confirmed_sent_on": "2026-11-12",
+  "timezone": "Europe/Berlin",
+  "exact_sent_timestamp": null,
+  "evidence": "User reported: ok, I have sent the email. Please document that we are waiting for Ross's reply.",
+  "sent_by": "user",
+  "sent_by_assistant": false,
+  "independently_verified_sent_copy": false,
+  "reply_reported": false,
+  "subject_of_prepared_draft": "Reproducing the pyrope EoS analysis",
+  "prepared_draft": "correspondence/2026-11-12-ross-email-draft.txt",
+  "draft_qualification": "Prepared text retained for context; the exact body of the sent email has not been independently verified and may have been edited by the user.",
+  "requested_inputs": [
+    "Original pyrope EosFit data files and fitting macro or log",
+    "Exact Hartwig-Galkin weighting and error changes",
+    "Volume normalization and dataset scale groups",
+    "Pressure recalibration, including revised quartz pressures",
+    "Elasticity data selection and scaling",
+    "Corrections to published source-table values, if used"
+  ],
+  "scientific_status": "Original author workflow not reproduced; conditional recovered-input and weighting diagnostics retained without replacing published coefficients.",
+  "next_step": "Await Ross's response; reconcile any supplied inputs and settings with the preserved source and diagnostic fits.",
+  "followup_reminder_scheduled": false
+}

@@ -496,6 +496,7 @@ from peritheos.eos.thermal import (
     HollandPowell2011,
     HollandPowellThermalPressure,
     LinearThermalPressure,
+    QCompromiseDebye,
     LogVolumeThermalPressure,
     DebyeQuadraticThermalPressure,
     DebyeTabulatedThermalPressure,
@@ -524,6 +525,7 @@ Thermal constructor signatures are:
 | `Dewaele2006` | `Tr, theta0, gamma0, gamma_inf, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n` |
 | `DorogokupetsOganov2007` | `Tr`, four oscillator-mode parameter groups, `gamma0, gamma_inf, beta`, anharmonic, electronic, defect, and atom-count terms |
 | `LinearThermalPressure` | `Tr, alpha_KT` |
+| `QCompromiseDebye` | `Tr, theta0, gamma0, n`; constant θ and γ/V; no q or caloric potential |
 | `SecondOrderTaylorThermalPressure` | `Tr, eta0, c0, c1, c2, c3, c4, c5` |
 | `SoundVelocityDebyeHelmholtz` | `Tr, molar_mass_g_mol, n, longitudinal_intercept, longitudinal_slope, shear_intercept, shear_slope` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |

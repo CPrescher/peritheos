@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **376 primary papers**: **272** support the 685 audited catalog records and **104** were investigated without adding a production record.
+The register covers **377 primary papers**: **273** support the 687 audited catalog records and **104** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -43,7 +43,7 @@ refits, or acceptance-gate holds.
 | Partly reproduced | 15 |
 | Mixed: reproduced and discrepant records | 8 |
 | Coefficient parity not achieved | 8 |
-| Direct refit unavailable | 59 |
+| Direct refit unavailable | 60 |
 | Source reconstruction | 4 |
 | Withheld: could not reproduce | 7 |
 | Deferred: incomplete source/model mapping | 91 |
@@ -984,7 +984,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **67 papers** contain 177 records for which a
+These **68 papers** contain 179 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -998,6 +998,7 @@ Papers not yet listed there remain unassessed for outreach.
 | [Akber-Knutson et al. (2005)](https://doi.org/10.1029/2005gl023192) | `al2o3_perovskite_akber_knutson_2005_gga_bm3`, `al2o3_post_perovskite_akber_knutson_2005_gga_bm3`, `bridgmanite_akber_knutson_2005_gga_bm3`, `mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`, `mg09375al0125si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`, `mgal00625h00625si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`, `mgal00625h00625si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`, `mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3`, `mgal0125si0875o29375_post_perovskite_akber_knutson_2005_gga_bm3`, `mgsio3_post_perovskite_akber_knutson_2005_gga_bm3` | The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. The E(V) rows, weights, residuals, and covariance are not tabulated. |
 | [Anderson and Swenson (1975)](https://doi.org/10.1016/0022-3697(75)90004-9) | `argon_fcc_anderson_swenson_1975_20p0k`, `argon_fcc_anderson_swenson_1975_40p0k`, `argon_fcc_anderson_swenson_1975_4p2k`, `argon_fcc_anderson_swenson_1975_60p0k`, `argon_fcc_anderson_swenson_1975_77p0k` | Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed. |
 | [Anderson et al. (1989)](https://doi.org/10.1063/1.342969) | `gold_anderson_1989_bm3_1` | Tables I-IV contain heterogeneous literature properties, separately regressed coefficients, and derived thermodynamic diagnostics, while Table V is output from Equation (29). The source performs staged smoothing, one-dimensional regressions, numerical integrations, and qualitative K0' trials; it does not define a global observation matrix, objective, weights, integration protocol, or covariance that could be reproduced as a direct EOS coefficient refit. |
+| [Angel et al. (2022)](https://doi.org/10.1007/s00410-022-01918-5) | `grossular_angel_2022_bm3_q_compromise_debye`, `pyrope_angel_2022_bm3_q_compromise_debye` | Complete joint V/Ks input project, exact point masks, rescalings, weights (including increased Hartwig weights), and fit covariance confidence convention. |
 | [Baty et al. (2024)](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_bm3_dft_2` | The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes. |
 | [Caracas et al. (2005)](https://doi.org/10.1029/2004gl022144) | `ca_perovskite_caracas_2005_bm3_3`, `ca_perovskite_caracas_2005_bm4_4`, `ca_perovskite_tetragonal_caracas_2005_bm3_1`, `ca_perovskite_tetragonal_caracas_2005_bm4_2` | The article publishes fitted EOS coefficients and relative energies but not the first-principles E(V) observations, fit weights, residuals, or covariance. No supporting-information or official data attachment is listed on the publisher article page or the UCL deposit, so an independent coefficient refit is not possible. Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
 | [Chen (2010)](https://doi.org/10.1103/physrevb.81.144110) | `argon_fcc_chen_2010_bm3_reported_constants` | DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md. |
@@ -1089,6 +1090,7 @@ the primary-source and refit ledgers.
 | [Andrault et al. (2003)](https://doi.org/10.2138/am-2003-2-307) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Angel and Jackson (2002)](https://doi.org/10.2138/am-2002-0419) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Angel et al. (1997)](https://doi.org/10.1107/s0021889897000861) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Angel et al. (2022)](https://doi.org/10.1007/s00410-022-01918-5) | Direct refit unavailable | 2 | 2 direct refit unavailable |  |
 | [Anzellini et al. (2014)](https://doi.org/10.1063/1.4863300) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Anzellini et al. (2019)](https://doi.org/10.1038/s41598-019-51037-8) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Anzellini et al. (2019)](https://doi.org/10.1038/s41598-019-51931-1) | Mixed: reproduced and discrepant records | 4 | 1 parity; 2 similar; 1 parity not achieved | 4 bundled |

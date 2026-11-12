@@ -168,3 +168,11 @@ retain the individual source notices. An unspecified source license is an
 unresolved packaging question, not a finding that the resource meets Debian's
 Free Software Guidelines. This guide documents the current evidence; it does
 not supply a blanket redistribution clearance for the entire data directory.
+
+## Angel (2022) garnet and Wang (2019) grossular additions
+
+The pyrope/grossular source coefficients and covariance, and the separately
+sourced grossular diffraction model, retain their attributed CC BY 4.0 terms.
+See [the scoped notice](datasets/garnet-angel-2022.LICENSE.md). Adopted upstream
+V0 and unrecovered experimental input rights are not generalized into a grant
+for an entire source collection. Calculator outputs are not measurements.

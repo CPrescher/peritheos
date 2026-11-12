@@ -1,45 +1,45 @@
 {
   "format": "peritheos.catalog-coverage",
   "format_version": 1,
-  "material_files_sha256": "5b9cf5ac44608b08da740cbe90541eb2321b3816812e495b18293a09051b8b62",
+  "material_files_sha256": "085b68d7fd7d48a5e066cace919dd2f6e63485ff59d6c1a2db0b7a8e26454c39",
   "summary": {
-    "stored_materials": 234,
-    "stored_records": 685,
-    "executable_materials": 231,
-    "executable_records": 682,
-    "source_records": 630,
+    "stored_materials": 235,
+    "stored_records": 687,
+    "executable_materials": 232,
+    "executable_records": 684,
+    "source_records": 632,
     "pressure_scale_reference_variants": 52,
-    "materials_with_thermal_eos": 64,
+    "materials_with_thermal_eos": 66,
     "executable_equation_kinds": {
       "hugoniot": 4,
       "isothermal": 542,
-      "thermal": 136
+      "thermal": 138
     },
     "stored_validation": {
       "deferred": 3,
       "not_reproduced": 18,
-      "primary_source_validated": 664
+      "primary_source_validated": 666
     },
     "executable_calibration_status": {
       "not_applicable": 164,
-      "partially_resolved": 191,
+      "partially_resolved": 193,
       "resolved": 240,
       "unresolved": 87
     },
     "executable_recalculation_status": {
-      "missing_calibrant_observations": 198,
+      "missing_calibrant_observations": 200,
       "not_applicable": 161,
       "not_possible": 126,
       "ready": 136,
       "reference_eos_not_bundled": 54,
       "reference_model_not_supported": 7
     },
-    "records_with_covariance": 17,
+    "records_with_covariance": 19,
     "records_with_known_parameter_error_confidence": 87
   },
   "ledgers": {
     "refit_outcomes": {
-      "not_refittable": 177,
+      "not_refittable": 179,
       "parity": 357,
       "parity_not_achieved": 61,
       "similar": 72,
@@ -1381,6 +1381,22 @@
         "primary_source_validated": 1
       },
       "datasets": 1
+    },
+    {
+      "identifier": "grossular",
+      "name": "Grossular",
+      "formula": "Ca3Al2Si3O12",
+      "family_id": "garnet",
+      "input_file": "peritheos/data/materials/grossular.eosmat",
+      "stored_records": 1,
+      "executable_records": 1,
+      "isothermal_records": 0,
+      "thermal_records": 1,
+      "hugoniot_records": 0,
+      "validation": {
+        "primary_source_validated": 1
+      },
+      "datasets": 0
     },
     {
       "identifier": "hydrous_silica_cacl2_nisr_2017",
@@ -3105,13 +3121,13 @@
       "formula": "Mg3Al2Si3O12",
       "family_id": "garnet",
       "input_file": "peritheos/data/materials/pyrope.eosmat",
-      "stored_records": 1,
-      "executable_records": 1,
+      "stored_records": 2,
+      "executable_records": 2,
       "isothermal_records": 1,
-      "thermal_records": 0,
+      "thermal_records": 1,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 1
+        "primary_source_validated": 2
       },
       "datasets": 1
     },
@@ -6164,6 +6180,15 @@
       "source_audit_present": true
     },
     {
+      "identifier": "grossular_angel_2022_bm3_q_compromise_debye",
+      "material_identifier": "grossular",
+      "executable": true,
+      "equation_kind": "thermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
       "identifier": "hydrous_silica_cacl2_nisr_2017_bm2",
       "material_identifier": "hydrous_silica_cacl2_nisr_2017",
       "executable": true,
@@ -9201,6 +9226,15 @@
       "material_identifier": "pyrope",
       "executable": true,
       "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "pyrope_angel_2022_bm3_q_compromise_debye",
+      "material_identifier": "pyrope",
+      "executable": true,
+      "equation_kind": "thermal",
       "scientific_validation": "primary_source_validated",
       "refit_ledger_present": true,
       "source_audit_present": true

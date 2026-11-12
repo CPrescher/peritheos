@@ -13,6 +13,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
 | [Milani et al. (2015), BM3](#record-pyrope_milani_2015_bm3_1) | Coefficient parity achieved | Graph and table |
+| [Angel et al. (2022), BM3 + q-compromise Debye](#record-pyrope_angel_2022_bm3_q_compromise_debye) | Complete independent refit unavailable | No numeric coefficient pair recorded |
 
 <a id="record-pyrope_milani_2015_bm3_1"></a>
 
@@ -109,4 +110,62 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `pyrope_milani_2015_bm3_1`.
+[Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/pyrope.eosmat).
+
+
+<a id="record-pyrope_angel_2022_bm3_q_compromise_debye"></a>
+
+## Angel et al. (2022), BM3 + q-compromise Debye
+
+Record: `pyrope_angel_2022_bm3_q_compromise_debye` · Model: `BM3`
+
+**Outcome: Complete independent refit unavailable.**
+
+**Scope:** Reconstruction of a source equation or calculation.
+**Comparison basis:** Published parameterization verified by independent quadrature and official EosFit checks; complete original joint fit is unavailable.
+
+[Stored EOS coefficients and source](../material-summaries/pyrope.md#record-pyrope_angel_2022_bm3_q_compromise_debye)
+
+### What this result establishes
+
+**Separate source-review status:** primary\_source\_validated.
+**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+
+- Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.
+- Complete joint V/Ks input project, exact point masks, rescalings, weights (including increased Hartwig weights), and fit covariance confidence convention.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+### Data and reconstruction method
+
+- **Dataset identifiers:** None declared
+- **Fit kind:** source\_curve\_validation\_only
+- **Fixed parameters:** V0; Tr; n
+
+Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
+
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
+### Why no coefficient graph is shown
+
+No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
+
+### Detailed evidence and existing plots
+
+- [Related illustrated report explicitly naming this EOS: garnet-angel-2022](../literature-reproductions/garnet-angel-2022.md).
+- [Record-by-record numerical ledger](../primary-eos-refits.md#records).
+- [Source-audit reports](../source-audits.md).
+
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
+
+[Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `pyrope_angel_2022_bm3_q_compromise_debye`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/pyrope.eosmat).

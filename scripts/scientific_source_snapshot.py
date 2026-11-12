@@ -119,6 +119,48 @@ def assert_snapshot_lineage(snapshot: dict, historical_sha256: str) -> None:
 
     if fingerprint(snapshot) == historical_sha256:
         return
+    # A later curation may append exact, separately audited records/materials.
+    # Verify their complete scientific projections before removing them to test
+    # the historical invariant. Never replace a historical receipt with a new hash.
+    addition_path = ROOT / "docs/data/garnet-angel-2022/integration-preservation.json"
+    if addition_path.exists():
+        additions = json.loads(addition_path.read_bytes())
+        new_materials = additions["new_materials"]
+        new_records = additions["new_records"]
+        if any(
+            d["identifier"] in new_materials
+            or any(r["identifier"] in new_records for r in d["eos_records"])
+            for d in snapshot["documents"]
+        ):
+            projected = copy.deepcopy(snapshot)
+            kept = []
+            seen_materials, seen_records = set(), set()
+            for document in projected["documents"]:
+                material = document["identifier"]
+                if material in new_materials:
+                    assert fingerprint(document) == new_materials[material]
+                    seen_materials.add(material)
+                    continue
+                records = []
+                for record in document["eos_records"]:
+                    identifier = record["identifier"]
+                    if identifier in new_records:
+                        assert fingerprint(record) == new_records[identifier]
+                        seen_records.add(identifier)
+                    else:
+                        records.append(record)
+                document["eos_records"] = records
+                kept.append(document)
+            projected["documents"] = kept
+            assert seen_materials == set(new_materials)
+            assert seen_records == set(new_records)
+            # Some callers have already removed later dataset additions to
+            # verify an earlier historical stage. Its original receipt, below,
+            # must validate that projected state instead of the latest baseline.
+            if historical_sha256 == additions["before_scientific_sha256"]:
+                assert fingerprint(projected) == additions["before_scientific_sha256"]
+            assert_snapshot_lineage(projected, historical_sha256)
+            return
     proof = json.loads(
         (ROOT / "docs/data/calculated-pattern-replacement.json").read_bytes()
     )

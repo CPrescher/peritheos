@@ -1,0 +1,376 @@
+{
+  "scope": "official_calculator_parameterization_check_not_observations",
+  "executable_sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d",
+  "executable_source": "https://www.rossangel.com/Download/EoSFit7installer_MacOS.dmg",
+  "pressure_output_decimal_places": 4,
+  "absolute_tolerance_gpa": 0.0001,
+  "eosfit_gas_constant": 8.314000129699707,
+  "tolerance_basis": "0.00005 GPa output rounding plus 0.00005 GPa allowance for the source calculator single-precision evaluation; gas constant separately harmonized. Default Peritheos retains its documented R.",
+  "records": {
+    "pyrope": [
+      {
+        "volume_cm3_mol": 96.1605,
+        "temperature_k": 90.0,
+        "eosfit_pressure_gpa": 39.4027,
+        "independent_pressure_gpa": 39.40271737322895,
+        "difference_gpa": -1.7373228949679742e-05,
+        "source_gas_constant_pressure_gpa": 39.402746084867395,
+        "source_gas_constant_difference_gpa": -4.6084867392437445e-05
+      },
+      {
+        "volume_cm3_mol": 96.1605,
+        "temperature_k": 298.0,
+        "eosfit_pressure_gpa": 39.9189,
+        "independent_pressure_gpa": 39.918885770177766,
+        "difference_gpa": 1.4229822234312905e-05,
+        "source_gas_constant_pressure_gpa": 39.918885770177766,
+        "source_gas_constant_difference_gpa": 1.4229822234312905e-05
+      },
+      {
+        "volume_cm3_mol": 96.1605,
+        "temperature_k": 700.0,
+        "eosfit_pressure_gpa": 41.7535,
+        "independent_pressure_gpa": 41.75356458060745,
+        "difference_gpa": -6.458060745018201e-05,
+        "source_gas_constant_pressure_gpa": 41.75346252741128,
+        "source_gas_constant_difference_gpa": 3.747258872266457e-05
+      },
+      {
+        "volume_cm3_mol": 96.1605,
+        "temperature_k": 1000.0,
+        "eosfit_pressure_gpa": 43.2561,
+        "independent_pressure_gpa": 43.256296503312136,
+        "difference_gpa": -0.000196503312132279,
+        "source_gas_constant_pressure_gpa": 43.25611086131839,
+        "source_gas_constant_difference_gpa": -1.0861318386901075e-05
+      },
+      {
+        "volume_cm3_mol": 96.1605,
+        "temperature_k": 1700.0,
+        "eosfit_pressure_gpa": 46.8497,
+        "independent_pressure_gpa": 46.85011764894507,
+        "difference_gpa": -0.0004176489450742338,
+        "source_gas_constant_pressure_gpa": 46.84973210224196,
+        "source_gas_constant_difference_gpa": -3.2102241959819366e-05
+      },
+      {
+        "volume_cm3_mol": 107.47349999999999,
+        "temperature_k": 90.0,
+        "eosfit_pressure_gpa": 9.2476,
+        "independent_pressure_gpa": 9.247528099843413,
+        "difference_gpa": 7.190015658764537e-05,
+        "source_gas_constant_pressure_gpa": 9.24755681148186,
+        "source_gas_constant_difference_gpa": 4.3188518139558596e-05
+      },
+      {
+        "volume_cm3_mol": 107.47349999999999,
+        "temperature_k": 298.0,
+        "eosfit_pressure_gpa": 9.7637,
+        "independent_pressure_gpa": 9.76369649679223,
+        "difference_gpa": 3.5032077700947184e-06,
+        "source_gas_constant_pressure_gpa": 9.76369649679223,
+        "source_gas_constant_difference_gpa": 3.5032077700947184e-06
+      },
+      {
+        "volume_cm3_mol": 107.47349999999999,
+        "temperature_k": 700.0,
+        "eosfit_pressure_gpa": 11.5983,
+        "independent_pressure_gpa": 11.598375307221916,
+        "difference_gpa": -7.530722191617656e-05,
+        "source_gas_constant_pressure_gpa": 11.598273254025743,
+        "source_gas_constant_difference_gpa": 2.6745974256670024e-05
+      },
+      {
+        "volume_cm3_mol": 107.47349999999999,
+        "temperature_k": 1000.0,
+        "eosfit_pressure_gpa": 13.1009,
+        "independent_pressure_gpa": 13.101107229926598,
+        "difference_gpa": -0.00020722992659827355,
+        "source_gas_constant_pressure_gpa": 13.100921587932852,
+        "source_gas_constant_difference_gpa": -2.158793285289562e-05
+      },
+      {
+        "volume_cm3_mol": 107.47349999999999,
+        "temperature_k": 1700.0,
+        "eosfit_pressure_gpa": 16.6945,
+        "independent_pressure_gpa": 16.69492837555954,
+        "difference_gpa": -0.0004283755595402283,
+        "source_gas_constant_pressure_gpa": 16.694542828856424,
+        "source_gas_constant_difference_gpa": -4.28288564222612e-05
+      },
+      {
+        "volume_cm3_mol": 113.13,
+        "temperature_k": 90.0,
+        "eosfit_pressure_gpa": -0.5161,
+        "independent_pressure_gpa": -0.5161683969488167,
+        "difference_gpa": 6.839694881666247e-05,
+        "source_gas_constant_pressure_gpa": -0.5161396853103694,
+        "source_gas_constant_difference_gpa": 3.9685310369352855e-05
+      },
+      {
+        "volume_cm3_mol": 113.13,
+        "temperature_k": 298.0,
+        "eosfit_pressure_gpa": 0.0,
+        "independent_pressure_gpa": 0.0,
+        "difference_gpa": 0.0,
+        "source_gas_constant_pressure_gpa": 0.0,
+        "source_gas_constant_difference_gpa": 0.0
+      },
+      {
+        "volume_cm3_mol": 113.13,
+        "temperature_k": 700.0,
+        "eosfit_pressure_gpa": 1.8346,
+        "independent_pressure_gpa": 1.8346788104296867,
+        "difference_gpa": -7.881042968671537e-05,
+        "source_gas_constant_pressure_gpa": 1.834576757233514,
+        "source_gas_constant_difference_gpa": 2.3242766485909172e-05
+      },
+      {
+        "volume_cm3_mol": 113.13,
+        "temperature_k": 1000.0,
+        "eosfit_pressure_gpa": 3.3372,
+        "independent_pressure_gpa": 3.3374107331343685,
+        "difference_gpa": -0.00021073313436836827,
+        "source_gas_constant_pressure_gpa": 3.3372250911406214,
+        "source_gas_constant_difference_gpa": -2.509114062121398e-05
+      },
+      {
+        "volume_cm3_mol": 113.13,
+        "temperature_k": 1700.0,
+        "eosfit_pressure_gpa": 6.9308,
+        "independent_pressure_gpa": 6.93123187876731,
+        "difference_gpa": -0.00043187876731032304,
+        "source_gas_constant_pressure_gpa": 6.930846332064194,
+        "source_gas_constant_difference_gpa": -4.633206419413227e-05
+      },
+      {
+        "volume_cm3_mol": 116.5239,
+        "temperature_k": 90.0,
+        "eosfit_pressure_gpa": -5.1962,
+        "independent_pressure_gpa": -5.1961748853761796,
+        "difference_gpa": -2.5114623820599036e-05,
+        "source_gas_constant_pressure_gpa": -5.196146173737732,
+        "source_gas_constant_difference_gpa": -5.382626226779763e-05
+      },
+      {
+        "volume_cm3_mol": 116.5239,
+        "temperature_k": 298.0,
+        "eosfit_pressure_gpa": -4.68,
+        "independent_pressure_gpa": -4.680006488427363,
+        "difference_gpa": 6.488427363393612e-06,
+        "source_gas_constant_pressure_gpa": -4.680006488427363,
+        "source_gas_constant_difference_gpa": 6.488427363393612e-06
+      },
+      {
+        "volume_cm3_mol": 116.5239,
+        "temperature_k": 700.0,
+        "eosfit_pressure_gpa": -2.8455,
+        "independent_pressure_gpa": -2.8453276779976764,
+        "difference_gpa": -0.00017232200232353279,
+        "source_gas_constant_pressure_gpa": -2.845429731193849,
+        "source_gas_constant_difference_gpa": -7.026880615113029e-05
+      },
+      {
+        "volume_cm3_mol": 116.5239,
+        "temperature_k": 1000.0,
+        "eosfit_pressure_gpa": -1.3428,
+        "independent_pressure_gpa": -1.3425957552929946,
+        "difference_gpa": -0.00020424470700541875,
+        "source_gas_constant_pressure_gpa": -1.3427813972867417,
+        "source_gas_constant_difference_gpa": -1.860271325826446e-05
+      },
+      {
+        "volume_cm3_mol": 116.5239,
+        "temperature_k": 1700.0,
+        "eosfit_pressure_gpa": 2.2508,
+        "independent_pressure_gpa": 2.251225390339947,
+        "difference_gpa": -0.00042539033994692943,
+        "source_gas_constant_pressure_gpa": 2.2508398436368307,
+        "source_gas_constant_difference_gpa": -3.984363683073866e-05
+      }
+    ],
+    "grossular": [
+      {
+        "volume_cm3_mol": 106.5475,
+        "temperature_k": 90.0,
+        "eosfit_pressure_gpa": 40.5516,
+        "independent_pressure_gpa": 40.5515935866888,
+        "difference_gpa": 6.413311197661642e-06,
+        "source_gas_constant_pressure_gpa": 40.551619649394716,
+        "source_gas_constant_difference_gpa": -1.964939471577054e-05
+      },
+      {
+        "volume_cm3_mol": 106.5475,
+        "temperature_k": 298.0,
+        "eosfit_pressure_gpa": 41.0201,
+        "independent_pressure_gpa": 41.02014034535341,
+        "difference_gpa": -4.0345353411908036e-05,
+        "source_gas_constant_pressure_gpa": 41.02014034535341,
+        "source_gas_constant_difference_gpa": -4.0345353411908036e-05
+      },
+      {
+        "volume_cm3_mol": 106.5475,
+        "temperature_k": 700.0,
+        "eosfit_pressure_gpa": 42.6471,
+        "independent_pressure_gpa": 42.647229587560496,
+        "difference_gpa": -0.0001295875604938601,
+        "source_gas_constant_pressure_gpa": 42.647139081442106,
+        "source_gas_constant_difference_gpa": -3.9081442103849895e-05
+      },
+      {
+        "volume_cm3_mol": 106.5475,
+        "temperature_k": 1000.0,
+        "eosfit_pressure_gpa": 43.9735,
+        "independent_pressure_gpa": 43.97363299243385,
+        "difference_gpa": -0.00013299243384778947,
+        "source_gas_constant_pressure_gpa": 43.973468705713586,
+        "source_gas_constant_difference_gpa": 3.129428641557297e-05
+      },
+      {
+        "volume_cm3_mol": 106.5475,
+        "temperature_k": 1700.0,
+        "eosfit_pressure_gpa": 47.1412,
+        "independent_pressure_gpa": 47.14156733745778,
+        "difference_gpa": -0.0003673374577815025,
+        "source_gas_constant_pressure_gpa": 47.141226835792786,
+        "source_gas_constant_difference_gpa": -2.683579278794923e-05
+      },
+      {
+        "volume_cm3_mol": 119.0825,
+        "temperature_k": 90.0,
+        "eosfit_pressure_gpa": 9.2873,
+        "independent_pressure_gpa": 9.287248603813454,
+        "difference_gpa": 5.139618654581568e-05,
+        "source_gas_constant_pressure_gpa": 9.287274666519364,
+        "source_gas_constant_difference_gpa": 2.5333480635936212e-05
+      },
+      {
+        "volume_cm3_mol": 119.0825,
+        "temperature_k": 298.0,
+        "eosfit_pressure_gpa": 9.7558,
+        "independent_pressure_gpa": 9.75579536247806,
+        "difference_gpa": 4.6375219415750735e-06,
+        "source_gas_constant_pressure_gpa": 9.75579536247806,
+        "source_gas_constant_difference_gpa": 4.6375219415750735e-06
+      },
+      {
+        "volume_cm3_mol": 119.0825,
+        "temperature_k": 700.0,
+        "eosfit_pressure_gpa": 11.3828,
+        "independent_pressure_gpa": 11.382884604685144,
+        "difference_gpa": -8.460468514392971e-05,
+        "source_gas_constant_pressure_gpa": 11.382794098566754,
+        "source_gas_constant_difference_gpa": 5.901433246080501e-06
+      },
+      {
+        "volume_cm3_mol": 119.0825,
+        "temperature_k": 1000.0,
+        "eosfit_pressure_gpa": 12.7091,
+        "independent_pressure_gpa": 12.709288009558495,
+        "difference_gpa": -0.00018800955849584966,
+        "source_gas_constant_pressure_gpa": 12.70912372283823,
+        "source_gas_constant_difference_gpa": -2.3722838230710863e-05
+      },
+      {
+        "volume_cm3_mol": 119.0825,
+        "temperature_k": 1700.0,
+        "eosfit_pressure_gpa": 15.8769,
+        "independent_pressure_gpa": 15.877222354582429,
+        "difference_gpa": -0.00032235458242979576,
+        "source_gas_constant_pressure_gpa": 15.876881852917435,
+        "source_gas_constant_difference_gpa": 1.8147082563757522e-05
+      },
+      {
+        "volume_cm3_mol": 125.35,
+        "temperature_k": 90.0,
+        "eosfit_pressure_gpa": -0.4685,
+        "independent_pressure_gpa": -0.4685467586646055,
+        "difference_gpa": 4.675866460546185e-05,
+        "source_gas_constant_pressure_gpa": -0.46852069595869433,
+        "source_gas_constant_difference_gpa": 2.0695958694305627e-05
+      },
+      {
+        "volume_cm3_mol": 125.35,
+        "temperature_k": 298.0,
+        "eosfit_pressure_gpa": 0.0,
+        "independent_pressure_gpa": 0.0,
+        "difference_gpa": 0.0,
+        "source_gas_constant_pressure_gpa": 0.0,
+        "source_gas_constant_difference_gpa": 0.0
+      },
+      {
+        "volume_cm3_mol": 125.35,
+        "temperature_k": 700.0,
+        "eosfit_pressure_gpa": 1.627,
+        "independent_pressure_gpa": 1.627089242207085,
+        "difference_gpa": -8.92422070850607e-05,
+        "source_gas_constant_pressure_gpa": 1.6269987360886948,
+        "source_gas_constant_difference_gpa": 1.2639113051715611e-06
+      },
+      {
+        "volume_cm3_mol": 125.35,
+        "temperature_k": 1000.0,
+        "eosfit_pressure_gpa": 2.9533,
+        "independent_pressure_gpa": 2.9534926470804366,
+        "difference_gpa": -0.00019264708043653656,
+        "source_gas_constant_pressure_gpa": 2.953328360360171,
+        "source_gas_constant_difference_gpa": -2.836036017095367e-05
+      },
+      {
+        "volume_cm3_mol": 125.35,
+        "temperature_k": 1700.0,
+        "eosfit_pressure_gpa": 6.1211,
+        "independent_pressure_gpa": 6.12142699210437,
+        "difference_gpa": -0.00032699210436959447,
+        "source_gas_constant_pressure_gpa": 6.121086490439377,
+        "source_gas_constant_difference_gpa": 1.3509560623070627e-05
+      },
+      {
+        "volume_cm3_mol": 129.1105,
+        "temperature_k": 90.0,
+        "eosfit_pressure_gpa": -5.0491,
+        "independent_pressure_gpa": -5.049086677407315,
+        "difference_gpa": -1.3322592685049983e-05,
+        "source_gas_constant_pressure_gpa": -5.049060614701403,
+        "source_gas_constant_difference_gpa": -3.938529859670581e-05
+      },
+      {
+        "volume_cm3_mol": 129.1105,
+        "temperature_k": 298.0,
+        "eosfit_pressure_gpa": -4.5806,
+        "independent_pressure_gpa": -4.580539918742709,
+        "difference_gpa": -6.008125729017877e-05,
+        "source_gas_constant_pressure_gpa": -4.580539918742709,
+        "source_gas_constant_difference_gpa": -6.008125729017877e-05
+      },
+      {
+        "volume_cm3_mol": 129.1105,
+        "temperature_k": 700.0,
+        "eosfit_pressure_gpa": -2.9536,
+        "independent_pressure_gpa": -2.953450676535624,
+        "difference_gpa": -0.00014932346437568356,
+        "source_gas_constant_pressure_gpa": -2.9535411826540146,
+        "source_gas_constant_difference_gpa": -5.881734598522925e-05
+      },
+      {
+        "volume_cm3_mol": 129.1105,
+        "temperature_k": 1000.0,
+        "eosfit_pressure_gpa": -1.6272,
+        "independent_pressure_gpa": -1.6270472716622728,
+        "difference_gpa": -0.00015272833772717043,
+        "source_gas_constant_pressure_gpa": -1.6272115583825384,
+        "source_gas_constant_difference_gpa": 1.155838253841246e-05
+      },
+      {
+        "volume_cm3_mol": 129.1105,
+        "temperature_k": 1700.0,
+        "eosfit_pressure_gpa": 1.5405,
+        "independent_pressure_gpa": 1.5408870733616604,
+        "difference_gpa": -0.0003870733616604394,
+        "source_gas_constant_pressure_gpa": 1.5405465716966678,
+        "source_gas_constant_difference_gpa": -4.6571696667774276e-05
+      }
+    ]
+  },
+  "version": "7.60"
+}

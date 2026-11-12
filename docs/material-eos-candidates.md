@@ -2,6 +2,7 @@
 
 Backlog reconciled against the local catalog: 2026-10-16.
 Original candidate discovery pass: 2026-09-02.
+Pyrope/grossular additions and live catalog totals updated: 2026-11-08.
 
 This is a review backlog, not a set of validated Peritheos records. A candidate
 is included when a primary paper reports a pressure-volume or
@@ -23,11 +24,11 @@ and records which materials have static, thermal, and Hugoniot coverage. Its
 between the live material files and the scientific ledgers. It includes local
 work and must not be read as the contents of a published release.
 
-The current local catalog contains 233 stored material documents / 664 records,
-230 executable materials / 661 records, and thermal EOS coverage for 63 materials
+The current local catalog contains 235 stored material documents / 687 records,
+232 executable materials / 684 records, and thermal EOS coverage for 66 materials
 (brucite has no accepted thermal EOS). Stored
-assessments are 643 primary-source validated, eighteen qualified `not_reproduced`,
-and three deferred. Both scientific ledgers cover all 664 record identities.
+assessments are 666 primary-source validated, eighteen qualified `not_reproduced`,
+and three deferred. Both scientific ledgers cover all 687 record identities.
 Forsterite, diopside, the rubidium halides, phase E, and the scoped brucite
 addition are integrated. Fe-ringwoodite has an integrated derived static reconstruction; its thermal candidate remains staged.
 Brucite does not yet provide an accepted broad high-pressure thermal or
@@ -48,7 +49,7 @@ sources, compositions, and pressure standards remain distinguishable.
 | G04 / C12 | Brucite | Only published 300/473/673 K isotherms integrated; full thermal EOS not recommended | [Audit](literature-reproductions/brucite.md). Published-data parity not achieved; 873 K normalization and continuous reconstruction unresolved. All Peritheos refits retained only as diagnostics outside executable selection. |
 | G05 / C10 | Fe2SiO4 ringwoodite | Static reconstruction integrated at 296.15 K / 0–4 GPa; thermal candidate remains staged | [Integration and thermal limits](research/ferrous-ringwoodite-armentrout-2011-integration.md). Preserve the published static coefficient and explicit measured-cell derivation; thermal acceptance still requires its missing equation/workflow evidence. |
 | G06 / C11 | Dense hydrous phase E | Implemented and integrated: measured Fe-bearing phase E static BM3, with fit parity within reported uncertainty | [Audit, differences and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md). All 11 source rows/errors retained; phase-specific peak-position fallback. Published coefficients and exact measured composition preserved. |
-| G07 | Garnet thermal coverage | Pyrope, almandine and majorite each have one static record; queued literature search | Find source-owned, composition-specific P–V–T parameterizations and primary observations; do not treat this family as a mixing model. |
+| G07 | Garnet thermal coverage | Angel (2022) pyrope and new grossular q-compromise thermal records integrated on 2026-11-08; source covariance and grossular structure retained. Almandine and majorite remain static-only. | [Audit](literature-reproductions/garnet-angel-2022.md). Published pressure equations independently reproduced, including official EosFit checks; original joint regression unavailable. Next: Angel (2026) almandine/spessartine. No family mixing model is implied. |
 | G08 | Akimotoite continuous thermal EOS | Eleven static/temperature-slice records; queued | Review a source-faithful continuous model; separate the Karki temperature slices and partial Dorogokupets synthesis from a complete thermal EOS. |
 | G09 / C16 | Phase-D thermal compositions | Existing Mg-rich, Al-bearing and Fe-bearing cards are static; queued | Review Litasov et al. (2008), DOI [10.1029/2007JB004937](https://doi.org/10.1029/2007JB004937); add its measured composition separately if it differs from existing cards. |
 | G10 | Feldspars | Albite, anorthite and K-feldspar absent; queued literature search | Start from phase-specific static data and authoritative structures, including Benusa et al. (2005) albite; preserve anomalous compression and polymorph limits. |
@@ -59,7 +60,7 @@ sources, compositions, and pressure standards remain distinguishable.
 
 | Work item | Current disposition | Next action / reopening condition |
 |---|---|---|
-| Coverage and backlog maintenance | Accepted additions reconcile all 664 stored records across coverage and both scientific ledgers | Run `python -m scripts.generate_catalog_coverage` after additions; use `--check` to detect drift. Reconcile shared ledgers after reviewing parallel additions. |
+| Coverage and backlog maintenance | Both ledgers cover all 687 stored record identities; pre-existing Wang/Sata recalculation drift is separately recorded in the garnet audit evidence | Run `python -m scripts.generate_catalog_coverage` after additions; use `--check` to detect drift. Preserve source-specific findings when investigating ledger drift. |
 | Catalog integration checks | Catalog-count and Fei Au range expectations reconciled; Rust floating-point JSON round-trip fixed | Keep coverage and ledger checks synchronized with accepted additions. Staged second-batch candidates do not change bundled totals. |
 | Calibration dependencies | See the generated coverage overview for current `reference_eos_not_bundled` and `reference_model_not_supported` totals | Check for stale metadata/links first, then audit genuinely missing standards (including Tsuchiya Au and historical NaCl/Pt formulations). These status counts do not establish that every cited scale is absent. |
 | Sakai (2025) nine-material network | All nine published RT records accepted; Au conditional central-value parity integrated in the common ledger | [Eight conditional measured-subset stages are now replayable](literature-reproductions/sakai-2025-network.md); full Table S8 regression/workflow and uncertainty parity remain open. Keep calculated Table S9 outputs separate. [Audit](literature-reproductions/sakai-2025-nine-materials.md). |

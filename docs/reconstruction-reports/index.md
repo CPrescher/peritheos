@@ -104,6 +104,7 @@ New links become live only after the corresponding documentation is published.
 | [Goethite](goethite.md) | 1 | 1 | 1 |
 | [Gold](gold.md) | 23 | 18 | 18 |
 | [Graphite](graphite.md) | 1 | 1 | 1 |
+| [Grossular](grossular.md) | 1 | 0 | 0 |
 | [Hydrous silica CaCl2 type (Nisr 2017)](hydrous_silica_cacl2_nisr_2017.md) | 1 | 1 | 1 |
 | [Hydrous stishovite (Nisr 2017)](hydrous_stishovite_nisr_2017.md) | 1 | 1 | 1 |
 | [Ice VI](ice_vi.md) | 1 | 1 | 1 |
@@ -211,7 +212,7 @@ New links become live only after the corresponding documentation is published.
 | [Platinum](platinum.md) | 21 | 13 | 13 |
 | [Praseodymium dioxide (fluorite)](praseodymium_dioxide.md) | 1 | 1 | 1 |
 | [Pseudowollastonite](pseudowollastonite.md) | 1 | 0 | 0 |
-| [Pyrope](pyrope.md) | 1 | 1 | 1 |
+| [Pyrope](pyrope.md) | 2 | 1 | 1 |
 | [Synthetic qandilite (Lv 2016)](qandilite.md) | 2 | 2 | 2 |
 | [Rubidium bromide (B2)](rbbr.md) | 1 | 1 | 1 |
 | [Rubidium chloride (B2)](rbcl.md) | 2 | 2 | 2 |
@@ -256,7 +257,7 @@ New links become live only after the corresponding documentation is published.
 | [Zirconium (beta)](zirconium_beta.md) | 1 | 1 | 1 |
 | [Zirconium (omega)](zirconium_omega.md) | 1 | 1 | 1 |
 
-493 of 493 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 192 records have no numeric source/refit coefficient pair recorded.
+493 of 493 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 194 records have no numeric source/refit coefficient pair recorded.
 
 ## Partial replays
 

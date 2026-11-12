@@ -854,6 +854,7 @@
             "DoubleDebyeLogMomentHelmholtz",
             "DorogokupetsOganov2007",
             "LinearThermalPressure",
+            "QCompromiseDebye",
             "LogVolumeThermalPressure",
             "SecondOrderTaylorThermalPressure",
             "MieGruneisenDebye",
@@ -880,6 +881,7 @@
             "double_debye_log_moment_helmholtz",
             "dorogokupets_oganov_2007",
             "linear_thermal_pressure",
+            "q_compromise_debye",
             "log_volume_thermal_pressure",
             "second_order_taylor_thermal_pressure",
             "mie_gruneisen_debye",
@@ -1042,6 +1044,16 @@
                 },
                 "model": {
                   "const": "dorogokupets_oganov_2007"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "QCompromiseDebye"
+                },
+                "model": {
+                  "const": "q_compromise_debye"
                 }
               }
             },

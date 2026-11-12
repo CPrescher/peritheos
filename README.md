@@ -46,7 +46,7 @@ Project goals and guidance for coding agents are in [AGENTS.md](AGENTS.md).
 - Versioned material and EOS-record catalog with explicit literature provenance,
   calibration/data envelopes, extrapolation enabled by default, inversion, and
   measurement/parameter uncertainty
-- A Peritheos-owned `.eosmat` schema and 234-material-document/685-record EOS library with optional
+- A Peritheos-owned `.eosmat` schema and 235-material-document/687-record EOS library with optional
   diffraction structure, stable identifiers, and Dioptas 0.10 storage-read
   compatibility
 - Recursive pressure-scale normalization across Au, Pt, KCl, ruby R1, and
@@ -150,8 +150,8 @@ that need the serialized representation. See [Loading observation
 datasets](docs/datasets.md) for column discovery, supported conversions,
 uncertainty semantics, and resource-integrity behavior.
 
-The normal catalog API constructs 231 materials and 682 executable
-records (664 primary-source-validated and 18 qualified explicit-selection
+The normal catalog API constructs 232 materials and 684 executable
+records (666 primary-source-validated and 18 qualified explicit-selection
 implementations) directly
 from the bundled `.eosmat` files. See [Material catalog](docs/catalog.md) for
 typed discovery examples, [Pressure standards](docs/pressure-standards.md) for

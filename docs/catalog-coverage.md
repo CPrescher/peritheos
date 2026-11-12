@@ -14,14 +14,14 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 
 | Measure | Count |
 |---|---:|
-| Stored material documents | 234 |
-| Stored EOS records | 685 |
-| Executable materials | 231 |
-| Executable EOS records, including references and qualified explicit-selection records | 682 |
-| Source EOS choices in normal discovery | 630 |
+| Stored material documents | 235 |
+| Stored EOS records | 687 |
+| Executable materials | 232 |
+| Executable EOS records, including references and qualified explicit-selection records | 684 |
+| Source EOS choices in normal discovery | 632 |
 | Published pressure-scale reference variants | 52 |
-| Materials with an executable thermal EOS | 64 |
-| Executable records with parameter covariance | 17 |
+| Materials with an executable thermal EOS | 66 |
+| Executable records with parameter covariance | 19 |
 | Executable records with known parameter-error confidence | 87 |
 
 ## Scientific validation of stored records
@@ -30,7 +30,7 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `deferred` | 3 |
 | `not_reproduced` | 18 |
-| `primary_source_validated` | 664 |
+| `primary_source_validated` | 666 |
 
 ## Executable equation kinds
 
@@ -38,14 +38,14 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `hugoniot` | 4 |
 | `isothermal` | 542 |
-| `thermal` | 136 |
+| `thermal` | 138 |
 
 ## Pressure-calibration provenance of executable records
 
 | Status | Records |
 |---|---:|
 | `not_applicable` | 164 |
-| `partially_resolved` | 191 |
+| `partially_resolved` | 193 |
 | `resolved` | 240 |
 | `unresolved` | 87 |
 
@@ -53,7 +53,7 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 
 | Status | Records |
 |---|---:|
-| `missing_calibrant_observations` | 198 |
+| `missing_calibrant_observations` | 200 |
 | `not_applicable` | 161 |
 | `not_possible` | 126 |
 | `ready` | 136 |
@@ -72,7 +72,7 @@ of records missing from that ledger. No scientific classifications are changed h
 
 | Outcome | Records |
 |---|---:|
-| `not_refittable` | 177 |
+| `not_refittable` | 179 |
 | `parity` | 357 |
 | `parity_not_achieved` | 61 |
 | `similar` | 72 |
@@ -178,6 +178,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `goethite` | FeOOH | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
 | `gold` | Au | 23 | 23 | 14 | 9 | 0 | 1 | 0 | 30 |
 | `graphite` | C | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
+| `grossular` | Ca3Al2Si3O12 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 0 |
 | `hydrous_silica_cacl2_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
 | `hydrous_stishovite_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
 | `ice_vi` | H2O | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
@@ -285,7 +286,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `platinum` | Pt | 21 | 21 | 13 | 8 | 0 | 1 | 0 | 17 |
 | `praseodymium_dioxide` | PrO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `pseudowollastonite` | CaSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
-| `pyrope` | Mg3Al2Si3O12 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
+| `pyrope` | Mg3Al2Si3O12 | 2 | 2 | 1 | 1 | 0 | 0 | 0 | 1 |
 | `qandilite` | Mg2.00Ti1.00O4 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 1 |
 | `rbbr` | RbBr | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 2 |
 | `rbcl` | RbCl | 2 | 2 | 1 | 1 | 0 | 0 | 0 | 3 |

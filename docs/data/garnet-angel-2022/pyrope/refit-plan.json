@@ -1,0 +1,55 @@
+{
+  "scope": "Conditional source-model fits of the recovered subset, not author-workflow reproduction or a replacement EOS",
+  "model": "BM3 plus q-compromise Debye, n=20, Tr=298 K, V0=113.13 cm3/mol fixed; source gas constant float32(8.314)",
+  "cases": [
+    {
+      "name": "milani_vt",
+      "data": "All 33 Table A1 rows",
+      "free": [
+        "theta0",
+        "gamma0",
+        "volume_scale_milani"
+      ],
+      "fixed": "Published K0 and K0 prime"
+    },
+    {
+      "name": "hartwig_vt",
+      "data": "All 12 literal Table 3 Vmeas rows",
+      "free": [
+        "theta0",
+        "gamma0",
+        "volume_scale_hartwig"
+      ],
+      "fixed": "Published K0 and K0 prime"
+    },
+    {
+      "name": "combined_vt",
+      "data": "All 45 expansion rows",
+      "free": [
+        "theta0",
+        "gamma0",
+        "volume_scale_milani",
+        "volume_scale_hartwig"
+      ],
+      "fixed": "Published K0 and K0 prime"
+    },
+    {
+      "name": "joint_recovered",
+      "data": "45 expansion volumes plus 7 Zou 300 K relative volumes and all 40 Zou KS; 92 rows/channels",
+      "free": [
+        "K0",
+        "K0_prime",
+        "theta0",
+        "gamma0",
+        "volume_scale_milani",
+        "volume_scale_hartwig"
+      ]
+    }
+  ],
+  "objective": "Iterated effective-variance residuals in pressure; invert source KS(V,T) at each measured KS to obtain Pcalc; freeze weights within each least-squares solve, update after parameter optimization",
+  "weighting": "Reported V errors for Milani; missing Milani T/P errors omitted from variance (not claimed zero physical error). Hartwig initial S2 assigned 1 percent T, 0.03 cm3/mol V; no increased multiplier. Zou reported P/KS/relative-volume errors and S2 assigned 2 percent T. No unknown correlations or normalization-anchor errors supplied.",
+  "normalization": "Two independently fitted multiplicative instrumental volume scales; source original normalization anchors unrecovered. Zou volumes = published V/V0 times adopted molar V0; errors from published ratio error. No free Zou modulus scale.",
+  "source_integrity": "No source cell corrected, no substituted lattice-derived Hartwig volumes, no synthesized missing rows, and no published EOS record changed.",
+  "stopping": "One specified error protocol and four specified subsets; do not search weight multipliers, row masks, alternative model families or missing observations to force source parameter parity.",
+  "limits": "At most 30 IRLS cycles per case, at most 400 nonlinear evaluations each solve. Numerical convergence status, bounds and coefficient differences retained. Conditional covariance is inverse weighted-Jacobian information, with residual scaling separately stated; no original confidence or workflow claim."
+}

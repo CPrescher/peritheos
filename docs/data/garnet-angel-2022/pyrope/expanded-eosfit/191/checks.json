@@ -1,0 +1,51 @@
+{
+  "scope": "Official console check of constructed recovered inputs, not full 194-channel author-workflow reproduction",
+  "n_channels": 191,
+  "free_parameters": 7,
+  "parameters": {
+    "K0_gpa": 169.511,
+    "K0_prime": 4.53482,
+    "theta0_k": 498.981,
+    "gamma0": 1.09915,
+    "scale_milani": 1.00112,
+    "scale_hartwig": 1.0005,
+    "scale_sinogeikin_2000_ks": 0.98135
+  },
+  "numerical_convergence_reported": true,
+  "minus_independent_irls": {
+    "K0_gpa": 0.000749908451552983,
+    "K0_prime": -0.00021814143101028804,
+    "theta0_k": 2.880297675729821,
+    "gamma0": 0.00045019514678257266,
+    "scale_milani": 5.453144975575697e-07,
+    "scale_hartwig": 9.004869265805127e-07,
+    "scale_sinogeikin_2000_ks": 9.801454038438351e-05
+  },
+  "saved_half_last_digits": {
+    "K0_gpa": 0.0005,
+    "K0_prime": 5e-06,
+    "theta0_k": 0.0005,
+    "gamma0": 5e-06,
+    "scale_milani": 5e-06,
+    "scale_hartwig": 5e-06,
+    "scale_sinogeikin_2000_ks": 5e-06
+  },
+  "conditional_reduced_chi_square": 1.9454,
+  "comparison_tolerances": {
+    "parameter_fraction_of_conditional_width": 0.01,
+    "plus_saved_half_last_digit": true,
+    "absolute_reduced_chi_square": 0.001
+  },
+  "within_declared_tolerances": false,
+  "executable_sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d",
+  "differences_over_conditional_unscaled_widths": {
+    "K0_gpa": 0.0036567802521732,
+    "K0_prime": 0.007417533531853735,
+    "theta0_k": 0.08331830550467842,
+    "gamma0": 0.07605675337566276,
+    "scale_milani": 0.014533277153926162,
+    "scale_hartwig": 0.010792107618394515,
+    "scale_sinogeikin_2000_ks": 0.026694291685430714
+  },
+  "numerical_limit": "Strict prior comparison threshold retained and not passed. Available CFML EoS source Get_Pressure_K uses modulus residual stopping tolerance 0.001*target modulus; native residual/weight comparisons show small differences. Attribution to this stopping rule is plausible, not isolated proof."
+}

@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 685,
+    "records": 687,
     "deferred": 3,
     "not_reproduced": 18,
-    "primary_source_validated": 664
+    "primary_source_validated": 666
   },
   "records": [
     {
@@ -13724,6 +13724,46 @@
         ],
         "finding": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
         "doi": "10.1103/zp3m-kjpc"
+      }
+    },
+    {
+      "material": "grossular",
+      "file": "grossular.eosmat",
+      "record": "grossular_angel_2022_bm3_q_compromise_debye",
+      "label": "Angel et al. (2022), BM3 + q-compromise Debye",
+      "doi": "10.1007/s00410-022-01918-5",
+      "status": "primary_source_validated",
+      "note": "Source parameterization and volume conventions independently verified. Complete original joint fit remains unrecovered; this is not author-workflow or experimental validation.",
+      "primary_source_check": {
+        "doi": "10.1007/s00410-022-01918-5",
+        "access_url": "https://doi.org/10.1007/s00410-022-01918-5",
+        "locations": [
+          "Methodology: EoS models and EoS refinement",
+          "Table 1",
+          "Official supplementary EOS file 1",
+          "Supplementary Table S1"
+        ],
+        "finding": "Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file."
+      }
+    },
+    {
+      "material": "pyrope",
+      "file": "pyrope.eosmat",
+      "record": "pyrope_angel_2022_bm3_q_compromise_debye",
+      "label": "Angel et al. (2022), BM3 + q-compromise Debye",
+      "doi": "10.1007/s00410-022-01918-5",
+      "status": "primary_source_validated",
+      "note": "Source parameterization and volume conventions independently verified. Complete original joint fit remains unrecovered; this is not author-workflow or experimental validation.",
+      "primary_source_check": {
+        "doi": "10.1007/s00410-022-01918-5",
+        "access_url": "https://doi.org/10.1007/s00410-022-01918-5",
+        "locations": [
+          "Methodology: EoS models and EoS refinement",
+          "Table 1",
+          "Official supplementary EOS file 2",
+          "Supplementary Table S2"
+        ],
+        "finding": "Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file."
       }
     }
   ]

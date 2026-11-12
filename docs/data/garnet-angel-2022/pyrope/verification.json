@@ -1,0 +1,50 @@
+{
+  "scope": "Recovered pyrope source rows and four conditional subset fits; no source EOS/catalog change and no author contact",
+  "checks": {
+    "tests": {
+      "result": "24 passed",
+      "command": "OPENBLAS_NUM_THREADS=1 .venv/bin/python -m pytest -q tests/test_pyrope_subset_refits.py tests/test_pyrope_observation_audit.py tests/test_q_compromise_debye.py"
+    },
+    "ruff": "All new/updated audit scripts and tests pass lint and format checks",
+    "documentation": "mkdocs build --strict passed with notebook execution in 86.84 seconds",
+    "source_audit_index": "--check passed",
+    "source_material_preservation": "Pyrope and grossular exact file hashes remain bound to the previous integration review",
+    "official_eosfit": "7.60 completed the constructed 92-channel fit, with numerical coefficients/chi-square within the separately justified precision tolerances; not the original author fit",
+    "figures": "Inspected rendered coefficient and residual figures",
+    "git_diff_check": "passed",
+    "author_email": "Draft retained locally for review; not sent"
+  },
+  "artifacts_sha256": {
+    "audit.json": "4f2279ce985f649a71ae83b6c99ba36f119eb020cb0ceb59f9cc678cc2af9074",
+    "eosfit-properties/checks.json": "051e6ff9685d30e4111377dd21a76eae4915ca521917b700219304cec61966c4",
+    "eosfit-properties/props-commands.txt": "b842b220389b2746dbd6e738e0a3dd23b8156723cc4a8daedf8427074c37b0ba",
+    "eosfit-properties/props-stderr.txt": "e7864e01ce1d4df4fc9776e0a26a41fe33e1286a8cd20548869ba3c55ef261fe",
+    "eosfit-properties/props-stdout.txt": "6f550afb3627a611ff1909c57346452322f9eb80f5b93cf49844103c1cadde7a",
+    "hartwig-galkin-2021-source.json": "d34905c542d0557d7a90a4a7de0fde92d614d8a36778d24f6d0aa3ce1b7d10bb",
+    "hartwig-galkin-2021-table-3.csv": "beacaab7e5b36298529117fa41c60c4dfda00b57ba572f16d56cc850dd546dbb",
+    "input-recovery.json": "957ba5753641ca005feabeb793d85739b660f6de0a372827211e6fbb715f6e0e",
+    "milani-2015-table-a1.csv": "958198c6d58916e9620e785415e446856771c5aa2e81b9af3cde2a58698bd46b",
+    "observation-residuals-dark.svg": "c7ea95d06e381b4ebc89d6b13d00516cfdc2a6f64f23aeb25d18fdae50f16680",
+    "observation-residuals.svg": "46826d1945c54c5e37ae8f41395bbefb40a5c9f2df7f9a73c85a4e9ad9b6ccc3",
+    "refit-plan.json": "005f4a1e3eec152d6de93d17fe3479981f154333e8a140743834b9ffa0ed0693",
+    "sources.json": "6e0b09a4679e644c1b46f017dd2d21cd17163209b7a1a81eabe9e0883f7e4117",
+    "subset-coefficients-dark.svg": "686813ecc043ddc8c1dcd902bd656ecc811f36172f3a24451f12e80dc373be0f",
+    "subset-coefficients.svg": "80b40a28ddd4d3b9bfaea3c3fdc24ee94a08bba15aaadf4f9fc560596e2c05a4",
+    "subset-eosfit/checks.json": "43629dc863873b037e56722b3992adf4ca71eb15c516deb78bde94e774650eb8",
+    "subset-eosfit/commands.txt": "480099995ec4fcdb36cd84c9a47796182015425174e453386cbe1c34714d6945",
+    "subset-eosfit/hartwig_vt.dat": "934a1cfc5441c3023ce295931913eff6422b884e8c0cf2c38691831ccdcf05a7",
+    "subset-eosfit/initial.eos": "66414ebc9d52706161aa8c3e3a267bcba460b674006b61e4d1bfd8edc1100f69",
+    "subset-eosfit/joint-fitted.eos": "4673e30cb1fa7a4b0b3e6dcbce09996a5fa774550d79b922a2dc09bc98176d4e",
+    "subset-eosfit/milani_vt.dat": "534ba515fa625b31e569fa9cbc532679c32b05ac8545dfc0abb9747e39f09ae7",
+    "subset-eosfit/row-map.json": "a416c53589afbcdedb76aa6e6594c397a52e8787da13cadffc3be7124be29d5f",
+    "subset-eosfit/run.log": "4f62e2574a55ffbd15f62ed18779ff0d0fb5e87b51f83e8f444374d08dd6c7d9",
+    "subset-eosfit/stderr.txt": "e7864e01ce1d4df4fc9776e0a26a41fe33e1286a8cd20548869ba3c55ef261fe",
+    "subset-eosfit/stdout.txt": "217e04d910a8152680cda41b47d97d00d362c8d4ffc25550a6e98b31b8d514b3",
+    "subset-eosfit/zou_ks.dat": "62f600680ec6d096169701b863ad2048040aaf76cc582c47e06f6a5f51bd2dd4",
+    "subset-eosfit/zou_pv.dat": "fb4adcc112f93720560d8ffaf8af7763f9bd4117261e71f0b6831ee0438e01b6",
+    "subset-refits.json": "0d8f2029291b0355daf99fd865b9ec6249a6f7a90d929dfb92b0c2f25eb04c6d",
+    "subset-residuals-dark.svg": "15c1e15197ab96146ce2333c3c1939e38692fd2f780056e3f438086f0ce07412",
+    "subset-residuals.svg": "6f70907628ee6c7b9af3482f947fb6a3a8ddd4d6f73c241222b18496ef526480",
+    "zou-2012b-table-i.csv": "4f37ba759209cc6e4ef4f74d45539794f5eb559f9e82421c9394a60ffe940b03"
+  }
+}

@@ -24,17 +24,17 @@ def test_complete_review_is_source_bound_and_scientific_content_is_unchanged():
     review = json.loads(outputs[REVIEW])
     assert scientific_sha256() == review["catalog_scientific_sha256"]
     assert review["counts"] == {
-        "materials": 234,
-        "eos_records": 685,
-        "structural_components": 234,
-        "eos_source_groups": 272,
+        "materials": 235,
+        "eos_records": 687,
+        "structural_components": 235,
+        "eos_source_groups": 273,
         "migration_records": 144,
         "assessments": {
             "cod_source_and_numerical_changes": 5,
             "independently_calculated_pattern": 10,
             "no_structural_values": 36,
-            "numerical_parameter_assessment": 678,
-            "numerical_structure_assessment": 183,
+            "numerical_parameter_assessment": 680,
+            "numerical_structure_assessment": 184,
             "thermodynamic_collection_review_required": 7,
         },
     }

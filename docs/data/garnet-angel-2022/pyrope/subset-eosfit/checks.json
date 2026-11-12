@@ -1,0 +1,50 @@
+{
+  "scope": "Official console replay of a constructed recovered subset; not original Angel joint input or publication fit parity",
+  "executable_source": "https://www.rossangel.com/Download/EoSFit7installer_MacOS.dmg",
+  "executable_sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d",
+  "version": "7.60",
+  "n_channels": 92,
+  "free_parameters": 6,
+  "numerical_convergence_reported": true,
+  "parameters": {
+    "K0_gpa": 166.743,
+    "K0_prime": 4.78982,
+    "theta0_k": 483.401,
+    "gamma0": 1.07597,
+    "scale_milani": 1.00112,
+    "scale_hartwig": 1.00051
+  },
+  "minus_independent_irls": {
+    "K0_gpa": 0.004496921470718007,
+    "K0_prime": -0.00043200585373526224,
+    "theta0_k": 0.08270244687309969,
+    "gamma0": 4.0276005876638266e-05,
+    "scale_milani": 1.028968604543934e-06,
+    "scale_hartwig": 4.258275999591277e-06
+  },
+  "differences_over_conditional_unscaled_widths": {
+    "K0_gpa": 0.006290752138587603,
+    "K0_prime": 0.006127661506856516,
+    "theta0_k": 0.0023262945399355585,
+    "gamma0": 0.004997298556107266,
+    "scale_milani": 0.027427160220930624,
+    "scale_hartwig": 0.05098466004444528
+  },
+  "saved_parameter_half_last_digit": {
+    "K0_gpa": 0.0005,
+    "K0_prime": 5e-06,
+    "theta0_k": 0.0005,
+    "gamma0": 5e-06,
+    "scale_milani": 5e-06,
+    "scale_hartwig": 5e-06
+  },
+  "conditional_reduced_chi_square": 0.6467,
+  "independent_conditional_reduced_chi_square": 0.646307694216901,
+  "comparison_tolerances": {
+    "parameter_fraction_of_conditional_width": 0.01,
+    "reduced_chi_square_absolute": 0.001
+  },
+  "comparison_basis": "Nearby numerical fits checked at 1 percent of conditional marginal widths plus half the last printed parameter digit, consistent with console shift/esd termination, source single precision and file rounding. Scale factors are printed to only five decimals. This is not equality of algorithms/coefficients/covariance or original workflow parity.",
+  "missing_error_encoding": "Some sigP/sigT are zero only to omit unavailable variance terms. Console warns; all total effective pressure variances are positive, independently checked. No physical zero error or uncertainty floor is inferred.",
+  "within_declared_comparison_tolerances": true
+}

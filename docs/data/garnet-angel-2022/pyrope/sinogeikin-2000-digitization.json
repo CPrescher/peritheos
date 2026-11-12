@@ -1,0 +1,27 @@
+{
+  "kind": "digitized_observations",
+  "source": "Angel et al. 2022, Fig. 8; original open black squares attributed to Sinogeikin and Bass 2000",
+  "source_doi": "10.1007/s00410-022-01918-5",
+  "original_study_doi": "10.1016/S0031-9201(00)00143-6",
+  "pdf_sha256": "eebef304cc8ef328f3d9219d9006f94791e4680e42d92655a396890eac81b692",
+  "pdf_page_one_based": 11,
+  "axis_P_from_pdf_x": [
+    0.11233503711319595,
+    -37.79989254448603
+  ],
+  "axis_KS_from_pdf_y": [
+    -0.5996964573399529,
+    302.85199519233316
+  ],
+  "max_axis_tick_residual_gpa": {
+    "P": 0.004289355420993957,
+    "KS": 0.023299038754998946
+  },
+  "digitization_resolution_bounds_gpa": {
+    "P": 0.01,
+    "KS": 0.05
+  },
+  "resolution_qualification": "Conservative coordinate bounds from vector/tick quantization, not experimental standard deviations. Extra saved digits retain the deterministic extraction, not source precision.",
+  "errors": "Vertical half error-bar spans digitized from original open-square series. No horizontal pressure bars identified. Confidence convention and original covariance not recovered.",
+  "scaling_evidence": "All 17 markers, including both ambient-pressure points, also appear scaled in Fig. 8. This resolves the displayed mask only; S2 describes high-pressure scaling and original fit groups remain unavailable."
+}

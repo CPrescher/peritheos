@@ -14,7 +14,7 @@ use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure,
     Dewaele2006, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters,
     HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
-    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
+    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, QCompromiseDebye,
     SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalModifiedTait,
     ThermalReferenceState, VariableQMieGruneisenDebye,
 };
@@ -296,6 +296,7 @@ impl ThermalModel {
             Self::Dewaele2006(model) => model.pressure(volume, temperature),
             Self::DorogokupetsOganov2007(model) => model.pressure(volume, temperature),
             Self::LinearThermalPressure(model) => model.pressure(volume, temperature),
+            Self::QCompromiseDebye(model) => model.pressure(volume, temperature),
             Self::DebyeQuadraticThermalPressure(model) => model.pressure(volume, temperature),
             Self::DebyeAnharmonicHelmholtz(model) => model.pressure(volume, temperature),
             Self::LogVolumeThermalPressure(model) => model.pressure(volume, temperature),
@@ -453,6 +454,22 @@ impl ThermalModel {
                     DorogokupetsOganov2007::new(
                         reference,
                         parameters,
+                        value(names, values, "n", model.n),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::QCompromiseDebye(model) => {
+                ensure_names(names, &["Tr", "theta0", "gamma0", "n"], true)?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::QCompromiseDebye(
+                    QCompromiseDebye::new(
+                        reference,
+                        value(names, values, "Tr", model.tr),
+                        value(names, values, "theta0", model.theta0),
+                        value(names, values, "gamma0", model.gamma0),
                         value(names, values, "n", model.n),
                     )
                     .map_err(FitError::from)?,

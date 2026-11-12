@@ -194,7 +194,7 @@ def test_validation_status_filter_and_ordering_are_deterministic():
     records = search_eos_records(
         validation_status=("primary_source_validated",), include_reference_variants=True
     )
-    assert len(records) == 664
+    assert len(records) == 666
     assert identifiers(records) == tuple(sorted(identifiers(records)))
     assert search_eos_records(validation_status="deferred") == ()
 

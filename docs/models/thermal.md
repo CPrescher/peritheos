@@ -56,6 +56,7 @@ and [normalization examples](../units.md#atom-count-and-molar-volume-basis).
 | [`DoubleDebyeHelmholtz`](../equations/thermal/double-debye.md) | `Vinet`, `BM2`, `BM3`, or `BM4`: 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0`, `Tr` | double Debye + $T^2$ |
 | [`DoubleDebyeLogMomentHelmholtz`](../equations/thermal/double-debye.md#logarithmic-moment-double-debye-variant) | `Vinet`, `BM2`, `BM3`, or `BM4`: 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; cutoff A, cutoff B, and `theta_0` parameter triples; optional `n`, `anharmonic_a`, `phi0`, `Tr` | logarithmic-moment double Debye + $T^2$ |
 | [`MieGruneisenDebye`](../equations/thermal/mie-gruneisen.md) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `Cvmax`, `debye_temperature_law`, `thermal_pressure_reference` | Debye |
+| [`QCompromiseDebye`](../equations/thermal/q-compromise-debye.md) | reference EOS exposing `V0` | `Tr`, `theta0`, `gamma0`, `n`; constant θ and γ/V, no q | pressure only |
 | [`MieGruneisenEinstein`](../equations/thermal/mie-gruneisen.md) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
 | [`Tange2009Debye`](../equations/thermal/tange-2009.md) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
 | [`AsymptoticPowerLawMieGruneisenDebyeExcess`](../equations/thermal/asymptotic-debye-excess.md) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n`, `beta0`, `m` | Debye plus volume-dependent $T^2$ excess |

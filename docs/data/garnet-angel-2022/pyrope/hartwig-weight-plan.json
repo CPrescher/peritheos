@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-12",
+  "authorization": "User explicitly requested testing whether increased Hartwig weights could explain the discrepancy before contacting Ross. This separate sensitivity study extends the previous fixed-weight audit; it does not identify the actual author weights.",
+  "scope": "Diagnostic sensitivity of the recovered 182- and 191-channel source-model fits, not a replacement EOS or author-workflow reproduction",
+  "weight_multipliers": [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 10000],
+  "weight_definition": "Multiply each Hartwig row's inverse effective pressure variance by w. Implement only in copied diagnostic rows by dividing both initial sY=0.03 cm3/mol and sT=0.01*T by sqrt(w). This leaves the relative volume/temperature variance contributions unchanged and scales the full Hartwig row weight. The original CSV and baseline fit are unchanged.",
+  "controls": "Same literal measured Hartwig values including internal source discrepancies, other data selections/errors, normalization, calibration, KS conventions, seven free parameters, fixed Vm0/Tr/n and source gas constant as expanded-refit-plan.json. No source cell repairs or alternative masks/models.",
+  "starts": "At each predeclared multiplier, fit independently from the published EOS coefficients and from the previous converged multiplier. Retain both results and their differences; do not silently select a different branch.",
+  "comparisons": "Report all four EOS coefficients and all three scales, numerical convergence/bounds, conditional covariance, source coefficient differences, weighted objective and per-dataset sums of squared standardized residuals evaluated with unchanged baseline coordinate errors. Report the source marginal widths as comparison scales, not confidence thresholds or validation scores.",
+  "interpretation": "Check whether increasing Hartwig weight can bring theta0 and gamma0 toward the source simultaneously while retaining cold-parameter agreement. A match at some multiplier is conditional consistency, not recovery of the author's multiplier or proof that weights alone explain the publication.",
+  "limits": "Fixed grid only, no continuous optimization of w to match published coefficients. Same solver cap: 30 IRLS cycles, 400 evaluations per nonlinear solve. Any unresolved convergence/branch differences are retained.",
+  "official_check": "After the independent sweep, replay a small set of grid points in the unchanged official EosFit7c to check direction and magnitude. Keep the existing strict cross-solver comparison and report any failure; do not relax it.",
+  "contact": "No author contact authorized or performed by this sensitivity study"
+}

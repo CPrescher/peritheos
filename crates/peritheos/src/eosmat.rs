@@ -32,9 +32,9 @@ use crate::thermal::{
     DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz, HollandPowellThermalPressure, LinearThermalPressure,
     LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
-    PressureTable, ReferenceStateEos, ReferenceVolumeLaw, SecondOrderTaylorThermalPressure,
-    SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait, ThermalPressureReference,
-    ThermalReferenceState, VariableQMieGruneisenDebye,
+    PressureTable, QCompromiseDebye, ReferenceStateEos, ReferenceVolumeLaw,
+    SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
+    ThermalPressureReference, ThermalReferenceState, VariableQMieGruneisenDebye,
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
@@ -657,6 +657,8 @@ pub enum ThermalModel {
     DorogokupetsOganov2007(DorogokupetsOganov2007<IsothermalModel>),
     /// Constant-slope thermal pressure.
     LinearThermalPressure(LinearThermalPressure<IsothermalModel>),
+    /// Constant-theta, constant-gamma/V Debye thermal pressure.
+    QCompromiseDebye(QCompromiseDebye<IsothermalModel>),
     /// Logarithmic-volume thermal pressure.
     /// Debye plus empirical quadratic-temperature pressure.
     DebyeQuadraticThermalPressure(DebyeQuadraticThermalPressure<IsothermalModel>),
@@ -692,6 +694,7 @@ macro_rules! dispatch_thermal {
             ThermalModel::Dewaele2006($model) => $expression,
             ThermalModel::DorogokupetsOganov2007($model) => $expression,
             ThermalModel::LinearThermalPressure($model) => $expression,
+            ThermalModel::QCompromiseDebye($model) => $expression,
             ThermalModel::DebyeQuadraticThermalPressure($model) => $expression,
             ThermalModel::DebyeAnharmonicHelmholtz($model) => $expression,
             ThermalModel::LogVolumeThermalPressure($model) => $expression,
@@ -725,6 +728,7 @@ impl ThermalModel {
             Self::Dewaele2006(_) => "dewaele_2006",
             Self::DorogokupetsOganov2007(_) => "dorogokupets_oganov_2007",
             Self::LinearThermalPressure(_) => "linear_thermal_pressure",
+            Self::QCompromiseDebye(_) => "q_compromise_debye",
             Self::DebyeQuadraticThermalPressure(_) => "debye_quadratic_thermal_pressure",
             Self::DebyeAnharmonicHelmholtz(_) => "debye_anharmonic_helmholtz",
             Self::LogVolumeThermalPressure(_) => "log_volume_thermal_pressure",
@@ -847,6 +851,7 @@ impl LoadedEos {
                 ThermalModel::Dewaele2006(value) => value.rt_eos.model_identifier(),
                 ThermalModel::DorogokupetsOganov2007(value) => value.rt_eos.model_identifier(),
                 ThermalModel::LinearThermalPressure(value) => value.rt_eos.model_identifier(),
+                ThermalModel::QCompromiseDebye(value) => value.rt_eos.model_identifier(),
                 ThermalModel::DebyeAnharmonicHelmholtz(value) => value.rt_eos.model_identifier(),
                 ThermalModel::DebyeQuadraticThermalPressure(value) => {
                     value.rt_eos.model_identifier()
@@ -3065,6 +3070,7 @@ fn is_molar_volume_model(model: &str) -> bool {
             | "debye_quadratic_thermal_pressure"
             | "debye_anharmonic_helmholtz"
             | "mie_gruneisen_debye"
+            | "q_compromise_debye"
             | "variable_q_mie_gruneisen_debye"
             | "mie_gruneisen_einstein"
             | "asymptotic_power_law_mie_gruneisen_debye"
@@ -3113,6 +3119,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "Dewaele2006" => "dewaele_2006",
             "DorogokupetsOganov2007" => "dorogokupets_oganov_2007",
             "LinearThermalPressure" => "linear_thermal_pressure",
+            "QCompromiseDebye" => "q_compromise_debye",
             "DebyeQuadraticThermalPressure" => "debye_quadratic_thermal_pressure",
             "DebyeAnharmonicHelmholtz" => "debye_anharmonic_helmholtz",
             "LogVolumeThermalPressure" => "log_volume_thermal_pressure",
@@ -3457,6 +3464,11 @@ fn build_thermal(
             };
             DorogokupetsOganov2007::new(reference, parameters, p("n")?)
                 .map(ThermalModel::DorogokupetsOganov2007)
+        }
+        "q_compromise_debye" => {
+            check_type(component, "QCompromiseDebye")?;
+            QCompromiseDebye::new(reference, p("Tr")?, p("theta0")?, p("gamma0")?, p("n")?)
+                .map(ThermalModel::QCompromiseDebye)
         }
         "linear_thermal_pressure" => {
             check_type(component, "LinearThermalPressure")?;

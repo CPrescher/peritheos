@@ -1,0 +1,51 @@
+{
+  "scope": "User-requested diagnostic Hartwig sensitivity, not author-workflow reproduction",
+  "n_channels": 191,
+  "Hartwig_inverse_variance_multiplier": 500,
+  "parameters": {
+    "K0_gpa": 169.465,
+    "K0_prime": 4.50986,
+    "theta0_k": 738.265,
+    "gamma0": 1.1942,
+    "scale_milani": 1.00085,
+    "scale_hartwig": 1.00035,
+    "scale_sinogeikin_2000_ks": 0.98253
+  },
+  "numerical_convergence_reported": true,
+  "conditional_reduced_chi_square": 8.678,
+  "minus_independent_irls": {
+    "K0_gpa": 0.000598083083190204,
+    "K0_prime": 4.880687699326813e-06,
+    "theta0_k": -0.2736423869092732,
+    "gamma0": 6.932594054731567e-05,
+    "scale_milani": -4.16908471234656e-06,
+    "scale_hartwig": -1.0483761943014258e-06,
+    "scale_sinogeikin_2000_ks": 7.977326405916862e-05
+  },
+  "saved_half_last_digits": {
+    "K0_gpa": 0.0005,
+    "K0_prime": 5e-06,
+    "theta0_k": 0.0005,
+    "gamma0": 5e-06,
+    "scale_milani": 5e-06,
+    "scale_hartwig": 5e-06,
+    "scale_sinogeikin_2000_ks": 5e-06
+  },
+  "comparison_tolerances": {
+    "parameter_fraction_of_conditional_unscaled_width": 0.01,
+    "plus_saved_half_last_digit": true,
+    "absolute_reduced_chi_square": 0.001
+  },
+  "within_declared_tolerances": false,
+  "differences_over_conditional_unscaled_widths": {
+    "K0_gpa": 0.0029275055694814324,
+    "K0_prime": 0.0001665961010661443,
+    "theta0_k": 0.07959102728739828,
+    "gamma0": 0.024371774774444098,
+    "scale_milani": 0.21717447515553978,
+    "scale_hartwig": 0.21952417092091064,
+    "scale_sinogeikin_2000_ks": 0.021709775901332235
+  },
+  "executable_sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d",
+  "scope_limit": "The earlier strict solver-comparison threshold is retained. Any failure remains a failure; source coefficient and workflow parity are not established by convergent diagnostic fits."
+}

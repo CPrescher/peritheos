@@ -214,16 +214,13 @@ def test_committed_inventory_covers_release_members_and_inline_components():
     ) as stream:
         components = list(csv.DictReader(stream))
     for state in ("release", "local"):
-        assert (
-            sum(r["state"] == state and r["kind"] == "eos" for r in components) == 685
+        assert sum(r["state"] == state and r["kind"] == "eos" for r in components) == (
+            685 if state == "release" else 687
         )
-        assert (
-            sum(
-                r["state"] == state and r["kind"] == "structure_and_diffraction"
-                for r in components
-            )
-            == 234
-        )
+        assert sum(
+            r["state"] == state and r["kind"] == "structure_and_diffraction"
+            for r in components
+        ) == (234 if state == "release" else 235)
         assert sum(
             r["state"] == state and r["kind"] == "dataset" for r in components
         ) == (449 if state == "release" else 456)

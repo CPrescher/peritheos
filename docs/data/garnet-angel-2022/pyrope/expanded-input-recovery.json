@@ -1,0 +1,140 @@
+{
+  "recovered_on": "2026-11-12",
+  "scope": "Diagnostic recovery and conditional source-model fits, not registered catalog datasets",
+  "previously_available_channels": 92,
+  "previously_missing_channels": 102,
+  "additional_tabulated_or_recalibrated_channels": 73,
+  "additional_digitized_channels": 26,
+  "total_available_channels": 191,
+  "selected_inventory_channels": 194,
+  "unrecovered_channels": 3,
+  "author_workflow_reproduced": false,
+  "sources": [
+    {
+      "author": "Zhang et al. 1998",
+      "doi": "10.1007/s002690050118",
+      "location": "Table 1: all 39 ambient, helium and neon P,a,V rows",
+      "url": "https://www.researchgate.net/publication/225719091_Hydrostatic_compression_and_crystal_structure_of_pyrope_to_33_GPa",
+      "file": "zhang-1998-table-1.csv",
+      "kind": "primary numerical table transcription",
+      "units": {
+        "pressure": "GPa",
+        "lattice_a": "angstrom",
+        "cell_volume": "angstrom^3"
+      },
+      "selected_channels": 33,
+      "uncertainty": "Parenthetic pressure and cell-parameter errors preserved. Decimal parentheses in 1384(1.0), etc. are absolute volume errors. No inferred temperature or confidence convention.",
+      "evidence_sha256": "8a1fe2daf0703021cf3371bdad5610daa315b22834df889f9ffee9afec762e4a",
+      "verification": "Primary article full-text Table 1, with explicit footnote a exclusion of final five neon rows. Source ambient is retained separately, not refitted as a PV channel.",
+      "transcription_sha256": "b5b90adc75a3677f1687789acf9afd77edae77416bacc7b88188f1bff6964fb4"
+    },
+    {
+      "author": "Du et al. 2015",
+      "doi": "10.2138/am-2015-4752",
+      "location": "Author preprint Table 4, manuscript pp.26-27",
+      "url": "https://academiccommons.columbia.edu/doi/10.7916/D8V415Z5/download",
+      "repository_record": "https://academiccommons.columbia.edu/doi/10.7916/D87P8XSM",
+      "file": "du-2015-preprint-table-4.csv",
+      "kind": "author preprint numerical table transcription",
+      "units": {
+        "pressure": "GPa",
+        "lattice_a": "angstrom",
+        "cell_volume": "angstrom^3",
+        "printed_molar_volume": "cm^3/mol"
+      },
+      "selected_channels": 9,
+      "uncertainty": "Pressure error bar 0.1 GPa stated in footnote; parenthetic lattice errors estimated standard deviations. Preserve printed volume errors without inferring additional confidence/covariance.",
+      "evidence_sha256": "4cc738c4acf246b27aa5884f89622a65cfb99ac3254a4adfcef979a485dc9b0e",
+      "verification": "Scanned preprint pages rendered, OCR assisted and visually inspected. All nine selected pairs corroborated by Angel Fig.7 to 0.02 GPa and 0.004 cm3/mol; final publisher table not directly recovered.",
+      "transcription_sha256": "d5032d13a78ba5b4c3bcece3b0b7b1a7c7cc74a3e5430085e0c0c9e62f1ebc46"
+    },
+    {
+      "author": "Chantel et al. 2016",
+      "doi": "10.2138/am-2016-5335",
+      "location": "Published Table 1, p.993, all 16 rows",
+      "url": "https://www.rruff.net/odr/view/downloadfile/82036",
+      "file": "chantel-2016-table-1.csv",
+      "kind": "published numerical table transcription via indexed primary-paper text",
+      "units": {
+        "calibrant_pressure": "GPa",
+        "internally_derived_pressure": "GPa",
+        "temperature": "K",
+        "vp": "km/s",
+        "vs": "km/s",
+        "density": "g/cm^3"
+      },
+      "selected_channels": 20,
+      "uncertainty": "Preserve velocity/density parenthetic errors; pressure errors and covariance missing. Ambient table density error .004 differs from prose .005; literal table token retained.",
+      "evidence_sha256": "3076ad3ad767301de58b96107c773e818bd161d2210cdbb9157f59d882923dde",
+      "verification": "Indexed primary Table 1 recovered with web search; direct endpoint/legacy-host PDF requests return403. Derived KS and calibrated pressure column cross-checked against Angel Fig.8; figure7 normalization discrepancy retained.",
+      "transcription_sha256": "8b5dc0a7caddeee1a6cef7936c7e62a0d3ea539b61baff5afa06c3ab99ccf542"
+    },
+    {
+      "author": "Sinogeikin and Bass 2000, as plotted by Angel et al.2022",
+      "doi": "10.1016/S0031-9201(00)00143-6",
+      "location": "Angel2022 Fig.8, original open black square series,17points",
+      "url": "https://doi.org/10.1007/s00410-022-01918-5",
+      "file": "sinogeikin-2000-digitized-angel-figure-8.csv",
+      "kind": "digitized plotted observations in published synthesis; original numeric experiment table unavailable",
+      "units": {
+        "P": "GPa",
+        "KS": "GPa",
+        "pdf_coordinates": "pt"
+      },
+      "selected_channels": 17,
+      "uncertainty": "Digitized vertical error bars, not newly assigned physical errors. No horizontal pressure errors recovered; confidence and coordinate covariance unavailable. Coordinate bounds0.01 GPa P,0.05 GPa KS.",
+      "evidence_sha256": "eebef304cc8ef328f3d9219d9006f94791e4680e42d92655a396890eac81b692",
+      "verification": "Deterministic extraction of original PDF paths; overlapping vector markers preserved separately. Original/scaled plotted ratios0.9763-0.9766 differ from official EOS scale0.97828 and are retained separately.",
+      "transcription_sha256": "636c91fce063619da5499f43cf884d0dc5a7fe0e079a1429dc4e9c7caa9731d2"
+    },
+    {
+      "author": "Sinogeikin and Bass2002",
+      "doi": "10.1016/S0012-821X(02)00851-8",
+      "location": "Fig.2 primary PDF p.3, nine readable C11/C12 pairs",
+      "url": "https://repository.geologyscience.ru/bitstream/handle/123456789/30263/Sino_02.pdf?isAllowed=y&sequence=1",
+      "file": "sinogeikin-2002-figure-2-pixels.csv",
+      "kind": "manual raster digitization; derived KS, not original numerical observations",
+      "units": {
+        "pixel_coordinates": "pixels in 4x PDF crop defined in expanded-refit-plan.json",
+        "C11_C12": "GPa",
+        "temperature": "C converted to K with +273.15"
+      },
+      "selected_channels": 9,
+      "unrecovered_channels_from_S2": 3,
+      "uncertainty": "Raw error-bar endpoints preserved; approximate reading bounds2K and0.3GPa per constant. Experimental T error5K stated for same experiment Fig.3. Conditional propagation assumes zero C11-C12 covariance, which was not recovered.",
+      "evidence_sha256": "0e8fa9419d404182bd43b00ec73c906e4414fd62a6c64b4a13ea2d1b1d4ba937",
+      "crop_sha256": "3141828d1520e3ea287dc8b90256acbe5b1db000e106d4cd3b15bd9ffb6a4bca",
+      "verification": "Original PDF p.3 rendered and inspected. PyMuPDF4x crop (300,390,550,640)pt. No hidden symbols copied, interpolated or replaced by fitted lines. Public ResearchGate record has no full text; publisher PDF endpoint403.",
+      "transcription_sha256": "34161cf6d8e4cd98a7309cfad87e15f4c5477833df5298ec85a6005ef2087548"
+    }
+  ],
+  "milani_pv": {
+    "doi": "10.1016/j.lithos.2015.03.017",
+    "original_file": "peritheos/data/datasets/pyrope-milani-2015-table-a2-compression.csv",
+    "original_sha256": "c4bf6182012e81826e1f18d620377391033e65936140654b3b1063a8c4927f01",
+    "selected_channels": 11,
+    "calibrations": [
+      {
+        "file": "quartz-1997.eos",
+        "doi": "10.1107/S0021889897000861",
+        "url": "https://www.rossangel.com/Download/eos/quartz_pv.eos",
+        "sha256": "9d315c4b6e74fd203f80d5778f32ff8dd55efef66ec2221ed7ceb0c7171dac45"
+      },
+      {
+        "file": "quartz-2016.eos",
+        "doi": "10.1107/S1600576716015351",
+        "url": "https://www.rossangel.com/Download/eos/quartz_pv_scherdletal2016.eos",
+        "sha256": "ab63af493c7cc26ad44e646df40e366a06e5e301124712771cc3121286baf329"
+      }
+    ],
+    "verification": "Original12rows preserved. Equivalent quartz volumes calculated, not recovered measured calibrant data; 22 official PCAL comparisons retained in expanded-eosfit/quartz-calibration/checks.json; exact author recalibration and normalization still unavailable."
+  },
+  "remaining": [
+    "Three Sinogeikin2002 channels listed in S2 not separately recoverable from the available raster C11/C12 figure",
+    "Exact increased Hartwig weight multiplier and source-used corrections",
+    "Exact original volume-normalization anchors, pressure/error recalculation controls, fit-group masks and covariance/confidence conventions"
+  ],
+  "source_terms": "Source article/PDF/figure rights remain with their respective holders; no extra source license is inferred. CC0 dedication, if applicable to contributed audit data, covers only the contributors transcription, normalization, metadata and arrangement rights, never third-party articles or figures.",
+  "publisher_files": "Private output/pyrope-full-fit-2026-11-12 and prior audit output; not redistributed with factual transcriptions",
+  "contact": "No author contacted; user asked for recovery and fit before outreach"
+}

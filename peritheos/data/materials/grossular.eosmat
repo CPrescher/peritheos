@@ -1,0 +1,194 @@
+{
+  "format_version": 4,
+  "identifier": "grossular",
+  "name": "Grossular",
+  "formula": "Ca3Al2Si3O12",
+  "phase": "cubic grossular garnet endmember",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 8,
+  "eos_records": [
+    {
+      "identifier": "grossular_angel_2022_bm3_q_compromise_debye",
+      "label": "Angel et al. (2022), BM3 + q-compromise Debye",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 1665.1885765619334, "error": null, "fixed": true},
+        "K0": {"value": 167.002, "error": 0.2},
+        "K0_prime": {"value": 5.06534, "error": 0.08}
+      },
+      "thermal": {
+        "model": "QCompromiseDebye",
+        "parameters": {
+          "Tr": {"value": 298.0, "fixed": true},
+          "theta0": {"value": 749.825, "error": 13.0},
+          "gamma0": {"value": 1.15602, "error": 0.006},
+          "n": {"value": 20.0, "fixed": true}
+        }
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 16.9],
+      "experimental_temperature_range_k": [20.0, 1650.0],
+      "determination_method": "experimental",
+      "default": true,
+      "notes": "Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. The raw Milani (2015) pyrope PV subset is retained separately, but is not the rescaled 2022 fit input.",
+      "range_provenance": {
+        "source_location": "Supplementary Table S1, nonzero-used rows",
+        "notes": "Union of volume and elastic-modulus constraints, including room-pressure low-T expansion and high-P room-T compression. Independent experimental series; not a rectangular phase-stability field. Rejected high-T PVT rows do not extend coverage."
+      },
+      "parameter_covariance": {
+        "parameter_order": ["rt_eos.K0", "rt_eos.K0_prime", "theta0", "gamma0"],
+        "matrix": [
+          [0.038718, 0.0022213, -0.16156, 0.0001981],
+          [0.0022213, 0.0054026, -0.027319, -4.0539e-05],
+          [-0.16156, -0.027319, 166.37, 0.055808],
+          [0.0001981, -4.0539e-05, 0.055808, 2.598e-05]
+        ]
+      },
+      "reference": {
+        "authors": ["Angel", "Gilio", "Mazzucchelli", "Alvaro"],
+        "year": 2022,
+        "title": "Garnet EoS: a critical review and synthesis",
+        "source": "Contributions to Mineralogy and Petrology",
+        "volume": "177",
+        "locator": "54",
+        "doi": "10.1007/s00410-022-01918-5"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-11-08",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "quartz",
+            "source_location": "Methodology: Data sources; supplementary Tables S1 and S2",
+            "reference": {
+              "authors": ["Scheidl"],
+              "year": 2016,
+              "source": "Journal of Applied Crystallography",
+              "volume": "49",
+              "locator": "2129-2137"
+            },
+            "notes": "Recalibration of the Milani PV subset explicitly stated by Angel (2022); this is one component of the multi-source fit."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Joint multi-source fit uses source-specific calibrations and refined scale factors. Complete paired calibrant inputs and transformed joint fit project are not recovered."
+        },
+        "notes": "Milani quartz-calibrated PV inputs were recalculated by Angel (2022) from Angel (1997) to Scheidl (2016). Other series use ruby/Au/NaCl/MgO as described in supplementary S1/S2; no single substitute pressure scale is assigned."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "source_equation",
+            "source_status": "not_refittable",
+            "basis": "Published parameterization verified by independent quadrature and official EosFit checks; complete original joint fit is unavailable.",
+            "qualifications": [
+              "Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.",
+              "Complete joint V/Ks input project, exact point masks, rescalings, weights (including increased Hartwig weights), and fit covariance confidence convention.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/grossular/#record-grossular_angel_2022_bm3_q_compromise_debye",
+            "report_path": "docs/reconstruction-reports/grossular.md#record-grossular_angel_2022_bm3_q_compromise_debye",
+            "fit": {
+              "fit_kind": "source_curve_validation_only",
+              "fixed_parameters": ["V0", "Tr", "n"],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-11-08",
+          "note": "Source parameterization and volume conventions independently verified. Complete original joint fit remains unrecovered; this is not author-workflow or experimental validation.",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "covariance",
+            "validity"
+          ],
+          "primary_source_check": {
+            "doi": "10.1007/s00410-022-01918-5",
+            "access_url": "https://doi.org/10.1007/s00410-022-01918-5",
+            "locations": [
+              "Methodology: EoS models and EoS refinement",
+              "Table 1",
+              "Official supplementary EOS file 1",
+              "Supplementary Table S1"
+            ],
+            "finding": "Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file."
+          },
+          "primary_data_check": {
+            "status": "not_available",
+            "audit_date": "2026-11-08",
+            "source_locations": [
+              "Official supplementary EOS files 1-4",
+              "Official supplementary PDF, Tables S1/S2",
+              "Author parameter downloads, March 2023 filenames"
+            ],
+            "finding": "The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. The raw Milani (2015) pyrope PV subset is retained separately, but is not the rescaled 2022 fit input."
+          },
+          "numerical_reproduction": {
+            "report": "docs/data/garnet-angel-2022/audit.json",
+            "scope": "source_parameterization_only",
+            "finding": "Independent SI quadrature agrees over 20 mathematical test states per material; Table 1 derived reference expansivity reproduced. Official EosFit checks retained separately. Calculated checkpoints are not observations."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Joint synthesis of experimental volume and adiabatic bulk-modulus observations, selected for consistency with measured heat capacities; includes adopted fixed molar V0.",
+          "source_file": "docs/data/garnet-angel-2022/sources/grossular-official.eos",
+          "source_parameters": {
+            "V0_cm3_mol": 125.35,
+            "K0_gpa": 167.002,
+            "K0_prime": 5.06534,
+            "theta0_k": 749.825,
+            "gamma0": 1.15602,
+            "n": 20
+          },
+          "volume_conversion": "Vcell[A3] = Vm[cm3/mol] * 8 * 1e24 / NA, NA=6.02214076e23 mol^-1. Native volume=Vm/10 J/bar/mol.",
+          "uncertainty": "Inline errors are the unchanged printed Table 1 widths; confidence is unspecified. The source-file covariance is retained independently and is used for propagation. It is conditional on fixed V0 and all source model/selection/calibration assumptions; omitted nuisance scale factors are marginalized by taking the EOS submatrix. No error is invented for adopted V0.",
+          "covariance_gamma0_standard_error": 0.005097057974949863,
+          "printed_gamma0_error": 0.006
+        }
+      }
+    }
+  ],
+  "family_id": "garnet",
+  "symmetry": "CUBIC",
+  "space_group": "Ia-3d",
+  "space_group_number": 230,
+  "lattice": {"a": 11.8418, "alpha": 90.0, "beta": 90.0, "gamma": 90.0, "b": null, "c": null},
+  "atom_sites": [
+    {"element": "Ca", "wyckoff": "24c", "x": 0.125, "y": 0.0, "z": 0.25, "occupancy": 1.0},
+    {"element": "Al", "wyckoff": "16a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "24d", "x": 0.375, "y": 0.0, "z": 0.25, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "96h", "x": 0.0384, "y": 0.5453, "z": 0.3487, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Nominal endmember diffraction model from Wang et al. (2019), Tables 3 and 5, synthetic Fe-free sample LMD611. The quenched single-crystal structure uses measured a=11.8418(3) A and oxygen coordinates, distinct from the EOS reference molar volume adopted by Angel (2022). No pressure/temperature-dependent axial or site model is supplied.",
+  "datasets": [],
+  "source": {
+    "structure_reference": {
+      "authors": ["Wang", "Sun", "Duan", "Liu", "Bao"],
+      "year": 2019,
+      "title": "The Study of Crystal Structure on Grossular–Andradite Solid Solution",
+      "source": "Minerals",
+      "volume": "9",
+      "locator": "691",
+      "doi": "10.3390/min9110691"
+    },
+    "structure_url": "https://doi.org/10.3390/min9110691",
+    "structure_source_location": "Table 3 first row and footnote; Table 5 single-crystal XRD first row; Table 4 LMD611 composition",
+    "structure_license": "CC-BY-4.0",
+    "structure_license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "structure_notes": "Source synthesis at 3 GPa/1200 C; structure measured after quench, not an in-situ 3 GPa cell. Ca/Al/Si sites fixed by source, full nominal occupancies. Table 4 EPMA gives Si2.99(1)Al1.98(2)Ca3.03(1)O12 with zero Fe; no defect/occupancy refinement inferred. Oxygen coordinate standard deviations are 0.0001 each; a standard deviation 0.0003 A. Source printed V=1660.55(11) A3; a^3=1660.554613333 A3. No identity with the independently adopted EOS V0 is imposed."
+  }
+}
