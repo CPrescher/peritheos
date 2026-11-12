@@ -7,6 +7,14 @@ The published coefficients remain unchanged.
 
 ## Outcome and comparison scope
 
+The latest [full-inventory sensitivity study](grossular-angel-2022-full-sensitivity.md)
+adds explicit error estimates for the remaining 26 observations: 219 non-anchor
+rows, with the Bosenick anchor kept separate. Its predeclared baseline is
+K₀ = 167.016 GPa, K′ = 5.23585, θ = 779.754 K and γ = 1.15783.
+All 29 weight cases converge; their K′ and θ envelopes remain above the
+published central values. These are conditional diagnostics, not source-error
+recovery or original-workflow reproduction.
+
 The latest [remaining-channel investigation](grossular-angel-2022-remaining-channels.md)
 recovers Bosenick temperature errors and plotted normalization, and bounds
 Conrad modulus errors. Its 193-row source-processing diagnostic gives

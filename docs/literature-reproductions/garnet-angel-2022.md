@@ -51,6 +51,13 @@ subsequently recovers additional source errors and normalization. A declared
 and γ0=1.15522. K′ and θ move farther from the source; the original fit remains
 unreproduced and no weights or normalization are tuned after this result.
 
+The subsequent user-requested [full-inventory sensitivity study](grossular-angel-2022-full-sensitivity.md)
+fits all 219 non-anchor rows with explicit estimates for the 26 missing-error
+observations. Its baseline is K0=167.016 GPa, K0′=5.23585, θ0=779.754 K
+and γ0=1.15783. All 29 declared cases converge, with θ0=773.477–781.417 K
+and K0′=5.15975–5.29031. These tested weights do not reproduce the source
+central θ0 or K0′; all earlier scientific qualifications remain.
+
 ## Decision and comparison scope
 
 The two published **q-compromise pressure parameterizations** are accepted:

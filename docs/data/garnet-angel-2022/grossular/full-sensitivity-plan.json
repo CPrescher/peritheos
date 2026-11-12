@@ -1,0 +1,34 @@
+{
+  "declared_on": "2026-11-12",
+  "declared_before_solving": true,
+  "authorization": "User explicitly requested estimated errors for the remaining 26 points and a sensitivity test of those assumptions.",
+  "scope": "Full nominal inventory diagnostic: 193 earlier rows plus 19 Isaak moduli and seven digitized Thieblot volumes = 219 fitted rows. One Bosenick normalization anchor accounts for the nominal 220th channel and is not an independent residual. Not an original-author workflow replay or a recommended replacement EOS.",
+  "unchanged": "Keep every earlier 193 row, normalization, coordinate width, adopted temperature, selection and covariance omission unchanged. Keep the same BM3/q-compromise equations, fixed Vm0=125.35 cm3/mol, Tr=298 K, n=20 and EosFit gas constant. Fit the same four EOS coefficients and two calculated-modulus multipliers. Preserve every original source file and previous receipt.",
+  "estimated_isaak_modulus_errors": {
+    "rows": "Only the 19 Table 3b rows whose original KS errors are blank. Leave all three original printed-error rows untouched, including their weights.",
+    "baseline": "Piecewise linear interpolation of the representative source widths: 0.71 GPa at 300 K, 1.02 GPa at 800 K, 1.20 GPa at 1300 K. Linearly extrapolate the last segment to 1350 K, giving 1.218 GPa there. These are newly estimated weights, not recovered source errors.",
+    "temperature_errors": "Remain missing and omitted as in the original 193-row diagnostic; no experimental thermometer error is asserted.",
+    "multipliers": [0.5, 1.0, 2.0],
+    "shape_controls": "At unit multipliers, additionally replace all 19 missing widths by a constant 0.71 GPa or a constant 1.20 GPa. These bracket the printed representative widths as hypothetical weight profiles, not rigorous bounds on all original errors."
+  },
+  "estimated_thieblot_errors": {
+    "rows": "All seven filled Figure 4 points, with their already processed molar volumes and digitized temperatures unchanged. No original absolute volumes or temperatures are invented.",
+    "baseline_experimental_volume_width_cm3_mol": 0.03,
+    "volume_basis": "Hypothetical scale of about the volume error corresponding to a 0.001 A cubic cell-edge error near a=11.85 A, and ten times the 0.003 cm3/mol digitization bound. Not a source measurement error.",
+    "baseline_experimental_temperature_fraction": 0.01,
+    "temperature_basis": "Hypothetical 1% temperature uncertainty for the unrecovered power-calibration error, not a statement from the primary paper.",
+    "volume_multipliers": [0.5, 1.0, 2.0],
+    "temperature_multipliers": [0.5, 1.0, 2.0],
+    "digitization_assumption": "Separately assume uniform errors within the recorded +/-0.003 cm3/mol and +/-2 K digitization bounds, giving variance bound^2/3. Add those variances to the squared hypothetical experimental widths. This is an explicit new uniform-distribution assumption, not reinterpretation of the bounds as reported standard deviations.",
+    "total_widths": "sV = sqrt((volume_multiplier*0.03)^2 + 0.003^2/3); sT = sqrt((temperature_multiplier*0.01*T)^2 + 2^2/3). Treat the result diagonally for this diagnostic. Shared axis/calibration errors are not recovered or modeled."
+  },
+  "sensitivity_design": "All 27 combinations of independent Isaak KS, Thieblot V and Thieblot T multipliers in {0.5,1,2}, plus the two constant-Isaak-width controls at unit multipliers: 29 cases. Baseline is the unit-multiplier interpolated case, selected before solving. No case is selected for closeness to published parameters.",
+  "free_parameters": ["K0_gpa", "K0_prime", "theta0_k", "gamma0", "scale_kono_ks", "scale_gwanmesia_ks"],
+  "starts": [[167.002,5.06534,749.825,1.15602,0.99455,1.00551],[166.75359226740093,5.330633332804356,780.4074000762878,1.1552242527323358,0.9852699935279787,1.0012685721192582]],
+  "parameter_scaling": [170,5,750,1.15,1,1],
+  "bounds": {"lower":[50,2,50,0.05,0.95,0.95],"upper":[350,10,3000,4,1.05,1.05]},
+  "objective": "Same iteratively reweighted effective-variance pressure residual and solver tolerances as the 193-row diagnostic. Missing error terms remain omitted, not known zero. Shared anchor, calibration and derived-modulus covariance remain omitted.",
+  "compute_cap": "Exactly 29 scientific cases, two declared starts each, at most 30 IRLS iterations and 400 least-squares evaluations per iteration per start. Verification may replay recorded cases; no added weight, model, mask or normalization search.",
+  "reporting": "Preserve the 193-row reference. Report baseline parameters, differences from the published source, min/max sensitivity envelopes, one-factor changes holding other multipliers at one, and the two error-shape controls. Report start agreement, bounds and convergence for every case. Retain all case parameters, conditional local covariance, effective weights and row identities. Export baseline forward V/KS source and fitted predictions with identical fitted modulus multipliers. Ranges describe sensitivity to declared weights, not confidence intervals or physical validation.",
+  "stopping_rule": "Document the complete declared sensitivity experiment, including non-parity. Do not tune estimated errors to Ross's coefficients, replace published records, recommend the diagnostic, or contact an author. Unknown normalization, specimen and source-mask issues remain qualifications even if coefficients agree."
+}

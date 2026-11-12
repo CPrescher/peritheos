@@ -1,0 +1,50 @@
+{
+  "verified_on": "2026-11-12",
+  "scope": "Full-inventory estimated-error diagnostic, not author-workflow reproduction, source-error recovery, statistical coverage or physical validation",
+  "python": {
+    "targeted_tests": 18,
+    "failed": 0,
+    "seconds": 3.19,
+    "files": [
+      "tests/test_grossular_full_sensitivity.py",
+      "tests/test_grossular_normalization_recovery.py",
+      "tests/test_grossular_expanded_refit.py",
+      "tests/test_grossular_followup_recovery.py",
+      "tests/test_grossular_observation_audit.py"
+    ],
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/pytest -q -W error tests/test_grossular_full_sensitivity.py tests/test_grossular_normalization_recovery.py tests/test_grossular_expanded_refit.py tests/test_grossular_followup_recovery.py tests/test_grossular_observation_audit.py"
+  },
+  "numerical_checks": {
+    "scientific_cases": 29,
+    "starts_per_case": 2,
+    "all_58_converged_without_bounds": true,
+    "largest_scaled_start_difference": 3.068756964097474e-08,
+    "test_replays": "Baseline and a factorial-grid corner from the second declared start",
+    "independent_equations": "All219 baseline states checked using independent SciPy forward Debye quadrature and fast inverse pressure equations, for source and fitted coefficients",
+    "artifact_consistency": "All6351 case residuals reconcile with their pressure objectives; all baseline source/fit native RMS values reconcile with exported rows; envelopes checked against all cases"
+  },
+  "style": "Ruff check, format check and git diff whitespace check passed for the changed scripts and test",
+  "documentation": {
+    "strict_clean_build": "passed including executable notebooks",
+    "seconds": 100.58,
+    "rendered_local_links_and_resources_checked": 128,
+    "image_resources_checked": 18,
+    "light_and_dark_sensitivity_figures": "visually inspected; final figures use colour cells and shared scales with exact values in the CSV",
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/mkdocs build --strict --site-dir <private-output>/site"
+  },
+  "preservation": {
+    "original_source_errors_and_observations": "Unchanged, including all19 missing Isaak error cells",
+    "earlier_193_rows": "Exactly preserved in every case",
+    "earlier_artifacts": "All four previous artifact manifests checked in tests",
+    "catalog_or_published_coefficient_changes": false,
+    "author_contacted": false,
+    "pyrope_correspondence": "Waiting for reply unchanged"
+  },
+  "fitted_rows": 219,
+  "nominal_channels": 220,
+  "anchor_added_as_independent_residual": false,
+  "author_workflow_reproduced": false,
+  "original_errors_recovered": false,
+  "branch": "codex/pyrope-angel-2022-audit",
+  "status": "passed_at_declared_scope"
+}

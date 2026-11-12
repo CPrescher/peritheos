@@ -1,5 +1,10 @@
 # Grossular: the remaining 73 channels and normalization
 
+**Subsequent user-requested experiment:** the [219-row fit and error sensitivity](grossular-angel-2022-full-sensitivity.md)
+assigns explicitly estimated errors to these 26 points. All 29 declared cases
+converge, but none reaches the published central K′ or θ. This page preserves
+the earlier source-recovery stage and its 193-row diagnostic.
+
 Investigation: 12 November 2026. This follows the
 [147-channel diagnostic](grossular-angel-2022-expanded-fit.md).
 **All 73 excluded channels now have an explicit disposition.** We recovered

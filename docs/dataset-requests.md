@@ -39,6 +39,13 @@ covariance-compatible upper bound for Conrad modulus errors. A conditional
 experimental errors remain missing; one Bosenick row is a normalization anchor.
 Original masks, normalization inputs and covariance are still unconfirmed.
 
+**Estimated-error experiment, explicitly requested by Clemens:** the
+[219-row sensitivity study](literature-reproductions/grossular-angel-2022-full-sensitivity.md)
+adds the 26 remaining observations using clearly labeled estimated errors.
+All 29 declared cases converge; none reaches the published central θ or K′.
+Original source errors and author normalization inputs remain unrecovered;
+estimates do not replace the outstanding input request. No author was contacted.
+
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,
 scale-factor groups, assigned coordinate errors and weights (including the
