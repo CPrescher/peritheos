@@ -1,4 +1,9 @@
-# EOSMAT v4
+# EOSMAT v4 compatibility
+
+New files and the bundled catalog use [EOSMAT v5](eosmat-v5.md). This page
+retains the v4 layout and historical uncertainty conventions. V5 keeps this
+layout while requiring errors and covariance in the units of their parameters.
+
 
 `BM2Reference` requires V0, K0 and P0, with V0/K0 defined at P0; ordinary BM2
 remains referenced to zero pressure. Native v4 and explicit v3 exports retain
@@ -89,6 +94,22 @@ errors. Annotation-only entries can retain uncertainty or fixed-state metadata
 for implicit/adopted parameters that were not stored as equation coefficients.
 The confidence convention, covariance matrix and ordered covariance parameter
 names remain explicit record metadata under their established field names.
+
+Volume uncertainty units are explicit when public cell volume and runtime
+molar volume differ. `parameter_error_volume_basis: "public"` makes the
+reference `V0.error` use the same units as `V0.value`; `"model"` uses the
+runtime volume unit. `parameter_covariance.volume_basis` independently
+specifies the units for `V0`/`rt_eos.V0` rows and columns. Both default to
+`"model"` for historical compatibility. The standalone creation API writes
+`"public"` for supplied thermal-reference V0 errors. Covariance conversion
+scales cross terms once and the volume variance twice.
+
+These annotations do not change source numbers or uncertainty confidence.
+Negative errors are rejected; reported zero errors are retained.
+For an older reader's numerical uncertainty API, load with the current package
+and use `Material.to_eosmat(format_version=3)` to export model-unit errors and
+covariance. A lossless format-only conversion preserves the original unit
+annotations and requires a reader that understands them.
 
 ## Thermal and advanced models
 
@@ -307,7 +328,8 @@ conversion nor successful parsing sets a parity status or recommends an EOS.
 ## Migration and compatibility
 
 Python and Rust read v2/v3/v4, including native local-sharing files with updated
-readers. Standalone files and all 232 bundled library files use native v4. The
+readers. Current standalone files and the bundled library use [v5](eosmat-v5.md);
+historical v4 files remain supported. The
 library keeps units visible in the header and evidence inline; migration changes
 the organization, not scientific values, observations, source evidence or usage
 restrictions. Older

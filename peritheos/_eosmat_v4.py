@@ -52,6 +52,7 @@ EVIDENCE_RESERVED = frozenset(
         "parameter_errors",
         "fixed_parameters",
         "parameter_error_confidence",
+        "parameter_error_volume_basis",
         "parameter_covariance",
         "volume",
         "validity",
@@ -140,10 +141,26 @@ def to_v3(document: Mapping[str, Any]) -> dict[str, Any]:
     from peritheos._eosmat_metadata import expand_metadata
 
     result = expand_metadata(_object(document, "document"))
-    if result.get("format_version") != 4:
-        raise EosmatError("Expected native EOSMAT format_version 4")
+    native_version = result.get("format_version")
+    if native_version not in (4, 5):
+        raise EosmatError("Expected native EOSMAT format_version 4 or 5")
+    if native_version == 5:
+        raw_records = result.get("eos_records")
+        if not isinstance(raw_records, list):
+            raise EosmatError("eos_records must be an array")
+        for record in raw_records:
+            if isinstance(record, Mapping) and (
+                "parameter_error_volume_basis" in record
+                or isinstance(record.get("parameter_covariance"), Mapping)
+                and "volume_basis" in record["parameter_covariance"]
+            ):
+                raise EosmatError(
+                    "EOSMAT v5 uncertainties always use parameter units; remove legacy unit flags"
+                )
     if "format" in result:
-        raise EosmatError("EOSMAT v4 uses format_version alone; remove format")
+        raise EosmatError(
+            f"EOSMAT v{native_version} uses format_version alone; remove format"
+        )
     if not isinstance(result.get("identifier"), str) or not result["identifier"]:
         raise EosmatError("EOSMAT v4 requires identifier")
     result["format"] = "peritheos.material"
@@ -201,6 +218,10 @@ def to_v3(document: Mapping[str, Any]) -> dict[str, Any]:
             record["thermal"] = thermal
         expanded.append(record)
     result["eos_records"] = expanded
+    if native_version == 5:
+        from peritheos._eosmat_uncertainty import mark_parameter_units
+
+        mark_parameter_units(result)
     return result
 
 

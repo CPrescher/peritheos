@@ -87,6 +87,7 @@ _V4_RECORD_KEYS = (
     "equation_options",
     "thermal",
     "parameter_error_confidence",
+    "parameter_error_volume_basis",
     "experimental_pressure_range_gpa",
     "experimental_temperature_range_k",
     "pressure_range_status",
@@ -169,7 +170,7 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
     fit on one line; long strings remain intact even above 120 columns.
     """
 
-    native = document.get("format_version") == 4
+    native = document.get("format_version") in (4, 5)
 
     def scalar(value: Any) -> bool:
         return not isinstance(value, (Mapping, list, tuple))

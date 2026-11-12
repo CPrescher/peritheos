@@ -126,7 +126,7 @@ def test_hugoniot_eosmat_round_trip_and_schema(hugoniot_record):
         eos_records=(hugoniot_record,),
         formula_units_per_cell=1.0,
     )
-    document = material.to_eosmat()
+    document = material.to_eosmat(format_version=3)
     record_document = document["eos_records"][0]
     assert record_document["equation_kind"] == "hugoniot"
     assert record_document["loading_path"] == "principal"
@@ -210,7 +210,7 @@ def test_hugoniot_eosmat_validation_rejects_inconsistent_metadata(hugoniot_recor
         eos_records=(hugoniot_record,),
         formula_units_per_cell=1.0,
     )
-    source = material.to_eosmat()
+    source = material.to_eosmat(format_version=3)
 
     def reject(path, value, message, *, delete=False):
         document = copy.deepcopy(source)

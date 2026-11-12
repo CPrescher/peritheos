@@ -48,9 +48,9 @@ def create_eosmat(
     fixed_parameters: Sequence[str] = (),
     formula_units_per_cell: float | None = None,
     thermal: Mapping[str, Any] | None = None,
-    format_version: int = 4,
+    format_version: int = 5,
 ) -> dict[str, Any]:
-    """Build a native v4, executable but unaudited standalone material document.
+    """Build a native v5, executable but unaudited standalone material document.
 
     ``model`` accepts an exact EOS type (e.g. ``BM3``) or its canonical model
     identifier. Parameters use GPa, kelvin and conventional-cell Å³. The
@@ -62,7 +62,7 @@ def create_eosmat(
     Molar-volume thermal models require explicit ``formula_units_per_cell``.
     Hugoniot initial states and advanced record metadata use the full EOSMAT schema.
 
-    The returned dictionary is independent of its inputs. V4 keeps values,
+    The returned dictionary is independent of its inputs. V5 keeps values,
     errors and fixed flags together, and detailed source checks in evidence.
     ``format_version=3`` explicitly exports to historical consumers.
     Loading it for calculations requires explicit unaudited acceptance through
@@ -140,6 +140,8 @@ def create_eosmat(
             raise EosmatError("thermal.model does not match thermal.type")
         component.update(resolved)
         record["thermal"] = component
+        if errors.get("V0") is not None:
+            record["parameter_error_volume_basis"] = "public"
     document: dict[str, Any] = {
         "format": EOSMAT_FORMAT,
         "format_version": 3,
@@ -158,7 +160,7 @@ def create_eosmat(
     validate_eosmat_document(document)
     # Check that the chosen model can actually be constructed. Keep the authored
     # declaration, rather than replacing it with a model's expanded defaults.
-    Material.from_eosmat(document, require_primary_validation=False)
+    material = Material.from_eosmat(document, require_primary_validation=False)
     native = convert_eosmat(document, version=EOSMAT_FORMAT_VERSION)
     # The version defines these units, but an author should be able to read
     # them in the file without looking up a specification.
@@ -168,4 +170,11 @@ def create_eosmat(
     if reference is None:
         record.pop("reference", None)
     record.pop("evidence", None)
-    return convert_eosmat(native, version=format_version)
+    result = convert_eosmat(native, version=format_version)
+    if format_version == 3:
+        legacy_record = result["eos_records"][0]
+        if legacy_record.pop("parameter_error_volume_basis", None) == "public":
+            legacy_record["parameter_errors"]["V0"] *= material.eos_records[
+                0
+            ].volume_scale
+    return result

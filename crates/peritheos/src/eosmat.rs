@@ -8,6 +8,7 @@
 
 use crate::experimental::maltby_2024::Maltby2024Published;
 mod native_v4;
+mod uncertainty_units;
 
 use std::collections::HashMap;
 use std::error::Error;
@@ -1469,7 +1470,7 @@ pub fn load_eosmat_str(source: &str) -> Result<Material, EosmatError> {
 /// Returns an error for invalid structure, unsupported models, or invalid
 /// model parameters.
 pub fn validate_eosmat_document(document: &Value) -> Result<(), EosmatError> {
-    if document["format_version"].as_u64() == Some(4) {
+    if matches!(document["format_version"].as_u64(), Some(4 | 5)) {
         return validate_eosmat_document(&native_v4::expand(document)?);
     }
     validate_document_structure(document)?;
@@ -1496,13 +1497,16 @@ pub fn serialize_eosmat(document: &Value) -> Result<String, EosmatError> {
 /// Returns an error for invalid content or unsupported source versions.
 pub fn export_eosmat_v3(document: &Value) -> Result<Value, EosmatError> {
     validate_eosmat_document(document)?;
-    match document["format_version"].as_u64() {
-        Some(4) => native_v4::expand(document),
-        Some(3) => Ok(document.clone()),
+    let version = document["format_version"].as_u64();
+    let mut result = match version {
+        Some(4 | 5) => native_v4::expand(document)?,
+        Some(3) => document.clone(),
         _ => Err(invalid_document(
-            "v3 export requires a v3 or v4 source document",
-        )),
-    }
+            "v3 export requires a v3, v4 or v5 source document",
+        ))?,
+    };
+    uncertainty_units::to_model_units(&mut result, version == Some(5))?;
+    Ok(result)
 }
 
 /// Validate and save a decoded `.eosmat` document.
@@ -1526,7 +1530,7 @@ pub fn save_eosmat(path: impl AsRef<Path>, document: &Value) -> Result<(), Eosma
 ///
 /// Returns an error for an unsupported format or an invalid EOS record.
 pub fn material_from_value(document: Value) -> Result<Material, EosmatError> {
-    if document["format_version"].as_u64() == Some(4) {
+    if matches!(document["format_version"].as_u64(), Some(4 | 5)) {
         let normalized = native_v4::expand(&document)?;
         validate_document_structure(&normalized)?;
         let mut material = construct_material(normalized)?;
@@ -1663,11 +1667,23 @@ fn validate_parameter_metadata(
     location: &str,
     canonical: bool,
 ) -> Result<(), EosmatError> {
+    if let Some(basis) = record.get("parameter_error_volume_basis") {
+        if !matches!(basis.as_str(), Some("public" | "model")) {
+            return Err(invalid_document(format!(
+                "{location}.parameter_error_volume_basis must be 'public' or 'model'"
+            )));
+        }
+    }
     match record.get("parameter_errors") {
         Some(value) => {
             for (name, error) in object_at(value, &format!("{location}.parameter_errors"))? {
-                if !error.is_null() {
-                    finite_at(error, &format!("{location}.parameter_errors.{name}"), false)?;
+                if !error.is_null()
+                    && finite_at(error, &format!("{location}.parameter_errors.{name}"), false)?
+                        < 0.0
+                {
+                    return Err(invalid_document(format!(
+                        "{location}.parameter_errors.{name} must be nonnegative"
+                    )));
                 }
             }
         }
@@ -1716,6 +1732,13 @@ fn validate_parameter_metadata(
 
 fn validate_covariance(value: &Value, location: &str) -> Result<(), EosmatError> {
     let covariance = object_at(value, location)?;
+    if let Some(basis) = covariance.get("volume_basis") {
+        if !matches!(basis.as_str(), Some("public" | "model")) {
+            return Err(invalid_document(format!(
+                "{location}.volume_basis must be 'public' or 'model'"
+            )));
+        }
+    }
     let matrix = array_at(
         covariance
             .get("matrix")

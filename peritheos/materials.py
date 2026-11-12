@@ -1281,8 +1281,9 @@ class Material:
     def to_eosmat(self, *, format_version: int | None = None) -> dict[str, Any]:
         """Return complete EOSMAT, retaining the loaded version.
 
-        Pass ``format_version=4`` for native structure or ``3`` for historical
-        consumers. Legacy programmatic records retain their v3 export default.
+        Pass ``format_version=5`` for uniform parameter-unit uncertainties.
+        Explicit v3/v4 exports convert to historical model-volume uncertainties.
+        Newly constructed materials default to v5; loaded files retain their version.
         """
         return _material_to_eosmat(self, format_version=format_version)
 
@@ -1297,7 +1298,7 @@ class Material:
 
     @classmethod
     def from_dict(cls, document: Mapping[str, Any]) -> "Material":
-        """Load native format 4, historical format 3, or deprecated snapshot 2."""
+        """Load native formats 4/5, historical format 3, or deprecated snapshot 2."""
         return material_from_dict(document)
 
     @classmethod
@@ -1596,7 +1597,12 @@ def _merge_eosmat_component(
     return result
 
 
-def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
+def _record_to_eosmat(
+    record: EOSRecord,
+    *,
+    format_version: int = 3,
+    legacy_uncertainty_units: bool = False,
+) -> dict[str, Any]:
     reference_eos = (
         record.eos.rt_eos if isinstance(record.eos, ThermalEOS) else record.eos
     )
@@ -1608,6 +1614,33 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
         record, record.parameter_provenance
     )
     result: dict[str, Any] = _plain_data(record.eosmat_metadata)
+    # Unmarked historical files use model-volume errors. Keep that input
+    # interpretation; new native exports can explicitly use coefficient units.
+    error_basis = (
+        "model"
+        if legacy_uncertainty_units
+        else result.get(
+            "parameter_error_volume_basis",
+            "model" if result or format_version == 3 else "public",
+        )
+    )
+    if error_basis == "public" and "V0" in reference_errors:
+        stored_error = result.get("parameter_errors", {}).get("V0")
+        if (
+            stored_error is not None
+            and reference_errors["V0"] == stored_error * record.volume_scale
+        ):
+            reference_errors["V0"] = stored_error
+        else:
+            reference_errors["V0"] /= record.volume_scale
+    if legacy_uncertainty_units:
+        result.pop("parameter_error_volume_basis", None)
+    elif (
+        record.volume_scale != 1.0
+        and "V0" in reference_errors
+        and (error_basis == "public" or "parameter_error_volume_basis" in result)
+    ):
+        result["parameter_error_volume_basis"] = error_basis
     result["equation_kind"] = record.equation_kind
     result.pop("default_for", None)
     if record.is_default:
@@ -1719,10 +1752,52 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
         )
         result.pop("path_kind", None)
     if record.parameter_covariance is not None:
-        result["parameter_covariance"] = {
-            "matrix": [list(row) for row in record.parameter_covariance],
-            "parameter_order": list(record.covariance_parameters or ()),
-        }
+        stored_covariance = result.get("parameter_covariance")
+        covariance_data = (
+            _plain_data(stored_covariance)
+            if isinstance(stored_covariance, Mapping)
+            else {}
+        )
+        covariance_basis = (
+            "model"
+            if legacy_uncertainty_units
+            else covariance_data.get(
+                "volume_basis",
+                "model" if stored_covariance or format_version == 3 else "public",
+            )
+        )
+        order = list(record.covariance_parameters or ())
+        scales = np.array(
+            [
+                record.volume_scale
+                if covariance_basis == "public" and name in {"V0", "rt_eos.V0"}
+                else 1.0
+                for name in order
+            ]
+        )
+        model_matrix = np.asarray(record.parameter_covariance)
+        stored_matrix = covariance_data.get("matrix")
+        if (
+            stored_matrix is not None
+            and covariance_data.get("volume_basis", "model") == covariance_basis
+            and covariance_data.get("parameter_order") == order
+            and np.array_equal(
+                np.asarray(stored_matrix) * scales[:, None] * scales, model_matrix
+            )
+        ):
+            # Reuse literal source entries when the runtime covariance is
+            # unchanged. Multiplying and dividing cross terms can lose one ulp.
+            matrix = np.asarray(stored_matrix)
+        else:
+            matrix = model_matrix / scales[:, None] / scales
+        covariance_data.update(matrix=matrix.tolist(), parameter_order=order)
+        if legacy_uncertainty_units:
+            covariance_data.pop("volume_basis", None)
+        elif record.volume_scale != 1.0 and (
+            covariance_basis == "public" or "volume_basis" in covariance_data
+        ):
+            covariance_data["volume_basis"] = covariance_basis
+        result["parameter_covariance"] = covariance_data
     else:
         result.setdefault("parameter_covariance", None)
     stored_validity = result.get("validity")
@@ -1764,7 +1839,7 @@ def _material_to_eosmat(
 ) -> dict[str, Any]:
     document = _plain_data(material.eosmat_metadata)
     native_version = (
-        document.get("format_version", 3) if format_version is None else format_version
+        document.get("format_version", 5) if format_version is None else format_version
     )
     document.update(
         {
@@ -1781,7 +1856,12 @@ def _material_to_eosmat(
                 "volume": material.volume_unit,
             },
             "eos_records": [
-                _record_to_eosmat(record) for record in material.eos_records
+                _record_to_eosmat(
+                    record,
+                    format_version=native_version,
+                    legacy_uncertainty_units=format_version == 3,
+                )
+                for record in material.eos_records
             ],
         }
     )
@@ -1817,7 +1897,14 @@ def _material_to_eosmat(
     from peritheos.eosmat import convert_eosmat, validate_eosmat_document
 
     validate_eosmat_document(document)
-    return convert_eosmat(document, version=native_version)
+    result = convert_eosmat(
+        document,
+        version=native_version,
+        legacy_uncertainty_units=format_version in (3, 4),
+    )
+    if native_version == 5:
+        result["units"] = copy.deepcopy(document["units"])
+    return result
 
 
 def _equation_component(eos: EquationOfState) -> dict[str, Any]:
@@ -2142,7 +2229,7 @@ def _material_from_eosmat(
 
     validate_eosmat_document(document)
     source_version = document.get("format_version", 3)
-    if source_version == 4:
+    if source_version in (4, 5):
         from peritheos._eosmat_v4 import to_v3
 
         document = to_v3(document)
@@ -2275,6 +2362,11 @@ def _material_from_eosmat(
 
             is_thermal = isinstance(eos, ThermalEOS)
             reference_errors = dict(raw_record.get("parameter_errors", {}))
+            if (
+                raw_record.get("parameter_error_volume_basis", "model") == "public"
+                and reference_errors.get("V0") is not None
+            ):
+                reference_errors["V0"] *= volume_scale
             errors: dict[str, float] = {
                 (f"rt_eos.{name}" if is_thermal else str(name)): float(value)
                 for name, value in reference_errors.items()
@@ -2304,6 +2396,17 @@ def _material_from_eosmat(
                 covariance_parameters = tuple(
                     str(name) for name in covariance_data.get("parameter_order", ())
                 )
+                if covariance_data.get("volume_basis", "model") == "public":
+                    scales = np.array(
+                        [
+                            volume_scale if name in {"V0", "rt_eos.V0"} else 1.0
+                            for name in covariance_parameters
+                        ]
+                    )
+                    covariance = tuple(
+                        tuple(row)
+                        for row in np.asarray(covariance) * scales[:, None] * scales
+                    )
             reference_temperature = float(
                 raw_record.get(
                     "temperature_ref",
@@ -2507,7 +2610,7 @@ def _material_from_eosmat(
         peaks=tuple(tuple(peak) for peak in document.get("peaks", ())),
         datasets=tuple(selected_datasets),
         eosmat_metadata={
-            "format_version": 4 if source_version == 4 else 3,
+            "format_version": source_version if source_version in (4, 5) else 3,
             **{
                 key: _plain_data(value)
                 for key, value in document.items()
@@ -2520,14 +2623,14 @@ def _material_from_eosmat(
 
 
 def material_from_dict(document: Mapping[str, Any]) -> Material:
-    """Load native eosmat format 4, historical format 3, or executable snapshot 2.
+    """Load native EOSMAT formats 4/5, historical format 3, or executable snapshot 2.
 
     Model identifiers are resolved through Peritheos's fixed registry. The
     informational ``implementation`` string is never imported or executed.
     """
     if document.get("format") == "peritheos.material" or document.get(
         "format_version"
-    ) in (3, 4):
+    ) in (3, 4, 5):
         return _material_from_eosmat(
             document,
             require_primary_validation=True,

@@ -66,15 +66,15 @@ def main(argv: Sequence[str] | None = None) -> int:
     create.add_argument(
         "--thermal-parameters", nargs="+", help="Thermal PARAMETER=VALUE pairs"
     )
-    create.add_argument("--format-version", type=int, choices=[3, 4], default=4)
+    create.add_argument("--format-version", type=int, choices=[3, 4, 5], default=5)
     convert = commands.add_parser(
-        "convert", help="Migrate a complete EOSMAT file between v3 and v4"
+        "convert", help="Migrate a complete EOSMAT file between v3, v4 and v5"
     )
     convert.add_argument("source", type=Path)
     convert.add_argument(
         "path", type=Path, help="New destination; existing files are kept"
     )
-    convert.add_argument("--format-version", type=int, choices=[3, 4], default=4)
+    convert.add_argument("--format-version", type=int, choices=[3, 4, 5], default=5)
     layout = convert.add_mutually_exclusive_group()
     layout.add_argument(
         "--compact",

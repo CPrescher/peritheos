@@ -119,6 +119,22 @@ def assert_snapshot_lineage(snapshot: dict, historical_sha256: str) -> None:
 
     if fingerprint(snapshot) == historical_sha256:
         return
+    migration_path = ROOT / "docs/data/eosmat-v5-migration.json"
+    if migration_path.exists():
+        migration = json.loads(migration_path.read_bytes())
+        changes = migration["scientific_record_changes"]
+        projected = copy.deepcopy(snapshot)
+        seen = set()
+        for document in projected["documents"]:
+            for index, record in enumerate(document["eos_records"]):
+                identifier = record["identifier"]
+                if identifier in changes and record == changes[identifier]["after"]:
+                    document["eos_records"][index] = changes[identifier]["before"]
+                    seen.add(identifier)
+        if seen:
+            assert seen == set(changes)
+            assert_snapshot_lineage(projected, historical_sha256)
+            return
     proof = json.loads(
         (ROOT / "docs/data/calculated-pattern-replacement.json").read_bytes()
     )

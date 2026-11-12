@@ -65,7 +65,7 @@ documents. The pre-0.7 convenience constants remain in an isolated
 compatibility layer and are excluded from canonical listing and search. Each
 `Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
 provides `to_dict()`/`from_dict()` and `to_eosmat()`/`from_eosmat()` for the
-canonical executable material document, preserving v3 or v4 on export. Optional crystallographic
+canonical executable material document, preserving the loaded v3, v4 or v5 version on export. Optional crystallographic
 fields are preserved but not interpreted. Loading uses a fixed model registry
 and never imports an implementation path. The legacy executable snapshot-v2
 reader and `to_snapshot_dict()` remain compatibility-only APIs.
@@ -178,7 +178,7 @@ and stable codes.
 ## Standalone `.eosmat` files
 
 `create_eosmat(identifier, formula, model, parameters, *, temperature_ref, ...)`
-returns a small, structurally valid native EOSMAT v4 dictionary for a user's own material.
+returns a small, structurally valid native EOSMAT v5 dictionary for a user's own material.
 It accepts an exact model type such as `BM3` or its canonical identifier
 `birch_murnaghan_3`, and fills in the matching exchange identifiers. Parameters
 use GPa, kelvin and conventional-cell Å³. The reference temperature is required.
@@ -203,9 +203,9 @@ and complete formulation-specific options. No cell contents are inferred.
 The creator constructs the selected model to check its configuration without
 adding unprovided metadata or changing the source inputs.
 
-New records remain diagnostic and unreviewed. V4 stores detailed checks in
+New records remain diagnostic and unreviewed. V5 stores detailed checks in
 `evidence` and keeps errors/fixed flags beside parameter values. See the
-[native format reference](eosmat-v4.md).
+[native format reference](eosmat-v5.md).
 `Material.from_eosmat(document, require_primary_validation=False)` explicitly
 accepts them for calculations. Creation and numerical construction do not
 establish source validation or fit reproduction. All full-schema fields can
@@ -215,12 +215,12 @@ subsequently be added to the returned dictionary. See the
 
 ### Readable files and local metadata sharing
 
-New standalone files display their units explicitly. V4 formatting places EOS
+New standalone files display their units explicitly. V5 formatting places EOS
 records before long crystallographic detail, and a record label before its
 coefficients. Ordinary files stay inline; sharing is optional for repeated
 metadata in large database files.
 
-`convert_eosmat(document, version=4, compact=True)` deduplicates exact repeated
+`convert_eosmat(document, version=5, compact=True)` deduplicates exact repeated
 metadata into a file-local `shared_metadata` table. `inline=True` expands local
 references for first-generation v4 readers. The two options are mutually
 exclusive; v3 exports are always expanded. Unused definitions and all original
@@ -230,7 +230,7 @@ model-based reserialization may normalize metadata just as for other EOSMAT file
 The installed commands `python -m peritheos validate FILE` and
 `python -m peritheos format FILE [--check]` validate declarations or format layout
 without scientific inference. See [the authoring guide](eosmat-authoring.md) for
-complete examples, and [native v4](eosmat-v4.md) for the optional standardized
+complete examples, and [native v5](eosmat-v5.md) for the optional standardized
 `evidence.reproduction.assessment` and its explicit comparison scope/basis.
 
 ## Shared `.eosmat` material library
@@ -250,15 +250,17 @@ from peritheos import (
 material cards, including source-only cards with no executable EOS.
 `get_material_document(identifier)` returns a defensive copy in the historical
 v3 dictionary layout so existing integrations keep working. The bundled files
-themselves use native v4. Pass `format_version=4` to get native fields, or
+themselves use native v5. Pass `format_version=5` to get native fields, or
 `format_version=None` to retain the stored version. The same options apply to
 `get_eos_record_document(identifier)`, including document-only records.
 `load_eosmat()` always retains the file's authored layout and also accepts native
 Dioptas 0.10.0 format-2 files;
 `save_eosmat()` validates and preserves optional fields and the input version.
-`load_eosmat()` also reads native v4. `convert_eosmat(document, version=4)`
-migrates a complete v3 document; `version=3` exports for older readers.
-`eosmat_schema(4)` returns the native schema; the historical no-argument schema
+`load_eosmat()` reads v2–v5. `convert_eosmat(document, version=5)`
+migrates a complete v3/v4 document. `version=3` or `version=4` exports
+model-unit uncertainties without new flags for older readers. V5 errors and
+covariance use parameter units; see [the uniform rule](eosmat-v5.md).
+`eosmat_schema(5)` returns the native schema; the historical no-argument schema
 call retains v3 for existing callers.
 The [`.eosmat` schema reference](eosmat-schema.md) documents the complete
 field contract and consumer defaults.

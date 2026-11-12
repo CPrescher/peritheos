@@ -1,12 +1,11 @@
 """Frozen release sources and explicitly reviewed integration fingerprints."""
 
-import copy
 import hashlib
 import json
 from pathlib import Path
 
-from peritheos import load_eosmat
 from scripts.merge_source_bindings import accepts_merge_binding
+from scripts.uncertainty_volume_basis_review import prior_material_document
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -18,7 +17,7 @@ def test_sources_match_frozen_release_or_reviewed_merge_fingerprints():
     assert proof["base_commit"] == "239b47be50e1d65064b118d5cae76e055a3e7ae6"
     assert len(proof["source_documents"]) == 233
     for relative, expected in proof["source_documents"].items():
-        document = copy.deepcopy(load_eosmat(ROOT / relative))
+        document = prior_material_document(Path(relative).stem)
         if document["identifier"] == "cementite":
             # Version 0.17.2 adds this one reviewed source and two datasets.
             # Project only those additions out before checking the frozen

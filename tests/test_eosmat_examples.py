@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 )
 def test_complete_teaching_files_are_native_unreviewed_and_numerically_compatible(name):
     document = load_eosmat(ROOT / "docs/examples" / f"{name}.eosmat")
-    Draft202012Validator(eosmat_schema(4)).validate(document)
+    Draft202012Validator(eosmat_schema(5)).validate(document)
     assert document["units"]["pressure"] == "GPa"
     assert document["units"]["volume"] == "angstrom^3/conventional_unit_cell"
     native = Material.from_eosmat(document, require_primary_validation=False)

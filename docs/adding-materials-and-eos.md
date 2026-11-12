@@ -5,8 +5,8 @@ a data-entry change. A reviewer must be able to identify the represented
 material, trace every equation and parameter to its source, execute the same
 formulation in Peritheos, and understand where the result is valid.
 
-New and bundled library files use [native EOSMAT v4](eosmat-v4.md). The scientific requirements
-below apply equally to v4 and legacy v3: v4 keeps parameter values/errors/fixed
+New and bundled library files use [native EOSMAT v5](eosmat-v5.md). The scientific requirements
+below apply equally to v5 and historical v3/v4: native EOSMAT keeps parameter values/errors/fixed
 flags together and stores detailed review/provenance in `evidence`. References
 to legacy field paths below retain the same scientific meaning after migration.
 

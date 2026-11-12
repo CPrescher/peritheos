@@ -25,14 +25,14 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_native_catalog_and_compatibility_views_preserve_complete_content(identifier):
     path = ROOT / "peritheos/data/materials" / (identifier + ".eosmat")
     native = load_eosmat(path)
-    assert native["format_version"] == 4
+    assert native["format_version"] == 5
     assert "format" not in native
     assert "shared_metadata" not in native
     assert native["units"]["pressure"] == "GPa"
     assert native["units"]["temperature"] == "K"
     assert native["units"]["volume"] == "angstrom^3/conventional_unit_cell"
     assert native == get_material_document(identifier, format_version=None)
-    assert native == get_material_document(identifier, format_version=4)
+    assert native == get_material_document(identifier, format_version=5)
     legacy = get_material_document(identifier)
     assert legacy["format_version"] == 3
     assert scientific_content(native) == scientific_content(legacy)
@@ -54,10 +54,10 @@ def test_record_lookup_supports_native_fields_and_returns_defensive_copies():
     record = get_material_document("gold")["eos_records"][0]
     identifier = record["identifier"]
     assert get_eos_record_document(identifier) == record
-    native = get_eos_record_document(identifier, format_version=4)
+    native = get_eos_record_document(identifier, format_version=5)
     assert native == get_eos_record_document(identifier, format_version=None)
     native["parameters"].clear()
-    assert get_eos_record_document(identifier, format_version=4)["parameters"]
+    assert get_eos_record_document(identifier, format_version=5)["parameters"]
 
 
 def test_migration_check_and_repeat_are_read_only_and_maintenance_keeps_v4(tmp_path):

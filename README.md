@@ -157,7 +157,7 @@ from the bundled `.eosmat` files. See [Material catalog](docs/catalog.md) for
 typed discovery examples, [Pressure standards](docs/pressure-standards.md) for
 EOS records commonly used in that application, and
 [Dioptas and `.eosmat`](docs/dioptas-integration.md)
-for the shared material library. The [native EOSMAT v4 reference](docs/eosmat-v4.md) defines the current file
+for the shared material library. The [native EOSMAT v5 reference](docs/eosmat-v5.md) defines the current file
 structure and units; the [v3 compatibility reference](docs/eosmat-schema.md)
 retains historical fields and advanced scientific semantics.
 

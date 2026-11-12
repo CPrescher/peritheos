@@ -289,6 +289,7 @@ def independent_generation_baseline():
         assert_snapshot_lineage,
         scientific_snapshot,
     )
+    from scripts.uncertainty_volume_basis_review import prior_material_bytes
 
     root = Path(__file__).resolve().parents[1]
     proof = json.loads(
@@ -297,13 +298,16 @@ def independent_generation_baseline():
     assert_snapshot_lineage(
         scientific_snapshot(), proof["after_catalog_scientific_sha256"]
     )
-    originals = {}
+    unit_review = json.loads(
+        (root / "docs/data/uncertainty-volume-basis-review.json").read_bytes()
+    )
+    v5_review = json.loads((root / "docs/data/eosmat-v5-migration.json").read_bytes())
+    originals = {
+        Path(relative).stem: prior_material_bytes(Path(relative).stem)
+        for relative in unit_review["materials"].keys() | v5_review["materials"].keys()
+    }
     for material, binding in proof["prior_documents"].items():
-        payload = (
-            (root / "peritheos/data/materials" / f"{material}.eosmat")
-            .read_bytes()
-            .decode("utf-8")
-        )
+        payload = prior_material_bytes(material).decode("utf-8")
         document = json.loads(payload)
         added = document["datasets"][-1]
         assert added["identifier"] == binding["added_identifier"]

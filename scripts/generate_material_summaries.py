@@ -264,8 +264,8 @@ def coefficient(record: Mapping[str, Any], name: str) -> str:
 def render_material(
     document: Mapping[str, Any], *, executable: set[str], defaults: Mapping[str, str]
 ) -> str:
-    if document.get("format_version") == 4:
-        document = convert_eosmat(document, version=3)
+    if document.get("format_version") in (4, 5):
+        document = convert_eosmat(document, version=3, legacy_uncertainty_units=False)
     identifier = document["identifier"]
     records = document["eos_records"]
     source = SOURCE_URL + "materials/" + quote(identifier) + ".eosmat"

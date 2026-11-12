@@ -127,8 +127,8 @@ def test_catalog_metadata_is_explicit_and_json_safe():
     document = get_material("mgo_b1").to_dict()
     record = document["eos_records"][0]
 
-    assert document["format"] == "peritheos.material"
-    assert document["format_version"] == 3
+    assert "format" not in document
+    assert document["format_version"] == 5
     assert document["identifier"] == "mgo_b1"
     assert all("roles" not in item for item in document["eos_records"])
     assert document["units"] == {
@@ -137,11 +137,17 @@ def test_catalog_metadata_is_explicit_and_json_safe():
         "volume": "angstrom^3/conventional_unit_cell",
     }
     assert record["reference"]["doi"] == "10.1029/2008JB005813"
-    assert record["eos"]["model"] == "vinet"
-    assert record["eos"]["parameters"]["K0"] == 160.63
-    assert record["thermal"]["model"] == ("asymptotic_power_law_mie_gruneisen_debye")
-    assert "Table 4" in record["parameter_provenance"]["thermal_correction"]["gamma0"]
-    assert record["scientific_validation"]["status"] == "primary_source_validated"
+    assert record["model"] == "Vinet"
+    assert record["parameters"]["K0"]["value"] == 160.63
+    assert record["thermal"]["model"] == "AsymptoticPowerLawMieGruneisenDebye"
+    assert (
+        "Table 4"
+        in record["evidence"]["parameter_provenance"]["thermal_correction"]["gamma0"]
+    )
+    assert (
+        record["evidence"]["scientific_validation"]["status"]
+        == "primary_source_validated"
+    )
     json.dumps(document)
     for material in list_materials():
         json.dumps(material.to_dict(), allow_nan=False)
@@ -156,7 +162,7 @@ def test_material_document_records_actual_model_volume_basis():
 
 
 def test_material_document_groups_scales_without_merging_equation_components():
-    document = get_material("au_fcc").to_dict()
+    document = get_material("au_fcc").to_eosmat(format_version=3)
 
     assert document["formula"] == "Au"
     assert len(document["eos_records"]) == 3
@@ -390,7 +396,7 @@ def test_material_document_round_trips_component_qualified_covariance():
 
 def test_material_document_loader_rejects_unvalidated_composition():
     payload = get_material("au_fcc").to_dict()
-    validation = payload["eos_records"][1]["scientific_validation"]
+    validation = payload["eos_records"][1]["evidence"]["scientific_validation"]
     validation["status"] = "pending_primary_source_check"
     with pytest.raises(ValueError, match="pending_primary_source_check"):
         Material.from_dict(payload)
@@ -399,8 +405,8 @@ def test_material_document_loader_rejects_unvalidated_composition():
 @pytest.mark.parametrize(
     ("field", "value", "message"),
     [
-        ("format", "other", "Unsupported material format"),
-        ("format_version", 1, "format 3"),
+        ("format", "other", "format_version alone"),
+        ("format_version", 1, "format|snapshot"),
     ],
 )
 def test_material_document_loader_rejects_wrong_format(field, value, message):

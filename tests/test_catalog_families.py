@@ -228,6 +228,6 @@ def test_bundled_catalog_rejects_unknown_membership_even_on_structure_only_card(
     document = get_material_document("gold")
     document.update(family_id="missing_family", eos_records=[])
     monkeypatch.setattr(catalog, "list_material_documents", lambda: ("gold",))
-    monkeypatch.setattr(catalog, "get_material_document", lambda _: document)
+    monkeypatch.setattr(catalog, "get_material_document", lambda _, **kwargs: document)
     with pytest.raises(MaterialError, match="references unknown family"):
         catalog._catalog_index.__wrapped__()

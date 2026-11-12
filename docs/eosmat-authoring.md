@@ -18,10 +18,10 @@ assert record.pressure(375.04) == 32.7
 The example is explicitly unaudited. The published Bykova record has separate
 source review, joint-phase scope and use limitations.
 
-EOSMAT v4 is the native format for new material files. It supports small
+EOSMAT v5 is the native format for new material files. It supports small
 standalone user definitions and complete curated database records in the same
 `.eosmat` file. There is no separate authoring format, database registration or
-required companion file. See the [v4 format reference](eosmat-v4.md).
+required companion file. See the [v5 format reference](eosmat-v5.md).
 
 ## Read a file before editing it
 
@@ -72,7 +72,7 @@ python -m peritheos create my_material.eosmat \
 The coefficients above are fictional. Replace them with your material's values.
 Version 4 fixes the exchange units to GPa, kelvin and **conventional-cell Å³**.
 The reference temperature is supplied explicitly. The command creates a native
-v4 file with its units visible in the header and refuses to overwrite an existing destination.
+v5 file with its units visible in the header and refuses to overwrite an existing destination.
 Use `--id` if the filename stem is not lower snake case, `--name` for a display
 name and `--reference` to record a source citation.
 
@@ -124,6 +124,47 @@ The creation API accepts `parameter_errors={"K0": 2}` and
 `fixed_parameters=["K0_prime"]`; the command accepts `--errors K0=2 --fixed K0_prime`.
 These are input conveniences; the saved file uses the native annotations above.
 
+In v5, every error uses the same unit as its parameter value. The reference
+`V0` and its error both use conventional-cell Å³, including for molar-volume
+thermal models. Internal conversions are handled together by the reader.
+No uncertainty unit-switch fields are needed or allowed in v5 records.
+
+This complete example uses fictional coefficients and a cell-volume error:
+
+```python
+from peritheos import Material, create_eosmat
+
+document = create_eosmat(
+    "my_thermal",
+    "MgO",
+    "BM3",
+    {"V0": 74.7, "K0": 160, "K0_prime": 4},
+    temperature_ref=300,
+    parameter_errors={"V0": 0.02},  # Å³ per conventional cell
+    formula_units_per_cell=4,
+    thermal={
+        "model": "MieGruneisenDebye",
+        "parameters": {"Tr": 300, "theta0": 760, "gamma0": 1.5, "q": 1, "n": 2},
+    },
+)
+record = Material.from_eosmat(document, require_primary_validation=False).eos_records[0]
+prediction = record.pressure_with_uncertainty(70, 1000, volume_sigma=0.01)
+print(prediction.value, prediction.standard_error)
+```
+
+Each covariance entry uses the product of the corresponding parameter units:
+V0 variance uses Å⁶, K0 variance uses GPa², and a V0–K0 cross term uses Å³·GPa.
+Use `rt_eos.V0` for reference-isotherm volume in a thermal record. State the
+matrix's source, parameter order and confidence assumptions separately.
+Missing errors remain unknown; reported zero errors are preserved,
+and negative errors are invalid. See [the v5 uncertainty rule](eosmat-v5.md).
+
+Old v2/v3/v4 files keep their original interpretations. Explicit v3/v4 exports
+convert errors and covariance back to historical model units for older readers.
+Use `convert_eosmat(document, version=3)` or `version=4`, or the corresponding
+`material.to_eosmat(format_version=...)` call. Same-version v5 conversion
+retains literal source values. No fit or scientific reclassification is run.
+
 A thermal component declares its model once and retains all formulation
 options. In Python, pass `thermal` and supply `formula_units_per_cell` for
 molar-volume models. Command-line equivalents are `--thermal-model`,
@@ -139,7 +180,7 @@ in [Adding materials and EOS](adding-materials-and-eos.md).
 
 ## Save, format and exchange
 
-`load_eosmat()` reads v2/v3/v4. `save_eosmat()` retains the input version, all
+`load_eosmat()` reads v2/v3/v4/v5. `save_eosmat()` retains the input version, all
 source values, record order and unknown material/record extensions. It writes
 existing destinations so deliberate edits can be saved. The creation and
 migration commands use new destinations to protect existing files.
@@ -157,7 +198,7 @@ not needed. `validate` checks structure, model declarations and local references
 It does not establish experimental accuracy or fit reproduction. `format` changes
 layout only, retaining every JSON value and array order; `--check` is read-only.
 
-In v4, saved records put model, reference temperature, coefficients and thermal
+In v5, saved records put model, reference temperature, coefficients and thermal
 terms first, followed by uncertainty confidence, experimental coverage, validity
 and usage qualifications. Thermal blocks use `model`, then `parameters`, then
 the explicit law/reference choices. Full covariance, citations, calibration and
@@ -209,7 +250,7 @@ and unknown extensions outside those locations are untouched.
 The [shared-metadata example](examples/shared-material.eosmat) contains the same
 scientific content as the inline database-style example. Prefer the inline file
 when that is easier to read. The first-generation v4 reader did not implement
-local sharing: use `--inline` for it, or `--format-version 3` for v3 consumers.
+local sharing: use `--format-version 4 --inline` for it, or `--format-version 3` for v3 consumers.
 Both compatibility exports retain unused definitions as inert supporting metadata.
 
 ## Inspect database records
@@ -224,12 +265,12 @@ python -m scripts.generate_material_summaries --check
 python -m scripts.generate_catalog_coverage --check
 ```
 
-The bundled library uses the same native v4 structure, with explicit units and
+The bundled library uses the same native v5 structure, with explicit units and
 inline evidence. For repository maintenance, migrate older files in place with
-`python -m scripts.migrate_eosmat_v4 [paths ...]`; without paths it selects the
-bundled library. `--check` reports files needing migration without writing them.
-The migration compares the complete scientific content before writing and is
-safe to repeat. Catalog maintenance tools read either layout and write v4.
+`python -m peritheos convert INPUT OUTPUT` migrates a standalone file with
+the installed package. Catalog migration has a repository-only, checksum-bound
+receipt in `docs/data/eosmat-v5-migration.json`; it is not required for user files.
+
 Use the installed `peritheos convert` command above for standalone files and
 explicit compatibility exports.
 
@@ -244,13 +285,13 @@ python -m scripts.run_eosmat_audit refit_miozzi_2020_tange --check
 ```
 
 The runner gives the original script a temporary v3 export. A successful
-`--register` saves any material changes back as v4, after checking for concurrent
+`--register` saves any material changes back as v5, after checking for concurrent
 edits. For its historical calibration fingerprints, its catalog lookup excludes
 only the later standardized ledger assessment, retaining all original evidence,
 coefficients and datasets. The archived hashes and audit code remain unchanged;
 ordinary library lookups and compatibility exports retain the full assessment.
 This compatibility step is only for these historical repository scripts;
-normal file reading, authoring and calculation use v4 directly.
+normal file reading, authoring and calculation use v5 directly.
 
 ## Reading reconstruction reports
 

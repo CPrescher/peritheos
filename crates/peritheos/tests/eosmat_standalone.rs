@@ -4,7 +4,7 @@ use peritheos::{export_eosmat_v3, load_eosmat, load_eosmat_str, material_from_va
 use serde_json::json;
 
 #[test]
-fn minimal_python_authoring_template_is_a_regular_lossless_v4_document() {
+fn minimal_python_authoring_template_is_a_regular_lossless_v5_document() {
     let path =
         Path::new(env!("CARGO_MANIFEST_DIR")).join("../../docs/examples/simple-material.eosmat");
     // The standalone Rust package does not include repository documentation.
@@ -13,7 +13,7 @@ fn minimal_python_authoring_template_is_a_regular_lossless_v4_document() {
     }
     let material = load_eosmat(path).unwrap();
     let record = &material.eos_records[0];
-    assert_eq!(material.document["format_version"], 4);
+    assert_eq!(material.document["format_version"], 5);
     assert_eq!(record.document["model"], "BM3");
     assert_eq!(record.document["parameters"]["K0_prime"]["fixed"], true);
     // Independent BM3 checkpoint with the template's K0'=4.

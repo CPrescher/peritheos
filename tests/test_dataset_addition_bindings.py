@@ -1,12 +1,12 @@
 """Later calculated declarations must not invalidate or replace frozen sources."""
 
-import copy
 import hashlib
 import json
+from pathlib import Path
 
-from peritheos import load_eosmat
 from peritheos_build import ROOT
 from scripts.merge_source_bindings import accepts_merge_binding
+from scripts.uncertainty_volume_basis_review import prior_material_document
 
 
 def fingerprint(value):
@@ -24,7 +24,7 @@ def test_removing_only_reviewed_additions_recovers_accepted_predecessors():
     )
     for entry in proof["materials"].values():
         path = entry["path"]
-        document = copy.deepcopy(load_eosmat(ROOT / path))
+        document = prior_material_document(Path(path).stem)
         for record in document["eos_records"]:
             record.get("evidence", {}).get("reproduction", {}).pop("assessment", None)
         binding = proof["bindings"]["release_document"][path]
@@ -69,7 +69,7 @@ def test_reconstruction_cohorts_keep_exact_dataset_and_document_predecessors():
     for context in ("uncertainty_datasets", "similar_document"):
         for material, binding in proof["bindings"][context].items():
             entry = proof["materials"][material]
-            document = copy.deepcopy(load_eosmat(ROOT / entry["path"]))
+            document = prior_material_document(Path(entry["path"]).stem)
             for record in document["eos_records"]:
                 record.get("evidence", {}).get("reproduction", {}).pop(
                     "assessment", None

@@ -5,6 +5,17 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### EOSMAT v5
+
+- Standardize file errors to their parameter units and covariance entries to
+  the product of their parameter units. V5 uses the existing readable native
+  layout without uncertainty unit-switch fields. New authoring defaults to v5;
+  loaded v2/v3/v4 files retain their interpretation and version.
+- Migrate the 234 bundled material documents with exact predecessor receipts.
+  Preserve physical uncertainties, coefficients, observations, confidence and
+  scientific classifications. Python and Rust read v5; legacy exports convert
+  uncertainty back to model-volume units for older readers.
+
 ### Changed
 
 - Split the manual's equation reference into individual model-family pages with

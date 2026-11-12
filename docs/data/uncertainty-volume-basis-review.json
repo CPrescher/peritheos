@@ -1,0 +1,591 @@
+{
+  "schema": "peritheos.uncertainty-volume-basis-review.v1",
+  "date": "2026-11-12",
+  "scope": "Explicit uncertainty volume units only; original coefficients, errors, covariance entries, source evidence, observations and scientific classifications are preserved.",
+  "legacy_default": "model",
+  "materials": {
+    "peritheos/data/materials/alumina_rh2o3_ii.eosmat": {
+      "before_sha256": "ec756675610caf2bde4d427ba467796011ab2936585f4b269c090324e9383a41",
+      "after_sha256": "4676d609574b589eee5581e653045775ebba322148ff3803546d5aca1f858ed5",
+      "preserved_document_sha256": "7cef8b6e3b4c8bf535cc272679dd8fa0c73e3fa8ccd51af46180f0ac0a928474"
+    },
+    "peritheos/data/materials/boron_nitride.eosmat": {
+      "before_sha256": "9960b704b01fbf5749abbe484d5b80bb380451543d3bf76950d27d303c4d95ad",
+      "after_sha256": "040a77199c35b38d088e58f407cddf4b48d3b269ebb12cb68ccf165c7d23d218",
+      "preserved_document_sha256": "59061287732dfbeccc032de86246912d0480380e9654c554f00689141d76acbd"
+    },
+    "peritheos/data/materials/bridgmanite.eosmat": {
+      "before_sha256": "20de64784ad2aa75de4cfa04231fe385d3fa33dfb016735949d67efaeb05e887",
+      "after_sha256": "6abda65bd31df9fcdbb23c33f7bea948feab541a4c7088181dda6a3b76dc4a4b",
+      "preserved_document_sha256": "1cca097021e70528804e87a3b564f8b85752840af1af59bf7384bdb5bb368582"
+    },
+    "peritheos/data/materials/ca_perovskite.eosmat": {
+      "before_sha256": "a7dd24bbdda1c21cb1ec669ff354cdc8982af6d2f445f29f7447e5848f1af859",
+      "after_sha256": "13a1fc49351cb1851fd8bcff5d88e7b8dbc5dea3c88771da5734deebb12fd199",
+      "preserved_document_sha256": "de9fab9077ca097156a0dc23bea523b774bef8f286848c6d15070ff95cc26031"
+    },
+    "peritheos/data/materials/cementite_nonmagnetic.eosmat": {
+      "before_sha256": "3aeae58158fa522c3e2880885d77f241dd586f5f5a2de7d9f76d123b217732e4",
+      "after_sha256": "34a1102ea40a3c59c3c5c6a41e72b0aacb5a0ef98da4ab24e13ac30e961da70f",
+      "preserved_document_sha256": "efb04528541e7db4e44770f5f796c1161f007e5f280efbda3a5c971badfa1261"
+    },
+    "peritheos/data/materials/diamond.eosmat": {
+      "before_sha256": "75c23a0c1ff7937845ed4ed6e52dd00ca7c1972c53dd5a5360e4de030b565275",
+      "after_sha256": "b2a262f0fb45edac6f1bc2c121a014ac1ef91894d4d55dc4646e1b521ae41e78",
+      "preserved_document_sha256": "52aa5de0981242ab20a0c6bc5a4ff4e2ddfdf8ce40a302f41e0c79e2d89ab89a"
+    },
+    "peritheos/data/materials/fe073si027_d03.eosmat": {
+      "before_sha256": "b0ba915e9860088116ee45d5cce7003905b6368fe506813f3943dd60356e55b9",
+      "after_sha256": "e3db3df5f2bd9998b438bb4740b11f0b12dbab0b6570e085735d9b6ba00ac61c",
+      "preserved_document_sha256": "bd95fad4e067e487293535c8fc8d6386c584e0f89793761ee46c78ba5276be00"
+    },
+    "peritheos/data/materials/fe084si016_hcp.eosmat": {
+      "before_sha256": "5346f854452ab3fb2d11daec6d753900702e9f46674a05670604f1a67847fe03",
+      "after_sha256": "cdd5cce2e2da02b134793e3d18f0a5c964a3086076d19c0ef760f080ece87afe",
+      "preserved_document_sha256": "06cea97001049f2d01da19b0148f324c7673532b63f283df8bc14e48f8b0aaca"
+    },
+    "peritheos/data/materials/fe09ni01_hcp.eosmat": {
+      "before_sha256": "160693d305a1ea0195ed78a40353000f72f3f64e1e207dc76c752f4b85e59408",
+      "after_sha256": "8cdf2454f68e3ff67df623bd4ece19776b22c4ca65b81843833321977d9a4a13",
+      "preserved_document_sha256": "9058359b66798486e2575527786cf5be0c9f7b540be55aebf2a483df00f9a7b0"
+    },
+    "peritheos/data/materials/feo_b8_2.eosmat": {
+      "before_sha256": "b845816505347e369ffc3a0be818f0596378e185632deda97296de3d8e4d3db6",
+      "after_sha256": "676d9daec7a1d5082177efd1c3c02782fbb451bc6fba6f67720d95b04bd01d59",
+      "preserved_document_sha256": "a045d56046e2a91dc82a4e1a1e2c784e188fc672ffe00073e4055b6b1209eb4b"
+    },
+    "peritheos/data/materials/fes_vi.eosmat": {
+      "before_sha256": "5703bd53519147fd5853f986c1b3f216882b0d60e4b330bcdb90ba67f1cd3aeb",
+      "after_sha256": "113368b20b9a5a360ae2651902a7664beede51bdf880cff0d4c15b6904dbe3cf",
+      "preserved_document_sha256": "d3e4a17738312b2bc187f795ddfb6aee66fd97e1b9c49950466e5bce521e4d01"
+    },
+    "peritheos/data/materials/goethite.eosmat": {
+      "before_sha256": "4d109f6e2906049e8ca7c257e21f4e6c8534a9dbe70d474ce8227c37fb1d6649",
+      "after_sha256": "a13a1f8b08ba72dadc91b766fca6e5abbf3fe529a0c6f6f36325813dd07f5a55",
+      "preserved_document_sha256": "c44faf33cecadc78affe834e264a62ea378508b804489de60600d7bea745308e"
+    },
+    "peritheos/data/materials/gold.eosmat": {
+      "before_sha256": "44df6ef4b81a820062fae0288e9b9ab007d0f9a142bd8c866833585fe393b9c0",
+      "after_sha256": "89f7de606627aea3b8656699dcc89dc33fcb38c594c783569e84f871887cc809",
+      "preserved_document_sha256": "b4aedbcdbb1cbe7f386cad2224a5330610a98650c8b77edd378bb9843fb41ba0"
+    },
+    "peritheos/data/materials/iridium.eosmat": {
+      "before_sha256": "a1b2ad65ad6efc1da2f645d0b0e97062037964100a46494ed3ac8003a13c4f6a",
+      "after_sha256": "98fd631caafb83af9d3988bf431b340fda36ff648b6cd2e0eba5af26bae25d61",
+      "preserved_document_sha256": "02f8f31ca7b3c1b4b807dc39d4d7d2cb6f122bcdca870191f3fe64f59bc67f2e"
+    },
+    "peritheos/data/materials/iron.eosmat": {
+      "before_sha256": "c580009d59ed2224383bbc31f897d05581ff788fbe10c9a4de26985c69ce8efb",
+      "after_sha256": "b3cedf848562a17abec14d524901d1a1f3058a889e66431f5e5e25eb7d57ad41",
+      "preserved_document_sha256": "7db01be7de104679b74632cd7ce068098447987b6c1a9687c6b4cb0eda7dda3f"
+    },
+    "peritheos/data/materials/kcl.eosmat": {
+      "before_sha256": "a8f7095cd4a7e15c5a3192491f42647ee25e0ec629f51cc7fce97db1d268d4ed",
+      "after_sha256": "32ba8a650aa5308929815f34ea6a2a78695a211abfd10150f3f2edcb0550e5e7",
+      "preserved_document_sha256": "a8f27335c76d629ae6ebc8f193e2a780ac0336237439ce1e19691668ec571c14"
+    },
+    "peritheos/data/materials/mg075fe025o.eosmat": {
+      "before_sha256": "d690657beae398008fe2548f64ce16d34d9de2d09c7bec7f19c5f86be5361fbb",
+      "after_sha256": "c7caf60e8dfc9f84e4bde75b03156917470064a5566a282bf695b644e4ee5091",
+      "preserved_document_sha256": "74284ce094129abca5ba61c1ceac317e5ee92ee5bb9e4a440d0b234affe9d322"
+    },
+    "peritheos/data/materials/mg083fe017o.eosmat": {
+      "before_sha256": "403aeafbb5951948e3bc7f9ce609d7f524042a60f1ad381753a2f46261c173d8",
+      "after_sha256": "44c2b25aec464a4021324042297ced5808d66ec1af2371d087f4479552e2e76c",
+      "preserved_document_sha256": "c99f10e5c5e956d31091a1947927940f90e653d0d0f9c3b10a907550fce85ed3"
+    },
+    "peritheos/data/materials/mg087fe013sio3_bridgmanite.eosmat": {
+      "before_sha256": "baf8df483965d266eb278e1f50bb8860127f0b077d5c5db3fbf72400a0607fc4",
+      "after_sha256": "3393c893260240943cc30659501a026d59d3f2b2b81617b116dbaa43fe7f102a",
+      "preserved_document_sha256": "24af01b9ac09cc46580a32ca27b4155db71377bc11c50eaf58b002b6f6649bef"
+    },
+    "peritheos/data/materials/mgal2o4_cafe2o4.eosmat": {
+      "before_sha256": "a1250cec20d4e4b043c111c5995505408c82426aad8ebc54fdce6b9e81fc0fc5",
+      "after_sha256": "25a1c6d778a3ae690c29582536349eebf0e1c3daa9305171dca18da1b1738909",
+      "preserved_document_sha256": "1c5c6f43f5eaf6968788d3c597e4ab519656b144fe4f044ab24a8bbef535a6b4"
+    },
+    "peritheos/data/materials/mgo.eosmat": {
+      "before_sha256": "027516fc44bdca4200ac08ca4f0dd9e1e24009ca60b742883249da0eab451248",
+      "after_sha256": "dd4faa4c0a9a83415c82cb22f0c0b622a654cfa7cb5e1209562da45a1a3bbce9",
+      "preserved_document_sha256": "5283cacd6ee108b88d45d2a7a5f545c2712225346b3a9f6c7eaad34498dfde4b"
+    },
+    "peritheos/data/materials/platinum.eosmat": {
+      "before_sha256": "cf23af9492ff1b17c87ac91547948aa2e3d5f6ec738e2cf7d60d7e1a1003878c",
+      "after_sha256": "8cf651ac86360acb9f6d1c9d4b6ee73b517fd8c0948ea713a87753078283d389",
+      "preserved_document_sha256": "dc4aaef2d9b2d98cb9ea404ceff501147df502bb485abfa6e97050fc4130b133"
+    },
+    "peritheos/data/materials/rbbr.eosmat": {
+      "before_sha256": "e71ec69c206926717fc3b827286426765aba6e1e1a3c0a63b984bc37fd08d8e6",
+      "after_sha256": "cf976f16ec5687c5cfaff3fa1e34b07f145de297794c683e4ca7d278a5fb23cc",
+      "preserved_document_sha256": "ad63afbecc8466f6a0441743712c50470aaf7fac656226d5fa62e9b7879cc397"
+    },
+    "peritheos/data/materials/rbcl.eosmat": {
+      "before_sha256": "e1b7e14e7b5444374fcc098cc4216da77036046ba06157df54fd6138147dec70",
+      "after_sha256": "fd5ce8c7e838615318e35a6a771f211fcf5280fc7ac1d41cfd926cf191f00b09",
+      "preserved_document_sha256": "5345f5658f3f7901d9b08c3a0f09846fa06e5b23a879e4f602b023581ad7bfc1"
+    },
+    "peritheos/data/materials/rbi.eosmat": {
+      "before_sha256": "05dd25a59ec75e96ad132e2cb5ae73f7d043f9beda6607afb3e919e507025593",
+      "after_sha256": "32c9f2acfd0ea50f6730ed3d5f00f52065b294f4f475ac3aa0107940ed0618fa",
+      "preserved_document_sha256": "2365c98f8e2bef160ebdd3867cfe565135459ca575e01068c8f72bf47dd330a6"
+    },
+    "peritheos/data/materials/seifertite.eosmat": {
+      "before_sha256": "343cf18cd80fc2af0e9804c1f7fca63a54abe061cd231c1eca47427c9cfe6007",
+      "after_sha256": "9809d5a9d0926bb5e6f9be52f8d8fd090c5bb2301c945cd2226f02952086088b",
+      "preserved_document_sha256": "d67bf19d231bdb3ede883cf813da478954a0d1483232f9b98c66df4ed1af3490"
+    },
+    "peritheos/data/materials/silica_cacl2.eosmat": {
+      "before_sha256": "84f09d7d2c798340ae086ec63ff2573eb0c4a9b84d2e762b9e31a304b91f1074",
+      "after_sha256": "215849630e6a560a206efec437fed645491debed86b388d3096a379a529f8980",
+      "preserved_document_sha256": "579cfd49f82e3d50cb8dd394b1eeb1110c97f343fd407056f980d7107baf6e74"
+    },
+    "peritheos/data/materials/superhydrous_phase_b_lt.eosmat": {
+      "before_sha256": "d067c1962244399e09ec1c3e81b07269f16ee9814d9e5553b8fc68cfb7e6ca19",
+      "after_sha256": "a9a019e0da72a7bb59b01b375b3470768f2e7706ebb2ca4f7fc8b6f3b642d607",
+      "preserved_document_sha256": "a8455ee0b375f796e5e2a068ef7edd2d63e7cf5741ac3d9faf9b6ba8f720266a"
+    },
+    "peritheos/data/materials/wadsleyite.eosmat": {
+      "before_sha256": "17532fd925092da22dd06a92eafda32c3a0a64ed286550d39252a7445696a89f",
+      "after_sha256": "243c9ab697111f628e81a9a61d6b6565818cdf689c20050a09140b092ef91d6b",
+      "preserved_document_sha256": "1e9fac56f9244e6f21cb6aa06a772e273d820837b826a2a7ef0981e3d462822e"
+    }
+  },
+  "records": [
+    {
+      "material": "alumina_rh2o3_ii",
+      "identifier": "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.7,
+      "preserved_legacy_record_sha256": "4b1575b7fa0422adbcb00b5be483e09f6c4962451964b55a59055697fdd2f702"
+    },
+    {
+      "material": "boron_nitride",
+      "identifier": "boron_nitride_datchi_2007_vinet_mgd_2",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.0032,
+      "preserved_legacy_record_sha256": "2dd34d1ffe119e2728336c63a0f06ce7b7340ddc5c191e91e5e9c32c9d923081"
+    },
+    {
+      "material": "bridgmanite",
+      "identifier": "bridgmanite_wolf_2015_vinet_mgd_4",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.13,
+      "covariance_volume_basis": "model",
+      "preserved_legacy_record_sha256": "b47693efb2e64c60a6a4c98f99a07e0ceeac2fadb7fb4950bec8921da1c2d5e8"
+    },
+    {
+      "material": "ca_perovskite",
+      "identifier": "ca_perovskite_shim_2000_dac_only_bm3_mgd_4",
+      "public_to_model_scale": 0.0602214076,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.0332107813,
+      "preserved_legacy_record_sha256": "4bb35d968853c6e3ed8c47dedc5c735130ea6ae81d791ec598ebcb418a9f6c8c"
+    },
+    {
+      "material": "ca_perovskite",
+      "identifier": "ca_perovskite_noguchi_2013_bm2_mgd_1",
+      "public_to_model_scale": 0.0602214076,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.1,
+      "preserved_legacy_record_sha256": "8dd65f77598d98a8c9a2c7f294902040a95ea6525987e1b4c74fddf01f55d648"
+    },
+    {
+      "material": "ca_perovskite",
+      "identifier": "ca_perovskite_sun_2016_bm3_3",
+      "public_to_model_scale": 0.0602214076,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.1,
+      "preserved_legacy_record_sha256": "4af5f4e067426bc134e166d35d644696a5b9d1e255881f4196b62721a4a340bc"
+    },
+    {
+      "material": "ca_perovskite",
+      "identifier": "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit",
+      "public_to_model_scale": 0.0602214076,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.057198106520318606,
+      "covariance_volume_basis": "public",
+      "preserved_legacy_record_sha256": "67960490c1da37c6619285b91c18150f4d81537f840661cb3693262502bddc96"
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "identifier": "cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 1,
+      "preserved_legacy_record_sha256": "f08928eb0cbdf64b3aca96344c49ad9b2636b99d15ab007ff2b092e4f7c52a3b"
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "identifier": "cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 1,
+      "preserved_legacy_record_sha256": "46e01ee9d2cb1b760bd1191a80645e1e6f5e4ff06f5f44d3de785f153dc212de"
+    },
+    {
+      "material": "diamond",
+      "identifier": "diamond_correa_2008_dewaele_anchored",
+      "public_to_model_scale": 0.00752767595,
+      "error_volume_basis": "model",
+      "original_V0_error": 4.916033273469388e-05,
+      "preserved_legacy_record_sha256": "44663d7bafc0eaf6409d90c0566489832550c47b28da9418eabb2cf0d9f59cf2"
+    },
+    {
+      "material": "diamond",
+      "identifier": "diamond_benedict_2014_dewaele_anchored",
+      "public_to_model_scale": 0.00752767595,
+      "error_volume_basis": "model",
+      "original_V0_error": 4.916033273469388e-05,
+      "preserved_legacy_record_sha256": "7701d78cadd3f59849b07e53f189571715af2d828a949ba71aa09349613ed3a5"
+    },
+    {
+      "material": "fe073si027_d03",
+      "identifier": "fe073si027_d03_fischer_2014_vinet_1",
+      "public_to_model_scale": 0.003763837975,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.10627450029912619,
+      "preserved_legacy_record_sha256": "fba3381a0fc6a59fef3dc2804420cbbfa3b38e6b90b8168daea496d34af3e4c1"
+    },
+    {
+      "material": "fe084si016_hcp",
+      "identifier": "fe084si016_hcp_fischer_2014_bm3_1",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.17933821925477544,
+      "preserved_legacy_record_sha256": "b2e9eea4ffb869527a77539b2e33107283a40b3fe2dcdd50f2e844d346e67fc9"
+    },
+    {
+      "material": "fe084si016_hcp",
+      "identifier": "fe084si016_hcp_fischer_2014_vinet_2",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.08302695335869234,
+      "preserved_legacy_record_sha256": "3bf43a2d75242b93d7d4bb8014aa5673ed89cb584f144de73bb4be8a2e13f70b"
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "identifier": "fe09ni01_hcp_sakai_2014_type1_thermal",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.13,
+      "preserved_legacy_record_sha256": "ddf3731953415583bb5ff39ba998c041eec9445114010401a835edf6f17c9e7a"
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "identifier": "fe09ni01_hcp_sakai_2014_type2_thermal",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.13,
+      "preserved_legacy_record_sha256": "137c9e4b1d9ed55e276b3992c05cf6436a7e17a3165a69ab3da238ee01b3a67e"
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "identifier": "fe09ni01_hcp_sakai_2014_type4_1_thermal",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.13,
+      "preserved_legacy_record_sha256": "611b6c02c32c676362ea2d8d36afa627bdf954696e28dc99e12c80538c3e07b6"
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "identifier": "fe09ni01_hcp_sakai_2014_type4_2_thermal",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.13,
+      "preserved_legacy_record_sha256": "2e531eacda125de15c57e7c22ed9db0dcbfdc63a48fe98032726c26b9ff733f4"
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "identifier": "fe09ni01_hcp_sakai_2014_type4_3_thermal",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.13,
+      "preserved_legacy_record_sha256": "8674ef829caf88b06ca649315474b36907a001ff0dc3ff067e54bfc6af4025bc"
+    },
+    {
+      "material": "feo_b8_2",
+      "identifier": "feo_b8_2_fischer_2011_bm3_1",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.0598,
+      "preserved_legacy_record_sha256": "c5d06bb85988d928d0eefa1c9a488525a8075de1deec7146425a71f0e74948f5"
+    },
+    {
+      "material": "fes_vi",
+      "identifier": "fes_vi_morard_2026_bm3_mgd",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 2.988970320912924,
+      "preserved_legacy_record_sha256": "3d31e48249d84349b94c38411dc7b85f7e26f8d1053c296e59abffc67d3d1bc9"
+    },
+    {
+      "material": "goethite",
+      "identifier": "goethite_gleason_2008_bm3_1",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.02,
+      "preserved_legacy_record_sha256": "07ded8b10e15280ab13e783e1e8d12d00bdf3fed08a96cd51b6cd60b8b50b2ba"
+    },
+    {
+      "material": "gold",
+      "identifier": "gold_fei_2007_vinet_2",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.004,
+      "preserved_legacy_record_sha256": "fbd9dbf380538350ae4d8205886de476acfa42e67b130503279449311deff8a9"
+    },
+    {
+      "material": "gold",
+      "identifier": "gold_fei_2004_bm3_mgd",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.004,
+      "preserved_legacy_record_sha256": "dbf831af52c80c9dd9f379eee884ef5004585874f824dc6ed2195193662be1a7"
+    },
+    {
+      "material": "iridium",
+      "identifier": "iridium_anzellini_2025_bm3_1",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.05,
+      "preserved_legacy_record_sha256": "47486cddb995d8ba5f75b55b1403e5889d17e212bfd676774428fb15ad820a2f"
+    },
+    {
+      "material": "iron",
+      "identifier": "iron_zhang_2025_fit1_birch_murnaghan_3_mgd",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.033210781343476936,
+      "covariance_volume_basis": "public",
+      "preserved_legacy_record_sha256": "0215d765c2441c34dc5d09169bff128adc4bd61f294b32ce5478409b549660fa"
+    },
+    {
+      "material": "iron",
+      "identifier": "iron_zhang_2025_fit2_birch_murnaghan_3_mgd",
+      "public_to_model_scale": 0.0301107038,
+      "covariance_volume_basis": "public",
+      "preserved_legacy_record_sha256": "2de5d0f87402bdd0d35b41624bb0501cbd79aa6bf611ac93879c0f937ab1e5ce"
+    },
+    {
+      "material": "iron",
+      "identifier": "iron_zhang_2025_fit5_vinet_mgd",
+      "public_to_model_scale": 0.0301107038,
+      "covariance_volume_basis": "public",
+      "preserved_legacy_record_sha256": "9d35b2f39e6f0ac95dd0c948635a2fd7b21e3e8bd3df546438b5cc69d7570d6f"
+    },
+    {
+      "material": "iron",
+      "identifier": "iron_dewaele_2006_vinet_thermal",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.098,
+      "preserved_legacy_record_sha256": "66c002963a51909023cc58064447b4883358d67ba09151095b14b222cc0e68f4"
+    },
+    {
+      "material": "iron",
+      "identifier": "iron_yamazaki_2012_bm3_thermal",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.05,
+      "preserved_legacy_record_sha256": "97ef867c66246425ef31d55b988f9c55669a55432d98c92bb98c4ce63b616b76"
+    },
+    {
+      "material": "iron",
+      "identifier": "iron_yamazaki_2012_vinet_thermal",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.06,
+      "preserved_legacy_record_sha256": "392cc27f6f44c26860dd751f68b3d4969f21b83f8741f56f46b9805d9c44f617"
+    },
+    {
+      "material": "iron",
+      "identifier": "iron_miozzi_2020_bm3_mgd",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.06642156268695387,
+      "preserved_legacy_record_sha256": "1e1fc6ce81648d3808946e21fdb052120f0c94ee6f047241d4bf19f2dad83339"
+    },
+    {
+      "material": "iron",
+      "identifier": "iron_miozzi_2020_tange_2009_bm3_mgd_refit",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.09211600958124483,
+      "covariance_volume_basis": "public",
+      "preserved_legacy_record_sha256": "968b9434be14cbdc9ff07429d667bc10c14ee297065d33c79c139ad57b2e88c3"
+    },
+    {
+      "material": "iron",
+      "identifier": "iron_miozzi_2020_speziale_2001_bm3_mgd_refit",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.09841980257431894,
+      "covariance_volume_basis": "public",
+      "preserved_legacy_record_sha256": "c1d8a101d4af01d1119d083bd67abe2221a0b612fbb4e858a25a0a601436ac68"
+    },
+    {
+      "material": "kcl",
+      "identifier": "kcl_b2_chidester_2021_bm3_5",
+      "public_to_model_scale": 0.0602214076,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.49816172015215404,
+      "preserved_legacy_record_sha256": "0476b07b205076d39ead0dec0419e12cb5434b91552cce08bfbb304b12bd873d"
+    },
+    {
+      "material": "kcl",
+      "identifier": "kcl_b2_chidester_2021_vinet_mgd",
+      "public_to_model_scale": 0.0602214076,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.8302695335869233,
+      "preserved_legacy_record_sha256": "16429235cfbd39aa3b29f663f7d57e533218c97544bdff59bf5c9e058be233e3"
+    },
+    {
+      "material": "kcl",
+      "identifier": "kcl_b2_ma_2024_bm3_mgd",
+      "public_to_model_scale": 0.0602214076,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.14944851604564618,
+      "preserved_legacy_record_sha256": "a750e49f7ab6354e2785781a8853b40a34c91a9517b262a890e559527f87e7b9"
+    },
+    {
+      "material": "mg075fe025o",
+      "identifier": "mg075fe025o_matsui_2012_bm3_mgd_1",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.016,
+      "preserved_legacy_record_sha256": "fad0f2b8912d887ae7dc6f0d7e801ae426b172ca8edefd1f89c1374915f2c06a"
+    },
+    {
+      "material": "mg083fe017o",
+      "identifier": "mg083fe017o_matsui_2012_bm3_mgd_1",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.011,
+      "preserved_legacy_record_sha256": "9e1edaca9d98a839c08e89ab435da11a3f1608706239fbb9d43eb0435d509f6e"
+    },
+    {
+      "material": "mg087fe013sio3_bridgmanite",
+      "identifier": "mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.19,
+      "covariance_volume_basis": "model",
+      "preserved_legacy_record_sha256": "980f88cca7268dc461470c0f3aa2e3c3873d1a9d4cd02c26ab57d0864e0a8e24"
+    },
+    {
+      "material": "mgal2o4_cafe2o4",
+      "identifier": "mgal2o4_cafe2o4_sueda_2009_mgd_3",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.2,
+      "preserved_legacy_record_sha256": "c1f242a28631cd4ad1ac5d675c333ac39ea7378d4c15d752c86826c2d69cc21f"
+    },
+    {
+      "material": "mgo",
+      "identifier": "mgo_b1_tange_2009_vinet",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.016,
+      "preserved_legacy_record_sha256": "63e2ae5c781db3c7eacf6906a1eeafa7af243b04955aa3a6cdde146cb2ab37c4"
+    },
+    {
+      "material": "mgo",
+      "identifier": "mgo_speziale_2001_bm3_2",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.01,
+      "preserved_legacy_record_sha256": "139fa34b8b6f9705fc972eadca6491ace6a066406361528e3d428671413445c5"
+    },
+    {
+      "material": "mgo",
+      "identifier": "mgo_dewaele_2000_bm3_mgd_5",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.03,
+      "preserved_legacy_record_sha256": "7a8f718f6002b833dbea08659b3e46950c09ee0fbd24dd7e32f2d010b3a06f2d"
+    },
+    {
+      "material": "platinum",
+      "identifier": "platinum_fei_2004_bm3_mgd",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.01,
+      "preserved_legacy_record_sha256": "50094bbd2183b6432fc804ef755edf4e782c61052442c43c0150898e218231b3"
+    },
+    {
+      "material": "platinum",
+      "identifier": "platinum_fei_2007_vinet_mgd",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.01,
+      "preserved_legacy_record_sha256": "dbff1e9f11e9e342b17f312b0672a8bb9cad37d1e97d6328992888c81a21aa08"
+    },
+    {
+      "material": "rbbr",
+      "identifier": "rbbr_b2_farla_2025_bm3_mgd_cscl",
+      "public_to_model_scale": 0.0602214076,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.06642156268695387,
+      "preserved_legacy_record_sha256": "df46416233dadc54f888a044e070d664233a88fa601bca5d565f49ac64a21b70"
+    },
+    {
+      "material": "rbcl",
+      "identifier": "rbcl_b2_farla_2025_bm3_mgd_cscl",
+      "public_to_model_scale": 0.0602214076,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.049816172015215404,
+      "preserved_legacy_record_sha256": "21c97621bb567952c133aff6a1c42a87c58701dc251fd0be62f13965ba7b4182"
+    },
+    {
+      "material": "rbi",
+      "identifier": "rbi_b2_farla_2025_bm3_mgd_cscl",
+      "public_to_model_scale": 0.0602214076,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.033210781343476936,
+      "preserved_legacy_record_sha256": "7eff42dc974359b2f029035dba1ad49211b11a184d80a5332b358794bac9fc4e"
+    },
+    {
+      "material": "seifertite",
+      "identifier": "seifertite_sun_2019_bm2_1",
+      "public_to_model_scale": 0.0150553519,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.5,
+      "preserved_legacy_record_sha256": "53fbcbd7d9f6a4c5486f249ff8f10a23558b58711d4dda60087bf76cf12d029b"
+    },
+    {
+      "material": "silica_cacl2",
+      "identifier": "silica_cacl2_sun_2019_bm2_1",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.2,
+      "preserved_legacy_record_sha256": "b080808e013b58413b7469af953003ceae1d8a6ee0a52c05298ba3f36ccf9b9f"
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "identifier": "superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.35,
+      "preserved_legacy_record_sha256": "1079f1084801c59571c4fd5a4e1fde3dde95ce52f87ed9146ef674e28cd3c581"
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "identifier": "superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89",
+      "public_to_model_scale": 0.0301107038,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.35,
+      "preserved_legacy_record_sha256": "b2e9267b1177802cf25dbb1e7b2c8448548e68add010282ef1de7c6863a25713"
+    },
+    {
+      "material": "wadsleyite",
+      "identifier": "wadsleyite_katsura_2009_bm3_1",
+      "public_to_model_scale": 0.00752767595,
+      "error_volume_basis": "public",
+      "original_V0_error": 0.02,
+      "preserved_legacy_record_sha256": "87e0898a89760fb6f12292e0e14853b557e180bae79c33b50989308efd27128b"
+    }
+  ]
+}

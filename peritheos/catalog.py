@@ -23,7 +23,11 @@ from peritheos.catalog_families import (
     group_materials,
     list_material_families,
 )
-from peritheos.eosmat import get_material_document, list_material_documents
+from peritheos.eosmat import (
+    convert_eosmat,
+    get_material_document,
+    list_material_documents,
+)
 from peritheos.errors import MaterialError, MaterialLookupError
 from peritheos.materials import EOSRecord, Material
 
@@ -77,15 +81,20 @@ def _catalog_index() -> _CatalogIndex:
     material_by_record: dict[str, Material] = {}
     families = {family.identifier for family in list_material_families()}
     for document_identifier in list_material_documents():
-        document = get_material_document(document_identifier)
+        source_document = get_material_document(
+            document_identifier, format_version=None
+        )
         if (
-            document.get("family_id") is not None
-            and document["family_id"] not in families
+            source_document.get("family_id") is not None
+            and source_document["family_id"] not in families
         ):
             raise MaterialError(
                 f"Bundled material {document_identifier!r} references unknown "
-                f"family {document['family_id']!r}"
+                f"family {source_document['family_id']!r}"
             )
+        document = convert_eosmat(
+            source_document, version=3, legacy_uncertainty_units=False
+        )
         # Deferred records remain document-only. An explicitly marked, nondefault
         # not-reproduced implementation can be selected for exploration; its
         # validation status is preserved. It cannot replace the default EOS.
@@ -103,7 +112,7 @@ def _catalog_index() -> _CatalogIndex:
         if not executable_ids:
             continue
         material = Material.from_eosmat(
-            document,
+            source_document,
             record_identifiers=executable_ids,
             require_primary_validation=False,
         )

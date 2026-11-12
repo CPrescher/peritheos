@@ -60,7 +60,7 @@ def sample():
 
 
 def test_entire_catalog_compacts_without_changing_any_original_scientific_field():
-    schema = Draft202012Validator(eosmat_schema(4))
+    schema = Draft202012Validator(eosmat_schema(5))
     for path in sorted((ROOT / "peritheos/data/materials").glob("*.eosmat")):
         original = json.loads(path.read_text(encoding="utf-8"))
         before = copy.deepcopy(original)
@@ -115,7 +115,7 @@ def test_unused_definitions_and_nested_references_survive_compatibility_exports(
         },
     }
     document["eos_records"][0]["reference"] = {"shared_ref": "nested"}
-    for version in [3, 4]:
+    for version in [3, 4, 5]:
         inline = convert_eosmat(document, version=version, inline=True)
         assert (
             inline["shared_metadata"]["unused"] == document["shared_metadata"]["unused"]
@@ -200,7 +200,7 @@ def test_explicit_reconstruction_assessment_is_scoped_and_never_inferred():
         }
     }
     validate_eosmat_document(document)
-    Draft202012Validator(eosmat_schema(4)).validate(document)
+    Draft202012Validator(eosmat_schema(5)).validate(document)
     assert (
         convert_eosmat(document, version=3)["eos_records"][0]["reproduction"][
             "assessment"
@@ -217,7 +217,7 @@ def test_explicit_reconstruction_assessment_is_scoped_and_never_inferred():
         invalid["eos_records"][0]["evidence"]["reproduction"]["assessment"][key] = value
         with pytest.raises(ValueError):
             validate_eosmat_document(invalid)
-        assert list(Draft202012Validator(eosmat_schema(4)).iter_errors(invalid))
+        assert list(Draft202012Validator(eosmat_schema(5)).iter_errors(invalid))
 
 
 def test_installed_commands_work_outside_checkout_without_repository_scripts(tmp_path):

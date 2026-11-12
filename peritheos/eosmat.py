@@ -24,7 +24,7 @@ from peritheos.pressure_calibrations import (
 )
 
 EOSMAT_FORMAT = "peritheos.material"
-EOSMAT_FORMAT_VERSION = 4
+EOSMAT_FORMAT_VERSION = 5
 _AVOGADRO = 6.022_140_76e23
 _HUGONIOT_MASS_BASIS_RTOL = 1.0e-3
 _MATERIAL_PACKAGE = "peritheos.data.materials"
@@ -181,14 +181,14 @@ def _finite_range(value: Any, location: str) -> tuple[float, float]:
 
 
 def validate_eosmat_document(document: Mapping[str, Any]) -> None:
-    """Validate native v4, historical v3, or legacy v2 EOSMAT structure.
+    """Validate native v4/v5, historical v3, or legacy v2 EOSMAT structure.
 
     The absent ``format`` discriminator used by native Dioptas 0.10.0 files is
     accepted for backward compatibility. Scientific validation status is
     metadata and is not inferred from structural validity.
     """
     document = _require_mapping(document, "document")
-    if document.get("format_version") == 4:
+    if document.get("format_version") in (4, 5):
         from peritheos._eosmat_v4 import to_v3
 
         validate_eosmat_document(to_v3(document))
@@ -728,9 +728,17 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
         errors = _require_mapping(
             record.get("parameter_errors"), f"{location}.parameter_errors"
         )
+        if record.get("parameter_error_volume_basis", "model") not in (
+            "public",
+            "model",
+        ):
+            raise EosmatError(
+                f"{location}.parameter_error_volume_basis must be 'public' or 'model'"
+            )
         for name, value in errors.items():
             if value is not None:
-                _finite_number(value, f"{location}.parameter_errors.{name}")
+                if _finite_number(value, f"{location}.parameter_errors.{name}") < 0:
+                    raise EosmatError("parameter_errors must be nonnegative")
         error_confidence = record.get("parameter_error_confidence")
         if error_confidence is not None:
             error_confidence = _finite_number(
@@ -769,6 +777,11 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             covariance = _require_mapping(
                 covariance, f"{location}.parameter_covariance"
             )
+            if covariance.get("volume_basis", "model") not in ("public", "model"):
+                raise EosmatError(
+                    f"{location}.parameter_covariance.volume_basis must be 'public' "
+                    "or 'model'"
+                )
             matrix = covariance.get("matrix")
             order = covariance.get("parameter_order")
             if not isinstance(matrix, list) or not matrix:
@@ -1055,7 +1068,15 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             )
             for name, value in thermal_errors.items():
                 if value is not None:
-                    _finite_number(value, f"{location}.thermal.parameter_errors.{name}")
+                    if (
+                        _finite_number(
+                            value, f"{location}.thermal.parameter_errors.{name}"
+                        )
+                        < 0
+                    ):
+                        raise EosmatError(
+                            "thermal.parameter_errors must be nonnegative"
+                        )
             if not isinstance(thermal.get("fixed_parameters", []), list):
                 raise EosmatError(
                     f"{location}.thermal.fixed_parameters must be an array"
@@ -1328,7 +1349,7 @@ def get_material_document(
     """Return one bundled document in the requested layout.
 
     The default v3 dictionary keeps existing catalog integrations compatible.
-    Pass ``format_version=4`` for native EOSMAT or ``None`` for the stored
+    Pass ``format_version=5`` for native EOSMAT or ``None`` for the stored
     version. ``load_eosmat(path)`` always preserves the file's authored layout.
     """
     available = list_material_documents()
@@ -1354,7 +1375,9 @@ def get_material_document(
                 for d in document.get("datasets", [])
             ]
     if format_version is not None:
-        return convert_eosmat(document, version=format_version)
+        return convert_eosmat(
+            document, version=format_version, legacy_uncertainty_units=False
+        )
     validate_eosmat_document(document)
     return copy.deepcopy(document)
 
@@ -1373,7 +1396,7 @@ def list_eos_record_documents() -> tuple[str, ...]:
 def get_eos_record_document(
     identifier: str, *, format_version: int | None = 3
 ) -> dict[str, Any]:
-    """Return one stored EOS record; request v4 or None for native fields.
+    """Return one stored EOS record; request v5 or None for native fields.
 
     The historical v3 dictionary remains the default, including document-only
     records whose scientific status does not permit ordinary execution.
@@ -1507,38 +1530,69 @@ def validate_pressure_calibration_references() -> None:
 def convert_eosmat(
     document: Mapping[str, Any],
     *,
-    version: int = 4,
+    version: int = 5,
     compact: bool = False,
     inline: bool = False,
+    legacy_uncertainty_units: bool = True,
 ) -> dict[str, Any]:
-    """Convert the native file structure between v3 and v4, without refitting.
+    """Convert EOSMAT without fitting or changing physical parameter uncertainty.
 
-    V4 is a complete EOSMAT document, directly readable and editable. V3 export
-    supports older consumers. No source data or detailed evidence is discarded.
-    Optional empty component maps may disappear; parameter/error/fixed meanings,
-    all source arrays, numerical values and extension fields are retained.
-
-    ``compact=True`` optionally shares exact repeated metadata inside native v4.
-    ``inline=True`` expands that metadata for older v4 readers. Both retain all
-    definitions, including unused supporting information. These options cannot
-    be combined; v3 exports always expand references.
+    V5 uses parameter units for errors and covariance. V3/v4 exports default to
+    historical model-volume uncertainties, suitable for old readers. Set
+    ``legacy_uncertainty_units=False`` only for a literal historical-layout
+    view that retains explicit unit annotations and needs a current reader.
+    Same-version v5 conversion preserves all source numbers exactly.
     """
     from peritheos._eosmat_metadata import expand_metadata, share_metadata
+    from peritheos._eosmat_uncertainty import convert_units
     from peritheos._eosmat_v4 import to_v3, to_v4
 
-    if compact and (inline or version != 4):
-        raise EosmatError("compact requires v4 and cannot be combined with inline")
-
-    if version not in (3, 4):
-        raise EosmatError("EOSMAT conversion supports versions 3 and 4")
+    if compact and (inline or version not in (4, 5)):
+        raise EosmatError(
+            "compact requires v4 or v5 and cannot be combined with inline"
+        )
+    if version not in (3, 4, 5):
+        raise EosmatError("EOSMAT conversion supports versions 3, 4 and 5")
     validate_eosmat_document(document)
     current = document.get("format_version")
-    if current not in (3, 4):
+    if current not in (3, 4, 5):
         raise EosmatError("Read legacy v2 with Material.from_eosmat before exporting")
     result = copy.deepcopy(dict(document))
-    if current != version:
-        result = to_v4(result) if version == 4 else to_v3(result)
-    if version == 4:
+    if current != version or version < 5 and legacy_uncertainty_units:
+        native = result if current in (4, 5) else None
+        if current in (4, 5):
+            result = to_v3(result)
+        if version == 5:
+            convert_units(result, parameter_units=True)
+        elif legacy_uncertainty_units:
+            convert_units(result, parameter_units=False)
+        if version != 3:
+            if native is None:
+                result = to_v4(result)
+            else:
+                # Keep every native annotation, extension and explicit default;
+                # only uncertainty numbers and their historical flags change.
+                for target, source in zip(native["eos_records"], result["eos_records"]):
+                    parameter = target["parameters"].get("V0")
+                    if isinstance(parameter, dict) and "error" in parameter:
+                        parameter["error"] = source["parameter_errors"]["V0"]
+                    target.pop("parameter_error_volume_basis", None)
+                    if "parameter_error_volume_basis" in source:
+                        target["parameter_error_volume_basis"] = source[
+                            "parameter_error_volume_basis"
+                        ]
+                    if isinstance(target.get("parameter_covariance"), dict):
+                        target["parameter_covariance"]["matrix"] = source[
+                            "parameter_covariance"
+                        ]["matrix"]
+                        target["parameter_covariance"].pop("volume_basis", None)
+                        if "volume_basis" in source["parameter_covariance"]:
+                            target["parameter_covariance"]["volume_basis"] = source[
+                                "parameter_covariance"
+                            ]["volume_basis"]
+                result = native
+            result["format_version"] = version
+    if version in (4, 5):
         if compact:
             result = share_metadata(result)
         elif inline:
@@ -1549,8 +1603,8 @@ def convert_eosmat(
 
 def eosmat_schema(version: int = 3) -> dict[str, Any]:
     """Return a version-specific schema; the historical default remains v3."""
-    if version not in (3, 4):
-        raise EosmatError("EOSMAT schemas are available for versions 3 and 4")
+    if version not in (3, 4, 5):
+        raise EosmatError("EOSMAT schemas are available for versions 3, 4 and 5")
     resource = resources.files("peritheos.data").joinpath(
         f"eosmat-v{version}.schema.json"
     )

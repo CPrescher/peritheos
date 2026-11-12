@@ -41,6 +41,7 @@ const EVIDENCE_RESERVED: &[&str] = &[
     "parameter_errors",
     "fixed_parameters",
     "parameter_error_confidence",
+    "parameter_error_volume_basis",
     "parameter_covariance",
     "volume",
     "validity",
@@ -113,7 +114,9 @@ fn parameters(value: &Value) -> Result<Parameters, EosmatError> {
     Ok((values, errors, fixed))
 }
 
+#[allow(clippy::too_many_lines)]
 pub(super) fn expand(document: &Value) -> Result<Value, EosmatError> {
+    let parameter_units = document["format_version"].as_u64() == Some(5);
     let expanded_metadata = shared_metadata::expand(document)?;
     let mut result = object(&expanded_metadata, "document")?;
     if result.contains_key("format") {
@@ -138,6 +141,16 @@ pub(super) fn expand(document: &Value) -> Result<Value, EosmatError> {
     let mut expanded = Vec::new();
     for source in records {
         let mut record = object(source, "EOS record")?;
+        if parameter_units
+            && (record.contains_key("parameter_error_volume_basis")
+                || record
+                    .get("parameter_covariance")
+                    .is_some_and(|c| c.get("volume_basis").is_some()))
+        {
+            return Err(invalid_document(
+                "EOSMAT v5 uncertainties always use parameter units; remove legacy unit flags",
+            ));
+        }
         if ["eos", "parameter_errors", "fixed_parameters"]
             .iter()
             .chain(EVIDENCE_FIELDS)

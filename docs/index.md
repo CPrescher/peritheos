@@ -53,7 +53,7 @@ The documentation is organized around scientific workflows:
   ownership and bundled 234-material-document/685-record EOS library.
 - [Create and read EOSMAT](eosmat-authoring.md) starts with a small editable file
   and explains each field, including complete thermal and database-style examples.
-- [Native EOSMAT v4](eosmat-v4.md) documents the current structure, units, local
+- [Native EOSMAT v5](eosmat-v5.md) documents the current structure, units, local
   metadata sharing and reconstruction assessments. The [v3 compatibility
   reference](eosmat-schema.md) retains historical layouts and advanced semantics.
 - [Advanced DAC analysis](dac-thermal-pressure.md) documents the optional

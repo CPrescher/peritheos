@@ -1,5 +1,5 @@
 {
-  "format_version": 4,
+  "format_version": 5,
   "identifier": "teaching_thermal",
   "name": "Fictional thermal teaching material",
   "formula": "MgO",
@@ -10,7 +10,11 @@
       "identifier": "teaching_thermal_bm3",
       "model": "BM3",
       "temperature_ref": 300,
-      "parameters": {"V0": 74.7, "K0": 160, "K0_prime": 4},
+      "parameters": {
+        "V0": {"value": 74.7, "error": 0.02},
+        "K0": 160,
+        "K0_prime": 4
+      },
       "thermal": {
         "model": "MieGruneisenDebye",
         "parameters": {"Tr": 300, "theta0": 760, "gamma0": 1.5, "q": 1, "n": 2},

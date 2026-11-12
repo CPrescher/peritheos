@@ -46,7 +46,7 @@ def test_audit_uses_temporary_legacy_file_and_restores_native_state(tmp_path, ou
     assert sys.argv is argv
     if outcome == "update":
         updated = load_eosmat(path)
-        assert updated["format_version"] == 4
+        assert updated["format_version"] == 5
         assert updated.pop("audit_extension") == {"ordered": [3, 1, 2]}
         assert updated == json.loads(original)
     else:

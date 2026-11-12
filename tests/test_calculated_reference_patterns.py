@@ -1,20 +1,20 @@
 """New powder arrays must be reproducible calculations with scoped source terms."""
 
-import copy
 import hashlib
 import json
 import math
+from pathlib import Path
 
 import pytest
 
-from peritheos import get_material_document, load_eosmat
+from peritheos import get_material_document
 from peritheos_build import ROOT, digest, stage_core
 from scripts.merge_source_bindings import accepts_merge_binding
 from scripts.scientific_source_snapshot import (
     assert_snapshot_lineage,
-    scientific_sha256,
     scientific_snapshot,
 )
+from scripts.uncertainty_volume_basis_review import prior_material_bytes
 
 PROOF = json.loads(
     (ROOT / "docs/data/calculated-pattern-replacement.json").read_bytes()
@@ -25,7 +25,9 @@ INPUTS = json.loads(
 
 
 def test_replacement_preserves_every_non_authorized_field_and_scientific_history():
-    assert scientific_sha256() == PROOF["after_catalog_scientific_sha256"]
+    assert_snapshot_lineage(
+        scientific_snapshot(), PROOF["after_catalog_scientific_sha256"]
+    )
     assert_snapshot_lineage(
         scientific_snapshot(), PROOF["before_catalog_scientific_sha256"]
     )
@@ -39,7 +41,7 @@ def test_replacement_preserves_every_non_authorized_field_and_scientific_history
     assert PROOF["original_peak_count"] == 452
     assert PROOF["calculated_peak_count"] == 1154
     for material, binding in PROOF["material_bindings"].items():
-        payload = (ROOT / binding["path"]).read_bytes()
+        payload = prior_material_bytes(Path(binding["path"]).stem)
         document = json.loads(payload)
         assert hashlib.sha256(payload).hexdigest() == binding["after_sha256"]
         assert (
@@ -167,7 +169,7 @@ def test_frozen_source_exceptions_accept_only_exact_reviewed_pairs():
                 if name.endswith(".eosmat")
                 else f"peritheos/data/materials/{name}.eosmat"
             )
-            document = copy.deepcopy(load_eosmat(ROOT / path))
+            document = json.loads(prior_material_bytes(Path(path).stem))
             for record in document["eos_records"]:
                 record.get("evidence", {}).get("reproduction", {}).pop(
                     "assessment", None

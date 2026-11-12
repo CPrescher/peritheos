@@ -8,7 +8,6 @@ Only its material-file access uses a temporary v3 compatibility export.
 from __future__ import annotations
 
 import argparse
-import copy
 import importlib
 import json
 import sys
@@ -19,6 +18,7 @@ from unittest.mock import patch
 
 import peritheos
 from scripts.eosmat_io import read_material, write_material
+from scripts.uncertainty_volume_basis_review import historical_unit_view
 
 AUDITS = {
     "refit_hirose_fei_gold_speziale": "MATERIAL",
@@ -34,7 +34,7 @@ def historical_reconstruction_view(document: dict) -> dict:
     retains original evidence, coefficients and datasets. Ordinary library and
     compatibility exports always include the new assessment.
     """
-    result = copy.deepcopy(document)
+    result = historical_unit_view(document)
     for record in result.get("eos_records", []):
         reproduction = record.get("reproduction", {})
         assessment = reproduction.get("assessment", {})

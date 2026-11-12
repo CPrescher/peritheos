@@ -39,7 +39,7 @@ def semantic(document):
 
 
 def test_entire_catalog_migrates_with_every_scientific_field_and_source_array_intact():
-    validator = Draft202012Validator(eosmat_schema(4))
+    validator = Draft202012Validator(eosmat_schema(5))
     paths = sorted((ROOT / "peritheos/data/materials").glob("*.eosmat"))
     assert len(paths) == 234
     for path in paths:
@@ -69,7 +69,7 @@ def test_native_loading_keeps_numerical_behavior_uncertainty_defaults_and_restri
     assert [r.identifier for r in old.eos_records] == [
         r.identifier for r in new.eos_records
     ]
-    assert new.to_eosmat()["format_version"] == 4
+    assert new.to_eosmat()["format_version"] == 5
     assert new.to_eosmat(format_version=3)["format_version"] == 3
     assert (
         old.default_equilibrium_record().identifier
@@ -156,7 +156,7 @@ def test_ambiguous_or_conflicting_native_fields_fail_closed(change):
         temperature_ref=300,
     )
     change(document)
-    assert not Draft202012Validator(eosmat_schema(4)).is_valid(document)
+    assert not Draft202012Validator(eosmat_schema(5)).is_valid(document)
     with pytest.raises(EosmatError):
         validate_eosmat_document(document)
 
@@ -168,9 +168,11 @@ def test_migration_command_writes_one_native_file_and_can_export_legacy(tmp_path
     original = get_material_document("gold")
     save_eosmat(source, original)
     assert main(["convert", str(source), str(native)]) == 0
-    assert load_eosmat(native)["format_version"] == 4
+    assert load_eosmat(native)["format_version"] == 5
     assert main(["convert", str(native), str(legacy), "--format-version", "3"]) == 0
-    assert semantic(load_eosmat(legacy)) == semantic(original)
+    assert semantic(load_eosmat(legacy)) == semantic(
+        convert_eosmat(original, version=3)
+    )
     with pytest.raises(SystemExit):
         main(["convert", str(source), str(native)])
 

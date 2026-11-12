@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from peritheos import load_eosmat
 from scripts.merge_source_bindings import accepts_merge_binding
+from scripts.uncertainty_volume_basis_review import prior_material_document
 
 ROOT = Path(__file__).resolve().parents[1]
 PROOF = json.loads(
@@ -49,13 +49,13 @@ def test_only_the_exact_reviewed_license_fields_changed(material):
     binding = PROOF["bindings"]["release_document"][review["path"]]
     assert review["previous_document_sha256"] == binding["previous_reviewed_sha256"]
     assert review["licensed_document_sha256"] == binding["licensed_sha256"]
-    verify_license_only_change(load_eosmat(ROOT / review["path"]), review)
+    verify_license_only_change(prior_material_document(material), review)
 
 
 @pytest.mark.parametrize("material", sorted(PROOF["materials"]))
 def test_scientific_change_cannot_be_hidden_by_repinning_the_new_digest(material):
     review = copy.deepcopy(PROOF["materials"][material])
-    document = load_eosmat(ROOT / review["path"])
+    document = prior_material_document(material)
     document["eos_records"][0]["parameters"]["V0"]["value"] += 1e-12
     stripped = copy.deepcopy(document)
     for record in stripped["eos_records"]:

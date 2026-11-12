@@ -92,6 +92,66 @@ fn canonical_documents_validate_serialize_and_round_trip_without_losing_extensio
 }
 
 #[test]
+fn parameter_error_units_are_explicit_and_negative_errors_are_rejected() {
+    let original: Value = serde_json::from_str(simple_document()).unwrap();
+    for basis in ["public", "model"] {
+        let mut document = original.clone();
+        document["eos_records"][0]["parameter_error_volume_basis"] = json!(basis);
+        document["eos_records"][0]["parameter_errors"] = json!({"V0": 0.0});
+        document["eos_records"][0]["parameter_covariance"] = json!({
+            "volume_basis": basis, "parameter_order": ["V0"], "matrix": [[0.0]]
+        });
+        validate_eosmat_document(&document).unwrap();
+        let serialized = serialize_eosmat(&document).unwrap();
+        assert_eq!(load_eosmat_str(&serialized).unwrap().document, document);
+    }
+    let mut negative = original.clone();
+    negative["eos_records"][0]["parameter_errors"] = json!({"V0": -0.01});
+    assert!(validate_eosmat_document(&negative)
+        .unwrap_err()
+        .to_string()
+        .contains("nonnegative"));
+    let mut thermal = original.clone();
+    thermal["formula_units_per_cell"] = json!(4);
+    thermal["eos_records"][0]["thermal"] = json!({
+        "type": "MieGruneisenDebye", "model": "mie_gruneisen_debye",
+        "parameters": {"Tr": 300.0, "theta0": 761.0, "gamma0": 1.442, "q": 1.0, "n": 2.0},
+        "parameter_errors": {"gamma0": -0.01}, "fixed_parameters": []
+    });
+    assert!(validate_eosmat_document(&thermal)
+        .unwrap_err()
+        .to_string()
+        .contains("nonnegative"));
+    // Native v4 annotations take the same thermal validation path.
+    let native = json!({
+        "format_version": 4, "identifier": "test_material", "formula": "X",
+        "formula_units_per_cell": 4,
+        "eos_records": [{
+            "identifier": "test_bm3", "model": "BM3",
+            "parameters": {"V0": 10.0, "K0": 160.0, "K0_prime": 4.0},
+            "thermal": {"model": "MieGruneisenDebye", "parameters": {
+                "Tr": 300.0, "theta0": 761.0,
+                "gamma0": {"value": 1.442, "error": -0.01}, "q": 1.0, "n": 2.0
+            }}
+        }]
+    });
+    assert!(validate_eosmat_document(&native)
+        .unwrap_err()
+        .to_string()
+        .contains("nonnegative"));
+    for bad in [json!("unknown"), Value::Null, json!({}), json!([])] {
+        let mut document = original.clone();
+        document["eos_records"][0]["parameter_error_volume_basis"] = bad.clone();
+        assert!(validate_eosmat_document(&document).is_err());
+        let mut document = original.clone();
+        document["eos_records"][0]["parameter_covariance"] = json!({
+            "volume_basis": bad, "parameter_order": ["V0"], "matrix": [[0.01]]
+        });
+        assert!(validate_eosmat_document(&document).is_err());
+    }
+}
+
+#[test]
 fn pressure_scale_variants_are_explicit_references_and_round_trip_losslessly() {
     let mut document: Value = serde_json::from_str(simple_document()).unwrap();
     let mut variant = document["eos_records"][0].clone();

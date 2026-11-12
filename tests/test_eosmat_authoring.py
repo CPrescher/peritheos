@@ -37,7 +37,7 @@ def test_standalone_file_is_small_valid_and_numerically_usable(tmp_path, model):
     document = create_eosmat(
         "my_material", "MgO", model, COEFFICIENTS, temperature_ref=300
     )
-    Draft202012Validator(eosmat_schema(4)).validate(document)
+    Draft202012Validator(eosmat_schema(5)).validate(document)
     path = tmp_path / "my_material.eosmat"
     save_eosmat(path, document)
     assert len(path.read_text().splitlines()) <= 25
@@ -101,7 +101,7 @@ def test_thermal_component_keeps_cell_basis_options_errors_and_missing_uncertain
     with pytest.raises(MaterialError, match="formula_units_per_cell"):
         create(thermal=thermal)
     document = create(thermal=thermal, formula_units_per_cell=4)
-    Draft202012Validator(eosmat_schema(4)).validate(document)
+    Draft202012Validator(eosmat_schema(5)).validate(document)
     component = convert_eosmat(document, version=3)["eos_records"][0]["thermal"]
     assert component["model"] == "mie_gruneisen_debye"
     assert component["type"] == "MieGruneisenDebye"
@@ -207,7 +207,7 @@ def test_module_command_creates_an_independent_file(tmp_path):
         capture_output=True,
     )
     assert result.returncode == 0, result.stderr
-    assert "EOSMAT v4" in result.stdout
+    assert "EOSMAT v5" in result.stdout
     assert load_eosmat(path) == create()
 
 

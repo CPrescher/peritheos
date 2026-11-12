@@ -70,9 +70,9 @@ def _summary(value):
 
 
 def runtime_document(original):
-    """Explicit v4 runtime export, preserving the executable scientific model."""
-    if original.get("format_version") != 4:
-        raise ValueError("Distribution export requires native EOSMAT v4")
+    """Explicit native runtime export, preserving the executable scientific model."""
+    if original.get("format_version") not in (4, 5):
+        raise ValueError("Distribution export requires native EOSMAT v4 or v5")
     doc = copy.deepcopy(original)
     datasets = doc.get("datasets", [])
     for dataset in datasets:

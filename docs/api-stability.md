@@ -24,7 +24,8 @@ detailed reconstruction evidence and must be identified prominently in the next
 release. Source-tree/editable curation and user-authored standalone EOSMAT data
 remain complete. No model, coefficient, uncertainty or scientific status is
 reinterpreted. Existing readers support the resource declarations; no new
-EOSMAT format version is introduced. Complete source documents remain authoritative
+EOSMAT format version was needed for that packaging change. The separate v5
+uncertainty-unit contract is described below. Complete source documents remain authoritative
 and runtime exports include source-document fingerprints and evidence links.
 
 The supported public API consists of:
@@ -49,11 +50,12 @@ improvements that make an annotation more precise are not runtime API changes.
 
 ## `.eosmat` compatibility
 
-Native EOSMAT version 4 simplifies model identifiers, parameter annotations and
+Native EOSMAT version 5 standardizes errors and covariance to parameter units;
+version 4 introduced model identifiers, parameter annotations and
 evidence organization. Historical version 3 remains a supported public exchange
 contract, and native Dioptas format-2 files remain readable. New standalone
-creation defaults to v4; load/save retains the input version. Explicit v3 export
-supports consumers pinned to the previous reader. These are two versions of the
+creation defaults to v5; load/save retains the input version. Explicit v3 export
+supports consumers pinned to the previous reader. These are supported versions of the
 same material format, with one authoritative editable file per material.
 
 The canonical `.eosmat` format version 3 was already published before v4.
@@ -134,6 +136,15 @@ tested software behavior, not physical validation of a model.
 
 ## Compatibility commitments
 
+EOSMAT v5 uses each parameter's units for its error and pairwise products of
+parameter units for covariance. V2/v3/v4 readers retain historical semantics,
+including optional public/model annotations. The format version distinguishes
+the new unit contract; v5 does not permit those unit-switch fields. Loading and
+saving retains the input version. New authoring and new programmatic materials
+default to v5. Explicit v3/v4 conversion and material exports use historical
+model-unit uncertainties and omit new annotations for older readers. Coefficients,
+physical uncertainties and source qualifications are preserved through migration.
+
 `volume()` is the preferred pressure-to-volume method. `calculate_volume()` is
 a supported compatibility alias and will remain available throughout the 1.x
 series.
@@ -154,8 +165,8 @@ model order, complete parameters, units, and uncertainty convention.
 
 ### Optional native EOSMAT metadata sharing
 
-Plain inline v4, historical v3 and legacy v2 remain supported. The native v4
-local-sharing capability is opt-in: an older v4 reader needs `convert --inline`,
+Plain inline v5 and historical v2/v3/v4 remain supported. The native v4
+local-sharing capability is opt-in: an older v4 reader needs `convert --format-version 4 --inline`,
 and a v3 reader needs `convert --format-version 3`. Compatibility exports expand
 references and retain unused definitions rather than discarding supporting data.
 The optional reconstruction assessment requires an explicit scope and basis;

@@ -51,8 +51,8 @@ Phase reference: diamond, JCPDS 6-0675.
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-diamond_sokolova_2013_holzapfel_3) | 45.35396586081546 | 441.5 | 3.9 |
 | [Correa et al. (2008), logarithmic-moment double-Debye Helmholtz](#record-diamond_correa_2008_double_debye_log_moment_5) | 46.28 | 368.2 | 4.038 |
 | [Benedict et al. (2014), Vinet double-Debye Helmholtz](#record-diamond_benedict_2014_double_debye_4) | 45.6272 | 432.4 | 3.793 |
-| [Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)](#record-diamond_correa_2008_dewaele_anchored) | 45.3544 ± 4.916033273469388e-05 | 444.5 | 4.18 ± 0.07653061224489796 |
-| [Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)](#record-diamond_benedict_2014_dewaele_anchored) | 45.3544 ± 4.916033273469388e-05 | 444.5 | 4.18 ± 0.07653061224489796 |
+| [Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)](#record-diamond_correa_2008_dewaele_anchored) | 45.3544 ± 0.006530612244897959 | 444.5 | 4.18 ± 0.07653061224489796 |
+| [Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)](#record-diamond_benedict_2014_dewaele_anchored) | 45.3544 ± 0.006530612244897959 | 444.5 | 4.18 ± 0.07653061224489796 |
 
 Errors are shown only when supplied, with their source meaning; a bare
 central value does not imply zero uncertainty. A dash means this parameter
@@ -941,7 +941,7 @@ Availability: **Executable**.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
-| Primary | V0 | 45.3544 | 4.916033273469388e-05 | Not listed |
+| Primary | V0 | 45.3544 | 0.006530612244897959 | Not listed |
 | Primary | K0 | 444.5 | Not reported | Not listed |
 | Primary | K0\_prime | 4.18 | 0.07653061224489796 | Not listed |
 | Thermal | Vp | 0.3354934617396 | Not reported | Not listed |
@@ -1102,7 +1102,7 @@ Availability: **Executable**.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
-| Primary | V0 | 45.3544 | 4.916033273469388e-05 | Not listed |
+| Primary | V0 | 45.3544 | 0.006530612244897959 | Not listed |
 | Primary | K0 | 444.5 | Not reported | Not listed |
 | Primary | K0\_prime | 4.18 | 0.07653061224489796 | Not listed |
 | Thermal | Vp | 0.3354934617396 | Not reported | Not listed |

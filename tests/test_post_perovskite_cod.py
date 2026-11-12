@@ -8,10 +8,11 @@ import re
 from collections import Counter
 from fractions import Fraction
 
-from peritheos import Material, get_material_document, load_eosmat
+from peritheos import Material, get_material_document
 from peritheos.eosmat import validate_eosmat_document
 from peritheos_build import ROOT, digest, stage_core
 from scripts.merge_source_bindings import accepts_merge_binding
+from scripts.migrate_eosmat_v5 import prior_material_bytes
 from scripts.scientific_source_snapshot import (
     assert_snapshot_lineage,
     scientific_snapshot,
@@ -114,13 +115,13 @@ def test_only_root_source_and_notes_change_with_exact_frozen_source_pairs():
     assert_snapshot_lineage(scientific_snapshot(), PROOF["catalog_scientific_sha256"])
     for material, binding in PROOF["material_bindings"].items():
         path = ROOT / "peritheos/data/materials" / f"{material}.eosmat"
-        payload = path.read_bytes()
+        payload = prior_material_bytes(material)
         assert hashlib.sha256(payload).hexdigest() == binding["after_sha256"]
         raw = json.loads(payload)
         projection = {k: v for k, v in raw.items() if k not in ("notes", "source")}
         assert digest(projection) == binding["unchanged_except_notes_and_source_sha256"]
         assert set(PROOF["changed_root_fields"][material]) == {"notes", "source"}
-        normalized = copy.deepcopy(load_eosmat(path))
+        normalized = copy.deepcopy(raw)
         for record in normalized["eos_records"]:
             record.get("evidence", {}).get("reproduction", {}).pop("assessment", None)
         actual = hashlib.sha256(

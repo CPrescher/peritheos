@@ -1,0 +1,25 @@
+{
+  "format_version": 5,
+  "identifier": "uncertainty_fixture",
+  "formula": "MgO",
+  "formula_units_per_cell": 4,
+  "eos_records": [{
+    "identifier": "uncertainty_fixture_bm3_mgd",
+    "model": "BM3",
+    "temperature_ref": 300,
+    "parameters": {
+      "V0": {"value": 100, "error": 0.2},
+      "K0": {"value": 100, "error": 2},
+      "K0_prime": {"value": 4, "error": null, "fixed": true}
+    },
+    "thermal": {
+      "model": "MieGruneisenDebye",
+      "parameters": {"Tr": 300, "theta0": 760, "gamma0": {"value": 1.5, "error": 0.1}, "q": 1, "n": 2}
+    },
+    "parameter_covariance": {
+      "parameter_order": ["rt_eos.V0", "rt_eos.K0", "gamma0"],
+      "matrix": [[0.04, 0.1, 0.002], [0.1, 4, 0.01], [0.002, 0.01, 0.01]]
+    },
+    "reference": "Fictional software test; no experimental validation."
+  }]
+}

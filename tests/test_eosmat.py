@@ -2816,7 +2816,7 @@ def test_normative_schema_validates_every_bundled_document():
 
 
 def test_normative_schema_validates_every_executable_material_export():
-    validator = Draft202012Validator(eosmat_schema())
+    validator = Draft202012Validator(eosmat_schema(5))
     failures = []
     for material in list_materials():
         for error in validator.iter_errors(material.to_eosmat()):

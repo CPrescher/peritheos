@@ -1608,7 +1608,11 @@
     "parameter_errors": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "#/$defs/nullable_number"
+        "type": [
+          "number",
+          "null"
+        ],
+        "minimum": 0
       }
     },
     "range": {
@@ -1695,6 +1699,13 @@
                 "type": "string",
                 "minLength": 1
               }
+            },
+            "volume_basis": {
+              "enum": [
+                "public",
+                "model"
+              ],
+              "description": "Volume unit for V0 or rt_eos.V0 covariance rows and columns. Historical default: model."
             }
           },
           "additionalProperties": false
@@ -2246,6 +2257,13 @@
             }
           },
           "additionalProperties": false
+        },
+        "parameter_error_volume_basis": {
+          "enum": [
+            "public",
+            "model"
+          ],
+          "description": "Volume unit for reference V0 errors: public coefficient units or runtime model units. Historical default: model."
         }
       },
       "allOf": [

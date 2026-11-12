@@ -245,7 +245,7 @@ def standardize_document(
 ) -> dict[str, Any]:
     """Add one assessment per record, retaining every pre-existing field/value."""
     result = copy.deepcopy(dict(document))
-    if result.get("format_version") != 4:
+    if result.get("format_version") not in (4, 5):
         raise ValueError("Reconstruction standardization requires native EOSMAT v4")
     for record in result["eos_records"]:
         identifier = record["identifier"]

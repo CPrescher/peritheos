@@ -1,6 +1,6 @@
 # EOSMAT v3 compatibility reference
 
-New files use the simpler [native EOSMAT v4 format](eosmat-v4.md). This page
+New files use the simpler [native EOSMAT v5 format](eosmat-v5.md). This page
 documents historical v3 fields, unchanged advanced scientific semantics and
 compatibility exports. Both Python and Rust continue to read v3 directly.
 
