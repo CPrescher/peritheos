@@ -7,6 +7,12 @@ The published coefficients remain unchanged.
 
 ## Outcome and comparison scope
 
+The [subsequent 147-channel fit](grossular-angel-2022-expanded-fit.md) adds all
+52 recovered Gwanmesia moduli. It gives K₀ = 167.353 GPa, K′ = 4.98267,
+θ₀ = 740.183 K and γ₀ = 1.16467. K₀, K′ and γ move slightly closer to the
+source than the historical 95-channel result below; θ moves farther away.
+This remains a conditional diagnostic, not the full author fit.
+
 **The published equation passes numerical checks; the full original regression
 cannot yet be reproduced.** The [subsequent recovery](grossular-angel-2022-recovery.md)
 adds all 52 Gwanmesia table rows and seven digitized Thiéblot plotted points,

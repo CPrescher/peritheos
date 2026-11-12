@@ -26,7 +26,10 @@ matches the GR-2B strain table despite S1's GGD composition label. The original
 Thiéblot table/errors, exact Isaak fit input, normalization anchors, point masks
 and some assigned errors remain unresolved. These grossular inputs were **not**
 requested in the already-sent pyrope email; no further author contact occurred.
-The existing conditional 95-channel refit remains unchanged.
+The earlier 95-channel receipt remains unchanged. A subsequent
+[147-channel diagnostic](literature-reproductions/grossular-angel-2022-expanded-fit.md)
+adds the recovered Gwanmesia moduli and gives K0=167.353 GPa, K0′=4.98267,
+θ0=740.183 K and γ0=1.16467; it does not reproduce the full original fit.
 
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,

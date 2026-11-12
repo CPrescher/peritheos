@@ -195,7 +195,8 @@ def effective_sigma(c, d):
     return np.sqrt(d["sP"] ** 2 + (py * d["sY"]) ** 2 + (pt * d["sT"]) ** 2)
 
 
-def solve(rows, initial):
+def solve(rows, initial, *, names=NAMES, scaling=SCALING, lower=LOWER, upper=UPPER):
+    """Same solver for declared diagnostics; defaults preserve the 95-row fit."""
     d, c, trace = arrays(rows), np.array(initial, dtype=float), []
     converged = False
     for iteration in range(30):
@@ -203,15 +204,15 @@ def solve(rows, initial):
         fit = least_squares(
             lambda cc: (pressure(cc, d) - d["P"]) / sigma,
             c,
-            bounds=(LOWER, UPPER),
+            bounds=(lower, upper),
             jac="3-point",
-            x_scale=SCALING,
+            x_scale=scaling,
             ftol=1e-11,
             xtol=1e-11,
             gtol=1e-9,
             max_nfev=400,
         )
-        shift = float(np.max(np.abs((fit.x - c) / SCALING)))
+        shift = float(np.max(np.abs((fit.x - c) / scaling)))
         c = fit.x
         trace.append(
             dict(
@@ -227,34 +228,34 @@ def solve(rows, initial):
     sigma = effective_sigma(c, d)
     residual = pressure(c, d) - d["P"]
     j = []
-    for i, scale in enumerate(SCALING):
+    for i, scale in enumerate(scaling):
         h = scale * 1e-5
         plus, minus = c.copy(), c.copy()
         plus[i] += h
         minus[i] -= h
         j.append((pressure(plus, d) - pressure(minus, d)) / (2 * h * sigma))
-    _, singular, vectors = np.linalg.svd(np.array(j).T * SCALING, full_matrices=False)
+    _, singular, vectors = np.linalg.svd(np.array(j).T * scaling, full_matrices=False)
     if np.sum(singular > singular[0] * 1e-12) != len(c):
         raise ValueError("Conditional fit covariance is rank deficient")
     inverse = vectors.T / singular
-    covariance = np.einsum("ik,jk->ij", inverse, inverse) * np.outer(SCALING, SCALING)
+    covariance = np.einsum("ik,jk->ij", inverse, inverse) * np.outer(scaling, scaling)
     chisq = float(np.sum((residual / sigma) ** 2))
     return dict(
-        parameters=dict(zip(NAMES, c.tolist())),
+        parameters=dict(zip(names, c.tolist())),
         numerically_converged=converged,
         at_parameter_bound=[
-            NAMES[i]
+            names[i]
             for i in range(len(c))
-            if min(c[i] - LOWER[i], UPPER[i] - c[i]) < 1e-5 * SCALING[i]
+            if min(c[i] - lower[i], upper[i] - c[i]) < 1e-5 * scaling[i]
         ],
         irls_trace=trace,
         objective_sum_squares=chisq,
         degrees_of_freedom=len(rows) - len(c),
         conditional_reduced_chi_square=chisq / (len(rows) - len(c)),
-        covariance_order=NAMES,
+        covariance_order=names,
         conditional_unscaled_covariance=covariance.tolist(),
         conditional_unscaled_widths=dict(
-            zip(NAMES, np.sqrt(np.diag(covariance)).tolist())
+            zip(names, np.sqrt(np.diag(covariance)).tolist())
         ),
         scaled_jacobian_singular_values=singular.tolist(),
         rows=[

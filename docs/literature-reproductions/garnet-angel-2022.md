@@ -39,6 +39,12 @@ pass. The separately declared 95-channel partial refit remains diagnostic:
 K0=167.373 GPa, K0′=4.96395, θ0=744.384 K and γ0=1.16605. No source coefficients
 changed and the full author workflow is not reproduced.
 
+The subsequent [147-channel fit](grossular-angel-2022-expanded-fit.md) adds
+the 52 Gwanmesia moduli with explicitly declared relative-error weights.
+It converges to K0=167.353 GPa, K0′=4.98267, θ0=740.183 K and γ0=1.16467.
+Three coefficients move slightly closer to the source; θ moves farther away.
+The Gwanmesia calculated-modulus multiplier is 1.00547 versus published 1.00551.
+
 ## Decision and comparison scope
 
 The two published **q-compromise pressure parameterizations** are accepted:

@@ -1,0 +1,28 @@
+{
+  "declared_on": "2026-11-12",
+  "declared_before_solving": true,
+  "scope": "User-requested addition of the 52 recovered Gwanmesia modulus rows to the existing 95-channel conditional diagnostic. Not a full 220-channel fit or author-workflow reproduction.",
+  "model": "Same source BM3 plus constant-theta Debye thermal pressure and operational EosFit KS conversion as the 95-channel diagnostic; V0=125.35 cm3/mol, Tr=298 K, n=20 fixed; R=float32(8.314). No new EOS law.",
+  "selection": {
+    "milani_2017_vt": 35,
+    "milani_2017_pv": 7,
+    "du_2015_vt": 13,
+    "kono_2010_ks": 36,
+    "isaak_1992_ks_with_explicit_errors": 3,
+    "bass_1989_ambient_ks": 1,
+    "gwanmesia_2014_ks": 52,
+    "total": 147
+  },
+  "gwanmesia_conversion": "Use all Table 1 rows in published order; T_K=T_C+273.15, including room-temperature T=303.15 K. Retain original NaCl/Decker pressures. Do not add the 52 excluded XRD volumes.",
+  "gwanmesia_coordinate_widths": "For this conditional diagnostic assign sP=0.007*P and sKS=0.008*KS from the source-reported typical precision/error estimates. This treats global relative estimates as diagonal per-row weights; confidence level and covariance are not known. These are not recovered independent one-sigma errors or author-assigned weights. Numerical T errors are missing and omitted, not known zero. No tuning of these weights to publication parity.",
+  "objective": "Keep the existing IRLS effective-variance pressure residuals, coordinate-error propagation, Milani quartz recalibration, ambient adoption, two freely fitted VT multipliers and Kono calculated-modulus multiplier. Add one freely fitted Gwanmesia calculated-modulus multiplier, matching the source's scale direction. Shared anchor/calibration and derived-modulus covariance remain omitted.",
+  "free_parameters": ["K0_gpa", "K0_prime", "theta0_k", "gamma0", "scale_milani_vt", "scale_du_vt", "scale_kono_ks", "scale_gwanmesia_ks"],
+  "starts": [[167.002, 5.06534, 749.825, 1.15602, 1, 1, 0.99455, 1.00551], [170, 4.8, 800, 1.15, 1, 1, 1, 1]],
+  "bounds": {"lower": [50,2,50,0.05,0.95,0.95,0.95,0.95], "upper": [350,10,3000,4,1.05,1.05,1.05,1.05]},
+  "parameter_scaling": [170,5,750,1.15,1,1,1,1],
+  "compute_cap": "Two starts, at most 30 IRLS iterations and 400 least-squares function evaluations per iteration per start, unchanged solver tolerances. No further weight/model/selection search.",
+  "comparison": "Retain the earlier 95-channel receipt unchanged. Report four EOS coefficients and two modulus scales against the unchanged source, absolute and percentage differences, and absolute-distance change from the earlier fit. Report dataset-wise pressure and native V/KS residuals for source and fitted coefficients on the identical 147 rows, using the fitted nuisance scales for both curves to isolate coefficient effects. Also show source-original modulus scales separately for Gwanmesia. Published widths are descriptive comparison scales, not a statistical significance test.",
+  "uncertainty": "Report local inverse-Jacobian covariance without chi-square rescaling, conditional on the adopted diagonal weighting and nuisance scales. Report reduced objective with 139 nominal degrees of freedom; it is not the original source chi-square or a calibrated probability statement.",
+  "exclusions": "Keep all earlier exclusions: no mixed-composition Isaak expansion as measured endmember volumes; no missing Isaak/Conrad errors invented; no digitization bounds used as experimental errors for Thieblot; no indexed-only Bosenick/Rodehorst expansion added. No catalog coefficient, record or classification changes.",
+  "stopping_rule": "Record convergence and differences at this declared scope. No alternative models, weights or replacements to force agreement. Original masks, normalization, errors and author fit controls remain unresolved."
+}

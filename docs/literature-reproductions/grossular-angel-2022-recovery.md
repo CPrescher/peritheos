@@ -1,5 +1,9 @@
 # Grossular: recovery of the remaining nominal channels
 
+**Subsequent fit:** the [147-channel Gwanmesia extension](grossular-angel-2022-expanded-fit.md)
+now tests the recovered moduli in a fit. This page and its receipts describe
+the preceding recovery stage.
+
 Follow-up audit, 12 November 2026. This extends the
 [observation audit and conditional 95-channel refit](grossular-angel-2022.md).
 No author was contacted, no additional fit was run, and no catalog record,

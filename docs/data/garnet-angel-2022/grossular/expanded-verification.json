@@ -1,0 +1,38 @@
+{
+  "verified_on": "2026-11-12",
+  "scope": "User-requested conditional 147-channel diagnostic, not author-workflow reproduction or physical validation",
+  "python": {
+    "tests": 10,
+    "failed": 0,
+    "files": [
+      "tests/test_grossular_expanded_refit.py",
+      "tests/test_grossular_followup_recovery.py",
+      "tests/test_grossular_observation_audit.py"
+    ],
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/pytest -q -W error tests/test_grossular_expanded_refit.py tests/test_grossular_followup_recovery.py tests/test_grossular_observation_audit.py",
+    "seconds": 1.41
+  },
+  "numerical_checks": {
+    "expanded_fit": "Two declared starts converge without hitting bounds; test replays the second start",
+    "independent_equations": "All 52 Gwanmesia KS inversions checked against independent forward SciPy Debye quadrature at original P/T and non-unit scale, for both source and fitted EOS coefficients",
+    "old_fit": "Earlier 95-channel solution replays with generalized solver defaults",
+    "native_residuals": "All reported dataset-wise forward V/KS RMS values checked against exported row-level comparisons"
+  },
+  "style": "Ruff check and format check passed for changed scripts and new test module",
+  "documentation": {
+    "strict_clean_build": "passed including executable notebooks",
+    "seconds": 100.92,
+    "rendered_local_links_and_anchors_checked": 101,
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/mkdocs build --strict --site-dir <private-output>/site"
+  },
+  "preservation": {
+    "old_artifact_manifests": "All listed historical source/recovery artifacts remain byte-identical in tests",
+    "catalog_record_changes": false,
+    "official_source_eos_sha256": "279139b3835582e97e5419283271151a9b10491f7eef89e986ce4e84e9d3dca5",
+    "pyrope_correspondence": "Waiting for reply unchanged; no author contact"
+  },
+  "author_workflow_reproduced": false,
+  "source_coefficients_changed": false,
+  "branch": "codex/pyrope-angel-2022-audit",
+  "status": "passed_at_declared_scope"
+}
