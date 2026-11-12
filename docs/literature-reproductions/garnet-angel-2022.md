@@ -67,6 +67,13 @@ with relaxed offsets is a diagnostic control, not recovered author processing.
 
 ## Decision and comparison scope
 
+The [grossular θ influence study](grossular-angel-2022-theta-influence.md)
+keeps the independent 2% Conrad errors solely as a diagnostic. Du provides
+the strongest upward θ influence, opposed by Bosenick's cold data; deleting
+Du overcorrects θ and moves K′ away from the previous close match. Original
+normalization, anchor and covariance assumptions still prevent workflow
+reproduction. No published coefficients or source errors were changed.
+
 The later [Conrad processing/error study](grossular-angel-2022-conrad-processing.md)
 keeps all three moduli. A predeclared independent 2% modulus-error allowance
 gives K′ near the published value under both fixed normalizations; a shared

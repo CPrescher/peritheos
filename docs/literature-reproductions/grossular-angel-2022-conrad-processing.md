@@ -1,5 +1,10 @@
 # Grossular: Conrad processing and assigned errors
 
+**Retained diagnostic:** the [subsequent θ influence study](grossular-angel-2022-theta-influence.md)
+keeps the independent 2% Conrad allowance fixed and all three Conrad points
+present. It identifies opposing Du and Bosenick influences without adopting
+the estimated errors as source measurements or replacing published coefficients.
+
 User-requested controls, 12 November 2026, following the
 [dataset influence study](grossular-angel-2022-dataset-influence.md).
 

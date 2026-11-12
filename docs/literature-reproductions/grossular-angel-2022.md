@@ -7,6 +7,14 @@ The published coefficients remain unchanged.
 
 ## Outcome and comparison scope
 
+The [θ influence study](grossular-angel-2022-theta-influence.md) retains the
+additional independent 2% Conrad error allowance as an explicit diagnostic.
+Du's expansion series is the strongest upward influence on θ; Bosenick's
+cold series supplies most local information and restrains it. Omitting Du
+overcorrects θ and lowers K′, so it does not recover the source joint fit.
+The normalization dependence interacts strongly with Bosenick's inclusion;
+the original Du processing and Bosenick anchor/covariance remain unresolved.
+
 The [Conrad processing/error controls](grossular-angel-2022-conrad-processing.md)
 retain all three points and show that an additional independent 2% modulus
 width gives K′=5.06789 (plotted normalization) or 5.06502 (linear 298 K), close

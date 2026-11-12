@@ -1,0 +1,134 @@
+{
+  "declared_on": "2026-11-12",
+  "declared_before_solving": true,
+  "authorization": "User explicitly requested keeping the additional independent2%Conrad modulus errors as a diagnostic and investigating datasets driving the remaining theta discrepancy.",
+  "scope": "Dataset influence at a retained diagnostic error baseline; no source error replacement, author workflow claim, catalog change or replacement EOS.",
+  "diagnostic_baseline": {
+    "source_receipt": "conrad-processing-refits.json",
+    "variant": "extra_020",
+    "meaning": "All three selected Conrad KS points retained with sigmaY=sqrt(formal_upper_width^2+(0.02*KS)^2), independent across pressures. This is an explicitly hypothetical error allowance, never measured source uncertainty.",
+    "published_errors_replaced": false
+  },
+  "normalizations": [
+    "plotted",
+    "linear_298"
+  ],
+  "isaak_treatment": "as_plotted",
+  "omissions": [
+    {
+      "id": "milani_pv",
+      "groups": [
+        "milani_pv"
+      ]
+    },
+    {
+      "id": "kono_ks",
+      "groups": [
+        "kono_ks"
+      ]
+    },
+    {
+      "id": "gwanmesia_ks",
+      "groups": [
+        "gwanmesia_ks"
+      ]
+    },
+    {
+      "id": "isaak_ks",
+      "groups": [
+        "isaak_ks"
+      ]
+    },
+    {
+      "id": "bass_ks",
+      "groups": [
+        "bass_ks"
+      ]
+    },
+    {
+      "id": "milani_vt",
+      "groups": [
+        "milani_vt"
+      ]
+    },
+    {
+      "id": "du_vt",
+      "groups": [
+        "du_vt"
+      ]
+    },
+    {
+      "id": "bosenick_vt",
+      "groups": [
+        "bosenick_vt"
+      ]
+    },
+    {
+      "id": "rodehorst_vt",
+      "groups": [
+        "rodehorst_vt"
+      ]
+    },
+    {
+      "id": "isaak_vt",
+      "groups": [
+        "isaak_vt"
+      ]
+    },
+    {
+      "id": "thieblot_vt_estimated",
+      "groups": [
+        "thieblot_vt_estimated"
+      ]
+    },
+    {
+      "id": "milani_all",
+      "groups": [
+        "milani_pv",
+        "milani_vt"
+      ]
+    },
+    {
+      "id": "isaak_all",
+      "groups": [
+        "isaak_ks",
+        "isaak_vt"
+      ]
+    }
+  ],
+  "published_theta_k": 749.825,
+  "published_kprime": 5.06534,
+  "starts": [
+    [
+      167.002,
+      5.06534,
+      749.825,
+      1.15602,
+      0.99455,
+      1.00551
+    ],
+    [
+      167.01622973324527,
+      5.235854775976889,
+      779.7537662306313,
+      1.1578333496894826,
+      0.9876977927449225,
+      1.0018105245568742
+    ]
+  ],
+  "fixed_background": "Same equations, IRLS objective, calibration, reference state and other estimated errors. No new normalization, errors or specimen corrections. Remove unused Kono/Gwanmesia scale coefficients when their series is deleted. Conrad is never deleted or renormalized.",
+  "case_design": "For each of two normalizations: baseline, published-theta fixed with five other coefficients fitted, eleven disjoint non-Conrad-series deletions and two overlapping whole-publication deletions (Milani and Isaak). Thirty cases, two starts each.",
+  "profile_protocol": "At the fixed-theta fit, freeze all219 effective pressure errors and evaluate published-all, fixed-theta and free-baseline coefficient vectors. Project theta derivative away from five scaled nuisance columns (K0,Kprime,gamma,Kono scale,Gwanmesia scale). Sum squared residualized derivatives for conditional information fractions and minus derivative times residual /total information for signed local upward-theta contributions in K. These are a local frozen-error linearization, not causal shares or significance tests.",
+  "temperature_summary": "Aggregate the existing row scores without new fitting into T<298K,298<=T<700K,T>=700K for each series. Retain exact row identifiers and all contributions, including negative ones. No temperature subset search.",
+  "native_curves": "Independent forward native V/KS at measured P/T for the published-all, full diagnostic baseline and fixed-theta fits, with each vector using its own explicit modulus multipliers. Unweighted native residuals do not equal the pressure-coordinate objective.",
+  "compute_cap": "Exactly30scientific cases, two unchanged starts each=60optimizations; max30IRLS steps and400evaluations per inner solve, unchanged tolerances. Verification may replay declared cases. Document bounds, failed convergence or lost rank without widening the study. No post-result deletion combinations, weight changes or extra EOS parameters.",
+  "reporting": "All cases and both starts, free/fixed coefficients, covariance/rank, objective, retained identities/errors, theta and Kprime shifts. Compare influence directions across both normalizations; track gamma/theta correlation and Kprime movement so a theta match is not mistaken for full source parity.",
+  "preservation": "Canonical observations/errors, all prior scientific artifacts and published coefficients unchanged. No author contact, push or release.",
+  "input_sha256": {
+    "conrad-processing-plan.json": "4e150f6add218b589cea1306802d991de8e38575024c39b974cb017ceba6080d",
+    "conrad-processing-refits.json": "cf2e5c933d16385703cfff88ac898944cd7d07c5b6f73328a57d27dc2351c0a6",
+    "dataset-influence-plan.json": "8a5c0a3ff88a63fc503a584bf68ed2ba59aba088403e7e1605510ef7def805b9",
+    "normalization-specimen-plan.json": "a99d514d50c768c938f62ad69e53c0eba35febaba50e2446bbf454ef73301aaf",
+    "full-sensitivity-plan.json": "65c63fe6c97091866d2f7c9b8e3aff3043cc0cbd5397af29175e957123ec1c75"
+  }
+}

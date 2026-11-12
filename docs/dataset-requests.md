@@ -72,6 +72,16 @@ the actual Conrad Kₛ error column and any additional error allowance or
 correlation model. This is conditional sensitivity, not recovered author
 weights; θ remains discrepant. No further author contact occurred.
 
+**θ influence with the retained Conrad diagnostic:** the [30-case study](literature-reproductions/grossular-angel-2022-theta-influence.md)
+holds the independent 2% Conrad allowance fixed without changing source errors.
+Du's expansion series supplies the strongest upward θ pull; Bosenick's cold
+series restrains it and carries most conditional local information. Du's
+393.7/447.1 K entries agree with the available preprint, but the final table
+and original fit-file processing remain unverified. Du run/normalization/error
+details and Bosenick's exact room-reference anchor and shared covariance are
+now the focused remaining inputs. Omitting Du does not recover θ and K′
+together. No new author message was drafted or sent.
+
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,
 scale-factor groups, assigned coordinate errors and weights (including the
