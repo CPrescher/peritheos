@@ -1,5 +1,10 @@
 # Grossular: full-inventory fit with estimated errors
 
+**Subsequent controlled study:** the [normalization and Isaak specimen tests](grossular-angel-2022-normalization-specimen.md)
+show that normalization alternatives can move θ across the source value, while
+K′ remains high in every tested combination. This page retains the earlier
+estimated-error sensitivity with normalization held fixed.
+
 User-requested diagnostic and sensitivity study, 12 November 2026. This extends
 the [193-row normalization audit](grossular-angel-2022-remaining-channels.md)
 by assigning explicitly estimated errors to the remaining **19 Isaak moduli

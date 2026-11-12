@@ -58,6 +58,13 @@ and γ0=1.15783. All 29 declared cases converge, with θ0=773.477–781.417 K
 and K0′=5.15975–5.29031. These tested weights do not reproduce the source
 central θ0 or K0′; all earlier scientific qualifications remain.
 
+The [normalization/specimen factorial test](grossular-angel-2022-normalization-specimen.md)
+subsequently isolates these input assumptions at fixed error weights.
+Normalization changes move θ by tens of kelvin; the 15 Isaak expansion rows
+alone have smaller effects under plotted processing. No tested combination
+reproduces the central K′, which remains 5.19971–5.24191. The close θ match
+with relaxed offsets is a diagnostic control, not recovered author processing.
+
 ## Decision and comparison scope
 
 The two published **q-compromise pressure parameterizations** are accepted:

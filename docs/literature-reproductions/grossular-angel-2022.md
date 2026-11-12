@@ -7,6 +7,14 @@ The published coefficients remain unchanged.
 
 ## Outcome and comparison scope
 
+The latest [20-case normalization/specimen study](grossular-angel-2022-normalization-specimen.md)
+separates those inputs at fixed error assumptions. Linear 298 K normalization
+lowers θ by 16.6 K; relaxed offsets can move θ across the source value.
+Isaak specimen treatments alone have smaller effects under plotted normalization.
+K′ remains 5.19971–5.24191 in every combination, above the source 5.06534.
+Near-source θ under a free-offset control does not reproduce the plotted
+normalization or identify the original fit workflow.
+
 The latest [full-inventory sensitivity study](grossular-angel-2022-full-sensitivity.md)
 adds explicit error estimates for the remaining 26 observations: 219 non-anchor
 rows, with the Bosenick anchor kept separate. Its predeclared baseline is

@@ -46,6 +46,14 @@ All 29 declared cases converge; none reaches the published central θ or K′.
 Original source errors and author normalization inputs remain unrecovered;
 estimates do not replace the outstanding input request. No author was contacted.
 
+**Normalization/specimen follow-up:** the [20-case controlled study](literature-reproductions/grossular-angel-2022-normalization-specimen.md)
+shows strong θ sensitivity to volume normalization, with smaller Isaak-only
+effects under plotted processing. None of the tested combinations reaches the
+source central K′. Free-offset controls can place θ near the source, but their
+normalization differs substantially from Figure 4, especially for Du. Original
+normalization files, specimen treatment and masks are still needed to identify
+the actual author workflow. No author was contacted.
+
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,
 scale-factor groups, assigned coordinate errors and weights (including the
