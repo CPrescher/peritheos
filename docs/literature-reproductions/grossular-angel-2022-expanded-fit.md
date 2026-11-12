@@ -1,5 +1,9 @@
 # Grossular: adding the 52 Gwanmesia moduli to the fit
 
+**Subsequent investigation:** the [remaining-channel and normalization audit](grossular-angel-2022-remaining-channels.md)
+adds primary error information and a separately declared 193-row diagnostic.
+This page retains the earlier 147-row result and its assumptions.
+
 Diagnostic refit, 12 November 2026. This follows the
 [observation recovery](grossular-angel-2022-recovery.md) and answers whether
 adding the recovered Gwanmesia data brings the earlier fit closer to Angel

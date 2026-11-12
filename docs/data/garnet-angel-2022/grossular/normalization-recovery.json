@@ -1,0 +1,219 @@
+{
+  "recovered_on": "2026-11-12",
+  "source": "Angel et al. (2022), final Figure 4, PDF page 8",
+  "source_doi": "10.1007/s00410-022-01918-5",
+  "pdf_sha256": "eebef304cc8ef328f3d9219d9006f94791e4680e42d92655a396890eac81b692",
+  "method": "Same affine axes and 2 K / 0.003 cm3/mol resolution bounds as figure4-recovery.json. Match primary row identities by T and ordered V for repeats. Profile one scalar Vplot/rawV per dataset, without fitting EOS coefficients.",
+  "qualification": "Inferred denominators describe plotted processing, not recovered measured anchors or exact author fit inputs. Resolution errors are shared and not divided by sqrt(N). Experimental and preliminary-EOS covariance remain unknown.",
+  "groups": {
+    "bosenick": {
+      "markers": 19,
+      "source_table": "bosenick-geiger-1997-table-2.csv",
+      "source_table_sha256": "0efb7a07a0d8d365a2c04c7e6af567148571a0664dec7b29a517d7ded58fc95f",
+      "inferred_normalization_denominator": 125.29265024092905,
+      "denominator_unit": "cm3/mol",
+      "denominator_resolution_estimate": 0.002998627448925307,
+      "profiled_plot_residual_cm3_mol": {
+        "count": 19,
+        "mean": 3.300929569449133e-08,
+        "rms": 0.0008053894540217106,
+        "max_absolute": 0.001613931948327263
+      },
+      "fixed_anchor_comparisons": [
+        {
+          "denominator": 125.293,
+          "residual_cm3_mol": {
+            "count": 19,
+            "mean": 0.00034915063862459456,
+            "rms": 0.0008778014340229018,
+            "max_absolute": 0.0019630356136133287
+          }
+        }
+      ],
+      "source_rows_plotted": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    "du": {
+      "markers": 13,
+      "source_table": "du-2015-preprint-table-2.csv",
+      "source_table_sha256": "d569ab2f57e87362027517a7bbfbfeb9ba76ddca0cc992eb39ae396bd1ac2b00",
+      "inferred_normalization_denominator": 1664.2604315844574,
+      "denominator_unit": "A3",
+      "denominator_resolution_estimate": 0.03983072432990325,
+      "profiled_plot_residual_cm3_mol": {
+        "count": 13,
+        "mean": 3.2046946238586736e-07,
+        "rms": 0.0006469737597057383,
+        "max_absolute": 0.000957029656021291
+      },
+      "fixed_anchor_comparisons": [
+        {
+          "denominator": 1664.2,
+          "residual_cm3_mol": {
+            "count": 13,
+            "mean": -0.004584109651333917,
+            "rms": 0.004629898582169714,
+            "max_absolute": 0.005546677365543928
+          }
+        }
+      ],
+      "source_rows_plotted": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "milani": {
+      "markers": 35,
+      "source_table": "milani-2017-table-2.csv",
+      "source_table_sha256": "d81f3e60615b0de2b3b20d6dbf6a5661b6ffd967cecc06770d5fdbcc683ecaa8",
+      "inferred_normalization_denominator": 1664.0507306869793,
+      "denominator_unit": "A3",
+      "denominator_resolution_estimate": 0.039825705560916934,
+      "profiled_plot_residual_cm3_mol": {
+        "count": 35,
+        "mean": 2.0651415740400936e-06,
+        "rms": 0.0008357468991542022,
+        "max_absolute": 0.001697640183536464
+      },
+      "fixed_anchor_comparisons": [
+        {
+          "denominator": 1663.98,
+          "residual_cm3_mol": {
+            "count": 35,
+            "mean": -0.005355802177166019,
+            "rms": 0.005422788463573988,
+            "max_absolute": 0.007099111044169604
+          }
+        },
+        {
+          "denominator": 1664.01,
+          "residual_cm3_mol": {
+            "count": 35,
+            "mean": -0.003083239010715845,
+            "rms": 0.003196567743726412,
+            "max_absolute": 0.004808053242200572
+          }
+        },
+        {
+          "denominator": 1664.15,
+          "residual_cm3_mol": {
+            "count": 35,
+            "mean": 0.007520972390098889,
+            "rms": 0.007565397204918639,
+            "max_absolute": 0.008963258578873479
+          }
+        }
+      ],
+      "source_rows_plotted": [
+        11,
+        13,
+        14,
+        16,
+        17,
+        19,
+        20,
+        22,
+        23,
+        24,
+        26,
+        27,
+        29,
+        30,
+        32,
+        33,
+        35,
+        34,
+        31,
+        28,
+        25,
+        21,
+        18,
+        15,
+        12,
+        10,
+        7,
+        8,
+        9,
+        2,
+        1,
+        3,
+        6,
+        4,
+        5
+      ]
+    },
+    "rodehorst": {
+      "markers": 10,
+      "source_table": "rodehorst-2002-table-4a.csv",
+      "source_table_sha256": "7b5c8d0ab1e28e241bd92a9eac819617ee68457f2899df11fa2a8090f6159358",
+      "inferred_normalization_denominator": 1663.95650802294,
+      "denominator_unit": "A3",
+      "denominator_resolution_estimate": 0.039823450531063585,
+      "profiled_plot_residual_cm3_mol": {
+        "count": 10,
+        "mean": 7.381714445386933e-06,
+        "rms": 0.00981459425879688,
+        "max_absolute": 0.029337866129395707
+      },
+      "fixed_anchor_comparisons": [
+        {
+          "denominator": 1664.0066249999998,
+          "residual_cm3_mol": {
+            "count": 10,
+            "mean": 0.003783492950620371,
+            "rms": 0.010515956160692043,
+            "max_absolute": 0.033105661900293626
+          }
+        }
+      ],
+      "source_rows_plotted": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  },
+  "csv": "figure4-normalization-points.csv",
+  "findings": [
+    "Nineteen blue Bosenick markers match original rows 2-20 with fixed Vm295=125.293 cm3/mol denominator; original 295 K row is not present in these marker paths. This supports an anchor omission but does not prove the fit mask; S1 says 20 used.",
+    "All 35 Milani and all 13 Du markers map to original rows using a constant denominator inferred from the plotted series. This narrows normalization without uniquely identifying its original preliminary calculation.",
+    "Rodehorst's 156 K marker disagrees with the literal Table 4A a=11.842 A by about 0.03 cm3/mol under a common normalization. Preserve the original table; do not repair it to match the plot."
+  ]
+}

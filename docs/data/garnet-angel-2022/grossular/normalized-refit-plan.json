@@ -1,0 +1,19 @@
+{
+  "declared_on": "2026-11-12",
+  "declared_before_solving": true,
+  "scope": "One source-processing diagnostic after investigating all73 excluded channels.193rows, not a complete220-channel fit or pure-grossular physical validation. Original mixed-composition Isaak expansion is included only to examine the plotted2022 reduction.",
+  "model": "Same source BM3 plus q-compromise Debye thermal pressure and operationalKS, V0=125.35cm3/mol, Tr=298K,n=20,R=float32(8.314).",
+  "selection": {"milani_vt":35,"du_vt":13,"milani_pv":7,"kono_ks":36,"isaak_ks":3,"bass_ks":1,"gwanmesia_ks":52,"bosenick_vt":19,"rodehorst_vt":9,"isaak_vt":15,"conrad_ks":3,"total":193},
+  "volume_normalization": "Replace the earlier two free VT nuisance scales by fixed denominators reconstructed from Figure4: Milani and Du use the recorded profiled plot denominators in normalization-recovery.json. Bosenick uses measured Vm295=125.293cm3/mol and omits its anchor; retain19 non-anchor rows as plotted, including repetitions and lowT points. Rodehorst uses a298=11.850A, omits its anchor, and preserves literalprimaryvalues including156K. Isaak uses125.35*(1+0.01*observedGR2BYv), retaining the293K strain reference without invented compositional or5K correction, as supported byFigure4.",
+  "coordinate_widths": "Keep all147 earlier coordinate widths. Scale Milani/Du rawcellvolume errors by125.35/denominator; no remaining freevolume multiplier. Bosenick sigmaVm from Table2 scaled by125.35/125.293; T width3K forT>=100K,5K below, treating reported accuracy as conditional diagonal weights rather than established1sigma. Rodehorst sigmaV=3*125.35*a^2*0.001/(11.850^3); no numericalTerror is invented. IsaakVT uses S1-assigned0.01cm3/mol and2K; those are not measured endmember uncertainties. Conrad uses max covariance-compatible sigmaKS=(sigmaC11+2sigmaC12)/3 plus S1-assigned sigmaP=0.1GPa and adopted298K.",
+  "covariance": "Shared normalization-anchor covariance and uncertainty in digitized plot denominators are not propagated in the diagonal objective. Mathematical anchor-covariance expression is retained in remaining-channel-audit.json. This limitation prevents author uncertainty reproduction and statistical coverage claims.",
+  "objective": "Same IRLS effective-variance pressure residual and solver tolerances as earlier fits. Only four EOS coefficients and two calculated-to-observed modulus multipliers are free; no volume multipliers remain.",
+  "free_parameters": ["K0_gpa","K0_prime","theta0_k","gamma0","scale_kono_ks","scale_gwanmesia_ks"],
+  "starts": [[167.002,5.06534,749.825,1.15602,0.99455,1.00551],[170,4.8,800,1.15,1,1]],
+  "parameter_scaling": [170,5,750,1.15,1,1],
+  "bounds": {"lower":[50,2,50,0.05,0.95,0.95],"upper":[350,10,3000,4,1.05,1.05]},
+  "compute_cap": "Two starts; at most30IRLS iterations,400least-squares evaluations per iteration per start. No extra fit variants or weight searches.",
+  "remaining_exclusions": "19IsaakKS rows lack individual errors;7Thieblot points lack experimental errors and originaltablevalues. Do not interpolate sourceerrors or use digitizationbounds as experimentalweights. OneBosenick normalizationanchor is not independent;220 remains a nominalinventorycount.",
+  "comparison": "Compare193-channel central coefficients with the source and earlier147-channel fit, explicitly noting simultaneous changes in selection and normalization. Export forward V/KS predictions and residuals on identical193rows for source and fit, sharing fitted modulus multipliers. No published coefficient or catalog status changes.",
+  "stopping_rule": "Record the outcome and unresolved sources. No model, weights, masks or normalization tuning to force agreement. No author contact. No claim of full author-workflow or uncertainty reproduction."
+}

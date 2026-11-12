@@ -31,6 +31,14 @@ The earlier 95-channel receipt remains unchanged. A subsequent
 adds the recovered Gwanmesia moduli and gives K0=167.353 GPa, K0′=4.98267,
 θ0=740.183 K and γ0=1.16467; it does not reproduce the full original fit.
 
+**Further grossular investigation:** the [73-channel audit](literature-reproductions/grossular-angel-2022-remaining-channels.md)
+recovers Bosenick temperature accuracy, the plotted volume scaling, and a
+covariance-compatible upper bound for Conrad modulus errors. A conditional
+193-row source-processing fit converges, with K0=166.754 GPa, K0′=5.33063,
+θ0=780.407 K and γ0=1.15522. Nineteen Isaak modulus errors and seven Thiéblot
+experimental errors remain missing; one Bosenick row is a normalization anchor.
+Original masks, normalization inputs and covariance are still unconfirmed.
+
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,
 scale-factor groups, assigned coordinate errors and weights (including the

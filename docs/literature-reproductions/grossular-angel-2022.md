@@ -7,6 +7,13 @@ The published coefficients remain unchanged.
 
 ## Outcome and comparison scope
 
+The latest [remaining-channel investigation](grossular-angel-2022-remaining-channels.md)
+recovers Bosenick temperature errors and plotted normalization, and bounds
+Conrad modulus errors. Its 193-row source-processing diagnostic gives
+K₀ = 166.754 GPa, K′ = 5.33063, θ₀ = 780.407 K and γ₀ = 1.15522.
+Nineteen Isaak modulus errors and seven Thiéblot experimental errors remain
+unrecovered; one Bosenick row is an anchor. It does not reproduce the full fit.
+
 The [subsequent 147-channel fit](grossular-angel-2022-expanded-fit.md) adds all
 52 recovered Gwanmesia moduli. It gives K₀ = 167.353 GPa, K′ = 4.98267,
 θ₀ = 740.183 K and γ₀ = 1.16467. K₀, K′ and γ move slightly closer to the

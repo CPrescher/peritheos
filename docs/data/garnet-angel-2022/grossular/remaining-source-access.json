@@ -1,0 +1,78 @@
+{
+  "checked_on": "2026-11-12",
+  "bosenick": {
+    "url": "https://agupubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1029/97JB01612?download=true",
+    "status": "Downloaded from primary publisher reader after opening its ePDF UI; no CAPTCHA needed. Full 9-page PDF recovered.",
+    "bytes": 996555,
+    "sha256": "0320173a1e1ddaa0cc453178cc77d07a1584147a89a0278c110890b1020ea4a4",
+    "visual_checks": [
+      "PDF page2: temperature accuracy and measurement protocol",
+      "PDF page3: all20grossularTable2 volume/error tokens",
+      "PDF page4: excluded cooling/20K and repeat averaging in primary fits"
+    ]
+  },
+  "rodehorst": {
+    "publisher": "De Gruyter Brill explicitly shows unlicensed/no access. Indexed primaryTable4A remains available.",
+    "archive": "RRUFF showed a human-confirmation gate. User approved completing it. On return the gate had disappeared and the browser showed a blank PDF surface; no local PDF obtained.",
+    "direct_followup": {
+      "url": "https://www.rruff.net/doclib/am/vol87/AM87_542.pdf",
+      "status": 403,
+      "pdf": false,
+      "bytes": 1542,
+      "sha256": "af682c779f1942eb499f8e3bc2cdb540758a8e4aa12132252c50cbbfc57cae0c"
+    }
+  },
+  "additional_attempts": [
+    {
+      "file": "rodehorst-2002-msa-free.pdf",
+      "url": "http://www.minsocam.org/msa/AmMin/TOC/Articles_Free/2002/Rodehorst_p542-549_02.pdf",
+      "resolved": "http://www.minsocam.org/msa/AmMin/TOC/Articles_Free/2002/Rodehorst_p542-549_02.pdf",
+      "status": 404,
+      "pdf": false,
+      "bytes": 256,
+      "sha256": "1316c7202260ac01e118e5095056813258d40be330f092dabbec201e3f7c6c3a"
+    },
+    {
+      "file": "rodehorst-2002-msa-process.pdf",
+      "url": "http://www.minsocam.org/processIP.lasso?year=2002&filename=Rodehorst_p542-549_02.pdf",
+      "error": "ReadTimeout"
+    },
+    {
+      "file": "bosenick-1997-rg.pdf",
+      "url": "https://www.researchgate.net/profile/Charles-Geiger/publication/235764549_Powder_X_ray_diffraction_study_of_synthetic_pyrope-grossular_garnets_between_20_and_295_K/links/09e415134e37f633f8000000/Powder-X-ray-diffraction-study-of-synthetic-pyrope-grossular-garnets-between-20-and-295-K.pdf",
+      "resolved": "https://www.researchgate.net/profile/Charles-Geiger/publication/235764549_Powder_X_ray_diffraction_study_of_synthetic_pyrope-grossular_garnets_between_20_and_295_K/links/09e415134e37f633f8000000/Powder-X-ray-diffraction-study-of-synthetic-pyrope-grossular-garnets-between-20-and-295-K.pdf",
+      "status": 403,
+      "pdf": false,
+      "bytes": 20178,
+      "sha256": "f0f0bb95e565b2939cca0e8f759bea0f0bfcfcd7fdbf34a3f3a1834cd0d5bf42"
+    },
+    {
+      "file": "bosenick-1997-wiley-direct.pdf",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1029/97JB01612",
+      "resolved": "https://agupubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1029/97JB01612",
+      "status": 403,
+      "pdf": false,
+      "bytes": 5632,
+      "sha256": "d41c1d6fafc15868306ea227cde033fc711072197fd9b897a750a799078d226a"
+    }
+  ],
+  "thieblot": "Original table remains inaccessible at the previously checked primary publisher/preview and repository routes; this investigation does not claim a new original table or errors.",
+  "source_documents": [
+    {
+      "file": "article.pdf",
+      "sha256": "eebef304cc8ef328f3d9219d9006f94791e4680e42d92655a396890eac81b692"
+    },
+    {
+      "file": "supplement.pdf",
+      "sha256": "e32726ebdb7b7e4ab85f246a29677dde3a5fa4b08a33d6af308329ff195e5f88"
+    },
+    {
+      "file": "isaak-1992.pdf",
+      "sha256": "cff6e85a04da1faae074ad7ae251502046005038505dc4d4e6b9f98ebf9e0d5b"
+    },
+    {
+      "file": "conrad-1999-msa-http.pdf",
+      "sha256": "1d1d3379f3bbcfe2db08633cf1de7856b18c03b40581def469d61aa63cdcf574"
+    }
+  ]
+}

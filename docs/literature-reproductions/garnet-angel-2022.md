@@ -45,6 +45,12 @@ It converges to K0=167.353 GPa, K0′=4.98267, θ0=740.183 K and γ0=1.16467.
 Three coefficients move slightly closer to the source; θ moves farther away.
 The Gwanmesia calculated-modulus multiplier is 1.00547 versus published 1.00551.
 
+The [remaining-channel investigation](grossular-angel-2022-remaining-channels.md)
+subsequently recovers additional source errors and normalization. A declared
+193-row diagnostic converges to K0=166.754 GPa, K0′=5.33063, θ0=780.407 K
+and γ0=1.15522. K′ and θ move farther from the source; the original fit remains
+unreproduced and no weights or normalization are tuned after this result.
+
 ## Decision and comparison scope
 
 The two published **q-compromise pressure parameterizations** are accepted:
