@@ -63,6 +63,15 @@ are Conrad's actual Kₛ inputs, preprocessing and assigned modulus errors,
 along with confirmation of pressure inputs and the joint fit sequence.
 This does not justify removing the data. No author was contacted.
 
+**Conrad processing/error follow-up:** the [26-case controls](literature-reproductions/grossular-angel-2022-conrad-processing.md)
+retain all three points. An independent 2% modulus-error allowance gives K′
+near the source; shared calibration and the tested central-value reductions
+do not. Angel explicitly states that Kₛ was not rescaled before fitting,
+narrowing the earlier preprocessing question. The key unresolved input is
+the actual Conrad Kₛ error column and any additional error allowance or
+correlation model. This is conditional sensitivity, not recovered author
+weights; θ remains discrepant. No further author contact occurred.
+
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,
 scale-factor groups, assigned coordinate errors and weights (including the

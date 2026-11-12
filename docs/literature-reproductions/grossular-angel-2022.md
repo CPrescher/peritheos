@@ -7,6 +7,14 @@ The published coefficients remain unchanged.
 
 ## Outcome and comparison scope
 
+The [Conrad processing/error controls](grossular-angel-2022-conrad-processing.md)
+retain all three points and show that an additional independent 2% modulus
+width gives K′=5.06789 (plotted normalization) or 5.06502 (linear 298 K), close
+to 5.06534 published. A fully shared error or uniform scale does not close
+the gap. Formal covariance, rounding and tested density changes are insufficient.
+Angel explicitly reports no prior rescaling of Kₛ. The actual assigned Conrad
+modulus errors remain missing; the full source coefficients are not reproduced.
+
 The [dataset influence study](grossular-angel-2022-dataset-influence.md)
 identifies Conrad's three retained moduli as the dominant upward influence
 on K′ in this reconstruction. Omitting them gives K′=5.06290 under plotted

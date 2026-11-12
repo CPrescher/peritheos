@@ -67,6 +67,13 @@ with relaxed offsets is a diagnostic control, not recovered author processing.
 
 ## Decision and comparison scope
 
+The later [Conrad processing/error study](grossular-angel-2022-conrad-processing.md)
+keeps all three moduli. A predeclared independent 2% modulus-error allowance
+gives K′ near the published value under both fixed normalizations; a shared
+calibration allowance does not. Source text rules out prior Kₛ rescaling as
+the stated procedure, but original input errors remain unavailable. θ and
+the full coefficient set remain unreproduced; no catalog coefficient changes.
+
 The [grossular dataset influence study](grossular-angel-2022-dataset-influence.md)
 subsequently identifies the three retained Conrad moduli as the dominant
 upward K′ influence under both plotted and linear 298 K normalization.

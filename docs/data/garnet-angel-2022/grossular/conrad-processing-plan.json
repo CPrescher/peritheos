@@ -1,0 +1,115 @@
+{
+  "declared_on": "2026-11-12",
+  "declared_before_solving": true,
+  "authorization": "User requested further investigation of Conrad preprocessing/error assignments and testing whether they explain the Kprime discrepancy without excluding the three points.",
+  "scope": "Conditional diagnostics only; no tuned weight search, replacement EOS or author-workflow claim.",
+  "normalizations": [
+    "plotted",
+    "linear_298"
+  ],
+  "isaak_treatment": "as_plotted",
+  "variants": [
+    {
+      "id": "baseline",
+      "meaning": "Literal derived KS and covariance-compatible maximum formal KS widths; S1 sigmaP0.1GPa"
+    },
+    {
+      "id": "cij_negative_correlation",
+      "meaning": "Use minimum admissible formal KS width for correlation(C11,C12)=-1; no new uncertainty"
+    },
+    {
+      "id": "cij_independent",
+      "meaning": "Propagate printed Cij errors with zero covariance; no new uncertainty"
+    },
+    {
+      "id": "extra_005",
+      "meaning": "Add independent per-point sigma_extra=0.005*KS in quadrature to formal KS errors; hypothetical"
+    },
+    {
+      "id": "extra_010",
+      "meaning": "As above, fraction0.01; hypothetical"
+    },
+    {
+      "id": "extra_020",
+      "meaning": "As above, fraction0.02; source-inspired by first-order2%KS change from a coherent1% velocity scaling at fixed density, but independent point errors are a hypothesis"
+    },
+    {
+      "id": "shared_020",
+      "meaning": "Same2%KS amplitude, fully correlated across the three pressures; generalized effective-variance IRLS using rank-one covariance addition; tests shared calibration rather than independent scatter"
+    },
+    {
+      "id": "pressure_02",
+      "meaning": "Assign sigmaP0.2GPa instead of S1s0.1GPa; explicit hypothetical sensitivity"
+    },
+    {
+      "id": "pressure_05",
+      "meaning": "Assign sigmaP0.5GPa instead of S1s0.1GPa; explicit hypothetical sensitivity"
+    },
+    {
+      "id": "round_01",
+      "meaning": "Round derived KS to nearest0.1GPa, keep formal errors unchanged; diagnostic tabulation-precision control"
+    },
+    {
+      "id": "density_vp",
+      "meaning": "Infer original density from Table6 C11 and Table4 calculated [100]vp; replace density by3.60*V0/Vpublished(P,298). Rescale KS and its formal width by density ratio. Uses a published-EOS calculated density and rounded velocities, not recovered original processing or independent data"
+    },
+    {
+      "id": "density_vs",
+      "meaning": "Same density recalculation using Table6 C44 and Table4 calculated [100]vs; bracket channel-dependent inference from rounded velocities"
+    },
+    {
+      "id": "free_conrad_scale",
+      "meaning": "Fit one calculated-KS multiplier for all three Conrad points, same mechanism as Kono/Gwanmesia. Hypothetical additional nuisance scale, not reported as a final Conrad scale in Angel2022"
+    }
+  ],
+  "starts": [
+    [
+      167.002,
+      5.06534,
+      749.825,
+      1.15602,
+      0.99455,
+      1.00551
+    ],
+    [
+      167.01622973324527,
+      5.235854775976889,
+      779.7537662306313,
+      1.1578333496894826,
+      0.9876977927449225,
+      1.0018105245568742
+    ]
+  ],
+  "fixed_background": "All219 rows retained in every case, including the three selected Conrad KS points and all other estimated errors. Keep7.7/10GPa excluded as previously confirmed from AngelFig3. No observations, pressure calibration or source coefficients edited.",
+  "source_findings": [
+    "Conrad1999 p378 gives KS=(C11+2C12)/3; p377 describes Christoffel velocity inversion; Table6p379 gives formal Cij errors with unknown covariance.",
+    "Conrad1999 p377 reports assumed1%velocity precision, which does not supply per-point KS errors or their cross-pressure covariance.",
+    "Angel2022 p4 explicitly says no KS preprocessing by rescaling; adiabatic-isothermal conversion occurs inside EosFit(p6). No external KS-to-KT conversion or undocumented pressure correction is accepted as source processing.",
+    "Jiang2004 paragraph17 identifies possible orientation errors in Conrad, not a numerical correction or a quantified Conrad error model."
+  ],
+  "density_inputs": [
+    {
+      "source_row": 1,
+      "P_gpa": 1.6,
+      "vp_calc_km_s": 9.42,
+      "vs_calc_km_s": 5.61
+    },
+    {
+      "source_row": 2,
+      "P_gpa": 3.5,
+      "vp_calc_km_s": 9.68,
+      "vs_calc_km_s": 5.51
+    },
+    {
+      "source_row": 3,
+      "P_gpa": 6.95,
+      "vp_calc_km_s": 9.79,
+      "vs_calc_km_s": 5.62
+    }
+  ],
+  "density_qualification": "Calculated velocities are printed to0.01km/s; infer rho bounds from v+/-0.005 rounding only, not experimental standard errors. Reference density3.60g/cm3 is reported Table2. Density-reprocessing controls do not propagate the unknown density/correlation errors and cannot independently validate the published EOS they use.",
+  "shared_error_protocol": "At each IRLS outer step, use the existing diagonal effective pressure variances for all rows, and add uuT on the3Conrad block with u_i=(dP/dKS)_i*0.02*KS_i. Freeze the block during each least-squares iteration. Whiten using its lower Cholesky factor. Keep all other weights unchanged. Covariance uses whitened pressure derivatives at final weights.",
+  "compute_cap": "Exactly26scientific cases, two unchanged starts each=52optimizations; max30IRLS steps,400evaluations each, unchanged tolerances. Verification may replay declared cases. No post-result error fractions, scales, subsets or pressure corrections added.",
+  "reporting": "All input changes/error semantics, fitted parameters/nuisance scales, both starts, covariances, bounds/convergence, weighted residuals and correlated3x3blocks. Compare against source and previous baseline, not only closeness in Kprime. Distinguish central preprocessing from independent additional scatter and shared calibration.",
+  "preservation": "Never replace canonical Conrad Cij-derived observations/errors, prior diagnostics or coefficients. No author contact, push, release or catalog changes."
+}

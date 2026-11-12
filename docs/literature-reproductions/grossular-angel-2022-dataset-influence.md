@@ -1,5 +1,10 @@
 # Grossular: which datasets drive K′?
 
+**Subsequent investigation:** the [Conrad processing/error controls](grossular-angel-2022-conrad-processing.md)
+retain all three points. An explicitly hypothetical independent 2% modulus
+width moves K′ close to the source, whereas a shared allowance or single
+scale does not. This page preserves the earlier deletion diagnostics.
+
 User-requested diagnostic, 12 November 2026, following the
 [normalization/specimen tests](grossular-angel-2022-normalization-specimen.md).
 
