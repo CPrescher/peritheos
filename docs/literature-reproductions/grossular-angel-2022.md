@@ -8,12 +8,14 @@ The published coefficients remain unchanged.
 ## Outcome and comparison scope
 
 **The published equation passes numerical checks; the full original regression
-cannot yet be reproduced.** Supplementary Table S1 lists a nominal total of
-220 used channels. We recovered upstream values corresponding to 161 of those
-channels. Seven Thiéblot expansion values and 52 Gwanmesia modulus values remain
-unrecovered. The original normalization, some assigned errors and one specimen
-identity also remain unresolved. This is a completed recovery/audit finding at
-the available evidence level, not a claim that a full experimental fit passed.
+cannot yet be reproduced.** The [subsequent recovery](grossular-angel-2022-recovery.md)
+adds all 52 Gwanmesia table rows and seven digitized Thiéblot plotted points,
+bringing coverage to **213 tabulated/table-derived plus seven digitized
+channels** under the nominal 220-channel S1 inventory. It also traces the
+Isaak plotted expansion series to GR-2B, rather than the GGD specimen named
+in S1. Original Thiéblot values/errors, exact normalization, some assigned
+errors and original fit-project selections remain unavailable. The earlier
+161-channel receipts below are preserved as historical results.
 
 A separately declared **95-channel partial refit** converges from two starts,
 giving K₀ = 167.373 GPa, K′ = 4.96395, θ₀ = 744.384 K and γ₀ = 1.16605.
@@ -64,7 +66,7 @@ Those statements remain distinct.
 ## Recovered observations and selection inventory
 
 The [recovery manifest](../data/garnet-angel-2022/grossular/input-recovery.json)
-records source locations, access URLs, original-evidence hashes where downloaded,
+records the earlier source locations, access URLs, original-evidence hashes where downloaded,
 transcription hashes, missing errors and qualifications. The
 [access log](../data/garnet-angel-2022/grossular/source-access-checks.json)
 distinguishes inaccessible files, metadata-only responses and unavailable tables.
@@ -74,7 +76,7 @@ An unsuccessful download is not a finding that the data do not exist.
 | --- | ---: | ---: | --- |
 | Isaak 1992 expansion | 15 | 15 | [Table 2 transcription](../data/garnet-angel-2022/grossular/isaak-1992-table-2.csv); observed GR-2B strain, specimen discrepancy below |
 | Bosenick–Geiger 1997 expansion | 20 | 20 | [Table 2](../data/garnet-angel-2022/grossular/bosenick-geiger-1997-table-2.csv); indexed primary author-uploaded text, including repeats; PDF not pixel-checked |
-| Thiéblot 1998 expansion | 7 | 0 | Publisher supplies abstract/one-page preview; numerical table and selected rows unrecovered |
+| Thiéblot 1998 expansion | 7 | 7 digitized | [Follow-up extraction](grossular-angel-2022-recovery.md#thieblot-seven-plotted-points-original-table-still-missing); original table/errors unavailable |
 | Rodehorst 2002 expansion | 9 | 9 | [Table 4A](../data/garnet-angel-2022/grossular/rodehorst-2002-table-4a.csv); indexed primary text; 298 K anchor retained separately; PDF not pixel-checked |
 | Du 2015 expansion | 13 | 13 | [Preprint Table 2](../data/garnet-angel-2022/grossular/du-2015-preprint-table-2.csv); scan visually checked, final publisher table not directly recovered |
 | Milani 2017 expansion | 35 | 35 | [Official deposit Table 2](../data/garnet-angel-2022/grossular/milani-2017-table-2.csv); XLSX/PDF agree |
@@ -83,8 +85,8 @@ An unsuccessful download is not a finding that the data do not exist.
 | Isaak 1992 Kₛ | 22 | 22 | [Table 3b](../data/garnet-angel-2022/grossular/isaak-1992-table-3b.csv); GGD specimen; only three explicit errors |
 | Conrad 1999 Kₛ | 3 | 3 | [Table 6 Cᵢⱼ](../data/garnet-angel-2022/grossular/conrad-1999-table-6.csv); Kₛ derived, original two excluded high-P rows also retained |
 | Kono 2010 Kₛ | 36 | 36 | [Table 1](../data/garnet-angel-2022/grossular/kono-2010-table-1.csv); all eight original columns retained |
-| Gwanmesia 2014 Kₛ | 52 | 0 | Publisher/API/repository searches yielded no full numerical table |
-| **Nominal total** | **220** | **161** | **59 unrecovered; exact author residual count remains uncertain** |
+| Gwanmesia 2014 Kₛ | 52 | 52 | [Final publisher Table 1](../data/garnet-angel-2022/grossular/gwanmesia-2014-table-1.csv); full follow-up source receipt |
+| **Nominal total** | **220** | **213 tabulated/derived + 7 digitized** | **Exact author input values, errors and residual count remain uncertain** |
 
 The original numerical tables were obtained from the
 [MSA 2017 deposit](http://www.minsocam.org/MSA/AmMin/TOC/2017/Apr2017_data/AM-17-45855.zip),
@@ -110,8 +112,11 @@ an additional compositional assumption; it is not measured end-member volume.
 We preserve observed strain, calculated strain and estimated end-member α in
 separate columns. The observed strain values were interpolated by about 2 K
 onto the published temperature grid. Values extrapolated above 1000 K are
-not added as observations. Which reduction entered Angel's fit is unresolved;
-these 15 channels are excluded from the diagnostic end-member refit.
+not added as observations. The [follow-up vector comparison](grossular-angel-2022-recovery.md#isaak-specimen-identity-traced-to-the-plotted-series)
+identifies the plotted series as consistent with directly scaled GR-2B strain.
+Isaak p.109 explicitly confirms a 293 K strain reference. The exact fit-project
+reduction remains unconfirmed; these 15 channels stay outside the diagnostic
+end-member refit.
 
 **The compression citation/range is inconsistent.** S1 says “Milani 2015,
 0–8.4 GPa”; the article and EOS comments cite Milani 2017. The official 2017
@@ -126,8 +131,8 @@ states that normalization removes an ambient datum from a diffraction set.
 Yet some original/used counts are identical (35/35, 20/20, 13/13). For
 compression and Rodehorst the counts explicitly decrease by one. Anchors,
 sub-instrument groupings and their induced covariance cannot be reconstructed
-from these counts alone. “161 recovered” identifies upstream channels under
-the S1 inventory; it does not prove all 161 entered the author fit unchanged.
+from these counts alone. Coverage identifies upstream or plotted channels
+under the S1 inventory; it does not prove they entered the author fit unchanged.
 
 **Selection and error details remain incomplete.** Bosenick–Geiger's own
 discussion excludes low-temperature cooling measurements and a 20 K point,
@@ -244,9 +249,10 @@ pytest -q tests/test_grossular_observation_audit.py
 python -m scripts.run_grossular_angel_2022_eosfit --executable /path/to/eosfit7c
 ```
 
-To resume a full reproduction, obtain the 52 Gwanmesia modulus rows and seven
-selected Thiéblot volume rows; identify the Isaak expansion input/reduction;
-recover exact normalization anchors, point masks, coordinate errors, scale
-groups and the original fit controls. Paired quartz readings would remove
-the rounded-pressure reconstruction assumption. The current pyrope email
-should not be represented as an already-sent request for these grossular files.
+The [follow-up recovery](grossular-angel-2022-recovery.md) supplies the 52
+Gwanmesia rows and seven digitized Thiéblot points. To resume a full reproduction,
+recover the original Thiéblot table/errors; confirm the Isaak fit input; recover
+exact normalization anchors, point masks, coordinate errors, scale groups and
+original fit controls. Paired quartz readings would remove the rounded-pressure
+reconstruction assumption. The current pyrope email is not an already-sent
+request for these grossular files.

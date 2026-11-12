@@ -18,14 +18,15 @@ The [source audit](literature-reproductions/garnet-angel-2022.md) accepts both
 published pressure parameterizations after independent numerical checks.
 The original mixed volume/adiabatic-modulus regression remains unavailable.
 
-**Grossular follow-up, 2026-11-12:** the [observation audit](literature-reproductions/grossular-angel-2022.md)
-recovers 161 of 220 nominal S1 channels and reports a conditional 95-channel
-refit. The missing numerical tables are seven Thiéblot expansion values and
-52 Gwanmesia moduli. Isaak expansion specimen identity, normalization anchors,
-point masks and assigned errors also remain unresolved. These grossular
-inputs were **not** requested in the already-sent pyrope email. The earlier
-Milani manuscript download failed, but its official 2017 MSA deposit has now
-provided all 35 expansion and eight compression table rows.
+**Grossular follow-up, 2026-11-12:** the [recovery audit](literature-reproductions/grossular-angel-2022-recovery.md)
+adds all 52 Gwanmesia modulus rows and seven digitized Thiéblot expansion
+points: coverage is now 213 tabulated/table-derived plus seven plotted channels
+under the nominal 220-channel S1 inventory. The Isaak plotted expansion series
+matches the GR-2B strain table despite S1's GGD composition label. The original
+Thiéblot table/errors, exact Isaak fit input, normalization anchors, point masks
+and some assigned errors remain unresolved. These grossular inputs were **not**
+requested in the already-sent pyrope email; no further author contact occurred.
+The existing conditional 95-channel refit remains unchanged.
 
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,

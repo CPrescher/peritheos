@@ -28,14 +28,16 @@ EosFit; the original fitting workflow remains unrecovered.
 
 ## Grossular follow-up: 12 November 2026
 
-The [grossular observation audit](grossular-angel-2022.md) recovers upstream
-values corresponding to 161 of the 220 nominal S1 channels. Seven Thiéblot
-expansion and 52 Gwanmesia modulus values remain unrecovered. Normalization
-counts and the Isaak expansion specimen/reduction are unresolved. Nine
-same-coefficient official EosFit property checks pass. A separately declared
-95-channel partial refit converges from two starts to K0=167.373 GPa,
-K0′=4.96395, θ0=744.384 K and γ0=1.16605. It is diagnostic and does not
-reproduce the full author workflow or replace the published coefficients.
+The [grossular observation audit](grossular-angel-2022.md) and its
+[recovery follow-up](grossular-angel-2022-recovery.md) now cover 213 tabulated
+or table-derived channels plus seven digitized Thiéblot plotted points under
+the nominal 220-channel S1 inventory. All 52 Gwanmesia modulus rows are recovered.
+The Isaak plotted expansion series matches GR-2B strain despite S1's GGD
+composition label. Original Thiéblot values/errors, exact normalization and fit
+inputs remain incomplete. Nine same-coefficient official EosFit property checks
+pass. The separately declared 95-channel partial refit remains diagnostic:
+K0=167.373 GPa, K0′=4.96395, θ0=744.384 K and γ0=1.16605. No source coefficients
+changed and the full author workflow is not reproduced.
 
 ## Decision and comparison scope
 

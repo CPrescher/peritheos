@@ -1,0 +1,42 @@
+{
+  "recovered_on": "2026-11-12",
+  "source": "Angel et al. (2022), final publication Figure 4, PDF page 8",
+  "doi": "10.1007/s00410-022-01918-5",
+  "pdf_sha256": "eebef304cc8ef328f3d9219d9006f94791e4680e42d92655a396890eac81b692",
+  "pymupdf_version": "1.26.5",
+  "data_kind": "digitized_processed_plot_observations",
+  "method": "Vector marker bounding-box centers; affine calibration to six temperature and nine volume major ticks. Filled/open markers checked against the rendered figure and legend.",
+  "temperature_axis": {
+    "slope": 8.782014501450409,
+    "intercept": -3153.3162229541504,
+    "max_tick_residual_k": 0.46949668511661
+  },
+  "volume_axis": {
+    "slope": -0.01721856638089386,
+    "intercept": 130.20288744326115,
+    "max_tick_residual_cm3_mol": 0.001105849394164693
+  },
+  "conservative_digitization_bounds": {
+    "temperature_k": 2,
+    "molar_volume_cm3_mol": 0.003,
+    "meaning": "Resolution bounds, not experimental standard deviations or confidence intervals; axes, calibration and normalization induce shared errors."
+  },
+  "qualification": "Thi\u00e9blot points are Angel's already processed plotted series, not recovered original Table values. Seven filled markers correspond to S1's selected subset; the article's exclusion prose conflicts with S1. Six open markers are retained separately as excluded visible evidence. Two of the 15 original observations are not identified here. No original uncertainties are recovered.",
+  "groups": {
+    "isaak": {
+      "rows": 15,
+      "transcription": "figure4-isaak.csv",
+      "sha256": "bbff1c46d41f3bf98ab582396768c6a30d36dbe806ff133a4d0db0221721a0dd"
+    },
+    "thieblot_selected": {
+      "rows": 7,
+      "transcription": "figure4-thieblot-selected.csv",
+      "sha256": "4d285de3e82d9251d5771ff9a5cad3674a59ef64793d763e852b69e78ebbd5e2"
+    },
+    "thieblot_excluded_visible": {
+      "rows": 6,
+      "transcription": "figure4-thieblot-excluded-visible.csv",
+      "sha256": "e4c7ca01710225fb610dfa6f267cb23f82c9cd67a991763eeb32e619c774fb2e"
+    }
+  }
+}
