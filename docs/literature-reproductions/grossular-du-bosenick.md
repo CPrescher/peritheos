@@ -77,9 +77,12 @@ the background requires it. Neither stage control closes θ:
 | Listed temperatures, fully shared 0.2 K error | 848.446 | 848.162 |
 | Du a³ and propagated σₐ | 821.213 | 821.662 |
 
-The final publisher table remains unverified: the current full-text request
-was forbidden, other public retrievals were inaccessible/gated, and the cached
-institutional preprint remains the evidence basis. Inaccessible is not absent.
+**Subsequent source recovery, 13 November 2026:** the
+[final typeset Table 2 comparison](grossular-du-final-table.md) now verifies
+all 13 grossular entries, their printed errors and these calibration definitions
+against an author-uploaded final copy. They are unchanged from the preprint;
+the existing fit inputs are therefore unchanged. The original source-evidence
+and verification receipts retain their historical preprint-only scope.
 No fitted temperature correction or additional temperature-error width was
 introduced to force agreement.
 

@@ -76,8 +76,9 @@ weights; θ remains discrepant. No further author contact occurred.
 holds the independent 2% Conrad allowance fixed without changing source errors.
 Du's expansion series supplies the strongest upward θ pull; Bosenick's cold
 series restrains it and carries most conditional local information. Du's
-393.7/447.1 K entries agree with the available preprint, but the final table
-and original fit-file processing remain unverified. Du run/normalization/error
+393.7/447.1 K entries agreed with the available preprint; at that stage the
+final table had not been recovered (see the subsequent comparison below).
+Original fit-file processing remains unverified. Du run/normalization/error
 details and Bosenick's exact room-reference anchor and shared covariance are
 now the focused remaining inputs. Omitting Du does not recover θ and K′
 together. No new author message was drafted or sent.
@@ -88,8 +89,19 @@ correction is not the reported procedure. Bosenick's shared anchor covariance
 was propagated, including the retained 270 K numerator in the calculated
 298 K denominator. None of the tested assumptions closes θ. Raw calibration
 and run correlations, Du denominator covariance and original error columns
-remain missing. Final Du publisher-table verification remains unavailable;
-the institutional preprint was inspected. No additional author contact occurred.
+remain missing. That study used the institutional preprint; the subsequent
+final-table recovery below closes that particular source-version gap.
+No additional author contact occurred.
+
+**Du final-table recovery, 2026-11-13:** the
+[final typeset Table 2 comparison](literature-reproductions/grossular-du-final-table.md)
+uses a public author-uploaded final copy. All 13 grossular rows, printed
+uncertainties, calculated α entries and calibration/error definitions match
+the preprint. All 32 existing Du/Bosenick cases retain identical prepared
+inputs, so no new fits were needed. The preprint-to-final hypothesis for
+the θ discrepancy is excluded for this table; original fit-file processing
+and covariance remain unresolved. The 2% Conrad allowance remains diagnostic.
+No further author contact occurred; the pyrope reply is still awaited.
 
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,

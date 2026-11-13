@@ -7,6 +7,13 @@ The published coefficients remain unchanged.
 
 ## Outcome and comparison scope
 
+The [final Du Table 2 comparison](grossular-du-final-table.md) recovers an
+author-uploaded copy of the final journal typesetting. All 13 grossular
+temperatures, lattice parameters, volumes and printed errors match the
+preprint, as do the NaCl correction and error definitions. A source-version
+change in this table does not explain the remaining θ discrepancy. Existing
+diagnostic inputs and fits remain unchanged; no author message was sent.
+
 The [Du/Bosenick processing and covariance study](grossular-du-bosenick.md)
 keeps all 219 rows and the diagnostic 2% Conrad allowance. Du's listed
 temperatures already use the NaCl correction. Bosenick's measured 295 K
@@ -139,7 +146,7 @@ An unsuccessful download is not a finding that the data do not exist.
 | Bosenick–Geiger 1997 expansion | 20 | 20 | [Table 2](../data/garnet-angel-2022/grossular/bosenick-geiger-1997-table-2.csv); indexed primary author-uploaded text, including repeats; PDF not pixel-checked |
 | Thiéblot 1998 expansion | 7 | 7 digitized | [Follow-up extraction](grossular-angel-2022-recovery.md#thieblot-seven-plotted-points-original-table-still-missing); original table/errors unavailable |
 | Rodehorst 2002 expansion | 9 | 9 | [Table 4A](../data/garnet-angel-2022/grossular/rodehorst-2002-table-4a.csv); indexed primary text; 298 K anchor retained separately; PDF not pixel-checked |
-| Du 2015 expansion | 13 | 13 | [Preprint Table 2](../data/garnet-angel-2022/grossular/du-2015-preprint-table-2.csv); scan visually checked, final publisher table not directly recovered |
+| Du 2015 expansion | 13 | 13 | [Final Table 2](../data/garnet-angel-2022/grossular/du-2015-final-table-2.csv), author-uploaded typeset copy; all grossular rows/errors match the preserved preprint |
 | Milani 2017 expansion | 35 | 35 | [Official deposit Table 2](../data/garnet-angel-2022/grossular/milani-2017-table-2.csv); XLSX/PDF agree |
 | Milani compression, labeled 2015 in S1 | 7 | 7 | [Official 2017 Table 3](../data/garnet-angel-2022/grossular/milani-2017-table-3.csv); eighth row is ambient anchor |
 | Bass 1989 ambient Kₛ | 1 | 1 | [Author abstract values](../data/garnet-angel-2022/grossular/bass-1989-ambient.csv); primary full PDF not recovered |

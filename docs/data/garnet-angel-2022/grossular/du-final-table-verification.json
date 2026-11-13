@@ -1,0 +1,53 @@
+{
+  "verified_on": "2026-11-13",
+  "status": "passed_at_declared_scope",
+  "scope": "Grossular final/preprint Table 2 source comparison and unchanged prepared diagnostic inputs; not whole-paper identity or author-workflow reproduction",
+  "source_visual_checks": "Final journal pages 215 and 217 and preprint pages 7 and 25 rendered and visually inspected; every grossular table entry, error and alpha token compared",
+  "python": {
+    "targeted_tests": 46,
+    "failed": 0,
+    "seconds": 5.64,
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/pytest -q -W error tests/test_grossular_*.py",
+    "followup_after_provenance_wording_update": "3 final-table tests passed in 0.94 seconds",
+    "comparison": "13 rows; zero changed printed tokens or numeric fields; 13 calculated alpha entries match",
+    "prepared_input_parity": "All 32 Du/Bosenick cases exactly preserve 219 observation/error rows, normalization denominators, starts and configuration; no new fit study",
+    "mutation_detection": "Changed temperature and printed error tokens both detected"
+  },
+  "style": "Ruff check, Ruff format check and git diff whitespace check passed for owned changes",
+  "documentation": {
+    "strict_clean_build": "passed",
+    "seconds": 105.46,
+    "command": "PYTHONPATH=<absolute-audit-worktree> <development-environment>/bin/mkdocs build --strict --site-dir <private-site>",
+    "rendered_links": {
+      "pages": 5,
+      "local_links_and_images": 153,
+      "errors": []
+    },
+    "environment_correction": "An initial run used a relative PYTHONPATH; notebook subprocesses imported the other checkout and failed on scientific_validation. The full successful rerun used the absolute audit worktree. No unrelated code was changed.",
+    "final_data_assets": "Final receipt, comparison and source evidence copied into the private built site after verification"
+  },
+  "preservation": {
+    "previous_manifests": {
+      "artifact-manifest.json": 22,
+      "conrad-processing-artifact-manifest.json": 9,
+      "dataset-influence-artifact-manifest.json": 10,
+      "du-bosenick-artifact-manifest.json": 9,
+      "expanded-artifact-manifest.json": 3,
+      "followup-artifact-manifest.json": 7,
+      "full-sensitivity-artifact-manifest.json": 8,
+      "normalization-specimen-artifact-manifest.json": 9,
+      "normalized-artifact-manifest.json": 7,
+      "theta-influence-artifact-manifest.json": 12
+    },
+    "all_previous_artifacts": "Byte-identical to all ten preceding manifests",
+    "preprint_csv_sha256": "d569ab2f57e87362027517a7bbfbfeb9ba76ddca0cc992eb39ae396bd1ac2b00",
+    "grossular_official_eos_sha256": "279139b3835582e97e5419283271151a9b10491f7eef89e986ce4e84e9d3dca5",
+    "canonical_sources_and_coefficients_changed": false,
+    "conrad_allowance": "Additional independent 2% retained as diagnostic only",
+    "catalog_changed": false,
+    "author_contacted": false,
+    "pyrope_correspondence": "Waiting for reply unchanged"
+  },
+  "fits_rerun": false,
+  "branch": "codex/pyrope-angel-2022-audit"
+}

@@ -127,9 +127,12 @@ subsets or individual rows were omitted in additional fits.
 Those temperature, volume and printed-error entries agree with the available
 [Du author-preprint Table 2](https://academiccommons.columbia.edu/doi/10.7916/D8V415Z5/download),
 manuscript p. 25, checked visually. No transcription correction was found.
-The final publisher table remains unverified: current retrieval attempts
-were inaccessible, which is not evidence of absence. See the
-[source-check receipt](../data/garnet-angel-2022/grossular/theta-influence-source-check.json).
+The final table had not been recovered at that stage; the historical
+[source-check receipt](../data/garnet-angel-2022/grossular/theta-influence-source-check.json)
+preserves that scope. The subsequent
+[final typeset Table 2 comparison](grossular-du-final-table.md) now confirms
+all 13 grossular rows and errors against an author-uploaded final copy,
+with no change to the existing inputs or discrepancy.
 
 The native-volume departures above use the constrained fit's other fitted
 coefficients and the adopted normalization; they are not corrections to
