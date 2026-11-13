@@ -7,6 +7,14 @@ The published coefficients remain unchanged.
 
 ## Outcome and comparison scope
 
+The [Du/Bosenick processing and covariance study](grossular-du-bosenick.md)
+keeps all 219 rows and the diagnostic 2% Conrad allowance. Du's listed
+temperatures already use the NaCl correction. Bosenick's measured 295 K
+versus calculated 298 K anchor accounts for about 17.3 K under diagonal
+weights, but propagating its shared volume error raises θ toward 850 K.
+None of 32 declared controls reaches 749.825 K; original covariance and
+fit-file inputs remain unresolved. No source record was changed.
+
 The [θ influence study](grossular-angel-2022-theta-influence.md) retains the
 additional independent 2% Conrad error allowance as an explicit diagnostic.
 Du's expansion series is the strongest upward influence on θ; Bosenick's

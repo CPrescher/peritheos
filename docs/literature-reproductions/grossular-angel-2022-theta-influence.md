@@ -1,5 +1,11 @@
 # Grossular: datasets driving θ with the 2% Conrad diagnostic
 
+**Subsequent source/covariance test:** the [Du/Bosenick study](grossular-du-bosenick.md)
+confirms that Du's temperatures are already NaCl-corrected and propagates
+Bosenick's shared measured/calculated anchor. The 32 retained-row controls
+do not close θ; full anchor covariance raises it. This page retains the
+earlier influence comparisons at fixed diagonal errors.
+
 User-requested investigation, 12 November 2026. The additional **independent
 2% Conrad modulus-error allowance is retained as a diagnostic**, added in
 quadrature to the formal upper widths. It is not a replacement for source

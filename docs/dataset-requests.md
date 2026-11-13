@@ -82,6 +82,15 @@ details and Bosenick's exact room-reference anchor and shared covariance are
 now the focused remaining inputs. Omitting Du does not recover θ and K′
 together. No new author message was drafted or sent.
 
+**Du/Bosenick follow-up, 2026-11-13:** the [32-case controls](literature-reproductions/grossular-du-bosenick.md)
+confirm that Du's listed temperatures already use NaCl calibration; a second
+correction is not the reported procedure. Bosenick's shared anchor covariance
+was propagated, including the retained 270 K numerator in the calculated
+298 K denominator. None of the tested assumptions closes θ. Raw calibration
+and run correlations, Du denominator covariance and original error columns
+remain missing. Final Du publisher-table verification remains unavailable;
+the institutional preprint was inspected. No additional author contact occurred.
+
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,
 scale-factor groups, assigned coordinate errors and weights (including the

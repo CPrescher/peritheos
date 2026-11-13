@@ -67,6 +67,13 @@ with relaxed offsets is a diagnostic control, not recovered author processing.
 
 ## Decision and comparison scope
 
+The [Du/Bosenick anchor and covariance controls](grossular-du-bosenick.md)
+retain every fit row and the independent 2% Conrad diagnostic. Source evidence
+confirms Du's NaCl correction is already applied. The tested Bosenick anchor
+and covariance assumptions do not reproduce θ; propagating shared anchor
+variance raises it toward 850 K. These remain conditional controls, with no
+change to source errors, coefficients or author-contact status.
+
 The [grossular θ influence study](grossular-angel-2022-theta-influence.md)
 keeps the independent 2% Conrad errors solely as a diagnostic. Du provides
 the strongest upward θ influence, opposed by Bosenick's cold data; deleting

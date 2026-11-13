@@ -1,0 +1,83 @@
+{
+  "declared_on": "2026-11-13",
+  "declared_before_solving": true,
+  "authorization": "User requested investigating Du preprocessing and Bosenick anchor/covariance, retaining independent2%Conrad diagnostic errors.",
+  "scope": "Conditional input/covariance investigation. No source errors replaced, original workflows claimed, catalog coefficients changed or points omitted.",
+  "backgrounds": [
+    "plotted",
+    "linear_298"
+  ],
+  "background_meaning": "Preserve earlier Milani/Du normalization choices. Override only Bosenick anchor and declared Du treatment. All219fit rows including all3Conrad points remain.",
+  "bosenick_anchors": [
+    "measured_295",
+    "linear_298"
+  ],
+  "anchor_definitions": {
+    "measured_295": "D=X295=125.293cm3/mol, used as a room-reference approximation without moving observation temperatures.",
+    "linear_298": "D=X295+(298-T295)*(X295-X270)/(T295-T270)=1.12X295-0.12X270=125.30104cm3/mol. A calculated extrapolation, not a measured298K volume. The270K numerator remains in the fit; its denominator correlation must be included."
+  },
+  "bosenick_covariances": [
+    "diagonal",
+    "volume_anchor",
+    "full_independent_T",
+    "full_shared_T"
+  ],
+  "covariance_meaning": {
+    "diagonal": "Previous diagnostic diagonal errors; anchor treated exact; Bosenick3K/5K accuracy widths treated as independent comparison weights.",
+    "volume_anchor": "Full first-order Jacobian of all19normalizedY against20raw volumes, with independent printed raw-volume widths. This propagates the shared measured or calculated anchor, including covariance with270K. Temperatures retain old independent comparison widths; anchor weights nominal/fixed.",
+    "full_independent_T": "Volume Jacobian as above plus full residual Jacobian against20raw temperatures, including the295K and270K dependence of calculatedD. Treat reported3K/5K accuracy bounds as independent comparison widths, not established statistical standard deviations.",
+    "full_shared_T": "Same volume covariance, but fully correlate the standardized raw-temperature comparison errors, with marginals3K/5K. This is an extreme calibration control, not recovered source covariance."
+  },
+  "du_treatments": [
+    "table_nacl",
+    "lattice",
+    "tc_reconstructed",
+    "double_corrected",
+    "shared_T"
+  ],
+  "du_meaning": {
+    "table_nacl": "Literal Table2cell volumes/errors and already NaCl-corrected temperatures with assigned0.2K widths. Denominator held fixed at the declared background reduction.",
+    "lattice": "Use a^3 and3a^2sigma_a. For plotted background, preserve first-point ratio by Dnew=Dold*(a0^3/X0). For linear298 background, derive Dnew from a0^3/a1^3 and listedT0/T1. Derived precision/rounding control, not recovered author processing.",
+    "tc_reconstructed": "Invert DuEq1 in Celsius: T2=-3.6e-5*T1^2+0.982*T1-0.565. Use physical near-room root for reconstructedT1; propagate original0.2Kwidth byinverse derivative. Contradicts the reported use ofT2; tests a possible stage-selection error only. Recompute linear-background Du anchor from transformed temperatures.",
+    "double_corrected": "Apply DuEq1 again to the listed already correctedT2, usingCelsius then adding273.15; propagate0.2Kwidth through derivative. Unsupported double-correction error control. Recompute linear-background anchor from transformed temperatures.",
+    "shared_T": "Keep listedT/Y/errors but replace independent0.2Ktemperature variance by fully shared calibration covariance on13Du rows; fixed denominator uncertainty remains unpropagated. Not source-recovered covariance."
+  },
+  "source_findings": [
+    "Du author-preprintp7 explicitly usesNaClT2throughout; tablefootnote0.2Cerror; equation1 maps thermocoupleCelsiusT1toNaClCelsiusT2. Final publisher table remains unverified.",
+    "Bosenick primaryp22650 reports3Ktemperatureaccuracy down to100K and5Kbelow, stabilitybetterthan0.1K, internalSi calibration, cooling/heating discrepancies and an8hour-equilibrated repeat run. No cross-point covariance is supplied.",
+    "AngelS1uses20Bosenick observations; existing fit omits only the normalization anchor. Retain all19non-anchorrows and both repeat sets."
+  ],
+  "case_design": "Main factorial2backgrounds*2Bosenickanchors*4Bosenickcovariances=16cases withDu table_nacl. Additional4Du treatments (lattice,tc_reconstructed,double_corrected,shared_T) at full_independent_T Bosenick covariance for each background/anchor=16cases. Total32cases,2starts=64optimizations. No unplanned combination or weight search.",
+  "starts": [
+    [
+      167.002,
+      5.06534,
+      749.825,
+      1.15602,
+      0.99455,
+      1.00551
+    ],
+    [
+      167.01622973324527,
+      5.235854775976889,
+      779.7537662306313,
+      1.1578333496894826,
+      0.9876977927449225,
+      1.0018105245568742
+    ]
+  ],
+  "conrad_error_model": "Same formal upper KS width plus extra independent0.02KS in quadrature, retained as diagnostic only.",
+  "fit_protocol": "Same6free coefficients and IRLS tolerances/reference state. Recompute effective covariance each outer iteration and freeze blocks in inner least-squares. Cholesky whiten19Bosenickrows and13Durows; other187rows keep diagonal weights. No jitter or eigenvalue clipping; fail explicitly if covariance loses positive definiteness.",
+  "covariance_limits": "Printed raw-volume errors are assumed independent before normalization; shared multiplicative raw-volume calibration cancels in ratios. Unknown Si/model/cycle correlations are not inferred from repeats. Du denominator covariance remains unpropagated because the original plotted normalization and calibration inputs are unavailable. No diagonal renormalization or independent anchor error double counting.",
+  "compute_cap": "Exactly32scientific cases,two starts each;30IRLSiterations and400inner evaluations maximum, unchanged bounds/tolerances. Verification may replay declared cases. Stop/report failures or bounds without expanding choices to force publication agreement.",
+  "reporting": "All inputs, transformed temperatures/denominators/Jacobians, pressure covariance blocks, both starts, coefficients/covariances/convergence, whitened objectives, theta/Kprime/gamma effects. Distinguish source-supported reduction from diagnostic correlation limits and explicitly unsupported calibration-stage errors.",
+  "preservation": "No old artifacts, canonical errors/observations, coefficients or classifications altered. No author contact, release or push.",
+  "input_sha256": {
+    "theta-influence-refits.json": "d03a1aab697d975d10b53e4a663bc4922083e0cc7790849be18350a6236fa95e",
+    "conrad-processing-refits.json": "cf2e5c933d16385703cfff88ac898944cd7d07c5b6f73328a57d27dc2351c0a6",
+    "normalization-specimen-plan.json": "a99d514d50c768c938f62ad69e53c0eba35febaba50e2446bbf454ef73301aaf",
+    "normalization-recovery.json": "7e7ca255a0fd53f0ca45147c88f05d6c0b2a9828e54458caf40da239a2c486b2",
+    "du-2015-preprint-table-2.csv": "d569ab2f57e87362027517a7bbfbfeb9ba76ddca0cc992eb39ae396bd1ac2b00",
+    "bosenick-geiger-1997-table-2.csv": "0efb7a07a0d8d365a2c04c7e6af567148571a0664dec7b29a517d7ded58fc95f"
+  }
+}
