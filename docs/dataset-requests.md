@@ -221,10 +221,29 @@ experimental observations.
 | [Frost et al. (2023), Pd](#frost-et-al-2023-palladium) | Recover original regression inputs/settings to resolve the recommendation hold | Reconcile both published fits with all 93 verified observations and the stated coordinate errors | Not contacted | 2026-10-17 |
 | [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Accepted on parameter agreement; no author email needed | GUI and console agree; residual-envelope discrepancy retained as informational | User supplied author communication, supplement, EOS and selected input | 2026-10-03 |
 | [Miozzi et al. (2020), hcp iron](#miozzi-et-al-2020-hcp-iron) | Author clarification would resolve a substantial source-fit discrepancy | Replay the actual pressure reduction and EosFit-7c objective; verify thermal normalization | Not contacted | 2026-10-02 |
+| [Katsura et al. (2009), wadsleyite](#katsura-et-al-2009-wadsleyite) | Wait for Tomoo's review over the Christmas/New Year holidays | Clarify the thermal-model discrepancy and recover the original Figure 2 code or spreadsheet | Response received; shared by user on 2026-11-08. Gentle reminder scheduled in Todoist for 2026-12-21 | 2026-11-08 |
 | [Chen et al. (2010), fcc argon](literature-reproductions/chen-2010-argon.md) | Original coefficients and data needed to resolve source inconsistency | Reconcile the 2 GPa elastic constants with Figure 5 and the extrapolated density; reproduce integration and fit | Not contacted; user requested no outreach | 2026-09-24 |
 | [Crichton et al. (2016), bcc vanadium](#crichton-et-al-2016-bcc-vanadium) | Contact authors; high priority for original-fit verification | Refit the complete 62-state experiment; resolve the two incomplete fixed-K′ alternatives | Not contacted; historical contact route available | 2026-09-19 |
 | [Nisr et al. (2017), hydrous silica](#nisr-et-al-2017-hydrous-silica) | Optional follow-up for exact regression and calibration replay; published coefficients already reproduced | Resolve the original fit objective, weights and Au pressure reduction | Not contacted | 2026-09-19 |
 | [Maltby et al. (2024), fcc argon](#maltby-et-al-2024-fcc-argon) | Contact authors for sample-state and neighbour-table clarification | Reproduce Table 8 and the original multiproperty fit before promoting a replacement | Not contacted; precise request drafted | 2026-09-24 |
+
+### Katsura et al. (2009): wadsleyite
+
+**Status: response received; waiting for Tomoo Katsura's review over the
+Christmas/New Year holidays.** In the reply shared by the user on 2026-11-08,
+Tomoo explained that his semester workload prevents a detailed examination
+now and asked to consider the discrepancy during the holidays. He requested
+a gentle reminder just before Christmas; a Todoist reminder is scheduled for
+2026-12-21 at 09:00 Europe/Berlin, with a draft follow-up email included.
+The exact receipt date of his reply was not provided.
+
+The request concerns the thermal-model discrepancy and the original code or
+spreadsheet used for Figure 2 of
+[the 2009 wadsleyite paper](https://doi.org/10.1029/2009GL038107).
+See the [completed audit](literature-reproductions/wadsleyite-katsura-2009.md).
+No technical clarification or new calculation files have been supplied in this
+reply. Keep the investigation waiting for author evidence and retain the
+existing scientific findings and catalog hold.
 
 ### October 2026 additions: optional workflow recovery
 
