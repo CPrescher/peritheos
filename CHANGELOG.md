@@ -24,6 +24,8 @@ All notable changes to Peritheos are documented here. The project follows
   native v5, and restore model units in legacy exports. Preserve physical
   uncertainties and scientific qualifications. Reject negative EOSMAT errors
   in Python, Rust and their schemas.
+- Propagate published zero errors with a precision qualification and support
+  state-only Monte Carlo uncertainty without a parameter covariance block.
 
 ### Changed
 

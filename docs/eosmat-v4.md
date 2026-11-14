@@ -111,7 +111,8 @@ specifies the units for `V0`/`rt_eos.V0` rows and columns. Both default to
 scales cross terms once and the volume variance twice.
 
 These annotations do not change source numbers or uncertainty confidence.
-Negative errors are rejected; reported zero errors are retained.
+Negative errors are rejected; published zeros are retained and propagated with
+an explicit qualification that printed precision does not establish exactness.
 For an older reader's numerical uncertainty API, load with the current package
 and use `Material.to_eosmat(format_version=3)` to export model-unit errors and
 covariance. A lossless format-only conversion preserves the original unit

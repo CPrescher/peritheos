@@ -541,8 +541,12 @@ class EOSUncertainty:
         while len(accepted) < sample_count and attempted < maximum_attempts:
             remaining = sample_count - len(accepted)
             batch_size = min(max(remaining * 2, 64), maximum_attempts - attempted)
-            draws = rng.multivariate_normal(
-                means, self.covariance, size=batch_size, check_valid="ignore"
+            draws = (
+                rng.multivariate_normal(
+                    means, self.covariance, size=batch_size, check_valid="ignore"
+                )
+                if self.parameter_names
+                else np.empty((batch_size, 0))
             )
             for draw in draws:
                 attempted += 1
@@ -581,9 +585,11 @@ class EOSUncertainty:
         lower = np.asarray(summary.lower).reshape(nominal.shape)
         upper = np.asarray(summary.upper).reshape(nominal.shape)
         output_covariance = summary.covariance
-        assumptions = self.parameter_uncertainty.assumptions + (
-            "parameter uncertainty sampled as a multivariate normal distribution",
-        )
+        assumptions = self.parameter_uncertainty.assumptions
+        if self.parameter_names:
+            assumptions += (
+                "parameter uncertainty sampled as a multivariate normal distribution",
+            )
         if argument_sigmas:
             assumptions += (
                 "state-variable errors sampled as independent normal distributions",

@@ -162,7 +162,7 @@ Each covariance entry uses the product of the corresponding parameter units:
 V0 variance uses Å⁶, K0 variance uses GPa², and a V0–K0 cross term uses Å³·GPa.
 Use `rt_eos.V0` for reference-isotherm volume in a thermal record. State the
 matrix's source, parameter order and confidence assumptions separately.
-Missing errors remain unknown; reported zero errors are preserved,
+Missing errors remain unknown; zero is preserved with a precision qualification,
 and negative errors are invalid. See [the v5 uncertainty rule](eosmat-v5.md).
 
 Old v2/v3/v4 files keep their original interpretations. Explicit v3/v4 exports

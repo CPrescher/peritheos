@@ -39,6 +39,12 @@ This constructs a diagonal covariance matrix and records the assumption
 EOS parameters are frequently correlated, so this fallback should not be
 presented as equivalent to propagation from a fitted covariance matrix.
 
+Catalog records preserve published zero errors and contribute zero variance
+for those entries. Their prediction assumptions state that printed precision
+does not establish exactness. Direct `EOSUncertainty(parameter_errors=...)`
+inputs still require positive errors; use an explicitly ordered covariance
+matrix when zero variance is an intentional assumption.
+
 ## With correlation or covariance
 
 Individual errors and a correlation matrix define a covariance matrix:
@@ -200,6 +206,19 @@ The reported confidence limits are empirical quantiles,
 
 so they can be asymmetric even though the sampled parameter distribution is
 multivariate normal.
+
+When parameter errors are unavailable, `EOSUncertainty.state_only(eos)` can
+propagate measured state errors with either linear or Monte Carlo methods:
+
+```python
+state_uncertainty = EOSUncertainty.state_only(eos)
+prediction = state_uncertainty.pressure(
+    9.0, volume_sigma=0.001, method="monte_carlo", random_state=42
+)
+```
+
+This keeps the EOS parameters fixed and records that parameter uncertainty is
+unavailable. With no state errors supplied either, the propagated error is zero.
 
 ## Errors in the requested state
 

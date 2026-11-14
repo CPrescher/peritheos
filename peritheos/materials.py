@@ -75,7 +75,11 @@ from peritheos.errors import (
     UnsupportedOperationError,
 )
 from peritheos.hugoniot import HugoniotBase, HugoniotState, LinearUsUpHugoniot
-from peritheos.uncertainty import EOSUncertainty, PredictionUncertainty
+from peritheos.uncertainty import (
+    EOSUncertainty,
+    ParameterUncertainty,
+    PredictionUncertainty,
+)
 
 if TYPE_CHECKING:
     from peritheos.datasets import Dataset
@@ -689,6 +693,20 @@ class EOSRecord:
                     name: value / normal_half_width
                     for name, value in self.parameter_errors.items()
                 }
+            if all(
+                np.isfinite(value) and value >= 0.0 for value in errors.values()
+            ) and any(value == 0.0 for value in errors.values()):
+                # Keep the reported zero without claiming the parameter is exact.
+                uncertainty = ParameterUncertainty(
+                    covariance=np.diag([value**2 for value in errors.values()]),
+                    parameter_names=tuple(errors),
+                    assumptions=(
+                        "parameter errors treated as mutually independent",
+                        "published zero parameter errors contribute zero variance; "
+                        "reported precision does not establish exactness",
+                    ),
+                )
+                return EOSUncertainty._from_parameter_uncertainty(self.eos, uncertainty)
             return EOSUncertainty(self.eos, parameter_errors=errors)
         return EOSUncertainty.state_only(self.eos)
 
