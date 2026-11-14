@@ -11,6 +11,11 @@ groups. Our EosFit replay gives θ=771.058±27.946 K versus 771.108±27.936 K
 in Ross's log; the independent fit gives 770.866±27.947 K. Rescaled errors
 agree within 0.5%. The earlier large discrepancy is resolved at the supplied
 processed-input scope. Upstream reduction/exclusion history remains partial.
+The [numerical follow-up](literature-reproductions/pyrope-numerical-differences.md)
+attributes the small remaining solver/error differences to propagation,
+inversion and numerical derivatives, and verifies the shared covariance
+algebra directly. A separate analytic replay prototype preserves Python's
+objective and results; the public fitter remains unchanged.
 The [correspondence receipt](data/garnet-angel-2022/pyrope/correspondence.json)
 records the user-supplied reply and attachment hashes. The initial request
 was sent by Clemens on 12 November 2026; its retained draft is not an

@@ -1,0 +1,223 @@
+{
+  "scope": "Analytic-derivative improvement to the repository pyrope replay only; public errors-in-variables fitter and weighting policy unchanged",
+  "fits": [
+    {
+      "parameters": {
+        "K0_gpa": 169.339834147415,
+        "K0_prime": 4.552897721476647,
+        "theta0_k": 770.8659345318381,
+        "gamma0": 1.184644588266096,
+        "scale_sinogeikin_2000_ks": 0.9782343414042487
+      },
+      "numerically_converged": true,
+      "conditional_reduced_chi_square": 2.2342520694749592,
+      "conditional_unscaled_covariance": [
+        [
+          0.04362558013867704,
+          -0.00491708503931415,
+          -0.04837013547757416,
+          0.00033636889718479133,
+          3.476185309131727e-05
+        ],
+        [
+          -0.00491708503931415,
+          0.0009014289945170327,
+          -0.02371265651767291,
+          -5.1152038858869824e-05,
+          -2.0387187797877238e-05
+        ],
+        [
+          -0.04837013547757416,
+          -0.02371265651767291,
+          349.57523649367766,
+          0.12492320158100424,
+          0.0017040326789856681
+        ],
+        [
+          0.00033636889718479133,
+          -5.1152038858869824e-05,
+          0.12492320158100424,
+          6.020881472983809e-05,
+          9.033512007798886e-07
+        ],
+        [
+          3.476185309131727e-05,
+          -2.0387187797877238e-05,
+          0.0017040326789856681,
+          9.033512007798886e-07,
+          1.5343537634791672e-05
+        ]
+      ],
+      "conditional_residual_scaled_widths": {
+        "K0_gpa": 0.31220272693697737,
+        "K0_prime": 0.04487782967662777,
+        "theta0_k": 27.947078480105887,
+        "gamma0": 0.011598347680198897,
+        "scale_sinogeikin_2000_ks": 0.005855026106995614
+      },
+      "maximum_normalized_stationarity_score": 3.236525187749174e-10,
+      "scaled_jacobian_condition_number": 34.64485283538346,
+      "at_parameter_bound": [],
+      "model_and_derivative_evaluations": 14,
+      "irls_trace": [
+        {
+          "iteration": 1,
+          "max_scaled_shift": 0.00029708785919266035,
+          "optimizer_success": true,
+          "nfev": 5,
+          "njev": 5
+        },
+        {
+          "iteration": 2,
+          "max_scaled_shift": 1.5587091200229354e-06,
+          "optimizer_success": true,
+          "nfev": 3,
+          "njev": 3
+        },
+        {
+          "iteration": 3,
+          "max_scaled_shift": 1.560841938398526e-07,
+          "optimizer_success": true,
+          "nfev": 2,
+          "njev": 2
+        },
+        {
+          "iteration": 4,
+          "max_scaled_shift": 1.8621823404497596e-08,
+          "optimizer_success": true,
+          "nfev": 2,
+          "njev": 2
+        },
+        {
+          "iteration": 5,
+          "max_scaled_shift": 2.2916050771267953e-09,
+          "optimizer_success": true,
+          "nfev": 2,
+          "njev": 2
+        }
+      ]
+    },
+    {
+      "parameters": {
+        "K0_gpa": 169.33983414764268,
+        "K0_prime": 4.552897721155572,
+        "theta0_k": 770.8659373186118,
+        "gamma0": 1.184644589192075,
+        "scale_sinogeikin_2000_ks": 0.9782343414246503
+      },
+      "numerically_converged": true,
+      "conditional_reduced_chi_square": 2.234252069597741,
+      "conditional_unscaled_covariance": [
+        [
+          0.04362558012727751,
+          -0.004917085038122527,
+          -0.04837013684179335,
+          0.0003363688968413589,
+          3.4761853090317295e-05
+        ],
+        [
+          -0.004917085038122527,
+          0.0009014289943887738,
+          -0.02371265651278782,
+          -5.115203891463739e-05,
+          -2.0387187798641214e-05
+        ],
+        [
+          -0.04837013684179335,
+          -0.02371265651278782,
+          349.5752371519478,
+          0.12492320220811726,
+          0.0017040326867366013
+        ],
+        [
+          0.0003363688968413589,
+          -5.115203891463739e-05,
+          0.12492320220811726,
+          6.020881512931214e-05,
+          9.033512059375224e-07
+        ],
+        [
+          3.4761853090317295e-05,
+          -2.0387187798641214e-05,
+          0.0017040326867366013,
+          9.033512059375224e-07,
+          1.534353763548311e-05
+        ]
+      ],
+      "conditional_residual_scaled_widths": {
+        "K0_gpa": 0.31220272690476597,
+        "K0_prime": 0.04487782967466818,
+        "theta0_k": 27.947078507186767,
+        "gamma0": 0.011598347718994005,
+        "scale_sinogeikin_2000_ks": 0.005855026107288418
+      },
+      "maximum_normalized_stationarity_score": 4.496731096530522e-09,
+      "scaled_jacobian_condition_number": 34.64485287516007,
+      "at_parameter_bound": [],
+      "model_and_derivative_evaluations": 29,
+      "irls_trace": [
+        {
+          "iteration": 1,
+          "max_scaled_shift": 0.03720745852247963,
+          "optimizer_success": true,
+          "nfev": 7,
+          "njev": 7
+        },
+        {
+          "iteration": 2,
+          "max_scaled_shift": 0.000610161330096959,
+          "optimizer_success": true,
+          "nfev": 6,
+          "njev": 6
+        },
+        {
+          "iteration": 3,
+          "max_scaled_shift": 1.8457289671052376e-05,
+          "optimizer_success": true,
+          "nfev": 4,
+          "njev": 4
+        },
+        {
+          "iteration": 4,
+          "max_scaled_shift": 4.1123754898136837e-07,
+          "optimizer_success": true,
+          "nfev": 2,
+          "njev": 2
+        },
+        {
+          "iteration": 5,
+          "max_scaled_shift": 4.333903275850885e-08,
+          "optimizer_success": true,
+          "nfev": 4,
+          "njev": 3
+        },
+        {
+          "iteration": 6,
+          "max_scaled_shift": 0.0,
+          "optimizer_success": true,
+          "nfev": 6,
+          "njev": 1
+        }
+      ]
+    }
+  ],
+  "timing_repeats": {
+    "finite_difference_seconds": [
+      0.11162049999999996,
+      0.14814637499999994,
+      0.11372533400000007,
+      0.11239412500000012,
+      0.10981450000000015
+    ],
+    "analytic_seconds": [
+      0.01669625000000008,
+      0.022005208000000054,
+      0.01790554099999997,
+      0.017292332999999993,
+      0.01719758299999996
+    ]
+  },
+  "benchmark_qualification": "Five local paired alternating-order repeats of this complete194rowfit, not a general library performance claim",
+  "library_default_changed": false,
+  "source_observations_changed": false
+}

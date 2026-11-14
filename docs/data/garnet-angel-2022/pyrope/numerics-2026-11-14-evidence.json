@@ -1,0 +1,633 @@
+{
+  "checked_on": "2026-11-14",
+  "scope": "Version-locked read-only numerical instrumentation of own EosFit7c7.60process; not experimental data",
+  "executable_sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d",
+  "native_exit_status": 0,
+  "debugged_final_log_parameters_match_uninstrumented_replay": true,
+  "starting_parameters": {
+    "K0_gpa": 169.33900451660156,
+    "K0_prime": 4.553140163421631,
+    "theta0_k": 771.0960083007812,
+    "gamma0": 1.1847000122070312,
+    "scale_sinogeikin_2000_ks": 0.9782800078392029
+  },
+  "native_reference_volume_cm3_mol": 113.12999725341797,
+  "parameters59_after_step": [
+    113.12999725341797,
+    169.33816528320312,
+    4.553206443786621,
+    -0.02803935296833515,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    771.05810546875,
+    0.0,
+    19.999998092651367,
+    0.9999999403953552,
+    0.0,
+    0.0,
+    0.0,
+    1.1846832036972046,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    93.99999237060547,
+    1.2999998331069946,
+    0.0,
+    0.0,
+    -0.009999998845160007,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    297.9999694824219,
+    0.9999999403953552,
+    0.0,
+    0.0,
+    0.0,
+    297.9999694824219,
+    0.9999999403953552,
+    0.0,
+    0.0,
+    0.9999999403953552,
+    0.9999999403953552,
+    0.9999999403953552,
+    0.9782801270484924,
+    0.9999999403953552,
+    0.9999999403953552,
+    0.9999999403953552,
+    0.9999999403953552,
+    0.9999999403953552,
+    1.0
+  ],
+  "errors59_after_step": [
+    0.0,
+    0.3133434057235718,
+    0.04510201886296272,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    27.94607162475586,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.011603601276874542,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.005877193529158831,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "reduced_chi_square": 2.2336630821228027,
+  "covariance_parameter_indices_zero_based": [
+    1,
+    2,
+    10,
+    17,
+    52
+  ],
+  "jacobian_and_weight_stage": "Before the first parameter update, original loaded coefficient state; all194 rows retained",
+  "post_step_pressure_stage": "Internal maximum-delta check seeded from previous calculated pressure, not the later printed list seeded from observed pressure",
+  "breakpoints": {
+    "packed_parameter_jacobian": "0x100031102",
+    "cycle_report": "0x100032e11",
+    "post_step_pressure": "0x100032cb9"
+  },
+  "static_jacobian_array": "0x10094b220,5float64values",
+  "read_only_registers_and_memory": "Own debugger-launched process; no numerical values changed. Instrumented and uninstrumented final fit/error/chi output agree.",
+  "public_source": {
+    "url": "https://code.ill.fr/scientific-software/crysfml/-/raw/8924b41c13a21f642938e1e5f5961302c3103e41/Src/CFML_EoS.f90",
+    "commit": "8924b41c13a21f642938e1e5f5961302c3103e41",
+    "sha256": "24c8ab0c3b36a6c4681504118d24f1340885641abd0fbfde811f43ab9ccff37f",
+    "qualification": "Public snapshot documents the structural algorithm; actual distributed binary was separately inspected and instrumented. No claim that it is the complete original build source."
+  },
+  "archive": "/Users/clemens/Programming/peritheos/output/pyrope-numerical-differences-2026-11-14",
+  "private_replay_files": {
+    "capture_native_jacobian.py": "1356703fe99dd8248110c2875f9b981ff8581703a2b6e8039a100e437f6521d5",
+    "debug_probe.py": "32d8dd307cfa087ff5e27d99636ee861f8db9086da4dd44b92fec165cf47bfdf",
+    "lldb-commands.txt": "1fae1acddde316d171ae486b119fae766fa4d05c9f549ae3748b6f5b3b38b28b",
+    "native-debug-exact/commands.txt": "c9bc0419f41887116ae630017f296d66ae3a51bfd53dc282deb94b4fae1ddba2",
+    "native-debug-exact/debug-stdout.txt": "09126b93ca93bd833e025f1e8f9260b4da68bd27e936fb2ab99dfd0780396b3b",
+    "native-debug-exact/fitted.eos": "ac933350e742df4e2c70986c44f8f1785d80e68edd6cabccd3be874346d850fa",
+    "native-jacobian.json": "dce26eb61c71d79d4b7858381134876c61f2da4db2fe4eaaca5035ba8f49d246",
+    "native-cycle-exact.json": "1fcf115811a44cf51ce4f05d100c48884b3663a08237a596ff78dcfbfb2c8f69",
+    "native-final-pressures.json": "cbcffdc8293e9abb9fdeccdea2c33e0ac0767098704c8a712c0e07da23fa5377"
+  },
+  "native_kernel_csv_sha256": "4e82247c476e254d4460bc25d258361d4762ea92b7ff3b4b6bc01e07db89be76",
+  "repeated_native_fits": [
+    {
+      "parameters": {
+        "K0_gpa": 169.33817,
+        "K0_prime": 4.55321,
+        "theta0_k": 771.05811,
+        "gamma0": 1.18468,
+        "scale_sinogeikin_2000_ks": 0.97828
+      },
+      "residual_scaled_esds": {
+        "K0_gpa": 0.31334,
+        "K0_prime": 0.0451,
+        "theta0_k": 27.94607,
+        "gamma0": 0.0116,
+        "scale_sinogeikin_2000_ks": 0.00588
+      },
+      "reduced_chi_square": 2.2337,
+      "printed_rescaled_covariance": [
+        [
+          0.09818,
+          -0.0111,
+          -0.10177,
+          0.00076,
+          8e-05
+        ],
+        [
+          -0.0111,
+          0.00203,
+          -0.05364,
+          -0.00012,
+          -5e-05
+        ],
+        [
+          -0.10177,
+          -0.05364,
+          780.98297,
+          0.27918,
+          0.00381
+        ],
+        [
+          0.00076,
+          -0.00012,
+          0.27918,
+          0.00013,
+          0.0
+        ],
+        [
+          8e-05,
+          -5e-05,
+          0.00381,
+          0.0,
+          3e-05
+        ]
+      ],
+      "converged": true,
+      "start": "source",
+      "repeat": 1
+    },
+    {
+      "parameters": {
+        "K0_gpa": 169.33797,
+        "K0_prime": 4.55324,
+        "theta0_k": 771.06421,
+        "gamma0": 1.18468,
+        "scale_sinogeikin_2000_ks": 0.97828
+      },
+      "residual_scaled_esds": {
+        "K0_gpa": 0.31327,
+        "K0_prime": 0.04509,
+        "theta0_k": 27.94609,
+        "gamma0": 0.0116,
+        "scale_sinogeikin_2000_ks": 0.00588
+      },
+      "reduced_chi_square": 2.2337,
+      "printed_rescaled_covariance": [
+        [
+          0.09814,
+          -0.0111,
+          -0.10207,
+          0.00076,
+          8e-05
+        ],
+        [
+          -0.0111,
+          0.00203,
+          -0.05352,
+          -0.00012,
+          -5e-05
+        ],
+        [
+          -0.10207,
+          -0.05352,
+          780.98425,
+          0.27916,
+          0.0038
+        ],
+        [
+          0.00076,
+          -0.00012,
+          0.27916,
+          0.00013,
+          0.0
+        ],
+        [
+          8e-05,
+          -5e-05,
+          0.0038,
+          0.0,
+          3e-05
+        ]
+      ],
+      "converged": true,
+      "start": "source",
+      "repeat": 2
+    },
+    {
+      "parameters": {
+        "K0_gpa": 169.33812,
+        "K0_prime": 4.55321,
+        "theta0_k": 771.0614,
+        "gamma0": 1.18468,
+        "scale_sinogeikin_2000_ks": 0.97828
+      },
+      "residual_scaled_esds": {
+        "K0_gpa": 0.31337,
+        "K0_prime": 0.04511,
+        "theta0_k": 27.94599,
+        "gamma0": 0.0116,
+        "scale_sinogeikin_2000_ks": 0.00588
+      },
+      "reduced_chi_square": 2.2337,
+      "printed_rescaled_covariance": [
+        [
+          0.0982,
+          -0.0111,
+          -0.10159,
+          0.00076,
+          8e-05
+        ],
+        [
+          -0.0111,
+          0.00203,
+          -0.05363,
+          -0.00012,
+          -5e-05
+        ],
+        [
+          -0.10159,
+          -0.05363,
+          780.97833,
+          0.27917,
+          0.0038
+        ],
+        [
+          0.00076,
+          -0.00012,
+          0.27917,
+          0.00013,
+          0.0
+        ],
+        [
+          8e-05,
+          -5e-05,
+          0.0038,
+          0.0,
+          3e-05
+        ]
+      ],
+      "converged": true,
+      "start": "source",
+      "repeat": 3
+    },
+    {
+      "parameters": {
+        "K0_gpa": 169.33809,
+        "K0_prime": 4.55322,
+        "theta0_k": 771.06836,
+        "gamma0": 1.18469,
+        "scale_sinogeikin_2000_ks": 0.97828
+      },
+      "residual_scaled_esds": {
+        "K0_gpa": 0.31321,
+        "K0_prime": 0.04508,
+        "theta0_k": 27.94627,
+        "gamma0": 0.0116,
+        "scale_sinogeikin_2000_ks": 0.00588
+      },
+      "reduced_chi_square": 2.2337,
+      "printed_rescaled_covariance": [
+        [
+          0.0981,
+          -0.01109,
+          -0.10262,
+          0.00076,
+          8e-05
+        ],
+        [
+          -0.01109,
+          0.00203,
+          -0.0534,
+          -0.00012,
+          -5e-05
+        ],
+        [
+          -0.10262,
+          -0.0534,
+          780.99408,
+          0.27916,
+          0.0038
+        ],
+        [
+          0.00076,
+          -0.00012,
+          0.27916,
+          0.00013,
+          0.0
+        ],
+        [
+          8e-05,
+          -5e-05,
+          0.0038,
+          0.0,
+          3e-05
+        ]
+      ],
+      "converged": true,
+      "start": "source",
+      "repeat": 4
+    },
+    {
+      "parameters": {
+        "K0_gpa": 169.33813,
+        "K0_prime": 4.55321,
+        "theta0_k": 771.05658,
+        "gamma0": 1.18468,
+        "scale_sinogeikin_2000_ks": 0.97828
+      },
+      "residual_scaled_esds": {
+        "K0_gpa": 0.31337,
+        "K0_prime": 0.0451,
+        "theta0_k": 27.94612,
+        "gamma0": 0.0116,
+        "scale_sinogeikin_2000_ks": 0.00588
+      },
+      "reduced_chi_square": 2.2337,
+      "printed_rescaled_covariance": [
+        [
+          0.0982,
+          -0.0111,
+          -0.10154,
+          0.00076,
+          8e-05
+        ],
+        [
+          -0.0111,
+          0.00203,
+          -0.05366,
+          -0.00012,
+          -5e-05
+        ],
+        [
+          -0.10154,
+          -0.05366,
+          780.98547,
+          0.27918,
+          0.00381
+        ],
+        [
+          0.00076,
+          -0.00012,
+          0.27918,
+          0.00013,
+          0.0
+        ],
+        [
+          8e-05,
+          -5e-05,
+          0.00381,
+          0.0,
+          3e-05
+        ]
+      ],
+      "converged": true,
+      "start": "python",
+      "repeat": 1
+    },
+    {
+      "parameters": {
+        "K0_gpa": 169.33853,
+        "K0_prime": 4.55314,
+        "theta0_k": 771.06769,
+        "gamma0": 1.18469,
+        "scale_sinogeikin_2000_ks": 0.97828
+      },
+      "residual_scaled_esds": {
+        "K0_gpa": 0.313,
+        "K0_prime": 0.04504,
+        "theta0_k": 27.94562,
+        "gamma0": 0.0116,
+        "scale_sinogeikin_2000_ks": 0.00588
+      },
+      "reduced_chi_square": 2.2337,
+      "printed_rescaled_covariance": [
+        [
+          0.09797,
+          -0.01107,
+          -0.10386,
+          0.00076,
+          8e-05
+        ],
+        [
+          -0.01107,
+          0.00203,
+          -0.05322,
+          -0.00012,
+          -5e-05
+        ],
+        [
+          -0.10386,
+          -0.05322,
+          780.9577,
+          0.27914,
+          0.00379
+        ],
+        [
+          0.00076,
+          -0.00012,
+          0.27914,
+          0.00013,
+          0.0
+        ],
+        [
+          8e-05,
+          -5e-05,
+          0.00379,
+          0.0,
+          3e-05
+        ]
+      ],
+      "converged": true,
+      "start": "python",
+      "repeat": 2
+    },
+    {
+      "parameters": {
+        "K0_gpa": 169.33836,
+        "K0_prime": 4.55317,
+        "theta0_k": 771.0614,
+        "gamma0": 1.18469,
+        "scale_sinogeikin_2000_ks": 0.97828
+      },
+      "residual_scaled_esds": {
+        "K0_gpa": 0.31319,
+        "K0_prime": 0.04508,
+        "theta0_k": 27.94579,
+        "gamma0": 0.0116,
+        "scale_sinogeikin_2000_ks": 0.00588
+      },
+      "reduced_chi_square": 2.2337,
+      "printed_rescaled_covariance": [
+        [
+          0.09809,
+          -0.01109,
+          -0.10277,
+          0.00076,
+          8e-05
+        ],
+        [
+          -0.01109,
+          0.00203,
+          -0.05343,
+          -0.00012,
+          -5e-05
+        ],
+        [
+          -0.10277,
+          -0.05343,
+          780.96716,
+          0.27916,
+          0.0038
+        ],
+        [
+          0.00076,
+          -0.00012,
+          0.27916,
+          0.00013,
+          0.0
+        ],
+        [
+          8e-05,
+          -5e-05,
+          0.0038,
+          0.0,
+          3e-05
+        ]
+      ],
+      "converged": true,
+      "start": "python",
+      "repeat": 3
+    },
+    {
+      "parameters": {
+        "K0_gpa": 169.33864,
+        "K0_prime": 4.55313,
+        "theta0_k": 771.06323,
+        "gamma0": 1.18469,
+        "scale_sinogeikin_2000_ks": 0.97828
+      },
+      "residual_scaled_esds": {
+        "K0_gpa": 0.31311,
+        "K0_prime": 0.04506,
+        "theta0_k": 27.94582,
+        "gamma0": 0.0116,
+        "scale_sinogeikin_2000_ks": 0.00588
+      },
+      "reduced_chi_square": 2.2337,
+      "printed_rescaled_covariance": [
+        [
+          0.09804,
+          -0.01108,
+          -0.10289,
+          0.00076,
+          8e-05
+        ],
+        [
+          -0.01108,
+          0.00203,
+          -0.05339,
+          -0.00012,
+          -5e-05
+        ],
+        [
+          -0.10289,
+          -0.05339,
+          780.96912,
+          0.27915,
+          0.0038
+        ],
+        [
+          0.00076,
+          -0.00012,
+          0.27915,
+          0.00013,
+          0.0
+        ],
+        [
+          8e-05,
+          -5e-05,
+          0.0038,
+          0.0,
+          3e-05
+        ]
+      ],
+      "converged": true,
+      "start": "python",
+      "repeat": 4
+    }
+  ],
+  "catalog_changed": false,
+  "author_contacted": false
+}

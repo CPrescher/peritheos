@@ -8,6 +8,14 @@ thermal-parameter discrepancy of the earlier conditional reconstruction.
 Original attachments remain in the private archive; source coefficients and
 earlier recovery/refit artifacts remain unchanged.
 
+**Subsequent numerical investigation:** the
+[residual/weight/Jacobian audit](pyrope-numerical-differences.md) isolates the
+remaining small differences. The audited console uses finite one-error shifts
+for coordinate weights and a coarser modulus inversion. Its captured numerical
+Jacobian and weights reproduce its errors in Python to single-precision
+rounding. An analytic-derivative replay prototype preserves Python's original
+objective and results while accelerating this local fit.
+
 ## Direct comparison, including errors
 
 The reference is the **25 October 2021 final log**, not the slightly earlier
