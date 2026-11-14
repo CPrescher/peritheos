@@ -1,0 +1,542 @@
+{
+  "scope": "Replay of supplied processed inputs, not recovery of upstream reduction decisions",
+  "author_log": {
+    "parameters": {
+      "K0_gpa": 169.33849,
+      "K0_prime": 4.55313,
+      "theta0_k": 771.1076,
+      "gamma0": 1.18471,
+      "scale_sinogeikin_2000_ks": 0.97828
+    },
+    "residual_scaled_esds": {
+      "K0_gpa": 0.3129,
+      "K0_prime": 0.04503,
+      "theta0_k": 27.93594,
+      "gamma0": 0.0116,
+      "scale_sinogeikin_2000_ks": 0.00588
+    },
+    "reduced_chi_square": 2.2335,
+    "printed_rescaled_covariance": [
+      [
+        0.09791,
+        -0.01106,
+        -0.10434,
+        0.00076,
+        8e-05
+      ],
+      [
+        -0.01106,
+        0.00203,
+        -0.05311,
+        -0.00011,
+        -5e-05
+      ],
+      [
+        -0.10434,
+        -0.05311,
+        780.41687,
+        0.27898,
+        0.00379
+      ],
+      [
+        0.00076,
+        -0.00011,
+        0.27898,
+        0.00013,
+        0.0
+      ],
+      [
+        8e-05,
+        -5e-05,
+        0.00379,
+        0.0,
+        3e-05
+      ]
+    ],
+    "converged": true
+  },
+  "eosfit_replay": {
+    "parameters": {
+      "K0_gpa": 169.33817,
+      "K0_prime": 4.55321,
+      "theta0_k": 771.05811,
+      "gamma0": 1.18468,
+      "scale_sinogeikin_2000_ks": 0.97828
+    },
+    "residual_scaled_esds": {
+      "K0_gpa": 0.31334,
+      "K0_prime": 0.0451,
+      "theta0_k": 27.94607,
+      "gamma0": 0.0116,
+      "scale_sinogeikin_2000_ks": 0.00588
+    },
+    "reduced_chi_square": 2.2337,
+    "printed_rescaled_covariance": [
+      [
+        0.09818,
+        -0.0111,
+        -0.10177,
+        0.00076,
+        8e-05
+      ],
+      [
+        -0.0111,
+        0.00203,
+        -0.05364,
+        -0.00012,
+        -5e-05
+      ],
+      [
+        -0.10177,
+        -0.05364,
+        780.98297,
+        0.27918,
+        0.00381
+      ],
+      [
+        0.00076,
+        -0.00012,
+        0.27918,
+        0.00013,
+        0.0
+      ],
+      [
+        8e-05,
+        -5e-05,
+        0.00381,
+        0.0,
+        3e-05
+      ]
+    ],
+    "converged": true,
+    "saved_rescaled_covariance": [
+      [
+        0.098184,
+        -0.011102,
+        -0.10177,
+        0.00075976,
+        7.8837e-05
+      ],
+      [
+        -0.011102,
+        0.0020342,
+        -0.053636,
+        -0.00011552,
+        -4.579e-05
+      ],
+      [
+        -0.10177,
+        -0.053636,
+        780.98,
+        0.27918,
+        0.0038063
+      ],
+      [
+        0.00075976,
+        -0.00011552,
+        0.27918,
+        0.00013464,
+        2.0278e-06
+      ],
+      [
+        7.8837e-05,
+        -4.579e-05,
+        0.0038063,
+        2.0278e-06,
+        3.4541e-05
+      ]
+    ],
+    "saved_covariance_widths": {
+      "K0_gpa": 0.31334326225403347,
+      "K0_prime": 0.04510210638096629,
+      "theta0_k": 27.946019394539896,
+      "gamma0": 0.01160344776348823,
+      "scale_sinogeikin_2000_ks": 0.005877159177698014
+    },
+    "saved_covariance_rounding_checks": {
+      "K0_gpa": {
+        "saved_variance_half_step": 5e-07,
+        "width_lower": 0.3133424644059595,
+        "width_upper": 0.3133440601000759
+      },
+      "K0_prime": {
+        "saved_variance_half_step": 5e-08,
+        "width_lower": 0.04510155207972338,
+        "width_upper": 0.04510266067539697
+      },
+      "theta0_k": {
+        "saved_variance_half_step": 0.005,
+        "width_lower": 27.945929936217905,
+        "width_upper": 27.946108852575524
+      },
+      "gamma0": {
+        "saved_variance_half_step": 5e-09,
+        "width_lower": 0.011603232308283758,
+        "width_upper": 0.01160366321469216
+      },
+      "scale_sinogeikin_2000_ks": {
+        "saved_variance_half_step": 5e-10,
+        "width_lower": 0.005877116639985972,
+        "width_upper": 0.005877201715102179
+      }
+    }
+  },
+  "independent_reduced_chi_square": 2.23425206920262,
+  "comparison": [
+    {
+      "parameter": "K0_gpa",
+      "author_value": 169.33849,
+      "author_rescaled_esd": 0.3129,
+      "eosfit_value": 169.33817,
+      "eosfit_rescaled_esd": 0.31334,
+      "independent_value": 169.33983414760024,
+      "independent_rescaled_esd": 0.31220272690445544,
+      "eosfit_minus_author": -0.00032000000001630724,
+      "independent_minus_author": 0.0013441476002356012,
+      "eosfit_difference_over_author_esd": 0.001022690955628978,
+      "independent_difference_over_author_esd": 0.004295773730379039,
+      "independent_error_relative_to_eosfit": -0.00362951776199838
+    },
+    {
+      "parameter": "K0_prime",
+      "author_value": 4.55313,
+      "author_rescaled_esd": 0.04503,
+      "eosfit_value": 4.55321,
+      "eosfit_rescaled_esd": 0.0451,
+      "independent_value": 4.552897721431661,
+      "independent_rescaled_esd": 0.04487782966835702,
+      "eosfit_minus_author": 7.999999999963592e-05,
+      "independent_minus_author": -0.00023227856833951677,
+      "eosfit_difference_over_author_esd": 0.001776593382181566,
+      "independent_difference_over_author_esd": 0.0051583070917059015,
+      "independent_error_relative_to_eosfit": -0.004926171433325632
+    },
+    {
+      "parameter": "theta0_k",
+      "author_value": 771.1076,
+      "author_rescaled_esd": 27.93594,
+      "eosfit_value": 771.05811,
+      "eosfit_rescaled_esd": 27.94607,
+      "independent_value": 770.8659345445311,
+      "independent_rescaled_esd": 27.947078482129267,
+      "eosfit_minus_author": -0.049489999999991596,
+      "independent_minus_author": -0.24166545546893303,
+      "eosfit_difference_over_author_esd": 0.0017715530603227096,
+      "independent_difference_over_author_esd": 0.008650700691257679,
+      "independent_error_relative_to_eosfit": 3.608672451149708e-05
+    },
+    {
+      "parameter": "gamma0",
+      "author_value": 1.18471,
+      "author_rescaled_esd": 0.0116,
+      "eosfit_value": 1.18468,
+      "eosfit_rescaled_esd": 0.0116,
+      "independent_value": 1.1846445882740226,
+      "independent_rescaled_esd": 0.01159834768126445,
+      "eosfit_minus_author": -2.999999999997449e-05,
+      "independent_minus_author": -6.54117259772935e-05,
+      "eosfit_difference_over_author_esd": 0.0025862068965495253,
+      "independent_difference_over_author_esd": 0.005638941894594267,
+      "independent_error_relative_to_eosfit": -0.00014244127030604847
+    },
+    {
+      "parameter": "scale_sinogeikin_2000_ks",
+      "author_value": 0.97828,
+      "author_rescaled_esd": 0.00588,
+      "eosfit_value": 0.97828,
+      "eosfit_rescaled_esd": 0.00588,
+      "independent_value": 0.9782343414097032,
+      "independent_rescaled_esd": 0.005855026107316416,
+      "eosfit_minus_author": 0.0,
+      "independent_minus_author": -4.5658590296815404e-05,
+      "eosfit_difference_over_author_esd": 0.0,
+      "independent_difference_over_author_esd": 0.007765066377009423,
+      "independent_error_relative_to_eosfit": -0.004247260660473429
+    }
+  ],
+  "final194_observation_error_and_group_tokens_match_author_log": true,
+  "eosfit_version": "7.60",
+  "executable_sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d",
+  "native_exact_final_log_value_match": false,
+  "error_qualification": "All compared widths use residual-rescaled local covariance; shared data mean differences are not independent-sample statistical tests",
+  "fixed_parameter_property_check": {
+    "scope": "Proposed exactly representable coefficient set, not yet agreed with author; local same-parameter property check only",
+    "parameters": {
+      "1": 112.0,
+      "2": 170.0,
+      "3": 4.5,
+      "11": 800.0,
+      "13": 20.0,
+      "18": 1.25
+    },
+    "reference_temperature_k": 298.0,
+    "gas_constant": 8.314000129699707,
+    "tolerances": {
+      "volume_cm3_mol": 0.0001,
+      "kt_gpa": 0.001,
+      "ks_gpa": 0.001
+    },
+    "tolerance_basis": "Previously declared native printed-property/single-precision tolerances, unchanged",
+    "all_within_tolerance": true,
+    "states": [
+      {
+        "pressure_gpa": 0.0,
+        "temperature_k": 100.0,
+        "independent": {
+          "volume_cm3_mol": 111.65959385425477,
+          "kt_gpa": 172.34097083778164,
+          "alpha_per_k": 4.46409171544576e-06,
+          "gamma": 1.2462008242662361,
+          "ks_gpa": 172.43684678727274
+        },
+        "eosfit": {
+          "volume_cm3_mol": 111.6596,
+          "kt_gpa": 172.3409,
+          "ks_gpa": 172.4368
+        },
+        "differences": {
+          "volume_cm3_mol": 6.145745231833644e-06,
+          "kt_gpa": -7.083778163519128e-05,
+          "ks_gpa": -4.6787272736992236e-05
+        }
+      },
+      {
+        "pressure_gpa": 0.0,
+        "temperature_k": 298.0,
+        "independent": {
+          "volume_cm3_mol": 111.99999999999987,
+          "kt_gpa": 170.00000000000108,
+          "alpha_per_k": 2.342653155943214e-05,
+          "gamma": 1.2499999999999984,
+          "ks_gpa": 171.48348511100215
+        },
+        "eosfit": {
+          "volume_cm3_mol": 112.0,
+          "kt_gpa": 170.0,
+          "ks_gpa": 171.4835
+        },
+        "differences": {
+          "volume_cm3_mol": 1.2789769243681803e-13,
+          "kt_gpa": -1.0800249583553523e-12,
+          "ks_gpa": 1.488899783907982e-05
+        }
+      },
+      {
+        "pressure_gpa": 0.0,
+        "temperature_k": 1000.0,
+        "independent": {
+          "volume_cm3_mol": 114.4713022489627,
+          "kt_gpa": 153.92141221839262,
+          "alpha_per_k": 3.503896405333702e-05,
+          "gamma": 1.2775814983143159,
+          "ks_gpa": 160.81172458393524
+        },
+        "eosfit": {
+          "volume_cm3_mol": 114.4713,
+          "kt_gpa": 153.9213,
+          "ks_gpa": 160.8116
+        },
+        "differences": {
+          "volume_cm3_mol": -2.2489627014010694e-06,
+          "kt_gpa": -0.00011221839261565947,
+          "ks_gpa": -0.00012458393524639177
+        }
+      },
+      {
+        "pressure_gpa": 0.0,
+        "temperature_k": 1700.0,
+        "independent": {
+          "volume_cm3_mol": 117.5344678598637,
+          "kt_gpa": 136.03735268307085,
+          "alpha_per_k": 4.0476008034021605e-05,
+          "gamma": 1.3117686145074074,
+          "ks_gpa": 148.3163244959207
+        },
+        "eosfit": {
+          "volume_cm3_mol": 117.5345,
+          "kt_gpa": 136.0373,
+          "ks_gpa": 148.3163
+        },
+        "differences": {
+          "volume_cm3_mol": 3.2140136298153266e-05,
+          "kt_gpa": -5.268307086225832e-05,
+          "ks_gpa": -2.4495920683875738e-05
+        }
+      },
+      {
+        "pressure_gpa": 10.0,
+        "temperature_k": 100.0,
+        "independent": {
+          "volume_cm3_mol": 106.03720016807887,
+          "kt_gpa": 216.0632055982025,
+          "alpha_per_k": 3.5607446349727805e-06,
+          "gamma": 1.1834508947330231,
+          "ks_gpa": 216.1542539075915
+        },
+        "eosfit": {
+          "volume_cm3_mol": 106.0372,
+          "kt_gpa": 216.0631,
+          "ks_gpa": 216.1542
+        },
+        "differences": {
+          "volume_cm3_mol": -1.6807886993319698e-07,
+          "kt_gpa": -0.00010559820250932717,
+          "ks_gpa": -5.390759150714075e-05
+        }
+      },
+      {
+        "pressure_gpa": 10.0,
+        "temperature_k": 298.0,
+        "independent": {
+          "volume_cm3_mol": 106.29454601651692,
+          "kt_gpa": 213.8338891158851,
+          "alpha_per_k": 1.8624318070299923e-05,
+          "gamma": 1.1863230582200548,
+          "ks_gpa": 215.24180319085048
+        },
+        "eosfit": {
+          "volume_cm3_mol": 106.2945,
+          "kt_gpa": 213.8339,
+          "ks_gpa": 215.2418
+        },
+        "differences": {
+          "volume_cm3_mol": -4.6016516918712114e-05,
+          "kt_gpa": 1.0884114885811869e-05,
+          "ks_gpa": -3.1908504638522572e-06
+        }
+      },
+      {
+        "pressure_gpa": 10.0,
+        "temperature_k": 1000.0,
+        "independent": {
+          "volume_cm3_mol": 108.13183613228533,
+          "kt_gpa": 198.5897223963296,
+          "alpha_per_k": 2.7157733867998032e-05,
+          "gamma": 1.206828528262113,
+          "ks_gpa": 205.09844653044212
+        },
+        "eosfit": {
+          "volume_cm3_mol": 108.1318,
+          "kt_gpa": 198.5896,
+          "ks_gpa": 205.0984
+        },
+        "differences": {
+          "volume_cm3_mol": -3.6132285330836567e-05,
+          "kt_gpa": -0.0001223963296013153,
+          "ks_gpa": -4.653044211977431e-05
+        }
+      },
+      {
+        "pressure_gpa": 10.0,
+        "temperature_k": 1700.0,
+        "independent": {
+          "volume_cm3_mol": 110.3295545585351,
+          "kt_gpa": 181.80012917785837,
+          "alpha_per_k": 3.0287376609838065e-05,
+          "gamma": 1.2313566356979364,
+          "ks_gpa": 193.32639475098185
+        },
+        "eosfit": {
+          "volume_cm3_mol": 110.3296,
+          "kt_gpa": 181.8001,
+          "ks_gpa": 193.3264
+        },
+        "differences": {
+          "volume_cm3_mol": 4.544146490559342e-05,
+          "kt_gpa": -2.917785838008058e-05,
+          "ks_gpa": 5.249018158792751e-06
+        }
+      },
+      {
+        "pressure_gpa": 30.0,
+        "temperature_k": 100.0,
+        "independent": {
+          "volume_cm3_mol": 98.05691535892511,
+          "kt_gpa": 298.8161037231077,
+          "alpha_per_k": 2.574646716034154e-06,
+          "gamma": 1.094385216059432,
+          "ks_gpa": 298.90029980102355
+        },
+        "eosfit": {
+          "volume_cm3_mol": 98.0569,
+          "kt_gpa": 298.816,
+          "ks_gpa": 298.9002
+        },
+        "differences": {
+          "volume_cm3_mol": -1.5358925111286226e-05,
+          "kt_gpa": -0.00010372310771344928,
+          "ks_gpa": -9.980102356621501e-05
+        }
+      },
+      {
+        "pressure_gpa": 30.0,
+        "temperature_k": 298.0,
+        "independent": {
+          "volume_cm3_mol": 98.22864600155717,
+          "kt_gpa": 296.7168439382772,
+          "alpha_per_k": 1.3421922100020476e-05,
+          "gamma": 1.0963018526959505,
+          "ks_gpa": 298.017921918787
+        },
+        "eosfit": {
+          "volume_cm3_mol": 98.2286,
+          "kt_gpa": 296.7171,
+          "ks_gpa": 298.0181
+        },
+        "differences": {
+          "volume_cm3_mol": -4.6001557166164275e-05,
+          "kt_gpa": 0.00025606172283687556,
+          "ks_gpa": 0.00017808121299367485
+        }
+      },
+      {
+        "pressure_gpa": 30.0,
+        "temperature_k": 1000.0,
+        "independent": {
+          "volume_cm3_mol": 99.43454833503141,
+          "kt_gpa": 282.4158289868805,
+          "alpha_per_k": 1.9096829129962358e-05,
+          "gamma": 1.1097605840963327,
+          "ks_gpa": 288.4010417388497
+        },
+        "eosfit": {
+          "volume_cm3_mol": 99.4345,
+          "kt_gpa": 282.4159,
+          "ks_gpa": 288.4011
+        },
+        "differences": {
+          "volume_cm3_mol": -4.8335031408441864e-05,
+          "kt_gpa": 7.101311950918898e-05,
+          "ks_gpa": 5.826115028639833e-05
+        }
+      },
+      {
+        "pressure_gpa": 30.0,
+        "temperature_k": 1700.0,
+        "independent": {
+          "volume_cm3_mol": 100.82956207720385,
+          "kt_gpa": 266.78824158073684,
+          "alpha_per_k": 2.063902422199022e-05,
+          "gamma": 1.1253299338973644,
+          "ks_gpa": 277.3220311421457
+        },
+        "eosfit": {
+          "volume_cm3_mol": 100.8296,
+          "kt_gpa": 266.7882,
+          "ks_gpa": 277.322
+        },
+        "differences": {
+          "volume_cm3_mol": 3.792279615311145e-05,
+          "kt_gpa": -4.1580736819923914e-05,
+          "ks_gpa": -3.11421457013239e-05
+        }
+      }
+    ]
+  },
+  "independent_error_comparison": {
+    "maximum_relative_width_difference": 0.004926171433325632,
+    "maximum_absolute_correlation_difference": 0.0014686452360862523,
+    "native_theta_gamma_correlation": 0.8609487410636059,
+    "independent_theta_gamma_correlation": 0.8610784830154153
+  }
+}

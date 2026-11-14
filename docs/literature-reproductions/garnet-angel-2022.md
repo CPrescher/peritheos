@@ -5,12 +5,16 @@ Alvaro, *Garnet EoS: a critical review and synthesis*, Contributions to
 Mineralogy and Petrology **177**, 54,
 [doi:10.1007/s00410-022-01918-5](https://doi.org/10.1007/s00410-022-01918-5).
 
-**Correspondence status:** Clemens confirmed on 12 November 2026 that he sent
-the pyrope input/analysis request to Ross Angel. **Waiting for Ross's reply.**
+**Correspondence status:** Ross's reply and five attachments were supplied
+by Clemens on **14 November 2026**. The
+[author-input replay](pyrope-author-input-replay.md) recovers all 194 processed
+fit observations and their errors/groups. EosFit and the independent replay
+closely reproduce the final logged coefficients and rescaled uncertainties;
+exact printed-digit identity and upstream preprocessing are distinct limits.
 See the [request tracker](../dataset-requests.md#angel-et-al-2022-pyrope-and-grossular)
 and [user-confirmed receipt](../data/garnet-angel-2022/pyrope/correspondence.json).
-The recovery and verification receipts below describe work performed before
-that email; their historical contact statements are retained in that context.
+The recovery and verification receipts below retain their historical scope;
+the new author-input study does not overwrite those earlier diagnostics.
 
 **12 November follow-up:** 99 of the 102 previously missing pyrope channels
 have now been recovered, including 26 digitized channels. Two expanded

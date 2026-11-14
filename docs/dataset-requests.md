@@ -2,21 +2,27 @@
 
 ## Angel et al. (2022): pyrope and grossular
 
-**Current status: waiting for Ross Angel's reply.** Clemens confirmed on
-12 November 2026 that he sent the pyrope analysis request to
-`rossjohn.angel@cnr.it`. The request asks for the original EosFit data and
-fitting macro/log, Hartwig weighting, volume normalization, revised pressure
-calibration and any source-table corrections. No reply has been reported.
+**Current status: reply received and inputs replayed, 14 November 2026.**
+Clemens supplied Ross Angel's reply, two data files, an EOS file, a final
+fit log and the pyrope dataset description. The
+[author-input comparison](literature-reproductions/pyrope-author-input-replay.md)
+recovers all 194 processed observations, exact assigned errors and scale
+groups. Our EosFit replay gives θ=771.058±27.946 K versus 771.108±27.936 K
+in Ross's log; the independent fit gives 770.866±27.947 K. Rescaled errors
+agree within 0.5%. The earlier large discrepancy is resolved at the supplied
+processed-input scope. Upstream reduction/exclusion history remains partial.
 The [correspondence receipt](data/garnet-angel-2022/pyrope/correspondence.json)
-records this user-confirmed status; the retained email draft is not an
-independently verified copy of the sent message. No follow-up reminder has
-been scheduled by this work. The updates below record the preceding audit.
+records the user-supplied reply and attachment hashes. The initial request
+was sent by Clemens on 12 November 2026; its retained draft is not an
+independently verified sent copy. No further message has been sent by this
+work. Earlier updates below retain their dated investigation scope.
 
 Paper: *Garnet EoS: a critical review and synthesis*,
 [doi:10.1007/s00410-022-01918-5](https://doi.org/10.1007/s00410-022-01918-5).
 The [source audit](literature-reproductions/garnet-angel-2022.md) accepts both
 published pressure parameterizations after independent numerical checks.
-The original mixed volume/adiabatic-modulus regression remains unavailable.
+The original processed pyrope regression is now available and replayed;
+grossular's original author input files remain unavailable.
 
 **Grossular follow-up, 2026-11-12:** the [recovery audit](literature-reproductions/grossular-angel-2022-recovery.md)
 adds all 52 Gwanmesia modulus rows and seven digitized Thiéblot expansion
@@ -101,7 +107,8 @@ the preprint. All 32 existing Du/Bosenick cases retain identical prepared
 inputs, so no new fits were needed. The preprint-to-final hypothesis for
 the θ discrepancy is excluded for this table; original fit-file processing
 and covariance remain unresolved. The 2% Conrad allowance remains diagnostic.
-No further author contact occurred; the pyrope reply is still awaited.
+No further author contact occurred during that study; at that stage the
+pyrope reply was still awaited. It has since arrived, as recorded above.
 
 **Minimum inputs:** complete EosFit data/project files with original included
 row identities, volume-normalization anchors, revised quartz pressures,
@@ -166,9 +173,10 @@ corrections, normalization and calibration inputs remain missing. The
 records pressure-column checks, calibration verification and the small
 cross-solver discrepancy. No catalog coefficients were replaced.
 
-**Investigation:** latest pyrope recovery/fit attempt 2026-11-12; original
-workflow not reproduced. Further author-workflow reconstruction is waiting
-for Ross's response and original inputs.
+**Historical investigation, 2026-11-12:** the conditional reconstruction did
+not reproduce the original workflow. The 14 November author-input replay
+above supersedes its missing-processed-input status while preserving the
+earlier diagnostic artifacts.
 
 **User-requested weighting test, 2026-11-12:** a separate
 [Hartwig sensitivity study](literature-reproductions/garnet-angel-2022.md#user-requested-hartwig-weight-sensitivity)
@@ -180,7 +188,7 @@ values, and it increases the Milani expansion residuals. The actual author
 factor remains unknown. Direct equation/property checks at 27 states agree
 with official EosFit; those checks do not recover the original fit workflow.
 The subsequent request for the original joint project was sent by Clemens;
-we are waiting for a reply.
+the reply and actual processed inputs have now been received, as recorded above.
 
 This page tracks whether obtaining additional source data would resolve a
 documented reproduction gap, exactly what to request, and the outreach status.
@@ -200,7 +208,7 @@ experimental observations.
 
 | Paper / material | Recommendation | What additional data would enable | Outreach status | Last reviewed |
 |---|---|---|---|---|
-| [Angel et al. (2022), pyrope](#angel-et-al-2022-pyrope-and-grossular) | Wait for Ross Angel's reply | Recover original EosFit inputs, weighting, normalization, calibration and source-used corrections | Email sent by Clemens; awaiting reply, confirmed 2026-11-12 | 2026-11-12 |
+| [Angel et al. (2022), pyrope](#angel-et-al-2022-pyrope-and-grossular) | Review supplied-input replay and discuss fixed-parameter cross-check | Upstream reduction/exclusion history and remaining numerical implementation details | Reply and five attachments supplied by Clemens; processed-input fit replayed | 2026-11-14 |
 | [Shen and Smith (2026), MgO and NaCl-B2](#shen-and-smith-2026-mgo-and-nacl-b2) | Exact author-used inputs needed to resolve both fit holds | Establish whether additional observations or unpublished processing entered Table II; replay Cu reduction and regression | Not contacted | 2026-10-17 |
 | [Frost et al. (2023), Pd](#frost-et-al-2023-palladium) | Recover original regression inputs/settings to resolve the recommendation hold | Reconcile both published fits with all 93 verified observations and the stated coordinate errors | Not contacted | 2026-10-17 |
 | [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Accepted on parameter agreement; no author email needed | GUI and console agree; residual-envelope discrepancy retained as informational | User supplied author communication, supplement, EOS and selected input | 2026-10-03 |
