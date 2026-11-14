@@ -2162,8 +2162,8 @@ fn holzapfel_derivative_analytical(
         .map_err(to_python_error)
 }
 
-#[pymodule]
-fn _rust(module: &Bound<'_, PyModule>) -> PyResult<()> {
+#[pymodule(name = "_rust")]
+fn rust_module(module: &Bound<'_, PyModule>) -> PyResult<()> {
     module.add_class::<PyRtEos>()?;
     module.add_class::<PyHugoniotEos>()?;
     module.add_class::<PyThermalEos>()?;
