@@ -145,6 +145,8 @@ default to v5. Explicit v3/v4 conversion and material exports use historical
 model-unit uncertainties and omit new annotations for older readers. Coefficients,
 physical uncertainties and source qualifications are preserved through migration.
 
+Bounds on fixed or unknown fit parameters now raise `FitValidationError`.
+
 `volume()` is the preferred pressure-to-volume method. `calculate_volume()` is
 a supported compatibility alias and will remain available throughout the 1.x
 series.

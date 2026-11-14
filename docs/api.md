@@ -672,6 +672,9 @@ coordinates; 2-by-2 or 3-by-3 observation covariance matrices can preserve
 within-row velocity or velocity/density correlations. See the [acoustic
 finite-strain guide](fitting.md#acoustic-finite-strain-fitting).
 
+All fitting APIs reject `bounds` entries that name unknown or fixed parameters.
+Each supplied bound must apply to a free parameter; unused bounds are errors.
+
 `FitResult` contains the fitted `model`, parameter and uncertainty mappings,
 covariance and correlation matrices, raw and weighted residuals, chi-square,
 degrees of freedom, AIC, BIC, convergence status, and solver message. It also

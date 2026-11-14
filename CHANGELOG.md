@@ -26,6 +26,8 @@ All notable changes to Peritheos are documented here. The project follows
   in Python, Rust and their schemas.
 - Propagate published zero errors with a precision qualification and support
   state-only Monte Carlo uncertainty without a parameter covariance block.
+- Reject bounds on unknown or fixed fit parameters instead of silently
+  ignoring them, including acoustic and Hugoniot fitting.
 
 ### Changed
 

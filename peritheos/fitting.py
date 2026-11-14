@@ -661,6 +661,21 @@ def _parameter_covariance(jacobian, parameter_count: int) -> NDArray[np.float64]
     return np.linalg.pinv(profiled_information, hermitian=True)
 
 
+def _validate_bound_names(
+    bounds: Mapping[str, Sequence[float]],
+    free_names: Sequence[str],
+    fixed: Mapping[str, float],
+) -> None:
+    fixed_bounds = set(bounds) & set(fixed)
+    if fixed_bounds:
+        raise FitValidationError(
+            f"Bounds cannot be supplied for fixed parameters: {sorted(fixed_bounds)}"
+        )
+    unknown = set(bounds) - set(free_names)
+    if unknown:
+        raise FitValidationError(f"Unknown bounded parameters: {sorted(unknown)}")
+
+
 @cache
 def _native_fitting_types() -> tuple[type[EosBase], ...]:
     """Load exact built-in classes lazily to avoid package import cycles."""
@@ -782,6 +797,7 @@ def _fit_model(
         raise FitValidationError("Initial parameters must be finite")
 
     configured_bounds = bounds or {}
+    _validate_bound_names(configured_bounds, names, fixed_values)
     parameter_lower = []
     parameter_upper = []
     for name in names:
@@ -1145,6 +1161,7 @@ def fit_acoustic_finite_strain(
     assert p_sigma is not None and s_sigma is not None
 
     configured_bounds = bounds or {}
+    _validate_bound_names(configured_bounds, names, fixed_values)
     parameter_lower = []
     parameter_upper = []
     for name in names:
@@ -1423,9 +1440,9 @@ def fit_linear_us_up(
         "P0": float(P0),
         **{name: float(value) for name, value in supplied_fixed.items()},
     }
+    _validate_bound_names(configured_bounds, tuple(free_initial), supplied_fixed)
     positive_bounds: dict[str, Sequence[float]] = {
-        "c0": (float(np.finfo(float).tiny), float(np.inf)),
-        "s": (float(np.finfo(float).tiny), float(np.inf)),
+        **{name: (float(np.finfo(float).tiny), float(np.inf)) for name in free_initial},
         **configured_bounds,
     }
 
