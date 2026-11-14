@@ -13,7 +13,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
 | [Milani et al. (2015), BM3](#record-pyrope_milani_2015_bm3_1) | Coefficient parity achieved | Graph and table |
-| [Angel et al. (2022), BM3 + q-compromise Debye](#record-pyrope_angel_2022_bm3_q_compromise_debye) | Complete independent refit unavailable | No numeric coefficient pair recorded |
+| [Angel et al. (2022), BM3 + q-compromise Debye](#record-pyrope_angel_2022_bm3_q_compromise_debye) | Coefficient parity achieved | Graph and table |
 
 <a id="record-pyrope_milani_2015_bm3_1"></a>
 
@@ -119,10 +119,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `pyrope_angel_2022_bm3_q_compromise_debye` · Model: `BM3`
 
-**Outcome: Complete independent refit unavailable.**
+**Outcome: Coefficient parity achieved.**
 
-**Scope:** Reconstruction of a source equation or calculation.
-**Comparison basis:** Published parameterization verified by independent quadrature and official EosFit checks; complete original joint fit is unavailable.
+**Scope:** Comparison with the source parameterization.
+**Comparison basis:** Conditional parameter agreement from the complete 194-observation author-processed input regression. All five free parameters meet the recorded combined-error and numerical similarity criteria; the separate final-log comparison differs by less than 0.01 reported standard errors. Published source coefficients/covariance remain unchanged.
 
 [Stored EOS coefficients and source](../material-summaries/pyrope.md#record-pyrope_angel_2022_bm3_q_compromise_debye)
 
@@ -131,36 +131,85 @@ Record: `pyrope_angel_2022_bm3_q_compromise_debye` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.
-- Complete joint V/Ks input project, exact point masks, rescalings, weights (including increased Hartwig weights), and fit covariance confidence convention.
-- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
-- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+- All 194 author-processed observations, assigned P/T/value errors and scale groups are recovered. Original upstream reductions, calibration covariance and all exclusion decisions are not reconstructed.
+- The comparison uses the published EOS snapshot; Ross's later final log and its EosFit replay are separately compared in docs/literature-reproductions/pyrope-author-input-replay.md. Neither snapshot replaces the published coefficients or covariance.
+- The independent pressure-residual IRLS replay uses precise modulus inversion and local derivative effective variances. EosFit uses finite one-error displacements and approximate modulus inversion; the small parameter/error/chi-square differences are documented, not bitwise identity.
+- Refit errors are conditional local standard errors rescaled by reduced chi-square with effective coordinate weights frozen at the solution. Printed source errors retain their original convention; raw calibration/systematic uncertainty and shared-data cross-fit covariance remain unknown.
+- V0, Tr, n and volume scales are fixed; only the 15 high-pressure Sinogeikin–Bass (2000) modulus points share the refined scale. The two ambient points are unscaled. The nuisance scale is not a new EOS coefficient.
+- Numerical parameter agreement and processed-input replay do not establish complete raw-study author-workflow reproduction, experimental accuracy or a recommendation/default change.
 
 ### Data and reconstruction method
 
 - **Dataset identifiers:** None declared
-- **Fit kind:** source\_curve\_validation\_only
-- **Fixed parameters:** V0; Tr; n
+- **Observations:** 194
+- **Fit kind:** author\_processed\_joint\_volume\_modulus\_q\_compromise
+- **Selection:** All 194 rows of docs/data/garnet-angel-2022/pyrope/author-2026-11-14-inputs.csv: 115 volumes and 79 adiabatic moduli; no further exclusions
+- **Objective:** Pressure residuals with iteratively frozen effective variances from all supplied P/T/value errors; separate from the public latent-coordinate fitter
+- **Weighting:** Independent coordinate contributions in quadrature; local derivative propagation in the Python replay; original error tokens and exact scale groups retained
+- **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; theta0; gamma0; scale\_sinogeikin\_2000\_ks
+- **Fixed parameters:** V0; Tr; n; volume\_scales; unscaled\_modulus\_group
+- **Fixed values:**
+    - **V0 cm3 mol:** 113.13
+    - **Tr k:** 298
+    - **N:** 20
+    - **Volume scales:** 1
+    - **Unscaled modulus group:** 1
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
 ### Curves, residuals and fit error
 
-**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+![Source and refit curves with native-coordinate residuals for pyrope_angel_2022_bm3_q_compromise_debye](figures/pyrope_angel_2022_bm3_q_compromise_debye-curves.svg#only-light)
+![Source and refit curves with native-coordinate residuals for pyrope_angel_2022_bm3_q_compromise_debye](figures/pyrope_angel_2022_bm3_q_compromise_debye-curves-dark.svg#only-dark)
 
-| Fit | Recorded pressure RMS error (GPa) |
-| --- | ---: |
-| Original / source fit | Not reported |
-| Reconstruction / refit | Not reported |
+| Output / replay scope | Points | Residual units | Source RMS | Refit RMS |
+| --- | ---: | --- | ---: | ---: |
+| Volume observations (115 rows) | 115 | GPa | 0.221 | 0.221 |
+| Adiabatic-modulus observations (79 rows) | 79 | GPa | 0.41 | 0.41 |
 
-These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+All 194 processed observations are shown at their individual temperatures, without connecting mixed-temperature points. The source curve uses the published EOS snapshot and source scale; the reconstruction uses the archived independent Python fit. Both reconstruct pressure from the same observed V or KS and T, including the source's operational KS conversion and exact scale groups. Residual = calculated − observed pressure (GPa). Panel RMS is unweighted and differs from the effective-variance chi-square; error bars show the supplied P/value errors, while temperature errors also enter the fit. Full input/error/group tokens and the later author-log/native comparison are linked in the dedicated replay report. Original raw-study reduction/exclusion history remains partial.
 
-### Why no coefficient graph is shown
 
-No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
+Each panel uses the stored source and reconstructed coefficients on the same selected inputs. RMS errors are unweighted descriptive errors in the panel's native units, separate from parameter uncertainties and the weighted fitting objective. Error bars retain the available source widths; missing uncertainty is not zero. No new optimization or uncertainty band is introduced.
+
+### Source versus reconstruction
+
+![Source/target and reconstructed central values for pyrope_angel_2022_bm3_q_compromise_debye](figures/pyrope_angel_2022_bm3_q_compromise_debye.svg#only-light)
+![Source/target and reconstructed central values for pyrope_angel_2022_bm3_q_compromise_debye](figures/pyrope_angel_2022_bm3_q_compromise_debye-dark.svg#only-dark)
+
+This is a **coefficient comparison**, not an observation or residual plot.
+Each panel uses its coefficient's audit units and includes zero. Markers show
+stored central values and available recorded error widths (also in the table below);
+no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
+
+| Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 169.3 | 0.3 | 169.3 | 0.3 | Free |
+| rt\_eos.K0\_prime | 4.55 | 0.05 | 4.55 | 0.04 | Free |
+| theta0 | 771 | 28 | 771 | 28 | Free |
+| gamma0 | 1.185 | 0.012 | 1.185 | 0.012 | Free |
+| scale\_sinogeikin\_2000\_ks | 0.978 | 0.006 | 0.978 | 0.006 | Free |
+
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
+
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Degrees of freedom:** 189
+- **Solver success:** True
+- **Solver message:** Two independent starts converge to the archived solution without reaching bounds
+- **Rmse gpa:** 0.31174
+- **Reduced chi square:** 2.23425
+- **Parameter covariance:** \[\["0.0974705", "-0.010986", "-0.108071", "0.000751533", "7.76667e-05"\], \["-0.010986", "0.00201402", "-0.0529801", "-0.000114287", "-4.55501e-05"\], \["-0.108071", "-0.0529801", "781.039", "0.27911", "0.00380724"\], \["0.000751533", "-0.000114287", "0.27911", "0.000134522", "2.01831e-06"\], \["7.76667e-05", "-4.55501e-05", "0.00380724", "2.01831e-06", "3.42813e-05"\]\]
+- **Covariance convention:** Conditional inverse-information covariance with final effective coordinate weights frozen, multiplied by chi-square/189; parameter order follows free\_parameters
+- **Reproduction report:** docs/literature-reproductions/pyrope-author-input-replay.md
+
+</details>
 
 ### Detailed evidence and existing plots
 
+- [Supporting source report: pyrope-author-input-replay](../literature-reproductions/pyrope-author-input-replay.md).
 - [Related illustrated report explicitly naming this EOS: garnet-angel-2022](../literature-reproductions/garnet-angel-2022.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).

@@ -61330,7 +61330,7 @@
       "status": "not_refittable"
     },
     {
-      "assessment_basis": "Published parameterization verified by independent quadrature and official EosFit checks; complete original joint fit is unavailable.",
+      "assessment_basis": "Conditional parameter agreement from the complete 194-observation author-processed input regression. All five free parameters meet the recorded combined-error and numerical similarity criteria; the separate final-log comparison differs by less than 0.01 reported standard errors. Published source coefficients/covariance remain unchanged.",
       "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
         0.0,
@@ -61340,32 +61340,159 @@
         100.0,
         1700.0
       ],
-      "fit_kind": "source_curve_validation_only",
+      "fit_kind": "author_processed_joint_volume_modulus_q_compromise",
       "fixed_parameters": [
         "V0",
         "Tr",
-        "n"
+        "n",
+        "volume_scales",
+        "unscaled_modulus_group"
       ],
       "label": "Angel et al. (2022), BM3 + q-compromise Debye",
       "material_identifier": "pyrope",
       "model": "BM3",
-      "primary_data_finding": "The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. The raw Milani (2015) pyrope PV subset is retained separately, but is not the rescaled 2022 fit input.",
-      "primary_data_status": "partial",
+      "primary_data_finding": "All 194 author-processed observations, assigned P/T/value errors and scale groups are recovered. Original upstream reductions, calibration covariance and all exclusion decisions are not reconstructed.",
+      "primary_data_status": "author_processed_inputs_recovered",
       "primary_source": "https://doi.org/10.1007/s00410-022-01918-5",
-      "qualification": "Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.",
-      "reason": "Complete joint V/Ks input project, exact point masks, rescalings, weights (including increased Hartwig weights), and fit covariance confidence convention.",
       "record_identifier": "pyrope_angel_2022_bm3_q_compromise_debye",
       "source_equation_maximum_difference_gpa": 1.2776979474438122e-10,
-      "source_notes": "Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. The raw Milani (2015) pyrope PV subset is retained separately, but is not the rescaled 2022 fit input.",
-      "status": "not_refittable"
+      "status": "parity",
+      "assessment_qualifications": [
+        "All 194 author-processed observations, assigned P/T/value errors and scale groups are recovered. Original upstream reductions, calibration covariance and all exclusion decisions are not reconstructed.",
+        "The comparison uses the published EOS snapshot; Ross's later final log and its EosFit replay are separately compared in docs/literature-reproductions/pyrope-author-input-replay.md. Neither snapshot replaces the published coefficients or covariance.",
+        "The independent pressure-residual IRLS replay uses precise modulus inversion and local derivative effective variances. EosFit uses finite one-error displacements and approximate modulus inversion; the small parameter/error/chi-square differences are documented, not bitwise identity.",
+        "Refit errors are conditional local standard errors rescaled by reduced chi-square with effective coordinate weights frozen at the solution. Printed source errors retain their original convention; raw calibration/systematic uncertainty and shared-data cross-fit covariance remain unknown.",
+        "V0, Tr, n and volume scales are fixed; only the 15 high-pressure Sinogeikin–Bass (2000) modulus points share the refined scale. The two ambient points are unscaled. The nuisance scale is not a new EOS coefficient.",
+        "Numerical parameter agreement and processed-input replay do not establish complete raw-study author-workflow reproduction, experimental accuracy or a recommendation/default change."
+      ],
+      "qualification": "All 194 author-processed observations, assigned P/T/value errors and scale groups are recovered. Original upstream reductions, calibration covariance and all exclusion decisions are not reconstructed. The comparison uses the published EOS snapshot; Ross's later final log and its EosFit replay are separately compared in docs/literature-reproductions/pyrope-author-input-replay.md. Neither snapshot replaces the published coefficients or covariance. The independent pressure-residual IRLS replay uses precise modulus inversion and local derivative effective variances. EosFit uses finite one-error displacements and approximate modulus inversion; the small parameter/error/chi-square differences are documented, not bitwise identity. Refit errors are conditional local standard errors rescaled by reduced chi-square with effective coordinate weights frozen at the solution. Printed source errors retain their original convention; raw calibration/systematic uncertainty and shared-data cross-fit covariance remain unknown. V0, Tr, n and volume scales are fixed; only the 15 high-pressure Sinogeikin–Bass (2000) modulus points share the refined scale. The two ambient points are unscaled. The nuisance scale is not a new EOS coefficient. Numerical parameter agreement and processed-input replay do not establish complete raw-study author-workflow reproduction, experimental accuracy or a recommendation/default change.",
+      "reproduction_report": "docs/literature-reproductions/pyrope-author-input-replay.md",
+      "objective": "Pressure residuals with iteratively frozen effective variances from all supplied P/T/value errors; separate from the public latent-coordinate fitter",
+      "selection": "All 194 rows of docs/data/garnet-angel-2022/pyrope/author-2026-11-14-inputs.csv: 115 volumes and 79 adiabatic moduli; no further exclusions",
+      "weighting": "Independent coordinate contributions in quadrature; local derivative propagation in the Python replay; original error tokens and exact scale groups retained",
+      "observations": 194,
+      "degrees_of_freedom": 189,
+      "free_parameters": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "theta0",
+        "gamma0",
+        "scale_sinogeikin_2000_ks"
+      ],
+      "fixed_values": {
+        "V0_cm3_mol": 113.13,
+        "Tr_k": 298.0,
+        "n": 20.0,
+        "volume_scales": 1.0,
+        "unscaled_modulus_group": 1.0
+      },
+      "solver_success": true,
+      "solver_message": "Two independent starts converge to the archived solution without reaching bounds",
+      "parameters": [
+        {
+          "parameter": "rt_eos.K0",
+          "published": 169.339,
+          "published_error": 0.3,
+          "refit": 169.33983414760024,
+          "refit_error": 0.31220272690445544,
+          "difference": 0.0008341476002442505,
+          "relative_difference": 4.925903662146644e-06,
+          "within_combined_2sigma": true,
+          "similar": true
+        },
+        {
+          "parameter": "rt_eos.K0_prime",
+          "published": 4.55314,
+          "published_error": 0.05,
+          "refit": 4.552897721431661,
+          "refit_error": 0.04487782966835702,
+          "difference": -0.0002422785683391382,
+          "relative_difference": 5.321131534262909e-05,
+          "within_combined_2sigma": true,
+          "similar": true
+        },
+        {
+          "parameter": "theta0",
+          "published": 771.096,
+          "published_error": 28.0,
+          "refit": 770.8659345445311,
+          "refit_error": 27.947078482129267,
+          "difference": -0.230065455468889,
+          "relative_difference": 0.0002983616248416397,
+          "within_combined_2sigma": true,
+          "similar": true
+        },
+        {
+          "parameter": "gamma0",
+          "published": 1.1847,
+          "published_error": 0.012,
+          "refit": 1.1846445882740226,
+          "refit_error": 0.01159834768126445,
+          "difference": -5.541172597745003e-05,
+          "relative_difference": 4.677279140495487e-05,
+          "within_combined_2sigma": true,
+          "similar": true
+        },
+        {
+          "parameter": "scale_sinogeikin_2000_ks",
+          "published": 0.97828,
+          "published_error": 0.005877074101966045,
+          "refit": 0.9782343414097032,
+          "refit_error": 0.005855026107316416,
+          "difference": -4.5658590296815404e-05,
+          "relative_difference": 4.667231293373615e-05,
+          "within_combined_2sigma": true,
+          "similar": true
+        }
+      ],
+      "rmse_gpa": 0.3117398835426608,
+      "reduced_chi_square": 2.23425206920262,
+      "parameter_covariance": [
+        [
+          0.09747054268657798,
+          -0.010986007421570146,
+          -0.108071073387204,
+          0.0007515329052342197,
+          7.76667421116637e-05
+        ],
+        [
+          -0.010986007421570146,
+          0.0020140195957420648,
+          -0.052980052155187356,
+          -0.0001142865487510216,
+          -4.555011649715247e-05
+        ],
+        [
+          -0.108071073387204,
+          -0.052980052155187356,
+          781.0391956862926,
+          0.2791099217159975,
+          0.003807238508371466
+        ],
+        [
+          0.0007515329052342197,
+          -0.0001142865487510216,
+          0.2791099217159975,
+          0.00013452166893549244,
+          2.0183142777773884e-06
+        ],
+        [
+          7.76667421116637e-05,
+          -4.555011649715247e-05,
+          0.003807238508371466,
+          2.0183142777773884e-06,
+          3.428133071735682e-05
+        ]
+      ],
+      "covariance_convention": "Conditional inverse-information covariance with final effective coordinate weights frozen, multiplied by chi-square/189; parameter order follows free_parameters"
     }
   ],
   "summary": {
-    "not_refittable": 179,
-    "parity": 357,
+    "total": 687,
+    "not_refittable": 178,
+    "parity": 358,
     "parity_not_achieved": 61,
     "similar": 72,
-    "source_reconstruction": 18,
-    "total": 687
+    "source_reconstruction": 18
   }
 }

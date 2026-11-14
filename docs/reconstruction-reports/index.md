@@ -212,7 +212,7 @@ New links become live only after the corresponding documentation is published.
 | [Platinum](platinum.md) | 21 | 13 | 13 |
 | [Praseodymium dioxide (fluorite)](praseodymium_dioxide.md) | 1 | 1 | 1 |
 | [Pseudowollastonite](pseudowollastonite.md) | 1 | 0 | 0 |
-| [Pyrope](pyrope.md) | 2 | 1 | 1 |
+| [Pyrope](pyrope.md) | 2 | 2 | 2 |
 | [Synthetic qandilite (Lv 2016)](qandilite.md) | 2 | 2 | 2 |
 | [Rubidium bromide (B2)](rbbr.md) | 1 | 1 | 1 |
 | [Rubidium chloride (B2)](rbcl.md) | 2 | 2 | 2 |
@@ -257,7 +257,7 @@ New links become live only after the corresponding documentation is published.
 | [Zirconium (beta)](zirconium_beta.md) | 1 | 1 | 1 |
 | [Zirconium (omega)](zirconium_omega.md) | 1 | 1 | 1 |
 
-493 of 493 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 194 records have no numeric source/refit coefficient pair recorded.
+494 of 494 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 193 records have no numeric source/refit coefficient pair recorded.
 
 ## Partial replays
 

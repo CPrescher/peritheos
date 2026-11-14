@@ -3,6 +3,8 @@
 ## Angel et al. (2022): pyrope and grossular
 
 **Current status: reply received and inputs replayed, 14 November 2026.**
+Clemens reported sending the reproduction summary and meeting availability to Ross on 14 November 2026. This is user-reported correspondence; the exact sent copy has not been independently retrieved. No message was sent by the assistant.
+
 Clemens supplied Ross Angel's reply, two data files, an EOS file, a final
 fit log and the pyrope dataset description. The
 [author-input comparison](literature-reproductions/pyrope-author-input-replay.md)
@@ -208,6 +210,7 @@ yet been assessed for author outreach**; absence does not mean their data are
 complete or contacting the authors would be unhelpful. Some ledger gaps concern
 computed grids, adopted coefficients, or model definitions rather than missing
 experimental observations.
+
 
 ## Reviewed requests
 

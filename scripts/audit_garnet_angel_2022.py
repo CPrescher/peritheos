@@ -127,6 +127,10 @@ def reproduce():
 
 def ledger_outcome(record):
     """A source-equation check is not coefficient refitting or author workflow."""
+    if record["identifier"] == "pyrope_angel_2022_bm3_q_compromise_debye":
+        from scripts.pyrope_author_reproduction import outcome
+
+        return outcome(record)
     name = record["identifier"].split("_")[0]
     result = reproduce()["records"][name]
     return {

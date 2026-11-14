@@ -72,8 +72,8 @@ of records missing from that ledger. No scientific classifications are changed h
 
 | Outcome | Records |
 |---|---:|
-| `not_refittable` | 179 |
-| `parity` | 357 |
+| `not_refittable` | 178 |
+| `parity` | 358 |
 | `parity_not_achieved` | 61 |
 | `similar` | 72 |
 | `source_reconstruction` | 18 |

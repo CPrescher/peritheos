@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Expose the complete author-processed 194-observation pyrope parameter/error
+  replay in catalog evidence and reconstruction plots. Preserve published
+  coefficients, source covariance and upstream preprocessing qualifications;
+  reconcile the exact garnet source-review bindings without changing science.
+
 - Use analytic pressure Jacobians for native BM3 and QCompromiseDebye/BM3
   P-V/P-V-T fits, including latent coordinates and correlated observations.
   Preserve weighting, robust losses and covariance/scaling conventions;

@@ -1,5 +1,5 @@
 {
-  "status": "author_reply_received_inputs_replayed",
+  "status": "author_reply_replayed_followup_sent_by_user",
   "author": "Ross Angel",
   "recipient_email": "rossjohn.angel@cnr.it",
   "sender": "Clemens Prescher",
@@ -23,11 +23,14 @@
     "Corrections to published source-table values, if used"
   ],
   "scientific_status": "All194processed input observations/errors/groups recovered; native and independent coefficient/error replay closely match final log; upstream reduction/exclusion history partial",
-  "next_step": "Review comparison and proposed exact-coefficient cross-check with Ross when user requests a response; no message sent",
+  "next_step": "Await Ross response to the reproduction summary and proposed meeting availability; upstream grossular input request remains separate",
   "followup_reminder_scheduled": false,
   "user_supplied_reply_on": "2026-11-14",
   "exact_reply_timestamp": null,
   "reply_evidence": "User pasted Ross Angel reply and supplied five original attachments; no independent mailbox retrieval performed",
   "reply_attachment_manifest": "author-2026-11-14-audit.json",
-  "assistant_sent_reply": false
+  "assistant_sent_reply": false,
+  "followup_user_confirmed_sent_on": "2026-11-14",
+  "followup_evidence": "User reported: ok, i send it, can we now merge the pyrope changes?",
+  "followup_exact_sent_copy_verified": false
 }

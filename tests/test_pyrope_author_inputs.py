@@ -112,3 +112,60 @@ def test_native_snapshot_comparison_and_property_checks():
     for row in properties["states"]:
         for key, tolerance in properties["tolerances"].items():
             assert abs(row["differences"][key]) <= tolerance
+
+
+def test_public_assessment_exposes_processed_input_replay_without_replacing_source():
+    from peritheos import convert_eosmat, get_material_document
+    from scripts.audit_garnet_angel_2022 import ledger_outcome, source
+    from scripts.pyrope_author_reproduction import RECORD
+
+    document = convert_eosmat(get_material_document("pyrope"), version=4)
+    record = next(r for r in document["eos_records"] if r["identifier"] == RECORD)
+    assessment = record["evidence"]["reproduction"]["assessment"]
+    assert assessment["status"] == "parity"
+    assert assessment["scope"] == "parameter_agreement"
+    assert assessment["fit"]["observations"] == 194
+    assert assessment["fit"]["degrees_of_freedom"] == 189
+    assert len(assessment["parameters"]) == 5
+    assert "raw-study" in " ".join(assessment["qualifications"])
+    assert not record["default"]
+    p, _ = source("pyrope")
+    assert record["parameters"]["K0"]["value"] == p[2]
+    assert record["thermal"]["parameters"]["theta0"]["value"] == p[11]
+    assert record["parameters"]["V0"]["fixed"]
+    legacy = next(
+        r
+        for r in convert_eosmat(document, version=3)["eos_records"]
+        if r["identifier"] == RECORD
+    )
+    regenerated = ledger_outcome(legacy)
+    assert regenerated["status"] == "parity"
+    assert regenerated["parameters"] == assessment["parameters"]
+    assert (
+        regenerated["parameter_covariance"] == assessment["fit"]["parameter_covariance"]
+    )
+
+
+def test_reconstruction_panels_replay_all_processed_rows_without_optimizing(
+    monkeypatch,
+):
+    from scripts import refit_pyrope_angel_2022_subset
+    from scripts.pyrope_author_reproduction import comparison
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("Generating a report must never run a regression")
+
+    monkeypatch.setattr(refit_pyrope_angel_2022_subset, "solve", forbidden)
+    result = comparison()
+    assert [len(panel.x) for panel in result.panels] == [115, 79]
+    assert not result.partial_replay
+    archived = audit()["independent_fits"][0]["rows"]
+    for panel, kind in zip(result.panels, ["V", "KS"]):
+        rows = [row for row in archived if row["kind"] == kind]
+        np.testing.assert_array_equal(panel.x, [row["Y"] for row in rows])
+        np.testing.assert_array_equal(panel.observed, [row["P"] for row in rows])
+        np.testing.assert_allclose(
+            panel.refit, [row["calculated_pressure_gpa"] for row in rows], atol=1e-9
+        )
+        np.testing.assert_array_equal(panel.sigma, [row["sP"] for row in rows])
+        np.testing.assert_array_equal(panel.x_sigma, [row["sY"] for row in rows])

@@ -2,7 +2,7 @@
   "schema": "peritheos.eos-structure-rights-review.v1",
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
-  "policy_sha256": "036cecaf88bce8b4ea5603fe5ce03c0b351b6ada2c0d73ba60113783ac9318cf",
+  "policy_sha256": "496d69bf061c4d717175581fb1c60352dadf81e7661e251077e8e3873137df4a",
   "catalog_scientific_sha256": "e63779b4e77be476f6e865daaec8f74bddd094a6d8550641f84218f80769c595",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
   "limits": [
@@ -334,7 +334,7 @@
     "peritheos/data/materials/platinum.eosmat": "cf23af9492ff1b17c87ac91547948aa2e3d5f6ec738e2cf7d60d7e1a1003878c",
     "peritheos/data/materials/praseodymium_dioxide.eosmat": "3e24b84b4318f25f21d7f65834d848f2bdf85e2b95bb045ee32c485c52f27815",
     "peritheos/data/materials/pseudowollastonite.eosmat": "9e3068a5d497a4c4ba6286ce682f2e042ed573a3edd3e18276abf163d86b0d79",
-    "peritheos/data/materials/pyrope.eosmat": "b6d7da408758d24042854895c1ceb3af8fff21bd768efb7fba552280a3192c8c",
+    "peritheos/data/materials/pyrope.eosmat": "44162012efd58b77c9e1ca9ebeb4d7ea26e2a65bf95e4d13f3aa5919ca55514e",
     "peritheos/data/materials/qandilite.eosmat": "cb29544f139233077888d2894b6c64f4d1024a118f8fae23f8eafe3de7b084cf",
     "peritheos/data/materials/rbbr.eosmat": "e71ec69c206926717fc3b827286426765aba6e1e1a3c0a63b984bc37fd08d8e6",
     "peritheos/data/materials/rbcl.eosmat": "e1b7e14e7b5444374fcc098cc4216da77036046ba06157df54fd6138147dec70",
@@ -378,7 +378,7 @@
     "peritheos/data/materials/zirconium_alpha.eosmat": "03b344530b2b11b3260497c59d4595fb07abaa9416487c1afb9657d1955d64c5",
     "peritheos/data/materials/zirconium_beta.eosmat": "7ca3b9a338f1d254ed8c85ab842e1726e48e86fe616b28f307151344ae8e7e5d",
     "peritheos/data/materials/zirconium_omega.eosmat": "9ca986a36f8ad246a529d24f8db65b68458cb5c96ec9521816c88f4660713ecf",
-    "peritheos/data/materials/grossular.eosmat": "492eb1da10193140b4edceff5d7016c90ea7daabc940288a64c6dd08c0972ba0"
+    "peritheos/data/materials/grossular.eosmat": "53191b8bcd5c5a816b16eeb41e972afcc0f0c658993a8113656782bee2f1bc9b"
   },
   "rationales": {
     "independently_calculated_pattern": "Independent kinematic X-ray reflection array, not an inherited card or measured intensities. Input models, source checksums, proxy/occupancy limits and omitted corrections are explicit in calculated-pattern-inputs.json. Six CIFs carry COD CC0 declarations; one ideal model is independently authored. FeH2 and two SnO2 models use attributed numerical structural parameters under a scoped factual-content assessment, without a separate publication grant. CC0 covers contributor-held generated-output rights only; EOS/observation/source-publication rights remain separate.",
@@ -9738,8 +9738,8 @@
       "material": "grossular",
       "identifier": "grossular_angel_2022_bm3_q_compromise_debye",
       "evidence": "peritheos/data/materials/grossular.eosmat#/eos_records/0",
-      "source_sha256": "ac9145195bced0ddc77e34a9c25dd746d21030556f7d31c644ffe19f6cf5c99c",
-      "runtime_sha256": "fff71443616f382c2585933850d6d0a9762a5a947271878ad48728d9c5f30838",
+      "source_sha256": "c6262f58652fb01dfb559394a3fcbbeaa5f1bcfca9e965836230f811097b61ce",
+      "runtime_sha256": "23a55e70421e0b27a235ef9ac818c8838c375d68c8276077b28e19f87f6efded",
       "assessment": "numerical_parameter_assessment",
       "source_license": "No new source grant established by this review",
       "reference": {
@@ -21890,8 +21890,8 @@
       "material": "pyrope",
       "identifier": "pyrope_angel_2022_bm3_q_compromise_debye",
       "evidence": "peritheos/data/materials/pyrope.eosmat#/eos_records/1",
-      "source_sha256": "7073450f2f5c37bbd601e38305edfdf545a5dcaa80063e87f43c27bcec9bfb33",
-      "runtime_sha256": "b4a02ba735f26a8b7e0eee68e33f7278f6a5fa468b61235b966204048398b5bc",
+      "source_sha256": "bf2d35302a10c35bdc8464e66d1a3d2ddd1a5af3bd61c2d1c85b874845266a53",
+      "runtime_sha256": "af5f04be213066f305e54f8eeb7f0a269bb2d377225e00a376d4e7ebe5a4da3b",
       "assessment": "numerical_parameter_assessment",
       "source_license": "No new source grant established by this review",
       "reference": {
