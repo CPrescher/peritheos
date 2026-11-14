@@ -51,7 +51,7 @@ def test_independent_quadrature_and_source_table_expansivity(name):
         cell, rel=1e-9
     )
     raw = get_material_document(name)
-    for version in [3, 4]:
+    for version in [3, 4, 5]:
         document = convert_eosmat(raw, version=version)
         Draft202012Validator(eosmat_schema(version)).validate(document)
         restored = Material.from_eosmat(document)

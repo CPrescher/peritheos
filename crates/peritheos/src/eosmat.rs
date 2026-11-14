@@ -42,7 +42,7 @@ use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 /// Canonical `.eosmat` format discriminator.
 pub const EOSMAT_FORMAT: &str = "peritheos.material";
 /// Current canonical `.eosmat` format version.
-pub const EOSMAT_FORMAT_VERSION: u64 = 4;
+pub const EOSMAT_FORMAT_VERSION: u64 = 5;
 const PREVIOUS_FORMAT_VERSION: u64 = 3;
 const LEGACY_FORMAT_VERSION: u64 = 2;
 const CELL_ANGSTROM3_TO_FORMULA_MOLAR_J_PER_BAR: f64 = 0.060_221_407_6;
@@ -1563,7 +1563,7 @@ fn construct_material(document: Value) -> Result<Material, EosmatError> {
     let legacy = raw.format.is_none() && version == LEGACY_FORMAT_VERSION;
     if !canonical && !legacy {
         return Err(EosmatError::InvalidDocument(format!(
-            "supported formats are native EOSMAT v{EOSMAT_FORMAT_VERSION}, {EOSMAT_FORMAT} v{PREVIOUS_FORMAT_VERSION}, and legacy Dioptas v{LEGACY_FORMAT_VERSION}"
+            "supported formats are native EOSMAT v{EOSMAT_FORMAT_VERSION} and v4, {EOSMAT_FORMAT} v{PREVIOUS_FORMAT_VERSION}, and legacy Dioptas v{LEGACY_FORMAT_VERSION}"
         )));
     }
 
@@ -2102,7 +2102,7 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
     let legacy = document.get("format").is_none() && version == Some(LEGACY_FORMAT_VERSION);
     if !canonical && !legacy {
         return Err(invalid_document(format!(
-            "supported formats are native EOSMAT v{EOSMAT_FORMAT_VERSION}, {EOSMAT_FORMAT} v{PREVIOUS_FORMAT_VERSION}, and legacy Dioptas v{LEGACY_FORMAT_VERSION}"
+            "supported formats are native EOSMAT v{EOSMAT_FORMAT_VERSION} and v4, {EOSMAT_FORMAT} v{PREVIOUS_FORMAT_VERSION}, and legacy Dioptas v{LEGACY_FORMAT_VERSION}"
         )));
     }
 

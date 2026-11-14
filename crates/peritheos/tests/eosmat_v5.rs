@@ -1,4 +1,7 @@
-use peritheos::{export_eosmat_v3, load_eosmat_str, material_from_value, validate_eosmat_document};
+use peritheos::{
+    export_eosmat_v3, load_eosmat_str, material_from_value, validate_eosmat_document,
+    EOSMAT_FORMAT_VERSION,
+};
 use serde_json::{json, Value};
 
 fn fixture() -> Value {
@@ -7,6 +10,7 @@ fn fixture() -> Value {
 
 #[test]
 fn v5_is_lossless_and_exports_covariance_in_historical_model_units() {
+    assert_eq!(EOSMAT_FORMAT_VERSION, 5);
     let document = fixture();
     let material = material_from_value(document.clone()).unwrap();
     let legacy = export_eosmat_v3(&document).unwrap();

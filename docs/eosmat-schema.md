@@ -162,6 +162,7 @@ Each item in `eos_records` describes one source parameterization.
 | `thermal` | no | Thermal-pressure equation, parameters, and fixed equation choices. |
 | `parameter_errors` | yes | Reported primary-equation parameter errors; JSON `null` means unavailable, not zero. |
 | `parameter_error_confidence` | no | Two-sided confidence level when the reported errors are interval half-widths rather than standard errors. |
+| `parameter_error_volume_basis` | no | `public` makes reference V0 errors use the document's public coefficient-volume unit; `model` uses runtime volume units. Historical default: `model`. Thermal coefficient errors keep their own model units. |
 | `fixed_parameters` | yes | Primary-equation parameters fixed during the reported fit. |
 | `experimental_pressure_range_gpa` | no | Two-element marginal pressure envelope. |
 | `pressure_range_status` | no | Provenance of the pressure envelope: `reported_exactly`, `reported_qualitatively`, `theoretical`, or `reference_parameterization`. |
@@ -171,7 +172,7 @@ Each item in `eos_records` describes one source parameterization.
 | `parameter_provenance` | no | Field-level table, equation, page, or supplement provenance. |
 | `source_lineage` | no | Ordered sources and their roles when a record combines an earlier fit, final parameter table, implementation, correction, or experimental context. |
 | `pressure_calibration` | no | Audited pressure basis of the observations used for the fit, including resolvable links to reference EOS and optical-calibration records. |
-| `parameter_covariance` | no | Published or reproducibly derived covariance metadata when available; its origin must be documented. |
+| `parameter_covariance` | no | Published or reproducibly derived covariance metadata when available; its origin must be documented. Optional `volume_basis` is `public` or `model` (historical default) for V0/rt_eos.V0 rows and columns. |
 | `scientific_validation` | yes | Validation boundary described below. |
 | `notes` | no | Scientific qualifications that do not fit another field. |
 

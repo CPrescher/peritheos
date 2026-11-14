@@ -11,10 +11,19 @@ All notable changes to Peritheos are documented here. The project follows
   the product of their parameter units. V5 uses the existing readable native
   layout without uncertainty unit-switch fields. New authoring defaults to v5;
   loaded v2/v3/v4 files retain their interpretation and version.
-- Migrate the 234 bundled material documents with exact predecessor receipts.
+- Keep all 235 bundled material documents in v5, with exact predecessor
+  receipts for the migration and subsequent garnet additions.
   Preserve physical uncertainties, coefficients, observations, confidence and
   scientific classifications. Python and Rust read v5; legacy exports convert
   uncertainty back to model-volume units for older readers.
+
+### Fixed
+
+- Correct volume-uncertainty propagation at EOSMAT boundaries. Read historical
+  public/model annotations without reinterpretation, use parameter units in
+  native v5, and restore model units in legacy exports. Preserve physical
+  uncertainties and scientific qualifications. Reject negative EOSMAT errors
+  in Python, Rust and their schemas.
 
 ### Changed
 
