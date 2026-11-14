@@ -26,7 +26,9 @@ explicit conventions and complete working examples over layers of abstraction.
   indirection. Inline metadata remains a first-class choice.
 - Keep scientific evidence available and traceable. A short summary cannot
   replace the original coefficients, observations, uncertainty semantics,
-  calibration, fitting protocol or important qualifications.
+  calibration, fitting protocol or important qualifications. For curated
+  records that evidence lives in the per-material audit sidecar, not in the
+  record a human reads.
 - Preserve old files and downstream interoperability through supported readers
   and explicit compatibility exports. Document capability boundaries; never
   silently reinterpret an unsupported model or file feature.
@@ -45,10 +47,23 @@ explicit conventions and complete working examples over layers of abstraction.
 - Distinguish structural validation, source verification, numerical parameter
   parity, author-workflow reproduction, physical validation and recommendation
   for use. Reconstruction findings need their actual comparison scope, basis
-  and unresolved limitations; avoid a single misleading quality score.
+  and unresolved limitations, recorded in the audit sidecar. A record shows a
+  plain reproduction headline and any explicit warning, not a quality score.
 - For catalog curation, follow [Adding materials and EOS](docs/adding-materials-and-eos.md)
   and the [EOS curation guidance](.agents/skills/peritheos-eos-curation/SKILL.md).
   Format or presentation changes must not alter scientific findings.
+
+## Writing curated records and reports
+
+- A record file holds what a reader needs to use the EOS. The audit trail
+  (scope, basis, conditions, refit numbers, source-check locations) goes in the
+  sidecar. Solver diagnostics and full-precision refit numbers never go in the
+  record.
+- State a generic caveat once, where its label is defined, never per record.
+  State each record's finding once; do not repeat a sentence across fields.
+- Prefer a short specific statement over defensive qualification. Do not
+  generate sections or pages that only say nothing is recorded.
+- Do not hard-code catalog counts in prose; generate them or omit them.
 
 ## Documentation and verification
 

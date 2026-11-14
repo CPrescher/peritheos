@@ -7,8 +7,9 @@ formulation in Peritheos, and understand where the result is valid.
 
 New and bundled library files use [native EOSMAT v5](eosmat-v5.md). The scientific requirements
 below apply equally to v5 and historical v3/v4: native EOSMAT keeps parameter values/errors/fixed
-flags together and stores detailed review/provenance in `evidence`. References
-to legacy field paths below retain the same scientific meaning after migration.
+flags together. A curated record carries a short `check` headline; its detailed
+audit trail lives in a per-material sidecar (see [step 5](#5-create-or-update-the-eosmat-document)).
+References to legacy field paths below retain the same scientific meaning.
 
 This guide defines the minimum evidence and verification needed for new
 materials, literature EOS records, refits, and reusable equation families.
@@ -45,11 +46,9 @@ printed-precision comparison requires the same decimal place on both source and
 refit values/errors. This affects report display only: retain unrounded values,
 error confidence and any uncertainty mismatch. The usual rounding convention
 continues to apply when that optional field is absent.
-The repository audit ledger may retain explicit `assessment_basis` and
-`assessment_qualifications` prose when the reviewed finding is more specific
-than the organizer's default wording. These fields preserve that narrative
-verbatim; numerical comparisons, status, scope and constraints remain separate.
-
+The repository audit ledger may keep explicit `assessment_basis` and
+`assessment_qualifications` text when a finding is more specific than the
+default wording.
 
 The repository-only maintenance command
 `uv run --group docs python -m scripts.generate_reconstruction_reports` replays
@@ -79,12 +78,9 @@ When a statistic uses a different selection (for example, excluding an ambient
 anchor), identify that difference beside the plot.
 
 Available-subset plots must be prominently marked **partial replay**, both on
-the report and in the index. Tange (2009) MgO displays the public bundled
-expansion, elastic and LASL shock subsets; the restricted legacy inputs and
-surrogate global block are excluded. Zhu (2025) Au/Pt displays released thermal
-expansion only; the intermediate shock-temperature state needed to reproduce
-the saved iterative residual vector was not stored. Do not run a new regression
-or silently substitute a different forward calculation to fill such a gap.
+the report and in the index, with the missing inputs named there. Do not run a
+new regression or silently substitute a different forward calculation to fill
+such a gap.
 These plots do not change the recorded reconstruction findings.
 
 Generated curve/residual and coefficient plots have paired light and dark SVGs.
@@ -273,7 +269,7 @@ that case:
   were checked;
 - state why a direct refit is impossible;
 - classify the reproduction as parameterization-only or not directly
-  refittable in the validation ledger; and
+  refittable in the validation ledger (headline `untested`, not a failure); and
 - do not synthesize observations or infer parameter uncertainties.
 
 For a concrete unresolved data gap, add a reviewed entry to
@@ -321,13 +317,6 @@ it is not permission to develop a replacement model as part of curation.
 
 ### Stopping rule: unresolved reproduction discrepancies
 
-For Morard (2026) FeS, the maintainer explicitly accepted staged parameter
-agreement within reported uncertainties on 2026-10-19. Its separate failure to
-reproduce the stated complete ±3 GPa residual envelope is informational and does
-not block catalog use. Preserve that discrepancy and the `similar` reconstruction
-label; this scoped acceptance does not establish exact author-workflow or formal
-uncertainty parity. See the [Morard audit](literature-reproductions/morard-2026-fes.md).
-
 If the published EOS or its reported agreement with the source data cannot be
 reproduced within justified tolerances after checking transcription, equation
 mapping, units, reference state, and the reported fitting protocol, document
@@ -338,9 +327,11 @@ fit is not required.
 Preserve the published coefficients and observations unchanged. Record the
 literal source calculation, quantitative differences, comparison tolerances,
 affected pressure/temperature range, checks performed, and unresolved inputs
-or contradictions. Mark the affected parameterization `not_reproduced` and
-explicitly not recommended; use `deferred` when the source/model mapping is
-incomplete. Do not promote it as validated or use it as a recommended default.
+or contradictions in the audit sidecar. Set the headline to `disagrees` and the
+source-validation status to `not_reproduced`; use `deferred` when the
+source/model mapping is incomplete. Such a record is never a default.
+A maintainer may accept a scoped discrepancy for a specific record; the
+acceptance and its reason belong in that record's audit.
 Any retained executable diagnostic must be explicitly identified as such and
 not recommended for scientific predictions or pressure calibration. Keep
 catalog descriptions and scientific ledgers consistent with that finding.
@@ -369,25 +360,41 @@ is a documented reason otherwise.
 
 ## 5. Create or update the `.eosmat` document
 
-Follow the [schema reference](eosmat-schema.md) and an existing reviewed
-material with the same model family. In addition to the equation parameters,
-record:
+Follow [EOSMAT v5](eosmat-v5.md), which defines the exact fields, and an
+existing reviewed material with the same model family.
 
-- a stable record identifier and source/model label;
-- structured citation and field-level parameter provenance;
-- primary and thermal parameter errors and fixed-parameter lists;
-- `temperature_ref`, experimental ranges, and range provenance;
-- pressure-calibration methods and whether observation-level recalculation is
-  possible;
-- linked `fit_datasets` and `datasets[].used_by_eos_records`;
-- `scientific_validation`, its audit date, source locations, verified fields,
-  primary-data result, and unresolved issues; and
-- notes for assumptions that affect interpretation or extrapolation.
+The **record** holds what a reader needs to use the EOS: identifier and label,
+citation, coefficients with errors and fixed flags, units, `temperature_ref`,
+experimental ranges, pressure calibration, linked datasets, and a `check`
+block. Set `check.reproduction` from the outcome code as defined in
+[EOS labels](eos-labels.md) (`reproduced`, `close`, `disagrees` or `untested`).
+Set `check.warning` only for an explicit usage restriction, such as a
+reproduced fit that describes its data poorly; otherwise leave it null.
+Propose default changes to the maintainer; never make a `disagrees` or warned
+record the default.
+
+The **audit sidecar** `peritheos/data/audits/<id>.audit.json` holds the trail:
+detailed outcome code, scope, basis, conditions, fixed parameters, refit
+coefficients and statistics, source-check locations, verified fields and
+unresolved issues. Standalone user files may keep evidence inline and need
+neither a sidecar nor a `check` block.
+
+Write both briefly. State each finding once, not again in basis, notes and
+qualifications. Do not restate a label's generic caveat; [EOS labels](eos-labels.md)
+holds it. Keep solver diagnostics and full-precision refit numbers out of the
+record. Do not hard-code catalog counts in prose or add sections that only say
+nothing is recorded. Prefer a short specific statement over defensive
+qualification.
+
+| | Record `check` | Audit entry |
+|---|---|---|
+| Bad | "Parity achieved. This does not establish experimental accuracy, phase stability or author-workflow reproduction …", repeated in notes, plus refit V0=263.929881998 | The same disclaimer again under basis and qualifications |
+| Good | `reproduction: reproduced`, `warning: null` | Scope `parameter_agreement`; basis "within printed source widths, K0 fixed at 210 GPa"; refit coefficients with errors; source "Table 2, pp. 64-65" |
 
 Only set `primary_source_validated` after the source and numerical checks are
 complete. Schema-valid JSON alone does not establish scientific validity.
-Update the material manifest, primary-source audit ledger, refit ledger, and
-documented catalog totals when the addition changes them.
+Update the material manifest and ledgers, and regenerate generated totals, when
+the addition changes them.
 
 ## 6. Add a new equation family only when needed
 
@@ -466,9 +473,11 @@ the change affects a bundled record or its primary dataset.
       tolerance.
 - [ ] An available primary fit has been independently refitted and the outcome
       is recorded without overwriting the published record.
-- [ ] Unresolved reproduction discrepancies are documented and the affected
-      EOS is explicitly not recommended; replacement-model development has
-      not been substituted for the curation outcome.
+- [ ] Unresolved reproduction discrepancies are documented and the record's
+      headline is `disagrees`; replacement-model development has not been
+      substituted for the curation outcome.
+- [ ] The record's `check` headline and any warning are set; the audit trail is
+      in the sidecar and no finding is repeated.
 - [ ] Pressure calibration, experimental coverage, phase boundaries, and
       source contradictions are explicit.
 - [ ] The `.eosmat` record validates, executes, inverts, and round-trips in
@@ -476,7 +485,7 @@ the change affects a bundled record or its primary dataset.
 - [ ] A new equation family includes native implementation, Python API,
       interchange support where applicable, equations, domains, and full
       numerical tests.
-- [ ] Ledgers, manifests, catalog totals, references, user documentation, and
+- [ ] Ledgers, manifests, generated totals, references, user documentation, and
       `CHANGELOG.md` are updated.
 - [ ] All relevant contributor checks pass.
 
