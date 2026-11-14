@@ -683,6 +683,13 @@ temperature uncertainty API.
 identity and reconstructable parameters, fit arrays, diagnostics, and solver
 configuration. Passing a path to `to_json()` also writes the record to disk.
 
+Named-loss fits of exact `BM3`, and `QCompromiseDebye` over exact `BM3`,
+automatically use analytic pressure Jacobians in `fit_rt_eos()`,
+`fit_thermal_eos()` and `fit_joint_eos()` as applicable. The weighting,
+latent-coordinate treatment, robust losses and parameter covariance/scaling
+conventions remain the same. Other models, custom subclasses and callable
+losses retain their finite-difference paths; the public signatures are unchanged.
+
 `peritheos.diagnostics.birch_murnaghan_finite_strain_diagnostic()` constructs
 the conventional Birch-Murnaghan normalized-stress diagnostic from P-V
 observations. The returned `BirchMurnaghanFiniteStrainDiagnostic` exposes the

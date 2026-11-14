@@ -2,8 +2,9 @@
 
 use numpy::PyReadonlyArrayDyn;
 use peritheos::fit::{
-    fit_isothermal_eos, fit_thermal_eos_by, FitError, IsothermalObservations, Loss, SolverOptions,
-    StructuredLayout, ThermalObservations,
+    bm3_pressure_derivatives, fit_isothermal_eos, fit_isothermal_eos_with_derivatives,
+    fit_thermal_eos_by, fit_thermal_eos_by_with_derivatives, q_compromise_bm3_pressure_derivatives,
+    FitError, IsothermalObservations, Loss, SolverOptions, StructuredLayout, ThermalObservations,
 };
 use peritheos::isothermal::{
     BM2Reference, Baonza, DensityPolynomial3, Holzapfel, ModifiedTait, Morse3, Murnaghan,
@@ -759,7 +760,7 @@ impl ThermalModel {
 #[pyo3(signature = (
     model, parameter_names, initial, lower, upper, pressure, volume,
     pressure_sigma, volume_sigma=None, observation_cholesky=None,
-    loss="linear", f_scale=1.0, max_nfev=None
+    loss="linear", f_scale=1.0, max_nfev=None, analytic_derivatives=true
 ))]
 #[allow(clippy::too_many_arguments)]
 pub(super) fn fit_rt_eos_native(
@@ -777,6 +778,7 @@ pub(super) fn fit_rt_eos_native(
     loss: &str,
     f_scale: f64,
     max_nfev: Option<usize>,
+    analytic_derivatives: bool,
 ) -> PyResult<PyLeastSquaresResult> {
     let model = model.model;
     let initial = array_values(initial);
@@ -801,20 +803,32 @@ pub(super) fn fit_rt_eos_native(
     };
     let result = py
         .detach(move || {
-            fit_isothermal_eos(
-                IsothermalObservations {
-                    pressure: &pressure,
-                    volume: &volume,
-                    pressure_sigma: &pressure_sigma,
-                    volume_sigma: volume_sigma.as_deref(),
-                    observation_cholesky: observation_cholesky.as_deref(),
-                },
-                &initial,
-                &lower,
-                &upper,
-                options,
-                |parameters| model.with_parameters(&parameter_names, parameters),
-            )
+            let observations = IsothermalObservations {
+                pressure: &pressure,
+                volume: &volume,
+                pressure_sigma: &pressure_sigma,
+                volume_sigma: volume_sigma.as_deref(),
+                observation_cholesky: observation_cholesky.as_deref(),
+            };
+            let factory = |parameters: &[f64]| model.with_parameters(&parameter_names, parameters);
+            if analytic_derivatives && matches!(model, RtModel::BM3(_)) {
+                fit_isothermal_eos_with_derivatives(
+                    observations,
+                    &initial,
+                    &lower,
+                    &upper,
+                    options,
+                    factory,
+                    |model, volume| {
+                        let RtModel::BM3(model) = model else {
+                            unreachable!("factory preserves variant")
+                        };
+                        bm3_pressure_derivatives(model, volume, &parameter_names)
+                    },
+                )
+            } else {
+                fit_isothermal_eos(observations, &initial, &lower, &upper, options, factory)
+            }
         })
         .map_err(to_python_fit_error)?;
     Ok(PyLeastSquaresResult {
@@ -830,7 +844,7 @@ pub(super) fn fit_rt_eos_native(
 #[pyo3(signature = (
     model, parameter_names, initial, lower, upper, pressure, volume,
     temperature, pressure_sigma, volume_sigma=None, temperature_sigma=None,
-    observation_cholesky=None, loss="linear", f_scale=1.0, max_nfev=None
+    observation_cholesky=None, loss="linear", f_scale=1.0, max_nfev=None, analytic_derivatives=true
 ))]
 #[allow(clippy::too_many_arguments)]
 pub(super) fn fit_thermal_eos_native(
@@ -850,6 +864,7 @@ pub(super) fn fit_thermal_eos_native(
     loss: &str,
     f_scale: f64,
     max_nfev: Option<usize>,
+    analytic_derivatives: bool,
 ) -> PyResult<PyLeastSquaresResult> {
     let model = model.model;
     let initial = array_values(initial);
@@ -878,25 +893,69 @@ pub(super) fn fit_thermal_eos_native(
     };
     let result = py
         .detach(move || {
-            fit_thermal_eos_by(
-                ThermalObservations {
-                    pressure: &pressure,
-                    volume: &volume,
-                    temperature: &temperature,
-                    pressure_sigma: &pressure_sigma,
-                    volume_sigma: volume_sigma.as_deref(),
-                    temperature_sigma: temperature_sigma.as_deref(),
-                    observation_cholesky: observation_cholesky.as_deref(),
-                },
-                &initial,
-                &lower,
-                &upper,
-                options,
-                |parameters| model.with_parameters(&parameter_names, parameters),
-                |model, volume, temperature| {
-                    model.pressure(volume, temperature).map_err(FitError::from)
-                },
-            )
+            let observations = ThermalObservations {
+                pressure: &pressure,
+                volume: &volume,
+                temperature: &temperature,
+                pressure_sigma: &pressure_sigma,
+                volume_sigma: volume_sigma.as_deref(),
+                temperature_sigma: temperature_sigma.as_deref(),
+                observation_cholesky: observation_cholesky.as_deref(),
+            };
+            let factory = |parameters: &[f64]| model.with_parameters(&parameter_names, parameters);
+            let pressure = |model: &ThermalModel, volume, temperature| {
+                model.pressure(volume, temperature).map_err(FitError::from)
+            };
+            if analytic_derivatives
+                && matches!(
+                    model,
+                    ThermalModel::QCompromiseDebye(QCompromiseDebye {
+                        rt_eos: RtModel::BM3(_),
+                        ..
+                    })
+                )
+            {
+                fit_thermal_eos_by_with_derivatives(
+                    observations,
+                    &initial,
+                    &lower,
+                    &upper,
+                    options,
+                    factory,
+                    pressure,
+                    |model, volume, temperature| {
+                        let ThermalModel::QCompromiseDebye(model) = model else {
+                            unreachable!("factory preserves variant")
+                        };
+                        let RtModel::BM3(reference) = model.rt_eos else {
+                            unreachable!("factory preserves reference variant")
+                        };
+                        let concrete = QCompromiseDebye::new(
+                            reference,
+                            model.tr,
+                            model.theta0,
+                            model.gamma0,
+                            model.n,
+                        )?;
+                        q_compromise_bm3_pressure_derivatives(
+                            &concrete,
+                            volume,
+                            temperature,
+                            &parameter_names,
+                        )
+                    },
+                )
+            } else {
+                fit_thermal_eos_by(
+                    observations,
+                    &initial,
+                    &lower,
+                    &upper,
+                    options,
+                    factory,
+                    pressure,
+                )
+            }
         })
         .map_err(to_python_fit_error)?;
     Ok(PyLeastSquaresResult {

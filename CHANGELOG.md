@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Use analytic pressure Jacobians for native BM3 and QCompromiseDebye/BM3
+  P-V/P-V-T fits, including latent coordinates and correlated observations.
+  Preserve weighting, robust losses and covariance/scaling conventions;
+  retain finite differences for other models and Python compatibility paths.
+  Expose derivative callbacks and canonical derivative helpers to Rust clients.
 - Split the manual's equation reference into individual model-family pages with
   isothermal and thermal inventories, breadcrumb navigation, a persistent model
   label, and explicit model endings. Preserve scientific content and existing
