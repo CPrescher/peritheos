@@ -1,0 +1,567 @@
+{
+  "checked_on": "2026-11-14",
+  "scope": "Attribution of small numerical replay differences, not a replacement EOS or new experimental errors",
+  "starting_parameters": {
+    "K0_gpa": 169.33900451660156,
+    "K0_prime": 4.553140163421631,
+    "theta0_k": 771.0960083007812,
+    "gamma0": 1.1847000122070312,
+    "scale_sinogeikin_2000_ks": 0.9782800078392029
+  },
+  "comparison_degrees_of_freedom": 189,
+  "native_exact_reduced_chi_square": 2.2336630821228027,
+  "original_python_reduced_chi_square": 2.23425206920262,
+  "objective_component_swaps": [
+    {
+      "native_pressure": false,
+      "native_weights": false,
+      "reduced_sum_squares": 2.234311941926319
+    },
+    {
+      "native_pressure": false,
+      "native_weights": true,
+      "reduced_sum_squares": 2.2322455208116683
+    },
+    {
+      "native_pressure": true,
+      "native_weights": false,
+      "reduced_sum_squares": 2.235743738982722
+    },
+    {
+      "native_pressure": true,
+      "native_weights": true,
+      "reduced_sum_squares": 2.2336638737543892
+    }
+  ],
+  "dataset_contributions": [
+    {
+      "dataset": "zhang_helium",
+      "rows": 19,
+      "python_weighted_sum": 91.00885345279755,
+      "native_weighted_sum": 91.06521995807883,
+      "maximum_pressure_difference_gpa": 6.359276788714396e-05,
+      "maximum_relative_weight_difference": 0.0006297236942823803
+    },
+    {
+      "dataset": "zhang_neon",
+      "rows": 14,
+      "python_weighted_sum": 81.27462821658642,
+      "native_weighted_sum": 81.28361620245568,
+      "maximum_pressure_difference_gpa": 2.8782735451926555e-05,
+      "maximum_relative_weight_difference": 0.0006470028294440766
+    },
+    {
+      "dataset": "zou_pv",
+      "rows": 7,
+      "python_weighted_sum": 9.52840687826781,
+      "native_weighted_sum": 9.517978468464689,
+      "maximum_pressure_difference_gpa": 3.360000287955245e-05,
+      "maximum_relative_weight_difference": 0.001985969911745711
+    },
+    {
+      "dataset": "du_pv",
+      "rows": 9,
+      "python_weighted_sum": 11.911863375994821,
+      "native_weighted_sum": 11.912492701575305,
+      "maximum_pressure_difference_gpa": 5.3268790565219604e-05,
+      "maximum_relative_weight_difference": 0.00028491424253285214
+    },
+    {
+      "dataset": "milani_pv",
+      "rows": 11,
+      "python_weighted_sum": 40.26990771237469,
+      "native_weighted_sum": 40.253366142564836,
+      "maximum_pressure_difference_gpa": 3.40676352488245e-05,
+      "maximum_relative_weight_difference": 0.0020236507039097518
+    },
+    {
+      "dataset": "chantel_pv",
+      "rows": 10,
+      "python_weighted_sum": 7.51827402047005,
+      "native_weighted_sum": 7.526529001307438,
+      "maximum_pressure_difference_gpa": 5.442887851003775e-05,
+      "maximum_relative_weight_difference": 0.0035833220866395843
+    },
+    {
+      "dataset": "milani_vt",
+      "rows": 33,
+      "python_weighted_sum": 51.600685014815014,
+      "native_weighted_sum": 51.51585570668144,
+      "maximum_pressure_difference_gpa": 3.827863266492315e-05,
+      "maximum_relative_weight_difference": 0.010008990697216946
+    },
+    {
+      "dataset": "hartwig_vt",
+      "rows": 12,
+      "python_weighted_sum": 97.35659629435706,
+      "native_weighted_sum": 97.288880575647,
+      "maximum_pressure_difference_gpa": 3.777129143917035e-05,
+      "maximum_relative_weight_difference": 0.003956902349903313
+    },
+    {
+      "dataset": "sinogeikin_2000_ks",
+      "rows": 17,
+      "python_weighted_sum": 18.27199520398846,
+      "native_weighted_sum": 18.263883733514398,
+      "maximum_pressure_difference_gpa": 0.010131056662636695,
+      "maximum_relative_weight_difference": 0.032178149127529254
+    },
+    {
+      "dataset": "sinogeikin_2002_ks",
+      "rows": 12,
+      "python_weighted_sum": 1.150368828639172,
+      "native_weighted_sum": 1.1508397909181467,
+      "maximum_pressure_difference_gpa": 0.0010337989336015596,
+      "maximum_relative_weight_difference": 0.012733228345765069
+    },
+    {
+      "dataset": "zou_ks",
+      "rows": 40,
+      "python_weighted_sum": 11.328107578444481,
+      "native_weighted_sum": 11.321141602705852,
+      "maximum_pressure_difference_gpa": 0.001988947076386083,
+      "maximum_relative_weight_difference": 0.011041003327611376
+    },
+    {
+      "dataset": "chantel_ks",
+      "rows": 10,
+      "python_weighted_sum": 1.0652704473387204,
+      "native_weighted_sum": 1.062668255665967,
+      "maximum_pressure_difference_gpa": 0.005249322965854342,
+      "maximum_relative_weight_difference": 0.04293172780751997
+    }
+  ],
+  "covariance_component_swaps": [
+    {
+      "native_jacobian": false,
+      "native_weights": false,
+      "widths": {
+        "K0_gpa": 0.31216443845596614,
+        "K0_prime": 0.04487454672144182,
+        "theta0_k": 27.945879346210692,
+        "gamma0": 0.011599904324044596,
+        "scale_sinogeikin_2000_ks": 0.0058544697858648135
+      },
+      "relative_to_native_errors": {
+        "K0_gpa": -0.00376254054200742,
+        "K0_prime": -0.005043502425291724,
+        "theta0_k": -6.880342530712902e-06,
+        "gamma0": -0.0003186039180193001,
+        "scale_sinogeikin_2000_ks": -0.003866427603800515
+      }
+    },
+    {
+      "native_jacobian": false,
+      "native_weights": true,
+      "widths": {
+        "K0_gpa": 0.312712266624467,
+        "K0_prime": 0.04498107880077622,
+        "theta0_k": 27.94413530392506,
+        "gamma0": 0.011601093996562917,
+        "scale_sinogeikin_2000_ks": 0.005877814859214111
+      },
+      "relative_to_native_errors": {
+        "K0_gpa": -0.0020142089719340506,
+        "K0_prime": -0.002681477797124132,
+        "theta0_k": -6.928776454884211e-05,
+        "gamma0": -0.00021607777204668555,
+        "scale_sinogeikin_2000_ks": 0.00010571883539278737
+      }
+    },
+    {
+      "native_jacobian": true,
+      "native_weights": false,
+      "widths": {
+        "K0_gpa": 0.3127972021362352,
+        "K0_prime": 0.04499583368163382,
+        "theta0_k": 27.947830320109944,
+        "gamma0": 0.011602419811489375,
+        "scale_sinogeikin_2000_ks": 0.0058538567050584025
+      },
+      "relative_to_native_errors": {
+        "K0_gpa": -0.0017431469032364033,
+        "K0_prime": -0.0023543332206821255,
+        "theta0_k": 6.293175576521648e-05,
+        "gamma0": -0.0001018188540761189,
+        "scale_sinogeikin_2000_ks": -0.003970742835784802
+      }
+    },
+    {
+      "native_jacobian": true,
+      "native_weights": true,
+      "widths": {
+        "K0_gpa": 0.31334339830293645,
+        "K0_prime": 0.0451020168974538,
+        "theta0_k": 27.94607209066803,
+        "gamma0": 0.011603601514288226,
+        "scale_sinogeikin_2000_ks": 0.005877193729736631
+      },
+      "relative_to_native_errors": {
+        "K0_gpa": -2.3682117378243106e-08,
+        "K0_prime": -4.357917826602886e-08,
+        "theta0_k": 1.6671830582737357e-08,
+        "gamma0": 2.0460344973827205e-08,
+        "scale_sinogeikin_2000_ks": 3.4128159853707984e-08
+      }
+    }
+  ],
+  "one_step_component_swaps": [
+    {
+      "native_pressure": false,
+      "native_weights": false,
+      "native_jacobian": false,
+      "after_one_step": {
+        "K0_gpa": 169.33983545612838,
+        "K0_prime": 4.552899948190431,
+        "theta0_k": 770.8357863562248,
+        "gamma0": 1.1846344786547456,
+        "scale_sinogeikin_2000_ks": 0.9782341889066332
+      }
+    },
+    {
+      "native_pressure": false,
+      "native_weights": false,
+      "native_jacobian": true,
+      "after_one_step": {
+        "K0_gpa": 169.33742494834274,
+        "K0_prime": 4.553218394303006,
+        "theta0_k": 770.8374344314105,
+        "gamma0": 1.1846150745790327,
+        "scale_sinogeikin_2000_ks": 0.9782300852238489
+      }
+    },
+    {
+      "native_pressure": false,
+      "native_weights": true,
+      "native_jacobian": false,
+      "after_one_step": {
+        "K0_gpa": 169.3400798326391,
+        "K0_prime": 4.552977406638718,
+        "theta0_k": 771.0306987629912,
+        "gamma0": 1.1846807641887187,
+        "scale_sinogeikin_2000_ks": 0.9783052127468658
+      }
+    },
+    {
+      "native_pressure": false,
+      "native_weights": true,
+      "native_jacobian": true,
+      "after_one_step": {
+        "K0_gpa": 169.33768498298483,
+        "K0_prime": 4.5532940449132555,
+        "theta0_k": 771.0323118912609,
+        "gamma0": 1.1846614757496357,
+        "scale_sinogeikin_2000_ks": 0.9783011424568819
+      }
+    },
+    {
+      "native_pressure": true,
+      "native_weights": false,
+      "native_jacobian": false,
+      "after_one_step": {
+        "K0_gpa": 169.3403229888146,
+        "K0_prime": 4.552811709119938,
+        "theta0_k": 770.8614961355319,
+        "gamma0": 1.1846562927436157,
+        "scale_sinogeikin_2000_ks": 0.978213034353054
+      }
+    },
+    {
+      "native_pressure": true,
+      "native_weights": false,
+      "native_jacobian": true,
+      "after_one_step": {
+        "K0_gpa": 169.33790346818557,
+        "K0_prime": 4.55313128227637,
+        "theta0_k": 770.8631607432321,
+        "gamma0": 1.1846368191673846,
+        "scale_sinogeikin_2000_ks": 0.9782089207781716
+      }
+    },
+    {
+      "native_pressure": true,
+      "native_weights": true,
+      "native_jacobian": false,
+      "after_one_step": {
+        "K0_gpa": 169.34057022625205,
+        "K0_prime": 4.552889268073664,
+        "theta0_k": 771.0565262961147,
+        "gamma0": 1.1847026373002028,
+        "scale_sinogeikin_2000_ks": 0.978284261062237
+      }
+    },
+    {
+      "native_pressure": true,
+      "native_weights": true,
+      "native_jacobian": true,
+      "after_one_step": {
+        "K0_gpa": 169.33816642817226,
+        "K0_prime": 4.553207026067364,
+        "theta0_k": 771.0581556555235,
+        "gamma0": 1.184683279787669,
+        "scale_sinogeikin_2000_ks": 0.9782801810020915
+      }
+    }
+  ],
+  "native_step_reconstruction": {
+    "parameters": {
+      "K0_gpa": 169.33816642817226,
+      "K0_prime": 4.553207026067364,
+      "theta0_k": 771.0581556555235,
+      "gamma0": 1.184683279787669,
+      "scale_sinogeikin_2000_ks": 0.9782801810020915
+    },
+    "actual_parameters": {
+      "K0_gpa": 169.33816528320312,
+      "K0_prime": 4.553206443786621,
+      "theta0_k": 771.05810546875,
+      "gamma0": 1.1846832036972046,
+      "scale_sinogeikin_2000_ks": 0.9782801270484924
+    },
+    "maximum_difference_in_float32_ulps": 1.2211312241852283
+  },
+  "covariance_reconstruction_maximum_relative_width_error": 4.357917826602886e-08,
+  "native_report_minus_reconstructed_cycle_chi_square": -7.916315865053036e-07,
+  "propagation_and_inversion_controls": {
+    "precise_forward": {
+      "parameters": {
+        "K0_gpa": 169.3398232369235,
+        "K0_prime": 4.552921582748776,
+        "theta0_k": 770.9778343548869,
+        "gamma0": 1.1846655498703504,
+        "scale_sinogeikin_2000_ks": 0.9782330972000921
+      },
+      "free_parameters": [
+        "K0_gpa",
+        "K0_prime",
+        "theta0_k",
+        "gamma0",
+        "scale_sinogeikin_2000_ks"
+      ],
+      "numerically_converged": true,
+      "irls_trace": [
+        {
+          "iteration": 1,
+          "max_scaled_shift": 0.00015165423790561706,
+          "optimizer_success": true,
+          "nfev": 5
+        },
+        {
+          "iteration": 2,
+          "max_scaled_shift": 1.7041405063631733e-06,
+          "optimizer_success": true,
+          "nfev": 3
+        },
+        {
+          "iteration": 3,
+          "max_scaled_shift": 1.1428164755186601e-07,
+          "optimizer_success": true,
+          "nfev": 2
+        },
+        {
+          "iteration": 4,
+          "max_scaled_shift": 3.0538942226414363e-12,
+          "optimizer_success": true,
+          "nfev": 8
+        }
+      ],
+      "at_parameter_bound": [],
+      "objective_sum_squares": 422.05617824219496,
+      "degrees_of_freedom": 189,
+      "conditional_reduced_chi_square": 2.233101472180926,
+      "covariance_order": [
+        "K0_gpa",
+        "K0_prime",
+        "theta0_k",
+        "gamma0",
+        "scale_sinogeikin_2000_ks"
+      ],
+      "scaled_jacobian_rank": 5,
+      "scaled_jacobian_singular_values": [
+        1389.4319139918246,
+        342.0390643920739,
+        259.3475233055794,
+        144.843994769099,
+        40.113014665625066
+      ],
+      "conditional_unscaled_covariance": [
+        [
+          0.04366942258952609,
+          -0.004923453588921769,
+          -0.04813423732650693,
+          0.00033683350707596854,
+          3.487911903366171e-05
+        ],
+        [
+          -0.004923453588921769,
+          0.0009026471854845494,
+          -0.0237447459636215,
+          -5.1221751969965235e-05,
+          -2.041841468055525e-05
+        ],
+        [
+          -0.04813423732650693,
+          -0.0237447459636215,
+          349.6777019123754,
+          0.12496625596866011,
+          0.001704757380824771
+        ],
+        [
+          0.00033683350707596854,
+          -5.1221751969965235e-05,
+          0.12496625596866011,
+          6.023855904540713e-05,
+          9.046997679272916e-07
+        ],
+        [
+          3.487911903366171e-05,
+          -2.041841468055525e-05,
+          0.001704757380824771,
+          9.046997679272916e-07,
+          1.5387515125231964e-05
+        ]
+      ],
+      "conditional_unscaled_widths": {
+        "K0_gpa": 0.20897230101026806,
+        "K0_prime": 0.03004408736314933,
+        "theta0_k": 18.699671171236552,
+        "gamma0": 0.007761350336468979,
+        "scale_sinogeikin_2000_ks": 0.003922692331197027
+      },
+      "conditional_residual_scaled_widths": {
+        "K0_gpa": 0.312279124941072,
+        "K0_prime": 0.04489657847504101,
+        "theta0_k": 27.94397593273671,
+        "gamma0": 0.011598224643727,
+        "scale_sinogeikin_2000_ks": 0.005861900944178583
+      },
+      "uncertainty_qualification": "Local inverse weighted-Jacobian covariance conditional on this subset/protocol and independent initial coordinate errors. Residual-scaled widths use max(1, chi_square/dof), matching documented EosFit convention; neither is the original author covariance/confidence or total systematic uncertainty."
+    },
+    "coarse_forward": {
+      "parameters": {
+        "K0_gpa": 169.34031124461194,
+        "K0_prime": 4.55284659852224,
+        "theta0_k": 770.9780763790185,
+        "gamma0": 1.1846699307051198,
+        "scale_sinogeikin_2000_ks": 0.978242768026821
+      },
+      "free_parameters": [
+        "K0_gpa",
+        "K0_prime",
+        "theta0_k",
+        "gamma0",
+        "scale_sinogeikin_2000_ks"
+      ],
+      "numerically_converged": true,
+      "irls_trace": [
+        {
+          "iteration": 1,
+          "max_scaled_shift": 0.00015133978740571117,
+          "optimizer_success": true,
+          "nfev": 5
+        },
+        {
+          "iteration": 2,
+          "max_scaled_shift": 6.0270870192447035e-06,
+          "optimizer_success": true,
+          "nfev": 3
+        },
+        {
+          "iteration": 3,
+          "max_scaled_shift": 6.836827645129162e-07,
+          "optimizer_success": true,
+          "nfev": 8
+        },
+        {
+          "iteration": 4,
+          "max_scaled_shift": 7.708796201377766e-08,
+          "optimizer_success": true,
+          "nfev": 2
+        },
+        {
+          "iteration": 5,
+          "max_scaled_shift": 8.675931639778867e-09,
+          "optimizer_success": true,
+          "nfev": 2
+        }
+      ],
+      "at_parameter_bound": [],
+      "objective_sum_squares": 422.1222688597039,
+      "degrees_of_freedom": 189,
+      "conditional_reduced_chi_square": 2.2334511579878513,
+      "covariance_order": [
+        "K0_gpa",
+        "K0_prime",
+        "theta0_k",
+        "gamma0",
+        "scale_sinogeikin_2000_ks"
+      ],
+      "scaled_jacobian_rank": 5,
+      "scaled_jacobian_singular_values": [
+        1389.8593802337757,
+        342.0525968476713,
+        259.5103062400956,
+        144.964494991276,
+        40.11352706130267
+      ],
+      "conditional_unscaled_covariance": [
+        [
+          0.04362693203593037,
+          -0.004916447715663106,
+          -0.04846974552174391,
+          0.00033635173215580916,
+          3.450581035786094e-05
+        ],
+        [
+          -0.004916447715663106,
+          0.0009011642270753139,
+          -0.023709391931690936,
+          -5.114635664683795e-05,
+          -2.034041893053421e-05
+        ],
+        [
+          -0.04846974552174391,
+          -0.023709391931690936,
+          349.66961239430145,
+          0.1249614386026518,
+          0.0017038607828461063
+        ],
+        [
+          0.00033635173215580916,
+          -5.114635664683795e-05,
+          0.1249614386026518,
+          6.0233100481192496e-05,
+          9.010053773402099e-07
+        ],
+        [
+          3.450581035786094e-05,
+          -2.034041893053421e-05,
+          0.0017038607828461063,
+          9.010053773402099e-07,
+          1.536492560402899e-05
+        ]
+      ],
+      "conditional_unscaled_widths": {
+        "K0_gpa": 0.2088706107520404,
+        "K0_prime": 0.030019397513529715,
+        "theta0_k": 18.699454868907313,
+        "gamma0": 0.007760998678082125,
+        "scale_sinogeikin_2000_ks": 0.00391981193477812
+      },
+      "conditional_residual_scaled_widths": {
+        "K0_gpa": 0.31215160078895315,
+        "K0_prime": 0.04486319523282517,
+        "theta0_k": 27.945840490406002,
+        "gamma0": 0.011598607158573738,
+        "scale_sinogeikin_2000_ks": 0.005858055213355003
+      },
+      "uncertainty_qualification": "Local inverse weighted-Jacobian covariance conditional on this subset/protocol and independent initial coordinate errors. Residual-scaled widths use max(1, chi_square/dof), matching documented EosFit convention; neither is the original author covariance/confidence or total systematic uncertainty."
+    }
+  },
+  "native_pressure_rounding_and_inversion_qualification": "Primary attribution uses exact captured pre-step native pressures, weights and Jacobian, not rounded printed columns. The structural coarse-inversion control uses double precision and tight internal K(P,T), not a bitwise emulation of CFML's single-precision spline evaluation.",
+  "comparison_state_qualification": "Common native cycle starting coefficients and identical supplied decimal observations; native observations enter its arithmetic as float32. Python's original high-precision V0 and pressure law are retained, so representation differences remain in the numerical-kernel term.",
+  "error_scaling_qualification": "Covariance swaps hold the native residual-scale factor fixed to separate weights/Jacobian. The original Python factor differs by about0.026percent in variance; all errors remain local conditional widths.",
+  "catalog_changed": false,
+  "library_default_changed": false,
+  "author_contacted": false
+}

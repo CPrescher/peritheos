@@ -95,13 +95,14 @@ def fit_sun_2022(*, fixed_k0_prime: bool, weighted: bool = False):
     if not fixed_k0_prime:
         initial["K0_prime"] = 4.0
         fixed = {}
+    intervals = {"V0": (100.0, 260.0), "K0": (10.0, 1000.0), "K0_prime": (0.0, 20.0)}
     return fit_rt_eos(
         BM3,
         volume=values["volume_a3_conventional_cell"],
         pressure=values["pressure_gpa"],
         initial=initial,
         fixed=fixed,
-        bounds={"V0": (100.0, 260.0), "K0": (10.0, 1000.0), "K0_prime": (0.0, 20.0)},
+        bounds={name: intervals[name] for name in initial},
         pressure_sigma=(values["pressure_uncertainty_gpa"] if weighted else None),
         volume_sigma=(values["volume_uncertainty_a3"] if weighted else None),
         absolute_sigma=weighted,

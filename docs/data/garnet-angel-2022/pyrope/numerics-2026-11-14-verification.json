@@ -1,0 +1,50 @@
+{
+  "verified_on": "2026-11-14",
+  "status": "passed_at_declared_scope",
+  "scope": "Frozen native-kernel numerical attribution and analytic replay prototype; no public fitting API, source observation or catalog change",
+  "native_evidence": {
+    "executable_version": "7.60, exact binary hash pinned in evidence",
+    "instrumented_process_exit_status": 0,
+    "observations": 194,
+    "parameter_derivative_columns": 5,
+    "captured": "Exact native float32 pressures/weights, packed float64 derivatives, post-step float32 parameters/errors and reduced chi-square; no numerical values altered",
+    "control": "Instrumented final output matches ordinary replay",
+    "errors_reconstructed_max_relative_difference": 4.357917826602886e-08,
+    "parameter_step_reconstruction_max_float32_ulps": 1.2211312241852283,
+    "cycle_chi_reconstruction_absolute_difference": 7.916315864164414e-07,
+    "repeated_native_fits": "Eight successful refinements from two starting states, four sequential runs each"
+  },
+  "independent_checks": {
+    "propagation": "Known nonlinear quadratic example checks local versus finite one-error propagation",
+    "inversion": "Tightening all structural inversion criteria recovers precise pressure to1e-8GPa; coarser native criteria produce observed millibar-scale differences",
+    "derivatives": "All194rows and five parameter plus both coordinate derivatives checked independently with five-point finite differences",
+    "analytic_fit": "Both starts preserve original Python coefficients, errors and chi-square; bounds inactive; weighted stationarity explicitly checked",
+    "benchmark": "Five paired alternating-order full194rowfits; median112.4ms finite differences and17.3ms analytic, about6.5times local speed ratio; not public-library or Rust benchmark"
+  },
+  "python_tests": {
+    "passed": 92,
+    "failed": 0,
+    "seconds": 12.39,
+    "selection": "New numerical-difference tests, author-input/pyrope replay tests, all grossular audit tests and q-compromise model tests"
+  },
+  "style": "Ruff check, Ruff format check and git diff whitespace check passed for owned changes",
+  "documentation": {
+    "strict_clean_build": "passed",
+    "seconds": 116.37,
+    "rendered_links": {
+      "pages": 3,
+      "local_links_and_images": 86,
+      "errors": []
+    }
+  },
+  "preservation": {
+    "previous_author_input_manifest": "All files byte-identical",
+    "previous_grossular_studies": "Targeted preservation tests passed",
+    "library_default_changed": false,
+    "public_fitter_changed": false,
+    "source_observations_changed": false,
+    "catalog_changed": false,
+    "author_contacted": false
+  },
+  "branch": "codex/pyrope-angel-2022-audit"
+}

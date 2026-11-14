@@ -1,0 +1,86 @@
+{
+  "checked_on": "2026-11-13",
+  "citation": {
+    "authors": [
+      "Wei Du",
+      "Simon Martin Clark",
+      "David Walker"
+    ],
+    "year": 2015,
+    "journal": "American Mineralogist",
+    "volume": 100,
+    "issue": 1,
+    "pages": "215-222",
+    "doi": "10.2138/am-2015-4752"
+  },
+  "scope": "Grossular block of Table 2 and associated temperature calibration/uncertainty definitions; not whole-paper or author-workflow identity",
+  "final": {
+    "version": "Final journal typesetting, author-uploaded copy",
+    "file": "/Users/clemens/Programming/peritheos/output/du-final-table-2026-11-13/sources/du-2015-final-researchgate.pdf",
+    "sha256": "c74b55d9892f51e1928a8965c7515c9030eced5c4583d9b4ec77d174e9b9101e",
+    "bytes": 802818,
+    "pages": 8,
+    "table_location": "Journal p. 217, PDF page 3, Table 2 grossular block",
+    "calibration_location": "Journal p. 217, Eq. 1 and following paragraph",
+    "version_evidence": "First-page journal imprint American Mineralogist 100, 215-222 (2015) and DOI; typeset Table 2 on p. 217",
+    "url": "https://www.researchgate.net/profile/Wei-Du-21/publication/271207857_Thermo-compression_of_pyrope-grossular_garnet_solid_solutions_Non-linear_compositional_dependence/links/5809dc0208ae1c98c253eae3/Thermo-compression-of-pyrope-grossular-garnet-solid-solutions-Non-linear-compositional-dependence.pdf",
+    "landing_page": "https://www.researchgate.net/publication/271207857_Thermo-compression_of_pyrope-grossular_garnet_solid_solutions_Non-linear_compositional_dependence",
+    "upload_attribution": "ResearchGate identifies Wei Du as uploader on 2016-10-21",
+    "retrieval": "Downloaded using the public Download full-text PDF link in Chrome after automatic site verification; no manual CAPTCHA or author contact",
+    "publisher_authenticated_download": false,
+    "transcription_method": "Grossular block extracted from pdftotext -layout, then all entries and errors visually checked against the complete rendered table page"
+  },
+  "preprint": {
+    "version": "Institutional author preprint, scanned",
+    "file": "/Users/clemens/Programming/peritheos/output/pyrope-full-fit-2026-11-12/sources/du-2015-columbia.pdf",
+    "sha256": "4cc738c4acf246b27aa5884f89622a65cfb99ac3254a4adfcef979a485dc9b0e",
+    "pages": 32,
+    "table_location": "Manuscript/PDF p. 25, Table 2 grossular block",
+    "calibration_location": "Manuscript/PDF p. 7, Eq. 1 and following paragraph",
+    "url": "https://academiccommons.columbia.edu/doi/10.7916/D8V415Z5/download",
+    "transcription": "du-2015-preprint-table-2.csv",
+    "transcription_sha256": "d569ab2f57e87362027517a7bbfbfeb9ba76ddca0cc992eb39ae396bd1ac2b00"
+  },
+  "visual_checks": [
+    "Complete final p. 215 (journal identity)",
+    "Complete final p. 217 (Table 2, Eq. 1, methods, footnote)",
+    "Complete preprint p. 25 (grossular Table 2 rows and footnote)",
+    "Complete preprint p. 7 (calibration Eq. 1 and Celsius definitions)"
+  ],
+  "preprint_alpha_tokens_visually_transcribed": [
+    "2.729(4)",
+    "2.731(4)",
+    "2.733(4)",
+    "2.733(4)",
+    "2.735(4)",
+    "2.735(4)",
+    "2.736(5)",
+    "2.736(5)",
+    "2.737(5)",
+    "2.739(5)",
+    "2.740(5)",
+    "2.742(5)",
+    "2.743(5)"
+  ],
+  "shared_definitions": {
+    "temperature_unit": "K in Table 2; Celsius for both variables in calibration Eq. 1",
+    "temperature_calibration": "T2=-3.6e-5*T1^2+0.982*T1-0.565; T1 thermocouple, T2 NaCl; T2 used throughout",
+    "temperature_error": "0.2 degrees C error bar from NaCl; same increment as 0.2 K; not an established independent Gaussian standard deviation",
+    "volume_unit": "unit-cell volume in angstrom^3",
+    "lattice_unit": "angstrom",
+    "parentheses": "Estimated standard deviations from least-squares unit-cell refinement",
+    "alpha": "Calculated thermal expansion, tabulated as alpha times 10^5 in K^-1; not independent measured fit channels",
+    "footnote_equation_reference": "Both versions refer to Equation 1 for calculated alpha, whereas the derivative definition is Eq. 2. This shared source cross-reference issue does not change the temperature mapping or table entries."
+  },
+  "unresolved": [
+    "Raw NaCl cell observations and calibration coefficient covariance",
+    "Run/equilibration and shared error structure",
+    "Exact Angel normalization denominators and original EosFit assigned coordinate errors/weights"
+  ],
+  "retrieval_limitations": "Publisher full text remained purchase/authentication gated; institutional Columbia record serves the same preprint. Final source was recovered through the author public upload, not a publisher byte-for-byte comparison.",
+  "rights": "Only attributed factual transcription and contributor comparison metadata are tracked. Third-party article text, artwork and PDF remain private; no third-party license is inferred.",
+  "author_contacted": false,
+  "fits_rerun": false,
+  "catalog_changed": false,
+  "conrad_diagnostic": "Additional independent 2% modulus width remains diagnostic; no source errors changed"
+}

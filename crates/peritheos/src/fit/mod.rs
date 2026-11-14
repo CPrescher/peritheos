@@ -93,11 +93,15 @@
 //! errors are reported as [`FitError`], so factories can use
 //! [`FitError::from`] to retain the original EOS error as a source.
 
+mod derivatives;
 mod eos;
 
+pub use derivatives::{bm3_pressure_derivatives, q_compromise_bm3_pressure_derivatives};
+
 pub use eos::{
-    fit_isothermal_eos, fit_joint_eos, fit_thermal_eos, fit_thermal_eos_by, EosFitResult,
-    IsothermalObservations, ThermalObservations,
+    fit_isothermal_eos, fit_isothermal_eos_with_derivatives, fit_joint_eos, fit_thermal_eos,
+    fit_thermal_eos_by, fit_thermal_eos_by_with_derivatives, fit_thermal_eos_with_derivatives,
+    EosFitResult, IsothermalObservations, PressureDerivatives, ThermalObservations,
 };
 
 use rand::rngs::StdRng;
@@ -832,7 +836,38 @@ pub fn least_squares<F>(
 where
     F: FnMut(&[f64]) -> Result<Vec<f64>, FitError>,
 {
-    least_squares_internal(initial, lower, upper, options, None, evaluate)
+    least_squares_internal(initial, lower, upper, options, None, evaluate, None)
+}
+
+/// Solve least squares with an explicit row-major residual Jacobian.
+///
+/// The callback differentiates the same weighted/whitened residual vector as
+/// `evaluate`. Loss transformation, bounds, convergence and covariance
+/// conventions are identical to [`least_squares`].
+///
+/// # Errors
+/// Returns an error for invalid inputs, residuals, or Jacobian dimensions/values.
+pub fn least_squares_with_jacobian<F, J>(
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    evaluate: F,
+    mut jacobian: J,
+) -> Result<SolverResult, FitError>
+where
+    F: FnMut(&[f64]) -> Result<Vec<f64>, FitError>,
+    J: FnMut(&[f64]) -> Result<Vec<f64>, FitError>,
+{
+    least_squares_internal(
+        initial,
+        lower,
+        upper,
+        options,
+        None,
+        evaluate,
+        Some(&mut jacobian),
+    )
 }
 
 /// Solve a least-squares problem with observation-local latent coordinates.
@@ -855,6 +890,46 @@ pub fn least_squares_structured<F>(
 where
     F: FnMut(&[f64]) -> Result<Vec<f64>, FitError>,
 {
+    validate_structured_layout(initial, layout)?;
+    least_squares_internal(initial, lower, upper, options, Some(layout), evaluate, None)
+}
+
+/// Structured least squares with an explicit weighted residual Jacobian.
+///
+/// Uses the same observation-local Schur solve as [`least_squares_structured`].
+/// The residual evaluator and Jacobian must obey [`StructuredLayout`]: each
+/// point's residual rows may depend on all global parameters and only that
+/// point's latent coordinates. Off-point latent derivatives must be zero.
+///
+/// # Errors
+/// Returns an error for inconsistent layouts, residuals or Jacobians.
+#[allow(clippy::too_many_arguments)]
+pub fn least_squares_structured_with_jacobian<F, J>(
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    layout: StructuredLayout,
+    evaluate: F,
+    mut jacobian: J,
+) -> Result<SolverResult, FitError>
+where
+    F: FnMut(&[f64]) -> Result<Vec<f64>, FitError>,
+    J: FnMut(&[f64]) -> Result<Vec<f64>, FitError>,
+{
+    validate_structured_layout(initial, layout)?;
+    least_squares_internal(
+        initial,
+        lower,
+        upper,
+        options,
+        Some(layout),
+        evaluate,
+        Some(&mut jacobian),
+    )
+}
+
+fn validate_structured_layout(initial: &[f64], layout: StructuredLayout) -> Result<(), FitError> {
     if layout.global_parameter_count == 0
         || layout.point_count == 0
         || layout.latent_coordinate_count == 0
@@ -865,10 +940,41 @@ where
             "structured layout does not match the parameter vector".to_owned(),
         ));
     }
-    least_squares_internal(initial, lower, upper, options, Some(layout), evaluate)
+    Ok(())
 }
 
-#[allow(clippy::too_many_lines)]
+type JacobianCallback<'a> = &'a mut dyn FnMut(&[f64]) -> Result<Vec<f64>, FitError>;
+
+#[allow(clippy::too_many_arguments)]
+fn residual_jacobian<F>(
+    parameters: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    residuals: &[f64],
+    layout: Option<StructuredLayout>,
+    evaluate: &mut F,
+    analytic: &mut Option<JacobianCallback<'_>>,
+) -> Result<Vec<f64>, FitError>
+where
+    F: FnMut(&[f64]) -> Result<Vec<f64>, FitError>,
+{
+    if let Some(callback) = analytic {
+        let jacobian = callback(parameters)?;
+        if jacobian.len() != residuals.len() * parameters.len()
+            || jacobian.iter().any(|value| !value.is_finite())
+        {
+            return Err(FitError::InvalidInput(
+                "residual Jacobian has invalid dimensions or non-finite values".to_owned(),
+            ));
+        }
+        Ok(jacobian)
+    } else {
+        finite_difference_for_layout(parameters, lower, upper, residuals, layout, evaluate)
+            .map(|(jacobian, _)| jacobian)
+    }
+}
+
+#[allow(clippy::too_many_lines, clippy::too_many_arguments)]
 fn least_squares_internal<F>(
     initial: &[f64],
     lower: &[f64],
@@ -876,6 +982,7 @@ fn least_squares_internal<F>(
     options: SolverOptions,
     layout: Option<StructuredLayout>,
     mut evaluate: F,
+    mut analytic: Option<JacobianCallback<'_>>,
 ) -> Result<SolverResult, FitError>
 where
     F: FnMut(&[f64]) -> Result<Vec<f64>, FitError>,
@@ -907,13 +1014,14 @@ where
     let mut optimality = f64::INFINITY;
 
     while evaluations < maximum_evaluations {
-        let (jacobian, _used) = finite_difference_for_layout(
+        let jacobian = residual_jacobian(
             &parameters,
             lower,
             upper,
             &residuals,
             layout,
             &mut evaluate,
+            &mut analytic,
         )?;
         jacobian_evaluations += 1;
         final_jacobian.clone_from(&jacobian);
@@ -1023,13 +1131,14 @@ where
     }
 
     if final_jacobian.is_empty() || success {
-        let (jacobian, _used) = finite_difference_for_layout(
+        let jacobian = residual_jacobian(
             &parameters,
             lower,
             upper,
             &residuals,
             layout,
             &mut evaluate,
+            &mut analytic,
         )?;
         jacobian_evaluations += 1;
         final_jacobian = jacobian;
@@ -2401,5 +2510,83 @@ mod tests {
         )
         .unwrap();
         assert!((structured_covariance[0] - dense_covariance[0]).abs() < 1.0e-10);
+    }
+    #[test]
+    fn analytic_solver_validates_jacobian_dimensions_and_values() {
+        for invalid in [vec![1.0], vec![f64::NAN, 1.0]] {
+            let result = least_squares_with_jacobian(
+                &[1.0],
+                &[0.0],
+                &[4.0],
+                SolverOptions::default(),
+                |p| Ok(vec![p[0] - 2.0, p[0] - 3.0]),
+                |_| Ok(invalid.clone()),
+            );
+            assert!(matches!(result, Err(FitError::InvalidInput(_))));
+        }
+    }
+
+    #[test]
+    fn analytic_dense_and_structured_solvers_preserve_bounds_loss_and_covariance() {
+        let layout = StructuredLayout {
+            global_parameter_count: 1,
+            point_count: 3,
+            latent_coordinate_count: 1,
+        };
+        let initial = [1.5, 1.0, 2.0, 3.0];
+        let lower = [1.0, 0.1, 0.1, 0.1];
+        let upper = [1.9, 5.0, 5.0, 5.0];
+        let residual = |p: &[f64]| {
+            Ok(vec![
+                p[0] * p[1] - 2.0,
+                p[0] * p[2] - 4.1,
+                p[0] * p[3] - 8.0,
+                (p[1] - 1.0) * 10.0,
+                (p[2] - 2.0) * 10.0,
+                (p[3] - 3.0) * 10.0,
+            ])
+        };
+        let derivative = |p: &[f64]| {
+            Ok(vec![
+                p[1], p[0], 0.0, 0.0, p[2], 0.0, p[0], 0.0, p[3], 0.0, 0.0, p[0], 0.0, 10.0, 0.0,
+                0.0, 0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 10.0,
+            ])
+        };
+        for loss in [
+            Loss::Linear,
+            Loss::SoftL1,
+            Loss::Huber,
+            Loss::Cauchy,
+            Loss::Arctan,
+        ] {
+            let options = SolverOptions {
+                loss,
+                max_evaluations: Some(500),
+                ..SolverOptions::default()
+            };
+            let numerical =
+                least_squares_structured(&initial, &lower, &upper, options, layout, residual)
+                    .unwrap();
+            let analytic = least_squares_structured_with_jacobian(
+                &initial, &lower, &upper, options, layout, residual, derivative,
+            )
+            .unwrap();
+            let dense = least_squares_with_jacobian(
+                &initial, &lower, &upper, options, residual, derivative,
+            )
+            .unwrap();
+            assert!(numerical.success && analytic.success && dense.success);
+            for result in [&numerical, &dense] {
+                for (&value, &reference) in result.parameters.iter().zip(&analytic.parameters) {
+                    assert!((value - reference).abs() < 1.0e-6);
+                }
+                assert!((result.cost - analytic.cost).abs() < 1.0e-9);
+                let covariance = parameter_covariance_structured(&result.jacobian, layout).unwrap();
+                let reference =
+                    parameter_covariance_structured(&analytic.jacobian, layout).unwrap();
+                assert!((covariance[0] / reference[0] - 1.0).abs() < 1.0e-6);
+            }
+            assert!(analytic.parameters[0] <= upper[0]);
+        }
     }
 }

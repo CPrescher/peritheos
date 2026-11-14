@@ -1,0 +1,56 @@
+{
+  "checked_on": "2026-11-12",
+  "scope": "Primary source interpretation and controls, not recovery of an author input file",
+  "sources": [
+    {
+      "id": "Conrad1999",
+      "url": "https://www.msaweb.org/MSA/AmMin/TOC/Articles_Free/1999/Conrad_p374-383_99.pdf",
+      "cached_file": "/Users/clemens/Programming/peritheos/output/grossular-full-audit-2026-11-12/sources/conrad-1999.pdf",
+      "sha256": "7f4e3bde789196fba446e3c65eae1f1583928a081b57333bc3130f58c303627c",
+      "locations": "p375Table2; p377velocityprecision; p378Table4 and cubicKS; p379Table6"
+    },
+    {
+      "id": "Angel2022",
+      "url": "https://link.springer.com/article/10.1007/s00410-022-01918-5",
+      "cached_file": "/Users/clemens/Programming/peritheos/output/garnet-angel-2022-audit/sources/article.pdf",
+      "sha256": "eebef304cc8ef328f3d9219d9006f94791e4680e42d92655a396890eac81b692",
+      "locations": "p4noKSpre-scaling; p6internalKS-KTconversion and effectivevariance; p8Fig3mask"
+    },
+    {
+      "id": "Jiang2004",
+      "url": "https://doi.org/10.1029/2004JB003081",
+      "cached_file": "/Users/clemens/Programming/peritheos/output/grossular-conrad-processing-2026-11-12/sources/jiang-2004.pdf",
+      "sha256": "414b073c1e2d0635f349bd458d08031faa997a75c3f70cb91f36054d4c7ab486",
+      "locations": "paragraph17: possible orientation error; not a correction or Conrad error covariance"
+    }
+  ],
+  "findings": [
+    "Angel explicitly reports no prior scaling of KS; prior speculative questions about Conrad pre-normalization are narrowed by this statement. It does not recover literal Conrad KS/error tokens from the author file.",
+    "Conrad formal Cij errors and assumed1%velocity precision refer to different stages. A coherent velocity-scale perturbation epsilon gives first-order2epsilonKS at fixed density, but does not determine the uncertainty/correlation of three derived KS values.",
+    "Jiang suggests possible orientation errors based on two versus36directions. This is primary experimental criticism, not a demonstrated correction or measurement of Conrad uncertainty.",
+    "All three selected literal Cij-derived KS remain in every error case. Density/rounding controls are distinctly calculated reductions, not new observations.",
+    "Reference density3.60 and calculated [100]velocities are used only in declared density controls; unknown pressure-density inputs and correlations remain unavailable."
+  ],
+  "eosfit_help": {
+    "version": "Previously downloaded EosFit7.60; not the summer2021 author version",
+    "qualification": "Inspected input/weighting documentation does not recover the authors assigned Conrad errors or establish a2%KS rule. Parameter-esd rescaling after a fit is not a recovered input-error assignment.",
+    "files": [
+      {
+        "file": "InputCommand.html",
+        "sha256": "e6c2ea666a742d0d76e6f69a5321b58eb583891ab7d9155672c17ed15855c999"
+      },
+      {
+        "file": "DataHandlingandFitting.html",
+        "sha256": "83c9e506e5e7e7519b9bf43b20dc49cb7a587abfebe1cd4f746568c884c0a166"
+      },
+      {
+        "file": "Datainputandcontrol.html",
+        "sha256": "3302fa9afad39bd13f9db8ce9c7c468c4b3bc475e83cb9df323f269cdfbf866d"
+      },
+      {
+        "file": "AdiabaticIsothermalmoduli.html",
+        "sha256": "96447d65d5a5f55a97e53fe91ab9d3fe3d2f11fa41f0c0b17cd8979220c03162"
+      }
+    ]
+  }
+}

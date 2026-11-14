@@ -1,0 +1,224 @@
+{
+  "source": "Angel 2022 Fig. 7 vector marker centers",
+  "Du_preprint_check": "All nine preprint PV points match plotted pressures to 0.02 GPa and normalized volumes to 0.004 cm3/mol. This corroborates the recovered preprint table; it does not turn the preprint into the final primary version.",
+  "Chantel_pressure_choice": "All ten plot abscissae match the calibrated (Au) pressure column to 0.02 GPa, not the internally derived pressure column. S2's 25.2 GPa endpoint alone would select the wrong column.",
+  "normalization_limit": "Chantel common ambient-density normalization differs from plotted V by about 0.045 cm3/mol. Milani normalized volumes differ by up to 0.008 cm3/mol and recalibrated pressures by up to 0.042 GPa. Retained as unresolved original normalization/calibration details; no values/anchors tuned to fit the figure or the published coefficients.",
+  "points": {
+    "du_pv": [
+      {
+        "row": 1,
+        "figure_P_gpa": 0.38103469794207,
+        "figure_V_cm3_mol": 112.88599180498113,
+        "figure_minus_prepared_P_gpa": -0.01896530205793001,
+        "figure_minus_prepared_V_cm3_mol": -0.0031779661737374454
+      },
+      {
+        "row": 2,
+        "figure_P_gpa": 0.7142514076315294,
+        "figure_V_cm3_mol": 112.5488786117015,
+        "figure_minus_prepared_P_gpa": 0.014251407631529434,
+        "figure_minus_prepared_V_cm3_mol": -0.0016236501398907421
+      },
+      {
+        "row": 3,
+        "figure_P_gpa": 1.3038660892275935,
+        "figure_V_cm3_mol": 112.22009966376162,
+        "figure_minus_prepared_P_gpa": 0.003866089227593461,
+        "figure_minus_prepared_V_cm3_mol": 0.0007389665822756797
+      },
+      {
+        "row": 4,
+        "figure_P_gpa": 2.4895194464321513,
+        "figure_V_cm3_mol": 111.49176718923975,
+        "figure_minus_prepared_P_gpa": -0.010480553567848716,
+        "figure_minus_prepared_V_cm3_mol": 0.0024231232471976227
+      },
+      {
+        "row": 5,
+        "figure_P_gpa": 3.790438948080137,
+        "figure_V_cm3_mol": 110.70101409591518,
+        "figure_minus_prepared_P_gpa": -0.009561051919862784,
+        "figure_minus_prepared_V_cm3_mol": 0.001894218320714458
+      },
+      {
+        "row": 6,
+        "figure_P_gpa": 4.296791878996345,
+        "figure_V_cm3_mol": 110.35556903253672,
+        "figure_minus_prepared_P_gpa": -0.0032081210036549734,
+        "figure_minus_prepared_V_cm3_mol": 0.0026426089071378556
+      },
+      {
+        "row": 7,
+        "figure_P_gpa": 5.187523050599868,
+        "figure_V_cm3_mol": 110.05592502724443,
+        "figure_minus_prepared_P_gpa": -0.01247694940013222,
+        "figure_minus_prepared_V_cm3_mol": -0.003489554980163234
+      },
+      {
+        "row": 8,
+        "figure_P_gpa": 6.494887028135974,
+        "figure_V_cm3_mol": 109.16112379285133,
+        "figure_minus_prepared_P_gpa": -0.00511297186402615,
+        "figure_minus_prepared_V_cm3_mol": -0.002703375855432455
+      },
+      {
+        "row": 9,
+        "figure_P_gpa": 7.110235723550893,
+        "figure_V_cm3_mol": 108.85314055421335,
+        "figure_minus_prepared_P_gpa": 0.010235723550893638,
+        "figure_minus_prepared_V_cm3_mol": -0.0021228837855886695
+      }
+    ],
+    "milani_pv": [
+      {
+        "row": 2,
+        "figure_P_gpa": 1.5410315798571865,
+        "figure_V_cm3_mol": 112.10772986613023,
+        "figure_minus_prepared_P_gpa": -0.009174326780948316,
+        "figure_minus_prepared_V_cm3_mol": -0.00754687264638676
+      },
+      {
+        "row": 3,
+        "figure_P_gpa": 2.1883071305062636,
+        "figure_V_cm3_mol": 111.71234227459766,
+        "figure_minus_prepared_P_gpa": -0.008016059023891131,
+        "figure_minus_prepared_V_cm3_mol": -0.003295157863576037
+      },
+      {
+        "row": 4,
+        "figure_P_gpa": 2.906093001224331,
+        "figure_V_cm3_mol": 111.2503705044539,
+        "figure_minus_prepared_P_gpa": -0.007703543355989773,
+        "figure_minus_prepared_V_cm3_mol": -0.0036534811448944993
+      },
+      {
+        "row": 5,
+        "figure_P_gpa": 3.9698470122427274,
+        "figure_V_cm3_mol": 110.60527407253629,
+        "figure_minus_prepared_P_gpa": -0.03942783548779172,
+        "figure_minus_prepared_V_cm3_mol": -0.007524138869257513
+      },
+      {
+        "row": 6,
+        "figure_P_gpa": 5.072163274724694,
+        "figure_V_cm3_mol": 109.96850808557295,
+        "figure_minus_prepared_P_gpa": -0.034674644672260335,
+        "figure_minus_prepared_V_cm3_mol": -0.0034399524911066237
+      },
+      {
+        "row": 7,
+        "figure_P_gpa": 6.546199978714856,
+        "figure_V_cm3_mol": 109.1423954932461,
+        "figure_minus_prepared_P_gpa": -0.01542749304641955,
+        "figure_minus_prepared_V_cm3_mol": -0.007813001249530771
+      },
+      {
+        "row": 8,
+        "figure_P_gpa": 7.289642324722365,
+        "figure_V_cm3_mol": 108.76573121331285,
+        "figure_minus_prepared_P_gpa": -0.005806027214635634,
+        "figure_minus_prepared_V_cm3_mol": -0.005120420864599851
+      },
+      {
+        "row": 9,
+        "figure_P_gpa": 8.443178637847026,
+        "figure_V_cm3_mol": 108.19138228229083,
+        "figure_minus_prepared_P_gpa": 0.034044548817785625,
+        "figure_minus_prepared_V_cm3_mol": -0.0002928384107292459
+      },
+      {
+        "row": 10,
+        "figure_P_gpa": 8.180353745945752,
+        "figure_V_cm3_mol": 108.33288298466024,
+        "figure_minus_prepared_P_gpa": 0.0415012809922537,
+        "figure_minus_prepared_V_cm3_mol": -0.00625303045806902
+      },
+      {
+        "row": 11,
+        "figure_P_gpa": 5.841166270103216,
+        "figure_V_cm3_mol": 109.56481593921214,
+        "figure_minus_prepared_P_gpa": -0.007523409384459612,
+        "figure_minus_prepared_V_cm3_mol": -0.004262625211055138
+      },
+      {
+        "row": 12,
+        "figure_P_gpa": 2.104988323172691,
+        "figure_V_cm3_mol": 111.7497936482781,
+        "figure_minus_prepared_P_gpa": -0.01549251367542448,
+        "figure_minus_prepared_V_cm3_mol": -0.007535478732947354
+      }
+    ],
+    "chantel_pv": [
+      {
+        "row": 2,
+        "figure_P_gpa": 2.3164973385128427,
+        "figure_V_cm3_mol": 111.77062427362154,
+        "figure_minus_prepared_P_gpa": 0.016497338512842852,
+        "figure_minus_prepared_V_cm3_mol": -0.042087120889135576
+      },
+      {
+        "row": 3,
+        "figure_P_gpa": 5.6874146812300665,
+        "figure_V_cm3_mol": 109.90192913249177,
+        "figure_minus_prepared_P_gpa": -0.012585318769933629,
+        "figure_minus_prepared_V_cm3_mol": -0.051301510910619186
+      },
+      {
+        "row": 4,
+        "figure_P_gpa": 7.494591287875831,
+        "figure_V_cm3_mol": 108.91972710806549,
+        "figure_minus_prepared_P_gpa": -0.005408712124168602,
+        "figure_minus_prepared_V_cm3_mol": -0.05310455905150491
+      },
+      {
+        "row": 5,
+        "figure_P_gpa": 9.81451043915889,
+        "figure_V_cm3_mol": 107.72943402703218,
+        "figure_minus_prepared_P_gpa": 0.014510439158890165,
+        "figure_minus_prepared_V_cm3_mol": -0.049414182481442026
+      },
+      {
+        "row": 6,
+        "figure_P_gpa": 12.506090780809743,
+        "figure_V_cm3_mol": 106.3435298802332,
+        "figure_minus_prepared_P_gpa": 0.006090780809742569,
+        "figure_minus_prepared_V_cm3_mol": -0.04223904617143148
+      },
+      {
+        "row": 7,
+        "figure_P_gpa": 14.992700214440312,
+        "figure_V_cm3_mol": 105.09077651387383,
+        "figure_minus_prepared_P_gpa": -0.007299785559688132,
+        "figure_minus_prepared_V_cm3_mol": -0.04698417434306634
+      },
+      {
+        "row": 8,
+        "figure_P_gpa": 17.607404761654585,
+        "figure_V_cm3_mol": 103.82143398988168,
+        "figure_minus_prepared_P_gpa": 0.007404761654584036,
+        "figure_minus_prepared_V_cm3_mol": -0.04373469412553277
+      },
+      {
+        "row": 9,
+        "figure_P_gpa": 19.414623063547303,
+        "figure_V_cm3_mol": 102.9453263765764,
+        "figure_minus_prepared_P_gpa": 0.014623063547304582,
+        "figure_minus_prepared_V_cm3_mol": -0.04457403200377996
+      },
+      {
+        "row": 10,
+        "figure_P_gpa": 21.491063917513543,
+        "figure_V_cm3_mol": 101.95271984682458,
+        "figure_minus_prepared_P_gpa": -0.008936082486457053,
+        "figure_minus_prepared_V_cm3_mol": -0.047393961976624155
+      },
+      {
+        "row": 11,
+        "figure_P_gpa": 23.798095580011477,
+        "figure_V_cm3_mol": 100.88729698133591,
+        "figure_minus_prepared_P_gpa": -0.0019044199885236424,
+        "figure_minus_prepared_V_cm3_mol": -0.040743559204628355
+      }
+    ]
+  }
+}

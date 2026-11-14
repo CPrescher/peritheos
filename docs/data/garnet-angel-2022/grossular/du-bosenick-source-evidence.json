@@ -1,0 +1,51 @@
+{
+  "checked_on": "2026-11-13",
+  "scope": "Primary preprocessing evidence; uncertainty/covariance assumptions remain diagnostic, not author input recovery",
+  "sources": [
+    {
+      "source": "Du author preprint",
+      "url": "https://academiccommons.columbia.edu/doi/10.7916/D8V415Z5/download",
+      "cached_file": "/Users/clemens/Programming/peritheos/output/pyrope-full-fit-2026-11-12/sources/du-2015-columbia.pdf",
+      "sha256": "4cc738c4acf246b27aa5884f89622a65cfb99ac3254a4adfcef979a485dc9b0e",
+      "locations": "p6-7apparatus/calibration; Eq1p7; Table2p25"
+    },
+    {
+      "source": "Bosenick and Geiger final primary",
+      "url": "https://doi.org/10.1029/97JB01612",
+      "cached_file": "/Users/clemens/Programming/peritheos/output/grossular-remaining-73-2026-11-12/sources/bosenick-1997-primary.pdf",
+      "sha256": "0320173a1e1ddaa0cc453178cc77d07a1584147a89a0278c110890b1020ea4a4",
+      "locations": "p22650temperatureaccuracy and cooling/heating; p22651Tables1/2"
+    },
+    {
+      "source": "Angel supplement",
+      "url": "https://doi.org/10.1007/s00410-022-01918-5",
+      "cached_file": "/Users/clemens/Programming/peritheos/output/garnet-angel-2022-audit/sources/supplement.pdf",
+      "sha256": "e32726ebdb7b7e4ab85f246a29677dde3a5fa4b08a33d6af308329ff195e5f88",
+      "locations": "S1Bosenick20available/20used"
+    }
+  ],
+  "du_findings": [
+    "The preprint methods use NaCl-derived T2 throughout and give the Celsius equation T2=-3.6e-5*T1^2+0.982*T1-0.565. T1 is thermocouple temperature. The correction is already applied to Table2. The difference is about25Cnear900K.",
+    "Exposure readings differed by at most2C, while the table footnote gives0.2C from NaCl. Neither supplies raw NaCl cell values or covariance of the temperature-calibration coefficients needed to reconstruct uncertainty in an independent reduction.",
+    "The lattice and volume columns are both reported, so a^3/3a^2sigma_a is a source-column precision/error-propagation control, not new measured observations.",
+    "Source-consistent control retains listed NaCl temperatures. Inversion to thermocouple temperatures and a second application of Eq1 are unsupported stage-error hypotheses."
+  ],
+  "bosenick_findings": [
+    "Only measured room anchor is295K:125.293(16)cm3/mol. No measured298Kanchor is reported. Linear298 extrapolation is calculated from295/270K and shares the retained270Kmeasurement.",
+    "The final paper gives3Kaccuracy to100K,5Kbelow, and within-scan stabilitybetterthan0.1K. These do not define a cross-point covariance or Gaussian standard deviations.",
+    "Paper explicitly notes cooling/heating differences below150K and repeats after8hours at20K. Repeats do not supply instrument, equilibration or calibration correlations. All19previously fitted non-anchor rows retained, with20raw volumes used for propagation."
+  ],
+  "covariance_assumptions": [
+    "Independent printed raw-volume errors before normalization. Exact first-order ratio Jacobian includes anchor and numerator covariance, with no independent-anchor double counting.",
+    "For calculated298Kanchor, denominator-temperature derivatives and270Knumerator/temperature cross terms are included in the full controls. Measured295room-approximation denominator has no temperature dependence in the declared processing.",
+    "Independent versus fully correlated standardized3K/5Ktemperature accuracy widths are bounding diagnostic assumptions. Du fixed-denominator covariance, raw Si/calibration correlations and run effects remain unresolved."
+  ],
+  "final_du_version": "Final publisher full Table2 not recovered: GSWfulltext retrieval403; MSAattempt inaccessible; Columbia public retrieval Anubisdenied. Cached institutional preprint remains the basis; no claim of absence or final-table parity.",
+  "retrieval_urls": [
+    "https://pubs.geoscienceworld.org/msa/ammin/article/100/1/215/105955/Thermo-compression-of-pyrope-grossular-garnet",
+    "https://www.msaweb.org/MSA/AmMin/TOC/2015/Jan2015_data/AM100P0215.pdf",
+    "https://academiccommons.columbia.edu/doi/10.7916/D8V415Z5/download"
+  ],
+  "author_contacted": false,
+  "canonical_sources_changed": false
+}

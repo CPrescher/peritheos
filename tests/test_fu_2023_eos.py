@@ -152,12 +152,16 @@ def test_fu_refit_covariance_is_available_through_public_api(fu_audit_script):
     assert model.covariance_parameters == ("rt_eos.V0", "rt_eos.K0", "gamma0", "q")
     names = ("V0", "K0", "gamma0", "q")
     indices = [fit["parameter_covariance"]["parameter_order"].index(n) for n in names]
+    # The audit fits cell-volume V0; the thermal API uses molar-volume V0.
+    transform = np.diag([model.volume_scale, 1.0, 1.0, 1.0])
     np.testing.assert_allclose(
-        model.parameter_covariance, joint[np.ix_(indices, indices)]
+        model.parameter_covariance,
+        transform @ joint[np.ix_(indices, indices)] @ transform,
     )
     assert dict(model.parameter_errors) == pytest.approx(
         {
             api_name: fit["standard_errors"][name]
+            * (model.volume_scale if name == "V0" else 1.0)
             for api_name, name in zip(model.covariance_parameters, names)
         }
     )

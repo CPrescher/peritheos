@@ -1,0 +1,36 @@
+log /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/hartwig-weight-eosfit/500/run.log
+load /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/hartwig-weight-eosfit/500/initial.eos
+read /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/hartwig-weight-eosfit/500/group-1.dat
+read /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/hartwig-weight-eosfit/500/group-2.dat
+a
+read /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/hartwig-weight-eosfit/500/group-3.dat
+a
+read /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/hartwig-weight-eosfit/500/group-4.dat
+a
+read /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/hartwig-weight-eosfit/500/group-5.dat
+a
+group
+4
+63,-191
+
+
+fit
+n
+n
+y
+y
+y
+y
+y
+y
+y
+n
+y
+y
+y
+
+y
+n
+save /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/pyrope/hartwig-weight-eosfit/500/joint-fitted.eos
+y
+exit

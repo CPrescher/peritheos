@@ -1,0 +1,46 @@
+{
+  "verified_on": "2026-11-13",
+  "status": "passed_at_declared_scope",
+  "scope": "Conditional inputs/covariances, not recovered author workflow, experimental validation or replacement EOS",
+  "python": {
+    "targeted_tests": 43,
+    "failed": 0,
+    "seconds": 4.91,
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/pytest -q -W error tests/test_grossular_du_bosenick.py tests/test_grossular_theta_influence.py tests/test_grossular_conrad_processing.py tests/test_grossular_dataset_influence.py tests/test_grossular_normalization_specimen.py tests/test_grossular_full_sensitivity.py tests/test_grossular_normalization_recovery.py tests/test_grossular_expanded_refit.py tests/test_grossular_followup_recovery.py tests/test_grossular_observation_audit.py"
+  },
+  "numerical_checks": {
+    "scientific_cases": 32,
+    "starts_per_case": 2,
+    "all64converged_without_bounds": true,
+    "maximum_scaled_start_difference": 1.6648088603687938e-08,
+    "rows_per_case": 219,
+    "conrad": "All3selectedpoints and formal-upper plus independent2%KS widths exactly preserved",
+    "background": "All187non-Du/non-Bosenick rows and errors exactly preserved per background",
+    "ratios": "Volume and temperature ratio Jacobians checked by finite differences on all20rawvariables; common multiplicative volume error cancels",
+    "pressure_covariance": "Complete first-order pressure Jacobian independently finite-differenced, including270K numerator and denominator temperature cross terms; dense GLS matches Cholesky whitening",
+    "optimization": "Frozen-weight free scores stationary; covariance matches inverse scaled information; all64parameter covariances and all128pressure blocks positive definite without jitter/clipping",
+    "replays": "Both previous diagonal baselines replay; volume-anchor, full-independentT, full-sharedT and Du-sharedT cases replayed from second starts",
+    "exports": "All7008whitened pressure residuals reconcile with objectives;1120affected-series/Conrad input rows retained",
+    "calibration": "DuCelsiusquadratic inversion round-trip and width derivative independently checked"
+  },
+  "source_evidence": "Du methods/calibrationp6-7andTable2p25 from cached institutional preprint; Bosenick final primaryp22650-22651; final Du publisher table unverified",
+  "style": "Ruff check and format check passed for two scripts and one test module; git diff whitespace check passed",
+  "documentation": {
+    "strict_clean_build": "passed",
+    "light_and_dark_plots": "Both visually inspected; categorical anchor/covariance and Du-stage controls, published theta and unsupported-stage labels legible",
+    "build_seconds": 104.875,
+    "build_command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/mkdocs build --strict --site-dir <private-inspection-site>",
+    "rendered_pages_checked": 5,
+    "local_links_and_images_checked": 224,
+    "missing_targets_or_fragments": 0
+  },
+  "preservation": {
+    "all_nine_previous_artifact_manifests": "Byte-identical in tests",
+    "canonical_observations_errors_and_coefficients": "Unchanged",
+    "independent2percentConrad": "Retained diagnostic only, no catalog default",
+    "catalog_changes": false,
+    "author_contacted": false,
+    "pyrope_correspondence": "Waiting for reply unchanged"
+  },
+  "branch": "codex/pyrope-angel-2022-audit"
+}

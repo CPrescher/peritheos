@@ -1,10 +1,12 @@
-"""Repository-only compatibility pins for reviewed source-metadata changes.
+"""Repository-only compatibility pins for reviewed source changes.
 
 The original release and cohort fingerprints remain immutable. The supplemental
 file records both parent revisions and exact merged fingerprints; it does not
 replace source coefficients, resource checksums, or historical audit inputs.
 The separate licensing ledger chains exact license-only updates to those
 existing predecessors; tests recover the previous complete declarations.
+Additive EOS records use their own exact receipt and retain the unchanged
+predecessor and frozen release fingerprints.
 """
 
 from __future__ import annotations
@@ -58,6 +60,26 @@ def accepts_merge_binding(
         and structure["replacement_sha256"] == actual
     ):
         return True
+    # The reviewed garnet addition appends a record; its exact source binding
+    # must still lead back to the unchanged predecessor and frozen release.
+    addition_path = ROOT / "docs/data/garnet-angel-2022/integration-preservation.json"
+    if addition_path.exists():
+        addition = (
+            json.loads(addition_path.read_bytes())
+            .get("source_bindings", {})
+            .get(context, {})
+            .get(identifier, {})
+        )
+        if (
+            addition
+            and addition["historical_sha256"] == expected
+            and addition["current_sha256"] == actual
+            and addition["predecessor_sha256"] != actual
+        ):
+            predecessor = addition["predecessor_sha256"]
+            return predecessor == expected or accepts_merge_binding(
+                context, identifier, expected, predecessor
+            )
     # Independent COD reacquisition changes only the two reviewed root source/
     # notes fields; original frozen release and scientific fingerprints remain.
     replacement = json.loads(

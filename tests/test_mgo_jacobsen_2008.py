@@ -164,7 +164,9 @@ def test_jacobsen_2008_independent_errors_in_variables_refit(
 
     assert fit.success
     assert fit.parameters["K0"] == pytest.approx(expected_k0, abs=2.0e-7)
-    assert fit.parameters["K0_prime"] == pytest.approx(expected_k0_prime, abs=2.0e-9)
+    # Preserve the frozen finite-difference target. Analytic derivatives shift
+    # Kprime by about 2e-9 at this optimum, far below its parameter uncertainty.
+    assert fit.parameters["K0_prime"] == pytest.approx(expected_k0_prime, abs=5.0e-9)
 
     source_id = (
         KCL_RECORD_ID if dataset_identifier == KCL_DATASET_ID else HELIUM_RECORD_ID

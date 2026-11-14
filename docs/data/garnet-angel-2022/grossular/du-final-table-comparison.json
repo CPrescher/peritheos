@@ -1,0 +1,39 @@
+{
+  "checked_on": "2026-11-13",
+  "scope": "Grossular Table2 and associated definitions only, not whole-paper identity",
+  "files": {
+    "du-2015-preprint-table-2.csv": "d569ab2f57e87362027517a7bbfbfeb9ba76ddca0cc992eb39ae396bd1ac2b00",
+    "du-2015-final-table-2.csv": "c9f7990b001e4b76ac405785cc2d40dafdfb59ed5fbfcb289b2b338dc20f048f",
+    "du-final-table-source-evidence.json": "ba85b218be5f16c0c9cdc1f011588ac1d6a3acefb69abf1fbac8c0fbc8e3a132"
+  },
+  "comparison": {
+    "rows": 13,
+    "differing_rows": [],
+    "identical": true,
+    "maximum_absolute_differences": {
+      "temperature_k": 0.0,
+      "temperature_error_k": 0.0,
+      "lattice_a_angstrom": 0.0,
+      "lattice_a_sd_angstrom": 0.0,
+      "cell_volume_a3": 0.0,
+      "cell_volume_sd_a3": 0.0
+    },
+    "shared_fit_fields": [
+      "source_row",
+      "temperature_k",
+      "temperature_error_k",
+      "lattice_a_token",
+      "lattice_a_angstrom",
+      "lattice_a_sd_angstrom",
+      "cell_volume_token",
+      "cell_volume_a3",
+      "cell_volume_sd_a3"
+    ],
+    "calculated_alpha_compared": true
+  },
+  "conclusion": "Final publication adds no changed grossular Table2 fit input; version changes in this block cannot explain the remaining theta discrepancy",
+  "fits_rerun": false,
+  "author_workflow_reproduced": false,
+  "author_contacted": false,
+  "conrad_2percent": "Retained diagnostic, no source-error change"
+}

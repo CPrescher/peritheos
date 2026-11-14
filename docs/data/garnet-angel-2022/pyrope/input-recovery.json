@@ -1,0 +1,136 @@
+{
+  "scope": "Recovery of missing pyrope inputs, 2026-11-08",
+  "outcome": "12 Hartwig-Galkin measured rows recovered through public Table 3 endpoint; original 2022 project, weight/error multiplier, source-used corrections and normalization/calibration controls remain unrecovered",
+  "retrievals": [
+    {
+      "file": "openalex.json",
+      "url": "https://api.openalex.org/works/https://doi.org/10.1007/s10973-020-09396-2",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 14908,
+      "sha256": "0a9d6aca1a72e3306e70bd77e1e216fcf2b3dc3e0031f018da311ed4f6cb112c",
+      "finding": "No open full-text location listed; not proof no lawful copy exists"
+    },
+    {
+      "file": "crossref.json",
+      "url": "https://api.crossref.org/works/10.1007/s10973-020-09396-2",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 20526,
+      "sha256": "7fd8f010fb0cef841015a04df2c81ee7a1500f10f5c3cb9cb7a2102ba0346dc8"
+    },
+    {
+      "file": "hartwig-table-1.html",
+      "url": "https://link.springer.com/article/10.1007/s10973-020-09396-2/tables/1",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 218005,
+      "sha256": "1908e2657d6be2e20bd04712240c8300c090f7685a0e07c9f72eabbeff8fe5fd",
+      "finding": "Literature expansivities, not the 12 measured rows"
+    },
+    {
+      "file": "hartwig-table-2.html",
+      "url": "https://link.springer.com/article/10.1007/s10973-020-09396-2/tables/2",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 225831,
+      "sha256": "0e4e2bf1e588ff1c40ddd20a6716381a8254d9d380da34896c60cb6939ae5b67",
+      "finding": "Literature elastic parameters, not the 12 measured rows"
+    },
+    {
+      "file": "orcid.json",
+      "url": "https://pub.orcid.org/v3.0/0000-0002-1018-2587/works",
+      "status": 200,
+      "type": "application/json;charset=UTF-8",
+      "bytes": 18452,
+      "sha256": "bda4bfe4c105a11ecd6b63701e1ef6d61be185fd5cdaa9459400bd0916570071"
+    },
+    {
+      "file": "hartwig-table-3.html",
+      "url": "https://link.springer.com/article/10.1007/s10973-020-09396-2/tables/3",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 215388,
+      "sha256": "95ea00c2f54b3e145b3f76902d7b519e177cc7ebb507d7a41aaaf4f80c939c25",
+      "finding": "Recovered all 12 measured/interpolated rows; literal transcription and internal discrepancies retained"
+    },
+    {
+      "file": "hartwig-table-4.html",
+      "url": "https://link.springer.com/article/10.1007/s10973-020-09396-2/tables/4",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 220399,
+      "sha256": "8a0dcbae8da17b493218aecfef29e9576610c117f78f707ce3a8a77cbd160b5b",
+      "finding": "Calculated/interpolated/extrapolated thermodynamic table, not additional observations"
+    },
+    {
+      "file": "hartwig-table-5.html",
+      "url": "https://link.springer.com/article/10.1007/s10973-020-09396-2/tables/5",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 215651,
+      "sha256": "faab519df6c2e231314e8e9299350fee5d3baa42997245ca80ed01b12882f6e4",
+      "finding": "Calculated elastic moduli, not additional observations"
+    },
+    {
+      "file": "hartwig-fig-1.html",
+      "url": "https://link.springer.com/article/10.1007/s10973-020-09396-2/figures/1",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 212030,
+      "sha256": "47bac77148314f02f338c394c1554e5efa897e46205e831fb5c2512f81f5eeb5"
+    },
+    {
+      "file": "hartwig-fulltext.html",
+      "url": "https://link.springer.com/article/10.1007/s10973-020-09396-2/fulltext.html",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 337231,
+      "sha256": "b4d31f9deee3544e4baeb9e411ceb004f7f6e5732a2256f4aebb876f571f658b",
+      "finding": "Returned subscription preview HTML; not recovered full text"
+    },
+    {
+      "file": "pavia-record.html",
+      "url": "https://iris.unipv.it/handle/11571/1470276?mode=complete",
+      "status": 403,
+      "type": "text/html; charset=UTF-8",
+      "bytes": 5667,
+      "sha256": "d5a758ed778fd20373a004c341291945f5a49fd2946629d19a3de4a406d1aece",
+      "finding": "Repository listing checked with web tool as well: article PDF listed, no original joint data project exposed"
+    },
+    {
+      "file": "eosfit-downloads.html",
+      "url": "https://www.rossangel.com/text_eosfit.htm",
+      "status": 200,
+      "type": "text/html",
+      "bytes": 30945,
+      "sha256": "98b3f4d998abb416769ad23e3cbffd650ed3b1a9620019ff14581a9f9c59adaf"
+    },
+    {
+      "file": "author-eos-data.html",
+      "url": "https://www.rossangel.com/text_eosdata.htm",
+      "status": 200,
+      "type": "text/html",
+      "bytes": 27162,
+      "sha256": "ca932a2a1f35f0743d77a30781bba63cfa37b84aa207109f2234a8d9f9054ebd",
+      "finding": "Pyrope final EOS linked; no pyrope joint-input project linked"
+    },
+    {
+      "file": "bayreuth-workshop.html",
+      "url": "https://www.rossangel.com/text_bayreuth.htm",
+      "status": 200,
+      "type": "text/html",
+      "bytes": 3187,
+      "sha256": "42203326a7258112bc520eed07a489d86c8b464fc172a125158df94163447903",
+      "finding": "Workshop description and advert; no pyrope data project linked"
+    }
+  ],
+  "other_checks": [
+    "Official extracted EosFit7 Mac example files contain no pyrope/Hartwig joint project",
+    "Author teaching/2023 course/2024 workshop pages checked; no target input project found in checked links",
+    "Undermind list_workspaces returned no available workspace; paper retrieval through that connector was unavailable",
+    "Browser publisher navigation failed net::ERR_INTERNET_DISCONNECTED; institutional access not established"
+  ],
+  "source_eos_fields": "Final source EOS contains coefficients, covariance and refined modulus scale, plus comment about increased Hartwig weights; no numerical Hartwig weight multiplier was found",
+  "contact": "No author contact at time of recovery; a local request was prepared for user review. Contact status belongs in docs/dataset-requests.md."
+}

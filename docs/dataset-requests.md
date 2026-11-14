@@ -1,5 +1,202 @@
 # Incomplete datasets and author requests
 
+## Angel et al. (2022): pyrope and grossular
+
+**Current status: reply received and inputs replayed, 14 November 2026.**
+Clemens reported sending the reproduction summary and meeting availability to Ross on 14 November 2026. This is user-reported correspondence; the exact sent copy has not been independently retrieved. No message was sent by the assistant.
+
+Clemens supplied Ross Angel's reply, two data files, an EOS file, a final
+fit log and the pyrope dataset description. The
+[author-input comparison](literature-reproductions/pyrope-author-input-replay.md)
+recovers all 194 processed observations, exact assigned errors and scale
+groups. Our EosFit replay gives θ=771.058±27.946 K versus 771.108±27.936 K
+in Ross's log; the independent fit gives 770.866±27.947 K. Rescaled errors
+agree within 0.5%. The earlier large discrepancy is resolved at the supplied
+processed-input scope. Upstream reduction/exclusion history remains partial.
+The [numerical follow-up](literature-reproductions/pyrope-numerical-differences.md)
+attributes the small remaining solver/error differences to propagation,
+inversion and numerical derivatives, and verifies the shared covariance
+algebra directly. A separate analytic replay prototype preserves Python's
+objective and results; the public fitter remains unchanged.
+The [correspondence receipt](data/garnet-angel-2022/pyrope/correspondence.json)
+records the user-supplied reply and attachment hashes. The initial request
+was sent by Clemens on 12 November 2026; its retained draft is not an
+independently verified sent copy. No further message has been sent by this
+work. Earlier updates below retain their dated investigation scope.
+
+Paper: *Garnet EoS: a critical review and synthesis*,
+[doi:10.1007/s00410-022-01918-5](https://doi.org/10.1007/s00410-022-01918-5).
+The [source audit](literature-reproductions/garnet-angel-2022.md) accepts both
+published pressure parameterizations after independent numerical checks.
+The original processed pyrope regression is now available and replayed;
+grossular's original author input files remain unavailable.
+
+**Grossular follow-up, 2026-11-12:** the [recovery audit](literature-reproductions/grossular-angel-2022-recovery.md)
+adds all 52 Gwanmesia modulus rows and seven digitized Thiéblot expansion
+points: coverage is now 213 tabulated/table-derived plus seven plotted channels
+under the nominal 220-channel S1 inventory. The Isaak plotted expansion series
+matches the GR-2B strain table despite S1's GGD composition label. The original
+Thiéblot table/errors, exact Isaak fit input, normalization anchors, point masks
+and some assigned errors remain unresolved. These grossular inputs were **not**
+requested in the already-sent pyrope email; no further author contact occurred.
+The earlier 95-channel receipt remains unchanged. A subsequent
+[147-channel diagnostic](literature-reproductions/grossular-angel-2022-expanded-fit.md)
+adds the recovered Gwanmesia moduli and gives K0=167.353 GPa, K0′=4.98267,
+θ0=740.183 K and γ0=1.16467; it does not reproduce the full original fit.
+
+**Further grossular investigation:** the [73-channel audit](literature-reproductions/grossular-angel-2022-remaining-channels.md)
+recovers Bosenick temperature accuracy, the plotted volume scaling, and a
+covariance-compatible upper bound for Conrad modulus errors. A conditional
+193-row source-processing fit converges, with K0=166.754 GPa, K0′=5.33063,
+θ0=780.407 K and γ0=1.15522. Nineteen Isaak modulus errors and seven Thiéblot
+experimental errors remain missing; one Bosenick row is a normalization anchor.
+Original masks, normalization inputs and covariance are still unconfirmed.
+
+**Estimated-error experiment, explicitly requested by Clemens:** the
+[219-row sensitivity study](literature-reproductions/grossular-angel-2022-full-sensitivity.md)
+adds the 26 remaining observations using clearly labeled estimated errors.
+All 29 declared cases converge; none reaches the published central θ or K′.
+Original source errors and author normalization inputs remain unrecovered;
+estimates do not replace the outstanding input request. No author was contacted.
+
+**Normalization/specimen follow-up:** the [20-case controlled study](literature-reproductions/grossular-angel-2022-normalization-specimen.md)
+shows strong θ sensitivity to volume normalization, with smaller Isaak-only
+effects under plotted processing. None of the tested combinations reaches the
+source central K′. Free-offset controls can place θ near the source, but their
+normalization differs substantially from Figure 4, especially for Du. Original
+normalization files, specimen treatment and masks are still needed to identify
+the actual author workflow. No author was contacted.
+
+**Dataset influence follow-up:** the [32-case study](literature-reproductions/grossular-angel-2022-dataset-influence.md)
+finds that Conrad's three retained modulus points dominate the excess K′.
+Omitting them gives K′ near the source under both fixed normalizations;
+θ remains discrepant. Original Table 6 transcription and the published
+two-outlier exclusion are confirmed. The most specific remaining questions
+are Conrad's actual Kₛ inputs, preprocessing and assigned modulus errors,
+along with confirmation of pressure inputs and the joint fit sequence.
+This does not justify removing the data. No author was contacted.
+
+**Conrad processing/error follow-up:** the [26-case controls](literature-reproductions/grossular-angel-2022-conrad-processing.md)
+retain all three points. An independent 2% modulus-error allowance gives K′
+near the source; shared calibration and the tested central-value reductions
+do not. Angel explicitly states that Kₛ was not rescaled before fitting,
+narrowing the earlier preprocessing question. The key unresolved input is
+the actual Conrad Kₛ error column and any additional error allowance or
+correlation model. This is conditional sensitivity, not recovered author
+weights; θ remains discrepant. No further author contact occurred.
+
+**θ influence with the retained Conrad diagnostic:** the [30-case study](literature-reproductions/grossular-angel-2022-theta-influence.md)
+holds the independent 2% Conrad allowance fixed without changing source errors.
+Du's expansion series supplies the strongest upward θ pull; Bosenick's cold
+series restrains it and carries most conditional local information. Du's
+393.7/447.1 K entries agreed with the available preprint; at that stage the
+final table had not been recovered (see the subsequent comparison below).
+Original fit-file processing remains unverified. Du run/normalization/error
+details and Bosenick's exact room-reference anchor and shared covariance are
+now the focused remaining inputs. Omitting Du does not recover θ and K′
+together. No new author message was drafted or sent.
+
+**Du/Bosenick follow-up, 2026-11-13:** the [32-case controls](literature-reproductions/grossular-du-bosenick.md)
+confirm that Du's listed temperatures already use NaCl calibration; a second
+correction is not the reported procedure. Bosenick's shared anchor covariance
+was propagated, including the retained 270 K numerator in the calculated
+298 K denominator. None of the tested assumptions closes θ. Raw calibration
+and run correlations, Du denominator covariance and original error columns
+remain missing. That study used the institutional preprint; the subsequent
+final-table recovery below closes that particular source-version gap.
+No additional author contact occurred.
+
+**Du final-table recovery, 2026-11-13:** the
+[final typeset Table 2 comparison](literature-reproductions/grossular-du-final-table.md)
+uses a public author-uploaded final copy. All 13 grossular rows, printed
+uncertainties, calculated α entries and calibration/error definitions match
+the preprint. All 32 existing Du/Bosenick cases retain identical prepared
+inputs, so no new fits were needed. The preprint-to-final hypothesis for
+the θ discrepancy is excluded for this table; original fit-file processing
+and covariance remain unresolved. The 2% Conrad allowance remains diagnostic.
+No further author contact occurred during that study; at that stage the
+pyrope reply was still awaited. It has since arrived, as recorded above.
+
+**Minimum inputs:** complete EosFit data/project files with original included
+row identities, volume-normalization anchors, revised quartz pressures,
+scale-factor groups, assigned coordinate errors and weights (including the
+increased Hartwig–Galkin pyrope weights), refinement controls and covariance
+confidence/scaling convention. These would enable coefficient and original
+workflow reproduction; they are not required to repeat the already verified
+published pressure calculation.
+
+**Evidence checked:** final article, all four official EOS/covariance files,
+supplementary selection tables S1/S2, current author parameter page and both
+March2023-named EOS downloads. Public upstream observations are incomplete
+for the exact joint reduction. The Milani (2017) university manuscript URL
+was checked but access failed; its observations are not claimed absent.
+
+**Pyrope follow-up, 2026-11-08:** recovered all 33 Milani (2015) Table A1
+expansion rows and all 40 Zou (2012b) Table I rows, retaining source errors
+and tokens. The [observation audit](literature-reproductions/garnet-angel-2022.md#pyrope-follow-up-recovered-observations)
+finds good agreement with the Zou modulus subset and systematic Milani
+expansion residuals under a stated volume-scale diagnostic. Source parameter
+53 resolves the Sinogeikin–Bass (2000) modulus scale as 0.97828, multiplying
+calculated moduli onto the original observed scale. These tables and this
+scale no longer need to be requested as missing numerical values; their
+exact original normalization/scale groups still do. At that stage,
+Hartwig–Galkin's 12 expansion rows and increased-weight multiplier were
+unrecovered: the article/PDF endpoints returned preview HTML. The Sinogeikin–Bass
+(2002) full article was checked; individual KS(T) points are graphical and
+were not digitized. None of this recovers the complete original joint fit.
+
+**Further recovery, 2026-11-08:** the publisher's separate
+[Hartwig–Galkin Table 3 page](https://link.springer.com/article/10.1007/s10973-020-09396-2/tables/3)
+provides all 12 rows, now [transcribed literally](data/garnet-angel-2022/pyrope/hartwig-galkin-2021-table-3.csv).
+Their measured temperature range is 103–650 K. The table has apparent
+internal inconsistencies, including the 297.5 K calculated volume/ΔV and
+the 600 K lattice parameter versus measured volume. The next request is
+therefore for the **actual values/corrections used in the 2022 fit**, the
+increased Hartwig error/weight multiplier and the original joint input with
+normalization/calibration settings. The published rows themselves are no
+longer missing. No source cell was corrected and no author was contacted.
+
+**Fit attempt before outreach:** four conditional source-model fits were run
+on the recovered expansion tables and the 92-channel subset including Zou.
+An official EosFit replay confirms the independent subset fit (θ≈483.4 K,
+γ≈1.076); the published θ≈771.1 K and γ≈1.1847 are not reproduced by
+these inputs and initial errors. This does not identify which missing rows,
+normalization or weighting account for the difference. See the
+[fit investigation](literature-reproductions/garnet-angel-2022.md#conditional-fits-of-the-recovered-pyrope-subset).
+The user requested trying these fits first. A local email draft was prepared
+for review at that stage; the later user-confirmed sent status is recorded above.
+
+**Expanded fit before outreach, 2026-11-12:** recovered **99 of the remaining
+102 channels**, giving 191 of the 194 listed in S2. This includes 73 channels
+from tables and recalibration, 17 Sinogeikin–Bass (2000) channels digitized
+from the 2022 vector figure, and nine Sinogeikin–Bass (2002) channels derived
+from visibly separable C11/C12 pairs in the primary raster figure. Three
+temperature channels cannot be separately recovered; they were not duplicated
+or synthesized. The 191-channel fit gives θ≈496 K, γ≈1.099; official EosFit
+gives θ≈499 K, γ≈1.099. The published thermal coefficients remain unreproduced
+under the stated conditional protocol. Exact Hartwig weights, source-used
+corrections, normalization and calibration inputs remain missing. The
+[expanded investigation](literature-reproductions/garnet-angel-2022.md#expanded-pyrope-recovery-and-fit-12-november-2026)
+records pressure-column checks, calibration verification and the small
+cross-solver discrepancy. No catalog coefficients were replaced.
+
+**Historical investigation, 2026-11-12:** the conditional reconstruction did
+not reproduce the original workflow. The 14 November author-input replay
+above supersedes its missing-processed-input status while preserving the
+earlier diagnostic artifacts.
+
+**User-requested weighting test, 2026-11-12:** a separate
+[Hartwig sensitivity study](literature-reproductions/garnet-angel-2022.md#user-requested-hartwig-weight-sensitivity)
+tests 1–10000× inverse-variance multipliers with the other inputs fixed.
+At 500×, the 191-channel fit gives θ≈739 K and γ≈1.194; at 1000×, θ≈765 K
+and γ≈1.215. Official EosFit confirms the trend. Strong weighting explains
+much of the shift but no tested factor reproduces both source thermal central
+values, and it increases the Milani expansion residuals. The actual author
+factor remains unknown. Direct equation/property checks at 27 states agree
+with official EosFit; those checks do not recover the original fit workflow.
+The subsequent request for the original joint project was sent by Clemens;
+the reply and actual processed inputs have now been received, as recorded above.
+
 This page tracks whether obtaining additional source data would resolve a
 documented reproduction gap, exactly what to request, and the outreach status.
 The [paper investigation ledger](paper-investigation-ledger.md#papers-with-unavailable-direct-refits)
@@ -14,10 +211,12 @@ complete or contacting the authors would be unhelpful. Some ledger gaps concern
 computed grids, adopted coefficients, or model definitions rather than missing
 experimental observations.
 
+
 ## Reviewed requests
 
 | Paper / material | Recommendation | What additional data would enable | Outreach status | Last reviewed |
 |---|---|---|---|---|
+| [Angel et al. (2022), pyrope](#angel-et-al-2022-pyrope-and-grossular) | Review supplied-input replay and discuss fixed-parameter cross-check | Upstream reduction/exclusion history and remaining numerical implementation details | Reply and five attachments supplied by Clemens; processed-input fit replayed | 2026-11-14 |
 | [Shen and Smith (2026), MgO and NaCl-B2](#shen-and-smith-2026-mgo-and-nacl-b2) | Exact author-used inputs needed to resolve both fit holds | Establish whether additional observations or unpublished processing entered Table II; replay Cu reduction and regression | Not contacted | 2026-10-17 |
 | [Frost et al. (2023), Pd](#frost-et-al-2023-palladium) | Recover original regression inputs/settings to resolve the recommendation hold | Reconcile both published fits with all 93 verified observations and the stated coordinate errors | Not contacted | 2026-10-17 |
 | [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Accepted on parameter agreement; no author email needed | GUI and console agree; residual-envelope discrepancy retained as informational | User supplied author communication, supplement, EOS and selected input | 2026-10-03 |

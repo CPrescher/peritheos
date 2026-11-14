@@ -47,7 +47,7 @@ def test_families_have_separate_lookup_namespace_and_curated_scope():
         ],
         "magnesite": ["magnesite", "mg0991fe0008mn0001co3_magnesite"],
         "olivine": ["forsterite", "fayalite"],
-        "garnet": ["pyrope", "almandine", "majorite"],
+        "garnet": ["pyrope", "grossular", "almandine", "majorite"],
     }
     for family_id, member_ids in composition_families.items():
         assert {m.identifier for m in list_materials(family_id=family_id)} == set(

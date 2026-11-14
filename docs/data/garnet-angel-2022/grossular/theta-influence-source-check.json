@@ -1,0 +1,43 @@
+{
+  "checked_on": "2026-11-12",
+  "scope": "Check influential literal Du observations against available author-preprint table, not final-table verification or recovery of original author fit inputs",
+  "source": {
+    "doi": "10.2138/am-2015-4752",
+    "author_preprint_url": "https://academiccommons.columbia.edu/doi/10.7916/D8V415Z5/download",
+    "location": "Table2, manuscriptp25, Grossular rows; table image visually inspected",
+    "private_table_image": "/Users/clemens/Programming/peritheos/output/grossular-full-audit-2026-11-12/du-table2.png",
+    "table_image_sha256": "69818efbc56e2dbcc38732214ca7cc912a9b3bc57afd982d6af7277083a88732",
+    "canonical_transcription": "du-2015-preprint-table-2.csv",
+    "transcription_sha256": "d569ab2f57e87362027517a7bbfbfeb9ba76ddca0cc992eb39ae396bd1ac2b00"
+  },
+  "checked_values": [
+    {
+      "source_row": 2,
+      "temperature_k": 393.7,
+      "cell_volume_a3_token": "1666.0(1)"
+    },
+    {
+      "source_row": 3,
+      "temperature_k": 447.1,
+      "cell_volume_a3_token": "1668.3(1)"
+    }
+  ],
+  "findings": [
+    "Both influential temperatures/volumes and printed errors agree with the available author-preprint table; no transcription correction made. The other grossular entries were also visible in the table image.",
+    "The preprint footnote gives0.2C temperature error from NaCl and estimated standard deviations for cell fitting; a temperature-error difference has the same numerical width in K. Existing interpretation retained without additional covariance.",
+    "These two middle-temperature points supply the largest upward theta contributions in the fixed-theta linearized diagnostic. Their native-volume departures are comparisons to a model, not corrections to observed values."
+  ],
+  "final_version_status": "Final publisher Table2 remains unverified. Current web retrieval of the DOI and the attempted MSA2015January contents page was inaccessible, not evidence of absence.",
+  "retrieval_attempts": [
+    {
+      "url": "https://doi.org/10.2138/am-2015-4752",
+      "result": "Web tool inaccessible"
+    },
+    {
+      "url": "https://msaweb.org/MSA/AmMin/TOC/2015/Jan2015.html",
+      "result": "Web tool inaccessible"
+    }
+  ],
+  "no_new_fits_from_source_check": true,
+  "source_observations_changed": false
+}

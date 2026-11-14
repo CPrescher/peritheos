@@ -1,0 +1,26 @@
+{
+  "scope": "Expanded conditional source-model refits; original 194-channel workflow remains unrecovered",
+  "declared_cases": [
+    "182 channels: 92 previous channels plus Zhang 33, Du 9, recalibrated Milani 11, Chantel PV 10 and KS 10, digitized Sinogeikin 2000 KS 17",
+    "191 channels: same plus nine unambiguously readable Sinogeikin 2002 C11/C12 pairs digitized from Figure 2"
+  ],
+  "missing": "Three of the 12 Sinogeikin 2002 channels listed in S2 are not separately resolvable as C11/C12 pairs in the recovered raster figure. They are not duplicated, interpolated or replaced by the published fitted line.",
+  "model": "Same BM3 plus q-compromise Debye and source KS conversion as 92-channel fit; fixed V0=113.13 cm3/mol, Tr=298 K, n=20, source float32(8.314)",
+  "objective": "Same iterated effective-variance residuals in pressure as prior subset; omitted missing error terms do not assert physically zero errors. Source coordinate covariances are unavailable.",
+  "normalization": "Zhang, Du and Milani PV: V=113.13*Vcell/Vambient, propagate numerator errors only; reference-anchor correlations/systematics unavailable. Zhang neon shares tabulated ambient anchor 1502.9. Chantel V=113.13*rho_ambient/rho with numerator-anchor errors omitted; density error propagated. Prior independent Milani VT and Hartwig VT scale factors remain free.",
+  "calibration": "Milani: invert original Angel 1997 quartz EOS for equivalent calculated quartz volume and evaluate Scheidl 2016 EOS at that absolute volume. Check both pressure evaluations against official EosFit PCAL. PSHIFT opens an inaccessible dialog in the headless runtime; its GUI workflow was not replayed. Error transformation uses the new/old pressure derivative ratio, conditional on fixed calibration coefficients. Do not claim recovered measured quartz lattice data.",
+  "Chantel": "Preserve both Table 1 pressure columns. Extracted Fig. 7 and Fig. 8 vector positions match the gold-calibrated pressure column (2.3,5.7,...23.8 GPa), despite S2 quoting the 25.2 GPa endpoint of the internally derived column. Use calibrated P for source replay. KS=rho*(Vp^2-4/3 Vs^2), independent-error propagation conditional on missing source covariance; Table 1 pressure errors missing. Common density-anchor normalization retained as a conditional choice; Fig. 7 volumes differ by about 0.045 cm3/mol and original normalization remains unresolved.",
+  "Sinogeikin_2000": "Use 17 original open-square observations and vertical error bars extracted from Angel Fig. 8 vectors. Fit one modulus scale applied to all 17, matching the displayed scaling mask, including two ambient points; this is plotting evidence, not recovery of original fit groups. Digitization resolution bounds P=0.01 GPa, KS=0.05 GPa are separate from experimental errors. Pressure-coordinate errors missing and omitted.",
+  "Sinogeikin_2002": "Nine visible C11/C12 pairs; KS=(C11+2*C12)/3. Propagate digitized error bars assuming zero C11-C12 covariance solely for this conditional fit. T error=5 K as stated in Fig. 3 caption for the same experiment. Digitization bounds approximately 2 K, 0.3 GPa per elastic constant are separate from experimental errors; no hidden points inferred. Pixel coordinates refer to a PyMuPDF 4x raster crop of page 3 at (300,390,550,640) PDF points; temperature axis anchors x=122 at 0 C, x=703 at 800 C, C11 y=70 at 300 GPa and y=398 at 270 GPa, C12 y=452 at 110 GPa and y=561 at 100 GPa.",
+  "weights": "Prior reported or S2 assigned coordinate errors retained. Hartwig uses initial S2 errors only; increased author weight multiplier remains unknown and is not tuned.",
+  "free": [
+    "K0",
+    "K0_prime",
+    "theta0",
+    "gamma0",
+    "scale_milani_vt",
+    "scale_hartwig_vt",
+    "scale_sinogeikin_2000_KS"
+  ],
+  "stopping": "Two predeclared recovered-input cases; no search of masks, normalization anchors, weight multipliers or replacement models to force published coefficients. At most 30 IRLS cycles, 400 nonlinear evaluations per solve. Numerical convergence, conditional covariance and residuals retained."
+}

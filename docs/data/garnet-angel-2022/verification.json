@@ -1,0 +1,52 @@
+{
+  "verified_on": "2026-11-08",
+  "scope": "Published source pressure parameterizations and local integration; not author-workflow or experimental validation.",
+  "python_full_run": {
+    "passed": 3919,
+    "failed": 11,
+    "errors": 30,
+    "skipped": 11,
+    "seconds": 1477.09,
+    "note": "The affected inventory expectations and additive source/history bindings were corrected. All 41 initially failing/error node IDs passed the exact final recheck."
+  },
+  "exact_full_run_failure_recheck": {
+    "passed": 41,
+    "failed": 0,
+    "seconds": 53.56
+  },
+  "garnet_specific_final": {
+    "passed": 17,
+    "failed": 0
+  },
+  "additional_checks": {
+    "rust_workspace_all_features": "passed",
+    "rust_q_compromise_tests": "2 passed",
+    "cargo_format_and_clippy": "passed",
+    "ruff_check_and_format": "passed",
+    "mypy_python39": "passed, 65 source files",
+    "mkdocs_strict": "passed, including executable notebooks and the new installed-package example",
+    "isolated_wheel": "built and installed into clean Python 3.9 environment; both source record inversions passed",
+    "reconstruction_reports_check": "236 pages and 1972 figures current",
+    "catalog_coverage_and_validation_summary": "current",
+    "paper_and_source_audit_indexes": "current",
+    "source_and_scientific_preservation": "all previous scientific catalog values and all 685 previous ledger entries unchanged"
+  },
+  "official_eosfit": {
+    "version": "7.60",
+    "calculated_states": 40,
+    "absolute_tolerance_gpa": 0.0001,
+    "note": "Source gas-constant comparison and raw default-R offsets remain separate; calculated checkpoints are not observations."
+  },
+  "standalone_primary_refit_ledger_check": {
+    "status": "pre_existing_metadata_drift",
+    "receipt": "baseline-ledger-drift.json",
+    "note": "The read-only check still fails on pre-existing policy prose and Wang/Sata source/recommendation metadata. Existing numerical results and classifications were preserved."
+  },
+  "author_workflow_reproduced": false,
+  "remaining_source_gap": "Complete original mixed V/Ks project, selections, normalization, pressure reductions, weights, scale groups and confidence/covariance convention.",
+  "git_actions": {
+    "committed": false,
+    "pushed": false,
+    "released": false
+  }
+}

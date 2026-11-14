@@ -1,0 +1,145 @@
+{
+  "recovered_on": "2026-11-12",
+  "scope": "Source observations and conditional diagnostics only; no new catalog observations or replacement EOS",
+  "nominal_s1_used_count": 220,
+  "nominal_channels_recovered": 161,
+  "nominal_channels_unrecovered": 59,
+  "count_qualification": "Nominal count is sum of S1 Ndata Used, not a confirmed number of fitted residuals: normalization footnote conflicts with several per-row counts, and Isaak expansion specimen identity is unresolved.",
+  "author_workflow_reproduced": false,
+  "sources": [
+    {
+      "author": "Milani et al. 2017",
+      "doi": "10.2138/am-2017-5855",
+      "transcription": "milani-2017-table-2.csv",
+      "rows": 35,
+      "nominal_s1_used_count": 35,
+      "source_location": "Official deposit Table 2; XLSX sheet2 rows5:39; visually checked against PDF pp2-3.",
+      "url": "http://www.minsocam.org/MSA/AmMin/TOC/2017/Apr2017_data/AM-17-45855.zip",
+      "qualification": "Reported standard deviations; preserve anomalous printed 130K a token11.841(13). Source anchor/sub-instrument normalization not recovered.",
+      "transcription_sha256": "d81f3e60615b0de2b3b20d6dbf6a5661b6ffd967cecc06770d5fdbcc683ecaa8",
+      "private_evidence_sha256": "d4fe35eff48af584f0a18aa2a514591794271713750e9de168a3414f0511d6df"
+    },
+    {
+      "author": "Milani et al. 2017",
+      "doi": "10.2138/am-2017-5855",
+      "transcription": "milani-2017-table-3.csv",
+      "rows": 8,
+      "nominal_s1_used_count": 7,
+      "source_location": "Official deposit Table3; XLSX sheet3 rows5:12; visually checked against PDF p4.",
+      "url": "http://www.minsocam.org/MSA/AmMin/TOC/2017/Apr2017_data/AM-17-45855.zip",
+      "qualification": "Ambient row is normalization anchor. Original quartz readings and exact experimental T unavailable. S1 2015/8.4GPa citation/range differs from actual2017 table ending7.674GPa.",
+      "transcription_sha256": "c66b473bdccded7f7ea938f5e9636dcca0b6d796b34921b3dde7fc6f5f428d87",
+      "private_evidence_sha256": "d4fe35eff48af584f0a18aa2a514591794271713750e9de168a3414f0511d6df"
+    },
+    {
+      "author": "Du et al. 2015",
+      "doi": "10.2138/am-2015-4752",
+      "transcription": "du-2015-preprint-table-2.csv",
+      "rows": 13,
+      "nominal_s1_used_count": 13,
+      "source_location": "Author preprint Table2 manuscriptp25; visually inspected scan. Final publisher table not directly recovered.",
+      "url": "https://academiccommons.columbia.edu/doi/10.7916/D8V415Z5/download",
+      "qualification": "Parenthetic estimated standard deviations; T error bar0.2C from NaCl standard. Keep final two volumes1685.5(2),1687.9(2).",
+      "transcription_sha256": "d569ab2f57e87362027517a7bbfbfeb9ba76ddca0cc992eb39ae396bd1ac2b00",
+      "private_evidence_sha256": "4cc738c4acf246b27aa5884f89622a65cfb99ac3254a4adfcef979a485dc9b0e"
+    },
+    {
+      "author": "Bosenick and Geiger 1997",
+      "doi": "10.1029/97JB01612",
+      "transcription": "bosenick-geiger-1997-table-2.csv",
+      "rows": 20,
+      "nominal_s1_used_count": 20,
+      "source_location": "Primary author-uploaded Table2 indexed full text; no downloaded PDF or pixel verification.",
+      "url": "https://www.researchgate.net/publication/235764549_Powder_X_ray_diffraction_study_of_synthetic_pyrope-grossular_garnets_between_20_and_295_K",
+      "qualification": "Molar volumes in Table2, including repeats. Errors recast from one-standard-deviation cell errors. Original study excludes cooling below150K and20K point; S1 says20/20. Exact2022 mask unknown.",
+      "transcription_sha256": "0efb7a07a0d8d365a2c04c7e6af567148571a0664dec7b29a517d7ded58fc95f"
+    },
+    {
+      "author": "Rodehorst et al. 2002",
+      "doi": "10.2138/am-2002-0417",
+      "transcription": "rodehorst-2002-table-4a.csv",
+      "rows": 10,
+      "nominal_s1_used_count": 9,
+      "source_location": "Primary Table4A p545 via indexed RRUFF text; original download inaccessible; not pixel verified.",
+      "url": "https://rruff.info/doclib/am/vol87/AM87_542.pdf",
+      "qualification": "Uniform cell error0.001A reported; no T error recovered.298K anchor not an independent fitted row. CubicV=a^3, first-order sigmaV=3a^2sigmaa. Listed in S1 but absent from finalEOS comments.",
+      "transcription_sha256": "7b5c8d0ab1e28e241bd92a9eac819617ee68457f2899df11fa2a8090f6159358"
+    },
+    {
+      "author": "Isaak et al. 1992",
+      "doi": "10.1007/BF00198608",
+      "transcription": "isaak-1992-table-2.csv",
+      "rows": 15,
+      "nominal_s1_used_count": 15,
+      "source_location": "Primary Table2 p108 and specimen discussionpp107-109; visually checked.",
+      "url": "https://link.springer.com/content/pdf/10.1007/BF00198608.pdf",
+      "qualification": "Observed strain is GR-2B76.1%grossular/22.1%andradite, unlike S1listedGGD96.53%grossular. Preserve measured strain, calculated strain and estimated endmember alpha as distinct columns. S1 assignsT2K,V0.01cm3/mol or better; exact author input values unknown.",
+      "transcription_sha256": "1a65106a3e20d292c1334d7fe064c73c347e6ca0360d96d272e61527c9728314",
+      "private_evidence_sha256": "cff6e85a04da1faae074ad7ae251502046005038505dc4d4e6b9f98ebf9e0d5b"
+    },
+    {
+      "author": "Isaak et al. 1992",
+      "doi": "10.1007/BF00198608",
+      "transcription": "isaak-1992-table-3b.csv",
+      "rows": 22,
+      "nominal_s1_used_count": 22,
+      "source_location": "Primary Table3b p112; visually checked all22KSvalues and three printed errors.",
+      "url": "https://link.springer.com/content/pdf/10.1007/BF00198608.pdf",
+      "qualification": "GGD96.53%grossular. Errors include density and modal-frequency scatter; provided only300K0.71GPa,800K1.02,1300K1.20. Other errors stay blank; no interpolation as source data.",
+      "transcription_sha256": "3d7542c5d90c98c3f646dc65e3fe129dfc5719e85b24e6a864a31ef3016224b5",
+      "private_evidence_sha256": "cff6e85a04da1faae074ad7ae251502046005038505dc4d4e6b9f98ebf9e0d5b"
+    },
+    {
+      "author": "Kono et al. 2010",
+      "doi": "10.1007/s12583-010-0112-2",
+      "transcription": "kono-2010-table-1.csv",
+      "rows": 36,
+      "nominal_s1_used_count": 36,
+      "source_location": "Primary Table1 p787, all eight columns; visually checked.",
+      "url": "https://link.springer.com/content/pdf/10.1007/s12583-010-0112-2.pdf",
+      "qualification": "Parentheses are last-digit uncertainties; no numerical T error recovered. Retain XRD volumes but exclude them from Angel fit, as S1 specifies. KS source calculated-to-observed multiplier0.99455, not its reciprocal.",
+      "transcription_sha256": "283bf8e71dec19625c506e3e2442750642bf35b3d7c40d7a69e769d1b04456ef",
+      "private_evidence_sha256": "fb4b4c732920de205798c153c1dd77a57c12fefbc2e4bae505fb2ef59cd84a0b"
+    },
+    {
+      "author": "Conrad et al. 1999",
+      "doi": "10.2138/am-1999-0321",
+      "transcription": "conrad-1999-table-6.csv",
+      "rows": 5,
+      "nominal_s1_used_count": 3,
+      "source_location": "Primary Table6 p379; visually checked. KS=(C11+2C12)/3; derived value, not a separate measured channel.",
+      "url": "http://www.minsocam.org/msa/AmMin/TOC/Articles_Free/1999/Conrad_p374-383_99.pdf",
+      "qualification": "Cij errors are one standard deviation. C11/C12 covariance not supplied, so no KS error synthesized. S1assigned pressure error0.1GPa not original measurement.7.7 and10GPa excluded as source outliers. Ambient Bass row not double counted.",
+      "transcription_sha256": "63cf6fad8cfd22ef4e005108e4ac2205e746ff7ec8198a1b2471db42eb917a18",
+      "private_evidence_sha256": "1d1d3379f3bbcfe2db08633cf1de7856b18c03b40581def469d61aa63cdcf574"
+    },
+    {
+      "author": "Bass 1989",
+      "doi": "10.1029/JB094iB06p07621",
+      "transcription": "bass-1989-ambient.csv",
+      "rows": 1,
+      "nominal_s1_used_count": 1,
+      "source_location": "Original author abstract in Illinois institutional repository; crosscheckIsaakTable4.",
+      "url": "https://experts.illinois.edu/en/publications/elasticity-of-grossular-and-spessartite-garnets-by-brillouin-spec/",
+      "qualification": "KS168.4+/-0.7GPa; ambient conditions, numerical T absent. Source sample99.0mol%grossular. No primary fullPDF recovered.",
+      "transcription_sha256": "93b8f1d3da3966202b56285f5928779bddbcafeec77d0ff735d85b52df00b1f9"
+    }
+  ],
+  "unrecovered": [
+    {
+      "author": "Thi\u00e9blot et al. 1998",
+      "doi": "10.1127/ejm/10/1/0007",
+      "nominal_s1_used_count": 7,
+      "status": "Only abstract/one-page publisher preview recovered, no numerical volume table.",
+      "missing": "Seven selected observations, assigned coordinate errors and preliminary-EOS normalization at300/298K."
+    },
+    {
+      "author": "Gwanmesia et al. 2014",
+      "doi": "10.1016/j.pepi.2013.09.010",
+      "nominal_s1_used_count": 52,
+      "status": "Publisher full text inaccessible; Elsevier public API returned metadata only, OpenAlex no open repository copy, ResearchGate request-only.",
+      "missing": "All52pairedP/T/KS observations with errors; numerical source selection cannot be replayed. Original52XRD volumes are excluded byS1."
+    }
+  ],
+  "licensing": "Factual source-table transcriptions with attribution. Any contributor CC0 applies only to transcription, normalization, metadata and arrangement rights, not third-party text/figures/publisher files. No source license is inferred from accessibility."
+}

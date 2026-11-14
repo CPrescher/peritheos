@@ -1,0 +1,48 @@
+{
+  "verified_on": "2026-11-12",
+  "scope": "Primary source recovery, normalization reconstruction and a conditional193-row source-processing diagnostic; not full author-workflow, uncertainty or physical validation",
+  "python": {
+    "targeted_tests": 14,
+    "failed": 0,
+    "seconds": 1.04,
+    "files": [
+      "tests/test_grossular_normalization_recovery.py",
+      "tests/test_grossular_expanded_refit.py",
+      "tests/test_grossular_followup_recovery.py",
+      "tests/test_grossular_observation_audit.py"
+    ],
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/pytest -q -W error tests/test_grossular_normalization_recovery.py tests/test_grossular_expanded_refit.py tests/test_grossular_followup_recovery.py tests/test_grossular_observation_audit.py"
+  },
+  "numerical_checks": [
+    "Two declared193-row starts converge without hitting bounds; second start replayed in tests",
+    "All193states checked against independent SciPy forward Debye quadrature and fast inversion for both source and fitted coefficients, including the new six-parameter scale indices",
+    "Conrad width bound checked for correlations-1,0,+1",
+    "19Bosenick,35Milani,13Du plot points match inferred common normalizations within digitizationbounds;156KRodehorst mismatch preserved",
+    "Earlier95-row and147-row fits replay; all historical artifact hashes remain unchanged",
+    "All11dataset native-coordinate source/fit RMS values checked against exported193-row CSV"
+  ],
+  "source_verification": {
+    "bosenick_primary_pdf": "Downloaded from publisher,9pages,sha0320173a1e1ddaa0cc453178cc77d07a1584147a89a0278c110890b1020ea4a4",
+    "bosenick_visual_checks": "PDFpp2-4:temperature accuracy,all20tablevalues/errors,selection/discussion",
+    "angel_figure4": "Rendered figure inspected for marker colours and labels; numerical vector centers matched to source rows",
+    "rodehorst": "PrimaryTable4A indexed only; fullPDFnot recovered"
+  },
+  "style": "Ruff check and format check passed for two scripts and one test module; git diff whitespace check passed",
+  "documentation": {
+    "strict_clean_build": "passed including executable notebooks",
+    "seconds": 93.74,
+    "rendered_local_links_and_anchors_checked": 105,
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/mkdocs build --strict --site-dir <private-output>/site"
+  },
+  "preservation": {
+    "catalog_changes": false,
+    "published_coefficients_changed": false,
+    "historical_receipts": "All earlier artifact manifests verified by tests",
+    "author_contacted": false,
+    "pyrope_correspondence": "Waiting for reply unchanged"
+  },
+  "full_220_channel_fit": false,
+  "author_workflow_reproduced": false,
+  "branch": "codex/pyrope-angel-2022-audit",
+  "status": "passed_at_declared_scope"
+}

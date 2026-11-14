@@ -168,6 +168,30 @@ per-observation Cholesky factors replace independent standard deviations for
 correlated measurements. `adjusted_volume` and `adjusted_temperature` expose
 the fitted latent states without requiring slices into the solver vector.
 
+For analytic derivatives, use `fit_isothermal_eos_with_derivatives` or
+`fit_thermal_eos_with_derivatives` (also for joint reference/thermal fits).
+The original factory-only functions retain finite differences. A factory can
+arbitrarily transform its parameters, so its derivative callback must apply
+that same chain rule and return `PressureDerivatives` in factory order.
+The helpers `bm3_pressure_derivatives` and
+`q_compromise_bm3_pressure_derivatives` support canonical parameter names in
+any subset/order. For the BM3 example above, replace the function name and add
+this callback after the factory:
+
+```rust
+|model, volume| bm3_pressure_derivatives(model, volume, &["K0", "K0_prime"])
+```
+
+Import both helpers/functions from `peritheos::fit`. The complete
+`fit_isothermal` and `fit_q_compromise` crate examples demonstrate the analytic
+APIs, including a joint q-compromise fit with uncertain volume and temperature.
+The latter requires volumes in J/bar/mol and pressures in GPa, as for the
+thermal model itself. These APIs preserve residual weighting, Cholesky
+whitening, robust loss and profiled covariance. Low-level custom residual
+models can use `least_squares_with_jacobian` or
+`least_squares_structured_with_jacobian`; their callbacks return flat row-major
+Jacobians of the weighted residuals, before robust-loss transformation.
+
 ## Carry a fit into predictions
 
 `EosFitResult` directly contains the profiled parameter covariance, standard
@@ -203,6 +227,7 @@ cargo run -p peritheos --example thermal_workflow
 cargo run -p peritheos --example material_record
 cargo run -p peritheos --example fit_isothermal
 cargo run -p peritheos --example fit_thermal
+cargo run -p peritheos --example fit_q_compromise
 cargo run -p peritheos --example propagate_uncertainty
 cargo doc --workspace --all-features --no-deps --open
 ```

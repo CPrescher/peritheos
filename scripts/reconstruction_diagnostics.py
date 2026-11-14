@@ -88,6 +88,10 @@ def diagnostic_comparison(document, record):
     rid = record["identifier"]
     fit = record["reproduction"]["assessment"].get("fit", {})
     kind = fit.get("fit_kind")
+    if kind == "author_processed_joint_volume_modulus_q_compromise":
+        from scripts.pyrope_author_reproduction import comparison
+
+        return comparison()
     if kind == "simultaneous_cocompression_vinet":
         return dorfman_comparison(record)
     if kind == "acoustic_finite_strain_then_isothermal_conversion":

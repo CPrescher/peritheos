@@ -1,0 +1,106 @@
+{
+  "declared_on": "2026-11-12",
+  "declared_before_solving": true,
+  "authorization": "User explicitly requested testing whether volume normalization assumptions and the Isaak specimen issue explain the remaining Kprime and theta discrepancies.",
+  "scope": "Controlled 5-by-4 diagnostic factorial study, with estimated errors fixed at the previous 219-row baseline. Distinguish plausible fixed normalization alternatives, deliberately relaxed offset controls, mixed-specimen reference correction, omission and a calculated endmember-alpha hypothesis. No replacement EOS or claim of author-workflow recovery.",
+  "fixed_background": "Use the unit-multiplier interpolated estimated-error case from full-sensitivity-plan.json. Retain every other observation, pressure calibration, modulus error, fixed Vm0=125.35 cm3/mol, Tr=298 K, n=20, equation and solver convention. All 22 Isaak GGD modulus rows remain unchanged in every case. No additional error-weight search.",
+  "normalizations": [
+    {
+      "id": "plotted",
+      "meaning": "Previous baseline: fixed Milani/Du denominators reconstructed from Figure 4; Bosenick measured 295 K anchor; Rodehorst measured 298 K anchor."
+    },
+    {
+      "id": "measured_room",
+      "meaning": "Use specific tabulated room-condition measurements as denominators: Milani cell volume 1663.98 A3 at 293 K, Du 1664.2 A3 at 296.1 K, Bosenick 125.293 cm3/mol at 295 K. Treat these temperatures as room-reference approximations without changing any observation temperature. Rodehorst and the already processed Thieblot series remain unchanged."
+    },
+    {
+      "id": "linear_298",
+      "meaning": "Move the denominator to 298 K by a local straight line in the raw observations, without an EOS: Milani interpolate the nearest bracketing 293/301 K rows; Du interpolate the first 296.1/393.7 K rows; Bosenick extrapolate the 270/295 K pair by 3 K. Keep the original anchor rows excluded where already excluded. This is a diagnostic interpolation/extrapolation, not a recovered original anchor or author procedure."
+    },
+    {
+      "id": "free_milani_du",
+      "meaning": "Keep the baseline processed observations but freely fit two calculated-volume multipliers for Milani and Du. This relaxes their uncertain normalization while other diffraction anchors remain fixed; it adds two nuisance parameters and is not the author's fixed pre-normalization procedure."
+    },
+    {
+      "id": "free_diffraction",
+      "meaning": "Deliberate offset-relaxation control: freely fit calculated-volume multipliers for all five diffraction series (Milani, Du, Bosenick, Rodehorst, Thieblot). Do not free an Isaak expansion scale or any compression scale. This even relaxes measured anchors and is not asserted to be a plausible original author input. It tests curve-shape information after removing diffraction-volume offsets."
+    }
+  ],
+  "normalization_error_handling": "For fixed-denominator alternatives, rescale both Y and sY by old_denominator/new_denominator; retain T and sT. As before, denominator uncertainty and shared anchor covariance are not propagated. In free-scale controls, retain all baseline coordinate errors and append scale coefficients with bounds [0.98,1.02], numerical scale1 and initial value1 in both starts. No priors, tuned bounds or new EOS laws.",
+  "isaak_expansion_treatments": [
+    {
+      "id": "as_plotted",
+      "meaning": "Previous 15 GR-2B expansion points:125.35*(1+0.01*observed volume-strain token), whose zero strain reference is293 K. Keep the plotted reduction despite its mismatch with the adopted298 K EOS reference."
+    },
+    {
+      "id": "reference_298",
+      "meaning": "Keep GR-2B composition, but re-reference its strain to298 K. Interpolate the defining strain ratio1 at293 K and the tabulated observed ratio at300 K to get r298; divide all15 Y and sY values by r298. This isolates the5 K reference issue, without an EOS or an invented observed298 K datum."
+    },
+    {
+      "id": "omit_expansion",
+      "meaning": "Remove only the15 mixed-composition GR-2B expansion rows. Keep all22 GGD moduli. This tests leverage of the specimen-mismatched expansion series without inventing an endmember correction;204 rows remain."
+    },
+    {
+      "id": "calculated_endmember_alpha",
+      "meaning": "Diagnostic calculated curve, not measured volumes: use the final Table2 estimated endmember volumetric alpha values. Linearly interpolate alpha between knots, extrapolate the first300/350 K segment to298 K, integrate alpha from298 K and calculate125.35*exp(integral alpha dT). Keep the original15 temperature coordinates, assigned2 K widths and0.01 cm3/mol volume comparison weights solely to isolate central-curve changes. Uncertainty of the compositional estimate is unknown and not included. No andradite EOS or invented mixing law is introduced."
+    }
+  ],
+  "design": "All20 combinations, with the plotted/as_plotted baseline declared first. Compare each normalization change at fixed Isaak treatment, each Isaak change at fixed normalization, and their interactions. Two declared starts per case. Additional same-coefficient curve comparisons are diagnostics, not additional fits. No selection of a preferred case by closeness to Ross.",
+  "base_free_parameters": [
+    "K0_gpa",
+    "K0_prime",
+    "theta0_k",
+    "gamma0",
+    "scale_kono_ks",
+    "scale_gwanmesia_ks"
+  ],
+  "starts": [
+    [
+      167.002,
+      5.06534,
+      749.825,
+      1.15602,
+      0.99455,
+      1.00551
+    ],
+    [
+      167.01622973324527,
+      5.235854775976889,
+      779.7537662306313,
+      1.1578333496894826,
+      0.9876977927449225,
+      1.0018105245568742
+    ]
+  ],
+  "base_parameter_scaling": [
+    170,
+    5,
+    750,
+    1.15,
+    1,
+    1
+  ],
+  "base_bounds": {
+    "lower": [
+      50,
+      2,
+      50,
+      0.05,
+      0.95,
+      0.95
+    ],
+    "upper": [
+      350,
+      10,
+      3000,
+      4,
+      1.05,
+      1.05
+    ]
+  },
+  "objective": "Same iteratively reweighted effective-variance pressure residual and conditional inverse-Jacobian covariance. Changing row count or nuisance-parameter count prevents interpreting reduced objectives as a common calibrated probability or automatic model-selection score.",
+  "compute_cap": "Exactly20scientific cases, two starts per case; at most30IRLS iterations and400least-squares evaluations per iteration per start, with unchanged tolerances. Verification may replay declared cases. Stop and document bounds or nonconvergence without widening the study to force agreement.",
+  "reporting": "Retain every case's row identities, transformed coordinate errors, normalization constants, parameters, nuisance factors, covariance and convergence. Report source and prior-baseline parameter distances, paired changes and two-factor interaction relative to the baseline. Export source/fitted native V/KS predictions and observed-minus-calculated residuals for each primary-start case, clearly distinguishing calculated endmember curves from measured GR-2B strain. Do not call hypothetical input agreement original-workflow reproduction.",
+  "preservation": "Never modify original observed strain, estimated endmember alpha, source errors, digitized points, published parameters, catalog records or previous receipts. No author contact. All alternatives remain diagnostic and not recommended for prediction.",
+  "alpha_error_qualification": "Isaak Table2 estimates about2% uncertainty in alpha. Its temperature/compositional covariance and uncertainty of the endmember correction are not supplied. The calculated-alpha case keeps baseline comparison weights to isolate central reduction effects; it does not propagate alpha uncertainty as new measured-volume errors."
+}

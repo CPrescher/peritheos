@@ -1,0 +1,17 @@
+To: Ross Angel <rossjohn.angel@cnr.it>
+Subject: Reproducing the pyrope EoS analysis
+
+Dear Ross,
+
+I am working on Peritheos (https://github.com/cprescher/peritheos), a library for equation-of-state calculations, fitting and uncertainty propagation. My aim is to make published EOS parameters and their underlying data and assumptions traceable and reusable in scientific software.
+
+I have been trying to reproduce the pyrope fit from your 2022 garnet paper. Our EOS calculations agree with EosFit, but I have not yet recovered the published thermal parameters from the available data, some of which had to be digitized. Increasing the Hartwig–Galkin weights moves the Debye temperature towards your value, while the Grüneisen parameter eventually becomes higher than the published value.
+
+Would you be willing to share the original pyrope EosFit data files and perhaps a fitting macro or log? It would be particularly helpful to understand the Hartwig weighting, volume normalization, pressure recalibration and any corrections to the published data.
+
+I would like to document your workflow faithfully and understand what my reconstruction is missing.
+
+Many thanks for your help!
+
+Best wishes,
+Clemens

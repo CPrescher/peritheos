@@ -1,0 +1,40 @@
+{
+  "saved_on": "2026-11-12",
+  "branch": "codex/pyrope-angel-2022-audit",
+  "base_commit": "a4ee0a8b",
+  "scope": "Garnet q-compromise implementation and source integration from the prior reviewed EOSMAT-v4 readiness checkpoint, plus the latest pyrope data recovery, conditional fits, Hartwig sensitivity, equation checks and user-confirmed correspondence status.",
+  "integration_snapshot": "Previously prepared and checked garnet readiness state, before the concurrent EOSMAT-v5 migration; scientific findings are unchanged.",
+  "latest_audit": "191 of 194 listed pyrope channels recovered, including26digitized; three channels and original author fit settings remain unavailable. Two recovered-input fits and44Hartwig-weight sensitivity fits retained. Strict cross-solver comparison failures remain visible.",
+  "correspondence_status": "awaiting_author_reply",
+  "correspondence_receipt": "pyrope/correspondence.json",
+  "shared_checkout": "Left on its existing branch; unrelated changes and the concurrent format migration were not included or reset.",
+  "native_test_runtime": "Existing ignored CPython3.9 extension from the readiness checkpoint reused only for branch-local tests; binary not committed. SHA256 d93cbb6f2ba6620a634c4f1dfd847fc447d6a1eaa48df797103f9498c24e9f0a",
+  "python_targeted_tests": {
+    "passed": 38,
+    "seconds": 3.06
+  },
+  "publications": "No push, release or deployment requested or performed",
+  "catalog_and_interchange_tests": {
+    "passed": 460,
+    "seconds": 39.16
+  },
+  "staged_audit_bytes": {
+    "files_checked": 137,
+    "all_byte_exact": true,
+    "gitattributes": "Audit evidence exempted from text normalization to preserve manifest hashes"
+  },
+  "whitespace_and_lint_checks": "passed",
+  "documentation_environment": "Notebook kernels must use PYTHONPATH set to this worktree when reusing the shared editable-install environment; otherwise they import the concurrent checkout. The first attempted build did so and is not branch evidence.",
+  "rust_targeted_tests": {
+    "passed": 2,
+    "command": "cargo test -p peritheos --test q_compromise --locked",
+    "fresh_isolated_build": true
+  },
+  "documentation": {
+    "strict_build_passed": true,
+    "seconds": 101.51,
+    "notebooks_executed": true,
+    "branch_isolation": "PYTHONPATH set explicitly to the audit worktree",
+    "scope_cleanup": "An unrelated Katsura waiting-status row was excluded from this snapshot; its orphan-link INFO notice from the initial successful build was thereby removed."
+  }
+}

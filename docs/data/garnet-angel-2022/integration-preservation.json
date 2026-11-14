@@ -1,0 +1,23 @@
+{
+  "scope": "Two additive source EOS records and one new material. Removing these exact bound scientific projections must recover the previous catalog byte-for-byte in scientific content.",
+  "before_scientific_sha256": "c0d4a555a1750ee5cd69ba18ec6dda841297b662d1c9bbbaa51d2c7e0ce2fd7c",
+  "after_scientific_sha256": "e63779b4e77be476f6e865daaec8f74bddd094a6d8550641f84218f80769c595",
+  "new_materials": {
+    "grossular": "cd1e9fb7e58a671626e8c67165ca344bed2baddb0a80e7ec8e33414d9f2abf0d"
+  },
+  "new_records": {
+    "pyrope_angel_2022_bm3_q_compromise_debye": "e867d24a588153d04d1771e226aec1814de12734836845386ea7e07f24908659"
+  },
+  "source_bindings": {
+    "release_document": {
+      "peritheos/data/materials/pyrope.eosmat": {
+        "historical_sha256": "e08cdb4a57a00beebfcb893a270ae8a4440b247d24dfac5e0eb855a3a6ef0741",
+        "predecessor_sha256": "e08cdb4a57a00beebfcb893a270ae8a4440b247d24dfac5e0eb855a3a6ef0741",
+        "current_sha256": "5ec1c9c1623a6c280ade21c0187da2355a8ac1cd14e75031e783e724a36d6efa",
+        "projection": "Remove only pyrope_angel_2022_bm3_q_compromise_debye; every other field remains unchanged. Strip generated assessments only for this pre-existing frozen release context.",
+        "previous_current_sha256": "475c0b177238bf4f5c90c971ab1f3293b9a17deb8b9922b5a311f04eeb1703f1",
+        "evidence_update": "review-update-2026-11-14.json; only named garnet review narratives changed; historical/predecessor fingerprints retained"
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-12",
+  "scope": "User-requested Hartwig weight sensitivity and same-coefficient equation checks, not author-workflow reproduction",
+  "independent_fits": {
+    "datasets": [
+      182,
+      191
+    ],
+    "grid": [
+      1,
+      2,
+      5,
+      10,
+      20,
+      50,
+      100,
+      200,
+      500,
+      1000,
+      10000
+    ],
+    "starts": 2,
+    "total_fits": 44,
+    "all_converged": true,
+    "parameter_bounds_reached": false
+  },
+  "official_eosfit_fits": {
+    "n_channels": 191,
+    "weight_multipliers": [
+      500,
+      1000
+    ],
+    "both_converged": true,
+    "strict_cross_solver_comparison": "not passed; retained in per-case checks"
+  },
+  "same_coefficient_equation_check": {
+    "states": 27,
+    "coefficient_sets": [
+      "published",
+      "weight500",
+      "weight1000"
+    ],
+    "properties": [
+      "V",
+      "KT",
+      "KS",
+      "alpha",
+      "gamma",
+      "theta"
+    ],
+    "all_passed": true,
+    "not_a_regression_workflow_check": true
+  },
+  "pytest": {
+    "passed": 38,
+    "seconds": 2.86,
+    "files": [
+      "tests/test_pyrope_hartwig_weights.py",
+      "tests/test_pyrope_expanded_refits.py",
+      "tests/test_pyrope_subset_refits.py",
+      "tests/test_pyrope_observation_audit.py",
+      "tests/test_q_compromise_debye.py"
+    ]
+  },
+  "ruff": "Formatting and lint passed for owned scripts/tests",
+  "documentation": {
+    "command": ".venv/bin/mkdocs build --strict --site-dir output/pyrope-hartwig-weights-2026-11-12/site",
+    "passed": true,
+    "seconds": 95.59,
+    "notebooks_executed": true
+  },
+  "figure": "Actual scientific PNG inspected and annotation positions corrected; light/dark SVGs retained",
+  "preservation": "Baseline fit, plan and all CSV hashes unchanged; no catalog coefficients or classifications altered",
+  "runtime_cleanup": "Task-created Xvfb stopped and temporary X11 links removed",
+  "git": "No commit, push, release or deployment",
+  "contact": "No author contact; email draft written locally for user review"
+}

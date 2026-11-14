@@ -5448,7 +5448,14 @@ def validate_all() -> dict[str, Any]:
                     if key in record["scientific_validation"]
                 },
             }
-            if record["identifier"] == "cementite_li_2002_bm3":
+            if record["identifier"] in {
+                "pyrope_angel_2022_bm3_q_compromise_debye",
+                "grossular_angel_2022_bm3_q_compromise_debye",
+            }:
+                from scripts.audit_garnet_angel_2022 import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "cementite_li_2002_bm3":
                 from scripts.li_2002_catalog import ledger_outcome
 
                 outcome = ledger_outcome(record)

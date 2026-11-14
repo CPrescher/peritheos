@@ -393,7 +393,11 @@ def update_refit_record(document: dict, result: dict) -> None:
     record["parameter_covariance"] = {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "gamma0", "q"],
         "matrix": covariance[np.ix_(indices, indices)].tolist(),
+        "volume_basis": "public",
     }
+    # This audit fits conventional-cell volumes. Keep the legacy view's
+    # uncertainty units explicit when copying its unchanged numerical results.
+    record["parameter_error_volume_basis"] = "public"
     record["parameter_error_confidence"] = (
         None  # Standard errors, not interval half-widths.
     )

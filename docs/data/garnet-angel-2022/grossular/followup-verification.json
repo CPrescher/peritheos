@@ -1,0 +1,37 @@
+{
+  "verified_on": "2026-11-12",
+  "scope": "Source-table preservation, figure digitization and fixed-source comparisons; no new fit or author-workflow claim",
+  "python": {
+    "tests": 7,
+    "failed": 0,
+    "seconds": 0.6,
+    "files": [
+      "tests/test_grossular_followup_recovery.py",
+      "tests/test_grossular_observation_audit.py"
+    ],
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/pytest -q -W error tests/test_grossular_followup_recovery.py tests/test_grossular_observation_audit.py"
+  },
+  "style": "Ruff check and format check passed for two new scripts and test module; git diff whitespace check passed.",
+  "documentation": {
+    "strict_clean_build": "passed including executable notebooks",
+    "seconds": 123.4,
+    "rendered_report_local_links_and_anchors_checked": 91,
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/mkdocs build --strict --site-dir <private-output>/site"
+  },
+  "source_equation": "Unchanged published coefficients, float32 EosFit gas constant, independent SciPy Debye quadrature, original modulus scale 1.00551. Recovered T_C converted with +273.15. No new optimized coefficients.",
+  "preservation": {
+    "earlier_artifact_manifest_and_all_listed_files": "verified byte-identical by test",
+    "catalog_changes": false,
+    "pyrope_correspondence": "Waiting for reply unchanged; no author contact."
+  },
+  "author_workflow_reproduced": false,
+  "new_fit_performed": false,
+  "branch": "codex/pyrope-angel-2022-audit",
+  "status": "passed_at_declared_scope",
+  "digitization": {
+    "private_source_pdf_replay": "four artifacts byte-identical",
+    "tool": "PyMuPDF 1.26.5",
+    "source_hash_and_axis_checks": "passed",
+    "figure_visually_inspected": true
+  }
+}

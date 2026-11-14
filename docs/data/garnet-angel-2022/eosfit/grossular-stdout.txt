@@ -1,0 +1,230 @@
+***********************************************************************************************************************
+*                                                                                                                     *
+*                                                     EOSFIT7c                                                        *
+*                                                                                                                     *
+*             Authors: RJ ANGEL, J GONZALEZ-PLATAS, M ALVARO, ML MAZZUCCHELLI                                         *
+*        Version date: 13-May-2021                                                                                    *
+*             Version:  7.60                                                                                          *
+*                                                                                                                     *
+*                                                                                                                     *
+*        INCLUDING LEAST SQUARES BY I.G. WOOD & J. PIPER AND USING THE CrysFML EOS MODULE.                            *
+*                                                                                                                     *
+*        EosFit7c: Angel, Gonzalez-Platas, Alvaro (2014) Zeitschrift fuer Kristallographie, 229:405-419.              *
+*        Phase Transitions: Angel et al (2017) Contribs Min Pet, DOI:10.1007/s00410-017-1349-x                        *
+*        Fitting Moduli: Milani et al. (2017) Amer Min, DOI:10.2138/am-2017-5855                                      *
+*                                                                                                                     *
+*        Development currently supported by ERC grant 714936, TrueDepths to M. Alvaro, and                            *
+*                          Agencia Estatal de Investigacion under                                                     *
+*        National Program of Sciences and Technological Materials (PID2019-106383GB-C44) to J. Gonzalez-Platas        *
+*        For more information see the help system                                                                     *
+*                                                                                                                     *
+*                                                                                                                     *
+*        Current date and time:  8-NOV-2026 09:51                                                                     *
+*                                                                                                                     *
+***********************************************************************************************************************
+
+EOSFIT-7.6>
+
+Successfully opened file with eos
+Named /Users/clemens/Programming/peritheos/docs/data/garnet-angel-2022/sources/grossular-official.eos
+
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: BM3 plus qcomp MGD for grossular
+Eos Saved: 30-JUN-2021 at 11:27
+  Comment: Fitted to PV data of Milani et al (2017) (rescaled pressures to Scheidl quartz eos)
+  Comment: TV data of Isaak et al (1992),Bosenick & Geiger (1997), Thieblot et al (1998) below 1000 K
+  Comment: and TV data of Du et al (2015), Milani et al (2017),
+  Comment: Ks data of Bass (9189) Conrad et al (1999), Isaak et al (1992),
+  Comment: Ks data of Kono et al (2010) with refined scale factor #3 (0.995)
+  Comment: Ks data of Gwanmesia et al (2014) with refined scale factor #4 (1.006)
+  Comment: dG/dT from Isaak et al (1992) and dG/dP from Gwanmesia et al (2014)
+ 
+   System: cubic
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  125.350           :Reference pressure volume: units are cm^3/mol
+      K0:  167.00(20)        :Bulk modulus: units are GPa
+      Kp:  5.07(7)           :dK/dP: dimensionless
+     Kpp: -0.0365            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+           with q-compromise
+ 
+   Temperature of reference:   298.00 K
+ 
+   ThMGD:  750(13)           :Debye temperature in K
+   Natom:  20.0000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  1.156(5)          :Gruneisen parameter at Tref,Pref
+ 
+ 
+  Shear modulus Information
+---------------------------
+ 
+   Model: Polynomial
+      G0:  107.000           :Shear modulus at Pref, Tref, in pressure units [FIXED VALUE]
+   dG/dP:  1.30000           :Pressure derivative of shear modulus: no units [FIXED VALUE]
+    d2G/:  0.00000           :2nd Pressure derivative of shear modulus: P^-1 [FIXED VALUE]
+    d3G/:  0.00000           :3rd Pressure derivative of shear modulus: P^-2 [FIXED VALUE]
+   dG/dT: -0.0132            :Temperature derivative of shear modulus [FIXED VALUE]
+ 
+ 
+
+EOSFIT-7.6> 
+ 
+  EOS Information
+-------------------
+ 
+    Title: BM3 plus qcomp MGD for grossular
+Eos Saved: 30-JUN-2021 at 11:27
+  Comment: Fitted to PV data of Milani et al (2017) (rescaled pressures to Scheidl quartz eos)
+  Comment: TV data of Isaak et al (1992),Bosenick & Geiger (1997), Thieblot et al (1998) below 1000 K
+  Comment: and TV data of Du et al (2015), Milani et al (2017),
+  Comment: Ks data of Bass (9189) Conrad et al (1999), Isaak et al (1992),
+  Comment: Ks data of Kono et al (2010) with refined scale factor #3 (0.995)
+  Comment: Ks data of Gwanmesia et al (2014) with refined scale factor #4 (1.006)
+  Comment: dG/dT from Isaak et al (1992) and dG/dP from Gwanmesia et al (2014)
+ 
+   System: cubic
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  125.350           :Reference pressure volume: units are cm^3/mol
+      K0:  167.00(20)        :Bulk modulus: units are GPa
+      Kp:  5.07(7)           :dK/dP: dimensionless
+     Kpp: -0.0365            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+           with q-compromise
+ 
+   Temperature of reference:   298.00 K
+ 
+   ThMGD:  750(13)           :Debye temperature in K
+   Natom:  20.0000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  1.156(5)          :Gruneisen parameter at Tref,Pref
+ 
+ 
+  Shear modulus Information
+---------------------------
+ 
+   Model: Polynomial
+      G0:  107.000           :Shear modulus at Pref, Tref, in pressure units [FIXED VALUE]
+   dG/dP:  1.30000           :Pressure derivative of shear modulus: no units [FIXED VALUE]
+    d2G/:  0.00000           :2nd Pressure derivative of shear modulus: P^-1 [FIXED VALUE]
+    d3G/:  0.00000           :3rd Pressure derivative of shear modulus: P^-2 [FIXED VALUE]
+   dG/dT: -0.0132            :Temperature derivative of shear modulus [FIXED VALUE]
+ 
+ 
+    Do you want to change these EoS parameters or the EoS type? (Y/N) <N>?    Do you want to input V/V(Pref,Tref) (Y/N) <N>?
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  106.54750 AND T =   90.0K IS   40.5516
+                     ESTIMATED UNCERTAINTY IN P =   0.249 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  106.54750 AND T =  298.0K IS   41.0201
+                     ESTIMATED UNCERTAINTY IN P =   0.249 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  106.54750 AND T =  700.0K IS   42.6471
+                     ESTIMATED UNCERTAINTY IN P =   0.249 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  106.54750 AND T = 1000.0K IS   43.9735
+                     ESTIMATED UNCERTAINTY IN P =   0.249 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  106.54750 AND T = 1700.0K IS   47.1412
+                     ESTIMATED UNCERTAINTY IN P =   0.249 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  119.08250 AND T =   90.0K IS    9.2873
+                     ESTIMATED UNCERTAINTY IN P =   0.024 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  119.08250 AND T =  298.0K IS    9.7558
+                     ESTIMATED UNCERTAINTY IN P =   0.023 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  119.08250 AND T =  700.0K IS   11.3828
+                     ESTIMATED UNCERTAINTY IN P =   0.024 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  119.08250 AND T = 1000.0K IS   12.7091
+                     ESTIMATED UNCERTAINTY IN P =   0.025 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  119.08250 AND T = 1700.0K IS   15.8769
+                     ESTIMATED UNCERTAINTY IN P =   0.030 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  125.35000 AND T =   90.0K IS   -0.4685
+                     ESTIMATED UNCERTAINTY IN P =   0.007 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  125.35000 AND T =  298.0K IS    0.0000
+                     ESTIMATED UNCERTAINTY IN P =   0.000 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  125.35000 AND T =  700.0K IS    1.6270
+                     ESTIMATED UNCERTAINTY IN P =   0.004 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  125.35000 AND T = 1000.0K IS    2.9533
+                     ESTIMATED UNCERTAINTY IN P =   0.007 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  125.35000 AND T = 1700.0K IS    6.1211
+                     ESTIMATED UNCERTAINTY IN P =   0.019 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  129.11050 AND T =   90.0K IS   -5.0491
+                     ESTIMATED UNCERTAINTY IN P =   0.010 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  129.11050 AND T =  298.0K IS   -4.5806
+                     ESTIMATED UNCERTAINTY IN P =   0.007 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  129.11050 AND T =  700.0K IS   -2.9536
+                     ESTIMATED UNCERTAINTY IN P =   0.006 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  129.11050 AND T = 1000.0K IS   -1.6272
+                     ESTIMATED UNCERTAINTY IN P =   0.007 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+             PRESSURE AT volume=  129.11050 AND T = 1700.0K IS    1.5405
+                     ESTIMATED UNCERTAINTY IN P =   0.018 FROM ESD(PARAMS)
+
+ INPUT volume AND TEMPERATURE (K) (<cr> TO EXIT) :
+EOSFIT-7.6>

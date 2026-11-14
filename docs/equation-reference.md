@@ -69,6 +69,8 @@ their original absolute simulated free-energy formulation.
 Because energy divided by the public molar-volume unit produces bar, the factor
 $10^{-4}$ converts thermal pressure to GPa.
 
+- <span id="q-compromise-debye-thermal-pressure" data-equation-target="../equations/thermal/q-compromise-debye/"></span>[Q-compromise Debye thermal pressure](equations/thermal/q-compromise-debye.md)
+
 - <span id="debye-plus-quadratic-thermal-pressure" data-equation-target="../equations/thermal/debye-quadratic/"></span>[Debye plus quadratic thermal pressure](equations/thermal/debye-quadratic.md)
 
 - <span id="double-debye-helmholtz" data-equation-target="../equations/thermal/double-debye/"></span><span id="benedict-et-al-diamond-example" data-equation-target="../equations/thermal/double-debye/#benedict-et-al-diamond-example"></span><span id="logarithmic-moment-double-debye-variant" data-equation-target="../equations/thermal/double-debye/#logarithmic-moment-double-debye-variant"></span>[Double-Debye Helmholtz](equations/thermal/double-debye.md)

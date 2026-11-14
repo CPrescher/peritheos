@@ -1,4 +1,7 @@
-use peritheos::fit::{fit_isothermal_eos, FitError, IsothermalObservations, Loss, SolverOptions};
+use peritheos::fit::{
+    bm3_pressure_derivatives, fit_isothermal_eos_with_derivatives, FitError,
+    IsothermalObservations, Loss, SolverOptions,
+};
 use peritheos::{isothermal::BM3, IsothermalEos};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -10,7 +13,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .collect::<Result<Vec<_>, _>>()?;
     let pressure_sigma = [0.2; 6];
 
-    let result = fit_isothermal_eos(
+    let result = fit_isothermal_eos_with_derivatives(
         IsothermalObservations {
             pressure: &pressure,
             volume: &volume,
@@ -26,6 +29,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             ..SolverOptions::default()
         },
         |parameters| BM3::new(10.0, parameters[0], parameters[1]).map_err(FitError::from),
+        |model, volume| bm3_pressure_derivatives(model, volume, &["K0", "K0_prime"]),
     )?;
 
     println!("success: {}", result.solver.message);

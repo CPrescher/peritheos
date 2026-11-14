@@ -208,8 +208,14 @@ round trips cover both implementations.
 
 Named-loss fits of exact built-in Peritheos models cross the PyO3 boundary
 once. Model reconstruction, EOS evaluation, residual weighting, correlated
-whitening, latent-coordinate assembly, finite differences, and optimization
+whitening, latent-coordinate assembly, Jacobian evaluation, and optimization
 then remain in Rust, with the Python interpreter lock released for the solve.
+BM3 and QCompromiseDebye over BM3 use analytic pressure derivatives for the
+selected parameters and latent coordinates; other native models use finite
+differences. The same solver, loss and covariance machinery consumes either
+Jacobian. The public Rust APIs accept explicit derivative callbacks because an
+arbitrary model factory may transform or reorder its parameters; canonical
+helpers require names in the factory's exact order.
 Custom Python `EosBase` classes and subclasses retain the callback evaluation
 path so overridden scientific behavior is not bypassed. Callable fitting
 losses retain the SciPy solver because arbitrary Python loss functions cannot
@@ -218,6 +224,21 @@ NumPy so seeded results and invalid-sample rejection remain compatible;
 accepted-sample statistics are native. Native Rust clients can instead use the
 public Rust sampler; its deterministic stream intentionally does not claim
 bit-for-bit compatibility with NumPy.
+
+For a matched local performance check, the repository-only script
+`scripts/benchmark_public_fit_derivatives.py` generates deterministic synthetic
+PV/PVT observations and times complete public fits with analytic and numerical
+Jacobians in the same compiled extension. It alternates timing order after a
+warmup and verifies parameters, adjusted coordinates, covariance and chi-square.
+Run it with the development environment and a freshly built extension:
+
+```console
+PYTHONPATH=. python scripts/benchmark_public_fit_derivatives.py --output /tmp/public-fit-timings.json
+```
+
+The script's private native switch is a validation aid, not a supported public
+fitting keyword. Timings describe those synthetic cases on the measured machine,
+not every model or dataset.
 
 Large independent native arrays use Rayon after workload-specific size
 thresholds. The binding copies the NumPy inputs before releasing the Python

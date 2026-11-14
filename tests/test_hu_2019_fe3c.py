@@ -178,17 +178,27 @@ def test_porous_initial_state_and_full_experimental_path_execution():
         r.volume(100, temperature=1190)
 
 
-@pytest.mark.parametrize("version", [3, 4])
+@pytest.mark.parametrize("version", [3, 4, 5])
 def test_native_and_compatibility_roundtrip_preserve_porosity_rows_and_scope(
     tmp_path, version
 ):
-    d = get_material_document("cementite_nonmagnetic", format_version=4)
+    d = get_material_document("cementite_nonmagnetic", format_version=5)
     before = copy.deepcopy(d)
     out = convert_eosmat(d, version=version)
     Draft202012Validator(eosmat_schema(version)).validate(out)
     p = tmp_path / "fe3c.eosmat"
     save_eosmat(p, out)
-    restored = convert_eosmat(load_eosmat(p), version=4)
+    restored = convert_eosmat(load_eosmat(p), version=5)
+    # Legacy exports convert the V0 error through molar units. Permit only
+    # floating-point roundoff at that named coordinate; all other fields,
+    # source rows and qualifications must still match exactly.
+    for original, reconstructed in zip(d["eos_records"], restored["eos_records"]):
+        entry = original.get("parameters", {}).get("V0", {})
+        if isinstance(entry.get("error"), (int, float)):
+            assert reconstructed["parameters"]["V0"]["error"] == pytest.approx(
+                entry["error"], rel=1e-14, abs=0
+            )
+            reconstructed["parameters"]["V0"]["error"] = entry["error"]
     assert restored["eos_records"] == d["eos_records"]
     assert restored["datasets"] == d["datasets"]
     chosen = Material.from_eosmat(out, record_identifiers=[IDENTIFIER])

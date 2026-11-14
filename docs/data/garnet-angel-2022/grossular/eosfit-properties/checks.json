@@ -1,0 +1,279 @@
+{
+  "scope": "same_coefficient_property_evaluation_not_fitting_workflow",
+  "gas_constant": 8.314000129699707,
+  "absolute_tolerances": {
+    "volume_cm3_mol": 0.0001,
+    "kt_gpa": 0.001,
+    "ks_gpa": 0.001,
+    "alpha_per_k": 2e-09,
+    "gamma": 0.0001,
+    "theta_k": 0.001
+  },
+  "tolerance_basis": "Previously declared EosFit printed property precision and source single-precision allowances, unchanged from the pyrope property audit.",
+  "states": [
+    {
+      "pressure_gpa": 0.0001,
+      "temperature_k": 20,
+      "independent": {
+        "volume_cm3_mol": 124.99127275430627,
+        "kt_gpa": 169.43979953238133,
+        "alpha_per_k": 4.015009470809782e-08,
+        "gamma": 1.1527116962858646,
+        "ks_gpa": 169.439956370888,
+        "theta_k": 749.825
+      },
+      "official": {
+        "volume_cm3_mol": 124.9913,
+        "kt_gpa": 169.4397,
+        "ks_gpa": 169.4399,
+        "alpha_per_k": 4e-08,
+        "gamma": 1.1527,
+        "theta_k": 749.825
+      },
+      "official_minus_independent": {
+        "volume_cm3_mol": 2.7245693729582854e-05,
+        "kt_gpa": -9.953238134130515e-05,
+        "ks_gpa": -5.637088801790924e-05,
+        "alpha_per_k": -1.5009470809782036e-10,
+        "gamma": -1.1696285864504219e-05,
+        "theta_k": 0.0
+      },
+      "all_within_tolerances": true
+    },
+    {
+      "pressure_gpa": 0.0001,
+      "temperature_k": 100,
+      "independent": {
+        "volume_cm3_mol": 125.00607732094656,
+        "kt_gpa": 169.33851874982042,
+        "alpha_per_k": 4.408181423447837e-06,
+        "gamma": 1.1528482289952984,
+        "ks_gpa": 169.42457597792156,
+        "theta_k": 749.825
+      },
+      "official": {
+        "volume_cm3_mol": 125.0061,
+        "kt_gpa": 169.3385,
+        "ks_gpa": 169.4246,
+        "alpha_per_k": 4.408e-06,
+        "gamma": 1.1528,
+        "theta_k": 749.825
+      },
+      "official_minus_independent": {
+        "volume_cm3_mol": 2.267905344410792e-05,
+        "kt_gpa": -1.874982041272233e-05,
+        "ks_gpa": 2.4022078434882133e-05,
+        "alpha_per_k": -1.814234478369792e-10,
+        "gamma": -4.822899529832725e-05,
+        "theta_k": 0.0
+      },
+      "all_within_tolerances": true
+    },
+    {
+      "pressure_gpa": 0.0001,
+      "temperature_k": 298,
+      "independent": {
+        "volume_cm3_mol": 125.34992494115497,
+        "kt_gpa": 167.0025065338174,
+        "alpha_per_k": 2.047289158253422e-05,
+        "gamma": 1.1560193077820022,
+        "ks_gpa": 168.18033901807246,
+        "theta_k": 749.825
+      },
+      "official": {
+        "volume_cm3_mol": 125.3499,
+        "kt_gpa": 167.0025,
+        "ks_gpa": 168.1803,
+        "alpha_per_k": 2.0473e-05,
+        "gamma": 1.156,
+        "theta_k": 749.825
+      },
+      "official_minus_independent": {
+        "volume_cm3_mol": -2.4941154961766188e-05,
+        "kt_gpa": -6.533817412446297e-06,
+        "ks_gpa": -3.9018072470753395e-05,
+        "alpha_per_k": 1.0841746577721777e-10,
+        "gamma": -1.9307782002320195e-05,
+        "theta_k": 0.0
+      },
+      "all_within_tolerances": true
+    },
+    {
+      "pressure_gpa": 0.0001,
+      "temperature_k": 700,
+      "independent": {
+        "volume_cm3_mol": 126.60869941921398,
+        "kt_gpa": 158.71129812131565,
+        "alpha_per_k": 2.7389237901576394e-05,
+        "gamma": 1.1676281507985622,
+        "ks_gpa": 162.26425870215937,
+        "theta_k": 749.825
+      },
+      "official": {
+        "volume_cm3_mol": 126.6087,
+        "kt_gpa": 158.7113,
+        "ks_gpa": 162.2643,
+        "alpha_per_k": 2.7389e-05,
+        "gamma": 1.1676,
+        "theta_k": 749.825
+      },
+      "official_minus_independent": {
+        "volume_cm3_mol": 5.807860219420036e-07,
+        "kt_gpa": 1.8786843440921075e-06,
+        "ks_gpa": 4.129784062456565e-05,
+        "alpha_per_k": -2.3790157639212e-10,
+        "gamma": -2.8150798562220913e-05,
+        "theta_k": 0.0
+      },
+      "all_within_tolerances": true
+    },
+    {
+      "pressure_gpa": 0.0001,
+      "temperature_k": 1000,
+      "independent": {
+        "volume_cm3_mol": 127.69480906689559,
+        "kt_gpa": 151.87363761023965,
+        "alpha_per_k": 2.945669591851607e-05,
+        "gamma": 1.1776446204827495,
+        "ks_gpa": 157.1420611214746,
+        "theta_k": 749.825
+      },
+      "official": {
+        "volume_cm3_mol": 127.6948,
+        "kt_gpa": 151.8736,
+        "ks_gpa": 157.142,
+        "alpha_per_k": 2.9457e-05,
+        "gamma": 1.1776,
+        "theta_k": 749.825
+      },
+      "official_minus_independent": {
+        "volume_cm3_mol": -9.066895586329338e-06,
+        "kt_gpa": -3.761023964443666e-05,
+        "ks_gpa": -6.112147460157757e-05,
+        "alpha_per_k": 3.040814839307842e-10,
+        "gamma": -4.4620482749557766e-05,
+        "theta_k": 0.0
+      },
+      "all_within_tolerances": true
+    },
+    {
+      "pressure_gpa": 0.0001,
+      "temperature_k": 1350,
+      "independent": {
+        "volume_cm3_mol": 129.06537223832387,
+        "kt_gpa": 143.64120983198876,
+        "alpha_per_k": 3.1538884709902216e-05,
+        "gamma": 1.1902844165532285,
+        "ks_gpa": 150.9208498237833,
+        "theta_k": 749.825
+      },
+      "official": {
+        "volume_cm3_mol": 129.0654,
+        "kt_gpa": 143.6413,
+        "ks_gpa": 150.9209,
+        "alpha_per_k": 3.1539000000000004e-05,
+        "gamma": 1.1903,
+        "theta_k": 749.825
+      },
+      "official_minus_independent": {
+        "volume_cm3_mol": 2.7761676136606184e-05,
+        "kt_gpa": 9.016801124062113e-05,
+        "ks_gpa": 5.0176216689123976e-05,
+        "alpha_per_k": 1.1529009778782741e-10,
+        "gamma": 1.5583446771438858e-05,
+        "theta_k": 0.0
+      },
+      "all_within_tolerances": true
+    },
+    {
+      "pressure_gpa": 7.674,
+      "temperature_k": 298,
+      "independent": {
+        "volume_cm3_mol": 120.26934147415166,
+        "kt_gpa": 204.93940389118112,
+        "alpha_per_k": 1.6683098249342733e-05,
+        "gamma": 1.1091644525803654,
+        "ks_gpa": 206.0694974059137,
+        "theta_k": 749.825
+      },
+      "official": {
+        "volume_cm3_mol": 120.2693,
+        "kt_gpa": 204.9394,
+        "ks_gpa": 206.0695,
+        "alpha_per_k": 1.6683e-05,
+        "gamma": 1.1092,
+        "theta_k": 749.825
+      },
+      "official_minus_independent": {
+        "volume_cm3_mol": -4.1474151657894254e-05,
+        "kt_gpa": -3.891181108883757e-06,
+        "ks_gpa": 2.5940863110918144e-06,
+        "alpha_per_k": -9.824934273336178e-11,
+        "gamma": 3.554741963451846e-05,
+        "theta_k": 0.0
+      },
+      "all_within_tolerances": true
+    },
+    {
+      "pressure_gpa": 9.17,
+      "temperature_k": 300,
+      "independent": {
+        "volume_cm3_mol": 119.41346140138745,
+        "kt_gpa": 212.11637954826202,
+        "alpha_per_k": 1.6178457866220903e-05,
+        "gamma": 1.1012712377282163,
+        "ks_gpa": 213.2501545563377,
+        "theta_k": 749.825
+      },
+      "official": {
+        "volume_cm3_mol": 119.4135,
+        "kt_gpa": 212.1164,
+        "ks_gpa": 213.2502,
+        "alpha_per_k": 1.6178e-05,
+        "gamma": 1.1013,
+        "theta_k": 749.825
+      },
+      "official_minus_independent": {
+        "volume_cm3_mol": 3.85986125479576e-05,
+        "kt_gpa": 2.0451737981375118e-05,
+        "ks_gpa": 4.544366231584718e-05,
+        "alpha_per_k": -4.578662209033142e-10,
+        "gamma": 2.8762271783611126e-05,
+        "theta_k": 0.0
+      },
+      "all_within_tolerances": true
+    },
+    {
+      "pressure_gpa": 16.91,
+      "temperature_k": 1650,
+      "independent": {
+        "volume_cm3_mol": 118.39561438538215,
+        "kt_gpa": 220.979118875537,
+        "alpha_per_k": 2.0605185251060494e-05,
+        "gamma": 1.091884309068923,
+        "ks_gpa": 229.18241388705115,
+        "theta_k": 749.825
+      },
+      "official": {
+        "volume_cm3_mol": 118.3956,
+        "kt_gpa": 220.9789,
+        "ks_gpa": 229.1822,
+        "alpha_per_k": 2.0605000000000003e-05,
+        "gamma": 1.0919,
+        "theta_k": 749.825
+      },
+      "official_minus_independent": {
+        "volume_cm3_mol": -1.4385382144155301e-05,
+        "kt_gpa": -0.00021887553700139506,
+        "ks_gpa": -0.00021388705116009987,
+        "alpha_per_k": -1.852510604904165e-10,
+        "gamma": 1.5690931077116943e-05,
+        "theta_k": 0.0
+      },
+      "all_within_tolerances": true
+    }
+  ],
+  "all_within_tolerances": true,
+  "executable_sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d",
+  "source_eos_sha256": "279139b3835582e97e5419283271151a9b10491f7eef89e986ce4e84e9d3dca5"
+}

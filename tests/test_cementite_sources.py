@@ -138,7 +138,7 @@ def test_catalog_models_match_source_equations_and_roundtrip(scale, values):
     document = load_eosmat(
         ROOT / "peritheos/data/materials/cementite_nonmagnetic.eosmat"
     )
-    Draft202012Validator(eosmat_schema(4)).validate(document)
+    Draft202012Validator(eosmat_schema(document["format_version"])).validate(document)
     material = Material.from_eosmat(document)
     identifier = f"cementite_nonmagnetic_takahashi_2019_{scale}_bm3_mgd"
     record = material.get_eos_record(identifier)

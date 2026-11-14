@@ -1,9 +1,9 @@
 {
   "schema": "peritheos.eos-structure-rights-review.v1",
-  "reviewed_on": "2026-11-05",
+  "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
-  "policy_sha256": "258e9d461800e843bdcc7756011dc2662faf815b6ef436d4b8b5c1e7c7c6c0f5",
-  "catalog_scientific_sha256": "fa4167dfea23693f67ea391aff70ab60e6fac58b1980ee60611ae290d49eb2bd",
+  "policy_sha256": "9c4795c0a599e69b866bbc3c3f4c9b6c819bc2ce47a4c5f1990cc2159782e841",
+  "catalog_scientific_sha256": "3b628d7ea2db895867b33f340bd99ccf7b99221e9e9b51383dfd787e7d408d84",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
   "limits": [
     "Assessment concerns the existing normalized numerical records and cited lineage; no fresh transcription or legal clearance of every original publication is claimed.",
@@ -15,17 +15,17 @@
     "The ten inherited arrays were subsequently replaced by independent calculations. Original arrays/full records remain private with hashes; generated intensity patterns are not measurements. Six COD CIFs and an independently authored ideal model have explicit CC0 declarations. FeH2 and two SnO2 inputs remain scoped numerical-content assessments without a separate publication grant."
   ],
   "counts": {
-    "materials": 234,
-    "eos_records": 685,
-    "structural_components": 234,
-    "eos_source_groups": 272,
+    "materials": 235,
+    "eos_records": 687,
+    "structural_components": 235,
+    "eos_source_groups": 273,
     "migration_records": 144,
     "assessments": {
       "cod_source_and_numerical_changes": 5,
       "independently_calculated_pattern": 10,
       "no_structural_values": 36,
-      "numerical_parameter_assessment": 678,
-      "numerical_structure_assessment": 183,
+      "numerical_parameter_assessment": 680,
+      "numerical_structure_assessment": 184,
       "thermodynamic_collection_review_required": 7
     }
   },
@@ -227,6 +227,7 @@
     "peritheos/data/materials/goethite.eosmat": "e08637a1fc4e71718c059042cc5553f60ac843d96a0a8ce376829d08d7a5d8d7",
     "peritheos/data/materials/gold.eosmat": "4080811e1a7f001c662757a244b0d171f2eb00775651377d20228cd91ed9b13f",
     "peritheos/data/materials/graphite.eosmat": "047575d489710ef8b26d2cc5e5c09d84211e03c6f843c635d9c72972dee8d5f2",
+    "peritheos/data/materials/grossular.eosmat": "94ee9c5049d0e7757d512c1ff5a159625b44ef5c527842f3ef22ee45cc677f94",
     "peritheos/data/materials/hydrous_silica_cacl2_nisr_2017.eosmat": "71392994a2472e562b97ea0cb43fd8e420cee6776aad51612865c8549700a29c",
     "peritheos/data/materials/hydrous_stishovite_nisr_2017.eosmat": "f6ec580aa69c21b4c4015279d74c8daca2fe08927f896762688fb4e567257bda",
     "peritheos/data/materials/ice_vi.eosmat": "3b6fe5212980c8a959603e21afe99234d53eb46101ee270d013784eabf1ba90c",
@@ -334,7 +335,7 @@
     "peritheos/data/materials/platinum.eosmat": "16a8bd3f2096f6e493a9972c497831460a862fddc1ffe92284fd6fbb4cbfcddf",
     "peritheos/data/materials/praseodymium_dioxide.eosmat": "44b95ad839ec1b40667e0b7bdfce3ffc48bb792657127436eef7f12c736a5132",
     "peritheos/data/materials/pseudowollastonite.eosmat": "6bfbf5024cf78c1f79d339eeb8fa298bdc684cfc76ab0629316d3b2c01cc229a",
-    "peritheos/data/materials/pyrope.eosmat": "182c10215ac99c9489197917f9c4d4a56c1c4ce62fb5fabcd1eb697ccd101267",
+    "peritheos/data/materials/pyrope.eosmat": "02afae97ba1aab7fe3631afb8f63ade6f60c5ee209e6070d8cf6045d517bdf25",
     "peritheos/data/materials/qandilite.eosmat": "3951c7be8a42ccceba5c2844dc21ae0c5ee9d0b07dc421211b13ce1405c8a6d0",
     "peritheos/data/materials/rbbr.eosmat": "6121881f6386a1033f0286a7197580477ea443414481533afc0a6738dabf9102",
     "peritheos/data/materials/rbcl.eosmat": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
@@ -9726,6 +9727,54 @@
       "peak_count": 0,
       "provenance_sha256": "ced3deaf71dad1e6e5fd339d63be18f4f8fa5f0f125dfe42830dd972b22f63e4",
       "provenance_fields": [
+        "notes"
+      ],
+      "cod_id": null,
+      "legacy_source_comparison": null
+    },
+    {
+      "key": "eos/grossular/grossular_angel_2022_bm3_q_compromise_debye",
+      "kind": "eos",
+      "material": "grossular",
+      "identifier": "grossular_angel_2022_bm3_q_compromise_debye",
+      "evidence": "peritheos/data/materials/grossular.eosmat#/eos_records/0",
+      "source_sha256": "c6262f58652fb01dfb559394a3fcbbeaa5f1bcfca9e965836230f811097b61ce",
+      "runtime_sha256": "23a55e70421e0b27a235ef9ac818c8838c375d68c8276077b28e19f87f6efded",
+      "assessment": "numerical_parameter_assessment",
+      "source_license": "No new source grant established by this review",
+      "reference": {
+        "authors": [
+          "Angel",
+          "Gilio",
+          "Mazzucchelli",
+          "Alvaro"
+        ],
+        "year": 2022,
+        "title": "Garnet EoS: a critical review and synthesis",
+        "source": "Contributions to Mineralogy and Petrology",
+        "volume": "177",
+        "locator": "54",
+        "doi": "10.1007/s00410-022-01918-5"
+      },
+      "parameter_provenance_pointer": "peritheos/data/materials/grossular.eosmat#/eos_records/0/evidence/parameter_provenance",
+      "parameter_provenance_sha256": "644e925c1c60f23084373b0b330cecca3cdc8abdae4ee47d2e74def898893ce7",
+      "migration_source": null
+    },
+    {
+      "key": "structure/grossular",
+      "kind": "structure_and_diffraction",
+      "material": "grossular",
+      "identifier": "grossular",
+      "evidence": "peritheos/data/materials/grossular.eosmat#/",
+      "source_sha256": "32665493b5a9ad9d1e5eddd8258177ef4dcfafe7a6df026f9cadb0bbfba0655f",
+      "runtime_sha256": "32665493b5a9ad9d1e5eddd8258177ef4dcfafe7a6df026f9cadb0bbfba0655f",
+      "assessment": "numerical_structure_assessment",
+      "source_license": "No new source grant established by this review",
+      "site_count": 4,
+      "peak_count": 0,
+      "provenance_sha256": "1a616c0f4eedb07e563bd0756444bd5d0eba693e2e1ef7589061eff95ed9c3bc",
+      "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
@@ -21834,6 +21883,34 @@
         "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
         "file": "pyrope.json"
       }
+    },
+    {
+      "key": "eos/pyrope/pyrope_angel_2022_bm3_q_compromise_debye",
+      "kind": "eos",
+      "material": "pyrope",
+      "identifier": "pyrope_angel_2022_bm3_q_compromise_debye",
+      "evidence": "peritheos/data/materials/pyrope.eosmat#/eos_records/1",
+      "source_sha256": "bf2d35302a10c35bdc8464e66d1a3d2ddd1a5af3bd61c2d1c85b874845266a53",
+      "runtime_sha256": "af5f04be213066f305e54f8eeb7f0a269bb2d377225e00a376d4e7ebe5a4da3b",
+      "assessment": "numerical_parameter_assessment",
+      "source_license": "No new source grant established by this review",
+      "reference": {
+        "authors": [
+          "Angel",
+          "Gilio",
+          "Mazzucchelli",
+          "Alvaro"
+        ],
+        "year": 2022,
+        "title": "Garnet EoS: a critical review and synthesis",
+        "source": "Contributions to Mineralogy and Petrology",
+        "volume": "177",
+        "locator": "54",
+        "doi": "10.1007/s00410-022-01918-5"
+      },
+      "parameter_provenance_pointer": "peritheos/data/materials/pyrope.eosmat#/eos_records/1/evidence/parameter_provenance",
+      "parameter_provenance_sha256": "01d5e00d23c63036bb3481175a71590180eb118b85229e424d344c0d44556139",
+      "migration_source": null
     },
     {
       "key": "structure/pyrope",

@@ -1,0 +1,50 @@
+{
+  "schema": "peritheos.garnet-v5-integration.v1",
+  "date": "2026-11-14",
+  "scope": "Exact v4/v5 bindings for later garnet additions. Original v5 migration and scientific record changes remain immutable; published garnet coefficients/covariance are unchanged.",
+  "materials": {
+    "peritheos/data/materials/pyrope.eosmat": {
+      "before_sha256": "44162012efd58b77c9e1ca9ebeb4d7ea26e2a65bf95e4d13f3aa5919ca55514e",
+      "after_sha256": "02afae97ba1aab7fe3631afb8f63ade6f60c5ee209e6070d8cf6045d517bdf25",
+      "changes": [
+        {
+          "path": [
+            "format_version"
+          ],
+          "before_present": true,
+          "before": 4
+        }
+      ],
+      "object_orders": [],
+      "added_records": [
+        "pyrope_angel_2022_bm3_q_compromise_debye"
+      ]
+    },
+    "peritheos/data/materials/grossular.eosmat": {
+      "before_sha256": "53191b8bcd5c5a816b16eeb41e972afcc0f0c658993a8113656782bee2f1bc9b",
+      "after_sha256": "94ee9c5049d0e7757d512c1ff5a159625b44ef5c527842f3ef22ee45cc677f94",
+      "changes": [
+        {
+          "path": [
+            "format_version"
+          ],
+          "before_present": true,
+          "before": 4
+        }
+      ],
+      "object_orders": [],
+      "added_records": [
+        "grossular_angel_2022_bm3_q_compromise_debye"
+      ]
+    }
+  },
+  "merged_review": {
+    "catalog_scientific_sha256": "3b628d7ea2db895867b33f340bd99ccf7b99221e9e9b51383dfd787e7d408d84",
+    "policy_sha256": "9c4795c0a599e69b866bbc3c3f4c9b6c819bc2ce47a4c5f1990cc2159782e841",
+    "review_sha256": "1558a44c50ca67bfb155312f42e6afd7822f9b770aaf62bb783caf254ff62084",
+    "source_parents": [
+      "4d89f0fa",
+      "a643e805"
+    ]
+  }
+}

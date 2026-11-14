@@ -101,7 +101,11 @@ def test_invalid_derivative_and_inverse():
 
 def test_unvalidated_catalog_execution_and_export_preserve_qualification():
     from peritheos.catalog import get_eos_record, get_material
-    from peritheos.eosmat import get_material_document, validate_eosmat_document
+    from peritheos.eosmat import (
+        convert_eosmat,
+        get_material_document,
+        validate_eosmat_document,
+    )
     from peritheos.errors import MaterialError
     from peritheos.materials import Material
 
@@ -120,6 +124,7 @@ def test_unvalidated_catalog_execution_and_export_preserve_qualification():
     material = get_material("argon_fcc")
     exported = material.to_eosmat()
     validate_eosmat_document(exported)
+    exported = convert_eosmat(exported, version=3)
     row = next(
         row for row in exported["eos_records"] if row["identifier"] == identifier
     )

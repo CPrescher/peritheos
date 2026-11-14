@@ -1,0 +1,33 @@
+{
+  "recovered_on": "2026-11-12",
+  "source": "Gwanmesia, Wang, Heady and Liebermann (2014), Elasticity and sound velocities of polycrystalline grossular garnet (Ca3Al2Si3O12) at simultaneous high pressures and high temperatures, Physics of the Earth and Planetary Interiors 228, 80-87, Table 1",
+  "doi": "10.1016/j.pepi.2013.09.010",
+  "url": "https://www.sciencedirect.com/science/article/pii/S0031920113001441",
+  "source_version": "Final primary publisher full HTML, Table 1 and associated methods/caption; full text accessible through institutional connection. PDF download did not complete; no primary PDF claimed.",
+  "transcription": "gwanmesia-2014-table-1.csv",
+  "rows": 52,
+  "columns": 12,
+  "preservation": "All 624 literal numerical cells including trailing decimal zeros preserved. FNV-1a32 of newline-joined, comma-separated data rows, excluding header, including the terminal newline, matched publisher DOM extraction: c93742ca.",
+  "publisher_dom_body_fnv1a32": "c93742ca",
+  "temperature_conversion": "T_K = original T_C + 273.15; the ten room-temperature rows are 30 C = 303.15 K, not 300 K. Seven remaining groups at 127, 227, 327, 427, 527, 627 and 727 C contain six rows each.",
+  "pressure_scale": "NaCl, Decker (1971)",
+  "reported_error_estimates_percent": {
+    "pressure_typical_precision": 0.7,
+    "p_transit_time": 0.1,
+    "s_transit_time": 0.05,
+    "length": 0.2,
+    "density_caption": 0.2,
+    "density_later_text": 0.1,
+    "vp": 0.3,
+    "vs": 0.25,
+    "ks": 0.8,
+    "shear_modulus": 0.7,
+    "cell_volume_largest_refined_uncertainty": 0.04
+  },
+  "error_qualification": "These are source-reported estimates, not reconstructed per-row standard deviations. Density estimates differ between caption and later text and are both retained. The maximum volume uncertainty is not a per-row error. Confidence level, cross-coordinate covariance and numerical temperature errors are unspecified.",
+  "ambient_cell_volume_a3_token": "1662.1(3)",
+  "original_sample_length_mm_token": "1.094(2)",
+  "derived_quantity_dependencies": "Length inferred using (V/V0)^(1/3); density from volume; velocities from length and transit times; L=rho*Vp^2, G=rho*Vs^2, KS=L-4G/3. Correlated derived quantities must not be counted as independent observations.",
+  "angel_selection": "S1 retains 52 KS constraints and excludes all 52 XRD volume constraints. Source parameter 54 multiplies calculated KS by 1.00551 for comparison on the observed scale. No excluded volume constraint added.",
+  "rights": "Attribution retained for factual numerical observations. Source licensing unspecified here; no publisher text, figures or files redistributed. Contributor dedication, if applicable, does not license the publication."
+}

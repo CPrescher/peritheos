@@ -1,0 +1,44 @@
+{
+  "scope": "Official EosFit calculated property checkpoints, not observations or a refinement",
+  "version": "7.60, 13 May 2021",
+  "executable_source": "https://www.rossangel.com/Download/EoSFit7installer_MacOS.dmg",
+  "executable_sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d",
+  "gas_constant": 8.314000129699707,
+  "absolute_tolerances": {
+    "volume_cm3_mol": 0.0001,
+    "kt_gpa": 0.001,
+    "ks_gpa": 0.001,
+    "alpha_per_k": 2e-09,
+    "gamma": 0.0001
+  },
+  "tolerance_basis": "Four-decimal property output and source single-precision evaluation/inversion. Gas constant harmonized only for this calculator comparison; observation audit uses modern R.",
+  "states": [
+    {
+      "pressure_gpa": 0.0,
+      "temperature_k": 298.0,
+      "volume_cm3_mol": 113.13,
+      "kt_gpa": 169.339,
+      "ks_gpa": 170.6879,
+      "alpha_per_k": 2.2563e-05,
+      "gamma": 1.1847
+    },
+    {
+      "pressure_gpa": 10.0,
+      "temperature_k": 1000.0,
+      "volume_cm3_mol": 109.1049,
+      "kt_gpa": 199.1179,
+      "ks_gpa": 204.9127,
+      "alpha_per_k": 2.5471e-05,
+      "gamma": 1.1425
+    },
+    {
+      "pressure_gpa": 19.86,
+      "temperature_k": 1700.0,
+      "volume_cm3_mol": 105.9341,
+      "kt_gpa": 226.2877,
+      "ks_gpa": 236.0387,
+      "alpha_per_k": 2.2849e-05,
+      "gamma": 1.1093
+    }
+  ]
+}

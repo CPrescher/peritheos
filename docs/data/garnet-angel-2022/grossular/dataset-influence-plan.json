@@ -1,0 +1,130 @@
+{
+  "declared_on": "2026-11-12",
+  "declared_before_solving": true,
+  "authorization": "User requested investigating which datasets drive the remaining Kprime discrepancy before further author contact.",
+  "scope": "Dataset influence, not rejection of experimental data, recovery of author selections, significance testing or development of a replacement EOS.",
+  "normalizations": [
+    "plotted",
+    "linear_298"
+  ],
+  "specimen_treatment": "as_plotted in all cases; all prior estimated errors fixed at baseline",
+  "omissions": [
+    {
+      "id": "milani_pv",
+      "groups": [
+        "milani_pv"
+      ]
+    },
+    {
+      "id": "kono_ks",
+      "groups": [
+        "kono_ks"
+      ]
+    },
+    {
+      "id": "gwanmesia_ks",
+      "groups": [
+        "gwanmesia_ks"
+      ]
+    },
+    {
+      "id": "conrad_ks",
+      "groups": [
+        "conrad_ks"
+      ]
+    },
+    {
+      "id": "isaak_ks",
+      "groups": [
+        "isaak_ks"
+      ]
+    },
+    {
+      "id": "bass_ks",
+      "groups": [
+        "bass_ks"
+      ]
+    },
+    {
+      "id": "milani_vt",
+      "groups": [
+        "milani_vt"
+      ]
+    },
+    {
+      "id": "du_vt",
+      "groups": [
+        "du_vt"
+      ]
+    },
+    {
+      "id": "bosenick_vt",
+      "groups": [
+        "bosenick_vt"
+      ]
+    },
+    {
+      "id": "rodehorst_vt",
+      "groups": [
+        "rodehorst_vt"
+      ]
+    },
+    {
+      "id": "isaak_vt",
+      "groups": [
+        "isaak_vt"
+      ]
+    },
+    {
+      "id": "thieblot_vt_estimated",
+      "groups": [
+        "thieblot_vt_estimated"
+      ]
+    },
+    {
+      "id": "milani_all",
+      "groups": [
+        "milani_pv",
+        "milani_vt"
+      ]
+    },
+    {
+      "id": "isaak_all",
+      "groups": [
+        "isaak_ks",
+        "isaak_vt"
+      ]
+    }
+  ],
+  "grouping": "The three printed-error and nineteen estimated-error Isaak GGD KS rows form one 22-row series. Isaak GR-2B expansion remains a distinct specimen/series. Milani compression and thermal expansion are separate series. Two combined-publication deletions overlap the single-series deletions and must not be added.",
+  "published_kprime": 5.06534,
+  "fit_protocol": "Same BM3, q-compromise thermal pressure, fixed Vm0=125.35 cm3/mol, Tr=298 K, n=20 and float32 R as preceding diagnostics. Same effective-variance IRLS protocol, tolerances and bounds. Two unchanged starts. Remove unused Kono/Gwanmesia scale parameters when their entire series is omitted; remap remaining scale indices without changing observations. In each published-Kprime profile, fix Kprime and optimize the other five parameters.",
+  "starts": [
+    [
+      167.002,
+      5.06534,
+      749.825,
+      1.15602,
+      0.99455,
+      1.00551
+    ],
+    [
+      167.01622973324527,
+      5.235854775976889,
+      779.7537662306313,
+      1.1578333496894826,
+      0.9876977927449225,
+      1.0018105245568742
+    ]
+  ],
+  "compute_cap": "Exactly 32 declared scientific cases (baseline, fixed published Kprime, 12 disjoint-series deletions and 2 combined-publication deletions, under each of 2 normalizations), two starts each. Maximum 30 IRLS iterations, 400 evaluations per inner solve. Verification may replay declared cases; no post-result subset search.",
+  "score_protocol": "At each constrained-Kprime solution, freeze its effective pressure errors. Evaluate original published six coefficients including published scales, freely fitted baseline coefficients, and constrained-Kprime fit on identical rows/errors. Sum standardized squared residuals by group. Residualize the Kprime derivative against the five nuisance columns over all rows. Group squared residualized derivatives partition conditional local information; minus residualized derivative times constrained residual divided by total information gives a signed local upward-Kprime contribution. Positive means upward pressure on Kprime in this linearized frozen-error diagnostic. This is not a nonlinear deletion effect or causal/likelihood attribution.",
+  "reporting": "All rows, both starts, covariance, rank, bounds, convergence, source/baseline distances, signed deletion shifts and local group diagnostics. Do not rank merely by raw residual RMS or row count. Compare robust directions across the two fixed normalizations. Omitted-data fits can be unstable or lose identifiability; report rather than tuning.",
+  "preservation": "Preserve canonical observations, errors, calibration, old plans/fits/manifests and published coefficients. No catalog changes or author contact. All diagnostic predictions remain not recommended.",
+  "input_sha256": {
+    "normalization-specimen-plan.json": "a99d514d50c768c938f62ad69e53c0eba35febaba50e2446bbf454ef73301aaf",
+    "normalization-specimen-refits.json": "3885d76df9b535c612d8c2701fb1c72f9180b7edd0d5d7ef614191304c162622",
+    "full-sensitivity-plan.json": "65c63fe6c97091866d2f7c9b8e3aff3043cc0cbd5397af29175e957123ec1c75",
+    "full-sensitivity-refits.json": "888d7dcf368c55fb5b0236482791bef222b4a405eb969028bfe6581054edb9b6"
+  }
+}

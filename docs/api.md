@@ -498,6 +498,7 @@ from peritheos.eos.thermal import (
     HollandPowell2011,
     HollandPowellThermalPressure,
     LinearThermalPressure,
+    QCompromiseDebye,
     LogVolumeThermalPressure,
     DebyeQuadraticThermalPressure,
     DebyeTabulatedThermalPressure,
@@ -526,6 +527,7 @@ Thermal constructor signatures are:
 | `Dewaele2006` | `Tr, theta0, gamma0, gamma_inf, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n` |
 | `DorogokupetsOganov2007` | `Tr`, four oscillator-mode parameter groups, `gamma0, gamma_inf, beta`, anharmonic, electronic, defect, and atom-count terms |
 | `LinearThermalPressure` | `Tr, alpha_KT` |
+| `QCompromiseDebye` | `Tr, theta0, gamma0, n`; constant θ and γ/V; no q or caloric potential |
 | `SecondOrderTaylorThermalPressure` | `Tr, eta0, c0, c1, c2, c3, c4, c5` |
 | `SoundVelocityDebyeHelmholtz` | `Tr, molar_mass_g_mol, n, longitudinal_intercept, longitudinal_slope, shear_intercept, shear_slope` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
@@ -682,6 +684,13 @@ temperature uncertainty API.
 `FitResult.to_json()` export a versioned, JSON-safe record containing the model
 identity and reconstructable parameters, fit arrays, diagnostics, and solver
 configuration. Passing a path to `to_json()` also writes the record to disk.
+
+Named-loss fits of exact `BM3`, and `QCompromiseDebye` over exact `BM3`,
+automatically use analytic pressure Jacobians in `fit_rt_eos()`,
+`fit_thermal_eos()` and `fit_joint_eos()` as applicable. The weighting,
+latent-coordinate treatment, robust losses and parameter covariance/scaling
+conventions remain the same. Other models, custom subclasses and callable
+losses retain their finite-difference paths; the public signatures are unchanged.
 
 `peritheos.diagnostics.birch_murnaghan_finite_strain_diagnostic()` constructs
 the conventional Birch-Murnaghan normalized-stress diagnostic from P-V

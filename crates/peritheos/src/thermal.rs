@@ -752,6 +752,61 @@ impl ReferenceStateEos for Holzapfel {
     }
 }
 
+/// Constant-theta, constant-gamma/V Debye pressure approximation.
+///
+/// Angel et al. (2022), doi:10.1007/s00410-022-01918-5. Volumes are
+/// J/bar/mol; n counts atoms per formula unit. There is no q parameter.
+/// This pressure approximation does not define a caloric potential.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QCompromiseDebye<R> {
+    pub rt_eos: R,
+    pub tr: f64,
+    pub theta0: f64,
+    pub gamma0: f64,
+    pub n: f64,
+}
+
+impl<R: IsothermalEos> QCompromiseDebye<R> {
+    /// Construct the source pressure law, with finite gamma and positive Tr/theta/n.
+    ///
+    /// # Errors
+    /// Returns an error for invalid thermal parameters.
+    pub fn new(rt_eos: R, tr: f64, theta0: f64, gamma0: f64, n: f64) -> EosResult<Self> {
+        Ok(Self {
+            rt_eos,
+            tr: positive_parameter(tr, "Tr")?,
+            theta0: positive_parameter(theta0, "theta0")?,
+            gamma0: finite_parameter(gamma0, "gamma0")?,
+            n: positive_parameter(n, "n")?,
+        })
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for QCompromiseDebye<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &R {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        positive_state(volume, "volume")?;
+        let temperature = positive_state(temperature, "temperature")?;
+        let energy = |t| -> EosResult<f64> {
+            Ok(3.0 * self.n * GAS_CONSTANT * t * debye_function_3(self.theta0 / t)?)
+        };
+        finite_result(
+            self.gamma0 * (energy(temperature)? - energy(self.tr)?)
+                / self.rt_eos.reference_volume()
+                / 1.0e4,
+        )
+    }
+}
+
 /// Constant `alpha K_T` thermal-pressure correction.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LinearThermalPressure<R> {

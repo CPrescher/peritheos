@@ -15,6 +15,16 @@ subclasses retain callback evaluation, and callable loss functions retain the
 SciPy compatibility path. These backend choices do not change the public
 fitting functions or result schema.
 
+Named-loss fits of exact `BM3` and `QCompromiseDebye` with a `BM3` reference
+use analytic pressure derivatives with respect to the free parameters and
+latent volume/temperature coordinates. The derivatives receive the same sigma
+division or Cholesky whitening as the residuals. Robust-loss transformations,
+latent-coordinate profiling, rank handling and `absolute_sigma` scaling are
+unchanged. This improves the local Jacobian; it does not adopt EosFit's
+one-error finite-increment propagation or change the fitting objective.
+Other models and the custom-model/callable-loss compatibility paths retain
+finite differences. No new Python fitting option is required.
+
 ## Objective and diagnostics
 
 With pressure as the only uncertain observation, the normalized residual for
@@ -379,6 +389,41 @@ result = fit_joint_eos(
 between reference and thermal parameters. Consequently,
 `result.eos_uncertainty()` propagates the complete joint covariance without an
 independence assumption.
+
+Here is a complete synthetic q-compromise example using the analytic path.
+It fits reference and thermal parameters together and retains uncertainty in
+all three observed coordinates. Volumes are J/bar/mol, pressure is GPa,
+temperature is kelvin and `n` counts atoms per formula unit:
+
+```python
+import numpy as np
+from peritheos.eos.rt import BM3
+from peritheos.eos.thermal import QCompromiseDebye
+from peritheos.fitting import fit_joint_eos
+
+volumes = np.tile(np.linspace(8.8, 11.3, 6), 8)
+temperatures = np.repeat(np.linspace(250.0, 2100.0, 8), 6)
+truth = QCompromiseDebye(BM3(11.3, 171.0, 4.7), 298.0, 820.0, 1.1, 20.0)
+rng = np.random.default_rng(822)
+pressures = truth.pressure(volumes, temperatures) + rng.normal(0, 0.02, volumes.size)
+
+fit = fit_joint_eos(
+    QCompromiseDebye,
+    BM3,
+    volumes,
+    temperatures,
+    pressures,
+    initial={"rt_eos.K0": 163.0, "theta0": 750.0, "gamma0": 1.0},
+    fixed={"rt_eos.V0": 11.3, "rt_eos.K0_prime": 4.7, "Tr": 298.0, "n": 20.0},
+    bounds={"theta0": (100.0, 1800.0), "gamma0": (0.2, 2.0)},
+    pressure_sigma=0.04,
+    volume_sigma=0.008,
+    temperature_sigma=4.0,
+    absolute_sigma=True,
+)
+print(fit.summary())
+print(fit.covariance)  # K0, theta0, gamma0, including their cross-covariances
+```
 
 ## Errors in pressure, volume, and temperature
 

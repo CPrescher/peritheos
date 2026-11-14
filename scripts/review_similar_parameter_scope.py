@@ -41,11 +41,11 @@ REFITS = {
 
 
 def verify_sources():
+    from scripts.uncertainty_volume_basis_review import prior_material_document
+
     inputs = json.loads(INPUT.read_text(encoding="utf-8"))
     for material, expected in inputs["source_document_sha256"].items():
-        document = copy.deepcopy(
-            load_eosmat(ROOT / "peritheos/data/materials" / (material + ".eosmat"))
-        )
+        document = prior_material_document(material)
         for record in document["eos_records"]:
             record.get("evidence", {}).get("reproduction", {}).pop("assessment", None)
         if material == "iron_carbide_fe7c3":

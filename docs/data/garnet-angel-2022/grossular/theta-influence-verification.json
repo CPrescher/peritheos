@@ -1,0 +1,44 @@
+{
+  "verified_on": "2026-11-12",
+  "status": "passed_at_declared_scope",
+  "scope": "Conditional theta influence, not source error recovery, author-workflow reproduction, physical validation or replacement EOS",
+  "retained_diagnostic": "Formal upper Conrad KS widths plus additional independent2%KS in quadrature, fixed in every case. Canonical source-error cells untouched.",
+  "python": {
+    "targeted_tests": 38,
+    "failed": 0,
+    "seconds": 3.9,
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/pytest -q -W error tests/test_grossular_theta_influence.py tests/test_grossular_conrad_processing.py tests/test_grossular_dataset_influence.py tests/test_grossular_normalization_specimen.py tests/test_grossular_full_sensitivity.py tests/test_grossular_normalization_recovery.py tests/test_grossular_expanded_refit.py tests/test_grossular_followup_recovery.py tests/test_grossular_observation_audit.py"
+  },
+  "numerical_checks": {
+    "scientific_cases": 30,
+    "starts_per_case": 2,
+    "all60converged_without_bounds": true,
+    "maximum_scaled_start_difference": 2.066778623799337e-08,
+    "all_three_conrad_points_retained": true,
+    "retained_values_errors_and_scale_mapping": "Checked exactly against preceding independent2% diagnostic in every case; no extra deletion combinations or error changes",
+    "replays": "Baseline parity with prior2%Conrad cases; fixed-theta, Du deletion, Bosenick deletion and Kono deletion replayed from second starts",
+    "constrained_fit": "Free-coordinate stationary scores checked with independent finite differences; covariance checked against inverse scaled information",
+    "covariance": "All60 matrices positive definite at declared free dimensions; theta excluded from covariance when fixed",
+    "exports": "All5980 pressure residuals reconcile with objectives;438 profile rows partition costs/scores/information and temperature bins; paired normalization contrasts reconciled",
+    "native_forward_inverse": "All254 Du/modulus synthetic states for both constrained fits reconcile independent native forward properties with fast pressure inversion; all native residual signs checked"
+  },
+  "source_check": "Influential Du393.7/447.1K volumes and printed errors match the available author-preprint table image; final publisher table remains unverified",
+  "style": "Ruff check and format check passed for two scripts and one test module; git diff whitespace check passed",
+  "documentation": {
+    "strict_clean_build": "passed",
+    "light_and_dark_plots": "Both visually inspected; paired theta/Kprime axes, published references, retained Conrad label and legends legible",
+    "build_seconds": 87.845,
+    "build_command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/mkdocs build --strict --site-dir <private-inspection-site>",
+    "rendered_pages_checked": 5,
+    "local_links_and_images_checked": 220,
+    "missing_targets_or_fragments": 0
+  },
+  "preservation": {
+    "all_eight_previous_artifact_manifests": "Byte-identical in tests",
+    "source_observations_errors_and_coefficients": "Unchanged",
+    "catalog_changes": false,
+    "author_contacted": false,
+    "pyrope_correspondence": "Waiting for reply unchanged"
+  },
+  "branch": "codex/pyrope-angel-2022-audit"
+}

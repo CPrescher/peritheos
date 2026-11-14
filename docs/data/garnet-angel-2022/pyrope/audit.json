@@ -1,0 +1,1053 @@
+{
+  "scope": "Partial observation audit; unchanged published EOS; no joint refit",
+  "author_workflow_reproduced": false,
+  "source_eos_sha256": "afe05fba08073b72a38bf20c03a180ff091ee89b41c9bf1c727fb19679977b33",
+  "data_sha256": {
+    "milani-2015-table-a1.csv": "958198c6d58916e9620e785415e446856771c5aa2e81b9af3cde2a58698bd46b",
+    "zou-2012b-table-i.csv": "4f37ba759209cc6e4ef4f74d45539794f5eb559f9e82421c9394a60ffe940b03",
+    "hartwig-galkin-2021-table-3.csv": "beacaab7e5b36298529117fa41c60c4dfda00b57ba572f16d56cc850dd546dbb"
+  },
+  "sinogeikin_2000_scale": {
+    "source_parameter_index_one_based": 53,
+    "calculated_modulus_multiplier_to_observed_scale": 0.97828,
+    "inverse_observed_multiplier_to_eos_scale": 1.0222022324896758,
+    "covariance_marginal_width": 0.005877074101966045,
+    "article_rounded_value": 0.978,
+    "supplement_S2_rounded_value": 0.977,
+    "confidence": null
+  },
+  "milani_expansion": {
+    "protocol": "All 33 rows; 1 bar; source EOS coefficients fixed; one constant multiplicative volume calibration fitted by reported diagonal volume standard deviations only. No assigned T errors, anchor uncertainty or inter-row covariance. This profiles shape agreement, not the author's molar-volume normalization or joint pressure-residual objective.",
+    "profiled_cell_volume_at_298k_on_observed_scale_a3": 1504.4142873097733,
+    "residual_summary_a3": {
+      "count": 33,
+      "mean": -0.01225851116801509,
+      "rms": 0.43056281207494157,
+      "max_absolute": 1.24876340923538
+    },
+    "volume_only_standardized_residual_rms": 3.316191595547003,
+    "scale_independent_303_to_1073k_volume_ratio": {
+      "observed": 1.02236415355168,
+      "calculated": 1.023232174481114,
+      "reported_volume_only_diagonal_error": 0.00012997732236439056,
+      "qualification": "A constant volume scale cancels. Error assumes independent reported volume standard deviations; T error, common calibration covariance and EOS parameter uncertainty are omitted. Not a confidence statement for the published joint fit."
+    },
+    "rows": [
+      {
+        "source_row": 1,
+        "temperature_k": 291.0,
+        "observed_cell_volume_a3": 1503.98,
+        "reported_volume_sd_a3": 0.25,
+        "calculated_volume_on_profiled_scale_a3": 1504.1775417072706,
+        "observed_minus_calculated_a3": -0.19754170727060227
+      },
+      {
+        "source_row": 2,
+        "temperature_k": 303.0,
+        "observed_cell_volume_a3": 1504.64,
+        "reported_volume_sd_a3": 0.11,
+        "calculated_volume_on_profiled_scale_a3": 1504.5840052771434,
+        "observed_minus_calculated_a3": 0.05599472285666707
+      },
+      {
+        "source_row": 3,
+        "temperature_k": 323.0,
+        "observed_cell_volume_a3": 1505.34,
+        "reported_volume_sd_a3": 0.14,
+        "calculated_volume_on_profiled_scale_a3": 1505.283075557371,
+        "observed_minus_calculated_a3": 0.056924442628996985
+      },
+      {
+        "source_row": 4,
+        "temperature_k": 348.0,
+        "observed_cell_volume_a3": 1506.33,
+        "reported_volume_sd_a3": 0.13,
+        "calculated_volume_on_profiled_scale_a3": 1506.1907326259575,
+        "observed_minus_calculated_a3": 0.13926737404244705
+      },
+      {
+        "source_row": 5,
+        "temperature_k": 373.0,
+        "observed_cell_volume_a3": 1507.33,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1507.1311331665372,
+        "observed_minus_calculated_a3": 0.19886683346271639
+      },
+      {
+        "source_row": 6,
+        "temperature_k": 398.0,
+        "observed_cell_volume_a3": 1508.47,
+        "reported_volume_sd_a3": 0.15,
+        "calculated_volume_on_profiled_scale_a3": 1508.100028391283,
+        "observed_minus_calculated_a3": 0.3699716087169236
+      },
+      {
+        "source_row": 7,
+        "temperature_k": 423.0,
+        "observed_cell_volume_a3": 1509.54,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1509.093958309989,
+        "observed_minus_calculated_a3": 0.4460416900110431
+      },
+      {
+        "source_row": 8,
+        "temperature_k": 448.0,
+        "observed_cell_volume_a3": 1510.36,
+        "reported_volume_sd_a3": 0.11,
+        "calculated_volume_on_profiled_scale_a3": 1510.110091678818,
+        "observed_minus_calculated_a3": 0.24990832118191975
+      },
+      {
+        "source_row": 9,
+        "temperature_k": 473.0,
+        "observed_cell_volume_a3": 1511.72,
+        "reported_volume_sd_a3": 0.15,
+        "calculated_volume_on_profiled_scale_a3": 1511.1460993836324,
+        "observed_minus_calculated_a3": 0.5739006163676095
+      },
+      {
+        "source_row": 10,
+        "temperature_k": 498.0,
+        "observed_cell_volume_a3": 1512.63,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1512.2000548775181,
+        "observed_minus_calculated_a3": 0.4299451224819677
+      },
+      {
+        "source_row": 11,
+        "temperature_k": 523.0,
+        "observed_cell_volume_a3": 1513.65,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1513.2703559783256,
+        "observed_minus_calculated_a3": 0.37964402167449407
+      },
+      {
+        "source_row": 12,
+        "temperature_k": 548.0,
+        "observed_cell_volume_a3": 1514.58,
+        "reported_volume_sd_a3": 0.13,
+        "calculated_volume_on_profiled_scale_a3": 1514.355663331616,
+        "observed_minus_calculated_a3": 0.22433666838401223
+      },
+      {
+        "source_row": 13,
+        "temperature_k": 573.0,
+        "observed_cell_volume_a3": 1515.8,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1515.4548518143092,
+        "observed_minus_calculated_a3": 0.34514818569073213
+      },
+      {
+        "source_row": 14,
+        "temperature_k": 598.0,
+        "observed_cell_volume_a3": 1517.12,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1516.5669719802838,
+        "observed_minus_calculated_a3": 0.5530280197160664
+      },
+      {
+        "source_row": 15,
+        "temperature_k": 623.0,
+        "observed_cell_volume_a3": 1517.98,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1517.691219313215,
+        "observed_minus_calculated_a3": 0.2887806867850031
+      },
+      {
+        "source_row": 16,
+        "temperature_k": 648.0,
+        "observed_cell_volume_a3": 1519.07,
+        "reported_volume_sd_a3": 0.15,
+        "calculated_volume_on_profiled_scale_a3": 1518.8269095701635,
+        "observed_minus_calculated_a3": 0.24309042983645668
+      },
+      {
+        "source_row": 17,
+        "temperature_k": 673.0,
+        "observed_cell_volume_a3": 1520.12,
+        "reported_volume_sd_a3": 0.13,
+        "calculated_volume_on_profiled_scale_a3": 1519.9734588976694,
+        "observed_minus_calculated_a3": 0.14654110233050233
+      },
+      {
+        "source_row": 18,
+        "temperature_k": 698.0,
+        "observed_cell_volume_a3": 1521.3,
+        "reported_volume_sd_a3": 0.13,
+        "calculated_volume_on_profiled_scale_a3": 1521.1303677059855,
+        "observed_minus_calculated_a3": 0.16963229401449098
+      },
+      {
+        "source_row": 19,
+        "temperature_k": 723.0,
+        "observed_cell_volume_a3": 1522.44,
+        "reported_volume_sd_a3": 0.14,
+        "calculated_volume_on_profiled_scale_a3": 1522.2972075183245,
+        "observed_minus_calculated_a3": 0.14279248167554215
+      },
+      {
+        "source_row": 20,
+        "temperature_k": 748.0,
+        "observed_cell_volume_a3": 1523.68,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1523.4736101879234,
+        "observed_minus_calculated_a3": 0.20638981207662255
+      },
+      {
+        "source_row": 21,
+        "temperature_k": 773.0,
+        "observed_cell_volume_a3": 1524.83,
+        "reported_volume_sd_a3": 0.11,
+        "calculated_volume_on_profiled_scale_a3": 1524.6592590099867,
+        "observed_minus_calculated_a3": 0.17074099001320064
+      },
+      {
+        "source_row": 22,
+        "temperature_k": 798.0,
+        "observed_cell_volume_a3": 1525.89,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1525.8538813582325,
+        "observed_minus_calculated_a3": 0.03611864176764357
+      },
+      {
+        "source_row": 23,
+        "temperature_k": 823.0,
+        "observed_cell_volume_a3": 1527.12,
+        "reported_volume_sd_a3": 0.13,
+        "calculated_volume_on_profiled_scale_a3": 1527.057242554667,
+        "observed_minus_calculated_a3": 0.06275744533286343
+      },
+      {
+        "source_row": 24,
+        "temperature_k": 848.0,
+        "observed_cell_volume_a3": 1527.93,
+        "reported_volume_sd_a3": 0.16,
+        "calculated_volume_on_profiled_scale_a3": 1528.2691407420944,
+        "observed_minus_calculated_a3": -0.3391407420942869
+      },
+      {
+        "source_row": 25,
+        "temperature_k": 873.0,
+        "observed_cell_volume_a3": 1529.24,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1529.4894025760864,
+        "observed_minus_calculated_a3": -0.24940257608636784
+      },
+      {
+        "source_row": 26,
+        "temperature_k": 898.0,
+        "observed_cell_volume_a3": 1530.32,
+        "reported_volume_sd_a3": 0.14,
+        "calculated_volume_on_profiled_scale_a3": 1530.7178795899176,
+        "observed_minus_calculated_a3": -0.397879589917693
+      },
+      {
+        "source_row": 27,
+        "temperature_k": 923.0,
+        "observed_cell_volume_a3": 1531.61,
+        "reported_volume_sd_a3": 0.16,
+        "calculated_volume_on_profiled_scale_a3": 1531.9544451147872,
+        "observed_minus_calculated_a3": -0.3444451147872769
+      },
+      {
+        "source_row": 28,
+        "temperature_k": 948.0,
+        "observed_cell_volume_a3": 1532.9,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1533.1989916603386,
+        "observed_minus_calculated_a3": -0.29899166033851543
+      },
+      {
+        "source_row": 29,
+        "temperature_k": 973.0,
+        "observed_cell_volume_a3": 1534.0,
+        "reported_volume_sd_a3": 0.14,
+        "calculated_volume_on_profiled_scale_a3": 1534.4514286784242,
+        "observed_minus_calculated_a3": -0.45142867842423584
+      },
+      {
+        "source_row": 30,
+        "temperature_k": 998.0,
+        "observed_cell_volume_a3": 1535.03,
+        "reported_volume_sd_a3": 0.12,
+        "calculated_volume_on_profiled_scale_a3": 1535.7116806473189,
+        "observed_minus_calculated_a3": -0.681680647318899
+      },
+      {
+        "source_row": 31,
+        "temperature_k": 1023.0,
+        "observed_cell_volume_a3": 1536.13,
+        "reported_volume_sd_a3": 0.1,
+        "calculated_volume_on_profiled_scale_a3": 1536.9796854249826,
+        "observed_minus_calculated_a3": -0.8496854249824537
+      },
+      {
+        "source_row": 32,
+        "temperature_k": 1048.0,
+        "observed_cell_volume_a3": 1537.42,
+        "reported_volume_sd_a3": 0.13,
+        "calculated_volume_on_profiled_scale_a3": 1538.2553928291368,
+        "observed_minus_calculated_a3": -0.8353928291367083
+      },
+      {
+        "source_row": 33,
+        "temperature_k": 1073.0,
+        "observed_cell_volume_a3": 1538.29,
+        "reported_volume_sd_a3": 0.16,
+        "calculated_volume_on_profiled_scale_a3": 1539.5387634092353,
+        "observed_minus_calculated_a3": -1.24876340923538
+      }
+    ]
+  },
+  "zou_moduli": {
+    "protocol": "All 40 published KS evaluated at each reported P,T; no scale fitted. KS=KT*(1+alpha*gamma*T), gamma=gamma0*V/V0; fixed-theta Debye pressure. Volumes at high T are excluded from the 2022 fit and are never used to predict KS here.",
+    "effective_errors": "Diagnostic propagation into KS: reported KS and P errors plus the 2 percent T errors assigned in Angel S2, treated as independent. No P-KS covariance recovered. Not the original EosFit pressure-residual objective, confidence statement, or fit statistic.",
+    "residual_summary_gpa": {
+      "count": 40,
+      "mean": -0.10223174038194216,
+      "rms": 0.8154272716034429,
+      "max_absolute": 1.892906142077834
+    },
+    "conditional_effective_error_standardized_rms": 0.535908550538083,
+    "room_temperature_ratio_normalized_pressure_residual_summary_gpa": {
+      "count": 7,
+      "mean": -0.11142299352879435,
+      "rms": 0.11771251935519668,
+      "max_absolute": 0.15940908970376455
+    },
+    "rows": [
+      {
+        "source_row": 1,
+        "temperature_k": 300.0,
+        "pressure_gpa": 7.86,
+        "observed_ks_gpa": 204.9,
+        "reported_ks_error_gpa": 1.2,
+        "calculated_ks_gpa": 205.6383055618074,
+        "observed_minus_calculated_ks_gpa": -0.7383055618074081,
+        "angel_assigned_temperature_error_k": 6.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.2211146924793614,
+        "volume_used_by_angel_2022": true,
+        "ratio_normalized_volume_cm3_mol": 108.435105,
+        "observed_minus_calculated_pressure_gpa": -0.053350170377936657
+      },
+      {
+        "source_row": 2,
+        "temperature_k": 300.0,
+        "pressure_gpa": 9.84,
+        "observed_ks_gpa": 214.6,
+        "reported_ks_error_gpa": 1.3,
+        "calculated_ks_gpa": 214.2431107769743,
+        "observed_minus_calculated_ks_gpa": 0.35688922302568926,
+        "angel_assigned_temperature_error_k": 6.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.3269816534117849,
+        "volume_used_by_angel_2022": true,
+        "ratio_normalized_volume_cm3_mol": 107.405622,
+        "observed_minus_calculated_pressure_gpa": -0.06588577561524644
+      },
+      {
+        "source_row": 3,
+        "temperature_k": 300.0,
+        "pressure_gpa": 12.48,
+        "observed_ks_gpa": 226.6,
+        "reported_ks_error_gpa": 1.4,
+        "calculated_ks_gpa": 225.6092208930272,
+        "observed_minus_calculated_ks_gpa": 0.9907791069727807,
+        "angel_assigned_temperature_error_k": 6.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.4425047767911092,
+        "volume_used_by_angel_2022": true,
+        "ratio_normalized_volume_cm3_mol": 106.104627,
+        "observed_minus_calculated_pressure_gpa": -0.09412182710715378
+      },
+      {
+        "source_row": 4,
+        "temperature_k": 300.0,
+        "pressure_gpa": 14.21,
+        "observed_ks_gpa": 234.3,
+        "reported_ks_error_gpa": 1.9,
+        "calculated_ks_gpa": 232.9963497438142,
+        "observed_minus_calculated_ks_gpa": 1.3036502561858185,
+        "angel_assigned_temperature_error_k": 6.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.9683193289375298,
+        "volume_used_by_angel_2022": true,
+        "ratio_normalized_volume_cm3_mol": 105.29009099999999,
+        "observed_minus_calculated_pressure_gpa": -0.12486422527842045
+      },
+      {
+        "source_row": 5,
+        "temperature_k": 300.0,
+        "pressure_gpa": 15.21,
+        "observed_ks_gpa": 238.5,
+        "reported_ks_error_gpa": 1.2,
+        "calculated_ks_gpa": 237.24570533467576,
+        "observed_minus_calculated_ks_gpa": 1.2542946653242382,
+        "angel_assigned_temperature_error_k": 6.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.2483986558440858,
+        "volume_used_by_angel_2022": true,
+        "ratio_normalized_volume_cm3_mol": 104.837571,
+        "observed_minus_calculated_pressure_gpa": -0.1344508951155028
+      },
+      {
+        "source_row": 6,
+        "temperature_k": 300.0,
+        "pressure_gpa": 15.71,
+        "observed_ks_gpa": 241.1,
+        "reported_ks_error_gpa": 1.9,
+        "calculated_ks_gpa": 239.36491982386795,
+        "observed_minus_calculated_ks_gpa": 1.735080176132044,
+        "angel_assigned_temperature_error_k": 6.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.9676310504079242,
+        "volume_used_by_angel_2022": true,
+        "ratio_normalized_volume_cm3_mol": 104.61131099999999,
+        "observed_minus_calculated_pressure_gpa": -0.1478789715035358
+      },
+      {
+        "source_row": 7,
+        "temperature_k": 300.0,
+        "pressure_gpa": 16.27,
+        "observed_ks_gpa": 243.5,
+        "reported_ks_error_gpa": 3.1,
+        "calculated_ks_gpa": 241.73421761277987,
+        "observed_minus_calculated_ks_gpa": 1.7657823872201277,
+        "angel_assigned_temperature_error_k": 6.0,
+        "conditional_diagonal_effective_ks_error_gpa": 3.2250974368907777,
+        "volume_used_by_angel_2022": true,
+        "ratio_normalized_volume_cm3_mol": 104.36242499999999,
+        "observed_minus_calculated_pressure_gpa": -0.15940908970376455
+      },
+      {
+        "source_row": 8,
+        "temperature_k": 500.0,
+        "pressure_gpa": 8.26,
+        "observed_ks_gpa": 203.6,
+        "reported_ks_error_gpa": 1.0,
+        "calculated_ks_gpa": 204.94192304100747,
+        "observed_minus_calculated_ks_gpa": -1.341923041007476,
+        "angel_assigned_temperature_error_k": 10.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.0245035326986867,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 9,
+        "temperature_k": 500.0,
+        "pressure_gpa": 10.03,
+        "observed_ks_gpa": 212.3,
+        "reported_ks_error_gpa": 1.3,
+        "calculated_ks_gpa": 212.64141459033488,
+        "observed_minus_calculated_ks_gpa": -0.341414590334864,
+        "angel_assigned_temperature_error_k": 10.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.3328311268875892,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 10,
+        "temperature_k": 500.0,
+        "pressure_gpa": 12.8,
+        "observed_ks_gpa": 224.5,
+        "reported_ks_error_gpa": 1.7,
+        "calculated_ks_gpa": 224.57911901879555,
+        "observed_minus_calculated_ks_gpa": -0.07911901879555217,
+        "angel_assigned_temperature_error_k": 10.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.7584620255287724,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 11,
+        "temperature_k": 500.0,
+        "pressure_gpa": 14.62,
+        "observed_ks_gpa": 232.7,
+        "reported_ks_error_gpa": 1.4,
+        "calculated_ks_gpa": 232.35428567330507,
+        "observed_minus_calculated_ks_gpa": 0.3457143266949174,
+        "angel_assigned_temperature_error_k": 10.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.4577688135230633,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 12,
+        "temperature_k": 500.0,
+        "pressure_gpa": 15.62,
+        "observed_ks_gpa": 237.1,
+        "reported_ks_error_gpa": 1.6,
+        "calculated_ks_gpa": 236.60482175032388,
+        "observed_minus_calculated_ks_gpa": 0.49517824967611546,
+        "angel_assigned_temperature_error_k": 10.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.6721158896386943,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 13,
+        "temperature_k": 500.0,
+        "pressure_gpa": 16.11,
+        "observed_ks_gpa": 239.2,
+        "reported_ks_error_gpa": 2.1,
+        "calculated_ks_gpa": 238.68222555888926,
+        "observed_minus_calculated_ks_gpa": 0.5177744411107312,
+        "angel_assigned_temperature_error_k": 10.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.186269093437676,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 14,
+        "temperature_k": 500.0,
+        "pressure_gpa": 16.43,
+        "observed_ks_gpa": 240.5,
+        "reported_ks_error_gpa": 2.1,
+        "calculated_ks_gpa": 240.03703468104956,
+        "observed_minus_calculated_ks_gpa": 0.46296531895043813,
+        "angel_assigned_temperature_error_k": 10.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.1979323961619395,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 15,
+        "temperature_k": 700.0,
+        "pressure_gpa": 9.01,
+        "observed_ks_gpa": 203.4,
+        "reported_ks_error_gpa": 1.4,
+        "calculated_ks_gpa": 205.29290614207784,
+        "observed_minus_calculated_ks_gpa": -1.892906142077834,
+        "angel_assigned_temperature_error_k": 14.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.4400995785669215,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 16,
+        "temperature_k": 700.0,
+        "pressure_gpa": 10.72,
+        "observed_ks_gpa": 211.8,
+        "reported_ks_error_gpa": 1.3,
+        "calculated_ks_gpa": 212.7285465529046,
+        "observed_minus_calculated_ks_gpa": -0.928546552904578,
+        "angel_assigned_temperature_error_k": 14.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.3424833074665095,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 17,
+        "temperature_k": 700.0,
+        "pressure_gpa": 13.59,
+        "observed_ks_gpa": 224.6,
+        "reported_ks_error_gpa": 1.5,
+        "calculated_ks_gpa": 225.09138080923066,
+        "observed_minus_calculated_ks_gpa": -0.4913808092306624,
+        "angel_assigned_temperature_error_k": 14.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.5628121891107298,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 18,
+        "temperature_k": 700.0,
+        "pressure_gpa": 15.5,
+        "observed_ks_gpa": 233.2,
+        "reported_ks_error_gpa": 1.3,
+        "calculated_ks_gpa": 233.24430374656845,
+        "observed_minus_calculated_ks_gpa": -0.0443037465684597,
+        "angel_assigned_temperature_error_k": 14.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.3710481514402764,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 19,
+        "temperature_k": 700.0,
+        "pressure_gpa": 16.33,
+        "observed_ks_gpa": 236.7,
+        "reported_ks_error_gpa": 1.8,
+        "calculated_ks_gpa": 236.7698686767619,
+        "observed_minus_calculated_ks_gpa": -0.06986867676189945,
+        "angel_assigned_temperature_error_k": 14.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.8939430510985866,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 20,
+        "temperature_k": 700.0,
+        "pressure_gpa": 16.74,
+        "observed_ks_gpa": 238.9,
+        "reported_ks_error_gpa": 2.0,
+        "calculated_ks_gpa": 238.50768262137257,
+        "observed_minus_calculated_ks_gpa": 0.392317378627439,
+        "angel_assigned_temperature_error_k": 14.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.096306200265974,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 21,
+        "temperature_k": 700.0,
+        "pressure_gpa": 17.09,
+        "observed_ks_gpa": 240.2,
+        "reported_ks_error_gpa": 2.1,
+        "calculated_ks_gpa": 239.98926664336892,
+        "observed_minus_calculated_ks_gpa": 0.21073335663106718,
+        "angel_assigned_temperature_error_k": 14.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.2035158797026315,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 22,
+        "temperature_k": 900.0,
+        "pressure_gpa": 9.58,
+        "observed_ks_gpa": 202.8,
+        "reported_ks_error_gpa": 1.2,
+        "calculated_ks_gpa": 204.67077177306615,
+        "observed_minus_calculated_ks_gpa": -1.8707717730661386,
+        "angel_assigned_temperature_error_k": 18.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.2608750136007385,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 23,
+        "temperature_k": 900.0,
+        "pressure_gpa": 11.11,
+        "observed_ks_gpa": 210.2,
+        "reported_ks_error_gpa": 1.6,
+        "calculated_ks_gpa": 211.329283531426,
+        "observed_minus_calculated_ks_gpa": -1.1292835314260117,
+        "angel_assigned_temperature_error_k": 18.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.6614939966964604,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 24,
+        "temperature_k": 900.0,
+        "pressure_gpa": 14.18,
+        "observed_ks_gpa": 224.0,
+        "reported_ks_error_gpa": 1.6,
+        "calculated_ks_gpa": 224.56287796668914,
+        "observed_minus_calculated_ks_gpa": -0.5628779666891432,
+        "angel_assigned_temperature_error_k": 18.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.6798552578593164,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 25,
+        "temperature_k": 900.0,
+        "pressure_gpa": 16.16,
+        "observed_ks_gpa": 232.6,
+        "reported_ks_error_gpa": 1.2,
+        "calculated_ks_gpa": 233.0154434562825,
+        "observed_minus_calculated_ks_gpa": -0.4154434562825031,
+        "angel_assigned_temperature_error_k": 18.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.2899045939255631,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 26,
+        "temperature_k": 900.0,
+        "pressure_gpa": 16.98,
+        "observed_ks_gpa": 236.3,
+        "reported_ks_error_gpa": 1.9,
+        "calculated_ks_gpa": 236.4984165000467,
+        "observed_minus_calculated_ks_gpa": -0.198416500046676,
+        "angel_assigned_temperature_error_k": 18.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.009850137834992,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 27,
+        "temperature_k": 900.0,
+        "pressure_gpa": 17.36,
+        "observed_ks_gpa": 237.9,
+        "reported_ks_error_gpa": 2.9,
+        "calculated_ks_gpa": 238.10911640278903,
+        "observed_minus_calculated_ks_gpa": -0.20911640278902155,
+        "angel_assigned_temperature_error_k": 18.0,
+        "conditional_diagonal_effective_ks_error_gpa": 3.058620042371819,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 28,
+        "temperature_k": 900.0,
+        "pressure_gpa": 17.65,
+        "observed_ks_gpa": 239.4,
+        "reported_ks_error_gpa": 2.1,
+        "calculated_ks_gpa": 239.33692766323028,
+        "observed_minus_calculated_ks_gpa": 0.06307233676972146,
+        "angel_assigned_temperature_error_k": 18.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.223738797605146,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 29,
+        "temperature_k": 1100.0,
+        "pressure_gpa": 11.91,
+        "observed_ks_gpa": 210.5,
+        "reported_ks_error_gpa": 1.7,
+        "calculated_ks_gpa": 211.6189450415113,
+        "observed_minus_calculated_ks_gpa": -1.1189450415112958,
+        "angel_assigned_temperature_error_k": 22.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.7895423957792178,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 30,
+        "temperature_k": 1100.0,
+        "pressure_gpa": 15.03,
+        "observed_ks_gpa": 224.4,
+        "reported_ks_error_gpa": 1.6,
+        "calculated_ks_gpa": 225.0605083826197,
+        "observed_minus_calculated_ks_gpa": -0.660508382619696,
+        "angel_assigned_temperature_error_k": 22.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.7039552002897747,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 31,
+        "temperature_k": 1100.0,
+        "pressure_gpa": 16.73,
+        "observed_ks_gpa": 232.0,
+        "reported_ks_error_gpa": 1.5,
+        "calculated_ks_gpa": 232.31671594835993,
+        "observed_minus_calculated_ks_gpa": -0.3167159483599278,
+        "angel_assigned_temperature_error_k": 22.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.6091358806462004,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 32,
+        "temperature_k": 1100.0,
+        "pressure_gpa": 17.18,
+        "observed_ks_gpa": 233.7,
+        "reported_ks_error_gpa": 1.6,
+        "calculated_ks_gpa": 234.22999903716098,
+        "observed_minus_calculated_ks_gpa": -0.5299990371609908,
+        "angel_assigned_temperature_error_k": 22.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.7145792044939636,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 33,
+        "temperature_k": 1100.0,
+        "pressure_gpa": 17.82,
+        "observed_ks_gpa": 236.9,
+        "reported_ks_error_gpa": 1.9,
+        "calculated_ks_gpa": 236.9459012178125,
+        "observed_minus_calculated_ks_gpa": -0.04590121781248513,
+        "angel_assigned_temperature_error_k": 22.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.033145655610213,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 34,
+        "temperature_k": 1100.0,
+        "pressure_gpa": 18.28,
+        "observed_ks_gpa": 238.6,
+        "reported_ks_error_gpa": 2.4,
+        "calculated_ks_gpa": 238.89424483476887,
+        "observed_minus_calculated_ks_gpa": -0.2942448347688753,
+        "angel_assigned_temperature_error_k": 22.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.541533579706242,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 35,
+        "temperature_k": 1300.0,
+        "pressure_gpa": 17.78,
+        "observed_ks_gpa": 233.5,
+        "reported_ks_error_gpa": 1.4,
+        "calculated_ks_gpa": 233.61197898816627,
+        "observed_minus_calculated_ks_gpa": -0.11197898816627117,
+        "angel_assigned_temperature_error_k": 26.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.532920403151286,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 36,
+        "temperature_k": 1300.0,
+        "pressure_gpa": 18.5,
+        "observed_ks_gpa": 236.2,
+        "reported_ks_error_gpa": 1.7,
+        "calculated_ks_gpa": 236.66775436779756,
+        "observed_minus_calculated_ks_gpa": -0.46775436779756774,
+        "angel_assigned_temperature_error_k": 26.0,
+        "conditional_diagonal_effective_ks_error_gpa": 1.8473538070704247,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 37,
+        "temperature_k": 1300.0,
+        "pressure_gpa": 18.98,
+        "observed_ks_gpa": 238.6,
+        "reported_ks_error_gpa": 2.2,
+        "calculated_ks_gpa": 238.70069252751063,
+        "observed_minus_calculated_ks_gpa": -0.10069252751063118,
+        "angel_assigned_temperature_error_k": 26.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.3643753310445272,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 38,
+        "temperature_k": 1500.0,
+        "pressure_gpa": 19.08,
+        "observed_ks_gpa": 236.2,
+        "reported_ks_error_gpa": 2.0,
+        "calculated_ks_gpa": 235.93759763508857,
+        "observed_minus_calculated_ks_gpa": 0.26240236491142355,
+        "angel_assigned_temperature_error_k": 30.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.1657905154588937,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 39,
+        "temperature_k": 1500.0,
+        "pressure_gpa": 19.46,
+        "observed_ks_gpa": 237.5,
+        "reported_ks_error_gpa": 2.3,
+        "calculated_ks_gpa": 237.54783987368936,
+        "observed_minus_calculated_ks_gpa": -0.04783987368935527,
+        "angel_assigned_temperature_error_k": 30.0,
+        "conditional_diagonal_effective_ks_error_gpa": 2.483380472770927,
+        "volume_used_by_angel_2022": false
+      },
+      {
+        "source_row": 40,
+        "temperature_k": 1700.0,
+        "pressure_gpa": 19.86,
+        "observed_ks_gpa": 235.8,
+        "reported_ks_error_gpa": 3.9,
+        "calculated_ks_gpa": 236.03764521432493,
+        "observed_minus_calculated_ks_gpa": -0.23764521432491392,
+        "angel_assigned_temperature_error_k": 34.0,
+        "conditional_diagonal_effective_ks_error_gpa": 4.193498331436542,
+        "volume_used_by_angel_2022": false
+      }
+    ]
+  },
+  "hartwig_expansion": {
+    "protocol": "All 12 literal Vmeas rows at 1 bar, fixed source EOS, one constant molar-volume scale profiled by unweighted least squares (equivalent to the common initial 0.03 cm3/mol error). Neither T nor error multipliers fitted. Not the original 2022 normalization, effective-variance objective or increased weighting.",
+    "profiled_molar_volume_at_298k_cm3_mol": 113.17434866917982,
+    "residual_summary_cm3_mol": {
+      "count": 12,
+      "mean": -6.99724968076983e-05,
+      "rms": 0.018839656092567537,
+      "max_absolute": 0.04104529175481275
+    },
+    "initial_assigned_volume_error_only_standardized_rms": 0.6279885364189179,
+    "temperature_range_k": [
+      103.0,
+      650.0
+    ],
+    "source_checks": "Compare a^3 NA/Z using exact NA and Z=8; flag differences beyond printed-number rounding only. Compare Vmeas-Vcalc with the literal deltaV column. Flags establish internal source-table discrepancies under these conventions, not corrected measurements or a measurement-error/confidence estimate.",
+    "qualification": "Publisher measured-volume column recovered; exact column/corrections used by Angel 2022 and increased Hartwig error/weight multiplier remain unavailable. Do not substitute lattice-derived volumes or calculated/interpolated columns, or infer the multiplier from apparent curve agreement.",
+    "rows": [
+      {
+        "source_row": 1,
+        "temperature_k": 103.0,
+        "measured_molar_volume_cm3_mol": 112.8317,
+        "calculated_on_profiled_scale_cm3_mol": 112.83839714278717,
+        "measured_minus_eos_cm3_mol": -0.006697142787174926,
+        "angel_initial_assigned_temperature_error_k": 1.03,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 112.83104668589111,
+        "measured_volume_minus_lattice_volume_cm3_mol": 0.0006533141088880257,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": false,
+        "source_delta_discrepancy_cm3_mol": -1.7507696681295926e-15,
+        "source_delta_discrepancy_exceeds_printed_rounding": false
+      },
+      {
+        "source_row": 2,
+        "temperature_k": 153.0,
+        "measured_molar_volume_cm3_mol": 112.8652,
+        "calculated_on_profiled_scale_cm3_mol": 112.88367969040613,
+        "measured_minus_eos_cm3_mol": -0.018479690406124405,
+        "angel_initial_assigned_temperature_error_k": 1.53,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 112.8665433402148,
+        "measured_volume_minus_lattice_volume_cm3_mol": -0.0013433402148024243,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": false,
+        "source_delta_discrepancy_cm3_mol": -3.9560368869651086e-15,
+        "source_delta_discrepancy_exceeds_printed_rounding": false
+      },
+      {
+        "source_row": 3,
+        "temperature_k": 203.0,
+        "measured_molar_volume_cm3_mol": 112.9373,
+        "calculated_on_profiled_scale_cm3_mol": 112.9617819747528,
+        "measured_minus_eos_cm3_mol": -0.02448197475280267,
+        "angel_initial_assigned_temperature_error_k": 2.0300000000000002,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 112.94347829619312,
+        "measured_volume_minus_lattice_volume_cm3_mol": -0.006178296193127153,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": true,
+        "source_delta_discrepancy_cm3_mol": -0.004800000000010709,
+        "source_delta_discrepancy_exceeds_printed_rounding": true
+      },
+      {
+        "source_row": 4,
+        "temperature_k": 253.0,
+        "measured_molar_volume_cm3_mol": 113.0406,
+        "calculated_on_profiled_scale_cm3_mol": 113.06534265186815,
+        "measured_minus_eos_cm3_mol": -0.024742651868152166,
+        "angel_initial_assigned_temperature_error_k": 2.5300000000000002,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 113.05006132604784,
+        "measured_volume_minus_lattice_volume_cm3_mol": -0.009461326047841112,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": true,
+        "source_delta_discrepancy_cm3_mol": -0.008400000000004071,
+        "source_delta_discrepancy_exceeds_printed_rounding": true
+      },
+      {
+        "source_row": 5,
+        "temperature_k": 297.5,
+        "measured_molar_volume_cm3_mol": 113.1639,
+        "calculated_on_profiled_scale_cm3_mol": 113.17300566064802,
+        "measured_minus_eos_cm3_mol": -0.009105660648017988,
+        "angel_initial_assigned_temperature_error_k": 2.975,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 113.15671138866688,
+        "measured_volume_minus_lattice_volume_cm3_mol": 0.0071886113331203205,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": true,
+        "source_delta_discrepancy_cm3_mol": -0.13120000000000448,
+        "source_delta_discrepancy_exceeds_printed_rounding": true
+      },
+      {
+        "source_row": 6,
+        "temperature_k": 347.5,
+        "measured_molar_volume_cm3_mol": 113.3055,
+        "calculated_on_profiled_scale_cm3_mol": 113.30659647053916,
+        "measured_minus_eos_cm3_mol": -0.0010964705391671714,
+        "angel_initial_assigned_temperature_error_k": 3.475,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 113.29308405140897,
+        "measured_volume_minus_lattice_volume_cm3_mol": 0.012415948591026904,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": true,
+        "source_delta_discrepancy_cm3_mol": 0.01039999999999236,
+        "source_delta_discrepancy_exceeds_printed_rounding": true
+      },
+      {
+        "source_row": 7,
+        "temperature_k": 391.0,
+        "measured_molar_volume_cm3_mol": 113.4362,
+        "calculated_on_profiled_scale_cm3_mol": 113.43101149274564,
+        "measured_minus_eos_cm3_mol": 0.00518850725435982,
+        "angel_initial_assigned_temperature_error_k": 3.91,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 113.43847105555821,
+        "measured_volume_minus_lattice_volume_cm3_mol": -0.0022710555582108327,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": true,
+        "source_delta_discrepancy_cm3_mol": 0.011350000000006162,
+        "source_delta_discrepancy_exceeds_printed_rounding": true
+      },
+      {
+        "source_row": 8,
+        "temperature_k": 451.0,
+        "measured_molar_volume_cm3_mol": 113.6071,
+        "calculated_on_profiled_scale_cm3_mol": 113.61211027170431,
+        "measured_minus_eos_cm3_mol": -0.005010271704307456,
+        "angel_initial_assigned_temperature_error_k": 4.51,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 113.60775115044478,
+        "measured_volume_minus_lattice_volume_cm3_mol": -0.0006511504447814787,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": false,
+        "source_delta_discrepancy_cm3_mol": 2.159730727591125e-15,
+        "source_delta_discrepancy_exceeds_printed_rounding": false
+      },
+      {
+        "source_row": 9,
+        "temperature_k": 500.0,
+        "measured_molar_volume_cm3_mol": 113.7705,
+        "calculated_on_profiled_scale_cm3_mol": 113.76645533547554,
+        "measured_minus_eos_cm3_mol": 0.0040446645244571755,
+        "angel_initial_assigned_temperature_error_k": 5.0,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 113.77422533826835,
+        "measured_volume_minus_lattice_volume_cm3_mol": -0.0037253382683530845,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": true,
+        "source_delta_discrepancy_cm3_mol": -0.0016000000000082081,
+        "source_delta_discrepancy_exceeds_printed_rounding": true
+      },
+      {
+        "source_row": 10,
+        "temperature_k": 550.0,
+        "measured_molar_volume_cm3_mol": 113.9416,
+        "calculated_on_profiled_scale_cm3_mol": 113.9287980840572,
+        "measured_minus_eos_cm3_mol": 0.0128019159427879,
+        "angel_initial_assigned_temperature_error_k": 5.5,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 113.94383920816254,
+        "measured_volume_minus_lattice_volume_cm3_mol": -0.002239208162549744,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": true,
+        "source_delta_discrepancy_cm3_mol": -0.0012000000000015687,
+        "source_delta_discrepancy_exceeds_printed_rounding": true
+      },
+      {
+        "source_row": 11,
+        "temperature_k": 600.0,
+        "measured_molar_volume_cm3_mol": 114.121,
+        "calculated_on_profiled_scale_cm3_mol": 114.09530618673236,
+        "measured_minus_eos_cm3_mol": 0.025693813267636756,
+        "angel_initial_assigned_temperature_error_k": 6.0,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 113.97063574542022,
+        "measured_volume_minus_lattice_volume_cm3_mol": 0.15036425457977032,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": true,
+        "source_delta_discrepancy_cm3_mol": 0.1498000000000012,
+        "source_delta_discrepancy_exceeds_printed_rounding": true
+      },
+      {
+        "source_row": 12,
+        "temperature_k": 650.0,
+        "measured_molar_volume_cm3_mol": 114.3065,
+        "calculated_on_profiled_scale_cm3_mol": 114.26545470824519,
+        "measured_minus_eos_cm3_mol": 0.04104529175481275,
+        "angel_initial_assigned_temperature_error_k": 6.5,
+        "angel_initial_assigned_volume_error_cm3_mol": 0.03,
+        "volume_from_printed_lattice_a_cm3_mol": 114.30743875604824,
+        "measured_volume_minus_lattice_volume_cm3_mol": -0.0009387560482423396,
+        "lattice_volume_discrepancy_exceeds_printed_rounding": false,
+        "source_delta_discrepancy_cm3_mol": -0.0004000000000054793,
+        "source_delta_discrepancy_exceeds_printed_rounding": true
+      }
+    ]
+  },
+  "official_calculator_checks": [
+    {
+      "pressure_gpa": 0.0,
+      "temperature_k": 298.0,
+      "volume_cm3_mol": 113.13,
+      "kt_gpa": 169.339,
+      "ks_gpa": 170.6879,
+      "alpha_per_k": 2.2563e-05,
+      "gamma": 1.1847,
+      "independent_minus_eosfit": {
+        "volume_cm3_mol": -1.4210854715202004e-14,
+        "kt_gpa": 0.0,
+        "alpha_per_k": -1.0714663511090464e-12,
+        "gamma": -2.220446049250313e-16,
+        "ks_gpa": -4.002223278121164e-06
+      }
+    },
+    {
+      "pressure_gpa": 10.0,
+      "temperature_k": 1000.0,
+      "volume_cm3_mol": 109.1049,
+      "kt_gpa": 199.1179,
+      "ks_gpa": 204.9127,
+      "alpha_per_k": 2.5471e-05,
+      "gamma": 1.1425,
+      "independent_minus_eosfit": {
+        "volume_cm3_mol": 3.0124861950753257e-05,
+        "kt_gpa": 0.00015176995134424942,
+        "alpha_per_k": 3.218148137567895e-10,
+        "gamma": 4.937433858342999e-05,
+        "ks_gpa": 0.00013365903916451316
+      }
+    },
+    {
+      "pressure_gpa": 19.86,
+      "temperature_k": 1700.0,
+      "volume_cm3_mol": 105.9341,
+      "kt_gpa": 226.2877,
+      "ks_gpa": 236.0387,
+      "alpha_per_k": 2.2849e-05,
+      "gamma": 1.1093,
+      "independent_minus_eosfit": {
+        "volume_cm3_mol": 1.556987925255271e-05,
+        "kt_gpa": 2.9898930165472848e-05,
+        "alpha_per_k": 3.106544692712057e-10,
+        "gamma": 4.453032472362395e-05,
+        "ks_gpa": 3.706748114495895e-05
+      }
+    }
+  ],
+  "qualification": "Zou subset agrees at the scale of reported/assigned errors. Milani expansion shape has measurable residual tension on its reported volume precision alone. Hartwig's 12 measured-volume rows are recovered but its source table has internal discrepancies and the 2022 increased weight is unrecovered. These comparisons do not establish the complete joint-fit statistic or author-workflow parity. Original normalizations, source-used Hartwig values, weighting and other unrecovered inputs remain necessary for a source-protocol replay. No recommendation/default or catalog classification changed by this audit."
+}

@@ -1,0 +1,248 @@
+***********************************************************************************************************************
+*                                                                                                                     *
+*                                                     EOSFIT7c                                                        *
+*                                                                                                                     *
+*             Authors: RJ ANGEL, J GONZALEZ-PLATAS, M ALVARO, ML MAZZUCCHELLI                                         *
+*        Version date: 13-May-2021                                                                                    *
+*             Version:  7.60                                                                                          *
+*                                                                                                                     *
+*                                                                                                                     *
+*        INCLUDING LEAST SQUARES BY I.G. WOOD & J. PIPER AND USING THE CrysFML EOS MODULE.                            *
+*                                                                                                                     *
+*        EosFit7c: Angel, Gonzalez-Platas, Alvaro (2014) Zeitschrift fuer Kristallographie, 229:405-419.              *
+*        Phase Transitions: Angel et al (2017) Contribs Min Pet, DOI:10.1007/s00410-017-1349-x                        *
+*        Fitting Moduli: Milani et al. (2017) Amer Min, DOI:10.2138/am-2017-5855                                      *
+*                                                                                                                     *
+*        Development currently supported by ERC grant 714936, TrueDepths to M. Alvaro, and                            *
+*                          Agencia Estatal de Investigacion under                                                     *
+*        National Program of Sciences and Technological Materials (PID2019-106383GB-C44) to J. Gonzalez-Platas        *
+*        For more information see the help system                                                                     *
+*                                                                                                                     *
+*                                                                                                                     *
+*        Current date and time: 12-NOV-2026 11:35                                                                     *
+*                                                                                                                     *
+***********************************************************************************************************************
+
+EOSFIT-7.6>
+
+Successfully opened file with eos
+Named /Users/clemens/Programming/peritheos/output/pyrope-full-fit-2026-11-12/sources/quartz-1997.eos
+
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: PV_quartz EoS
+Eos Saved: 
+  Comment: high pressure equation of state for quartz
+  Comment: Data taken from Angel et al. (1997), J. App. Cryst. 30:461
+ 
+   System: Trigonal
+    Class: Volume
+   Pscale: GPa
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  112.9809(20)      :Reference pressure volume: units as volume data
+      K0:  37.13(9)          :Bulk modulus: units are  GPa
+      Kp:  5.99(5)           :dK/dP: dimensionless
+     Kpp: -0.2648            :d2K/dP2: units are inverse  GPa [IMPLIED VALUE]
+ 
+ 
+
+EOSFIT-7.6> 
+ 
+  EOS Information
+-------------------
+ 
+    Title: PV_quartz EoS
+Eos Saved: 
+  Comment: high pressure equation of state for quartz
+  Comment: Data taken from Angel et al. (1997), J. App. Cryst. 30:461
+ 
+   System: Trigonal
+    Class: Volume
+   Pscale: GPa
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  112.9809(20)      :Reference pressure volume: units as volume data
+      K0:  37.13(9)          :Bulk modulus: units are  GPa
+      Kp:  5.99(5)           :dK/dP: dimensionless
+     Kpp: -0.2648            :d2K/dP2: units are inverse  GPa [IMPLIED VALUE]
+ 
+ 
+    Do you want to change these EoS parameters or the EoS type? (Y/N) <N>?    Do you want to input V/V(Pref,Tref) (Y/N) <N>?
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  108.84931 IS   1.546
+                     ESTIMATED UNCERTAINTY IN P =   0.003 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  107.40646 IS   2.185
+                     ESTIMATED UNCERTAINTY IN P =   0.003 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  105.93958 IS   2.895
+                     ESTIMATED UNCERTAINTY IN P =   0.003 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  103.91909 IS   3.983
+                     ESTIMATED UNCERTAINTY IN P =   0.003 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  102.10474 IS   5.081
+                     ESTIMATED UNCERTAINTY IN P =   0.003 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=   99.95026 IS   6.553
+                     ESTIMATED UNCERTAINTY IN P =   0.004 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=   98.95151 IS   7.304
+                     ESTIMATED UNCERTAINTY IN P =   0.005 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=   97.52922 IS   8.456
+                     ESTIMATED UNCERTAINTY IN P =   0.007 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=   97.86488 IS   8.175
+                     ESTIMATED UNCERTAINTY IN P =   0.007 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  100.97456 IS   5.829
+                     ESTIMATED UNCERTAINTY IN P =   0.003 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  107.56937 IS   2.110
+                     ESTIMATED UNCERTAINTY IN P =   0.003 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+EOSFIT-7.6>
+
+Successfully opened file with eos
+Named /Users/clemens/Programming/peritheos/output/pyrope-full-fit-2026-11-12/sources/quartz-2016.eos
+
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: Quartz PV EoS at Room Temperature, Scherdl et al (2016)
+Eos Saved:  9-NOV-2016 at 09:52
+  Comment: J. Applied Crystallography, vol 49. doi:10.1107/S1600576716015351
+  Comment: Fit to 94 PV data up to 19 GPa, in several different P media, no nonhydro stress detected
+  Comment: All volume data are by single-crystal diffraction
+  Comment: Pressures based on ruby pressure scale of Jacobsen et al (2008)
+ 
+   System: Trigonal
+    Class: Volume
+   Pscale: GPa
+   Vscale: A3/cell
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  4
+   Pressure of reference:    0.000
+ 
+      V0:  112.968(3)        :Reference pressure volume: units are A3/cell
+      K0:  37.0(3)           :Bulk modulus: units are GPa
+      Kp:  6.7(2)            :dK/dP: dimensionless
+     Kpp: -0.73(8)           :d2K/dP2: units are inverse GPa
+ 
+ 
+
+EOSFIT-7.6> 
+ 
+  EOS Information
+-------------------
+ 
+    Title: Quartz PV EoS at Room Temperature, Scherdl et al (2016)
+Eos Saved:  9-NOV-2016 at 09:52
+  Comment: J. Applied Crystallography, vol 49. doi:10.1107/S1600576716015351
+  Comment: Fit to 94 PV data up to 19 GPa, in several different P media, no nonhydro stress detected
+  Comment: All volume data are by single-crystal diffraction
+  Comment: Pressures based on ruby pressure scale of Jacobsen et al (2008)
+ 
+   System: Trigonal
+    Class: Volume
+   Pscale: GPa
+   Vscale: A3/cell
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  4
+   Pressure of reference:    0.000
+ 
+      V0:  112.968(3)        :Reference pressure volume: units are A3/cell
+      K0:  37.0(3)           :Bulk modulus: units are GPa
+      Kp:  6.7(2)            :dK/dP: dimensionless
+     Kpp: -0.73(8)           :d2K/dP2: units are inverse GPa
+ 
+ 
+    Do you want to change these EoS parameters or the EoS type? (Y/N) <N>?    Do you want to input V/V(Pref,Tref) (Y/N) <N>?
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  108.84931 IS   1.550
+                     ESTIMATED UNCERTAINTY IN P =   0.009 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  107.40646 IS   2.196
+                     ESTIMATED UNCERTAINTY IN P =   0.011 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  105.93958 IS   2.914
+                     ESTIMATED UNCERTAINTY IN P =   0.011 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  103.91909 IS   4.009
+                     ESTIMATED UNCERTAINTY IN P =   0.011 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  102.10474 IS   5.107
+                     ESTIMATED UNCERTAINTY IN P =   0.010 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=   99.95026 IS   6.562
+                     ESTIMATED UNCERTAINTY IN P =   0.009 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=   98.95151 IS   7.295
+                     ESTIMATED UNCERTAINTY IN P =   0.008 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=   97.52922 IS   8.409
+                     ESTIMATED UNCERTAINTY IN P =   0.008 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=   97.86488 IS   8.139
+                     ESTIMATED UNCERTAINTY IN P =   0.008 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  100.97456 IS   5.849
+                     ESTIMATED UNCERTAINTY IN P =   0.010 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+             PRESSURE AT volume=  107.56937 IS   2.120
+                     ESTIMATED UNCERTAINTY IN P =   0.010 FROM ESD(PARAMS)
+
+ INPUT volume (<cr> TO EXIT) :
+EOSFIT-7.6>

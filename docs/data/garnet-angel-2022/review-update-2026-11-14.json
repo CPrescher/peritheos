@@ -1,0 +1,20 @@
+{
+  "reviewed_on": "2026-11-14",
+  "previous_commit": "d88316cd",
+  "previous_policy_sha256": "036cecaf88bce8b4ea5603fe5ce03c0b351b6ada2c0d73ba60113783ac9318cf",
+  "previous_review_sha256": "5602983f08fe10ac2ab04922930496bf62fc3e8b4a9d51db9c26a633058fcf66",
+  "current_policy_sha256": "496d69bf061c4d717175581fb1c60352dadf81e7661e251077e8e3873137df4a",
+  "current_review_sha256": "93bc1f92630aeaa0ddbb1bc8fe85597c1469f9f1f8614e37e16fe38e44a3f18b",
+  "catalog_scientific_sha256": "e63779b4e77be476f6e865daaec8f74bddd094a6d8550641f84218f80769c595",
+  "material_bindings": {
+    "peritheos/data/materials/pyrope.eosmat": {
+      "previous_sha256": "b6d7da408758d24042854895c1ceb3af8fff21bd768efb7fba552280a3192c8c",
+      "current_sha256": "44162012efd58b77c9e1ca9ebeb4d7ea26e2a65bf95e4d13f3aa5919ca55514e"
+    },
+    "peritheos/data/materials/grossular.eosmat": {
+      "previous_sha256": "492eb1da10193140b4edceff5d7016c90ea7daabc940288a64c6dd08c0972ba0",
+      "current_sha256": "53191b8bcd5c5a816b16eeb41e972afcc0f0c658993a8113656782bee2f1bc9b"
+    }
+  },
+  "basis": "Reviewed current pyrope/grossular source/evidence and runtime export. Pyrope now exposes all194processed-input parameter/error replay; grossular source-review bindings were stale. The complete scientific snapshot is unchanged. Source parameters, covariance, structures, observation arrays, historical release/cohort receipts and upstream rights statements are retained. No new source license, blanket clearance, raw-workflow or experimental validation is inferred."
+}

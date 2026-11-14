@@ -3,9 +3,28 @@
 use crate::{IsothermalEos, ThermalEos};
 
 use super::{
-    least_squares, least_squares_structured, parameter_covariance, parameter_covariance_structured,
-    FitError, SolverOptions, SolverResult, StructuredLayout,
+    least_squares, least_squares_structured, least_squares_structured_with_jacobian,
+    least_squares_with_jacobian, parameter_covariance, parameter_covariance_structured, FitError,
+    JacobianCallback, SolverOptions, SolverResult, StructuredLayout,
 };
+
+/// Pressure derivatives in the exact order of a fit factory's parameters.
+///
+/// Coordinate derivatives are at fixed model parameters; units are pressure
+/// per volume unit and pressure per kelvin. This describes the model, not a
+/// new observation-error propagation convention.
+#[derive(Clone, Debug, PartialEq)]
+pub struct PressureDerivatives {
+    /// Pressure partials in factory-parameter order, at fixed coordinates.
+    pub parameters: Vec<f64>,
+    /// Pressure partial with respect to volume, at fixed temperature.
+    pub volume: f64,
+    /// Pressure partial with respect to temperature, at fixed volume.
+    pub temperature: f64,
+}
+
+type PressureDerivativeEvaluator<'a, M> =
+    &'a dyn Fn(&M, f64, f64) -> Result<PressureDerivatives, FitError>;
 
 /// Isothermal pressure-volume observations and their error model.
 #[derive(Clone, Copy, Debug)]
@@ -292,6 +311,68 @@ fn whiten_correlated(raw_components: &[&[f64]], cholesky: &[f64], point_count: u
 }
 
 #[allow(clippy::too_many_arguments)]
+fn observation_jacobian(
+    derivatives: &[PressureDerivatives],
+    parameter_count: usize,
+    pressure_sigma: &[f64],
+    volume_sigma: Option<&[f64]>,
+    temperature_sigma: Option<&[f64]>,
+    cholesky: Option<&[f64]>,
+) -> Result<Vec<f64>, FitError> {
+    let points = derivatives.len();
+    let latent = usize::from(volume_sigma.is_some()) + usize::from(temperature_sigma.is_some());
+    let components = 1 + latent;
+    let columns = parameter_count + points * latent;
+    let mut result = vec![0.0; components * points * columns];
+    for (point, gradient) in derivatives.iter().enumerate() {
+        if gradient.parameters.len() != parameter_count {
+            return Err(FitError::InvalidInput(
+                "pressure derivative parameter order/length must match the factory".to_owned(),
+            ));
+        }
+        let mut sigma = [pressure_sigma[point], 1.0, 1.0];
+        if let Some(values) = volume_sigma {
+            sigma[1] = values[point];
+        }
+        if let Some(values) = temperature_sigma {
+            sigma[components - 1] = values[point];
+        }
+        for local_column in 0..parameter_count + latent {
+            let mut raw = [0.0; 3];
+            let column = if local_column < parameter_count {
+                raw[0] = gradient.parameters[local_column];
+                local_column
+            } else {
+                let coordinate = local_column - parameter_count;
+                raw[0] = if coordinate == 0 && volume_sigma.is_some() {
+                    gradient.volume
+                } else {
+                    gradient.temperature
+                };
+                raw[coordinate + 1] = 1.0;
+                parameter_count + coordinate * points + point
+            };
+            // Apply the very same independent sigma or Cholesky whitening as
+            // the residuals, including correlations with latent coordinate rows.
+            for component in 0..components {
+                if let Some(factors) = cholesky {
+                    let offset = point * components * components;
+                    for previous in 0..component {
+                        raw[component] -=
+                            factors[offset + component * components + previous] * raw[previous];
+                    }
+                    raw[component] /= factors[offset + component * components + component];
+                } else {
+                    raw[component] /= sigma[component];
+                }
+                result[(component * points + point) * columns + column] = raw[component];
+            }
+        }
+    }
+    Ok(result)
+}
+
+#[allow(clippy::too_many_arguments)]
 fn solve_native<F>(
     initial: &[f64],
     lower: &[f64],
@@ -301,6 +382,7 @@ fn solve_native<F>(
     point_count: usize,
     latent_coordinate_count: usize,
     evaluate: F,
+    analytic: Option<JacobianCallback<'_>>,
 ) -> Result<SolverResult, FitError>
 where
     F: FnMut(&[f64]) -> Result<Vec<f64>, FitError>,
@@ -312,21 +394,20 @@ where
             "EOS parameter and latent-coordinate dimensions are inconsistent".to_owned(),
         ));
     }
-    if latent_coordinate_count == 0 {
-        least_squares(initial, lower, upper, options, evaluate)
-    } else {
-        least_squares_structured(
-            initial,
-            lower,
-            upper,
-            options,
-            StructuredLayout {
-                global_parameter_count: parameter_count,
-                point_count,
-                latent_coordinate_count,
-            },
-            evaluate,
-        )
+    let layout = StructuredLayout {
+        global_parameter_count: parameter_count,
+        point_count,
+        latent_coordinate_count,
+    };
+    match (latent_coordinate_count, analytic) {
+        (0, None) => least_squares(initial, lower, upper, options, evaluate),
+        (0, Some(jacobian)) => {
+            least_squares_with_jacobian(initial, lower, upper, options, evaluate, jacobian)
+        }
+        (_, Some(jacobian)) => least_squares_structured_with_jacobian(
+            initial, lower, upper, options, layout, evaluate, jacobian,
+        ),
+        (_, None) => least_squares_structured(initial, lower, upper, options, layout, evaluate),
     }
 }
 
@@ -376,6 +457,56 @@ pub fn fit_isothermal_eos<M, F>(
     upper: &[f64],
     options: SolverOptions,
     factory: F,
+) -> Result<EosFitResult, FitError>
+where
+    M: IsothermalEos,
+    F: Fn(&[f64]) -> Result<M, FitError>,
+{
+    fit_isothermal_eos_internal(observations, initial, lower, upper, options, factory, None)
+}
+
+/// Fit the same isothermal errors-in-variables objective with model derivatives.
+///
+/// `derivatives` must follow the parameter order and chain rule of `factory`.
+/// Whitening, robust loss and profiled parameter covariance are unchanged.
+///
+/// # Errors
+/// Returns an error for invalid observations, model states or derivatives.
+#[allow(clippy::too_many_arguments)]
+pub fn fit_isothermal_eos_with_derivatives<M, F, D>(
+    observations: IsothermalObservations<'_>,
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    factory: F,
+    derivatives: D,
+) -> Result<EosFitResult, FitError>
+where
+    M: IsothermalEos,
+    F: Fn(&[f64]) -> Result<M, FitError>,
+    D: Fn(&M, f64) -> Result<PressureDerivatives, FitError>,
+{
+    fit_isothermal_eos_internal(
+        observations,
+        initial,
+        lower,
+        upper,
+        options,
+        factory,
+        Some(&|model, volume, _| derivatives(model, volume)),
+    )
+}
+
+#[allow(clippy::too_many_arguments, clippy::too_many_lines)]
+fn fit_isothermal_eos_internal<M, F>(
+    observations: IsothermalObservations<'_>,
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    factory: F,
+    derivatives: Option<PressureDerivativeEvaluator<'_, M>>,
 ) -> Result<EosFitResult, FitError>
 where
     M: IsothermalEos,
@@ -448,6 +579,33 @@ where
         }
         Ok(residuals)
     };
+    let mut jacobian = |parameters: &[f64]| {
+        let model = factory(&parameters[..parameter_count])?;
+        let mut offset = parameter_count;
+        let volume = latent_slice(
+            parameters,
+            observations.volume,
+            observations.volume_sigma.is_some(),
+            &mut offset,
+        );
+        let gradients = volume
+            .iter()
+            .map(|&v| derivatives.expect("derivative callback selected")(&model, v, 0.0))
+            .collect::<Result<Vec<_>, _>>()?;
+        observation_jacobian(
+            &gradients,
+            parameter_count,
+            observations.pressure_sigma,
+            observations.volume_sigma,
+            None,
+            observations.observation_cholesky,
+        )
+    };
+    let analytic = if derivatives.is_some() {
+        Some(&mut jacobian as JacobianCallback<'_>)
+    } else {
+        None
+    };
     let solver = solve_native(
         &optimizer_initial,
         &optimizer_lower,
@@ -457,6 +615,7 @@ where
         point_count,
         latent_count,
         evaluate,
+        analytic,
     )?;
     let model = factory(&solver.parameters[..parameter_count])?;
     let volume = if observations.volume_sigma.is_some() {
@@ -559,6 +718,101 @@ pub fn fit_thermal_eos_by<M, F, P>(
     options: SolverOptions,
     factory: F,
     pressure: P,
+) -> Result<EosFitResult, FitError>
+where
+    F: Fn(&[f64]) -> Result<M, FitError>,
+    P: Fn(&M, f64, f64) -> Result<f64, FitError>,
+{
+    fit_thermal_eos_internal(
+        observations,
+        initial,
+        lower,
+        upper,
+        options,
+        factory,
+        pressure,
+        None,
+    )
+}
+
+/// Fit thermal or joint reference/thermal parameters with model derivatives.
+///
+/// `derivatives` follows the exact parameter mapping of `factory`; observations,
+/// latent-coordinate adjustment and covariance interpretation are unchanged.
+///
+/// # Errors
+/// Returns an error for invalid observations, model states or derivatives.
+#[allow(clippy::too_many_arguments)]
+pub fn fit_thermal_eos_with_derivatives<M, F, D>(
+    observations: ThermalObservations<'_>,
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    factory: F,
+    derivatives: D,
+) -> Result<EosFitResult, FitError>
+where
+    M: ThermalEos,
+    F: Fn(&[f64]) -> Result<M, FitError>,
+    D: Fn(&M, f64, f64) -> Result<PressureDerivatives, FitError>,
+{
+    fit_thermal_eos_by_with_derivatives(
+        observations,
+        initial,
+        lower,
+        upper,
+        options,
+        factory,
+        |model, volume, temperature| model.pressure(volume, temperature).map_err(FitError::from),
+        derivatives,
+    )
+}
+
+/// Type-erased thermal fitting with explicit pressure and derivative evaluators.
+///
+/// This is the derivative-enabled counterpart of [`fit_thermal_eos_by`].
+///
+/// # Errors
+/// Returns an error for invalid observations, model states or derivatives.
+#[allow(clippy::too_many_arguments)]
+pub fn fit_thermal_eos_by_with_derivatives<M, F, P, D>(
+    observations: ThermalObservations<'_>,
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    factory: F,
+    pressure: P,
+    derivatives: D,
+) -> Result<EosFitResult, FitError>
+where
+    F: Fn(&[f64]) -> Result<M, FitError>,
+    P: Fn(&M, f64, f64) -> Result<f64, FitError>,
+    D: Fn(&M, f64, f64) -> Result<PressureDerivatives, FitError>,
+{
+    fit_thermal_eos_internal(
+        observations,
+        initial,
+        lower,
+        upper,
+        options,
+        factory,
+        pressure,
+        Some(&derivatives),
+    )
+}
+
+#[allow(clippy::too_many_arguments, clippy::too_many_lines)]
+fn fit_thermal_eos_internal<M, F, P>(
+    observations: ThermalObservations<'_>,
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    factory: F,
+    pressure: P,
+    derivatives: Option<PressureDerivativeEvaluator<'_, M>>,
 ) -> Result<EosFitResult, FitError>
 where
     F: Fn(&[f64]) -> Result<M, FitError>,
@@ -674,6 +928,40 @@ where
         }
         Ok(residuals)
     };
+    let mut jacobian = |parameters: &[f64]| {
+        let model = factory(&parameters[..parameter_count])?;
+        let mut offset = parameter_count;
+        let volume = latent_slice(
+            parameters,
+            observations.volume,
+            observations.volume_sigma.is_some(),
+            &mut offset,
+        );
+        let temperature = latent_slice(
+            parameters,
+            observations.temperature,
+            observations.temperature_sigma.is_some(),
+            &mut offset,
+        );
+        let gradients = volume
+            .iter()
+            .zip(&temperature)
+            .map(|(&v, &t)| derivatives.expect("derivative callback selected")(&model, v, t))
+            .collect::<Result<Vec<_>, _>>()?;
+        observation_jacobian(
+            &gradients,
+            parameter_count,
+            observations.pressure_sigma,
+            observations.volume_sigma,
+            observations.temperature_sigma,
+            observations.observation_cholesky,
+        )
+    };
+    let analytic = if derivatives.is_some() {
+        Some(&mut jacobian as JacobianCallback<'_>)
+    } else {
+        None
+    };
     let solver = solve_native(
         &optimizer_initial,
         &optimizer_lower,
@@ -683,6 +971,7 @@ where
         point_count,
         latent_count,
         evaluate,
+        analytic,
     )?;
     let model = factory(&solver.parameters[..parameter_count])?;
     let mut offset = parameter_count;
@@ -855,5 +1144,66 @@ mod tests {
         assert_eq!(result.adjusted_volume, volume);
         assert_eq!(result.adjusted_temperature, Some(temperature.to_vec()));
         assert_eq!(result.degrees_of_freedom, 4);
+    }
+    #[test]
+    fn derivative_factory_applies_parameter_transform_chain_rule() {
+        let expected = BM3::new(10.0, 120.0, 4.0).unwrap();
+        let volume = [8.0, 8.5, 9.0, 9.5, 10.0];
+        let pressure = volume
+            .iter()
+            .enumerate()
+            .map(|(i, &v)| expected.pressure(v).unwrap() + if i % 2 == 0 { 0.02 } else { -0.02 })
+            .collect::<Vec<_>>();
+        let observations = IsothermalObservations {
+            pressure: &pressure,
+            volume: &volume,
+            pressure_sigma: &[0.1; 5],
+            volume_sigma: Some(&[0.01; 5]),
+            observation_cholesky: None,
+        };
+        let factory = |p: &[f64]| BM3::new(10.0, p[0].exp(), 4.0).map_err(FitError::from);
+        let derivatives = |model: &BM3, v| {
+            let mut gradient = super::super::bm3_pressure_derivatives(model, v, &["K0"])?;
+            gradient.parameters[0] *= model.k0; // dK0 / dln(K0)
+            Ok(gradient)
+        };
+        let analytic = fit_isothermal_eos_with_derivatives(
+            observations,
+            &[110.0_f64.ln()],
+            &[50.0_f64.ln()],
+            &[200.0_f64.ln()],
+            SolverOptions::default(),
+            factory,
+            derivatives,
+        )
+        .unwrap();
+        let numerical = fit_isothermal_eos(
+            observations,
+            &[110.0_f64.ln()],
+            &[50.0_f64.ln()],
+            &[200.0_f64.ln()],
+            SolverOptions::default(),
+            factory,
+        )
+        .unwrap();
+        assert!(analytic.solver.success && numerical.solver.success);
+        assert!((analytic.parameters[0] - numerical.parameters[0]).abs() < 1.0e-8);
+        assert!((analytic.covariance[0] / numerical.covariance[0] - 1.0).abs() < 1.0e-6);
+        let invalid = fit_isothermal_eos_with_derivatives(
+            observations,
+            &[110.0_f64.ln()],
+            &[50.0_f64.ln()],
+            &[200.0_f64.ln()],
+            SolverOptions::default(),
+            factory,
+            |_, _| {
+                Ok(PressureDerivatives {
+                    parameters: vec![],
+                    volume: 0.0,
+                    temperature: 0.0,
+                })
+            },
+        );
+        assert!(matches!(invalid, Err(FitError::InvalidInput(_))));
     }
 }

@@ -30,6 +30,7 @@ from .mie_gruneisen import (
     Tange2009Debye,
 )
 from .multi_oscillator import MultiOscillatorGruneisenThermalEOS
+from .q_compromise import QCompromiseDebye
 from .sokolova2016 import Sokolova2016
 from .sound_velocity_debye import SoundVelocityDebyeHelmholtz
 from .variable_q import VariableQMieGruneisenDebye
@@ -43,6 +44,7 @@ __all__ = [
     "HollandPowell2011",
     "HollandPowellThermalPressure",
     "LinearThermalPressure",
+    "QCompromiseDebye",
     "DebyeQuadraticThermalPressure",
     "DebyeTabulatedThermalPressure",
     "DebyeAnharmonicHelmholtz",

@@ -145,7 +145,7 @@ def test_refit_and_unresolved_source_differences(reproduce_once):
 
 def test_thermal_source_variants_are_evidence_only_and_refit_is_opt_in():
     material = get_material("siderite_fe095mn005")
-    document = material.to_eosmat()
+    document = material.to_eosmat(format_version=3)
     variants = document["source"]["thermal_parameterizations"]
     assert [v["parameters"]["alpha0"] for v in variants] == [3.57e-5, 3.77e-5]
     for variant in variants:

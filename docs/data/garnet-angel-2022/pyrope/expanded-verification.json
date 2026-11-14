@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-12",
+  "scope": "Recovery and conditional fitting, not physical validation or full author-workflow reproduction",
+  "pytest": {
+    "command": ".venv/bin/pytest -q tests/test_pyrope_expanded_refits.py tests/test_pyrope_subset_refits.py tests/test_pyrope_observation_audit.py tests/test_q_compromise_debye.py",
+    "passed": 29,
+    "seconds": 2.55
+  },
+  "ruff": {
+    "files": [
+      "scripts/digitize_pyrope_angel_2022.py",
+      "scripts/refit_pyrope_angel_2022_expanded.py",
+      "scripts/refit_pyrope_angel_2022_subset.py",
+      "scripts/run_pyrope_expanded_eosfit.py",
+      "scripts/plot_pyrope_expanded_refits.py",
+      "tests/test_pyrope_expanded_refits.py"
+    ],
+    "format_and_lint": "passed"
+  },
+  "documentation": {
+    "command": ".venv/bin/mkdocs build --strict --site-dir output/pyrope-full-fit-2026-11-12/site",
+    "exit_code": 0,
+    "seconds": 98.06,
+    "notebooks_executed": true
+  },
+  "official_quartz_pcal_checks": {
+    "passed": 22,
+    "absolute_tolerance_gpa": 0.0006,
+    "basis": "Three decimal output rounding and single precision; not original measured calibrant recovery"
+  },
+  "independent_expanded_fits": {
+    "182": "converged, rank7, no parameter bound",
+    "191": "converged, rank7, no parameter bound"
+  },
+  "official_eosfit": {
+    "182": "converged, fresh saved result checked against receipt",
+    "191": "converged, fresh saved result checked against receipt",
+    "strict_cross_solver_comparison": "not passed; retained explicitly, not hidden by passing unit tests"
+  },
+  "figures": "Both actual PNG exports inspected; light and dark SVG artifacts retained",
+  "source_and_input_hashes": "Verified against recovery and fit manifests; original pyrope source EOS SHA256 afe05fba08073b72a38bf20c03a180ff091ee89b41c9bf1c727fb19679977b33 unchanged",
+  "cleanup": "Only task-created runtime stopped; temporary /tmp/px1 and /tmp/pg-x11 links removed",
+  "catalog": "No catalog coefficients or scientific classifications changed by this follow-up",
+  "git": "No commit, push, release or deployment performed",
+  "contact": "No author contacted"
+}

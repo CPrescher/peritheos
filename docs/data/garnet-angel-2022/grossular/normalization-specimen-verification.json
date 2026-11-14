@@ -1,0 +1,51 @@
+{
+  "verified_on": "2026-11-12",
+  "scope": "Controlled normalization and specimen input hypotheses; not author-workflow reproduction, experimental validation or recommended replacement EOS",
+  "python": {
+    "targeted_tests": 23,
+    "failed": 0,
+    "seconds": 2.0,
+    "files": [
+      "tests/test_grossular_normalization_specimen.py",
+      "tests/test_grossular_full_sensitivity.py",
+      "tests/test_grossular_normalization_recovery.py",
+      "tests/test_grossular_expanded_refit.py",
+      "tests/test_grossular_followup_recovery.py",
+      "tests/test_grossular_observation_audit.py"
+    ],
+    "command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/pytest -q -W error tests/test_grossular_normalization_specimen.py tests/test_grossular_full_sensitivity.py tests/test_grossular_normalization_recovery.py tests/test_grossular_expanded_refit.py tests/test_grossular_followup_recovery.py tests/test_grossular_observation_audit.py"
+  },
+  "numerical_checks": {
+    "scientific_cases": 20,
+    "starts_per_case": 2,
+    "all40converged_without_bounds": true,
+    "maximum_scaled_start_difference": 2.557507059464115e-08,
+    "controlled_inputs": "All22 GGD moduli, other moduli, compression data and background error model exactly preserved; declared Y/sY rescaling checked",
+    "reference_and_calculated_curves": "293-to-298 strain reference and initial piecewise-linear alpha integration checked independently; calculated curves never labeled measured",
+    "optimization": "Baseline matches previous219-row fit; eleven-parameter calculated-endmember control replayed in tests; all covariance matrices positive definite",
+    "independent_equations": "All219 states of the eleven-parameter calculated-curve control checked against independent SciPy forward Debye properties and fast inversion; baseline source/fitted states checked by prior diagnostics",
+    "artifact_consistency": "All4305 pressure residuals reconcile with objectives; every native RMS reconciles with exports; paired effects and interactions checked; equivalent raw-denominator scale direction verified"
+  },
+  "style": "Ruff check and format check passed for two scripts and one test module; git diff whitespace check passed",
+  "documentation": {
+    "strict_clean_build": "passed",
+    "build_seconds": 94.581,
+    "build_command": "PYTHONPATH=<audit-worktree> <development-environment>/bin/mkdocs build --strict --site-dir <private-inspection-site>",
+    "rendered_pages_checked": 5,
+    "local_links_and_images_checked": 208,
+    "missing_targets_or_fragments": 0,
+    "light_and_dark_scatter_plots": "Both visually inspected; readable labels and legends, published reference visible"
+  },
+  "preservation": {
+    "all_five_previous_artifact_manifests": "Byte-identical in tests",
+    "canonical_observations_and_coefficients": "Unchanged",
+    "calculated_alpha_curve_is_measured": false,
+    "catalog_changes": false,
+    "author_contacted": false,
+    "pyrope_correspondence": "Waiting for reply unchanged"
+  },
+  "author_workflow_reproduced": false,
+  "physical_validation": false,
+  "branch": "codex/pyrope-angel-2022-audit",
+  "status": "passed_at_declared_scope"
+}

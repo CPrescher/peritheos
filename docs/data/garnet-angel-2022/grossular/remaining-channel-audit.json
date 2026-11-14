@@ -1,0 +1,73 @@
+{
+  "audit_date": "2026-11-12",
+  "scope": "All 73 channels excluded from the 147-channel diagnostic; source errors and plot normalization evidence kept separate from diagnostic assignments",
+  "nominal_excluded_channels": 73,
+  "groups": [
+    {
+      "dataset": "isaak_vt",
+      "nominal_channels": 15,
+      "primary_evidence": "Isaak 1992 Table 2 pp108-109; Angel 2022 S1 and Figure 4",
+      "recovered": "S1 assigns T width2 K and V width0.01 cm3/mol or better. Figure4 matches125.35*(1+0.01*observed Yv) at293 K strain reference.",
+      "remaining": "This is GR-2B (76.1%grossular), not S1-listedGGD. Exact fit-file composition treatment and confidence/covariance remain unknown.",
+      "diagnostic_action": "Include15 only in explicitly labeled source-processing replay; use S1-assigned2 K and0.01 cm3/mol, not claimed measured pure-grossular volumes."
+    },
+    {
+      "dataset": "bosenick_vt",
+      "nominal_channels": 20,
+      "primary_evidence": "Bosenick-Geiger1997 PDFpp22650-22652, Table2, DOI10.1029/97JB01612",
+      "primary_pdf_sha256": "0320173a1e1ddaa0cc453178cc77d07a1584147a89a0278c110890b1020ea4a4",
+      "recovered": "All20 table tokens and1-sigma volume errors visually verified. T accuracy +/-3K down to100K and +/-5K below100K; drift<0.1K. Fixed Vm295=125.293 normalization matches19 blue markers for rows2-20.",
+      "remaining": "T accuracy is not declared1-sigma. S1 says20used while figure has19marker paths. Primary source excludes cooling below150K and20K in its own fits, unlike all-row2022 plot. Exact author fit mask and shared anchor-error treatment remain unknown.",
+      "diagnostic_action": "Use19 non-anchor rows matching Figure4, reported volume widths and3/5K as conditional diagonal T weights. Do not impose the primary paper own mask on the2022 replay."
+    },
+    {
+      "dataset": "thieblot_vt",
+      "nominal_channels": 7,
+      "primary_evidence": "Angel2022 S1 and Figure4; original1998 full table unavailable",
+      "recovered": "Seven digitized processed points. S1 says preliminaryEOS supplies V300/V298 because no V0 was measured on the same diffractometer.",
+      "remaining": "Original values, numerical experimental coordinate errors, power-calibration errors and preliminaryEOS coefficients are unrecovered. Main-text exclusion prose conflicts withS1 and officialEOS comments.",
+      "diagnostic_action": "Exclude7 from weighted fit. Digitization bounds are not experimental errors; do not synthesize weights."
+    },
+    {
+      "dataset": "rodehorst_vt",
+      "nominal_channels": 9,
+      "primary_evidence": "Rodehorst2002 primaryTable4A indexed text,p545, DOI10.2138/am-2002-0417; AngelFigure4",
+      "recovered": "Uniformsigmaa=0.001A,10tabulateda/Tpairs. Normalize by a298=11.850A; omit298K anchor. Figure4 also contains10markers but156K point differs from literal a=11.842A byabout0.03cm3/mol.",
+      "remaining": "Numerical T errors not yet recovered; primaryPDF access blocked atRRUFF human-confirmation gate and publisherunlicensed. Exact2022rowvalue at156K unknown.",
+      "diagnostic_action": "Use9 literal primarytable rows, sigmaV=3*125.35*a^2*sigmaa/a298^3. MissingT-error term omitted, not knownzero. Do not repair156K to plottedvalue."
+    },
+    {
+      "dataset": "isaak_ks_missing_errors",
+      "nominal_channels": 19,
+      "primary_evidence": "Isaak1992 Table3b,p112 and paragraphp110",
+      "recovered": "Primary text explicitly says errors are listed at representative temperatures and include density uncertainty and modal-frequency standard deviations. PrintedKSwidths:300K0.71GPa,800K1.02GPa,1300K1.20GPa.",
+      "remaining": "Nineteen per-row errors and original resonant-mode covariance/data are not published here; polynomial coefficient errors cannot supply independent observation errors.",
+      "diagnostic_action": "Exclude19. Do not interpolate the three representative widths as recovered source errors."
+    },
+    {
+      "dataset": "conrad_ks",
+      "nominal_channels": 3,
+      "primary_evidence": "Conrad1999 Table6,p379; nonlinearvelocityinversionmethodp377; AngelS1",
+      "recovered": "KS=(C11+2C12)/3; covariance-free admissible sigmaKS interval=[abs(sigma11-2sigma12)/3,(sigma11+2sigma12)/3]. S1 assigns sigmaP=0.1GPa.",
+      "remaining": "C11/C12 covariance and exact author-assigned KS error are absent.",
+      "diagnostic_action": "Use upper bound as conservative diagnostic modulus width, not recovered1-sigmaKS. T=298K adopted. Retain selection ofthree rows<=6.95GPa; exclude7.7and10GPa."
+    }
+  ],
+  "normalization_method": {
+    "source": "Angel2022 p3: Vm=125.35*(Vobserved/Vroom); explicit alternative freevolume scales reserved for datasets without anchors",
+    "plot_receipt": "normalization-recovery.json",
+    "milani_inferred_cell_denominator_a3": 1664.0507306869793,
+    "du_inferred_cell_denominator_a3": 1664.2604315844574,
+    "qualification": "These constants are reconstructed from plottedobservations at recorded digitizationresolution, not recovered original anchor files. They are fixed only in the new declared source-processing diagnostic, not changed in older fits.",
+    "shared_anchor_covariance": "For independent raw V_i and anchor V_a, Cov(Y_i,Y_j)=(125.35/V_a)^2*delta_ij*s_i^2 + (Y_i*Y_j/V_a^2)*s_a^2. Actual calibration correlations and author treatment unknown. New diagnostic omits shared covariance explicitly, consistent with earlier diagonal objective."
+  },
+  "outcome": {
+    "newly_usable_diagnostic_rows": 46,
+    "remaining_unweighted_rows": 26,
+    "normalization_anchor_not_independent": 1,
+    "diagnostic_total": 193,
+    "nominal_s1_total": 220,
+    "full_author_input_recovered": false,
+    "author_contacted": false
+  }
+}

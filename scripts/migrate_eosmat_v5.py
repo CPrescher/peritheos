@@ -82,6 +82,33 @@ def prior_material_bytes(material: str, *, root: Path | None = None) -> bytes:
     if not RECEIPT.exists():
         return data
     binding = json.loads(RECEIPT.read_bytes())["materials"].get(relative)
+    # Later, separately reviewed additions retain their own exact v4/v5 pair.
+    # Keep the original migration receipt immutable and verify that removing
+    # only the named additive records still recovers its migrated predecessor.
+    update_path = ROOT / "docs/data/garnet-angel-2022/v5-integration.json"
+    if update_path.exists():
+        update = json.loads(update_path.read_bytes())["materials"].get(relative)
+        if update is not None:
+            current = json.loads(data)
+            if binding is not None:
+                predecessor = copy.deepcopy(current)
+                added = set(update["added_records"])
+                present = {r["identifier"] for r in predecessor["eos_records"]}
+                if not added <= present:
+                    raise ValueError("Missing reviewed post-migration addition")
+                predecessor["eos_records"] = [
+                    r
+                    for r in predecessor["eos_records"]
+                    if r["identifier"] not in added
+                ]
+                if (
+                    hashlib.sha256(format_eosmat(predecessor).encode()).hexdigest()
+                    != binding["after_sha256"]
+                ):
+                    raise ValueError(
+                        "Post-migration addition changed its historical predecessor"
+                    )
+            binding = update
     if binding is None:
         return data
     if hashlib.sha256(data).hexdigest() != binding["after_sha256"]:

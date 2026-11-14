@@ -115,3 +115,12 @@ specific numerical extractions. This is not needed for the core-only route.
 - [EOS and structure review](research/eos-structure-compilation-rights.md) and
   [numerical dataset review](research/numerical-dataset-redistribution.md):
   the detailed source investigations, retained as evidence.
+
+## Garnet Angel 2022
+
+The two Angel et al. (2022) garnet pressure parameterizations and covariance,
+and the Wang et al. (2019) grossular structure, retain their respective
+publication CC BY 4.0 attributions. See the installed
+[scoped notice](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022.LICENSE.md)
+and the [source audit](literature-reproductions/garnet-angel-2022.md).
+No license for the complete upstream experimental compilation is inferred.

@@ -1,0 +1,66 @@
+{
+  "verified_on": "2026-11-14",
+  "status": "passed_at_declared_scope",
+  "scope": "Supplied processed-input replay, fixed-parameter checks and matched local covariance convention; not raw-study processing reconstruction, every-digit identity or total experimental uncertainty",
+  "source_checks": {
+    "five_attachments": "Original bytes copied into private archive; hashes and original DAT tokens recorded",
+    "pdf": "Dataset tables on all four relevant pages rendered and visually inspected",
+    "input_rows": "194 DAT observations reconciled with final log, including all errors at log precision and exact group/use flags",
+    "eos": "All59parameters and full59x59covariance identical numerically to archived official source; title/bytes differ"
+  },
+  "independent_fit": {
+    "two_starts": "Converged to same solution, no bound active",
+    "degrees_of_freedom": 189,
+    "chi_square_reduced": 2.23425206920262,
+    "covariance": "Three independent five-point Jacobian step sizes and QR inverse information agree with production three-point/SVD widths within2e-10relative; positive definite",
+    "error_rescaling": "Covariance multiplied by reduced chi-square; widths by its square root1.494741472363238",
+    "maximum_error_width_relative_difference_vs_native": 0.004926171433325632
+  },
+  "official_eosfit": {
+    "version": "7.60",
+    "exit_code": 0,
+    "converged": true,
+    "fresh_saved_fit": true,
+    "same_observed_error_group_tokens_as_author_log": true,
+    "chi_square_reduced": 2.2337,
+    "all_digits_equal_to_author_log": false,
+    "parameter_differences": "All native/log differences below0.003timesreportedstandarderrors; independent/log below0.009",
+    "full_saved_covariance": "Widths reconcile with printed log errors after explicitly propagating last-digit covariance rounding",
+    "fixed_property_check": "12 proposed exactly representable coefficient states, V/KT/KS all within pre-existing native tolerances; not yet agreed with Ross",
+    "runtime": "Existing extracted official EosFit and XQuartz runtime used with temporary authenticated Xvfb; no system installation. Numerical exit0; fontconfig emitted a cosmetic configuration warning."
+  },
+  "python_tests": {
+    "passed": 87,
+    "failed": 0,
+    "seconds": 10.13,
+    "selection": [
+      "test_pyrope_author_inputs.py",
+      "test_pyrope_expanded_refits.py",
+      "test_pyrope_hartwig_weights.py",
+      "test_pyrope_subset_refits.py",
+      "test_pyrope_observation_audit.py",
+      "test_grossular_*.py",
+      "test_q_compromise_debye.py"
+    ],
+    "followup": "3 new audit tests passed again after native correlation comparison addition"
+  },
+  "style": "Ruff check, format check and git diff whitespace check passed for owned changes",
+  "documentation": {
+    "strict_full_build": "passed",
+    "seconds": 117.29,
+    "historical_status_wording_refresh": "Subsequent incremental render succeeded in7.24seconds; routine dirty-build warning expected. An attempted strict incremental build aborted on that warning, so it is not counted as a strict success. Full strict build had already passed.",
+    "rendered_links": {
+      "pages": 3,
+      "local_links_and_images": 157,
+      "errors": []
+    }
+  },
+  "preservation": {
+    "old_recovery_data_and_refits": "Unchanged; old source CSV hashes checked in tests",
+    "grossular_manifests": "All previous manifests verified byte-identical",
+    "published_source_coefficients_and_covariances": "Unchanged",
+    "catalog_changes": false,
+    "correspondence": "Reply receipt supplied by user, not independently retrieved from mailbox; no assistant message sent"
+  },
+  "branch": "codex/pyrope-angel-2022-audit"
+}

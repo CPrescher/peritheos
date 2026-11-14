@@ -99,3 +99,6 @@ peritheos/data/research/dewaele-2008-paw/datasets/zinc_hcp-dewaele-2008-figure4-
 
 # Keep copied Rust license/notice payloads byte-exact on all platforms.
 peritheos/data/third_party/rust/** -text whitespace=-blank-at-eol,-blank-at-eof
+
+# Garnet audit receipts fingerprint exact source, CSV and calculator-output bytes.
+docs/data/garnet-angel-2022/** -text whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof

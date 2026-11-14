@@ -1,0 +1,51 @@
+{
+  "verified_on": "2026-11-12",
+  "status": "passed_at_declared_scope",
+  "scope": "Source preservation, conditional partial observation/refit audit and local documentation. Not author-workflow reproduction or physical validation.",
+  "python": {
+    "targeted_tests": 330,
+    "failed": 0,
+    "seconds": 21.55,
+    "files": [
+      "test_grossular_observation_audit.py",
+      "test_pyrope_observation_audit.py",
+      "test_pyrope_subset_refits.py",
+      "test_pyrope_expanded_refits.py",
+      "test_pyrope_hartwig_weights.py",
+      "test_q_compromise_debye.py",
+      "test_catalog.py",
+      "test_eosmat_v4.py",
+      "test_eosmat_catalog_v4.py",
+      "test_eosmat_reconstruction.py"
+    ],
+    "final_audit_recheck": "4 passed in 0.39s"
+  },
+  "official_eosfit": {
+    "version": "7.60",
+    "property_states": 9,
+    "all_within_predeclared_tolerances": true,
+    "receipt": "eosfit-properties/checks.json"
+  },
+  "independent_numerical_checks": "Fast conditional-fit pressure/KS inversion checked against independent SciPy quadrature at five P/T states for published and fitted coefficients; both optimizer starts converge without bounds.",
+  "style": "Ruff check and format check passed for four scripts and test module; git diff whitespace check passed.",
+  "documentation": {
+    "strict_clean_build": "passed including executable notebooks",
+    "seconds": 94.83,
+    "rendered_report_local_links_and_images_checked": 20,
+    "rendered_light_and_dark_residual_images_exist": true,
+    "residual_plot_visually_inspected": true,
+    "note": "An intermediate dirty build was rejected by strict mode for its dirty-build warning. Final clean build passes after correcting raw HTML image paths to standard Markdown theme images."
+  },
+  "preservation": {
+    "receipt": "catalog-preservation.json",
+    "source_eos_unchanged": true,
+    "coefficients_covariance_structure_default_and_scientific_classifications_unchanged": true,
+    "ledger_changes": "Only three grossular prose strings changed; every other record is unchanged.",
+    "pyrope_correspondence": "User-confirmed waiting-for-reply status unchanged."
+  },
+  "author_workflow_reproduced": false,
+  "nominal_channels_recovered": 161,
+  "nominal_channels_unrecovered": 59,
+  "conditional_fit_channels": 95,
+  "branch": "codex/pyrope-angel-2022-audit"
+}

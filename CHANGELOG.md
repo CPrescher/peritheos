@@ -18,10 +18,31 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Expose the complete author-processed 194-observation pyrope parameter/error
+  replay in catalog evidence and reconstruction plots. Preserve published
+  coefficients, source covariance and upstream preprocessing qualifications;
+  reconcile the exact garnet source-review bindings without changing science.
+
+- Use analytic pressure Jacobians for native BM3 and QCompromiseDebye/BM3
+  P-V/P-V-T fits, including latent coordinates and correlated observations.
+  Preserve weighting, robust losses and covariance/scaling conventions;
+  retain finite differences for other models and Python compatibility paths.
+  Expose derivative callbacks and canonical derivative helpers to Rust clients.
 - Split the manual's equation reference into individual model-family pages with
   isothermal and thermal inventories, breadcrumb navigation, a persistent model
   label, and explicit model endings. Preserve scientific content and existing
   equation-section bookmarks.
+
+### Added
+
+- Add audited Angel (2022) pyrope and grossular thermal pressure records,
+  source covariance and diffraction-ready grossular. Preserve the existing
+  pyrope record and default. Retain the original joint-fit input gap and
+  printed-versus-covariance uncertainty qualification.
+- Add `QCompromiseDebye` in Python, Rust and EOSMAT with native fitting,
+  uncertainty and inversion. Verify its constant-theta, constant-gamma/V
+  pressure law against independent quadrature and official EosFit calculations;
+  caloric potentials remain explicitly unsupported.
 
 ## [0.18.0] - 2026-11-05
 
