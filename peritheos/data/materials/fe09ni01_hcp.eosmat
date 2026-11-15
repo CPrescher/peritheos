@@ -38,106 +38,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p1_bm3",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_bm3",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 195.3,
-                "published_error": 1.6,
-                "refit": 200.0343783266108,
-                "refit_error": null,
-                "relative_difference": 0.024241568492630795,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.37,
-                "published_error": 0.05,
-                "refit": 4.2243284230188465,
-                "refit_error": null,
-                "relative_difference": 0.03333445697509236,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["K0", "K0_prime"],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.606401520793189,
-              "published_rmse_gpa": 2.210908056547755,
-              "published_pressure_rmse_gpa": 2.210908056547755,
-              "refitted_pressure_rmse_gpa": 1.606401520793189,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_bm3"
       }
     },
     {
@@ -171,106 +78,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p1_vinet",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_vinet",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 189.6,
-                "published_error": 1.7,
-                "refit": 192.27435509720192,
-                "refit_error": null,
-                "relative_difference": 0.01410524840296374,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.81,
-                "published_error": 0.06,
-                "refit": 4.706556611960647,
-                "refit_error": null,
-                "relative_difference": 0.02150590187928338,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["K0", "K0_prime"],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.7062383521313806,
-              "published_rmse_gpa": 1.972609141767631,
-              "published_pressure_rmse_gpa": 1.972609141767631,
-              "refitted_pressure_rmse_gpa": 1.7062383521313806,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_vinet"
       }
     },
     {
@@ -304,106 +118,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 179.8,
-                "published_error": 1.6,
-                "refit": 187.0329689879698,
-                "refit_error": null,
-                "relative_difference": 0.04022785866501556,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.59,
-                "published_error": 0.05,
-                "refit": 4.353887510008359,
-                "refit_error": null,
-                "relative_difference": 0.05144062962780838,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["K0", "K0_prime"],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.6199964199966193,
-              "published_rmse_gpa": 2.7538171899931974,
-              "published_pressure_rmse_gpa": 2.7538171899931974,
-              "refitted_pressure_rmse_gpa": 1.6199964199966193,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3"
       }
     },
     {
@@ -437,106 +158,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 173.9,
-                "published_error": 1.6,
-                "refit": 178.82057566405422,
-                "refit_error": null,
-                "relative_difference": 0.028295432225728646,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 5.07,
-                "published_error": 0.06,
-                "refit": 4.885879076106027,
-                "refit_error": null,
-                "relative_difference": 0.036315764081651464,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["K0", "K0_prime"],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.653409509846668,
-              "published_rmse_gpa": 2.2197830754151466,
-              "published_pressure_rmse_gpa": 2.2197830754151466,
-              "refitted_pressure_rmse_gpa": 1.653409509846668,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet"
       }
     },
     {
@@ -570,106 +198,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3",
-            "parameters": [
-              {
-                "parameter": "V0",
-                "published": 22.468,
-                "published_error": null,
-                "refit": 22.59086269559718,
-                "refit_error": null,
-                "relative_difference": 0.005468341445486078,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.73,
-                "published_error": 0.06,
-                "refit": 4.537970473756033,
-                "refit_error": null,
-                "relative_difference": 0.04059820850823832,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["V0", "K0_prime"],
-              "fixed_parameters": ["K0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.7349314547623915,
-              "published_rmse_gpa": 3.1922874500456198,
-              "published_pressure_rmse_gpa": 3.1922874500456198,
-              "refitted_pressure_rmse_gpa": 1.7349314547623915,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3"
       }
     },
     {
@@ -703,106 +238,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet",
-            "parameters": [
-              {
-                "parameter": "V0",
-                "published": 22.468,
-                "published_error": null,
-                "refit": 22.5562203902947,
-                "refit_error": null,
-                "relative_difference": 0.003926490577474684,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 5.23,
-                "published_error": 0.06,
-                "refit": 5.079133042342121,
-                "refit_error": null,
-                "relative_difference": 0.02884645461909748,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["V0", "K0_prime"],
-              "fixed_parameters": ["K0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.66732485758244,
-              "published_rmse_gpa": 2.612050295823673,
-              "published_pressure_rmse_gpa": 2.612050295823673,
-              "refitted_pressure_rmse_gpa": 1.66732485758244,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet"
       }
     },
     {
@@ -840,78 +282,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Fei (2007) Pt"
-          }
-        ],
-        "recalculation": {"status": "not_possible", "notes": "Primary published pressures retained. NaCl-B2 calibrated to Fei (2007) Pt"}
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p2_bm3",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p2_bm3",
-            "fit": {
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": [],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 0,
-              "rmse_gpa": null,
-              "published_rmse_gpa": null,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p2_bm3"
       }
     },
     {
@@ -949,78 +326,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Fei (2007) Pt"
-          }
-        ],
-        "recalculation": {"status": "not_possible", "notes": "Primary published pressures retained. NaCl-B2 calibrated to Fei (2007) Pt"}
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p2_vinet",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p2_vinet",
-            "fit": {
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": [],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 0,
-              "rmse_gpa": null,
-              "published_rmse_gpa": null,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p2_vinet"
       }
     },
     {
@@ -1058,81 +370,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Dorogokupets and Oganov (2007) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Dorogokupets and Oganov (2007) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p3_bm3",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p3_bm3",
-            "fit": {
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": [],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 0,
-              "rmse_gpa": null,
-              "published_rmse_gpa": null,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p3_bm3"
       }
     },
     {
@@ -1170,81 +414,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Dorogokupets and Oganov (2007) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Dorogokupets and Oganov (2007) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p3_vinet",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p3_vinet",
-            "fit": {
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": [],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 0,
-              "rmse_gpa": null,
-              "published_rmse_gpa": null,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p3_vinet"
       }
     },
     {
@@ -1279,106 +455,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p4_bm3",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p4_bm3",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 213.0,
-                "published_error": 1.8,
-                "refit": 218.4138156274682,
-                "refit_error": null,
-                "relative_difference": 0.025416974776846058,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.41,
-                "published_error": 0.05,
-                "refit": 4.255462850825763,
-                "refit_error": null,
-                "relative_difference": 0.03504243745447548,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["K0", "K0_prime"],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.667656628629867,
-              "published_rmse_gpa": 2.3447890411123287,
-              "published_pressure_rmse_gpa": 2.3447890411123287,
-              "refitted_pressure_rmse_gpa": 1.667656628629867,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p4_bm3"
       }
     },
     {
@@ -1413,106 +496,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p4_vinet",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p4_vinet",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 207.0,
-                "published_error": 1.8,
-                "refit": 210.03586660274584,
-                "refit_error": null,
-                "relative_difference": 0.014666022235487155,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.85,
-                "published_error": 0.06,
-                "refit": 4.739384266532654,
-                "refit_error": null,
-                "relative_difference": 0.02280736772522591,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["K0", "K0_prime"],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.7788197892068633,
-              "published_rmse_gpa": 2.117292921135934,
-              "published_pressure_rmse_gpa": 2.117292921135934,
-              "refitted_pressure_rmse_gpa": 1.7788197892068633,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p4_vinet"
       }
     },
     {
@@ -1550,106 +540,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Yokoo (2009) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Yokoo (2009) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p5_bm3",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p5_bm3",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 211.5,
-                "published_error": 1.8,
-                "refit": 214.9151214647974,
-                "refit_error": null,
-                "relative_difference": 0.016147146405661505,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.42,
-                "published_error": 0.05,
-                "refit": 4.3135447483778515,
-                "refit_error": null,
-                "relative_difference": 0.024084898557047152,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["K0", "K0_prime"],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.8347163432871763,
-              "published_rmse_gpa": 2.2515693718530896,
-              "published_pressure_rmse_gpa": 2.2515693718530896,
-              "refitted_pressure_rmse_gpa": 1.8347163432871763,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p5_bm3"
       }
     },
     {
@@ -1687,153 +584,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Yokoo (2009) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Yokoo (2009) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "parity",
-            "scope": "parameter_agreement",
-            "source_status": "parity",
-            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
-            "basis_code": "within_reported_parameter_errors",
-            "qualifications": [
-              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures. Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
-              "Earlier audit statement, before the conditional uncertainty follow-up: Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p5_vinet",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p5_vinet",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 205.4,
-                "published_error": 1.9,
-                "refit": 206.2987950920161,
-                "refit_error": 2.2398547938823934,
-                "relative_difference": 0.004375828101344143,
-                "similar": true,
-                "within_combined_2sigma": null,
-                "within_reported_error": true
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.86,
-                "published_error": 0.06,
-                "refit": 4.816594627576633,
-                "refit_error": 0.05657211641382802,
-                "relative_difference": 0.008931146589170292,
-                "similar": true,
-                "within_combined_2sigma": null,
-                "within_reported_error": true
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
-              "absolute_sigma": false,
-              "free_parameters": ["K0", "K0_prime"],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "degrees_of_freedom": 43.0,
-              "solver_success": true,
-              "rmse_gpa": 1.9794522014797378,
-              "published_rmse_gpa": 2.085638180438255,
-              "published_pressure_rmse_gpa": 2.085638180438255,
-              "refitted_pressure_rmse_gpa": 1.9794522014797378,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": [
-                [5.016949497677938, -0.12478302337278495],
-                [-0.12478302337278492, 0.0032004043555397097]
-              ],
-              "covariance": {
-                "parameters": ["K0", "K0_prime"],
-                "matrix": [
-                  [5.016949497677938, -0.12478302337278495],
-                  [-0.12478302337278492, 0.0032004043555397097]
-                ],
-                "standard_errors": {"K0": 2.2398547938823934, "K0_prime": 0.05657211641382802},
-                "correlation_matrix": [
-                  [0.9999999999999998, -0.9847663790742748],
-                  [-0.9847663790742746, 1.0]
-                ],
-                "degrees_of_freedom": 43.0,
-                "local_student_t_95_intervals": {
-                  "K0": [201.78169740179044, 210.81589278224175],
-                  "K0_prime": [4.702506081711057, 4.930683173442208]
-                },
-                "residual_variance": 4.100474321103097,
-                "max_abs_residual_jacobian_cosine": 4.3163804527670137e-10,
-                "residual_sum_squares": 176.3203958074332,
-                "residual_count": 45,
-                "scaled_jacobian_condition_number": 11.450230420418976,
-                "derivative_step_halving_relative_change": 2.0347811725404675e-12,
-                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
-                "previous_assessment": {
-                  "status": "similar",
-                  "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
-                  "reason": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures."
-                },
-                "assumptions": [
-                  "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
-                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
-                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
-                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
-                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ]
-              },
-              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "reproduced",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p5_vinet"
       }
     },
     {
@@ -1868,106 +625,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Holmes (1989) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Holmes (1989) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p6_bm3",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p6_bm3",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 191.2,
-                "published_error": 1.8,
-                "refit": 196.58930346809018,
-                "refit_error": null,
-                "relative_difference": 0.02818673361971857,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.82,
-                "published_error": 0.06,
-                "refit": 4.638208630235569,
-                "refit_error": null,
-                "relative_difference": 0.0377160518183467,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["K0", "K0_prime"],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.7786202823007078,
-              "published_rmse_gpa": 2.489597189653668,
-              "published_pressure_rmse_gpa": 2.489597189653668,
-              "refitted_pressure_rmse_gpa": 1.7786202823007078,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p6_bm3"
       }
     },
     {
@@ -2002,106 +666,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "NaCl-B2 calibrated to Holmes (1989) Pt"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Holmes (1989) Pt"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_p6_vinet",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p6_vinet",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 185.1,
-                "published_error": 1.7,
-                "refit": 187.47744968957844,
-                "refit_error": null,
-                "relative_difference": 0.012844136626571804,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 5.31,
-                "published_error": 0.06,
-                "refit": 5.211820018794027,
-                "refit_error": null,
-                "relative_difference": 0.018489638645192562,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["K0", "K0_prime"],
-              "fixed_parameters": ["V0"],
-              "tied_parameters": {},
-              "observations": 45,
-              "solver_success": true,
-              "rmse_gpa": 1.9135004369802666,
-              "published_rmse_gpa": 2.200673940141978,
-              "published_pressure_rmse_gpa": 2.200673940141978,
-              "refitted_pressure_rmse_gpa": 1.9135004369802666,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
-          "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-          "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-          "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p6_vinet"
       }
     },
     {
@@ -2156,139 +727,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "P4 at 300 K, P7 Tange (2009) MgO at high temperature."
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
-              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
-              "Usage recommendation: not_recommended_for_quantitative_use",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_type1_thermal",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type1_thermal",
-            "parameters": [
-              {
-                "parameter": "gamma0",
-                "published": 2.169,
-                "published_error": 0.207,
-                "refit": 5.218611619598649,
-                "refit_error": null,
-                "relative_difference": 1.4059989025351078,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "theta0",
-                "published": 1162,
-                "published_error": 204,
-                "refit": 2214.815336047005,
-                "refit_error": null,
-                "relative_difference": 0.9060372943605896,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["gamma0", "theta0"],
-              "fixed_parameters": [
-                "V0",
-                "K0",
-                "K0_prime",
-                "Tr",
-                "beta",
-                "anharmonic_a",
-                "anharmonic_m",
-                "electronic_e",
-                "electronic_g",
-                "n"
-              ],
-              "tied_parameters": {"gamma_inf": "gamma0"},
-              "observations": 32,
-              "solver_success": true,
-              "rmse_gpa": 1.0512363614149685,
-              "published_rmse_gpa": 7.135102114330177,
-              "published_pressure_rmse_gpa": 7.135102114330177,
-              "refitted_pressure_rmse_gpa": 1.0512363614149685,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "not_reproduced",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 4, 6–8; Section 3.5"],
-            "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma_inf tied to gamma0 and theta=theta0*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          },
-          "reproduction_status": "not_reproduced",
-          "usage_recommendation": "not_recommended_for_quantitative_use",
-          "recommendation_date": "2026-10-17",
-          "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
-          "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 4, 6–8; Section 3.5.",
-          "reference_isotherm": {
-            "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-            "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-            "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-          },
-          "thermal_correction": {
-            "Tr": "Primary thermal equation and parameter table; fixed/adopted",
-            "theta0": "Primary thermal equation and parameter table; fitted",
-            "gamma0": "Primary thermal equation and parameter table; fitted",
-            "gamma_inf": "Primary thermal equation and parameter table; fitted",
-            "beta": "Primary thermal equation and parameter table; fixed/adopted",
-            "anharmonic_a": "Primary thermal equation and parameter table; fixed/adopted",
-            "anharmonic_m": "Primary thermal equation and parameter table; fixed/adopted",
-            "electronic_e": "Primary thermal equation and parameter table; fixed/adopted",
-            "electronic_g": "Primary thermal equation and parameter table; fixed/adopted",
-            "n": "Primary thermal equation and parameter table; fixed/adopted"
-          }
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
+        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma_inf tied to gamma0 and theta=theta0*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+        "source": "not_reproduced",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type1_thermal"
       }
     },
     {
@@ -2343,149 +788,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "P4 at 300 K, P7 Tange (2009) MgO at high temperature."
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
-              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
-              "Usage recommendation: not_recommended_for_quantitative_use",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_type2_thermal",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type2_thermal",
-            "parameters": [
-              {
-                "parameter": "gamma0",
-                "published": 2.609,
-                "published_error": 0.35,
-                "refit": 7.999999999999999,
-                "refit_error": null,
-                "relative_difference": 2.06630893062476,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "beta",
-                "published": 1.309,
-                "published_error": 0.679,
-                "refit": 2.2108417548372907,
-                "refit_error": null,
-                "relative_difference": 0.6889547401354399,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "theta0",
-                "published": 600,
-                "published_error": 474,
-                "refit": 1636.9776211198046,
-                "refit_error": null,
-                "relative_difference": 1.7282960351996743,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["gamma0", "beta", "theta0"],
-              "fixed_parameters": [
-                "V0",
-                "K0",
-                "K0_prime",
-                "Tr",
-                "gamma_inf",
-                "anharmonic_a",
-                "anharmonic_m",
-                "electronic_e",
-                "electronic_g",
-                "n"
-              ],
-              "tied_parameters": {},
-              "observations": 32,
-              "solver_success": true,
-              "rmse_gpa": 1.0453242461778438,
-              "published_rmse_gpa": 7.085117575780836,
-              "published_pressure_rmse_gpa": 7.085117575780836,
-              "refitted_pressure_rmse_gpa": 1.0453242461778438,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "not_reproduced",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 4, 6–8; Section 3.5"],
-            "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          },
-          "reproduction_status": "not_reproduced",
-          "usage_recommendation": "not_recommended_for_quantitative_use",
-          "recommendation_date": "2026-10-17",
-          "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
-          "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 4, 6–8; Section 3.5.",
-          "reference_isotherm": {
-            "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-            "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-            "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-          },
-          "thermal_correction": {
-            "Tr": "Primary thermal equation and parameter table; fixed/adopted",
-            "theta0": "Primary thermal equation and parameter table; fitted",
-            "gamma0": "Primary thermal equation and parameter table; fitted",
-            "gamma_inf": "Primary thermal equation and parameter table; fixed/adopted",
-            "beta": "Primary thermal equation and parameter table; fitted",
-            "anharmonic_a": "Primary thermal equation and parameter table; fixed/adopted",
-            "anharmonic_m": "Primary thermal equation and parameter table; fixed/adopted",
-            "electronic_e": "Primary thermal equation and parameter table; fixed/adopted",
-            "electronic_g": "Primary thermal equation and parameter table; fixed/adopted",
-            "n": "Primary thermal equation and parameter table; fixed/adopted"
-          }
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
+        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+        "source": "not_reproduced",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type2_thermal"
       }
     },
     {
@@ -2540,149 +849,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "P4 at 300 K, P7 Tange (2009) MgO at high temperature."
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
-              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
-              "Usage recommendation: not_recommended_for_quantitative_use",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_type4_1_thermal",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_1_thermal",
-            "parameters": [
-              {
-                "parameter": "gamma0",
-                "published": 2.882,
-                "published_error": 0.394,
-                "refit": 7.999999999999996,
-                "refit_error": null,
-                "relative_difference": 1.775850104094377,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "gamma_inf",
-                "published": 1.087,
-                "published_error": 0.487,
-                "refit": 2.194773957257107,
-                "refit_error": null,
-                "relative_difference": 1.0191112762254895,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "theta0",
-                "published": 577,
-                "published_error": 471,
-                "refit": 1664.4773035616872,
-                "refit_error": null,
-                "relative_difference": 1.8847093649249345,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["gamma0", "gamma_inf", "theta0"],
-              "fixed_parameters": [
-                "V0",
-                "K0",
-                "K0_prime",
-                "Tr",
-                "beta",
-                "anharmonic_a",
-                "anharmonic_m",
-                "electronic_e",
-                "electronic_g",
-                "n"
-              ],
-              "tied_parameters": {},
-              "observations": 32,
-              "solver_success": true,
-              "rmse_gpa": 1.047994946666771,
-              "published_rmse_gpa": 7.088296341328164,
-              "published_pressure_rmse_gpa": 7.088296341328164,
-              "refitted_pressure_rmse_gpa": 1.047994946666771,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "not_reproduced",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 4, 6–8; Section 3.5"],
-            "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          },
-          "reproduction_status": "not_reproduced",
-          "usage_recommendation": "not_recommended_for_quantitative_use",
-          "recommendation_date": "2026-10-17",
-          "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
-          "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 4, 6–8; Section 3.5.",
-          "reference_isotherm": {
-            "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-            "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-            "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-          },
-          "thermal_correction": {
-            "Tr": "Primary thermal equation and parameter table; fixed/adopted",
-            "theta0": "Primary thermal equation and parameter table; fitted",
-            "gamma0": "Primary thermal equation and parameter table; fitted",
-            "gamma_inf": "Primary thermal equation and parameter table; fitted",
-            "beta": "Primary thermal equation and parameter table; fixed/adopted",
-            "anharmonic_a": "Primary thermal equation and parameter table; fixed/adopted",
-            "anharmonic_m": "Primary thermal equation and parameter table; fixed/adopted",
-            "electronic_e": "Primary thermal equation and parameter table; fixed/adopted",
-            "electronic_g": "Primary thermal equation and parameter table; fixed/adopted",
-            "n": "Primary thermal equation and parameter table; fixed/adopted"
-          }
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
+        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+        "source": "not_reproduced",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type4_1_thermal"
       }
     },
     {
@@ -2737,140 +910,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "P4 at 300 K, P7 Tange (2009) MgO at high temperature."
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
-              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
-              "Usage recommendation: not_recommended_for_quantitative_use",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_type4_2_thermal",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_2_thermal",
-            "parameters": [
-              {
-                "parameter": "gamma0",
-                "published": 2.883,
-                "published_error": 0.374,
-                "refit": 2.2626134930835686,
-                "refit_error": null,
-                "relative_difference": 0.21518782758114166,
-                "similar": false,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "gamma_inf",
-                "published": 0.968,
-                "published_error": 0.242,
-                "refit": 8.521054711807216e-22,
-                "refit_error": null,
-                "relative_difference": 1.0,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["gamma0", "gamma_inf"],
-              "fixed_parameters": [
-                "V0",
-                "K0",
-                "K0_prime",
-                "Tr",
-                "theta0",
-                "beta",
-                "anharmonic_a",
-                "anharmonic_m",
-                "electronic_e",
-                "electronic_g",
-                "n"
-              ],
-              "tied_parameters": {},
-              "observations": 32,
-              "solver_success": true,
-              "rmse_gpa": 2.2581979489171067,
-              "published_rmse_gpa": 7.096364413848751,
-              "published_pressure_rmse_gpa": 7.096364413848751,
-              "refitted_pressure_rmse_gpa": 2.2581979489171067,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "not_reproduced",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 4, 6–8; Section 3.5"],
-            "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          },
-          "reproduction_status": "not_reproduced",
-          "usage_recommendation": "not_recommended_for_quantitative_use",
-          "recommendation_date": "2026-10-17",
-          "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
-          "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 4, 6–8; Section 3.5.",
-          "reference_isotherm": {
-            "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-            "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-            "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-          },
-          "thermal_correction": {
-            "Tr": "Primary thermal equation and parameter table; fixed/adopted",
-            "theta0": "Primary thermal equation and parameter table; fixed/adopted",
-            "gamma0": "Primary thermal equation and parameter table; fitted",
-            "gamma_inf": "Primary thermal equation and parameter table; fitted",
-            "beta": "Primary thermal equation and parameter table; fixed/adopted",
-            "anharmonic_a": "Primary thermal equation and parameter table; fixed/adopted",
-            "anharmonic_m": "Primary thermal equation and parameter table; fixed/adopted",
-            "electronic_e": "Primary thermal equation and parameter table; fixed/adopted",
-            "electronic_g": "Primary thermal equation and parameter table; fixed/adopted",
-            "n": "Primary thermal equation and parameter table; fixed/adopted"
-          }
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
+        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+        "source": "not_reproduced",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type4_2_thermal"
       }
     },
     {
@@ -2925,131 +971,13 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-10",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-              "year": 2014,
-              "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-              "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-              "doi": "10.1016/j.pepi.2013.12.010"
-            },
-            "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
-            "scope": "P4 at 300 K, P7 Tange (2009) MgO at high temperature."
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Primary published pressures retained. NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
-        }
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
-            "qualifications": [
-              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
-              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
-              "Usage recommendation: not_recommended_for_quantitative_use",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe09ni01_hcp/#record-fe09ni01_hcp_sakai_2014_type4_3_thermal",
-            "report_path": "docs/reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_3_thermal",
-            "parameters": [
-              {
-                "parameter": "beta",
-                "published": 1.161,
-                "published_error": 0.237,
-                "refit": 9.999999999999998,
-                "refit_error": null,
-                "relative_difference": 7.613264427217914,
-                "similar": false,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
-              "weighting": "unweighted; published coefficient constraints retained",
-              "free_parameters": ["beta"],
-              "fixed_parameters": [
-                "V0",
-                "K0",
-                "K0_prime",
-                "Tr",
-                "theta0",
-                "gamma0",
-                "gamma_inf",
-                "anharmonic_a",
-                "anharmonic_m",
-                "electronic_e",
-                "electronic_g",
-                "n"
-              ],
-              "tied_parameters": {},
-              "observations": 32,
-              "solver_success": true,
-              "rmse_gpa": 4.6165012578403015,
-              "published_rmse_gpa": 7.214289792430111,
-              "published_pressure_rmse_gpa": 7.214289792430111,
-              "refitted_pressure_rmse_gpa": 4.6165012578403015,
-              "rmse_shock_velocity_km_s": null,
-              "parameter_covariance": null,
-              "dataset_identifiers": ["sakai_2014_table2_pvt"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "not_reproduced",
-          "audit_date": "2026-09-10",
-          "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
-          "verified_fields": ["equation", "parameters", "units", "phase", "reference_state", "validity"],
-          "primary_source_check": {
-            "doi": "10.1016/j.pepi.2013.12.010",
-            "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
-            "locations": ["Tables 4, 6–8; Section 3.5"],
-            "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-10",
-            "dataset_identifiers": ["sakai_2014_table2_pvt"],
-            "source_locations": ["Tables 1–4; Sections 2 and 3.3–3.4"],
-            "finding": "Primary observations bundled with errors and calibrant values where published."
-          },
-          "reproduction_status": "not_reproduced",
-          "usage_recommendation": "not_recommended_for_quantitative_use",
-          "recommendation_date": "2026-10-17",
-          "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
-          "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 4, 6–8; Section 3.5.",
-          "reference_isotherm": {
-            "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
-            "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
-            "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
-          },
-          "thermal_correction": {
-            "Tr": "Primary thermal equation and parameter table; fixed/adopted",
-            "theta0": "Primary thermal equation and parameter table; fixed/adopted",
-            "gamma0": "Primary thermal equation and parameter table; fixed/adopted",
-            "gamma_inf": "Primary thermal equation and parameter table; fixed/adopted",
-            "beta": "Primary thermal equation and parameter table; fitted",
-            "anharmonic_a": "Primary thermal equation and parameter table; fixed/adopted",
-            "anharmonic_m": "Primary thermal equation and parameter table; fixed/adopted",
-            "electronic_e": "Primary thermal equation and parameter table; fixed/adopted",
-            "electronic_g": "Primary thermal equation and parameter table; fixed/adopted",
-            "n": "Primary thermal equation and parameter table; fixed/adopted"
-          }
-        }
+      "check": {
+        "reproduction": "disagrees",
+        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
+        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+        "source": "not_reproduced",
+        "source_checked_on": "2026-09-10",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type4_3_thermal"
       }
     }
   ],

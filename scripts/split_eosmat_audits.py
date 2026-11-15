@@ -1,0 +1,446 @@
+"""Repository maintenance: split the bundled v5 catalog into records and audits.
+
+Each ``peritheos/data/materials/<id>.eosmat`` keeps the material header, the
+EOS records with a short ``check`` block, and datasets. The audit trail moves
+to ``peritheos/data/audits/<id>.audit.json``. The receipt
+``docs/data/eosmat-v5-audit-split.json`` records, per material, every change
+between the pre-split file and ``record file + sidecar`` merged: the added
+``check`` blocks and the removed generic statements. ``pre_split_bytes``
+uses it to recover each pre-split file byte for byte.
+
+The whole-catalog split ran once (``python scripts/split_eosmat_audits.py``)
+and refuses to run again over an existing receipt. Afterwards, curators who
+add or replace a bundled material as a complete inline-evidence v5 file run
+``python scripts/split_eosmat_audits.py --add [MATERIAL ...]``. It splits
+every named material, or every bundled file that still holds inline audit
+blocks or has no sidecar, with the same mechanical procedure and adds its
+binding to the receipt; a replaced binding is kept under ``superseded``.
+``--verify`` re-checks the current catalog. This is not an installed-package
+tool; standalone EOSMAT files keep inline evidence and need no sidecar.
+"""
+
+from __future__ import annotations
+
+import argparse
+import copy
+import hashlib
+import json
+import sys
+from pathlib import Path
+from typing import Any
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from peritheos._eosmat_audit import (  # noqa: E402
+    AUDIT_RECORD_KEYS,
+    GENERIC_QUALIFICATIONS,
+    GENERIC_VALIDATION_NOTES,
+    audit_is_external,
+    merge_audit,
+    split_document,
+)
+from peritheos._eosmat_format import format_audit, format_eosmat  # noqa: E402
+from peritheos.eosmat import validate_eosmat_document  # noqa: E402
+
+MATERIALS = ROOT / "peritheos/data/materials"
+AUDITS = ROOT / "peritheos/data/audits"
+RECEIPT = ROOT / "docs/data/eosmat-v5-audit-split.json"
+SOURCE_COMMIT = "4d89f0fa"
+
+
+def _sha(payload: bytes) -> str:
+    return hashlib.sha256(payload).hexdigest()
+
+
+GENERIC = {
+    "qualifications": list(GENERIC_QUALIFICATIONS),
+    "note": list(GENERIC_VALIDATION_NOTES),
+}
+_NOTE = ("evidence", "scientific_validation", "note")
+_QUALIFICATIONS = ("evidence", "reproduction", "assessment", "qualifications")
+
+
+def _node(document: Any, path: list) -> Any:
+    for key in path:
+        document = document[key]
+    return document
+
+
+def restore(document: dict, binding: dict) -> dict:
+    """Undo the split changes listed in one material's receipt binding.
+
+    ``added_check`` names records whose ``check`` block was added.
+    ``generic_notes`` / ``generic_qualifications`` restore removed generic
+    statements by index into the receipt's ``removed_generic_statements``
+    (qualifications as ``[position, statement]`` pairs in original order).
+    ``object_orders`` restore key order where it affects the rendered file.
+    """
+    result = copy.deepcopy(document)
+    records = result["eos_records"]
+    for index in binding.get("added_check", []):
+        del records[index]["check"]
+    for index, statement in binding.get("generic_notes", []):
+        validation = records[index]["evidence"]["scientific_validation"]
+        validation["note"] = GENERIC["note"][statement]
+    for index, inserts in binding.get("generic_qualifications", []):
+        assessment = records[index]["evidence"]["reproduction"]["assessment"]
+        values = assessment.setdefault("qualifications", [])
+        for position, statement in inserts:
+            values.insert(position, GENERIC["qualifications"][statement])
+    for ordering in binding.get("object_orders", []):
+        node = _node(result, ordering["path"])
+        values = {key: node[key] for key in ordering["keys"]}
+        node.clear()
+        node.update(values)
+    return result
+
+
+def _differences(before: dict, merged: dict) -> dict:
+    """Describe the split as explicit, allowed restore operations."""
+    binding: dict[str, list] = {
+        "added_check": [],
+        "generic_notes": [],
+        "generic_qualifications": [],
+    }
+    if len(before["eos_records"]) != len(merged["eos_records"]):
+        raise ValueError("Record count changed")
+    for index, (old, new) in enumerate(
+        zip(before["eos_records"], merged["eos_records"])
+    ):
+        if "check" in new and "check" not in old:
+            binding["added_check"].append(index)
+        try:
+            note = _node(old, list(_NOTE))
+        except (KeyError, TypeError):
+            note = None
+        if note in GENERIC["note"]:
+            binding["generic_notes"].append([index, GENERIC["note"].index(note)])
+        try:
+            qualifications = _node(old, list(_QUALIFICATIONS))
+        except (KeyError, TypeError):
+            qualifications = []
+        inserts = [
+            [position, GENERIC["qualifications"].index(text)]
+            for position, text in enumerate(qualifications)
+            if text in GENERIC["qualifications"]
+        ]
+        if inserts:
+            binding["generic_qualifications"].append([index, inserts])
+    return binding
+
+
+def _order_candidates(before: Any, after: Any, path: tuple = ()) -> list[dict]:
+    result: list[dict] = []
+    if isinstance(before, dict) and isinstance(after, dict):
+        if list(before) != list(after) and set(before) == set(after):
+            result.append({"path": list(path), "keys": list(before)})
+        for key in before:
+            if key in after:
+                result.extend(_order_candidates(before[key], after[key], (*path, key)))
+    elif isinstance(before, list) and isinstance(after, list):
+        for index, (a, b) in enumerate(zip(before, after)):
+            result.extend(_order_candidates(a, b, (*path, index)))
+    return result
+
+
+def merged_document(material: str, root: Path = ROOT) -> dict:
+    """Current record file plus its sidecar, as one inline v5 document."""
+    record_file = json.loads(
+        (root / f"peritheos/data/materials/{material}.eosmat").read_bytes()
+    )
+    sidecar = json.loads(
+        (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
+    )
+    return merge_audit(record_file, sidecar)
+
+
+def pre_split_bytes(material: str, *, root: Path | None = None) -> bytes:
+    """Recover the exact pre-split v5 file, verifying every bound hash."""
+    root = ROOT if root is None else root
+    relative = f"peritheos/data/materials/{material}.eosmat"
+    data = (root / relative).read_bytes()
+    receipt_path = root / RECEIPT.relative_to(ROOT)
+    if not receipt_path.exists():
+        return data
+    binding = json.loads(receipt_path.read_bytes())["materials"].get(material)
+    if binding is None:
+        return data
+    audit = (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
+    if _sha(data) != binding["after_record_sha256"]:
+        raise ValueError(f"EOSMAT audit split record file changed: {relative}")
+    if _sha(audit) != binding["after_audit_sha256"]:
+        raise ValueError(f"EOSMAT audit split sidecar changed: {material}")
+    restored = restore(merged_document(material, root), binding)
+    original = format_eosmat(restored).encode("utf-8")
+    if _sha(original) != binding["before_sha256"]:
+        raise ValueError(f"EOSMAT audit split predecessor changed: {relative}")
+    return original
+
+
+def pre_split_view(document: dict, root: Path = ROOT) -> dict:
+    """Project a complete bundled document onto its pre-split content.
+
+    For frozen historical fingerprints only. Accepts the native or the
+    v3-shaped layout, matches records by identifier, removes ``check`` and
+    re-inserts the generic statements recorded in the receipt. Documents
+    without a receipt binding are returned unchanged.
+    """
+    receipt_path = root / RECEIPT.relative_to(ROOT)
+    material = document.get("identifier")
+    if not receipt_path.exists() or not isinstance(material, str):
+        return copy.deepcopy(document)
+    binding = json.loads(receipt_path.read_bytes())["materials"].get(material)
+    record_path = root / f"peritheos/data/materials/{material}.eosmat"
+    if binding is None or not record_path.exists():
+        return copy.deepcopy(document)
+    order = [
+        r["identifier"] for r in json.loads(record_path.read_bytes())["eos_records"]
+    ]
+    result = copy.deepcopy(document)
+    records = {r.get("identifier"): r for r in result.get("eos_records", [])}
+
+    def evidence(index: int) -> dict | None:
+        record = records.get(order[index])
+        if record is None:
+            return None
+        return record.get("evidence", record)
+
+    for record in records.values():
+        record.pop("check", None)
+    for index, statement in binding.get("generic_notes", []):
+        node = evidence(index)
+        if node is not None and "note" not in node.get("scientific_validation", {}):
+            node["scientific_validation"]["note"] = GENERIC["note"][statement]
+    for index, inserts in binding.get("generic_qualifications", []):
+        node = evidence(index)
+        if node is None:
+            continue
+        assessment = node["reproduction"]["assessment"]
+        values = assessment.setdefault("qualifications", [])
+        for position, statement in inserts:
+            text = GENERIC["qualifications"][statement]
+            if text not in values:
+                values.insert(position, text)
+    return result
+
+
+def split_material(original: bytes) -> tuple[bytes, bytes, dict]:
+    before = json.loads(original)
+    validate_eosmat_document(before)
+    if format_eosmat(before).encode("utf-8") != original:
+        raise ValueError("Pre-split file is not in canonical EOSMAT layout")
+    record_file, sidecar = split_document(before)
+    record_bytes = format_eosmat(record_file).encode("utf-8")
+    audit_bytes = format_audit(sidecar).encode("utf-8")
+    # Reload the rendered files so the proof covers the bytes actually written.
+    merged = merge_audit(json.loads(record_bytes), json.loads(audit_bytes))
+    validate_eosmat_document(json.loads(record_bytes))
+    validate_eosmat_document(merged)
+    binding: dict[str, Any] = {
+        "before_sha256": _sha(original),
+        "after_record_sha256": _sha(record_bytes),
+        "after_audit_sha256": _sha(audit_bytes),
+        **_differences(before, merged),
+    }
+    restored = restore(merged, binding)
+    if restored != before:
+        raise ValueError("Unexpected audit split changes beyond the receipt")
+    # Keep only the key orders that the rendered file actually depends on.
+    binding["object_orders"] = _order_candidates(before, restored)
+    for ordering in list(binding["object_orders"]):
+        trial = {
+            **binding,
+            "object_orders": [o for o in binding["object_orders"] if o is not ordering],
+        }
+        if format_eosmat(restore(merged, trial)).encode("utf-8") == original:
+            binding = trial
+    restored = restore(merged, binding)
+    if restored != before or format_eosmat(restored).encode("utf-8") != original:
+        raise ValueError("Record file and sidecar do not reconstruct the source")
+    return record_bytes, audit_bytes, binding
+
+
+def split_catalog() -> None:
+    from scripts.scientific_source_snapshot import scientific_sha256
+
+    if RECEIPT.exists():
+        raise ValueError("The audit split already has a receipt; use --verify")
+    before_scientific = scientific_sha256()
+    receipt: dict[str, Any] = {
+        "schema": "peritheos.eosmat-v5-audit-split.v1",
+        "source_commit": SOURCE_COMMIT,
+        "scope": (
+            "Layout only: per-record audit blocks moved to peritheos/data/audits; "
+            "a check headline added; identifier-derived report links omitted from "
+            "sidecars and regenerated on load; the generic statements listed here "
+            "removed. Coefficients, errors, covariance, datasets, sources and "
+            "scientific classifications are unchanged."
+        ),
+        "removed_generic_statements": {
+            "evidence.reproduction.assessment.qualifications": list(
+                GENERIC_QUALIFICATIONS
+            ),
+            "evidence.scientific_validation.note": list(GENERIC_VALIDATION_NOTES),
+        },
+        "before_scientific_sha256": before_scientific,
+        "materials": {},
+    }
+    prepared = []
+    for path in sorted(MATERIALS.glob("*.eosmat")):
+        original = path.read_bytes()
+        record_bytes, audit_bytes, binding = split_material(original)
+        material = path.stem
+        receipt["materials"][material] = binding
+        prepared.append((path, original, record_bytes, audit_bytes))
+    if any(path.read_bytes() != original for path, original, _, _ in prepared):
+        raise ValueError("A source file changed while preparing the audit split")
+    AUDITS.mkdir(exist_ok=True)
+    init = AUDITS / "__init__.py"
+    if not init.exists():
+        init.write_text('"""Bundled EOSMAT v5 audit sidecars, one per material."""\n')
+    for path, _, record_bytes, audit_bytes in prepared:
+        path.write_bytes(record_bytes)
+        (AUDITS / f"{path.stem}.audit.json").write_bytes(audit_bytes)
+    after_scientific = scientific_sha256()
+    if after_scientific != before_scientific:
+        raise ValueError("The audit split changed the scientific snapshot")
+    receipt["after_scientific_sha256"] = after_scientific
+    RECEIPT.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+    verify_catalog()
+    print(f"Split {len(prepared)} materials; every pre-split file recovers exactly.")
+
+
+def verify_catalog(root: Path = ROOT) -> int:
+    receipt = json.loads((root / RECEIPT.relative_to(ROOT)).read_bytes())
+    records = sorted(
+        p.stem for p in (root / "peritheos/data/materials").glob("*.eosmat")
+    )
+    audits = sorted(
+        p.name.removesuffix(".audit.json")
+        for p in (root / "peritheos/data/audits").glob("*.audit.json")
+    )
+    if records != audits:
+        raise ValueError("Every material needs exactly one audit sidecar")
+    for material in receipt["materials"]:
+        pre_split_bytes(material, root=root)
+    return len(receipt["materials"])
+
+
+def holds_inline_audit(material: str, root: Path = ROOT) -> bool:
+    """Whether a bundled file still needs the split: inline audit or no sidecar."""
+    document = json.loads(
+        (root / f"peritheos/data/materials/{material}.eosmat").read_bytes()
+    )
+    records = [r for r in document.get("eos_records", []) if isinstance(r, dict)]
+    inline = [r["identifier"] for r in records if set(r) & set(AUDIT_RECORD_KEYS)]
+    external = [r["identifier"] for r in records if audit_is_external(r)]
+    if inline and external:
+        raise ValueError(
+            f"{material}: records {inline} hold inline audit blocks while "
+            f"{external} point to a sidecar; write one complete inline file"
+        )
+    sidecar = root / f"peritheos/data/audits/{material}.audit.json"
+    return bool(inline) or not sidecar.exists()
+
+
+def split_added_materials(
+    materials: list[str] | None = None,
+    *,
+    root: Path = ROOT,
+    check_snapshot: bool = True,
+) -> list[str]:
+    """Split complete inline v5 files added after the catalog-wide split.
+
+    Each file is treated exactly like the original catalog: it must be a
+    valid, canonically formatted v5 document, its split must reconstruct it
+    byte for byte, and the scientific snapshot must not change. Its receipt
+    binding is added; an earlier binding of the same material moves to
+    ``superseded`` because the new inline file is now its pre-split source.
+    Without names, every bundled file holding inline audit blocks or lacking a
+    sidecar is split; a named material must be such a file.
+    """
+    from scripts.scientific_source_snapshot import scientific_sha256
+
+    receipt_path = root / RECEIPT.relative_to(ROOT)
+    if not receipt_path.exists():
+        raise ValueError("No audit-split receipt; run the catalog-wide split first")
+    receipt = json.loads(receipt_path.read_bytes())
+    material_dir = root / "peritheos/data/materials"
+    audit_dir = root / "peritheos/data/audits"
+    available = sorted(p.stem for p in material_dir.glob("*.eosmat"))
+    if materials is None:
+        selected = [m for m in available if holds_inline_audit(m, root)]
+    else:
+        unknown = sorted(set(materials) - set(available))
+        if unknown:
+            raise ValueError(f"No bundled material file for {unknown}")
+        already = [m for m in materials if not holds_inline_audit(m, root)]
+        if already:
+            raise ValueError(
+                f"{already} are already split; write the complete inline file "
+                "first (for example from get_material_document(..., "
+                "format_version=5)) and edit that"
+            )
+        selected = sorted(set(materials))
+    if not selected:
+        return []
+    before_scientific = scientific_sha256(root) if check_snapshot else None
+    prepared = []
+    for material in selected:
+        path = material_dir / f"{material}.eosmat"
+        original = path.read_bytes()
+        record_bytes, audit_bytes, binding = split_material(original)
+        prepared.append((material, path, original, record_bytes, audit_bytes, binding))
+    if any(path.read_bytes() != original for _, path, original, *_ in prepared):
+        raise ValueError("A source file changed while preparing the audit split")
+    for material, path, _, record_bytes, audit_bytes, binding in prepared:
+        previous = receipt["materials"].get(material)
+        if previous is not None:
+            receipt.setdefault("superseded", {}).setdefault(material, []).append(
+                previous
+            )
+        receipt["materials"][material] = binding
+        path.write_bytes(record_bytes)
+        (audit_dir / f"{material}.audit.json").write_bytes(audit_bytes)
+    if check_snapshot and scientific_sha256(root) != before_scientific:
+        raise ValueError("The audit split changed the scientific snapshot")
+    receipt["materials"] = dict(sorted(receipt["materials"].items()))
+    if "superseded" in receipt:
+        receipt["superseded"] = dict(sorted(receipt["superseded"].items()))
+    receipt_path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+    verify_catalog(root)
+    return selected
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    action = parser.add_mutually_exclusive_group()
+    action.add_argument("--verify", action="store_true")
+    action.add_argument(
+        "--add",
+        nargs="*",
+        metavar="MATERIAL",
+        help="split added inline-evidence files (default: every such file)",
+    )
+    arguments = parser.parse_args()
+    if arguments.verify:
+        print(f"Verified {verify_catalog()} materials against the split receipt.")
+    elif arguments.add is not None:
+        added = split_added_materials(arguments.add or None)
+        print(f"Split {len(added)} added materials: {', '.join(added) or 'none'}.")
+    else:
+        split_catalog()
+
+
+if __name__ == "__main__":
+    main()
+
+
+__all__ = [
+    "merged_document",
+    "pre_split_bytes",
+    "split_added_materials",
+    "split_material",
+]

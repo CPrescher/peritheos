@@ -41,75 +41,13 @@
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {
-            "kind": "ab_initio",
-            "source_location": "Computational method",
-            "scope": "static LSDA+Usc energy-volume curve"
-          }
-        ],
-        "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg096875fe003125o/#record-mg096875fe003125o_marcondes_2020_hs_bm3_1",
-            "report_path": "docs/reconstruction-reports/mg096875fe003125o.md#record-mg096875fe003125o_marcondes_2020_hs_bm3_1",
-            "fit": {
-              "fixed_parameters": [],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "canonical_doi",
-            "composition",
-            "phase",
-            "atomic_configuration",
-            "spin_state",
-            "equation",
-            "parameters",
-            "units",
-            "theoretical_method",
-            "numerical_reproduction"
-          ],
-          "primary_source_check": {
-            "access_url": "https://arxiv.org/pdf/2003.12348",
-            "doi": "10.1103/PhysRevB.102.104112",
-            "locations": ["Computational method", "Table I"],
-            "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_plot_only",
-            "audit_date": "2026-09-05",
-            "source_locations": ["Table I"],
-            "finding": "The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Computational method; Table I.",
-          "equation": "Computational methods: energy-volume curve fitted to a third-order finite-strain equation of state.",
-          "V0": "Table I: 74.19 A^3 per conventional B1 cell.",
-          "K0": "Table I: 170.3 GPa.",
-          "K0_prime": "Table I: 4.15.",
-          "model": "Static LSDA+Usc, self-consistent and structurally consistent Hubbard U, Quantum ESPRESSO, 80 Ry cutoff, shifted 2x2x2 k mesh."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/mg096875fe003125o.audit.json#mg096875fe003125o_marcondes_2020_hs_bm3_1"
       }
     },
     {
@@ -145,75 +83,13 @@
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {
-            "kind": "ab_initio",
-            "source_location": "Computational method",
-            "scope": "static LSDA+Usc energy-volume curve"
-          }
-        ],
-        "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg096875fe003125o/#record-mg096875fe003125o_marcondes_2020_ls_bm3_2",
-            "report_path": "docs/reconstruction-reports/mg096875fe003125o.md#record-mg096875fe003125o_marcondes_2020_ls_bm3_2",
-            "fit": {
-              "fixed_parameters": [],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "canonical_doi",
-            "composition",
-            "phase",
-            "atomic_configuration",
-            "spin_state",
-            "equation",
-            "parameters",
-            "units",
-            "theoretical_method",
-            "numerical_reproduction"
-          ],
-          "primary_source_check": {
-            "access_url": "https://arxiv.org/pdf/2003.12348",
-            "doi": "10.1103/PhysRevB.102.104112",
-            "locations": ["Computational method", "Table I"],
-            "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_plot_only",
-            "audit_date": "2026-09-05",
-            "source_locations": ["Table I"],
-            "finding": "The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Computational method; Table I.",
-          "equation": "Computational methods: energy-volume curve fitted to a third-order finite-strain equation of state.",
-          "V0": "Table I: 73.66 A^3 per conventional B1 cell.",
-          "K0": "Table I: 172.1 GPa.",
-          "K0_prime": "Table I: 4.15.",
-          "model": "Static LSDA+Usc, self-consistent and structurally consistent Hubbard U, Quantum ESPRESSO, 80 Ry cutoff, shifted 2x2x2 k mesh."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/mg096875fe003125o.audit.json#mg096875fe003125o_marcondes_2020_ls_bm3_2"
       }
     }
   ],

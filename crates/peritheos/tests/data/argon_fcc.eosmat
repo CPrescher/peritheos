@@ -81,8 +81,7 @@
             "source_status": "similar",
             "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
             "qualifications": [
-              "95 selected rows; run 5 is independent validation. Equal-pressure weights are a diagnostic assumption: the publication supplies no objective, weights, coordinate uncertainties or covariance. Both 296 K (Methods) and 300 K (fit prose) evaluated. Missing pressures and duplicate rows retained in bundle.",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+              "95 selected rows; run 5 is independent validation. Equal-pressure weights are a diagnostic assumption: the publication supplies no objective, weights, coordinate uncertainties or covariance. Both 296 K (Methods) and 300 K (fit prose) evaluated. Missing pressures and duplicate rows retained in bundle."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_dewaele_2021_vinet_mgd",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_dewaele_2021_vinet_mgd",
@@ -235,8 +234,7 @@
             "basis_code": "within_reported_parameter_errors",
             "qualifications": [
               "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Original effective coordinate widths, frozen at published coefficients; residual-scaled covariance conditional on those fixed weights. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
-              "Earlier audit statement, before the conditional uncertainty follow-up: All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed.",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+              "Earlier audit statement, before the conditional uncertainty follow-up: All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_ono_2020_vinet",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_ono_2020_vinet",
@@ -436,10 +434,6 @@
             "scope": "parameter_agreement",
             "source_status": "not_refittable",
             "basis": "Published parameterization matches the official workbook; the complete global fit remains unreproduced. With equal weights on relative residuals, the best converged nine-parameter 22-volume refit lowers volume RMS from 0.0952% to 0.0322%, but gives a much too low bulk modulus and poorly constrained, bound-dependent parameters. The best converged 27-entry refit gives 0.0603% volume RMS and 0.0818% bulk-modulus RMS, but Cv = -13.88 J/mol/K at 77 K is physically unacceptable. Neither diagnostic replaces the published coefficients. Table 2 weights are published; complete legacy rows and quantitative penalties remain unavailable. Next: recover the remaining multiproperty inputs, then refit with physical constraints and assess parameter stability. [Detailed comparison and scope](literature-reproductions/argon-xiao-2025.md#review-conclusion-2026-09-27).",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_xiao_2025_helmholtz",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_xiao_2025_helmholtz",
             "fit": {
@@ -562,10 +556,6 @@
             "scope": "parameter_agreement",
             "source_status": "not_refittable",
             "basis": "Eight resolved figure observations are retained. The incomplete digitization does not identify the original regression; no replacement coefficients are adopted.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_errandonea_2006_bm3",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_errandonea_2006_bm3",
             "fit": {
@@ -667,9 +657,7 @@
             "source_status": "not_refittable",
             "basis": "Approximate internal consistency is reproduced with equal weighting on 74 derived-density rows, excluding source row 98 only in the sensitivity check. All 75 solid rows and original coefficients remain preserved. This does not reproduce the original X-ray regression, whose independent observations are unavailable.",
             "qualifications": [
-              "Original diffraction fit rows were not recovered. An equal-weight sensitivity fit to 74 derived Table I solid densities recovers the published coefficients within 2.4%; source row 98 is excluded only in this diagnostic and retained in the source dataset and all-row fit.",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+              "Original diffraction fit rows were not recovered. An equal-weight sensitivity fit to 74 derived Table I solid densities recovers the published coefficients within 2.4%; source row 98 is excluded only in this diagnostic and retained in the source dataset and all-row fit."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_grimsditch_1986_density_polynomial",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_grimsditch_1986_density_polynomial",
@@ -805,8 +793,7 @@
             "basis_code": "within_reported_parameter_errors",
             "qualifications": [
               "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. All 19 molar-volume rows and the full original Murnaghan/zero-point/Debye model at 293 K; other coefficients fixed. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
-              "Earlier audit statement, before the conditional uncertainty follow-up: All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced.",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+              "Earlier audit statement, before the conditional uncertainty follow-up: All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_finger_1981_murnaghan2_debye",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_finger_1981_murnaghan2_debye",
@@ -1010,10 +997,6 @@
             "scope": "parameter_agreement",
             "source_status": "not_refittable",
             "basis": "Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_anderson_swenson_1975_4p2k",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_anderson_swenson_1975_4p2k",
             "fit": {
@@ -1109,10 +1092,6 @@
             "scope": "parameter_agreement",
             "source_status": "not_refittable",
             "basis": "Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_anderson_swenson_1975_20p0k",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_anderson_swenson_1975_20p0k",
             "fit": {
@@ -1208,10 +1187,6 @@
             "scope": "parameter_agreement",
             "source_status": "not_refittable",
             "basis": "Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_anderson_swenson_1975_40p0k",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_anderson_swenson_1975_40p0k",
             "fit": {
@@ -1307,10 +1282,6 @@
             "scope": "parameter_agreement",
             "source_status": "not_refittable",
             "basis": "Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_anderson_swenson_1975_60p0k",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_anderson_swenson_1975_60p0k",
             "fit": {
@@ -1406,10 +1377,6 @@
             "scope": "parameter_agreement",
             "source_status": "not_refittable",
             "basis": "Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_anderson_swenson_1975_77p0k",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_anderson_swenson_1975_77p0k",
             "fit": {
@@ -1523,9 +1490,7 @@
             "basis": "DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md.",
             "qualifications": [
               "Usage recommendation: DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
-              "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+              "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_chen_2010_bm3_reported_constants",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_chen_2010_bm3_reported_constants",
@@ -1837,9 +1802,7 @@
             "source_status": "not_refittable",
             "basis": "Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.",
             "qualifications": [
-              "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells.",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+              "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_fcc/#record-argon_fcc_maltby_2024_published",
             "report_path": "docs/reconstruction-reports/argon_fcc.md#record-argon_fcc_maltby_2024_published",

@@ -1,0 +1,137 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "ca0988mg0918fe0078mn0016c2o6_dolomite",
+  "records": {
+    "ca0988mg0918fe0078mn0016c2o6_dolomite_mao_2011_bm3_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Pt",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "title": "Toward an internally consistent pressure scale",
+              "source": "Proceedings of the National Academy of Sciences",
+              "volume": "104",
+              "locator": "9182-9186",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Experimental Procedure, paragraph 5",
+            "scope": "all observations"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Figure 3 provides neither row-wise Pt volumes nor a numerical P-V table, so the reported pressures cannot be independently recalculated."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 321.77,
+                "published_error": 0.06,
+                "refit": 320.6463493487316,
+                "refit_error": 0.8803807365064472,
+                "difference": -1.123650651268406,
+                "relative_difference": 0.003492092647755869,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 94.1,
+                "published_error": 0.4,
+                "refit": 98.63544274692276,
+                "refit_error": 3.6991988672757525,
+                "difference": 4.535442746922769,
+                "relative_difference": 0.04819811633286683,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 7,
+              "observed_pressure_range_gpa": [0.155039, 16.27907],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [281.960784, 321.176471],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3479429468281554,
+              "published_rmse_gpa": 0.3991598271609795,
+              "reduced_chi_square": 0.1694900119464448,
+              "dataset_identifiers": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and candidate enumeration.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "cell_basis",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
+            "doi": "10.1029/2011GL049519",
+            "locations": ["Experimental Procedure, paragraphs 5-6", "Discussion, paragraphs 10-11", "Figure 3"],
+            "finding": "The source explicitly reports the composition-specific 300 K trigonal Fe-dolomite BM3 with V0 and K0 fitted and K0'=4 fixed."
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-05",
+            "digitized_dataset_identifiers": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized"],
+            "source_locations": ["Figure 3a, open-diamond observations"],
+            "finding": "Seven separable marker centers are bundled; the article and auxiliary files provide no numerical pressure-volume table."
+          },
+          "independent_refit": {
+            "method": "Figure-marker audit with unweighted pressure residuals; V0 and K0 free and K0'=4 fixed",
+            "parameters": {"V0": 320.64634937, "K0": 98.63544265, "K0_prime": 4.0},
+            "published_curve_pressure_rmse_gpa": 0.39915983,
+            "published_curve_pressure_max_abs_residual_gpa": 0.69344567,
+            "assessment": "The low-resolution raster does not reproduce the source regression weights or the very small printed errors, but all seven markers follow the published curve within 0.70 GPa; the digitized refit is diagnostic and does not replace the source coefficients."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure, paragraphs 5-6; Discussion, paragraphs 10-11; Figure 3.",
+          "equation": "Discussion paragraph 11: third-order Birch-Murnaghan equation of state.",
+          "V0": "Discussion paragraph 11: V0=321.77(+/-0.06) A^3.",
+          "K0": "Discussion paragraph 11: K0=94.1(+/-0.4) GPa.",
+          "K0_prime": "Discussion paragraph 11: fixed at 4.",
+          "temperature_ref": "Figure 3 and Discussion identify the cell volumes as 300 K.",
+          "fit_selection": "Low-pressure trigonal Fe-dolomite observations before the approximately 17 GPa transition."
+        }
+      }
+    }
+  }
+}

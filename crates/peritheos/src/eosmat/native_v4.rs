@@ -5,7 +5,7 @@ use serde_json::{json, Map, Value};
 #[path = "shared_metadata.rs"]
 mod shared_metadata;
 
-use super::{component_model_identifier, invalid_document, EosmatError, RawComponent};
+use super::{audit, component_model_identifier, invalid_document, EosmatError, RawComponent};
 
 const EVIDENCE_FIELDS: &[&str] = &[
     "scientific_validation",
@@ -56,6 +56,7 @@ const EVIDENCE_RESERVED: &[&str] = &[
     "parameters",
     "equation_options",
     "evidence",
+    "check",
 ];
 
 fn object(value: &Value, label: &str) -> Result<Map<String, Value>, EosmatError> {
@@ -181,6 +182,14 @@ pub(super) fn expand(document: &Value) -> Result<Value, EosmatError> {
         record.insert("eos".into(), Value::Object(options));
         record.insert("parameter_errors".into(), Value::Object(e));
         record.insert("fixed_parameters".into(), Value::Array(f));
+        if let Some(check) = source.get("check") {
+            let location = format!(
+                "eos_records[{}]",
+                source.get("identifier").unwrap_or(&Value::Null)
+            );
+            audit::validate_check(check, &location)?;
+            audit::validate_check_consistency(source, &location)?;
+        }
         let evidence = object(&record.remove("evidence").unwrap_or(json!({})), "evidence")?;
         if evidence
             .keys()
@@ -196,9 +205,16 @@ pub(super) fn expand(document: &Value) -> Result<Value, EosmatError> {
         record
             .entry("reference")
             .or_insert(json!("User-supplied parameters"));
-        record
-            .entry("scientific_validation")
-            .or_insert(json!({"status":"pending_primary_source_check"}));
+        if !record.contains_key("scientific_validation") {
+            // A record file whose evidence lives in an audit sidecar keeps the
+            // stored source-check status in its headline; nothing is inferred.
+            let status = record
+                .get("check")
+                .and_then(|check| check.get("source"))
+                .cloned()
+                .unwrap_or_else(|| json!("pending_primary_source_check"));
+            record.insert("scientific_validation".into(), json!({ "status": status }));
+        }
         if let Some(value) = record.get("thermal") {
             let mut thermal = object(value, "thermal")?;
             if ["type", "parameter_errors", "fixed_parameters"]

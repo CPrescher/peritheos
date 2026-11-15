@@ -1,0 +1,173 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "fe093o_rhombohedral",
+  "records": {
+    "fe093o_rhombohedral_jacobsen_2005_bm3_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Experiment, page 578: unit-cell parameters were measured using the Mao et al. (1986) ruby fluorescence pressure scale.",
+            "reference_calibration_record": "ruby_mao_1986"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "All row-wise sample volumes and source-scale pressures are bundled. The exact Mao-1986 ruby equation is executable; reported pressures can be inverted to normalized R1 wavelength before applying another ruby calibration."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 59.72,
+                "published_error": 0.22,
+                "refit": 59.7395132600023,
+                "refit_error": 0.13126348450424175,
+                "difference": 0.019513260002298694,
+                "relative_difference": 0.0003267458138362139,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 134.0,
+                "published_error": 4.0,
+                "refit": 133.66207218779005,
+                "refit_error": 2.1612363944843067,
+                "difference": -0.33792781220995494,
+                "relative_difference": 0.00252184934485041,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "fe093o_rhombohedral_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 9,
+              "observed_pressure_range_gpa": [27.7, 51.1],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [47.0, 51.27],
+              "degrees_of_freedom": 7,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.016131562401951283,
+              "published_rmse_gpa": 0.4415688144493295,
+              "reduced_chi_square": 2.6797370526722912,
+              "dataset_identifiers": ["jacobsen_2005_table1_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "formula_units_per_cell",
+            "published_uncertainties",
+            "fixed_parameters",
+            "parameter_covariance",
+            "validity",
+            "pressure_calibration",
+            "primary_data",
+            "fit_selection",
+            "fit_reproducibility"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1107/S0909049505022326",
+            "locations": ["Experiment, pages 577-578", "Results section 3.1 and Table 1, pages 579-580", "Figure 5, page 580"],
+            "finding": "The source's preferred rhombohedral Fe0.93O parameterization is the ambient-reference BM3 cross-check on all nine 27.7-51.1 GPa rows, with V0 and K0 varied and K0'=4 fixed.",
+            "doi": "10.1107/S0909049505022326"
+          },
+          "reported_parameterizations": [
+            {
+              "role": "finite_pressure_fit",
+              "reference_pressure_gpa": 28.0,
+              "V_reference_a3": 51.28,
+              "V_reference_error_a3": 0.03,
+              "K_reference_gpa": 238.0,
+              "K_reference_error_gpa": 4.0,
+              "K_reference_prime": 3.5,
+              "fixed_parameters": ["K_reference_prime"]
+            },
+            {
+              "role": "finite_pressure_fit_back_calculated_to_zero_pressure",
+              "V0_a3": 59.85,
+              "K0_gpa": 132.0,
+              "K0_prime": 4.2,
+              "fixed_parameters": []
+            },
+            {
+              "role": "preferred_ambient_reference_cross_check",
+              "V0_a3": 59.72,
+              "V0_error_a3": 0.22,
+              "K0_gpa": 134.0,
+              "K0_error_gpa": 4.0,
+              "K0_prime": 4.0,
+              "fixed_parameters": ["K0_prime"]
+            }
+          ],
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["jacobsen_2005_table1_compression"],
+            "source_locations": ["Table 1, all 16 shared pressure rows and all phase-specific lattice/volume values"],
+            "finding": "The complete multiphase table is transcribed, including all nine rhombohedral a, c, equivalent-hexagonal volume, and estimated-standard-deviation values."
+          },
+          "numerical_reproduction": {
+            "published_curve_pressure_rmse_gpa": 0.4415688144,
+            "published_curve_max_abs_residual_gpa": 0.7741052573,
+            "independent_refit": {
+              "model": "Third-order Birch-Murnaghan with K0_prime fixed at 4.0",
+              "selection": "The nine Table 1 rows flagged fe093o_rhombohedral_fit_included=1; no synthetic ambient point.",
+              "objective": "Effective-variance pressure residuals using the printed equivalent-hexagonal volume standard deviations and 0.075 GPa as the midpoint of the source's stated 0.05-0.1 GPa pressure precision range.",
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "parameters": {"V0": 59.75515644, "K0": 133.40916064, "K0_prime": 4.0},
+              "reduced_chi_square": 2.5182875199,
+              "raw_pressure_rmse_gpa": 0.435751516,
+              "conclusion": "Both free coefficients reproduce the preferred published values within their reported uncertainties."
+            },
+            "limitation": "The midpoint pressure precision is an explicit deterministic audit choice, not a reconstruction of undocumented EOS-FIT weights; the source publishes no covariance or confidence convention."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiment, pages 577-578; Results section 3.1 and Table 1, pages 579-580; Figure 5, page 580.",
+          "equation": "Results section 3.1 and Figure 5, pages 579-580: third-order Birch-Murnaghan treatment with an ambient-reference cross-check.",
+          "V0": "Results section 3.1, page 580: preferred ambient-reference fit V0=59.72(22) A^3, varied without adding a synthetic P0 observation.",
+          "K0": "Results section 3.1, page 580: preferred ambient-reference fit K0=134(4) GPa, varied.",
+          "K0_prime": "Results section 3.1, page 580: fixed at 4.0 in the preferred ambient-reference fit.",
+          "volume_basis": "Table 1 explicitly reports equivalent-hexagonal-cell volumes. The paper's conversion of V0=59.72 A^3 to 11.99 cm^3/mol establishes three formula units per represented cell.",
+          "temperature_ref": "The source identifies the ambient lattice measurements as 300 K and reports a room-temperature static compression experiment."
+        }
+      }
+    }
+  }
+}

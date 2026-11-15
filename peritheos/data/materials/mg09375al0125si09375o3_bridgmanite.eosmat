@@ -45,82 +45,13 @@
         "locator": "L14303",
         "doi": "10.1029/2005GL023192"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {
-            "kind": "ab_initio",
-            "source_location": "Section 2, Computational Technique",
-            "scope": "static total-energy calculations"
-          }
-        ],
-        "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg09375al0125si09375o3_bridgmanite/#record-mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3",
-            "report_path": "docs/reconstruction-reports/mg09375al0125si09375o3_bridgmanite.md#record-mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3",
-            "fit": {
-              "fixed_parameters": [],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Validated against the author-deposited published article and its source Table 1.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "canonical_doi",
-            "composition",
-            "substitution_mechanism",
-            "phase",
-            "equation",
-            "parameters",
-            "units",
-            "reference_state",
-            "theoretical_method",
-            "volume_range"
-          ],
-          "primary_source_check": {
-            "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
-            "doi": "10.1029/2005GL023192",
-            "locations": ["Section 2, paragraphs 6-8", "Table 1"],
-            "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis."
-          },
-          "primary_data_check": {
-            "status": "parameterization_only",
-            "audit_date": "2026-09-05",
-            "source_locations": ["Section 2, paragraph 8", "Table 1"],
-            "finding": "The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance."
-          },
-          "independent_refit": {
-            "classification": "similar",
-            "method": "Independent evaluation of the standard BM3 pressure at the source-stated lower volume boundary V/V0=0.65.",
-            "parameters": {"volume_ratio": 0.65, "pressure_gpa": 229.07072548},
-            "finding": "The evaluated pressure is above 200 GPa, reproducing the independently stated calculation-envelope endpoint 'just above 200 GPa'."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Section 2, paragraphs 6-8; Table 1.",
-          "equation": "Section 2: internal energy versus volume fitted to the third-order Birch-Murnaghan equation.",
-          "V0": "Table 1 perovskite CCM 6.25 mol.% row: 41.86 A^3 on the normalized approximately five-atom basis; multiplied by four for the executable conventional-cell basis.",
-          "K0": "Table 1: 232 GPa.",
-          "K0_prime": "Table 1: 3.86.",
-          "uncertainties": "The source reports no coefficient uncertainties or covariance.",
-          "method": "Static VASP GGA calculations; fixed-volume cell-shape, atomic-position, and electronic-wavefunction optimization; 1000 eV cutoff."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/mg09375al0125si09375o3_bridgmanite.audit.json#mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3"
       }
     }
   ],

@@ -58,10 +58,13 @@ def semantic_digest(value):
 def verify_preserved_sources():
     inputs = json.loads(INPUT.read_text(encoding="utf-8"))
     for material, digest in inputs["source_dataset_declarations_sha256"].items():
-        document = load_eosmat(
-            ROOT / "peritheos/data/materials" / (material + ".eosmat")
-        )
         from scripts.merge_source_bindings import accepts_merge_binding
+        from scripts.split_eosmat_audits import pre_split_view
+
+        # Frozen source fingerprints predate the record/audit split.
+        document = pre_split_view(
+            load_eosmat(ROOT / "peritheos/data/materials" / (material + ".eosmat"))
+        )
 
         actual = semantic_digest(document.get("datasets", []))
         if actual != digest and not accepts_merge_binding(

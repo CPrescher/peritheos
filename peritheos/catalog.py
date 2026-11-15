@@ -11,7 +11,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
-from difflib import get_close_matches
+from difflib import SequenceMatcher, get_close_matches
 from functools import cache
 from types import MappingProxyType
 from typing import TypeVar
@@ -29,7 +29,7 @@ from peritheos.eosmat import (
     list_material_documents,
 )
 from peritheos.errors import MaterialError, MaterialLookupError
-from peritheos.materials import EOSRecord, Material
+from peritheos.materials import EOSRecord, Material, _material_from_eosmat
 
 _CatalogObject = TypeVar("_CatalogObject", Material, EOSRecord)
 
@@ -81,8 +81,9 @@ def _catalog_index() -> _CatalogIndex:
     material_by_record: dict[str, Material] = {}
     families = {family.identifier for family in list_material_families()}
     for document_identifier in list_material_documents():
+        # The record file alone: audit sidecars load lazily per material.
         source_document = get_material_document(
-            document_identifier, format_version=None
+            document_identifier, format_version=None, include_audit=False
         )
         if (
             source_document.get("family_id") is not None
@@ -111,10 +112,11 @@ def _catalog_index() -> _CatalogIndex:
         ]
         if not executable_ids:
             continue
-        material = Material.from_eosmat(
+        material = _material_from_eosmat(
             source_document,
             record_identifiers=executable_ids,
             require_primary_validation=False,
+            bundled_audit=True,
         )
         if material.identifier != document_identifier:
             raise MaterialError(
@@ -175,12 +177,106 @@ def _suggestion(identifier: str, choices: Iterable[str]) -> str:
     return f" Did you mean: {', '.join(matches)}?" if matches else ""
 
 
-def get_material(identifier: str) -> Material:
-    """Return a bundled executable material by stable identifier or exact alias.
+_MAX_LISTED_CANDIDATES = 8
 
-    Canonical identifiers take precedence. Pre-0.7 generated identifiers are
-    retained as compatibility lookups when they do not collide with a
-    canonical identifier.
+_MAX_SUGGESTIONS = 5
+
+
+@cache
+def _document_only_materials() -> frozenset[str]:
+    """Bundled material cards without an executable EOS record."""
+    return frozenset(list_material_documents()) - set(_catalog_index().materials)
+
+
+def _material_label(material: Material) -> str:
+    phase = " ".join(material.phase.split())
+    if len(phase) > 40:
+        phase = phase[:37].rstrip() + "..."
+    return f"{material.identifier} ({phase})"
+
+
+def _ambiguous_material(
+    query: str, candidates: Iterable[Material], reason: str, subject: str = "material"
+) -> MaterialLookupError:
+    unique = {item.identifier: item for item in candidates}
+    ordered = [unique[key] for key in sorted(unique)]
+    listed = ", ".join(
+        _material_label(item) for item in ordered[:_MAX_LISTED_CANDIDATES]
+    )
+    more = len(ordered) - _MAX_LISTED_CANDIDATES
+    if more > 0:
+        listed += f", and {more} more"
+    return MaterialLookupError(
+        f"Ambiguous {subject} {query!r}: {reason} {len(ordered)} materials: "
+        f"{listed}. Use one of the identifiers.",
+        operation="lookup_material",
+        field="identifier",
+        context={
+            "identifier": query,
+            "matches": tuple(item.identifier for item in ordered),
+        },
+    )
+
+
+def _unique_or_ambiguous(
+    query: str, candidates: list[Material], reason: str
+) -> Material | None:
+    unique = {item.identifier: item for item in candidates}
+    if len(unique) == 1:
+        return next(iter(unique.values()))
+    if unique:
+        raise _ambiguous_material(query, unique.values(), reason)
+    return None
+
+
+def _material_names(material: Material) -> tuple[str, ...]:
+    return (*material.aliases, *((material.name,) if material.name else ()))
+
+
+def _material_suggestions(query: str, index: _CatalogIndex) -> list[str]:
+    """Rank identifier/name/alias/formula keys by prefix, containment, spelling."""
+    folded = query.casefold()
+    keys: dict[str, list[Material]] = {}
+    for material in index.materials.values():
+        for key in (material.identifier, *_material_names(material), material.formula):
+            keys.setdefault(key.casefold(), []).append(material)
+    scored: list[tuple[float, str]] = []
+    for key in keys:
+        ratio = SequenceMatcher(None, folded, key).ratio()
+        contained = len(folded) >= 3 and folded in key
+        if ratio < 0.6 and not contained:
+            continue
+        bonus = 0.5 if contained and key.startswith(folded) else 0.25 * contained
+        scored.append((ratio + bonus, key))
+    ranked = [
+        material
+        for _, key in sorted(scored, key=lambda item: (-item[0], item[1]))
+        for material in keys[key]
+    ]
+    labels = dict.fromkeys(
+        f"{item.identifier} ({item.name})" if item.name else item.identifier
+        for item in ranked
+    )
+    return list(labels)[:_MAX_SUGGESTIONS]
+
+
+def get_material(identifier: str) -> Material:
+    """Return a bundled executable material by identifier, alias, name or formula.
+
+    Resolution is ordered and never guesses between candidates:
+
+    1. exact identifier or exact alias (an alias shared by several materials
+       raises); then pre-0.7 compatibility identifiers;
+    2. case-insensitive identifier, together with a case-sensitive formula
+       (``"Au"``, ``"CO"`` versus ``"Co"``);
+    3. case-insensitive alias or name (``"periclase"``, ``"GOLD"``);
+    4. case-insensitive formula, only for an all-lowercase query (``"au"``).
+
+    A step matching exactly one material returns it; a step matching several
+    raises :class:`~peritheos.errors.MaterialLookupError` listing the candidate
+    identifiers and phases. The identifier of a bundled card without an
+    executable record is never redirected to another material. Unknown input
+    raises with ranked suggestions.
     """
     index = _catalog_index()
     material = index.materials.get(identifier) or index.material_aliases.get(identifier)
@@ -188,18 +284,66 @@ def get_material(identifier: str) -> Material:
         return material
     if identifier in index.ambiguous_material_aliases:
         matches = index.ambiguous_material_aliases[identifier]
-        raise MaterialLookupError(
-            f"Ambiguous material alias {identifier!r}; matches: {', '.join(matches)}.",
-            operation="lookup_material",
-            field="identifier",
-            context={"identifier": identifier, "matches": matches},
+        raise _ambiguous_material(
+            identifier,
+            (index.materials[item] for item in matches),
+            "shared by",
+            subject="material alias",
         )
     compatibility = _compatibility_materials()
     if identifier in compatibility:
         return compatibility[identifier]
-    choices = (*index.materials, *index.material_aliases, *compatibility)
+    if not isinstance(identifier, str):
+        raise MaterialLookupError(
+            f"Material identifier must be a string, not {type(identifier).__name__}",
+            operation="lookup_material",
+            field="identifier",
+            context={"identifier": repr(identifier)},
+        )
+    query = identifier.strip()
+    folded = query.casefold()
+    if folded in _document_only_materials():
+        # Never redirect a material card's own identifier to another material.
+        raise MaterialLookupError(
+            f"Unknown material {identifier!r}: the bundled card {folded!r} has no "
+            f"executable EOS record; get_material_document({folded!r}) returns it.",
+            operation="lookup_material",
+            field="identifier",
+            context={"identifier": identifier},
+        )
+    materials = tuple(index.materials.values())
+    for candidates, reason in (
+        (
+            [
+                item
+                for item in materials
+                if item.identifier == folded or item.formula == query
+            ],
+            "the identifier or formula matches",
+        ),
+        (
+            [
+                item
+                for item in materials
+                if any(name.casefold() == folded for name in _material_names(item))
+            ],
+            "the name or alias matches",
+        ),
+        (
+            [item for item in materials if item.formula.casefold() == folded]
+            if query and query == query.lower()
+            else [],
+            "the formula matches",
+        ),
+    ):
+        material = _unique_or_ambiguous(identifier, candidates, reason)
+        if material is not None:
+            return material
+    suggestions = _material_suggestions(query, index)
+    hint = f" Did you mean: {', '.join(suggestions)}?" if suggestions else ""
     raise MaterialLookupError(
-        f"Unknown material {identifier!r}." + _suggestion(identifier, choices),
+        f"Unknown material {identifier!r}.{hint} Browse with list_materials() "
+        "or search_materials(text).",
         operation="lookup_material",
         field="identifier",
         context={"identifier": identifier},

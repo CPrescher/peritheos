@@ -168,8 +168,16 @@ def test_source_checked_record_can_still_be_not_recommended():
         == "Executable; not recommended for quantitative use"
     )
     sheet = render_material(document, executable=executable, defaults={})
-    assert sheet.index("**Usage qualification:**") < sheet.index("<details")
+    # The coded recommendation appears once, as the fixed warning wording.
+    warning = "**Warning:** Not recommended for quantitative use."
+    assert sheet.index(warning) < sheet.index("| Component | Parameter |")
+    assert "**Usage qualification:**" not in sheet
+    assert "| untested | **Yes** |" in sheet
     assert "not\\_achieved" in sheet
+    record["scientific_validation"]["usage_recommendation"] = "Use below 10 GPa only."
+    sheet = render_material(document, executable=executable, defaults={})
+    assert "**Usage qualification:** Use below 10 GPa only." in sheet
+    assert "**Warning:**" not in sheet
 
 
 def test_generated_material_summaries_and_formatting_are_current():

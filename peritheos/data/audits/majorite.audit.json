@@ -1,0 +1,97 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "majorite",
+  "records": {
+    "majorite_yagi_1992_bm3_1": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 161.2,
+                "published_error": null,
+                "refit": 160.73415834708604,
+                "refit_error": 2.1212704900581403,
+                "difference": -0.4658416529139515,
+                "relative_difference": 0.002889836556538161,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 10,
+              "observed_pressure_range_gpa": [1.43, 9.72],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [1435.7, 1500.4],
+              "degrees_of_freedom": 9,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.23325575852449987,
+              "published_rmse_gpa": 0.2338798726893578,
+              "reduced_chi_square": 0.06045360987204421,
+              "dataset_identifiers": ["majorite_yagi_1992_table1_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/0031-9201(92)90063-2",
+            "locations": [
+              "page 4, Figure 3 and Birch-Murnaghan fit paragraph",
+              "page 4, Table 1 and V0 footnote",
+              "page 5, Table 2, this-study 1 bar cell"
+            ],
+            "finding": "The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not a fit error from this EOS and is removed.",
+            "doi": "10.1016/0031-9201(92)90063-2"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "mgsio3.json; majorite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["majorite_yagi_1992_table1_compression"],
+            "source_locations": ["Table 1, journal page 4"],
+            "finding": "All ten MgSiO3 majorite compression observations printed in Table 1."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 4, Figure 3 and Birch-Murnaghan fit paragraph; page 4, Table 1 and V0 footnote; page 5, Table 2, this-study 1 bar cell.",
+          "V0": "Yagi et al. (1992), Table 1 footnote and Table 2 this-study row",
+          "K0": "Yagi et al. (1992), page 4, Figure 3 fit paragraph",
+          "K0_prime": "Yagi et al. (1992), page 4: fixed at 4",
+          "equation": "Yagi et al. (1992), page 3, Birch-Murnaghan fit description"
+        }
+      }
+    }
+  }
+}

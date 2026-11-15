@@ -70,6 +70,7 @@ from peritheos.eos.thermal import (
 )
 from peritheos.errors import (
     ConfigurationError,
+    EosmatError,
     MaterialError,
     MaterialLookupError,
     UnsupportedOperationError,
@@ -203,6 +204,170 @@ _LEGACY_HUGONIOT_PATHS = {
     "transformed_hugoniot_branch": ("principal", "transformed"),
 }
 _HUGONIOT_MASS_BASIS_RTOL = 1.0e-3
+
+
+# --- Plain-text display helpers -------------------------------------------
+#
+# These read only the executable objects and the record-file metadata. They
+# never load an audit sidecar, so ``repr`` and ``summary`` stay cheap and work
+# when the sidecar of a bundled or standalone file is absent.
+
+_DISPLAY_PARAMETER_UNITS = {
+    "K0": "GPa",
+    "K0_double_prime": "GPa^-1",
+    "Tr": "K",
+    "theta0": "K",
+}
+
+
+def _display_number(value: Any, digits: int = 12) -> str:
+    """Format a stored number; 12 significant digits keep published values."""
+    if value is None:
+        return "n/a"
+    if isinstance(value, bool) or not isinstance(value, (int, float, np.number)):
+        return str(value)
+    number = float(value)
+    if np.isinf(number):
+        return "inf" if number > 0 else "-inf"
+    return f"{number:.{digits}g}"
+
+
+def _display_range(bounds: Any, digits: int = 12) -> str:
+    """Format a closed range; ``-`` when the source states no numerical range."""
+    if bounds is None:
+        return "-"
+    lower, upper = (float(bound) for bound in bounds)
+    # Readers store an unreported range as (-inf | smallest positive, inf).
+    if upper == np.inf:
+        if lower == -np.inf or lower == np.nextafter(0.0, 1.0):
+            return "-"
+        return f">={_display_number(lower, digits)}"
+    if lower == -np.inf:
+        return f"<={_display_number(upper, digits)}"
+    if lower == upper:
+        return _display_number(lower, digits)
+    separator = " to " if lower < 0 else "-"
+    return (
+        f"{_display_number(lower, digits)}{separator}{_display_number(upper, digits)}"
+    )
+
+
+def _single_line(text: str, limit: int | None = None) -> str:
+    line = " ".join(str(text).split())
+    if limit is not None and len(line) > limit:
+        line = line[: limit - 3].rstrip() + "..."
+    return line
+
+
+def _record_model_name(record: EOSRecord) -> str:
+    """Executable model, e.g. ``BM3`` or ``BM3 + MieGruneisenDebye``."""
+    eos = record.eos
+    if isinstance(eos, ThermalEOS):
+        return f"{type(eos.rt_eos).__name__} + {type(eos).__name__}"
+    return type(eos).__name__
+
+
+def _short_reference(reference: LiteratureReference) -> str:
+    """First author surname and year, e.g. ``Speziale et al. 2001``."""
+    authors = [
+        part.strip()
+        for part in re.split(r",|\band\b|;|&", reference.authors)
+        if part.strip()
+    ]
+    if not authors:
+        return str(reference.year)
+    surname = authors[0].split()[-1]
+    if len(authors) == 2:
+        return f"{surname} & {authors[1].split()[-1]} {reference.year}"
+    suffix = " et al." if len(authors) > 2 else ""
+    return f"{surname}{suffix} {reference.year}"
+
+
+def _record_check(record: EOSRecord) -> Mapping[str, Any]:
+    check = record._record_metadata().get("check")
+    return check if isinstance(check, Mapping) else {}
+
+
+def _display_parameter_blocks(
+    record: EOSRecord,
+) -> list[tuple[str, list[tuple[str, Any, Any, bool]]]]:
+    """Return ``(title, [(name, value, error, fixed), ...])`` per component.
+
+    Values come from the record file when available (source coefficients in
+    parameter units); otherwise from the executable objects, with the
+    reference volume converted to the public unit.
+    """
+    metadata = record._record_metadata()
+    blocks: list[tuple[str, list[tuple[str, Any, Any, bool]]]] = []
+    component = metadata.get("eos")
+    if isinstance(component, Mapping) and isinstance(
+        component.get("parameters"), Mapping
+    ):
+        errors = dict(metadata.get("parameter_errors") or {})
+        if (
+            errors.get("V0") is not None
+            and metadata.get("parameter_error_volume_basis", "model") != "public"
+            and record.volume_scale != 1.0
+        ):
+            errors["V0"] = float(errors["V0"]) / record.volume_scale
+        fixed = set(metadata.get("fixed_parameters") or ())
+        title = str(component.get("type") or component.get("model") or "EOS")
+        blocks.append(
+            (
+                title,
+                [
+                    (str(name), value, errors.get(name), name in fixed)
+                    for name, value in component["parameters"].items()
+                ],
+            )
+        )
+        thermal = metadata.get("thermal")
+        if isinstance(thermal, Mapping) and isinstance(
+            thermal.get("parameters"), Mapping
+        ):
+            thermal_errors = thermal.get("parameter_errors") or {}
+            thermal_fixed = set(thermal.get("fixed_parameters") or ())
+            blocks.append(
+                (
+                    str(thermal.get("type") or thermal.get("model") or "thermal"),
+                    [
+                        (
+                            str(name),
+                            value,
+                            thermal_errors.get(name),
+                            name in thermal_fixed,
+                        )
+                        for name, value in thermal["parameters"].items()
+                    ],
+                )
+            )
+        return blocks
+    # Records constructed in Python carry no record-file metadata.
+    errors = dict(record.parameter_errors or {})
+    eos = record.eos
+    reference_eos = eos.rt_eos if isinstance(eos, ThermalEOS) else eos
+    prefix = "rt_eos." if isinstance(eos, ThermalEOS) else ""
+    rows = []
+    for name, value in _own_parameter_values(reference_eos).items():
+        error = errors.get(prefix + name)
+        if name == "V0":
+            value = value / record.volume_scale
+            error = None if error is None else error / record.volume_scale
+        rows.append((name, value, error, False))
+    blocks.append((type(reference_eos).__name__, rows))
+    if isinstance(eos, ThermalEOS):
+        blocks.append(
+            (
+                type(eos).__name__,
+                [
+                    (name, value, errors.get(name), False)
+                    for name, value in eos.parameter_values(
+                        include_reference=False
+                    ).items()
+                ],
+            )
+        )
+    return blocks
 
 
 @dataclass(frozen=True)
@@ -385,16 +550,13 @@ class EOSRecord:
                 f"{type(self.eos).__name__}"
             )
         object.__setattr__(self, "equation_kind", equation_kind)
-        object.__setattr__(
-            self,
-            "pressure_calibration",
-            MappingProxyType(copy.deepcopy(dict(self.pressure_calibration))),
-        )
-        object.__setattr__(
-            self,
-            "eosmat_metadata",
-            MappingProxyType(copy.deepcopy(dict(self.eosmat_metadata))),
-        )
+        # Bundled catalog records resolve audit-backed fields on first read.
+        for name in ("pressure_calibration", "eosmat_metadata"):
+            value = self.__dict__[name]
+            if value is not _PENDING_AUDIT:
+                object.__setattr__(
+                    self, name, MappingProxyType(copy.deepcopy(dict(value)))
+                )
         object.__setattr__(
             self,
             "aliases",
@@ -403,15 +565,176 @@ class EOSRecord:
             ),
         )
 
+    def _record_metadata(self) -> Mapping[str, Any]:
+        """Record-file fields, available without loading a pending audit."""
+        if self.__dict__.get("eosmat_metadata") is _PENDING_AUDIT:
+            return self.__dict__["_audit_source"].record_fields(self.identifier)
+        return self.eosmat_metadata
+
     @property
     def determination_method(self) -> str:
         """How the parameters were determined; absent legacy metadata is unknown."""
-        return str(self.eosmat_metadata.get("determination_method", "unknown"))
+        return str(self._record_metadata().get("determination_method", "unknown"))
 
     @property
     def pressure_scale_variant_of(self) -> str | None:
         """Source EOS whose published pressure-scale alternative this represents."""
-        return self.eosmat_metadata.get("pressure_scale_variant_of")
+        return self._record_metadata().get("pressure_scale_variant_of")
+
+    def _headline(self) -> Mapping[str, Any]:
+        headline = self.__dict__.get("_check_headline")
+        if headline is None:
+            from peritheos._eosmat_audit import headline as derive
+
+            headline = derive(self._record_metadata())
+        return headline
+
+    @property
+    def reproduction(self) -> str:
+        """Whether a refit of the original data reproduced the published values.
+
+        One of ``"reproduced"``, ``"close"``, ``"disagrees"`` or ``"untested"``,
+        mapped from the stored reconstruction assessment (``check.reproduction``
+        in an EOSMAT v5 record). A record with no assessment is ``"untested"``.
+        """
+        return str(self._headline()["reproduction"])
+
+    @property
+    def warning(self) -> str | None:
+        """Short stored usage restriction (``check.warning``), or ``None``."""
+        value = self._headline()["warning"]
+        return None if value is None else str(value)
+
+    @property
+    def audit(self) -> Mapping[str, Any]:
+        """The record's audit trail, as stored in an EOSMAT v5 audit sidecar.
+
+        Contains ``evidence``, ``pressure_calibration`` and any other audit-only
+        blocks. Bundled records load their material's sidecar on first access.
+        For inline files the same blocks are taken from the record itself.
+        """
+        source = self.__dict__.get("_audit_source")
+        if source is not None:
+            return source.entry(self.identifier)
+        inline = self.__dict__.get("_inline_audit")
+        if inline is not None:
+            return MappingProxyType(copy.deepcopy(dict(inline)))
+        from peritheos._eosmat_audit import AUDIT_RECORD_KEYS, audit_is_external
+        from peritheos._eosmat_v4 import EVIDENCE_FIELDS
+
+        metadata = self.eosmat_metadata
+        if audit_is_external(metadata) and not any(
+            key in metadata for key in EVIDENCE_FIELDS if key != "scientific_validation"
+        ):
+            raise EosmatError(
+                f"The audit of EOS record {self.identifier!r} is in the sidecar "
+                f"{metadata['check']['audit']!r}, which was not loaded; use "
+                "load_eosmat(path), which merges it by default",
+                code="eosmat.audit_not_loaded",
+            )
+        evidence = {
+            key: copy.deepcopy(metadata[key])
+            for key in EVIDENCE_FIELDS
+            if key in metadata
+        }
+        entry: dict[str, Any] = {"evidence": evidence} if evidence else {}
+        entry.update(
+            (key, copy.deepcopy(metadata[key]))
+            for key in AUDIT_RECORD_KEYS
+            if key != "evidence" and key in metadata
+        )
+        return MappingProxyType(entry)
+
+    def __repr__(self) -> str:
+        """One line: identifier, model, reproduction, warning and default.
+
+        Never loads an audit sidecar and never raises.
+        """
+        cls = type(self).__name__
+        try:
+            parts = [
+                repr(self.identifier),
+                f"model={_record_model_name(self)!r}",
+                f"reproduction={self.reproduction!r}",
+            ]
+            if self.warning:
+                parts.append(f"warning={_single_line(self.warning, 60)!r}")
+            if self.is_default:
+                parts.append("default")
+            return f"{cls}({', '.join(parts)})"
+        except Exception:
+            return f"{cls}({self.__dict__.get('identifier', '?')!r})"
+
+    def summary(self) -> str:
+        """Return a compact multi-line description of this parameterization.
+
+        Shows the model, coefficients with errors, the reference with DOI, the
+        calibration envelope, the reproduction headline, any warning and the
+        stored finding. It reads only the record itself, never the audit trail.
+        """
+        lines = [
+            self.identifier + (" (default)" if self.is_default else ""),
+            f"  {_single_line(self.name)}",
+            f"  Material: {self.material}, {self.phase}",
+            f"  Model: {_record_model_name(self)} ({self.equation_kind}); "
+            f"reference temperature {_display_number(self.reference_temperature)} K",
+            f"  Reproduction: {self.reproduction}",
+            f"  Warning: {_single_line(self.warning) if self.warning else 'none'}",
+        ]
+        confidence = (
+            "confidence level not stated"
+            if self.parameter_error_confidence is None
+            else f"{self.parameter_error_confidence:.0%} confidence"
+        )
+        lines.append(f"  Parameters (+/- errors, {confidence}):")
+        for title, rows in _display_parameter_blocks(self):
+            lines.append(f"    {title}:")
+            width = max((len(name) for name, *_ in rows), default=0)
+            for name, value, error, fixed in rows:
+                text = f"      {name:<{width}} = {_display_number(value)}"
+                if error is not None:
+                    text += f" +/- {_display_number(error)}"
+                if fixed:
+                    text += " (fixed)"
+                unit = (
+                    self.volume_unit
+                    if name == "V0"
+                    else _DISPLAY_PARAMETER_UNITS.get(name)
+                )
+                if unit:
+                    text += f"  [{unit}]"
+                lines.append(text)
+        lines.append(
+            "    Other coefficients use the model's documented units; P in GPa, T in K."
+        )
+        if self.parameter_covariance is not None:
+            lines.append("    Covariance: available (parameter_covariance)")
+        pressure = _display_range(self.validity.pressure_gpa)
+        temperature = _display_range(self.validity.temperature_k)
+        lines.append(
+            "  Calibration envelope: "
+            f"P {'not stated' if pressure == '-' else pressure + ' GPa'}, "
+            f"T {'not stated' if temperature == '-' else temperature + ' K'}"
+        )
+        experimental = self._record_metadata().get("experimental_pressure_range_gpa")
+        if experimental is not None:
+            lines.append(
+                f"  Experimental pressure range: {_display_range(experimental)} GPa"
+            )
+        if self.is_reference_variant:
+            lines.append(
+                f"  Pressure-scale variant of: {self.pressure_scale_variant_of}"
+            )
+        reference = self.reference
+        lines.append(
+            f"  Reference: {reference.authors} ({reference.year}). "
+            f"{_single_line(reference.title).rstrip('.')}."
+            + (f" doi:{reference.doi}" if reference.doi else "")
+        )
+        finding = _record_check(self).get("finding")
+        if finding:
+            lines.append(f"  Finding: {_single_line(str(finding))}")
+        return "\n".join(lines)
 
     @property
     def is_reference_variant(self) -> bool:
@@ -824,6 +1147,114 @@ class EOSRecord:
         )
 
 
+class _PendingAudit:
+    """Marks an EOSRecord field whose value is in an unloaded audit sidecar."""
+
+    def __repr__(self) -> str:
+        return "<pending audit>"
+
+
+_PENDING_AUDIT: Any = _PendingAudit()
+
+
+class _AuditBackedField:
+    """Data descriptor resolving a pending bundled-audit field on first read.
+
+    Values are stored in the instance ``__dict__`` under the field name, so
+    ordinary construction, equality and ``dataclasses.replace`` are unchanged.
+    """
+
+    def __init__(self, name: str) -> None:
+        self.name = name
+
+    def __get__(self, instance: Any, owner: Any = None) -> Any:
+        if instance is None:
+            return self
+        value = instance.__dict__[self.name]
+        if value is _PENDING_AUDIT:
+            value = instance.__dict__["_audit_source"].resolve(instance, self.name)
+            instance.__dict__[self.name] = value
+        return value
+
+    def __set__(self, instance: Any, value: Any) -> None:
+        instance.__dict__[self.name] = value
+
+
+_AUDIT_BACKED_FIELDS = (
+    "parameter_provenance",
+    "pressure_calibration",
+    "scientific_validation_note",
+    "eosmat_metadata",
+)
+for _name in _AUDIT_BACKED_FIELDS:
+    setattr(EOSRecord, _name, _AuditBackedField(_name))
+del _name
+
+
+class _BundledAuditSource:
+    """Loads one bundled material's audit sidecar once, when first needed."""
+
+    def __init__(self, document: Mapping[str, Any]) -> None:
+        from peritheos._eosmat_v4 import to_v3
+
+        self._document = copy.deepcopy(dict(document))
+        self._material = str(document["identifier"])
+        self._fields = {
+            str(record["identifier"]): MappingProxyType(record)
+            for record in to_v3(self._document)["eos_records"]
+        }
+        self._records: dict[str, Mapping[str, Any]] | None = None
+        self._entries: dict[str, Mapping[str, Any]] = {}
+
+    def record_fields(self, identifier: str) -> Mapping[str, Any]:
+        return self._fields[identifier]
+
+    def _load(self) -> dict[str, Mapping[str, Any]]:
+        if self._records is None:
+            from peritheos._eosmat_audit import (
+                audit_entry,
+                load_bundled_audit,
+                merge_audit,
+            )
+            from peritheos._eosmat_v4 import to_v3
+
+            merged = merge_audit(self._document, load_bundled_audit(self._material))
+            self._entries = {
+                str(record["identifier"]): MappingProxyType(audit_entry(record))
+                for record in merged["eos_records"]
+            }
+            self._records = {
+                str(record["identifier"]): record
+                for record in to_v3(merged)["eos_records"]
+            }
+        return self._records
+
+    def entry(self, identifier: str) -> Mapping[str, Any]:
+        self._load()
+        return MappingProxyType(copy.deepcopy(dict(self._entries[identifier])))
+
+    def resolve(self, record: "EOSRecord", name: str) -> Any:
+        raw = self._load()[record.identifier]
+        validation = raw["scientific_validation"]
+        if validation["status"] != record.scientific_validation_status:
+            raise EosmatError(
+                f"Audit sidecar status for {record.identifier!r} contradicts the "
+                "record file check.source"
+            )
+        if name == "eosmat_metadata":
+            return MappingProxyType(_plain_data(raw))
+        if name == "pressure_calibration":
+            return MappingProxyType(_plain_data(raw.get("pressure_calibration", {})))
+        if name == "parameter_provenance":
+            return _eosmat_provenance(
+                raw.get("parameter_provenance", {}),
+                thermal=isinstance(record.eos, ThermalEOS),
+            )
+        if name == "scientific_validation_note":
+            return str(validation.get("note", ""))
+        raise AttributeError(name)
+
+
 @dataclass(frozen=True)
 class HugoniotRecord(EOSRecord):
     """Phase-specific shock-path EOS with an explicit precursor and mass basis."""
@@ -836,6 +1267,9 @@ class HugoniotRecord(EOSRecord):
     branch_domain: HugoniotBranchDomain = field(default=None)  # type: ignore[assignment]
     path_kind: str | None = field(default=None, repr=False, compare=False)
     equation_kind: str | None = "hugoniot"
+
+    # Defined in the class body so the dataclass decorator keeps the short form.
+    __repr__ = EOSRecord.__repr__
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -1188,24 +1622,122 @@ class Material:
             ),
         )
 
+    def __repr__(self) -> str:
+        """One line with the material identity; never raises."""
+        try:
+            count = len(self.eos_records)
+            noun = "EOS record" if count == 1 else "EOS records"
+            return (
+                f"Material({self.identifier!r}, formula={self.formula!r}, "
+                f"phase={_single_line(self.phase)!r}, {count} {noun})"
+            )
+        except Exception:
+            return f"Material({self.__dict__.get('identifier', '?')!r})"
+
+    def summary(self) -> str:
+        """Return a readable overview of the material and all its EOS records.
+
+        One row per record with model, calibration envelope, reproduction
+        headline and short reference. ``*`` marks the default record and ``!``
+        a record with a stored warning. It never loads the audit trail.
+        """
+        title = self.name or self.identifier
+        lines = [f"{title} ({self.identifier})" if title != self.identifier else title]
+        lines.append(f"  Formula: {self.formula}    Phase: {_single_line(self.phase)}")
+        lines.append(f"  Cell contents: {_single_line(self.cell_contents)}")
+        lines.append(f"  Volume unit: {self.volume_unit}")
+        if self.aliases:
+            lines.append(f"  Aliases: {', '.join(self.aliases)}")
+        if self.family_id:
+            lines.append(f"  Family: {self.family_id}")
+        default = self.default_record()
+        lines.append(
+            "  default_record(): " + ("None" if default is None else default.identifier)
+        )
+        count = len(self.eos_records)
+        lines.append(
+            f"  {count} EOS record{'s' if count != 1 else ''} "
+            "(* marked default, ! warning; calibration envelope P in GPa, "
+            "T in K, - not stated):"
+        )
+        header = ("", "identifier", "model", "P (GPa)", "T (K)", "reproduction")
+        rows = [header]
+        references = ["reference"]
+        for record in self.eos_records:
+            markers = ("*" if record.is_default else "") + (
+                "!" if record.warning else ""
+            )
+            rows.append(
+                (
+                    markers,
+                    record.identifier,
+                    _record_model_name(record),
+                    _display_range(record.validity.pressure_gpa, digits=4),
+                    _display_range(record.validity.temperature_k, digits=4),
+                    record.reproduction,
+                )
+            )
+            references.append(_short_reference(record.reference))
+        widths = [max(len(row[column]) for row in rows) for column in range(6)]
+        for row, reference in zip(rows, references):
+            cells = [f"{cell:<{width}}" for cell, width in zip(row, widths)]
+            lines.append(("  " + "  ".join(cells) + "  " + reference).rstrip())
+        warned = [record for record in self.eos_records if record.warning]
+        if warned:
+            lines.append("  Warnings:")
+            lines.extend(
+                f"    ! {record.identifier}: {_single_line(str(record.warning))}"
+                for record in warned
+            )
+        return "\n".join(lines)
+
     def get_eos_record(self, identifier: str) -> EOSRecord:
-        """Return one EOS parameterization by its stable identifier."""
+        """Return one EOS parameterization by its exact identifier or alias.
+
+        Identifiers are matched exactly; a failed lookup suggests close
+        identifiers but never selects one.
+        """
         for record in self.eos_records:
             if identifier == record.identifier or identifier in record.aliases:
                 return record
         from difflib import get_close_matches
 
-        choices = {
-            choice
+        names = {
+            choice: record.identifier
             for record in self.eos_records
             for choice in (record.identifier, *record.aliases)
         }
-        suggestions = get_close_matches(identifier, sorted(choices), n=3, cutoff=0.5)
-        hint = f" Did you mean: {', '.join(suggestions)}?" if suggestions else ""
+        query = str(identifier).casefold()
+        contained = [
+            target
+            for choice, target in names.items()
+            if query and query in choice.casefold()
+        ]
+        folded = {choice.casefold(): target for choice, target in names.items()}
+        close = [
+            folded[match]
+            for match in get_close_matches(query, sorted(folded), n=5, cutoff=0.6)
+        ]
+        suggestions = list(dict.fromkeys(contained + close))
+        hint = ""
+        if suggestions:
+            more = len(suggestions) - 5
+            hint = f" Did you mean: {', '.join(suggestions[:5])}" + (
+                f" (and {more} more)?" if more > 0 else "?"
+            )
+        count = len(self.eos_records)
+        if count <= 8:
+            available = (
+                " Records available: "
+                f"{', '.join(r.identifier for r in self.eos_records)}."
+            )
+        else:
+            available = (
+                f" {count} records available; print(material.summary()) lists them."
+            )
         raise MaterialLookupError(
-            f"Unknown EOS record {identifier!r} for {self.identifier!r}; "
-            f"available: {[record.identifier for record in self.eos_records]}."
-            f"{hint}",
+            f"Unknown EOS record {identifier!r} for material {self.identifier!r}."
+            f"{hint}{available}",
             operation="lookup_eos_record",
             field="identifier",
             context={"identifier": identifier, "material": self.identifier},
@@ -1697,12 +2229,14 @@ def _record_to_eosmat(
     validation = (
         _plain_data(stored_validation) if isinstance(stored_validation, Mapping) else {}
     )
-    validation.update(
-        {
-            "status": record.scientific_validation_status,
-            "note": record.scientific_validation_note,
-        }
-    )
+    validation["status"] = record.scientific_validation_status
+    # A stored record without a note keeps it absent rather than gaining "".
+    if (
+        record.scientific_validation_note
+        or "note" in validation
+        or not isinstance(stored_validation, Mapping)
+    ):
+        validation["note"] = record.scientific_validation_note
     result.update(
         {
             "identifier": record.identifier,
@@ -2247,12 +2781,30 @@ def _material_from_eosmat(
     *,
     require_primary_validation: bool,
     record_identifiers: Iterable[str] | None = None,
+    bundled_audit: bool = False,
 ) -> Material:
+    """Build a Material; ``bundled_audit`` defers sidecar evidence to first use.
+
+    With ``bundled_audit=True`` the document is a bundled record file whose
+    evidence is in ``peritheos/data/audits``. Records keep their check
+    headline and resolve audit-backed fields lazily.
+    """
+    from peritheos._eosmat_audit import audit_is_external
+    from peritheos._eosmat_audit import headline as record_headline
     from peritheos.eosmat import validate_eosmat_document
 
     validate_eosmat_document(document)
+    audit_source = _BundledAuditSource(document) if bundled_audit else None
     source_version = document.get("format_version", 3)
+    native_audits: dict[str, Mapping[str, Any]] = {}
     if source_version in (4, 5):
+        from peritheos._eosmat_audit import audit_entry
+
+        native_audits = {
+            str(record.get("identifier")): MappingProxyType(audit_entry(record))
+            for record in document.get("eos_records", [])
+            if isinstance(record, Mapping) and not audit_is_external(record)
+        }
         from peritheos._eosmat_v4 import to_v3
 
         document = to_v3(document)
@@ -2492,6 +3044,10 @@ def _material_from_eosmat(
                 eosmat_metadata=_plain_data(raw_record),
                 aliases=tuple(raw_record.get("aliases", ())),
             )
+            lazy = audit_source is not None and audit_is_external(raw_record)
+            if lazy:
+                for name in _AUDIT_BACKED_FIELDS:
+                    record_arguments[name] = _PENDING_AUDIT
             if isinstance(eos, HugoniotBase):
                 raw_initial_state = raw_record["initial_state"]
                 raw_volume_basis = raw_record["volume_basis"]
@@ -2538,6 +3094,17 @@ def _material_from_eosmat(
                 )
             else:
                 eos_records.append(EOSRecord(**record_arguments))
+            # Private attributes: the effective check headline and, for lazy
+            # bundled records, the sidecar loader.
+            eos_records[-1].__dict__["_check_headline"] = MappingProxyType(
+                record_headline(raw_record, document)
+            )
+            if lazy:
+                eos_records[-1].__dict__["_audit_source"] = audit_source
+            elif str(raw_record["identifier"]) in native_audits:
+                eos_records[-1].__dict__["_inline_audit"] = native_audits[
+                    str(raw_record["identifier"])
+                ]
         except (KeyError, TypeError, ValueError) as error:
             identifier = (
                 raw_record.get("identifier", "<unknown>")
@@ -4548,7 +5115,10 @@ DEFERRED_EOS_RECORDS = (
 
 
 def get_material(identifier: str) -> Material:
-    """Return one bundled material by its stable identifier or alias."""
+    """Return one bundled material by identifier, alias, name or formula.
+
+    See :func:`peritheos.catalog.get_material` for the resolution order.
+    """
     from peritheos.catalog import get_material as catalog_get_material
 
     return catalog_get_material(identifier)

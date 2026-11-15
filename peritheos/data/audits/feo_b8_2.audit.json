@@ -1,0 +1,165 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "feo_b8_2",
+  "records": {
+    "feo_b8_2_fischer_2011_bm3_1": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "hcp Fe",
+            "reference_eos_record": "iron_dewaele_2006_vinet_thermal",
+            "reference": {
+              "authors": ["Dewaele", "Loubeyre", "Occelli", "Mezouar", "Dorogokupets", "Torrent"],
+              "year": 2006,
+              "source": "Physical Review Letters",
+              "volume": "97",
+              "locator": "215504",
+              "doi": "10.1103/PhysRevLett.97.215504"
+            },
+            "source_location": "Experimental Methods, pressure determination; Figure 3 discussion",
+            "notes": "The current Fischer and fitted Ozawa observations use hcp-Fe volume and temperature as the pressure standard."
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The exact Dewaele et al. (2006) thermal/electronic hcp-Fe reference EOS is bundled. Fischer Table S1 and Ozawa Table 2 preserve the hcp-Fe volumes and temperatures needed to recalculate all candidate B8 fit pressures."
+        },
+        "audit_date": "2026-09-08",
+        "notes": "NaCl was a secondary pressure standard. Published pressure errors propagate the temperature error and hcp-Fe lattice-parameter error."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Recovered combined thermal reproduction: all 21 numerical B8 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. One-peak detections have no volume and are excluded; the three two-peak volumes whose errors are unconstrained use Figure 3's explicit +/-0.1 cm^3/mol fallback. All 8 B8 rows in Ozawa's printed Table 2 are added, and K0', theta0, q, Tr, and n are held fixed. The unweighted 29-row fit recovers every free coefficient within its published uncertainty. Fischer does not state its regression weights, residual variable, covariance, or optimizer, so this establishes numerical parameter parity rather than exact procedural identity. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md)."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 39.843,
+                "published_error": 0.0598,
+                "refit": 39.87450402914566,
+                "refit_error": 0.9227500249824091,
+                "difference": 0.03150402914565831,
+                "relative_difference": 0.0007907042427944258,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 137.8,
+                "published_error": 0.9,
+                "refit": 137.8628927154254,
+                "refit_error": 13.419067626962399,
+                "difference": 0.06289271542539154,
+                "relative_difference": 0.00045640577231779056,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.73,
+                "published_error": 0.12,
+                "refit": 1.6661584108233458,
+                "refit_error": 0.16772849402876094,
+                "difference": -0.06384158917665417,
+                "relative_difference": 0.036902652703268306,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "21 numerical Fischer Table S1 B8 volumes plus all eight B8 rows in Ozawa printed Table 2",
+              "columns": {
+                "pressure": "pressure_gpa + pressure_gpa",
+                "temperature": "temperature_k + temperature_k",
+                "volume": "b8_feo_molar_volume_cm3_mol + feo_volume_a3_per_formula_unit"
+              },
+              "absolute_sigma": false,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "gamma0"],
+              "fixed_parameters": ["K0_prime", "Tr", "theta0", "q", "n"],
+              "observations": 29,
+              "observed_pressure_range_gpa": [131.343680431, 199.5],
+              "observed_temperature_range_k": [300.0, 3000.0],
+              "observed_volume_range": [24.4, 26.844846548522057],
+              "degrees_of_freedom": 26,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 2.531779963298538,
+              "published_rmse_gpa": 2.544868741352714,
+              "reduced_chi_square": 7.149514757470708,
+              "dataset_identifiers": ["feo_fischer_2011_table_s1_pvt", "feo_ozawa_2010_table2_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-07",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "fixed_parameters",
+            "thermal_model",
+            "temperature_correction",
+            "fit_selection",
+            "fit_reproducibility",
+            "pressure_calibration",
+            "primary_data",
+            "validity"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2011.02.025",
+            "locations": [
+              "Experimental Methods, pages 6-8",
+              "Equation (1) and equation-of-state section, pages 12-14",
+              "Table 1",
+              "Figures 2 and 3",
+              "Supplementary Table S1 (mmc1.xls)"
+            ],
+            "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observation rules, 3% temperature correction, Figure 3 fallback volume errors, explicit comparison-point exclusions, and Ozawa-inclusive fit scope were reconstructed. Fischer's current-study rows and Ozawa's printed Table 2 P-V-T rows are bundled; only the exact combined selection and weighting protocol remain unpublished.",
+            "doi": "10.1016/j.epsl.2011.02.025"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "feo_b8_2.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["feo_fischer_2011_table_s1_pvt", "feo_ozawa_2010_table2_pvt"],
+            "source_locations": ["Fischer et al. (2011) Supplementary Table S1 (mmc1.xls)", "Ozawa et al. (2010) printed Table 2"],
+            "finding": "The complete 52-row current-study workbook is bundled verbatim at its printed precision, including 21 numerical B8 volumes at their reported, already 3%-corrected temperatures. One-peak detections have no volume; all three two-peak rows with unconstrained errors retain the measurements and use the source's Figure 3 +/-0.1 cm^3/mol fallback only in the explicit fit-uncertainty column. Ozawa's printed Table 2 supplies 8 additional B8 P-V-T rows and is bundled in full; no Ozawa supplementary dataset exists."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Methods, pages 6-8; Equation (1) and equation-of-state section, pages 12-14; Table 1; Figures 2 and 3; Supplementary Table S1 (mmc1.xls).",
+          "equation": "Equation (1): a 300 K BM3 reference isotherm plus Mie-Gruneisen-Debye thermal pressure; no explicit anharmonic or electronic thermal-pressure terms.",
+          "V0": "Table 1: 11.997 +/- 0.018 cm^3/mol, fitted because B8 FeO is not recoverable to ambient conditions; converted here to the conventional Z=2 B8 cell.",
+          "K0": "Table 1: 137.8 +/- 0.9 GPa, fitted.",
+          "K0_prime": "Equation-of-state section and Table 1: fixed at 4 because of the limited B8 P-T range.",
+          "theta0": "Equation-of-state section and Table 1: fixed at the B1 value, 417 K, because of the limited B8 P-T range.",
+          "gamma0": "Table 1: 1.73 +/- 0.12, fitted.",
+          "q": "Equation-of-state section and Table 1: fixed at 1 because of the limited B8 P-T range.",
+          "Tr": "Equation (1) defines P300 and subtracts the Debye energy at 300 K.",
+          "n": "Two atoms per FeO formula unit; this is the Debye energy normalization, not a fitted coefficient.",
+          "fit_scope": "Equation-of-state section and Figure 3: present B8 observations plus Ozawa et al. (2010); Kondo et al. (2004) and Fei and Mao (1994) are plotted for comparison and are not fit inputs."
+        }
+      }
+    }
+  }
+}

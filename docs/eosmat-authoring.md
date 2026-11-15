@@ -1,33 +1,10 @@
 # Creating and editing EOSMAT
 
-For the published garnet q-compromise pressure approximation, use the named
-thermal model `QCompromiseDebye` with `Tr`, `theta0`, `gamma0`, `n` and a known
-crystallographic Z. Do not represent it as full MGD with a chosen q. See the
-[source audit](literature-reproductions/garnet-angel-2022.md) and
-[executable example](examples/garnet-q-compromise.py).
-
-An explicitly supported finite-pressure BM2 law uses `BM2Reference` with V0,
-K0 and P0. V0 and K0 are values at P0; retain the source's actual reference
-notation in its provenance. Do not put high-pressure reference values in an
-ordinary `BM2` record. A complete standalone demonstration is
-[bm2-reference.eosmat](examples/bm2-reference.eosmat):
-
-```python
-from peritheos import Material, load_eosmat
-
-document = load_eosmat("bm2-reference.eosmat")
-material = Material.from_eosmat(document, require_primary_validation=False)
-record = material.get_eos_record("finite_reference_demo")
-assert record.pressure(375.04) == 32.7
-```
-
-The example is explicitly unaudited. The published Bykova record has separate
-source review, joint-phase scope and use limitations.
-
-EOSMAT v5 is the native format for new material files. It supports small
-standalone user definitions and complete curated database records in the same
-`.eosmat` file. There is no separate authoring format, database registration or
-required companion file. See the [v5 format reference](eosmat-v5.md).
+EOSMAT v5 is the native format for new material files. Your own EOS is one
+self-contained `.eosmat` file: identity, units, model, coefficients, source and
+limits. There is no separate authoring format, database registration, `check`
+block or audit sidecar to write. Curated records may add those optional pieces;
+see the [v5 format reference](eosmat-v5.md).
 
 ## Read a file before editing it
 
@@ -41,7 +18,8 @@ metadata to create an EOS for your own calculations.
 | Which source or alternative am I looking at? | The record's `label`, `identifier` and `reference` |
 | Which equation and coefficients? | `model`, `temperature_ref`, `parameters`; optional `thermal` |
 | What do the errors mean? | Each parameter's `error`/`fixed`, then confidence convention and covariance if available |
-| Where may I use it, and was it reconstructed? | `validity` and `evidence.reproduction`; measured coverage is separate |
+| Where may I use it? | `validity`; measured coverage is separate |
+| Was it checked? (curated records) | `check`: the reproduction headline, any warning and the source check |
 
 For catalog display names, put the mineral family first and keep useful sample,
 structure, spin or model qualifiers after it. Store the exact composition in
@@ -76,7 +54,7 @@ python -m peritheos create my_material.eosmat \
 ```
 
 The coefficients above are fictional. Replace them with your material's values.
-Version 4 fixes the exchange units to GPa, kelvin and **conventional-cell Å³**.
+EOSMAT fixes the exchange units to GPa, kelvin and **conventional-cell Å³**.
 The reference temperature is supplied explicitly. The command creates a native
 v5 file with its units visible in the header and refuses to overwrite an existing destination.
 Use `--id` if the filename stem is not lower snake case, `--name` for a display
@@ -178,11 +156,57 @@ molar-volume models. Command-line equivalents are `--thermal-model`,
 formula. Model-specific law choices use the Python component mapping or direct
 file editing. Advanced Hugoniot states use the complete schema.
 
+For the published garnet q-compromise pressure approximation, use the named
+thermal model `QCompromiseDebye` with `Tr`, `theta0`, `gamma0`, `n` and a known
+crystallographic Z. Do not represent it as full MGD with a chosen q. See the
+[source audit](literature-reproductions/garnet-angel-2022.md) and
+[executable example](examples/garnet-q-compromise.py).
+
+An explicitly supported finite-pressure BM2 law uses `BM2Reference` with V0,
+K0 and P0. V0 and K0 are values at P0; retain the source's actual reference
+notation in its provenance. Do not put high-pressure reference values in an
+ordinary `BM2` record. A complete, unaudited demonstration is
+[bm2-reference.eosmat](examples/bm2-reference.eosmat):
+
+```python
+from peritheos import Material, load_eosmat
+
+document = load_eosmat("bm2-reference.eosmat")
+material = Material.from_eosmat(document, require_primary_validation=False)
+record = material.get_eos_record("finite_reference_demo")
+assert record.pressure(375.04) == 32.7
+```
+
+The published Bykova record has separate source review, joint-phase scope and
+use limitations.
+
 Add crystallography, more EOS records, source observations, covariance,
 calibration and detailed `evidence` to the same file. Keep experimental coverage
 distinct from permitted model evaluation, and preserve all known scientific
 qualifications. Database contribution requires the additional review described
 in [Adding materials and EOS](adding-materials-and-eos.md).
+
+## Optional: reproduction headline and audit trail
+
+A file needs neither of these to load or calculate.
+
+- A record's `check` block states its reproduction headline (`reproduced`,
+  `close`, `disagrees` or `untested`), any usage `warning` and the source check.
+  When `evidence` is present, the headline must agree with it. Without `check`,
+  `EOSRecord.reproduction` and `EOSRecord.warning` are derived from the
+  evidence; without evidence the record is `untested`.
+- `evidence.reproduction.assessment` holds the reconstruction outcome, basis and
+  limitations; its `parameters` table holds the source-versus-reconstructed
+  values, including failed reconstructions, and `fit` the selection, objective,
+  weights and fixed constraints. The EOS's own `parameters` are never replaced.
+  See the [reconstruction field reference](eosmat-v4.md#actual-reconstructed-coefficients).
+- The bundled library keeps that audit trail in a per-material sidecar,
+  `peritheos/data/audits/<id>.audit.json`, referenced by `check.audit`. Your own
+  files can keep it inline or use the same layout.
+
+The [v5 reference](eosmat-v5.md#complete-example-record-file-and-audit-entry)
+has a complete record file with its audit entry. Words and caveats are defined
+once in [EOS labels](eos-labels.md).
 
 ## Save, format and exchange
 
@@ -223,17 +247,6 @@ Use `--format-version 3` with `create` if that older format is required directly
 Full [v3 compatibility fields](eosmat-schema.md) remain documented. New readers
 accept old files, while old readers need the explicit compatibility export.
 
-For the meaning of parity, similarity, source checks, refits and diagnostics,
-use [the central EOS label guide](eos-labels.md).
-
-Bundled records put reconstruction outcome, basis and limitations at
-`evidence.reproduction.assessment`. Its `parameters` table contains the actual
-source-versus-reconstructed values, including failed reconstructions; its `fit`
-object records the available selection, objective, weights and fixed constraints.
-The EOS's main `parameters` are preserved. The readable material summaries show
-the scoped assessment and a separate reconstructed-coefficient table. See the
-[reconstruction field reference](eosmat-v4.md#actual-reconstructed-coefficients).
-Standalone user files do not require an audit block.
 
 ## Repeated metadata in large database files
 
@@ -271,14 +284,12 @@ python -m scripts.generate_material_summaries --check
 python -m scripts.generate_catalog_coverage --check
 ```
 
-The bundled library uses the same native v5 structure, with explicit units and
-inline evidence. For repository maintenance, migrate older files in place with
-`python -m peritheos convert INPUT OUTPUT` migrates a standalone file with
-the installed package. Catalog migration has a repository-only, checksum-bound
-receipt in `docs/data/eosmat-v5-migration.json`; it is not required for user files.
-
-Use the installed `peritheos convert` command above for standalone files and
-explicit compatibility exports.
+The bundled library uses the same native v5 structure, with each material's
+audit trail in its sidecar. `python -m peritheos convert INPUT OUTPUT` migrates a
+standalone file and writes explicit compatibility exports with the installed
+package. Catalog migration has repository-only, checksum-bound receipts in
+`docs/data/eosmat-v5-migration.json` and `docs/data/eosmat-v5-audit-split.json`;
+they are not required for user files.
 
 Three historical refit scripts are fingerprinted by their scientific audit
 reports. Their original code and reports remain unchanged. Use the repository
@@ -301,15 +312,12 @@ normal file reading, authoring and calculation use v5 directly.
 
 ## Reading reconstruction reports
 
-Bundled records link directly to their [human-readable reconstruction report](reconstruction-reports/index.md)
-through `evidence.reproduction.assessment.report_url`. The link opens the specific
-EOS on Read the Docs **latest** once the documentation is published. The companion
-`report_path` identifies the same Markdown page and anchor relative to the repository;
-local and version-specific documentation builds use relative links.
-
-The reports show the recorded outcome, basis, limitations, method and coefficient
-comparisons, including unsuccessful reconstructions. Available comparison pairs
-have a graph of stored central values; detailed source reports supply observation
-and residual plots where available. A missing reconstruction is explained rather
-than illustrated with invented observations. Source coefficients remain unchanged.
-Standalone files can omit these fields or link to their own reports.
+Each bundled record has a section in the
+[reconstruction reports](reconstruction-reports/index.md). It opens with the
+headline and any warning, then the scope and basis of the check, and shows only
+what the audit records: method, curve and residual plots, and the coefficient
+comparison. The assessment's `report_url` opens it on Read the Docs **latest**;
+`report_path` names the same page and anchor in the repository. Bundled sidecars
+omit both because they follow from the identifiers (see
+[audit sidecars](eosmat-v5.md#audit-sidecars)). Standalone files can omit them or
+link to their own reports.

@@ -1,0 +1,1599 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "mg090fe010o",
+  "records": {
+    "mg090fe010o_solomatova_2016_hs_bm3_reference_1": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 75.55,
+                "published_sigma": 0.04,
+                "refit": 75.34347270530013,
+                "refit_sigma": null,
+                "delta": -0.20652729469986753,
+                "relative_delta": -0.002733650492387393,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 159.0,
+                "published_sigma": 2,
+                "refit": 161.47123361971015,
+                "refit_sigma": null,
+                "delta": 2.471233619710148,
+                "relative_delta": 0.015542349809497785,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.96,
+                "published_sigma": 0.14,
+                "refit": 4.062691485701653,
+                "refit_sigma": null,
+                "delta": 0.1026914857016532,
+                "relative_delta": 0.025932193359003337,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "used_in_solomatova_2016_fit=1",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": [],
+              "observations": 29,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.15387023329995295,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+            "doi": "10.2138/am-2016-5510",
+            "locations": ["Tables 1-3", "Table 7", "Figures 3 and 6-10"],
+            "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+          },
+          "primary_data_check": {
+            "status": "complete_earlier_primary_table",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Marquardt et al. (2009b), EPSL Table 2", "Solomatova et al. (2016), Tables 2 and 7"],
+            "finding": "All 29 pressure-volume rows printed in the earlier EPSL article are bundled with the source HS/mixed/LS assignments preserved. A coupled reconstruction is similar to Table 7. Solomatova's Brillouin K0S prior is retained as a fit constraint, never as an observation."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+          "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
+          "V0": "Table 7 HS column: 75.55 A^3 per conventional B1 cell.",
+          "K0": "Table 7 HS column: 159 GPa.",
+          "K0_prime": "Table 7 high-spin K0' column.",
+          "original_dataset": "Solomatova et al. refit the P-V data of Marquardt et al. (2009b), DOI 10.1016/j.epsl.2009.08.017.",
+          "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
+        }
+      }
+    },
+    "mg090fe010o_solomatova_2016_ls_bm3_reference_2": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 74.59,
+                "published_sigma": 0.91,
+                "refit": 73.66660581589477,
+                "refit_sigma": null,
+                "delta": -0.9233941841052342,
+                "relative_delta": -0.012379597588218718,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 159.0,
+                "published_sigma": 12,
+                "refit": 170.2499732076181,
+                "refit_sigma": null,
+                "delta": 11.249973207618098,
+                "relative_delta": 0.07075454847558552,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.0,
+                "published_sigma": null,
+                "refit": 4.0,
+                "refit_sigma": null,
+                "delta": 0.0,
+                "relative_delta": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "used_in_solomatova_2016_fit=1",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 29,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.15387023329995295,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+            "doi": "10.2138/am-2016-5510",
+            "locations": ["Tables 1-3", "Table 7", "Figures 3 and 6-10"],
+            "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+          },
+          "primary_data_check": {
+            "status": "complete_earlier_primary_table",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Marquardt et al. (2009b), EPSL Table 2", "Solomatova et al. (2016), Tables 2 and 7"],
+            "finding": "All 29 pressure-volume rows printed in the earlier EPSL article are bundled with the source HS/mixed/LS assignments preserved. A coupled reconstruction is similar to Table 7. Solomatova's Brillouin K0S prior is retained as a fit constraint, never as an observation."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+          "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
+          "V0": "Table 7 LS column: 74.59 A^3 per conventional B1 cell.",
+          "K0": "Table 7 LS column: 159 GPa.",
+          "K0_prime": "Table 7: low-spin K0' fixed to 4.",
+          "original_dataset": "Solomatova et al. refit the P-V data of Marquardt et al. (2009b), DOI 10.1016/j.epsl.2009.08.017.",
+          "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_hs_bm3": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective.",
+            "fit": {
+              "fixed_parameters": ["V0"],
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "equation",
+            "parameters",
+            "published_uncertainties",
+            "units",
+            "volume_basis",
+            "spin_region",
+            "fit_selection",
+            "Brillouin_constraint",
+            "primary_table_transcription"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "local_source_filename": "Marquardt et al. - 2009 - Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa.pdf",
+            "sha256": "71a9f3dfb633730df7ae6dc0981e505965e103a35dd6d904b001fa420cc8785d",
+            "locations": ["Sections 2.2 and 3.1.1-3.1.3", "Table 2, p. 347", "Section 3.2, p. 348"],
+            "finding": "Section 3.1.1 prints the HS BM3 coefficients. The subsequently supplied EPSL supplement supplies 12 LS constrained BM3 fits in Table S1 and elastic observations in Table S2; these are distinct from the Science supplement.",
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            }
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2"],
+            "finding": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 2.2 and Section 3.1.1, pp. 346-347: third-order Birch-Murnaghan isothermal EOS.",
+          "V0": "Section 3.1.1 and Table 2: 75.62 +/- 0.06 A^3 from ambient single-crystal XRD, used as the reference-volume anchor, not an unconstrained P-V regression coefficient.",
+          "K0": "Section 3.1.1: KT0 = 158.2 +/- 2 GPa; room-pressure Brillouin results constrain this isothermal modulus.",
+          "K0_prime": "Section 3.1.1: KT0 prime = 3.98 +/- 0.14.",
+          "uncertainties": "Printed errors retained. Table 2 specifies one-sigma volume errors; confidence for fitted modulus errors and covariance is not stated.",
+          "temperature": "Room-temperature measurements; catalog reference uses 300 K.",
+          "fit_selection": "Table 2 source_order 1-14 (P < 45 GPa); ambient row anchors V0. The complete 29-row resource also preserves 9 mixed-spin and 6 LS observations.",
+          "Brillouin_constraint": "Section 3.2 separately reports Brillouin-only adiabatic KS0 = 161.4 +/- 1.1 GPa and KS0 prime = 3.98 +/- 0.14. These are not KT0 or additional P-V rows. The precise weighting of the ambient constraint is unavailable. EPSL Table S2 separately reports ambient KS = 165 +/- 3 GPa; the 161.4 GPa fitted intercept is not this ambient observation. The supplement still does not specify the exact constraint implementation."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_01": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 144.0,
+                "published_error": null,
+                "refit": 144.05016999289649,
+                "refit_error": 1.5789605046373902,
+                "difference": 0.05016999289648538,
+                "relative_difference": 0.00034840272844781513,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.315422303696759,
+              "published_rmse_gpa": 1.2831719717741563,
+              "reduced_chi_square": 0.4456888108063467,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 1"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 1"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 1: 74.85 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.99. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 1: KT0 = 144 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 1: KT0 prime fixed at 4.5.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_02": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 153.0,
+                "published_error": null,
+                "refit": 153.13067129713863,
+                "refit_error": 1.7057793624477458,
+                "difference": 0.13067129713863324,
+                "relative_difference": 0.0008540607656119819,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3387918149481032,
+              "published_rmse_gpa": 1.4379533452433428,
+              "reduced_chi_square": 0.5327517448336939,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 2"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 2"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 2: 74.10 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.98. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 2: KT0 = 153 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 2: KT0 prime fixed at 4.5.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_03": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 163.0,
+                "published_error": null,
+                "refit": 163.27062329404384,
+                "refit_error": 1.8511752471916292,
+                "difference": 0.270623294043844,
+                "relative_difference": 0.0016602656076309449,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3630727561610341,
+              "published_rmse_gpa": 1.6161681138842996,
+              "reduced_chi_square": 0.6353857659233374,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 3"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 3"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 3: 73.34 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.97. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 3: KT0 = 163 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 3: KT0 prime fixed at 4.5.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_04": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 175.0,
+                "published_error": null,
+                "refit": 174.34165134965681,
+                "refit_error": 2.0144860589893296,
+                "difference": -0.6583486503431857,
+                "relative_difference": 0.0037619922876753467,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3874613858317298,
+              "published_rmse_gpa": 1.7179655250363797,
+              "reduced_chi_square": 0.7528288308709483,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 4"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 4"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 4: 72.59 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.96. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 4: KT0 = 175 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 4: KT0 prime fixed at 4.5.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_05": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 156.0,
+                "published_error": null,
+                "refit": 154.6936470295564,
+                "refit_error": 1.6426616382586294,
+                "difference": -1.306352970443612,
+                "relative_difference": 0.008374057502843667,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.267167846038256,
+              "published_rmse_gpa": 1.0321610486696218,
+              "reduced_chi_square": 0.2981026528356882,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 5"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 5"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 5: 74.85 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.99. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 5: KT0 = 156 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 5: KT0 prime fixed at 4.0.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_06": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 164.0,
+                "published_error": null,
+                "refit": 163.98719137086155,
+                "refit_error": 1.7703993044473074,
+                "difference": -0.012808629138447714,
+                "relative_difference": 7.810139718565679e-05,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.29295056320964075,
+              "published_rmse_gpa": 1.152395203577993,
+              "reduced_chi_square": 0.3733074048405004,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 6"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 6"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 6: 74.10 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.98. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 6: KT0 = 164 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 6: KT0 prime fixed at 4.0.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_07": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 175.0,
+                "published_error": null,
+                "refit": 174.34953250932278,
+                "refit_error": 1.9167193949147268,
+                "difference": -0.6504674906772152,
+                "relative_difference": 0.003716957089584087,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.32015216330334406,
+              "published_rmse_gpa": 1.276002506863264,
+              "reduced_chi_square": 0.46471151105284714,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 7"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 7"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 7: 73.34 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.97. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 7: KT0 = 175 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 7: KT0 prime fixed at 4.0.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_08": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 186.0,
+                "published_error": null,
+                "refit": 185.64667955119717,
+                "refit_error": 2.0809303630821696,
+                "difference": -0.3533204488028332,
+                "relative_difference": 0.0018995723053915764,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.34776862004931813,
+              "published_rmse_gpa": 1.465219048351091,
+              "reduced_chi_square": 0.5719827642349108,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 8"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 8"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 8: 72.59 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.96. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 8: KT0 = 186 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 8: KT0 prime fixed at 4.0.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_09": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 167.0,
+                "published_error": null,
+                "refit": 167.03596583296786,
+                "refit_error": 1.708544045583997,
+                "difference": 0.03596583296786093,
+                "relative_difference": 0.00021536426926862834,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.20955008251941537,
+              "published_rmse_gpa": 0.7160328495544448,
+              "reduced_chi_square": 0.16452768052798022,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 9"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 9"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 9: 74.85 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.99. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 9: KT0 = 167 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 9: KT0 prime fixed at 3.5.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_10": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 177.0,
+                "published_error": null,
+                "refit": 176.50148199324164,
+                "refit_error": 1.8367690473848035,
+                "difference": -0.4985180067583599,
+                "relative_difference": 0.0028164859138890387,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.23629886605941916,
+              "published_rmse_gpa": 0.8228740729169969,
+              "reduced_chi_square": 0.22201503013098103,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 10"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 10"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 10: 74.10 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.98. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 10: KT0 = 177 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 10: KT0 prime fixed at 3.5.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_11": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 187.0,
+                "published_error": null,
+                "refit": 187.04275144048634,
+                "refit_error": 1.9835558475022992,
+                "difference": 0.04275144048634161,
+                "relative_difference": 0.00022861732880396582,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.266036563136773,
+              "published_rmse_gpa": 1.0167839863494872,
+              "reduced_chi_square": 0.2967768505543612,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 11"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 11"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 11: 73.34 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.97. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 11: KT0 = 187 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 11: KT0 prime fixed at 3.5.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    },
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_12": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.2, p. 346",
+            "scope": "High-pressure XRD in neon",
+            "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 199.0,
+                "published_error": null,
+                "refit": 198.52121311114507,
+                "refit_error": 2.1481941719694717,
+                "difference": -0.47878688885492693,
+                "relative_difference": 0.002405964265602648,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.29717076738997106,
+              "published_rmse_gpa": 1.1577417383961768,
+              "reduced_chi_square": 0.38907522705329806,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "volume_basis",
+            "spin_region",
+            "primary_table_transcription",
+            "LS_bulk_modulus_checkpoints"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+            "doi": "10.1016/j.epsl.2009.08.017",
+            "locations": ["Section 3.1.2 and Table 2, p. 347", "EPSL supplementary Table S1, row 12"],
+            "supplement": {
+              "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
+              "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+              "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+            },
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+          },
+          "primary_data_check": {
+            "status": "tabulated",
+            "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"],
+            "source_locations": ["Table 2 rows 24-29", "Table S1 row 12"],
+            "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+            "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
+          "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+          "V0": "Table S1 row 12: 72.59 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.96. Preserve printed V0 rather than recomputing from the rounded ratio.",
+          "K0": "Table S1 row 12: KT0 = 199 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+          "K0_prime": "Table S1 row 12: KT0 prime fixed at 3.5.",
+          "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+          "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+          "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+        }
+      }
+    }
+  }
+}

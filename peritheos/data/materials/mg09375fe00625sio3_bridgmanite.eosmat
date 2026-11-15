@@ -45,72 +45,13 @@
         "locator": "310-322",
         "doi": "10.1111/j.1365-246X.2012.05511.x"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {"kind": "ab_initio", "source_location": "Methods", "scope": "static LSDA+U calculations"}
-        ],
-        "recalculation": {"status": "not_applicable", "notes": "No experimental pressure calibration applies."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "The six calculation pressures and full coefficients are stated; row-wise calculated P-V values are not tabulated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg09375fe00625sio3_bridgmanite/#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3",
-            "report_path": "docs/reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3",
-            "fit": {
-              "fixed_parameters": ["K0_prime"],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Validated against the official full-text article and Table 1.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "composition",
-            "phase",
-            "spin_state",
-            "model_configuration",
-            "equation",
-            "parameters",
-            "fixed_parameters",
-            "units",
-            "reference_state",
-            "pressure_range",
-            "theoretical_method"
-          ],
-          "primary_source_check": {
-            "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-            "doi": "10.1111/j.1365-246X.2012.05511.x",
-            "locations": ["Methods", "Table 1(a)", "Section 3.2"],
-            "finding": "Table 1 reports this model-specific HS fit and the authors select model 1 for thermodynamic calculations."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_pressure_grid_only",
-            "audit_date": "2026-09-05",
-            "source_locations": ["Methods", "Table 1", "Section 3.2"],
-            "finding": "The six calculation pressures and full coefficients are stated; row-wise calculated P-V values are not tabulated."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 1(a); Section 3.2.",
-          "equation": "Section 3.2: third-order Birch-Murnaghan pressure-volume and energy-volume fits, with K0' fixed to 3.94.",
-          "V0": "Table 1(a): 24.3325 cm3/mol; converted with the exact Avogadro constant to 161.620267408 A3 for Z=4.",
-          "K0": "Table 1(a): 259.3412 GPa.",
-          "K0_prime": "Table 1 note and Section 3.2: fixed at 3.94.",
-          "uncertainties": "No coefficient errors or covariance are reported."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Table 1 reports this model-specific HS fit and the authors select model 1 for thermodynamic calculations.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/mg09375fe00625sio3_bridgmanite.audit.json#mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3"
       }
     },
     {
@@ -147,68 +88,13 @@
         "locator": "310-322",
         "doi": "10.1111/j.1365-246X.2012.05511.x"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {"kind": "ab_initio", "source_location": "Methods", "scope": "static LSDA+U calculations"}
-        ],
-        "recalculation": {"status": "not_applicable"},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg09375fe00625sio3_bridgmanite/#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3",
-            "report_path": "docs/reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3",
-            "fit": {
-              "fixed_parameters": ["K0_prime"],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Source-reported model-2 HS sensitivity configuration.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "composition",
-            "spin_state",
-            "model_configuration",
-            "equation",
-            "parameters",
-            "fixed_parameters",
-            "units",
-            "reference_state"
-          ],
-          "primary_source_check": {
-            "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-            "doi": "10.1111/j.1365-246X.2012.05511.x",
-            "locations": ["Table 1(a)", "Section 3.2"],
-            "finding": "Distinct model-2 supercell parameterization, retained as a non-default sensitivity record."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_pressure_grid_only",
-            "audit_date": "2026-09-05",
-            "finding": "Coefficients and calculation pressures are given; row-wise P-V values are not tabulated."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Table 1(a); Section 3.2.",
-          "equation": "Section 3.2 BM3; K0' fixed 3.94.",
-          "V0": "Table 1(a): 24.3326 cm3/mol, converted to 161.620931624 A3 for Z=4.",
-          "K0": "Table 1(a): 259.2916 GPa.",
-          "K0_prime": "Fixed at 3.94.",
-          "uncertainties": "Not reported."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Distinct model-2 supercell parameterization, retained as a non-default sensitivity record.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/mg09375fe00625sio3_bridgmanite.audit.json#mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3"
       }
     },
     {
@@ -245,68 +131,13 @@
         "locator": "310-322",
         "doi": "10.1111/j.1365-246X.2012.05511.x"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {"kind": "ab_initio", "source_location": "Methods", "scope": "static LSDA+U calculations"}
-        ],
-        "recalculation": {"status": "not_applicable"},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg09375fe00625sio3_bridgmanite/#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3",
-            "report_path": "docs/reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3",
-            "fit": {
-              "fixed_parameters": ["K0_prime"],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Source-reported model-3 HS sensitivity configuration.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "composition",
-            "spin_state",
-            "model_configuration",
-            "equation",
-            "parameters",
-            "fixed_parameters",
-            "units",
-            "reference_state"
-          ],
-          "primary_source_check": {
-            "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-            "doi": "10.1111/j.1365-246X.2012.05511.x",
-            "locations": ["Table 1(a)", "Section 3.2"],
-            "finding": "Distinct model-3 supercell parameterization, retained as a non-default sensitivity record."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_pressure_grid_only",
-            "audit_date": "2026-09-05",
-            "finding": "Coefficients and calculation pressures are given; row-wise P-V values are not tabulated."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Table 1(a); Section 3.2.",
-          "equation": "Section 3.2 BM3; K0' fixed 3.94.",
-          "V0": "Table 1(a): 24.3317 cm3/mol, converted to 161.614953683 A3 for Z=4.",
-          "K0": "Table 1(a): 259.4608 GPa.",
-          "K0_prime": "Fixed at 3.94.",
-          "uncertainties": "Not reported."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Distinct model-3 supercell parameterization, retained as a non-default sensitivity record.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/mg09375fe00625sio3_bridgmanite.audit.json#mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3"
       }
     },
     {
@@ -345,69 +176,13 @@
         "locator": "310-322",
         "doi": "10.1111/j.1365-246X.2012.05511.x"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {"kind": "ab_initio", "source_location": "Methods", "scope": "static LSDA+U calculations"}
-        ],
-        "recalculation": {"status": "not_applicable"},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg09375fe00625sio3_bridgmanite/#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3",
-            "report_path": "docs/reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3",
-            "fit": {
-              "fixed_parameters": ["K0_prime"],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Source-reported LS model-1 metastable comparison, explicitly non-default.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "composition",
-            "spin_state",
-            "model_configuration",
-            "equation",
-            "parameters",
-            "fixed_parameters",
-            "units",
-            "reference_state",
-            "stability_warning"
-          ],
-          "primary_source_check": {
-            "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-            "doi": "10.1111/j.1365-246X.2012.05511.x",
-            "locations": ["Table 1(b)", "Sections 3.1-3.3"],
-            "finding": "The LS curve is source-reported but explicitly unstable; it is retained with a metastability warning rather than made default."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_pressure_grid_only",
-            "audit_date": "2026-09-05",
-            "finding": "Coefficients and calculation pressures are given; row-wise P-V values are not tabulated."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Table 1(b); Sections 3.1-3.3.",
-          "equation": "Section 3.2 BM3; K0' fixed 3.94.",
-          "V0": "Table 1(b): 24.2583 cm3/mol, converted to 161.127419413 A3 for Z=4.",
-          "K0": "Table 1(b): 260.7987 GPa.",
-          "K0_prime": "Fixed at 3.94.",
-          "uncertainties": "Not reported."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "The LS curve is source-reported but explicitly unstable; it is retained with a metastability warning rather than made default.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/mg09375fe00625sio3_bridgmanite.audit.json#mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3"
       }
     },
     {
@@ -444,69 +219,13 @@
         "locator": "310-322",
         "doi": "10.1111/j.1365-246X.2012.05511.x"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {"kind": "ab_initio", "source_location": "Methods", "scope": "static LSDA+U calculations"}
-        ],
-        "recalculation": {"status": "not_applicable"},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg09375fe00625sio3_bridgmanite/#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3",
-            "report_path": "docs/reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3",
-            "fit": {
-              "fixed_parameters": ["K0_prime"],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Source-reported LS model-2 metastable sensitivity configuration.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "composition",
-            "spin_state",
-            "model_configuration",
-            "equation",
-            "parameters",
-            "fixed_parameters",
-            "units",
-            "reference_state",
-            "stability_warning"
-          ],
-          "primary_source_check": {
-            "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-            "doi": "10.1111/j.1365-246X.2012.05511.x",
-            "locations": ["Table 1(b)", "Sections 3.1-3.3"],
-            "finding": "Distinct source-reported LS model-2 configuration; explicitly non-equilibrium."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_pressure_grid_only",
-            "audit_date": "2026-09-05",
-            "finding": "Coefficients and calculation pressures are given; row-wise P-V values are not tabulated."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Table 1(b); Sections 3.1-3.3.",
-          "equation": "Section 3.2 BM3; K0' fixed 3.94.",
-          "V0": "Table 1(b): 24.2605 cm3/mol, converted to 161.142032157 A3 for Z=4.",
-          "K0": "Table 1(b): 260.7980 GPa.",
-          "K0_prime": "Fixed at 3.94.",
-          "uncertainties": "Not reported."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Distinct source-reported LS model-2 configuration; explicitly non-equilibrium.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/mg09375fe00625sio3_bridgmanite.audit.json#mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3"
       }
     },
     {
@@ -543,69 +262,13 @@
         "locator": "310-322",
         "doi": "10.1111/j.1365-246X.2012.05511.x"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {"kind": "ab_initio", "source_location": "Methods", "scope": "static LSDA+U calculations"}
-        ],
-        "recalculation": {"status": "not_applicable"},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg09375fe00625sio3_bridgmanite/#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3",
-            "report_path": "docs/reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3",
-            "fit": {
-              "fixed_parameters": ["K0_prime"],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Source-reported LS model-3 metastable sensitivity configuration.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "composition",
-            "spin_state",
-            "model_configuration",
-            "equation",
-            "parameters",
-            "fixed_parameters",
-            "units",
-            "reference_state",
-            "stability_warning"
-          ],
-          "primary_source_check": {
-            "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-            "doi": "10.1111/j.1365-246X.2012.05511.x",
-            "locations": ["Table 1(b)", "Sections 3.1-3.3"],
-            "finding": "Distinct source-reported LS model-3 configuration; explicitly non-equilibrium."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_pressure_grid_only",
-            "audit_date": "2026-09-05",
-            "finding": "Coefficients and calculation pressures are given; row-wise P-V values are not tabulated."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Table 1(b); Sections 3.1-3.3.",
-          "equation": "Section 3.2 BM3; K0' fixed 3.94.",
-          "V0": "Table 1(b): 24.2596 cm3/mol, converted to 161.136054216 A3 for Z=4.",
-          "K0": "Table 1(b): 260.7441 GPa.",
-          "K0_prime": "Fixed at 3.94.",
-          "uncertainties": "Not reported."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Distinct source-reported LS model-3 configuration; explicitly non-equilibrium.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/mg09375fe00625sio3_bridgmanite.audit.json#mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3"
       }
     }
   ],

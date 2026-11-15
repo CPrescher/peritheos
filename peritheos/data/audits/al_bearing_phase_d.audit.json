@@ -1,0 +1,186 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "al_bearing_phase_d",
+  "records": {
+    "al_bearing_phase_d_xu_2020_bm3_300k": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Tsuchiya"],
+              "year": 2003,
+              "title": "First-principles prediction of the P-V-T equation of state of gold and the 660-km discontinuity in Earth's mantle",
+              "source": "Journal of Geophysical Research: Solid Earth",
+              "volume": "108",
+              "locator": "2462",
+              "doi": "10.1029/2003JB002446"
+            },
+            "source_location": "Final article, Table 1 heading: Birch-Murnaghan EOS (Gold P-scale, Tsuchiya, 2003)",
+            "scope": "all eight 300 K observations used by the represented BM3"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact gold EOS reference is unambiguous, but the source and EarthChem workbook do not publish row-wise Au volumes. The reported source-scale pressures can support EOS refitting but not an independent recalculation from raw calibrant observations."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 143.0,
+                "published_error": 5.0,
+                "refit": 143.35496116131347,
+                "refit_error": 37.80399068122436,
+                "difference": 0.35496116131346866,
+                "relative_difference": 0.0024822458833109696,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.8,
+                "published_error": 0.7,
+                "refit": 5.814150030677102,
+                "refit_error": 5.862130212795976,
+                "difference": 0.01415003067710252,
+                "relative_difference": 0.0024396604615694,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 8,
+              "observed_pressure_range_gpa": [0.0, 20.53],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "observed_volume_range": [78.01, 86.71],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.11035459600622245,
+              "published_rmse_gpa": 0.12191812508696777,
+              "reduced_chi_square": 0.01629223470546935,
+              "dataset_identifiers": ["al_bearing_phase_d_xu_2020_earthchem_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Checked against the final free-access publisher article and the complete numerical P-V-T workbook deposited by the corresponding author in EarthChem and linked by the article's Data Availability Statement. The official supporting-information record was identified but is not needed to recover the represented 300 K P-V EOS.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition_basis",
+            "crystallography",
+            "formula_units_per_cell",
+            "published_uncertainties",
+            "fitted_fixed_status",
+            "parameter_covariance",
+            "fit_selection",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020GL088877",
+            "locations": [
+              "Materials and Methods",
+              "Section 3.1 and Table 1",
+              "Data Availability Statement",
+              "EarthChem DOI 10.26022/IEDA/111629, workbook Tables 1-3"
+            ],
+            "finding": "Xu et al. report a conventional-cell, 300 K third-order Birch-Murnaghan fit with V0=86.71 A^3 fixed, KT0=143 GPa, and KT0'=5.8 on the Tsuchiya-2003 gold pressure scale. The author-deposited workbook exposes all eight selected 300 K P-V states plus the retained high-temperature P-V-T observations.",
+            "doi": "10.1029/2020GL088877"
+          },
+          "reported_parameterizations": [
+            {
+              "role": "represented_300k_bm3",
+              "pressure_temperature_conditions": "0-21 GPa, 300 K",
+              "V0_a3": 86.71,
+              "V0_status": "fixed",
+              "K0_gpa": 143.0,
+              "K0_standard_error_gpa_narrative": 5.0,
+              "K0_standard_error_gpa_table1": 4.0,
+              "K0_prime": 5.8,
+              "K0_prime_standard_error": 0.7
+            }
+          ],
+          "unrepresented_parameterizations": [
+            {
+              "role": "high_temperature_bm3",
+              "reason": "The prose says all data through 1300 K yield K0=143(4) GPa, K0'=5.8(6), dK0/dT=-0.027(12) GPa/K, and alpha0=3.8(4)e-5 K^-1, whereas Table 1 lists only 300-900 K variants with different coefficients, fixed/free choices, and a nonzero quadratic expansivity coefficient. No exact thermal form is selected by the source."
+            },
+            {
+              "role": "pressure_scale_free_acoustic_finite_strain",
+              "reason": "The final article publishes several alternative fixed/free coefficient sets and points to supporting Text S2 for the equations. It does not designate a unique set as an absolute P-V-T relation, and the EarthChem archive contains P-V-T lattice data rather than the complete acoustic Table S1."
+            }
+          ],
+          "reported_inconsistencies": [
+            {
+              "field": "ambient conventional-cell volume",
+              "materials_and_methods_and_earthchem_table2": "86.51(1) A^3 from a=4.8077(4) A and c=4.3218(6) A",
+              "section_3_1_and_earthchem_table3": "86.71(2) A^3 from a=4.8078(6) A and c=4.3316(2) A; fixed as EOS V0",
+              "resolution": "The material lattice retains the independently reported 86.51 A^3 characterization, while the EOS retains the explicitly fitted 86.71 A^3 reference volume."
+            },
+            {
+              "field": "300 K fitted K0 uncertainty",
+              "section_3_1": "143(5) GPa",
+              "table_1": "143(4) GPa",
+              "resolution": "The narrative uncertainty attached directly to the room-temperature fit is stored; both printed values remain explicit."
+            }
+          ],
+          "numerical_reproduction": {
+            "method": "Iterative effective-variance least squares on the eight deposited 300 K rows, fixing V0=86.71 A^3 and combining pressure and volume uncertainties through sigma_P,eff^2=sigma_P^2+(dP/dV sigma_V)^2",
+            "refit_parameters": {"V0_a3_fixed": 86.71, "K0_gpa": 143.07336748, "K0_prime": 5.86138397},
+            "published_curve_rmse_gpa": 0.12191813,
+            "refit_curve_rmse_gpa": 0.11079143,
+            "finding": "The refit recovers K0 within 0.08 GPa and K0' within 0.07 of the published coefficients, far inside either printed K0 uncertainty and the printed K0' uncertainty."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["al_bearing_phase_d_xu_2020_earthchem_pvt"],
+            "source_locations": [
+              "EarthChem workbook Table 3, all 28 numerical P-V-T states",
+              "EarthChem workbook Table 2, independent ambient characterization",
+              "EarthChem workbook Table 1, reported oxide and inferred-water composition"
+            ],
+            "finding": "All 28 numerical P-V-T states in the author-deposited workbook are transcribed in source order with every printed row-wise uncertainty; all eight 300 K rows are flagged as the represented BM3 fit selection. Five later diffraction patterns mentioned by the article are not published numerically because the sample partially dehydrated above about 20 GPa and 1400 K, and the authors explicitly excluded them from subsequent models."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Materials and Methods; Section 3.1 and Table 1; Data Availability Statement; EarthChem DOI 10.26022/IEDA/111629, workbook Tables 1-3.",
+          "equation": "Final article, Section 3.1 and Table 1: standard third-order Birch-Murnaghan EOS fitted by least squares with EosFit",
+          "V0": "Final article, Section 3.1; EarthChem workbook Table 3 first data row: 86.71(2) A^3 conventional-cell volume, fixed in the fit",
+          "K0": "Final article, Section 3.1: fitted KT0=143(5) GPa. Table 1 instead prints 143(4) GPa; the narrative uncertainty is stored and the discrepancy is preserved under scientific_validation.reported_inconsistencies",
+          "K0_prime": "Final article, Section 3.1 and Table 1: freely fitted KT0'=5.8(7)",
+          "temperature_ref": "EarthChem workbook Table 3 and final article Table 1 identify the represented isotherm as 300 K",
+          "fit_selection": "Final article, Section 3.1: room-temperature observations through 20.5 GPa; EarthChem workbook Table 3 exposes eight 300 K rows ending at 20.53 GPa",
+          "volume_basis": "The final article and EarthChem workbook report a, c, and V for the conventional trigonal phase-D cell. The P-31m phase-D cell has Z=1, so the tabulated cell volume is also volume per approximate O6 formula unit."
+        }
+      }
+    }
+  }
+}

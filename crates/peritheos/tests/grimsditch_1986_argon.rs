@@ -1,5 +1,5 @@
 use peritheos::isothermal::DensityPolynomial3;
-use peritheos::{load_eosmat_str, IsothermalEos};
+use peritheos::{load_eosmat_str, IsothermalEos, Reproduction};
 
 #[test]
 fn density_polynomial_reproduces_source_bulk_modulus_and_roundtrip() {
@@ -21,6 +21,7 @@ fn density_polynomial_reproduces_source_bulk_modulus_and_roundtrip() {
 
 #[test]
 fn native_material_loader_accepts_published_density_refit() {
+    // The fixture is the catalog's v4 export, with the evidence inline.
     let material = load_eosmat_str(include_str!("data/argon_fcc.eosmat")).unwrap();
     let record = material
         .eos_records
@@ -30,6 +31,14 @@ fn native_material_loader_accepts_published_density_refit() {
     assert_eq!(
         record.document["evidence"]["reproduction"]["fit_status"],
         "not_reproduced"
+    );
+    assert_eq!(
+        record.reproduction(),
+        Reproduction::from_assessment_status(
+            record.document["evidence"]["reproduction"]["assessment"]["status"]
+                .as_str()
+                .unwrap()
+        )
     );
 }
 

@@ -1,0 +1,110 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "kbr_b1",
+  "records": {
+    "kbr_b1_dewaele_2012_vinet_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Dorogokupets", "Oganov"],
+              "year": 2007,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.75.024115"
+            },
+            "source_location": "Experimental methods and Table I; ruby luminescence gauge",
+            "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 287.56,
+                "published_error": null,
+                "refit": 287.53155845407707,
+                "refit_error": 0.31967523149818056,
+                "difference": -0.0284415459229308,
+                "relative_difference": 9.890647490238837e-05,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 14.2,
+                "published_error": null,
+                "refit": 14.295345406540388,
+                "refit_error": 0.22694551198929686,
+                "difference": 0.09534540654038892,
+                "relative_difference": 0.006714465249323164,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_per_formula_unit"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 30,
+              "observed_pressure_range_gpa": [0.16, 2.5],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [253.636, 284.172],
+              "degrees_of_freedom": 28,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.04243445159147036,
+              "published_rmse_gpa": 0.0431745193746242,
+              "reduced_chi_square": 0.0019293028734309013,
+              "dataset_identifiers": ["kbr_b1_dewaele_2012_table2_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/PhysRevB.85.214105",
+            "locations": ["Vinet formulation", "Table II, KCl/KBr B1 and B2 rows"],
+            "doi": "10.1103/physrevb.85.214105"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "kbr_b1.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["kbr_b1_dewaele_2012_table2_compression"],
+            "source_locations": ["Table II, page 214105-3"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; Table II, KCl/KBr B1 and B2 rows."
+        }
+      }
+    }
+  }
+}

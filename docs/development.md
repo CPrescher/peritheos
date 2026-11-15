@@ -179,7 +179,7 @@ current:
 python -m scripts.format_eosmat
 python -m scripts.generate_material_summaries
 python -m scripts.generate_catalog_coverage
-python -m scripts.generate_validation_summary
+python -m scripts.generate_reconstruction_reports
 ```
 
 Each command accepts `--check` for read-only verification. See

@@ -1,0 +1,110 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "silicon_carbide_b1",
+  "records": {
+    "silicon_carbide_b1_miozzi_2018_bm3_1": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 66.3,
+                "published_error": 0.1,
+                "refit": 65.77707217884615,
+                "refit_error": 0.07490638285244797,
+                "difference": -0.5229278211538428,
+                "relative_difference": 0.007887297453300798,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0",
+                "published": 323.0,
+                "published_error": 3.0,
+                "refit": 340.649762165055,
+                "refit_error": 3.532854939007289,
+                "difference": 17.649762165054995,
+                "relative_difference": 0.05464322651719813,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.1,
+                "published_error": 0.43,
+                "refit": 3.062845954108703,
+                "refit_error": 0.02636963961419028,
+                "difference": -0.037154045891297116,
+                "relative_difference": 0.011985176093966812,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "sic_unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 67,
+              "observed_pressure_range_gpa": [65.37, 202.09],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "observed_volume_range": [45.97, 56.727],
+              "degrees_of_freedom": 64,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.058842648800634605,
+              "published_rmse_gpa": 1.6219704296948159,
+              "reduced_chi_square": 188.17516260644527,
+              "dataset_identifiers": ["silicon_carbide_b1_miozzi_2018_data_set_s1_eos"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/2018JE005582",
+            "locations": ["Equation-of-state section", "Table 1, B3 and B1 rows"],
+            "doi": "10.1029/2018je005582"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "silicon_carbide_b1.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["silicon_carbide_b1_miozzi_2018_data_set_s1_eos"],
+            "source_locations": ["Data Set S1, worksheet SiC_B1_EoS"],
+            "finding": "All 348 B1-SiC pressure-volume-temperature observations in the publisher's dedicated EOS-refinement worksheet."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; Table 1, B3 and B1 rows."
+        }
+      }
+    }
+  }
+}

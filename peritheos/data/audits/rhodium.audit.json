@@ -1,0 +1,121 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "rhodium",
+  "records": {
+    "rhodium_rodrigo_ramon_2024_vinet_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Takemura", "Dewaele"],
+              "year": 2008,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.78.104119"
+            },
+            "source_location": "Methods; Au volumetric compression in the cold-compression run",
+            "reference_eos_record": "gold_takemura_2008_vinet_6"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 55.046,
+                "published_error": 0.016,
+                "refit": 55.04836625326078,
+                "refit_error": 0.0014076375998741653,
+                "difference": 0.002366253260781548,
+                "relative_difference": 4.298683393491894e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 251.0,
+                "published_error": 3.0,
+                "refit": 250.42575856755914,
+                "refit_error": 0.20415764259914343,
+                "difference": -0.5742414324408571,
+                "relative_difference": 0.0022878144718759246,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.7,
+                "published_error": 0.2,
+                "refit": 5.704333531806476,
+                "refit_error": 0.010002903689389893,
+                "difference": 0.00433353180647611,
+                "relative_difference": 0.0007602687379782648,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "rhodium_unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 51,
+              "observed_pressure_range_gpa": [0.096, 54.586],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [47.612, 55.025],
+              "degrees_of_freedom": 48,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.01857900580476887,
+              "published_rmse_gpa": 0.0486409134926821,
+              "reduced_chi_square": 0.0003667531727369875,
+              "dataset_identifiers": ["rhodium_rodrigo_ramon_2024_table2_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1038/s41598-024-78006-0",
+            "locations": ["Equation-of-state results", "Table 3"],
+            "doi": "10.1038/s41598-024-78006-0"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "rhodium.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["rhodium_rodrigo_ramon_2024_table2_compression"],
+            "source_locations": ["Table 2"],
+            "finding": "All 51 simultaneous Rh/Au compression observations printed in Table 2."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state results; Table 3."
+        }
+      }
+    }
+  }
+}

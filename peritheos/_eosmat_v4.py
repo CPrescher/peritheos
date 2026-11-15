@@ -67,6 +67,7 @@ EVIDENCE_RESERVED = frozenset(
         "parameters",
         "equation_options",
         "evidence",
+        "check",
     }
 )
 
@@ -138,6 +139,7 @@ def _pack_parameters(values: Any, errors: Any, fixed: Any) -> dict:
 
 def to_v3(document: Mapping[str, Any]) -> dict[str, Any]:
     """Expand a native v4 document for historical consumers, without inference."""
+    from peritheos._eosmat_audit import validate_check, validate_check_consistency
     from peritheos._eosmat_metadata import expand_metadata
 
     result = expand_metadata(_object(document, "document"))
@@ -191,12 +193,25 @@ def to_v3(document: Mapping[str, Any]) -> dict[str, Any]:
         }
         record["parameter_errors"] = errors
         record["fixed_parameters"] = fixed
+        location = f"eos_records[{record.get('identifier', '?')!r}]"
+        if "check" in record:
+            validate_check(record["check"], location)
+            validate_check_consistency(record, location)
         evidence = _object(record.pop("evidence", {}), "evidence")
         if set(evidence) & (set(record) | EVIDENCE_RESERVED):
             raise EosmatError("Evidence fields collide with EOS record fields")
         record.update(evidence)
         record.setdefault("label", record.get("identifier", ""))
         record.setdefault("reference", "User-supplied parameters")
+        check = record.get("check")
+        if (
+            "scientific_validation" not in record
+            and isinstance(check, Mapping)
+            and "source" in check
+        ):
+            # A record file whose evidence lives in an audit sidecar keeps the
+            # stored source-check status in its headline; nothing is inferred.
+            record["scientific_validation"] = {"status": check["source"]}
         record.setdefault(
             "scientific_validation", {"status": "pending_primary_source_check"}
         )

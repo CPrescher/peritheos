@@ -1,142 +1,66 @@
 # Material catalog
 
-Browse the [readable material summaries](material-summaries/index.md) for
-parameter comparisons, uncertainties, calibration, selection holds and source
-qualifications. These sheets are generated from the complete EOSMAT documents.
+Browse the [readable material summaries](material-summaries/index.md) for each
+record's coefficients, units, reference state, source, limits, reproduction
+headline and warning, and the [reconstruction reports](reconstruction-reports/index.md)
+for how each record was checked. Both are generated from the bundled EOSMAT
+files, and the report index counts the records by headline.
 
-Peritheos exposes the main curated library through the normal executable
-API. `list_materials()` returns 232 `Material` objects and
-`list_eos_records()` returns 632 `EOSRecord` choices. Pass
-`include_reference_variants=True` to include all 684 executable records. Both
-material and EOS listings are ordered by
-stable identifier and constructed from the same `.eosmat` files returned by
-the advanced `get_material_document()` API.
-
-Thorianite and cotunnite-type ThO2 have separate experimental thermal records
-from Chidester et al. (2018); see the [source audit](literature-reproductions/chidester-2018-tho2.md)
-for their phase-dependent data selections and reference-state limits.
+Peritheos exposes the curated library through the normal executable API.
+`list_materials()` returns `Material` objects and `list_eos_records()` returns
+`EOSRecord` choices; pass `include_reference_variants=True` to include published
+pressure-scale reference variants. Both listings are ordered by stable
+identifier and constructed from the same `.eosmat` files returned by the
+advanced `get_material_document()` API. Deferred records are absent from
+executable discovery; records available only by explicit selection carry that
+restriction as their warning. See each material summary and the
+[recommendation dispositions](research/eos-recommendation-dispositions-2026-10-17.md).
 
 The [coverage overview](catalog-coverage.md) reports current material-level
 static/thermal/Hugoniot coverage, calibration readiness and ledger differences.
 The [material backlog](material-eos-candidates.md) separates open gaps,
 completed additions and evidence-dependent holds.
 
-Fe-bearing phase E (`phase_e_fe0072`) preserves the Crichton–Ross (2000)
-measured composition and published static BM3. Its independent refit achieves
-parity within reported uncertainty; the [audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md)
-show the small coefficient and pressure-curve differences. Its phase-specific
-diffraction fallback supplies indexed peak positions with uniform display
-markers; it does not assert sample-specific atomic occupancies or intensities.
-
-Brucite (`brucite`) retains the individually source-checked Fukui (2003)
-300/473/673 K BM3 isotherms and a primary ambient neutron structure.
-**The full published thermal EOS is not recommended: parity with the published
-P–V–T data was not achieved.** The unresolved 873 K curve, continuous source
-reconstruction and all Peritheos refits are withheld from executable selection
-and preserved as audit evidence. These three isotherms do not provide a
-continuous temperature model. The [audit](literature-reproductions/brucite.md)
-documents the normalization discrepancy and diagnostic fits.
-
-Seven additional published EOSs are explicitly not recommended: Fu's cubic
-CaSiO3 thermal fit, Baty's experimental Pd BM3 and Sakai's five Fe-Ni thermal
-variants. They remain available only for diagnostic selection, with
-`not_reproduced` status. Wadsleyite's sole EOS is deferred and absent from
-executable discovery; no replacement default is selected. See the
-[recommendation dispositions](research/eos-recommendation-dispositions-2026-10-17.md).
-
-Shen and Smith's MgO and NaCl-B2 records are also `not_reproduced` and not
-recommended for quantitative use, with explicit diagnostic selection only.
-Their published curves disagree with direct fixed-volume fits to the available
-Table S1 observations. Exact author fit inputs remain unconfirmed; see the
-[source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md).
-
 ## EOS record categories
 
-Peritheos records three separate assessments: **where the coefficients come
-from**, **whether the represented EOS has been checked**, and **how much of
-the fitting procedure has been reproduced**. Read them together with the
-record's scope and qualifications. They are independent fields, not a single
-quality ranking.
+Each record carries separate answers to three questions: **where the
+coefficients come from** (`record_kind`), **whether the represented EOS was
+checked against its source** (`scientific_validation.status`) and **whether a
+refit reproduced it** (the `check.reproduction` headline and its detailed
+code). They are independent fields, not a single quality ranking. All words
+and codes are defined in [EOS labels](eos-labels.md). A new fit receives its
+own record and never silently replaces the published coefficients. Older files
+without `record_kind` mean `published`. Primary-source validation supports the
+documented formulation and represented parameters; it does not establish the
+accuracy of every prediction, reproduce the original regression, or validate
+extrapolation. Author confirmation is evidence for a specified part of the
+formulation; it is recorded with its scope and is not a separate global
+validation status.
 
-### Record origin
-
-The `record_kind` field identifies the origin of the represented coefficients:
-
-| Category | Meaning |
-|---|---|
-| Published (`published`) | The source publication's parameterization, including its fixed or adopted coefficients. |
-| Refit (`refit`) | A separately attributed fit using a documented dataset, selection, equation, objective and weights. Its coefficients belong to that refit. |
-| Derived (`derived`) | A model constructed through a documented transformation or composition of source results. |
-| Diagnostic (`diagnostic`) | An investigation or comparison model whose qualifications limit its scientific use. |
-
-A new fit receives its own record and provenance. It does not silently replace
-the published coefficients. Older files without `record_kind` mean `published`.
-
-### Scientific validation
-
-The `scientific_validation.status` field describes the audit of the represented
-EOS. Structural validity only establishes that the file has an accepted format.
-
-| Category | Meaning |
-|---|---|
-| Primary-source validated (`primary_source_validated`) | Equation, coefficients, units, normalization and reference state have been checked against primary evidence. For a refit or derived record, source inputs and model choices are traced, while new coefficients or transformations are identified as Peritheos results. |
-| Pending (`pending_primary_source_check`) | The primary-source audit is incomplete. |
-| Deferred (`deferred`) | Required evidence is missing, ambiguous or inconsistent enough to withhold normal executable use. |
-| Not reproduced (`not_reproduced`) | The record carries a documented unresolved reproduction problem and requires the stated qualifications and explicit acceptance. Some such records remain executable for investigation. |
-
-Primary-source validation supports the documented formulation and represented
-parameters. It does not establish the accuracy of every prediction, reproduce
-the original regression, or validate extrapolation. Author confirmation is
-evidence for a specified part of the formulation; it is recorded with its scope
-and is not a separate global validation status.
+Other fields answer different questions: `equation_kind` distinguishes
+isothermal, thermal and Hugoniot models; `determination_method` distinguishes
+experimental, theoretical, hybrid and unknown origins of the underlying
+determination. Pressure-calibration provenance and validity ranges have their
+own assessments. None of these changes the classifications above.
 
 ### Fit reproduction
 
-The [primary EOS refit ledger](primary-eos-refits.md) uses these outcomes:
-
-| Category | Meaning |
-|---|---|
-| Parity (`parity`) | Recovered free coefficients meet the documented uncertainty and numerical comparison criteria. Conditional or source-specific criteria are stated explicitly. |
-| Similar (`similar`) | The independent result meets documented numerical similarity criteria or a qualified uncertainty comparison. Similarity is not a statistical confidence claim. |
-| Parity not achieved (`parity_not_achieved`) | A fit produced a comparison, but coefficient agreement or a dedicated published-curve reproduction check remains unresolved. |
-| Source reconstruction (`source_reconstruction`) | Source equations, calculations or compositions are checked without independently refitting the complete EOS. |
-| Direct refit unavailable (`not_refittable`) | Available observations or reduction details do not support an independent fit of the complete EOS. |
-| Refit failed (`refit_failed`) | Extraction or numerical fitting failed before a usable comparison was produced. This differs from a completed fit with discrepant coefficients. |
-
-These outcomes compare coefficients under the documented reconstruction. Even
-parity does not by itself recover the author's row selection, objective,
-weights, covariance, error estimates or calculator. For a Peritheos refit,
-reproduction refers to that independent fit unless the original publication is
-explicitly the comparison target. A paper-level outcome can also combine several
-record outcomes; see the [paper investigation ledger](paper-investigation-ledger.md).
+Besides the codes in [EOS labels](eos-labels.md#detailed-outcome-codes), the
+[primary EOS refit ledger](primary-eos-refits.md) uses `refit_failed`:
+extraction or numerical fitting failed before a usable comparison was produced.
+This differs from a completed fit with discrepant coefficients. A paper-level
+outcome can combine several record outcomes; see the
+[paper investigation ledger](paper-investigation-ledger.md).
 
 Individual source audits additionally use scoped `reproduction_status` values
 such as `partially_reproduced` or `equation_reproduced`. These are additive audit
 descriptions, rather than a closed schema enumeration. **Partially reproduced**
 means that a specified component was verified or recovered while the complete
-source procedure remains unreproduced. The accompanying note identifies which
-component and which evidence remain missing.
-
-### Example: Speziale (2001) MgO
-
-The record `mgo_speziale_2001_bm3_2` is **published**, **primary-source validated**,
-and has an **author-confirmed thermal formulation**. It uses the paper's final
-BM3 plus variable-q Debye coefficients. Independent calculations verify the
-pressure evaluation, and Sergio Speziale confirms integration of the defining
-Debye-temperature relation using Equation (11).
-
-Its complete original fitting procedure remains **partially reproduced**. The
-cold coefficients are recovered within published error widths, while the full
-thermal regression and original calculator settings are unavailable. A new
-refit is not required to use this published EOS. A future independent refit
-would be a separate record. See the [Speziale audit](literature-reproductions/speziale-2001-mgo.md).
-
-Other fields answer different questions: `equation_kind` distinguishes
-isothermal, thermal and Hugoniot models; `determination_method` distinguishes
-experimental, theoretical, hybrid and unknown origins of the underlying
-determination. Pressure-calibration provenance and validity ranges likewise
-have their own assessments. None of these automatically changes the three
-classifications above.
+source procedure remains unreproduced; the accompanying note identifies which
+component and which evidence remain missing. The
+[Speziale (2001) MgO audit](literature-reproductions/speziale-2001-mgo.md) is a
+worked example: a published, source-validated record with an author-confirmed
+thermal formulation whose original fitting procedure is partially reproduced.
 
 ## Browse material families
 
@@ -366,32 +290,16 @@ available through `Material.phase` and `EOSRecord.phase`.
 
 The NaCl-B2 catalog retains eight [Sakai et al. (2011) published fits](literature-reproductions/sakai-2011-nacl-b2.md). Normal discovery shows the Matsui-Pt BM3 and Vinet sources; the other six fits and the later 2014 Yokoo-Pt recalibration are published pressure-scale reference variants. Use `source.on_pressure_scale(target_node)` to evaluate a source on another reachable scale. `list_reference_variants(source.identifier)` and `include_reference_variants=True` expose the original alternatives. See the [catalog-wide variant audit](research/pressure-scale-variant-audit.md) for other grouped materials and the [conversion interface](pressure-scale-normalization.md#one-source-eos-selectable-output-scale) for pressure and volume calculations.
 
-The [Matsui (2009) Pt audit](literature-reproductions/matsui-2009-platinum.md)
-registers `platinum_matsui_2009_vinet_mgd_electronic` alongside the unchanged
-300 K Vinet branch. It includes integrated-q Debye pressure and all 51
-Tsuchiya-Kawamura electronic nodes, subtracting their 300 K value once.
-Linear interpolation between 100 K nodes is explicitly a numerical choice;
-no table extrapolation or electronic caloric properties are supplied.
-The Au-only erratum does not change Pt. Source-grid reconstruction agrees
-within 0.0071 GPa; the original shock/expansion fit remains unreproduced.
-
-The [Yokoo (2009) Pt audit](literature-reproductions/yokoo-2009-platinum.md)
-adds the published fitted 300 K Vinet branch, including its density-derived
-V0=60.55 Å³ per four-atom cell. It resolves Sakai (2018)'s named calibration
-reference while retaining the missing paired-observation boundary. The
-derived Table V grid and original joint-fit status are documented separately.
-Both `gold_yokoo_2009_pvt_reconstruction` and
-`platinum_yokoo_2009_pvt_reconstruction` now provide bounded executable
-[PVT reconstructions](literature-reproductions/yokoo-2009-pvt-library.md).
-These explicit-selection diagnostic records have validation status
-`not_reproduced`. They retain explicit interpolation and, for Pt, a separate
-empirical residual-pressure correction; exact author-fit reproduction is
-not claimed. The [pressure-convention audit](literature-reproductions/yokoo-2009-pressure-conventions.md)
-tests the unreproduced analytical PVT independently of the fitted corrections.
+Platinum and gold also have executable pressure-scale branches and explicit
+diagnostic PVT reconstructions; see the
+[Matsui (2009) Pt](literature-reproductions/matsui-2009-platinum.md),
+[Yokoo (2009) Pt](literature-reproductions/yokoo-2009-platinum.md) and
+[Yokoo PVT library](literature-reproductions/yokoo-2009-pvt-library.md) audits.
 
 ## Research collections
 
-The [Dewaele (2008) PAW collection](research/dewaele-2008-paw.md) preserves all
-54 published computational parameterizations, provenance and graphical checks
-outside the main database. Its records are absent from catalog listings, searches
-and default selection. The paper's 13 experimental Table IV EOS remain in the catalog.
+The [Dewaele (2008) PAW collection](research/dewaele-2008-paw.md) preserves the
+paper's published computational parameterizations, provenance and graphical
+checks outside the main database. Its records are absent from catalog listings,
+searches and default selection; the paper's experimental Table IV EOS remain in
+the catalog.

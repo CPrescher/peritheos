@@ -16,6 +16,11 @@ from peritheos import (
     load_eosmat,
     validate_eosmat_document,
 )
+from peritheos._eosmat_audit import (
+    GENERIC_QUALIFICATIONS,
+    GENERIC_VALIDATION_NOTES,
+    REPRODUCTION_VALUES,
+)
 from peritheos.errors import EosmatError
 from scripts.generate_reconstruction_reports import (
     comparison_svg,
@@ -61,17 +66,33 @@ def test_linked_report_keeps_source_values_missing_errors_and_scope_clear(tmp_pa
     document, _ = linked_sample()
     original = copy.deepcopy(document)
     page = report_page(document, root=tmp_path)
-    assert "Parity not achieved for this comparison" in page
+    section = page.split('<a id="record-example_bm3"></a>', 1)[1]
+    # The headline word and the warning come first, then scope and basis.
+    assert section.split("\n\n")[2].startswith("**disagrees** · `example_bm3`")
+    assert section.index("**Scope:**") < section.index("**Basis:**")
+    assert section.index("**Basis:**") < section.index("### Coefficients")
     assert "160" in page and "180.1" in page and "2.5" in page
     assert "180.12345678901235" not in page
-    assert "Unknown" not in page or "not been inferred" in page
-    assert "Missing errors mean unknown, not zero" in page
-    assert "not an observation or residual plot" in page
+    assert "unknown, not zero, and are not inferred" in page
+    assert "not observation or\nresidual plots" in page
     assert "Fixed/adopted values are constraints" in page
     assert "Synthetic conditional diagnostic" in page
-    assert "Curve/residual comparison unavailable" in page
-    assert "Recorded pressure RMS error" in page
+    # A coefficient pair without a replayable plot names the gap.
+    assert "No curve plot: Selected audit datasets" in page
+    # Nothing-recorded tables are not generated.
+    assert "Not reported |" not in page.replace("| 160 | Not reported |", "")
+    assert "Recorded pressure RMS error" not in page
+    assert "Ledger code" not in page
+    assert "eos-labels.md" in page
+    assert page.count("Only recorded content is shown") == 1
     assert document == original
+    fit = document["eos_records"][0]["evidence"]["reproduction"]["assessment"]["fit"]
+    fit["rmse_gpa"] = 0.123456
+    page = report_page(document, root=tmp_path)
+    assert "Recorded pressure RMS error (GPa)" in page
+    assert "reconstruction 0.123" in page and "source fit" not in page
+    del fit["rmse_gpa"]
+    original = copy.deepcopy(document)
     legacy = convert_eosmat(document, version=3)
     assert (
         legacy["eos_records"][0]["reproduction"]["assessment"]
@@ -80,10 +101,26 @@ def test_linked_report_keeps_source_values_missing_errors_and_scope_clear(tmp_pa
     assessment = document["eos_records"][0]["evidence"]["reproduction"]["assessment"]
     assessment.pop("parameters")
     page = report_page(document, root=tmp_path)
-    assert "Why no coefficient graph is shown" in page
-    assert "No numeric source/reconstruction pair" in page
+    assert "### Coefficients" not in page and "Coefficient graphs" not in page
+    assert "No curve plot" not in page
     assert ".svg)" not in page
     assert comparison_svg(assessment) is None
+    # An untested record with nothing else recorded is a few lines.
+    assessment.update(
+        status="not_refittable",
+        source_status="not_refittable",
+        basis="Only a plotted curve exists.",
+    )
+    assessment.pop("qualifications", None)
+    assessment["fit"] = {"dataset_identifiers": [], "fixed_parameters": []}
+    section = report_page(document, root=tmp_path).split("## example\\_bm3\n", 1)[1]
+    assert section.strip().splitlines() == [
+        "**untested** (not refittable) · `example_bm3` · `BM3` · "
+        "[Coefficients and source](../material-summaries/example.md#record-example_bm3)",
+        "",
+        "**Scope:** Comparison with the source parameterization. "
+        "**Basis:** Only a plotted curve exists.",
+    ]
 
 
 def test_figure_is_reproducible_fingerprinted_and_does_not_change_input():
@@ -248,9 +285,20 @@ def test_every_bundled_link_opens_its_record_and_each_graph_matches_its_input():
     index = outputs[Path("index.md")].decode()
     assert "494 of 494" in index
     assert "3 explicitly partial replays" in index
-    assert "None among assessments with stored coefficient pairs" in index
+    assert "Remaining curve/residual replay gaps" not in index
+    assert (
+        "| **All materials** | **687** | **358** | **72** | **61** | **196** |" in index
+    )
     for relative, payload in outputs.items():
         assert (ROOT / "docs/reconstruction-reports" / relative).read_bytes() == payload
+        page = payload.decode()
+        for statement in (*GENERIC_QUALIFICATIONS, *GENERIC_VALIDATION_NOTES):
+            assert statement not in page
+        for empty in ("Not reported |\n| Reconstruction", "Why no coefficient graph"):
+            assert empty not in page
+        for section in page.split('<a id="record-')[1:]:
+            first = section.split("\n\n")[2]
+            assert first.startswith(tuple(f"**{w}**" for w in REPRODUCTION_VALUES))
     for path in sorted((ROOT / "peritheos/data/materials").glob("*.eosmat")):
         document = load_eosmat(path)
         for record in document["eos_records"]:

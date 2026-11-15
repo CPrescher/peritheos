@@ -1,0 +1,215 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "mg065fe035o",
+  "records": {
+    "mg065fe035o_solomatova_2016_hs_bm3_reference_1": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 77.1,
+                "published_sigma": 0.12,
+                "refit": 77.26373463936075,
+                "refit_sigma": null,
+                "delta": 0.16373463936075439,
+                "relative_delta": 0.0021236658801654265,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 162.0,
+                "published_sigma": 3,
+                "refit": 159.9457884664697,
+                "refit_sigma": null,
+                "delta": -2.0542115335302924,
+                "relative_delta": -0.012680318108211682,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.99,
+                "published_sigma": 0.15,
+                "refit": 3.9929807227183662,
+                "refit_sigma": null,
+                "delta": 0.0029807227183660245,
+                "relative_delta": 0.000747048300342362,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "used_in_solomatova_2016_fit=1",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": [],
+              "observations": 36,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.205907548920682,
+              "dataset_identifiers": ["mg065fe035o_chen_2012_table1_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+            "doi": "10.2138/am-2016-5510",
+            "locations": ["Tables 1-3", "Table 7", "Figures 3 and 6-10"],
+            "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+          },
+          "primary_data_check": {
+            "status": "complete_earlier_primary_table",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["mg065fe035o_chen_2012_table1_pv"],
+            "source_locations": ["Chen et al. (2012), Table 1", "Solomatova et al. (2016), Tables 2 and 7"],
+            "finding": "All 36 Chen pressure-volume observations are bundled. A coupled three-level MINUTI reconstruction with Solomatova's Table 2 priors is numerically similar to both Table 7 branches. Chen measured (Mg0.654(1)Fe0.330(1)Ti0.016(1))O; Mg0.65Fe0.35O is the nominal catalog and Solomatova fit composition."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+          "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
+          "V0": "Table 7 HS column: 77.1 A^3 per conventional B1 cell.",
+          "K0": "Table 7 HS column: 162 GPa.",
+          "K0_prime": "Table 7 high-spin K0' column.",
+          "original_dataset": "Solomatova et al. refit the P-V data of Chen et al. (2012), DOI 10.1029/2012JB009162.",
+          "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
+        }
+      }
+    },
+    "mg065fe035o_solomatova_2016_ls_bm3_reference_2": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Every compared free coefficient lies inside its positive printed source error width. Target-branch agreement only, conditional on the existing coupled approximate-volume fit and Table 2 priors. Fixed LS K0-prime=4, and the Fp48 HS V0 anchor where applicable, are constraints, not independently recovered values. Prior regularization supports agreement and does not independently validate the endmembers or full spin-crossover fit. Reconstruction covariance remains unknown; this is a source-width central-value comparison, not combined-error or author-workflow parity. Earlier audit wording (superseded only for the named numerical scope): Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 73.77,
+                "published_error": 0.69,
+                "published_sigma": 0.69,
+                "refit": 73.84088369198591,
+                "refit_error": null,
+                "refit_sigma": null,
+                "difference": 0.07088369198591238,
+                "delta": 0.07088369198591238,
+                "relative_delta": 0.000960874230526127,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 171.0,
+                "published_error": 9,
+                "published_sigma": 9,
+                "refit": 170.1407881118083,
+                "refit_error": null,
+                "refit_sigma": null,
+                "difference": -0.8592118881917088,
+                "delta": -0.8592118881917088,
+                "relative_delta": -0.005024630925097712,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.0,
+                "published_error": null,
+                "published_sigma": null,
+                "refit": 4.0,
+                "refit_error": null,
+                "refit_sigma": null,
+                "difference": 0.0,
+                "delta": 0.0,
+                "relative_delta": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "used_in_solomatova_2016_fit=1",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": ["K0_prime"],
+              "validation_fixed_parameters": ["K0_prime"],
+              "observations": 36,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.205907548920682,
+              "comparison_scope": "Compared free coefficients: V0, K0; scope=parameter_agreement",
+              "dataset_identifiers": ["mg065fe035o_chen_2012_table1_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+            "doi": "10.2138/am-2016-5510",
+            "locations": ["Tables 1-3", "Table 7", "Figures 3 and 6-10"],
+            "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+          },
+          "primary_data_check": {
+            "status": "complete_earlier_primary_table",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["mg065fe035o_chen_2012_table1_pv"],
+            "source_locations": ["Chen et al. (2012), Table 1", "Solomatova et al. (2016), Tables 2 and 7"],
+            "finding": "All 36 Chen pressure-volume observations are bundled. A coupled three-level MINUTI reconstruction with Solomatova's Table 2 priors is numerically similar to both Table 7 branches. Chen measured (Mg0.654(1)Fe0.330(1)Ti0.016(1))O; Mg0.65Fe0.35O is the nominal catalog and Solomatova fit composition."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+          "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
+          "V0": "Table 7 LS column: 73.77 A^3 per conventional B1 cell.",
+          "K0": "Table 7 LS column: 171 GPa.",
+          "K0_prime": "Table 7: low-spin K0' fixed to 4.",
+          "original_dataset": "Solomatova et al. refit the P-V data of Chen et al. (2012), DOI 10.1029/2012JB009162.",
+          "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
+        }
+      }
+    }
+  }
+}

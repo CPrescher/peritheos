@@ -1,0 +1,52 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "srsio3_6h_perovskite",
+  "records": {
+    "srsio3_6h_xiao_2013_gga_bm2_1": {
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {"kind": "ab_initio", "source_location": "Computational methods: CASTEP GGA, ultrasoft pseudopotentials"}
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "Static first-principles EOS."},
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced.",
+            "fit": {
+              "fixed_parameters": ["K0_prime"],
+              "dataset_identifiers": []
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am.2013.4470",
+            "doi": "10.2138/am.2013.4470",
+            "locations": ["Computational methods", "Results", "Figure 5"],
+            "finding": "A distinct static-GGA 6H EOS is published."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "finding": "Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Xiao (2013), static-GGA 6H calculation: computed compression fit, distinct from the cubic experimental fit.",
+          "equation": "Same printed Birch-Murnaghan convention used for calculated P-V results.",
+          "parameters": "Static-GGA 6H fit: V0=311.23(10) A3, K0=183.8(6) GPa, K0'=4 fixed."
+        }
+      }
+    }
+  }
+}

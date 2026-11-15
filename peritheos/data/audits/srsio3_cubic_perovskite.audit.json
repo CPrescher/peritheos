@@ -1,0 +1,143 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "srsio3_cubic_perovskite",
+  "records": {
+    "srsio3_cubic_xiao_2013_experimental_bm2_1": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {"kind": "ruby_fluorescence", "source_location": "Experimental methods"}
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 1 supplies calibrated pressure and uncertainty, not ruby wavelengths; the publication does not identify an executable ruby calibration."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 49.18,
+                "published_error": 0.05,
+                "refit": 48.86937176353267,
+                "refit_error": 0.05496414266631051,
+                "difference": -0.3106282364673305,
+                "relative_difference": 0.006316149582499603,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0",
+                "published": 211.0,
+                "published_error": 3.0,
+                "refit": 226.9830482052458,
+                "refit_error": 3.136927014668011,
+                "difference": 15.983048205245808,
+                "relative_difference": 0.07574904362675738,
+                "similar": true,
+                "within_combined_2sigma": false
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 17,
+              "observed_pressure_range_gpa": [6.2, 37.8],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [43.0, 47.21],
+              "degrees_of_freedom": 15,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.634864773901171,
+              "published_rmse_gpa": 0.8333227223032703,
+              "reduced_chi_square": 4.478387842452149,
+              "dataset_identifiers": ["srsio3_cubic_xiao_2013_table1_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am.2013.4470",
+            "doi": "10.2138/am.2013.4470",
+            "locations": ["Experimental methods", "Results", "Table 1", "Figure 5"],
+            "finding": "One experimental cubic BM2 parameterization is reported."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["srsio3_cubic_xiao_2013_table1_pv"],
+            "source_locations": ["Table 1"],
+            "finding": "All 17 printed rows and the source-defined 16-row selection are retained."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods; Results; Table 1; Figure 5.",
+          "equation": "Results section prints the third-order Birch-Murnaghan pressure equation.",
+          "parameters": "Experimental fit: V0=49.18(5) A3, K0=211(3) GPa, K0'=4 fixed.",
+          "fit_selection": "Sixteen Table 1 rows from 9.0 to 37.8 GPa; the 6.2 GPa point was excluded because partial amorphization starts below 9 GPa."
+        }
+      }
+    },
+    "srsio3_cubic_xiao_2013_gga_bm2_2": {
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {"kind": "ab_initio", "source_location": "Computational methods: CASTEP GGA, ultrasoft pseudopotentials"}
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "Static first-principles EOS."},
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced.",
+            "fit": {
+              "fixed_parameters": ["K0_prime"],
+              "dataset_identifiers": []
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am.2013.4470",
+            "doi": "10.2138/am.2013.4470",
+            "locations": ["Computational methods", "Results", "Figure 5"],
+            "finding": "A distinct static-GGA cubic EOS is published."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "finding": "Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Xiao (2013), static-GGA cubic calculation: computed compression fit, distinct from the cubic experimental fit.",
+          "equation": "Same printed Birch-Murnaghan convention used for calculated P-V results.",
+          "parameters": "Static-GGA cubic fit: V0=49.97(1) A3, K0=207.7(4) GPa, K0'=4 fixed."
+        }
+      }
+    }
+  }
+}

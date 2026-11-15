@@ -24,6 +24,11 @@ ROOT = Path(__file__).resolve().parents[1]
 @pytest.mark.parametrize("identifier", list_material_documents())
 def test_native_catalog_and_compatibility_views_preserve_complete_content(identifier):
     path = ROOT / "peritheos/data/materials" / (identifier + ".eosmat")
+    record_file = load_eosmat(path, include_audit=False)
+    assert record_file == get_material_document(
+        identifier, format_version=None, include_audit=False
+    )
+    assert all("evidence" not in r for r in record_file["eos_records"])
     native = load_eosmat(path)
     assert native["format_version"] == 5
     assert "format" not in native
@@ -46,7 +51,7 @@ def test_native_catalog_and_compatibility_views_preserve_complete_content(identi
             record["evidence"]["scientific_validation"] == old["scientific_validation"]
         )
         assert "eos" not in record
-    assert render_material(native) == path.read_text(encoding="utf-8")
+    assert render_material(record_file) == path.read_text(encoding="utf-8")
     assert not migrate_file(path, check=True)
 
 

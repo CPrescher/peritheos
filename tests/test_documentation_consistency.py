@@ -15,30 +15,30 @@ def test_catalog_landing_summaries_match_scientific_status_counts():
         (ROOT / "peritheos/data/materials/manifest.json").read_text(encoding="utf-8")
     )
     counts = manifest["scientific_validation"]["counts"]
-    for path in (ROOT / "README.md", ROOT / "docs/index.md"):
-        text = " ".join(path.read_text(encoding="utf-8").split())
-        assert f"{counts['primary_source_validated']} primary-source-validated" in text
-        assert f"{counts['not_reproduced']} qualified explicit-selection" in text
+    text = " ".join((ROOT / "README.md").read_text(encoding="utf-8").split())
+    assert f"{counts['primary_source_validated']} primary-source-validated" in text
+    assert f"{counts['not_reproduced']} qualified explicit-selection" in text
 
 
-def test_validation_narrative_matches_primary_refit_ledger():
-    subprocess.run(
-        [sys.executable, "-m", "scripts.generate_validation_summary", "--check"],
-        cwd=ROOT,
-        check=True,
-    )
+def test_hand_written_guides_link_generated_counts_instead_of_repeating_them():
+    """Catalog totals are generated (report index, ledger); prose links to them."""
     summary = json.loads(
         (ROOT / "docs/data/primary-eos-refits.json").read_text(encoding="utf-8")
     )["summary"]
-    validation = " ".join(
-        (ROOT / "docs/validation.md").read_text(encoding="utf-8").split()
+    manifest = json.loads(
+        (ROOT / "peritheos/data/materials/manifest.json").read_text(encoding="utf-8")
     )
-
-    assert f"{summary['total']} records" in validation
-    assert f"{summary['parity']} scoped numerical parity matches" in validation
-    assert f"{summary['similar']} additional numerically similar results" in validation
-    assert f"[{summary['parity_not_achieved']} direct refits]" in validation
-    assert f"while {summary['not_refittable']} records cannot be" in validation
+    totals = {
+        summary["total"],
+        summary["parity"],
+        summary["similar"],
+        *manifest["scientific_validation"]["counts"].values(),
+    }
+    for name in ("validation.md", "catalog.md", "index.md"):
+        text = (ROOT / "docs" / name).read_text(encoding="utf-8")
+        assert "reconstruction-reports/index.md" in text, name
+        words = set(text.replace("*", " ").replace(",", " ").split())
+        assert not {str(t) for t in totals if t > 50} & words, name
 
 
 def test_material_readme_inventory_matches_bundled_datasets():

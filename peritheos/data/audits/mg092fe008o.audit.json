@@ -1,0 +1,64 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "mg092fe008o",
+  "records": {
+    "mg092fe008o_yang_2015_hs_bm3_reference": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": "Au pressure scale; exact EOS citation unresolved",
+            "source_location": "Methods: Au powder calibrant for XRD"
+          },
+          {"kind": "ruby_fluorescence", "source_location": "Methods: ruby spheres for BLS/ISS"}
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The article identifies Au and ruby pressure standards but does not provide the row-wise calibrant observables required for recalculation."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "No machine-readable P-V table is published. Analytical BM3 checkpoints and inverse-volume round trips independently verify executable transcription of the source coefficients.",
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.nature.com/articles/srep17188",
+            "doi": "10.1038/srep17188",
+            "locations": ["Results and Discussion, page 2", "Methods, page 7", "Supplementary Equations 1-5 and Figures S1-S3"],
+            "finding": "The article supplies a complete high-spin BM3 reference branch when the reported ambient cell measurement is used for V0; the low-spin branch lacks its own V0."
+          },
+          "primary_data_check": {
+            "status": "source_parameterization_only",
+            "audit_date": "2026-09-05",
+            "source_locations": ["Results and Discussion", "Methods", "Supplementary Figures S1-S3"],
+            "finding": "No machine-readable P-V table is published. Analytical BM3 checkpoints and inverse-volume round trips independently verify executable transcription of the source coefficients."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results and Discussion, page 2; Methods, page 7; Supplementary Equations 1-5 and Figures S1-S3.",
+          "equation": "Results and Supplementary Equations 1-5: third-order Eulerian finite-strain/Birch-Murnaghan high-spin reference EOS in a coupled spin model.",
+          "V0": "Computed as a^3 from the Methods ambient cubic cell parameter a=4.1996(4) A; the linearized 1-sigma propagation is 3 a^2 sigma_a.",
+          "K0": "Results: KT0=152.5(2.4) GPa for the high-spin state.",
+          "K0_prime": "Results: KT0'=4.1(0.2) for the high-spin state.",
+          "fit_relationship": "The source also reports a low-spin K0 and fixed K0', but not a separate low-spin V0; that incomplete branch is not stored."
+        }
+      }
+    }
+  }
+}

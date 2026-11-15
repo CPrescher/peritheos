@@ -9,17 +9,17 @@ Produce an auditable scientific contribution at the scope requested: a source in
 
 ## Establish the current context
 
-Work from the current Peritheos checkout, including its local instructions and changes. Read `docs/adding-materials-and-eos.md` and the relevant parts of `docs/eosmat-schema.md` before authoring a record; these maintained files own acceptance criteria, schema, and contributor checks. Read `docs/material-eos-candidates.md`, `docs/dataset-requests.md`, and the material's existing audit only when relevant. Use existing model families whenever they exactly represent the source formulation.
+Work from the current Peritheos checkout, including its local instructions and changes. Read `docs/adding-materials-and-eos.md`, `docs/eos-labels.md` and the relevant parts of `docs/eosmat-v5.md` before authoring a record; these maintained files own acceptance criteria, labels and fields. Read `docs/material-eos-candidates.md`, `docs/dataset-requests.md`, and the material's existing audit only when relevant. Use existing model families whenever they exactly represent the source formulation.
 
 Distinguish a material (composition and phase), a source parameterization, an independent refit, and a new equation family. Extend the matching material; keep scientifically distinct phases/compositions separate. For audit-only requests, report findings without changing catalog data. For requested additions, carry the work through the authorized integration or explain the specific evidence preventing acceptance.
 
 ## Recover and preserve source evidence
 
-- Use the final primary publication, official supplements, and corrections as authority. Record exact table, equation, page, figure, worksheet, or cell locations and source versions/checksums where useful. Secondary sources are leads.
+- Use the final primary publication, official supplements, and corrections as authority. Record exact table, equation, page, figure, worksheet, or cell locations and source versions/checksums in the audit sidecar. Secondary sources are leads.
 - Recover all available observations relevant to the represented fit. Preserve original tokens/units, missing cells, row/run identities, reported coordinate errors and their meaning, and paired calibrant readings. Keep normalized or recalibrated quantities traceable to the originals.
 - Distinguish measured, calculated, digitized, fixed, adopted, and fitted values. A pressure column calculated from the published EOS is not an independent pressure measurement or fit benchmark. Label plot digitization and its precision.
 - Missing source licensing alone is not a reason to omit recoverable factual observations. Preserve attribution and explicit source terms; any CC0 dedication covers only contributors' transcription, normalization, metadata, and arrangement rights, never third-party article text, figures, or publisher files. Keep unspecified source terms unspecified.
-- If data cannot be recovered, name the files/repositories checked and distinguish inaccessible from absent. Document the precise missing inputs; do not synthesize observations. A fully defined published parameterization can still be usable under the current acceptance guide's independent-benchmark requirements.
+- If data cannot be recovered, name the files/repositories checked and distinguish inaccessible from absent. Do not synthesize observations. A fully defined published parameterization can still be usable under the guide's independent-benchmark requirements.
 
 ## Resolve identity and formulation before fitting
 
@@ -29,28 +29,33 @@ Map the actual equations, reference-state conventions, fixed/adopted parameters,
 
 ## Validate at the level the evidence supports
 
-Keep these claims separate in the report and metadata:
+Keep three claims separate in the audit: **source-equation validation** (the implemented formulation reproduces an independently specified source result within a justified tolerance; reference-state identities alone are insufficient), **independent refit** (available observations fit with a documented objective, selection, weights, constraints and order), and **author-workflow reproduction** (the original inputs, selections, calibration and protocol replayed). Conditional coefficient agreement does not establish the last.
 
-1. **Source-equation validation:** the implemented formulation and coefficients reproduce an independently specified source result within a tolerance justified by printed precision, measurement uncertainty, or digitization error. Reference-state identities alone are insufficient.
-2. **Independent refit:** the available observations are fit with an explicitly documented objective, row/pair selection, weights, constraints, and fitting order. Report coefficient and curve/residual differences from the source.
-3. **Author-workflow reproduction:** the original input set, selections, calibration, constraints, objective, and relevant fitting details are recovered and replayed. Conditional coefficient agreement does not establish this stronger claim.
-
-Investigate discrepancies without silently changing the published record. Missing runs do not prove they entered the original fit or explain non-parity. Alternative masks, weights, or fixed parameters are diagnostic hypotheses until supported by source evidence. Preserve the literal source replay separately from experiments intended to improve agreement.
+Investigate discrepancies without changing the published record. Missing runs do not prove they entered the original fit. Alternative masks, weights, or fixed parameters are diagnostic hypotheses until supported by source evidence; keep the literal source replay separate from experiments to improve agreement.
 
 ### Stop at unresolved non-parity
 
-Apply the [contributor guide's stopping rule](../../../docs/adding-materials-and-eos.md#stopping-rule-unresolved-reproduction-discrepancies). After checking transcription, equation mapping, units/reference state, and the reported fitting protocol, an unresolved failure to reproduce the published EOS or its reported data agreement is a completed curation finding: **document the discrepancy and do not recommend the affected EOS**. Preserve source coefficients, observations, quantitative comparisons, justified tolerances, affected domain, and unresolved inputs. Use `not_reproduced` for a demonstrated unresolved reproduction problem, or `deferred` for incomplete source/model mapping; do not promote it as validated or a recommended default. Keep catalog descriptions and scientific ledgers consistent. Any retained executable diagnostic must be explicitly diagnostic and not recommended for scientific predictions or pressure calibration.
+Apply the [contributor guide's stopping rule](../../../docs/adding-materials-and-eos.md#stopping-rule-unresolved-reproduction-discrepancies). After checking transcription, equation mapping, units/reference state, and the reported fitting protocol, an unresolved failure to reproduce the published EOS or its reported data agreement is a completed finding: headline `disagrees`, source-validation `not_reproduced` (or `deferred` for incomplete mapping), and the evidence in the sidecar. Do not build a replacement from successive EOS families, thermal laws, extra parameters or protocols; that needs an explicit user request as separate research. Scope non-parity to the affected parameterization/domain. When a separate refit is requested and accepted, store it as `record_kind: refit` with complete `fit_provenance`; do not invent a catalog parent for a direct dataset refit.
 
-Do not turn failed reproduction into successive alternative EOS families, thermal laws, extra parameters, or fitting protocols to construct a replacement. Existing exploratory refits remain diagnostic evidence; improved residuals or replay of their own coefficients do not establish publication parity or a validated replacement. Replacement-model development requires an explicit user request as a separate research task. A source-protocol refit used to check reproduction remains curation work.
+## Write the record and the audit
 
-Scope non-parity to the affected parameterization/domain; independently verified isotherms do not validate an unresolved continuous EOS. Missing exact author-workflow details alone do not establish numerical failure if the published parameterization passes independent source benchmarks. Unavailable observations follow the guide's parameterization-only validation route.
+Set the headline from the outcome code as defined in `docs/eos-labels.md`: `parity` → `reproduced`, `similar` → `close`, `parity_not_achieved`/`not_reproduced` → `disagrees`, otherwise `untested`. `untested` is not a failure. Add a `warning` only for an explicit usage restriction the reader must see, for example a reproduced fit that describes its data poorly. Do not change a default; propose it to the maintainer.
 
-When a separate independent refit is explicitly requested and accepted for catalog integration under the guide, store it as `record_kind: refit` with complete `fit_provenance` and the required identifier convention. Preserve source coefficients and distinguish its recommendation status from the original publication's unresolved status. Do not invent a catalog parent for a direct dataset refit.
+The record holds what a reader needs to use the EOS; the per-material sidecar `peritheos/data/audits/<id>.audit.json` holds scope, basis, conditions, fixed parameters, refit numbers and source-check locations. Field layout is in `docs/eosmat-v5.md`.
+
+- State each finding once. Do not repeat it across basis, finding, notes and qualifications.
+- Do not restate a label's generic caveat; `docs/eos-labels.md` holds it.
+- No solver diagnostics or full-precision refit numbers in the record.
+- No hard-coded catalog counts in prose, and no sections that only say nothing is recorded.
+- Prefer a short specific statement over defensive qualification.
+
+Bad (record): "Parity achieved. This does not establish experimental accuracy, phase stability or author-workflow reproduction. Parity here means … Refit V0=263.929881998 …", with the same sentence again in notes.
+Good (record): `reproduction: reproduced`, `warning: null`. Good (sidecar entry): scope `parameter_agreement`; basis "within printed source widths; K0 fixed at 210 GPa"; refit coefficients with errors; source "Table 2, pp. 64-65".
 
 ## Integrate and report
 
-Use material-specific datasets, scripts, tests, and audit notes. Respect concurrent ownership; coordinate shared manifests, ledgers, and totals only within the authorized integration scope. Staging is appropriate when requested or needed to keep a concurrent integration stable, not a reason to leave an otherwise authorized addition unfinished.
+Use material-specific datasets, scripts, tests, and audit notes. Respect concurrent ownership; coordinate shared manifests and ledgers only within the authorized scope. Staging is appropriate when requested or needed to keep a concurrent integration stable.
 
-Check transcription, independent literature values, schema/public loading, evaluation/inversion, and applicable Rust/Python parity. Follow the current contributor guide for required checks and applicable generated-ledger updates; distinguish new failures from existing ones. Do not equate schema validity or a passing test suite with scientific validation.
+Check transcription, independent literature values, schema/public loading, evaluation/inversion, and applicable Rust/Python parity, following the contributor guide; distinguish new failures from existing ones. Do not equate schema validity or a passing test suite with scientific validation.
 
-Deliver a concise account of source authority, recovered data, equation mapping, reproduction level, results, changes, checks, and remaining evidence gaps. Keep a non-parity finding useful even if exact reproduction is impossible. Draft author questions when requested; sending them requires explicit authorization.
+Report briefly: source authority, recovered data, equation mapping, headline and any warning, changes, checks, and remaining gaps. Draft author questions when requested; sending them requires explicit authorization.

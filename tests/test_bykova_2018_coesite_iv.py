@@ -45,7 +45,10 @@ def test_original_coefficients_and_source_table_are_preserved():
     assert record["parameters"]["V0"]["error"] is None
     validate_eosmat_document(native)
     recovered = convert_eosmat(convert_eosmat(native, version=3), version=4)
-    assert recovered["eos_records"] == native["eos_records"]
+    # The v5 check headline is derived from evidence; older layouts omit it.
+    assert recovered["eos_records"] == [
+        {k: v for k, v in r.items() if k != "check"} for r in native["eos_records"]
+    ]
     assert recovered["datasets"] == native["datasets"]
     material = get_material("coesite_iv")
     figure = material.get_dataset(audit.FIGURE_ID)

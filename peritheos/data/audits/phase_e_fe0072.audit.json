@@ -1,0 +1,162 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "phase_e_fe0072",
+  "records": {
+    "phase_e_fe0072_crichton_ross_2000_bm3": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-10-16",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Angel, R. J.", "Allan, D. R.", "Miletich, R.", "Finger, L. W."],
+              "year": 1997,
+              "title": "The Use of Quartz as an Internal Pressure Standard in High-Pressure Crystallography",
+              "source": "Journal of Applied Crystallography",
+              "volume": "30",
+              "locator": "461–466",
+              "doi": "10.1107/S0021889897000861"
+            },
+            "source_location": "Crichton–Ross p. 562 Experimental; p. 563 weighting paragraph",
+            "scope": "Reported Table 1 pressures",
+            "notes": "Quartz unit-cell volume with Angel et al. (1997); no paired quartz readings supplied.",
+            "reference_eos_record": "alpha_quartz_angel_1997_bm3_1"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Cannot independently recalculate pressures or original sigma_P from quartz volumes: paired marker measurements are absent. Do not reverse-generate them from tabulated P."
+        },
+        "auxiliary_checks": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "p. 562 Experimental",
+            "scope": "Approximate pressure checks only",
+            "notes": "Ruby chip present; calibration version and measured shifts not reported. Ruby is not the quantitative Table 1 pressure scale.",
+            "status": "unresolved"
+          }
+        ]
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Fit parity within reported uncertainty on all 11 primary P-V rows. The largest weighted-refit coefficient shift is 0.123 reported error widths; maximum curve difference is 0.0096 GPa. Published coefficients are retained. Effective P/V variance assumes no covariance and omits the unreported ambient-pressure variance term while retaining its volume esd. Exact original workflow availability is a separate provenance note, not a failed-fit classification. See the [audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md)."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 105.627,
+                "published_error": 0.007,
+                "refit": 105.62752391342688,
+                "refit_error": null,
+                "difference": 0.0005239134268890666,
+                "relative_difference": 4.960033200687955e-06,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0",
+                "published": 92.9,
+                "published_error": 0.7,
+                "refit": 92.81450983679824,
+                "refit_error": null,
+                "difference": -0.08549016320176861,
+                "relative_difference": 0.0009202385705249581,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 7.3,
+                "published_error": 0.2,
+                "refit": 7.277216896213657,
+                "refit_error": null,
+                "difference": -0.02278310378634263,
+                "relative_difference": 0.0031209731214167985,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "iterated_effective_variance_pv",
+              "fixed_parameters": [],
+              "observations": 11,
+              "solver_success": true,
+              "rmse_gpa": 0.010738316186002777,
+              "published_rmse_gpa": 0.012356921019492,
+              "dataset_identifiers": ["phase_e_crichton_ross_2000_table1"],
+              "reproduction_report": "docs/data/phase-e-crichton-ross-2000-reproduction.json"
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-16",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "published_uncertainties",
+            "primary_observations",
+            "diffraction_fallback"
+          ],
+          "primary_source_check": {
+            "access_url": "https://triage19.com/products/MM/MM064P0561.pdf",
+            "doi": "10.1180/002646100549427",
+            "locations": [
+              "Full article pp. 561–567",
+              "Table 1 p. 562",
+              "Results and F–f discussion p. 563",
+              "Axial fits pp. 563–564"
+            ],
+            "finding": "Publication-of-record PDF inspected in full, Table 1 checked visually. Published BM3 retained; source residual benchmarks reproduced and independent refits establish parity within reported uncertainty. Exact implementation provenance is separately documented and does not negate fit recovery."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "dataset_identifiers": ["phase_e_crichton_ross_2000_table1"],
+            "finding": "All 11 P,a,c,V rows and every reported esd; absent ambient pressure esd is null. No original calibrant readings in source or publisher-listed supplements."
+          },
+          "reproduction_scope": {
+            "source_equation": "validated_against_all_11_source_rows",
+            "coefficient_agreement": "conditional_within_reported_errors",
+            "exact_author_workflow": "not_reproduced",
+            "fit_recovery": "parity_within_reported_uncertainty",
+            "exact_workflow_provenance_is_separate": true
+          },
+          "unresolved_issues": [
+            "No atomic refinement for this exact Fe-bearing sample; position-only phase E indexing fallback.",
+            "Hydrogen inferred by analytical deficit; nominal six-O composition has uncertain charge closure."
+          ],
+          "note": "Published volume EOS successfully recovered: parity within reported uncertainty, with coefficient/curve differences documented. Original author-workflow provenance is assessed separately.",
+          "workflow_provenance_limitations": [
+            "Original unrounded data, quartz readings, covariance, software/version, exact effective-error/weight iteration, and ambient-pressure error treatment absent. Author thesis Eq. 2.31 recovers pressure-residual WLS and reduced chi normalization, not the complete implementation."
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Single-crystal hydrostatic compression of the measured Fe-bearing phase E sample; quartz experimental pressure scale.",
+          "V0": "p. 563, Results: 105.627(7) conventional hexagonal-cell angstrom^3, freely refined; not the ambient Table 1 observation 105.633(16).",
+          "K0": "p. 563: isothermal KT=92.9(7) GPa, freely refined.",
+          "K0_prime": "p. 563: 7.3(2), freely refined; not fixed to 4.",
+          "equation": "Third-order Birch–Murnaghan with f=((V0/V)^(2/3)-1)/2, F=P/[3 f (1+2 f)^(5/2)] and F=K0[1+1.5(Kprime-4)f]; p. 563 F–f discussion.",
+          "errors": "Parenthetical reported errors retained; confidence level and fitted covariance matrix are not supplied.",
+          "range": "Table 1 exact extrema; room temperature reported qualitatively.",
+          "fit_objective": "Author thesis (2000), Section 2.11, Eq. 2.31, p. 45: pressure-residual weighted least squares, chi_w_squared divided by n-m; pressure and propagated volume esds combined. Exact numerical implementation unresolved."
+        }
+      }
+    }
+  }
+}

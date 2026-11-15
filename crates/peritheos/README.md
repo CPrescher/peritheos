@@ -93,6 +93,14 @@ original JSON document, including unknown extension fields. After editing
 `serialize_eosmat`, and `save_eosmat` provide the same workflow for a decoded
 `serde_json::Value`.
 
+An EOSMAT v5 record may end with a short `check` block; bundled materials keep
+the evidence in an audit sidecar named by `check.audit`. `load_eosmat(path)`
+merges those sidecars relative to the file (a missing one is
+`EosmatError::MissingAudit`); string and reader loads keep the document as
+given, and `load_eosmat_str_with_audit` or `merge_eosmat_audit` supply a
+sidecar explicitly. Every record reports `reproduction()` and `warning()`, and
+`audit()` returns its evidence once merged.
+
 ## Run complete examples
 
 ```console

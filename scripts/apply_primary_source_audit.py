@@ -3426,17 +3426,17 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
                     "Derived composition of separately primary-source-validated "
                     "reference-isotherm and simulated thermal components."
                     if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
-                    else (
-                        "Independently checked against the cited primary publication "
-                        "(published article or official/author copy); no external "
-                        "software catalog was used as scientific authority."
-                    )
+                    # The generic source-check statement is defined once in
+                    # docs/eos-labels.md and is not written into each record.
+                    else None
                 )
             ),
             "audit_date": audit_date,
             "verified_fields": list(VERIFIED_FIELDS),
             "primary_source_check": evidence,
         }
+        if validation["note"] is None:
+            del validation["note"]
     else:
         reason = deferred_reason(result, doi)
         validation = {

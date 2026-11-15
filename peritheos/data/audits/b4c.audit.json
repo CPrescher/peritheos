@@ -1,0 +1,413 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "b4c",
+  "records": {
+    "b4c_somayazulu_2023_bm3_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Tange", "Nishihara", "Tsuchiya"],
+              "year": 2009,
+              "source": "J. Geophys. Res. Solid Earth",
+              "doi": "10.1029/2008JB005813"
+            },
+            "source_location": "Experimental pressure determination and EOS analysis",
+            "reference_eos_record": "mgo_b1_tange_2009_vinet"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.",
+            "parameters": [
+              {
+                "parameter": "q",
+                "published": 2.1,
+                "published_error": null,
+                "refit": 1.049907085876978,
+                "refit_error": 0.519450728953149,
+                "difference": -1.0500929141230222,
+                "relative_difference": 0.5000442448204867,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "41 heated rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["q"],
+              "fixed_parameters": ["V0", "K0", "K0_prime", "Tr", "theta0", "gamma0", "n"],
+              "observations": 41,
+              "observed_pressure_range_gpa": [9.0, 49.4],
+              "observed_temperature_range_k": [1027.0, 2500.0],
+              "observed_volume_range": [282.0, 320.0],
+              "degrees_of_freedom": 40,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 1.1759335107150188,
+              "published_rmse_gpa": 1.3869131808668502,
+              "reduced_chi_square": 0.7670211979012587,
+              "dataset_identifiers": ["b4c_somayazulu_2023_table4_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-03",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "crystal_structure",
+            "published_uncertainties",
+            "validity"
+          ],
+          "primary_source_check": {
+            "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
+            "locations": [
+              "Abstract",
+              "Figure 1 caption",
+              "Equations 3.1-3.7",
+              "Figure 4 caption",
+              "Table 1",
+              "official supplementary material, equations 1-9 and Tables 3-4"
+            ],
+            "finding": "The article and supplement define an integrated constant-q MGD model that Peritheos represents exactly. The article's final gamma0=0.8, q=2.1 parameterization gives a 1.39 GPa pressure RMSE on the 41 heated supplementary points. A Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), rather than independently recovering q=2.1. Source contradictions in EOS order, theta0, gamma0/q, and nominal reference temperature are retained explicitly with evidence-based resolutions.",
+            "doi": "10.1098/rsta.2022.0331"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "b4c.json"
+          },
+          "reported_inconsistencies": [
+            {
+              "field": "eos.order",
+              "abstract": "third-order Birch-Murnaghan",
+              "figure_1_caption": "second-order Birch-Murnaghan",
+              "resolution": "Retain BM3 because K0'=3.3(1), which is incompatible with a conventional BM2 fit where K0'=4 is fixed."
+            },
+            {
+              "field": "thermal.parameters.theta0",
+              "figure_4_caption": "1425 K (fixed)",
+              "main_table_1": "1450 K (fixed)",
+              "supplement": "1425 K (fixed, repeated in the fit description and Figure 1 caption)",
+              "resolution": "Use 1425 K because it is repeated in the main figure caption and official supplement; treat the single 1450 K table entry as a typographical inconsistency."
+            },
+            {
+              "field": "thermal.parameters.gamma0_and_q",
+              "main_article": "gamma0=0.8 fixed; q=2.1 varied",
+              "supplement_figure_1": "gamma0=0.95(5), q=2.1 described as best; gamma0=0.8 is plotted with q=2.8",
+              "resolution": "Use the final peer-reviewed article pair gamma0=0.8 and q=2.1. At the official heated data's printed V and T, this pair gives a pressure RMSE of 1.39 GPa and chi-squared per observation of 0.961. A full Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), so the refit is documented as a diagnostic rather than promoted over the published pair."
+            },
+            {
+              "field": "thermal.parameters.Tr",
+              "main_article": "300 K reference isotherm",
+              "supplement": "T0=298 K",
+              "resolution": "Use the supplement's explicit 298 K calculation reference; 300 K is retained as the nominal lower experimental temperature."
+            }
+          ],
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["b4c_somayazulu_2023_table4_pvt"],
+            "source_locations": ["official supplementary material, Table 4"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Figure 1 caption; Equations 3.1-3.7; Figure 4 caption; Table 1; official supplementary material, equations 1-9 and Tables 3-4."
+        }
+      }
+    },
+    "b4c_somayazulu_2023_berman_2": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Tange", "Nishihara", "Tsuchiya"],
+              "year": 2009,
+              "source": "J. Geophys. Res. Solid Earth",
+              "doi": "10.1029/2008JB005813"
+            },
+            "source_location": "Experimental pressure determination and EOS analysis",
+            "reference_eos_record": "mgo_b1_tange_2009_vinet"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "parameters": [
+              {
+                "parameter": "alpha0",
+                "published": 1.94e-05,
+                "published_error": 1.6e-06,
+                "refit": 1.780734391266201e-05,
+                "refit_error": 2.1050303188941096e-06,
+                "difference": -1.5926560873379895e-06,
+                "relative_difference": 0.082095674605051,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.008,
+                "published_error": 0.003,
+                "refit": -0.012319391073918846,
+                "refit_error": 0.004109187809509253,
+                "difference": -0.0043193910739188456,
+                "relative_difference": 0.5399238842398557,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "41 heated rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["alpha0", "dK_dT"],
+              "fixed_parameters": ["V0", "K0", "K0_prime", "Tr", "alpha1"],
+              "observations": 41,
+              "observed_pressure_range_gpa": [9.0, 49.4],
+              "observed_temperature_range_k": [1027.0, 2500.0],
+              "observed_volume_range": [282.0, 320.0],
+              "degrees_of_freedom": 39,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 1.3648520258233532,
+              "published_rmse_gpa": 2.136498259147437,
+              "reduced_chi_square": 1.0387873919166093,
+              "dataset_identifiers": ["b4c_somayazulu_2023_table4_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation, parameters, fixed quantities, EosFit7c fitting method, primary P-V-T table, and diffraction structure were checked against the article and official supplement.",
+          "audit_date": "2026-09-03",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "crystal_structure",
+            "published_uncertainties",
+            "primary_dataset",
+            "validity"
+          ],
+          "primary_source_check": {
+            "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
+            "locations": ["Equations 3.8-3.9", "Table 2", "Figure 5 caption", "official supplementary material, Table 4"],
+            "finding": "Source inspection shows that EosFit7's Berman implementation uses a truncated quadratic reference-volume law and effective-variance pressure weights. The article displays an exponential-integral formula that instead matches EosFit's Fei-style law. Peritheos stores the actual EosFit Berman curve and documents both fitting objectives.",
+            "doi": "10.1098/rsta.2022.0331"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["b4c_somayazulu_2023_table4_pvt"],
+            "source_locations": ["official supplementary material, Table 4"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 3.8-3.9; Table 2; Figure 5 caption; official supplementary material, Table 4."
+        }
+      }
+    },
+    "b4c_somayazulu_2023_berman_refit": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Tange", "Nishihara", "Tsuchiya"],
+              "year": 2009,
+              "source": "J. Geophys. Res. Solid Earth",
+              "doi": "10.1029/2008JB005813"
+            },
+            "source_location": "Experimental pressure determination and EOS analysis",
+            "reference_eos_record": "mgo_b1_tange_2009_vinet"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "independent_refit",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow."
+            ],
+            "parameters": [
+              {
+                "parameter": "alpha0",
+                "published": 1.8112e-05,
+                "published_error": 2.1554e-06,
+                "refit": 1.7806906808863976e-05,
+                "refit_error": 2.105023377647503e-06,
+                "difference": -3.050931911360227e-07,
+                "relative_difference": 0.01684480958127334,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.01311,
+                "published_error": 0.00419,
+                "refit": -0.01231848485201816,
+                "refit_error": 0.004109227420153722,
+                "difference": 0.0007915151479818399,
+                "relative_difference": 0.06037491594064377,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "41 heated rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["alpha0", "dK_dT"],
+              "fixed_parameters": ["V0", "K0", "K0_prime", "Tr", "alpha1"],
+              "observations": 41,
+              "observed_pressure_range_gpa": [9.0, 49.4],
+              "observed_temperature_range_k": [1027.0, 2500.0],
+              "observed_volume_range": [282.0, 320.0],
+              "degrees_of_freedom": 39,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 1.3648574391553514,
+              "published_rmse_gpa": 1.4739481878671772,
+              "reduced_chi_square": 1.0387873862338832,
+              "dataset_identifiers": ["b4c_somayazulu_2023_table4_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Primary dataset, equation choices, fixed quantities, and pressure calibration were checked against the article and official supplement; refitted values were independently reproduced with EosFit7c and Peritheos.",
+          "audit_date": "2026-09-03",
+          "verified_fields": [
+            "equation",
+            "units",
+            "reference_state",
+            "phase",
+            "crystal_structure",
+            "primary_dataset",
+            "fit_configuration",
+            "refitted_parameters",
+            "validity"
+          ],
+          "primary_source_check": {
+            "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
+            "locations": [
+              "Equations 3.8-3.9",
+              "Table 2",
+              "Figure 5 caption",
+              "official supplementary material, Table 4",
+              "direct EosFit7c 7.60 reproduction",
+              "docs/literature-reproductions.md"
+            ],
+            "finding": "A direct EosFit7c 7.60 run on the 41 heated public-data rows gives alpha0=1.81120e-5 +/- 0.21554e-5 K^-1, dK0/dT=-0.01311 +/- 0.00419 GPa/K, reduced weighted chi-square 1.0412, and correlation -0.958. Peritheos's matched effective-variance emulation reproduces these values within printed precision.",
+            "doi": "10.1098/rsta.2022.0331"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["b4c_somayazulu_2023_table4_pvt"],
+            "source_locations": ["official supplementary material, Table 4"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 3.8-3.9; Table 2; Figure 5 caption; official supplementary material, Table 4; direct EosFit7c 7.60 reproduction; docs/literature-reproductions.md.",
+          "V0": "Fixed to the Somayazulu et al. (2023) 300 K BM3 value.",
+          "K0": "Fixed to the Somayazulu et al. (2023) 300 K BM3 value.",
+          "K0_prime": "Fixed to the Somayazulu et al. (2023) 300 K BM3 value.",
+          "Tr": "EosFit7 Berman default reference temperature.",
+          "alpha0": "Refitted with EosFit7c 7.60 to the 41 heated rows of supplementary Table 4.",
+          "alpha1": "Fixed to the value reported for the published Berman fit.",
+          "dK_dT": "Refitted with EosFit7c 7.60 to the 41 heated rows of supplementary Table 4."
+        },
+        "fit_provenance": {
+          "software": {"name": "EosFit7c", "version": "7.60", "version_date": "2021-05-13"},
+          "dataset": "b4c_somayazulu_2023_table4_pvt",
+          "selection": {
+            "predicate": "temperature_k > 300",
+            "included_rows": 41,
+            "excluded_source_rows_1_based": [1, 12, 13, 23, 24, 32, 35, 42, 43, 51]
+          },
+          "objective": "pressure_residuals_with_iteratively_updated_effective_variance",
+          "weights": ["pressure_sigma_gpa", "volume_sigma_a3", "temperature_sigma_k"],
+          "refined_parameters": ["alpha0", "dK_dT"],
+          "fixed_parameters": ["V0", "K0", "K0_prime", "Tr", "alpha1"],
+          "covariance_scaling": "EosFit W-CHI^2 rescaling",
+          "statistics": {
+            "observations": 41,
+            "free_parameters": 2,
+            "reduced_weighted_chi_square": 1.0412,
+            "max_absolute_pressure_residual_gpa": 3.436,
+            "parameter_correlation": {
+              "parameter_order": ["alpha0", "dK_dT"],
+              "matrix": [
+                [1.0, -0.958],
+                [-0.958, 1.0]
+              ]
+            },
+            "convergence_cycles": 3
+          },
+          "reproduction": {
+            "implementation": "Peritheos effective-variance emulation",
+            "alpha0_per_k": 1.8111263e-05,
+            "dK_dT_gpa_per_k": -0.013116513,
+            "reduced_weighted_chi_square": 1.03967,
+            "script": "scripts/reproduce_somayazulu_2023_b4c.py"
+          }
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ import shutil
 
 import pytest
 
-from peritheos_build import ROOT, digest, stage_core, stage_datasets
+from peritheos_build import ROOT, digest, source_document, stage_core, stage_datasets
 from scripts.inventory_distribution_licenses import components
 from scripts.review_eos_structure_rights import (
     POLICY,
@@ -15,6 +15,7 @@ from scripts.review_eos_structure_rights import (
     build_review,
 )
 from scripts.scientific_source_snapshot import scientific_sha256
+from scripts.split_eosmat_audits import pre_split_view
 
 
 def test_complete_review_is_source_bound_and_scientific_content_is_unchanged():
@@ -146,8 +147,12 @@ def test_both_exports_preserve_upstream_notices_review_and_runtime_science(tmp_p
             ROOT / REVIEW
         ).read_bytes()
     for entry in review["entries"]:
-        document = json.loads(
-            (core_data / "materials" / f"{entry['material']}.eosmat").read_bytes()
+        # Staged files are split like the repository; compare the reviewed
+        # pre-split runtime content.
+        document = pre_split_view(
+            source_document(
+                core_data / "materials" / f"{entry['material']}.eosmat", core
+            )
         )
         if entry["kind"] == "eos":
             record = next(

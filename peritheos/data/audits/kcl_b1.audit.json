@@ -1,0 +1,232 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "kcl_b1",
+  "records": {
+    "kcl_b1_dewaele_2012_vinet_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Dorogokupets", "Oganov"],
+              "year": 2007,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.75.024115"
+            },
+            "source_location": "Experimental methods and Table I; ruby luminescence gauge",
+            "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "All 30 sample P-V observations and the invertible Dorogokupets-Oganov (2007) ruby scale are bundled. The explicit as-reported dataset reduction supports normalization of printed pressures through the same corrected R1 ratio and a conditional reference-isotherm refit (scripts/audit_kcl_pressure_normalization.py). Raw R1 wavelengths, reference wavelengths and individual measurement corrections are not recoverable; this is not raw-wavelength re-reduction. Row-wise pressure/volume uncertainties and covariance are unavailable, so full uncertainty propagation and exact weighted-fit parity are not established."
+        },
+        "audit_date": "2026-10-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 249.44,
+                "published_error": null,
+                "refit": 249.37909805826908,
+                "refit_error": 0.2885215905029003,
+                "difference": -0.06090194173091845,
+                "relative_difference": 0.00024415467339207204,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 17.1,
+                "published_error": null,
+                "refit": 17.325289887618375,
+                "refit_error": 0.31899418465200324,
+                "difference": 0.22528988761837354,
+                "relative_difference": 0.013174847229144651,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_per_formula_unit"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 30,
+              "observed_pressure_range_gpa": [0.16, 2.56],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [223.424, 246.816],
+              "degrees_of_freedom": 28,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.053477743798609416,
+              "published_rmse_gpa": 0.055444925019129614,
+              "reduced_chi_square": 0.0030641454447746866,
+              "dataset_identifiers": ["kcl_b1_dewaele_2012_table2_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/PhysRevB.85.214105",
+            "locations": ["Vinet formulation", "Table II, KCl/KBr B1 and B2 rows"],
+            "doi": "10.1103/physrevb.85.214105"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "kcl_b1.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["kcl_b1_dewaele_2012_table2_compression"],
+            "source_locations": ["Table II, page 214105-3"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; Table II, KCl/KBr B1 and B2 rows."
+        }
+      }
+    },
+    "kcl_b1_walker_2002_bm3_linear_thermal": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-10-08",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "NaCl (B1)",
+            "reference": {
+              "authors": ["Birch"],
+              "year": 1986,
+              "title": "Equation of state and thermodynamic parameters of NaCl to 300 kbar in the high-temperature domain",
+              "doi": "10.1029/JB091iB05p04949",
+              "source": "Journal of Geophysical Research",
+              "volume": "91",
+              "locator": "4949-4954"
+            },
+            "source_location": "Walker (2002), page 806, Experimental method: NaCl BE2 thermal form of Birch (1986)",
+            "notes": "BE2 is the quadratic reduced-strain form, not BM2. Birch (1986) Table 6 final extended 25 Celsius row verifies K0=23.88 GPa, a=1.796, b=-5.00; Equation 8 supplies the thermal term."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Walker page 806 identifies Birch (1986) NaCl-B1 BE2. The supplied original Birch PDF verifies the adjusted reference-isotherm BE2 coefficients (Table 6: K0=23.88 GPa, a=1.796, b=-5.00) and Equation 8 thermal term 0.00286*(T-298.15) GPa. A conditional B2 replay using separate printed run anchors is bundled in the audit, but the exact volume/reference normalization, unrounded inputs and uncertainty propagation remain unverified. No executable catalog scale link or ready dataset reduction is registered. See docs/literature-reproductions/walker-2002-kcl.md."
+        },
+        "notes": "Primary-source ancestry and Birch coefficients are verified. B1 ambient/36 Celsius anchor handling and exact author reduction remain unverified."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Fixed Figure 1 V0=37.50 cm3/mol=249.0808601 conventional-cell A3 (Z=4); Tables 1/3 retain the conflicting 249.53 A3, K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit per Walker page 808; exact author Solver inputs and constraints are unavailable. K0 rounds to 17.7 GPa; alpha_KT differs by 1.17%, within its printed error width; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 17.7,
+                "published_error": null,
+                "refit": 17.683421849750918,
+                "refit_error": null,
+                "difference": -0.016578150249081602,
+                "relative_difference": -0.0009366186581402035,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "alpha_KT",
+                "published": 0.00195,
+                "published_error": 5e-05,
+                "refit": 0.001927145871094727,
+                "refit_error": null,
+                "difference": -2.2854128905272844e-05,
+                "relative_difference": -0.011720066105268125,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_primary_equation_pressure_fit",
+              "objective": "equal pressure weights",
+              "selection": "23 measured Table 1 KCl states; exclude six NaCl-only checks and one derived V0 anchor",
+              "free_parameters": ["K0", "alpha_KT"],
+              "fixed_parameters": ["V0", "K0_prime", "Tr"],
+              "observations": 23,
+              "solver_success": true,
+              "rmse_gpa": 0.05382736372911785,
+              "published_rmse_gpa": 0.05443362976268607,
+              "dataset_identifiers": ["kcl_b1_walker_2002_table1_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-08",
+          "note": "Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "pressure_calibration"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am-2002-0701",
+            "doi": "10.2138/am-2002-0701",
+            "locations": [
+              "Tables 1 and 3",
+              "Pages 806-808, Equation BE1",
+              "Abstract alpha0*K0",
+              "Figure 1, page 808: selected B1 V0=37.50 cm3/mol"
+            ],
+            "finding": "Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-10-08",
+            "dataset_identifiers": ["kcl_b1_walker_2002_table1_pvt"],
+            "source_locations": [
+              "Tables 1 and 3",
+              "Pages 806-808, Equation BE1",
+              "Abstract alpha0*K0",
+              "Figure 1, page 808: selected B1 V0=37.50 cm3/mol"
+            ],
+            "finding": "Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Walker (2002), in-situ XRD with NaCl/Birch (1986) pressure reference and thermocouple temperatures.",
+          "V0": "Table 1 footnote and Table 3: thermally corrected 23 degC conventional B1 cell, held fixed. Figure 1 instead labels V0=37.50 cm3/mol (249.08086 A3 after Z=4 conversion); the source-backed diagnostic at that reference recovers K0 to printed rounding but does not establish the original solver input. The tabulated reference is preserved; see docs/literature-reproductions/walker-2002-kcl.md.",
+          "K0": "Table 3 B1 This study row, 177 kbar converted to 17.7 GPa.",
+          "K0_prime": "Page 808: fixed at representative 5 because the range cannot resolve it.",
+          "alpha_KT": "Abstract: directly reported 0.0195 +/- 0.0005 kbar/K, converted by 0.1; Table 3 alpha0 is rounded.",
+          "Tr": "Table 1: reference at 23 degC, Celsius offset +273.15."
+        }
+      }
+    }
+  }
+}

@@ -16,6 +16,7 @@ from importlib import resources
 from pathlib import Path
 from typing import Any
 
+from peritheos._eosmat_audit import audit_is_external
 from peritheos.catalog_families import _valid_family_id
 from peritheos.errors import EosmatError, MaterialLookupError
 from peritheos.pressure_calibrations import (
@@ -410,7 +411,11 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if identifier is not None:
                 derived_record_links.append((identifier, derived_from))
         fit_provenance = record.get("fit_provenance")
-        if record_kind == "refit" and not isinstance(fit_provenance, Mapping):
+        if (
+            record_kind == "refit"
+            and not isinstance(fit_provenance, Mapping)
+            and not audit_is_external(record)
+        ):
             raise EosmatError(f"{location} refit records require fit_provenance")
         derivation = record.get("derivation")
         if record_kind == "derived" and not isinstance(derivation, Mapping):
@@ -1298,8 +1303,16 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
     validate_dataset_observation_metadata(document)
 
 
-def load_eosmat(path: str | Path) -> dict[str, Any]:
-    """Load and structurally validate a Peritheos or Dioptas `.eosmat` file."""
+def load_eosmat(path: str | Path, *, include_audit: bool = True) -> dict[str, Any]:
+    """Load and structurally validate a Peritheos or Dioptas `.eosmat` file.
+
+    A v5 record file may keep its evidence in an audit sidecar named by each
+    record's ``check.audit`` reference (bundled materials do). By default those
+    sidecars, resolved relative to the file, are merged so the document is
+    complete; a missing sidecar raises ``EosmatError``. Pass
+    ``include_audit=False`` for the file exactly as authored. Files with
+    inline evidence, or none, are returned unchanged either way.
+    """
     source = Path(path)
     with source.open(encoding="utf-8") as stream:
         try:
@@ -1317,6 +1330,11 @@ def load_eosmat(path: str | Path) -> dict[str, Any]:
                 },
             ) from error
     validate_eosmat_document(document)
+    if include_audit and isinstance(document, Mapping):
+        from peritheos._eosmat_audit import load_referenced_audits
+
+        document = load_referenced_audits(document, source.parent)
+        validate_eosmat_document(document)
     return document
 
 
@@ -1346,13 +1364,21 @@ def list_material_documents() -> tuple[str, ...]:
 
 
 def get_material_document(
-    identifier: str, *, format_version: int | None = 3
+    identifier: str,
+    *,
+    format_version: int | None = 3,
+    include_audit: bool = True,
 ) -> dict[str, Any]:
     """Return one bundled document in the requested layout.
 
     The default v3 dictionary keeps existing catalog integrations compatible.
     Pass ``format_version=5`` for native EOSMAT or ``None`` for the stored
     version. ``load_eosmat(path)`` always preserves the file's authored layout.
+
+    The bundled record file and its audit sidecar are merged, so the document
+    is complete. ``include_audit=False`` returns the record file alone: each
+    record then carries its ``check`` headline but no evidence. A missing
+    sidecar raises :class:`~peritheos.errors.EosmatError`.
     """
     available = list_material_documents()
     if identifier not in available:
@@ -1366,6 +1392,10 @@ def get_material_document(
         )
     resource = resources.files(_MATERIAL_PACKAGE).joinpath(f"{identifier}.eosmat")
     document = json.loads(resource.read_text(encoding="utf-8"))
+    if include_audit:
+        from peritheos._eosmat_audit import load_bundled_audit, merge_audit
+
+        document = merge_audit(document, load_bundled_audit(identifier))
     if "data_availability" in document:
         from peritheos._optional_data import dataset_declarations
 
@@ -1390,7 +1420,9 @@ def list_eos_record_documents() -> tuple[str, ...]:
         sorted(
             record["identifier"]
             for material_identifier in list_material_documents()
-            for record in get_material_document(material_identifier)["eos_records"]
+            for record in get_material_document(
+                material_identifier, include_audit=False
+            )["eos_records"]
         )
     )
 
@@ -1560,6 +1592,11 @@ def convert_eosmat(
     if current not in (3, 4, 5):
         raise EosmatError("Read legacy v2 with Material.from_eosmat before exporting")
     result = copy.deepcopy(dict(document))
+    external_audit = {
+        record.get("identifier")
+        for record in result.get("eos_records", [])
+        if isinstance(record, Mapping) and audit_is_external(record)
+    }
     if current != version or version < 5 and legacy_uncertainty_units:
         native = result if current in (4, 5) else None
         if current in (4, 5):
@@ -1594,6 +1631,17 @@ def convert_eosmat(
                             ]["volume_basis"]
                 result = native
             result["format_version"] = version
+    if version in (3, 4):
+        # The v5 check headline is derived from evidence that compatibility
+        # exports carry inline; older readers never see the v5-only field.
+        # A record whose evidence is still in an unmerged sidecar keeps its
+        # check block, so the export never silently loses the audit link.
+        for record in result.get("eos_records", []):
+            if (
+                isinstance(record, dict)
+                and record.get("identifier") not in external_audit
+            ):
+                record.pop("check", None)
     if version in (4, 5):
         if compact:
             result = share_metadata(result)

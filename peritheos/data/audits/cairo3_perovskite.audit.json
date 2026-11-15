@@ -1,0 +1,175 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "cairo3_perovskite",
+  "records": {
+    "cairo3_perovskite_boffa_ballaran_2007_bm3_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
+              "source": "Journal of Geophysical Research",
+              "volume": "91",
+              "locator": "4673-4676",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Experimental method, page 1761: ruby spheres were internal diffraction pressure standards (Mao et al. 1986)",
+            "scope": "all Table 1 pressures",
+            "reference_calibration_record": "ruby_mao_1986"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The exact Mao et al. ruby scale is executable and every source-scale pressure is bundled. The monotonic calibration can be inverted to reconstruct wavelength ratios; raw ruby wavelengths are not printed."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 229.463,
+                "published_error": 0.008,
+                "refit": 229.46308783803153,
+                "refit_error": 0.007974591023761456,
+                "difference": 8.783803153278313e-05,
+                "relative_difference": 3.8279823558823486e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 198.0,
+                "published_error": 3.0,
+                "refit": 199.94388569289163,
+                "refit_error": 2.6764487509049695,
+                "difference": 1.9438856928916266,
+                "relative_difference": 0.009817604509553669,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 1.2,
+                "published_error": 0.8,
+                "refit": 0.875977821521902,
+                "refit_error": 0.7639623163547105,
+                "difference": -0.324022178478098,
+                "relative_difference": 0.27001848206508167,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 11,
+              "observed_pressure_range_gpa": [0.0001, 7.79],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [220.801, 229.463],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.03622805921461332,
+              "published_rmse_gpa": 0.09324611471845982,
+              "reduced_chi_square": 1.5202094153128174,
+              "dataset_identifiers": ["cairo3_perovskite_boffa_ballaran_2007_table1_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the author-uploaded copy of the final American Mineralogist article, with the complete printed Table 1 transcribed. LitCurate was used only for discovery.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "composition",
+            "phase",
+            "structure",
+            "cell_volume_and_z",
+            "equation",
+            "parameters",
+            "fixed_parameter_status",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "covariance_availability",
+            "experimental_range",
+            "pressure_calibration",
+            "primary_data",
+            "numerical_reproduction"
+          ],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases",
+            "source_version": "author-uploaded copy of the final published American Mineralogist pages",
+            "doi": "10.2138/am.2007.2715",
+            "locations": ["Abstract", "Experimental method", "Results", "Table 1", "Table 2", "Figures 1-2 and captions"],
+            "finding": "The source defines a standard zero-pressure BM3 fit for the Pbnm conventional-cell volume, reports all three coefficients with standard deviations, excludes decompression data, and identifies the Mao et al. (1986) ruby scale. No separate supplement or machine-readable data attachment was located."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["cairo3_perovskite_boffa_ballaran_2007_table1_compression"],
+            "source_locations": ["Table 1, journal page 1761"],
+            "finding": "All 11 printed P-a-b-c-V rows and their standard deviations are bundled; the decompression row remains present and is explicitly excluded from the published fit."
+          },
+          "independent_numerical_check": {
+            "method": "Direct evaluation of the standard BM3 equation from the printed coefficients against the ten source compression rows.",
+            "pressure_rmse_gpa": 0.0277249632,
+            "maximum_absolute_pressure_residual_gpa": 0.0524508168,
+            "high_pressure_source_state": {"volume_a3": 220.801, "source_pressure_gpa": 7.79, "calculated_pressure_gpa": 7.779735},
+            "figure_2_normalized_stress_slope_check": {"source_slope_gpa": -825.0, "source_standard_deviation_gpa": 244.0, "bm3_implied_slope_gpa": -831.6}
+          },
+          "independent_refit": {
+            "classification": "parity",
+            "method": "Independent iteratively reweighted errors-in-variables approximation using standard BM3 and the printed pressure and volume standard deviations; this diagnostic is not substituted for the published record.",
+            "parameters": {"V0": 229.46343467, "K0": 198.37055335, "K0_prime": 1.23310114}
+          },
+          "unresolved_issues": [
+            "The article does not print the numerical K0-K' covariance matrix; only 1-sigma-equivalent confidence ellipses are plotted.",
+            "The article names EosFit52 but does not print its exact BM3 objective or weighting configuration; the independent errors-in-variables diagnostic is therefore not claimed as an exact reconstruction.",
+            "The experimental temperature is reported only as room temperature, without a numerical kelvin value."
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental method; Results; Table 1; Table 2; Figures 1-2 and captions.",
+          "equation": "Results, page 1761: third-order Birch-Murnaghan EOS fitted with EosFit52; Figure 2 explicitly defines the standard Eulerian finite strain fE=[(V0/V)^(2/3)-1]/2 and normalized stress FE=P/[3 fE (1+2 fE)^(5/2)].",
+          "V0": "Abstract and Table 2: 229.463(8) A^3 conventional Pbnm cell; described with K0 and K' as a refined parameter and not marked fixed.",
+          "K0": "Abstract and Table 2: 198(3) GPa; refined.",
+          "K0_prime": "Abstract and Table 2: 1.2(8); refined.",
+          "reference_pressure": "The BM3 reference state is zero pressure; Table 1 reports the ambient observation as 0.00010(1) GPa.",
+          "reference_temperature": "Experimental method: room temperature; the source does not report a numerical kelvin value.",
+          "fit_selection": "Results, page 1761: the decompression data were not considered during EOS fitting; the ten compression rows through 7.79 GPa are selected.",
+          "uncertainties": "Tables 1-2 note that parenthetical values are standard deviations; Figure 2 describes 1-sigma-equivalent K0-K' confidence ellipses but publishes no numerical covariance matrix."
+        },
+        "source_lineage": [
+          {
+            "role": "published EOS equation, coefficients, uncertainties, observations, range, and pressure calibration",
+            "citation": "Boffa Ballaran et al. (2007), American Mineralogist 92, 1760-1763",
+            "doi": "10.2138/am.2007.2715"
+          },
+          {
+            "role": "diffraction-ready Pbnm structure from the same synthesis run",
+            "citation": "Boffa Ballaran et al. (2025), official supplement ba8x2.cif",
+            "doi": "10.5194/ejm-37-699-2025"
+          }
+        ]
+      }
+    }
+  }
+}

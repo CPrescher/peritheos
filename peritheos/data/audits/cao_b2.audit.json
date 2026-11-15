@@ -1,0 +1,120 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "cao_b2",
+  "records": {
+    "cao_b2_richet_1988_bm3_1": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 24.576,
+                "published_error": 0.3321,
+                "refit": 24.15583853142704,
+                "refit_error": 2.8086140516587275,
+                "difference": -0.4201614685729602,
+                "relative_difference": 0.017096413923053395,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 130.0,
+                "published_error": 20.0,
+                "refit": 149.10271366343918,
+                "refit_error": 122.64144835951885,
+                "difference": 19.102713663439175,
+                "relative_difference": 0.14694395125722443,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.5,
+                "published_error": 0.5,
+                "refit": 3.2882327136041134,
+                "refit_error": 1.364040628347104,
+                "difference": -0.2117672863958866,
+                "relative_difference": 0.060504938970253316,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "phase=B2, used_in_eos_fit=yes",
+              "columns": {"pressure": "pressure_kbar", "temperature": null, "volume": "lattice_a_angstrom"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 11,
+              "observed_pressure_range_gpa": [56.6, 134.9],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [15.412223218455999, 18.761723501248],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.4741427179478377,
+              "published_rmse_gpa": 1.5177418939619385,
+              "reduced_chi_square": 0.1146443429873032,
+              "dataset_identifiers": ["cao_richet_1988_table1_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/248791203_Static_compression_and_equation_of_state_of_CaO_to_135_Mbar",
+            "locations": ["Equation (5)", "Tables 1-4", "pages 15283-15285"],
+            "finding": "The author-uploaded primary article reports separate BM3 fits for B1 and B2 CaO; Mbar and molar-volume values are converted explicitly.",
+            "doi": "10.1029/jb093ib12p15279"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "cao_b2.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["cao_richet_1988_table1_compression"],
+            "source_locations": ["Table 1, journal page 15280"],
+            "finding": "All 19 B1- and B2-CaO observations printed in Table 1, including the one row explicitly excluded from the source EOS fits."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (5); Tables 1-4; pages 15283-15285."
+        },
+        "audit_corrections": [
+          {
+            "path": "experimental_pressure_range_gpa",
+            "source_value": [52.7, 134.9],
+            "value": [52.7, 135.0],
+            "reason": "The paper states an upper pressure of 1.35 Mbar.",
+            "primary_reference": {"doi": "10.1029/jb093ib12p15279", "location": "Tables 2-4 and abstract"}
+          }
+        ]
+      }
+    }
+  }
+}

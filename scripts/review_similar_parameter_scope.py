@@ -17,7 +17,7 @@ from collections import Counter
 from functools import lru_cache
 
 from peritheos import convert_eosmat, load_eosmat, validate_eosmat_document
-from peritheos._eosmat_format import format_eosmat
+from scripts.eosmat_io import write_material
 from scripts.reconstruct_similar_eos_uncertainties import (
     ROOT,
     covariance_from_residual,
@@ -627,23 +627,8 @@ def integrate():
     for material, document in documents.items():
         validate_eosmat_document(document)
         path = ROOT / "peritheos/data/materials" / (material + ".eosmat")
-        original, formatted = path.read_text(encoding="utf-8"), format_eosmat(document)
-        for record in document["eos_records"]:
-            case = saved_review().get(record["identifier"])
-            if not case or case["status"] != "parity":
-                continue
-            marker = '      "identifier": "' + record["identifier"] + '",'
-
-            def bounds(text):
-                at = text.index(marker)
-                return text.rfind("    {", 0, at), text.index("\n    }", at) + len(
-                    "\n    }"
-                )
-
-            a, b = bounds(original)
-            c, d = bounds(formatted)
-            original = original[:a] + formatted[c:d] + original[b:]
-        path.write_bytes(original.encode("utf-8"))
+        # Bundled materials are written as record file plus audit sidecar.
+        write_material(path, document)
     ledger["summary"] = {
         "total": len(ledger["records"]),
         **dict(sorted(Counter(r["status"] for r in ledger["records"]).items())),

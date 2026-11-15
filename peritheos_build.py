@@ -54,6 +54,65 @@ def write_json(path, value):
     )
 
 
+# Mirrors peritheos._eosmat_audit.AUDIT_RECORD_KEYS (build hooks use only the
+# standard library); tests assert that the two tuples agree.
+AUDIT_RECORD_KEYS = (
+    "evidence",
+    "pressure_calibration",
+    "fit_input_inventory",
+    "network_reconstruction_audit",
+    "reproduction_audit",
+    "numerical_reproduction",
+    "validation_selection",
+    "migration_corrections",
+    "scope_history",
+    "author_input_followup",
+)
+_REPORT_LINKS = {
+    "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/{material}/#record-{record}",
+    "report_path": "docs/reconstruction-reports/{material}.md#record-{record}",
+    "report": "docs/data/primary-eos-refits.json",
+}
+
+
+def source_document(path, root=ROOT):
+    """Complete inline v5 document: bundled record file plus its audit sidecar."""
+    document = json.loads(Path(path).read_text(encoding="utf-8"))
+    material = document["identifier"]
+    sidecar = json.loads(
+        (root / "peritheos/data/audits" / f"{material}.audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    entries = sidecar["records"]
+    for record in document["eos_records"]:
+        entry = copy.deepcopy(entries.get(record["identifier"], {}))
+        assessment = entry.get("evidence", {}).get("reproduction", {}).get("assessment")
+        if isinstance(assessment, dict):
+            for key, template in _REPORT_LINKS.items():
+                assessment.setdefault(
+                    key, template.format(material=material, record=record["identifier"])
+                )
+        record.update(entry)
+    return document
+
+
+def split_runtime_document(document):
+    """Separate audit-only record blocks again for the runtime package layout."""
+    records = copy.deepcopy(document)
+    sidecar = {
+        "format": "peritheos.eosmat-audit",
+        "format_version": 5,
+        "material": records["identifier"],
+        "records": {},
+    }
+    for record in records["eos_records"]:
+        entry = {key: record.pop(key) for key in AUDIT_RECORD_KEYS if key in record}
+        if entry:
+            sidecar["records"][record["identifier"]] = entry
+    return records, sidecar
+
+
 def _summary(value):
     """Retain prose/scalar findings, excluding raw numeric sequences/checkpoints.
 
@@ -218,10 +277,15 @@ def stage_core(destination, root=ROOT):
     shutil.copytree(root / "peritheos/data/third_party", data / "third_party")
     materials = data / "materials"
     materials.mkdir()
+    audits = data / "audits"
+    audits.mkdir()
+    shutil.copy2(root / "peritheos/data/audits/__init__.py", audits / "__init__.py")
     for path in (root / "peritheos/data/materials").iterdir():
         if path.suffix == ".eosmat":
-            original = json.loads(path.read_text(encoding="utf-8"))
-            write_json(materials / path.name, runtime_document(original))
+            original = source_document(path, root)
+            records, sidecar = split_runtime_document(runtime_document(original))
+            write_json(materials / path.name, records)
+            write_json(audits / f"{path.stem}.audit.json", sidecar)
         elif path.name in ("__init__.py", "manifest.json"):
             shutil.copy2(path, materials / path.name)
     for path in (root / "peritheos/data/studies").glob("*.json"):

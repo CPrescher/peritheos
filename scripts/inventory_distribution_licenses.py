@@ -505,6 +505,7 @@ def classify_file(path, content, scopes, resource_rows, current):
         and not path.startswith("peritheos/data/")
         or path.startswith("crates/")
         and "/tests/data/" not in path
+        and "/tests/audits/" not in path
         or path
         in (
             "Cargo.toml",
@@ -534,6 +535,7 @@ def classify_file(path, content, scopes, resource_rows, current):
             "docs/research/",
             "output/",
             "crates/peritheos/tests/data/",
+            "crates/peritheos/tests/audits/",
         )
     ):
         status = (

@@ -38,8 +38,20 @@ prediction = record.pressure_with_uncertainty(
 
 Here volume is in angstrom cubed per conventional unit cell, pressure is in
 GPa, and temperature is in K. The returned object came directly from the
-bundled `.eosmat` document. Search the same executable catalog without loading
-raw documents yourself:
+bundled `.eosmat` document.
+
+To choose a record, print the material overview. Lookup also accepts a name,
+alias or unambiguous formula (`get_material("periclase")`, `get_material("Au")`):
+
+```python
+print(mgo.summary())  # one row per record: model, P/T range, reproduction, reference
+default = mgo.default_record()  # a method, not an attribute
+print(default.summary())  # coefficients with errors and units, DOI, finding
+print(default.reproduction)  # "reproduced", "close", "disagrees" or "untested"
+print(default.warning)  # stored usage restriction, or None
+```
+
+Search the same executable catalog without loading raw documents yourself:
 
 ```python
 hot_gold_scales = search_eos_records(

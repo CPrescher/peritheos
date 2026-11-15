@@ -1,0 +1,136 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "fe088sio3_bridgmanite",
+  "records": {
+    "fe088sio3_bridgmanite_ismailova_2016_300k_bm2": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "Proc. Natl. Acad. Sci. USA",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Materials and Methods states that pressure was determined from Ne lattice parameters using reference 39; supplementary Figure S5 repeats the Ne-lattice assignment.",
+            "reference_eos_record": "neon_fcc_fei_2007_vinet_2"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The pressure-scale lineage is resolved to the Fei et al. (2007) Ne EOS, but neither Table S2 nor the article supplies row-wise Ne lattice parameters. The reported pressures therefore cannot be independently recalculated from calibrant observations."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Supplementary Table S2 bundles only four selected crystallographic states, while Figure 3A plots substantially more compression and decompression markers for the published BM2 fit. The source gives no complete row list, inclusion/exclusion flags, regression objective, numerical weights, or row-wise Ne calibrant volumes. The four exact rows are checkpoint data, not a defensible reconstruction of the source fit input.",
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": ["fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Checked against the open primary article and the checksum-matched official supplementary PDF; no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "formula_units_per_cell",
+            "published_uncertainties",
+            "fixed_parameters",
+            "parameter_covariance",
+            "validity",
+            "pressure_calibration",
+            "primary_data",
+            "fit_selection",
+            "fit_reproducibility",
+            "source_license"
+          ],
+          "primary_source_check": {
+            "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4956391/",
+            "doi": "10.1126/sciadv.1600427",
+            "locations": ["Results", "Figure 3", "Supplementary Table S2", "Supplementary Table S3", "Materials and Methods"],
+            "finding": "One source-owned 300 K BM2 fit for vacancy-rich Fe2+/Fe3+ bridgmanite, with K0_prime fixed at 4. The coefficients are complete, but the row-level inputs are not: Figure 3 shows substantially more markers than the four selected crystallographic states printed in Table S2."
+          },
+          "primary_data_check": {
+            "status": "partial_published_table",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography"],
+            "source_locations": [
+              "Supplementary Table S2, all four selected pressure/lattice/volume states",
+              "Figure 3A, complete compression/decompression series plotted but not tabulated"
+            ],
+            "finding": "All four EOS-relevant Table S2 states are bundled losslessly at printed precision, including pressure, reported high-temperature condition, lattice parameters, cell volume, and uncertainties. They are explicitly selected crystallographic states rather than the complete Figure 3 regression dataset."
+          },
+          "source_artifact_check": {
+            "supplement_filename": "1600427_SM.pdf",
+            "supplement_size_bytes": 2696968,
+            "supplement_md5": "d772465eb207e08a511b987d73a729c9",
+            "supplement_sha256": "5ab1c1c60e7d5486299cf5f0653d05b6b8bed6957a382e839ba292e2456ecd34",
+            "repository_url": "https://knowledge.uchicago.edu/records/z7csb-zr884",
+            "verification": "The University of Chicago repository file size and MD5 match the supplementary-media metadata in the PMC full-text package.",
+            "repository_file_inventory": "The institutional record deposits only the article PDF and 1600427_SM.pdf; it lists no separate CSV, spreadsheet, CIF archive, or complete Figure 3 numerical dataset.",
+            "data_availability": "The article states that all data needed to evaluate its conclusions are in the paper and/or supplementary materials and that additional related data may be requested from the authors."
+          },
+          "numerical_reproduction": {
+            "published_curve_against_four_selected_table_s2_states": {
+              "observations": 4,
+              "pressure_rmse_gpa": 4.0437115345,
+              "max_abs_pressure_residual_gpa": 7.7130645777,
+              "residuals_gpa_in_source_order": [7.7130645777, 1.8148672067, -1.1858617854, 1.1022865177]
+            },
+            "diagnostic_refit": {
+              "model": "BM2 with implicit K0_prime=4",
+              "selection": "All four Table S2 states; diagnostic only, because Table S2 says selected pressures and is not the complete Figure 3 input series.",
+              "objective": "Errors in pressure and volume using the printed Table S2 uncertainties; this is an explicit audit choice, not a reconstructed source objective.",
+              "free_parameters": ["V0", "K0"],
+              "parameters": {"V0": 172.1799536, "K0": 234.49241027, "K0_prime": 4.0},
+              "reduced_chi_square": 21.1758931382,
+              "adjusted_pressure_residual_rmse_gpa": 1.2209358883
+            },
+            "limitation": "The diagnostic refit does not reproduce V0=178.98(6) A^3 or K0=190(4) GPa. Exact source-fit parity remains blocked by the missing complete Figure 3 P-V rows, missing row-level Ne calibrant volumes, unknown regression objective and weights, and absent inclusion/exclusion flags."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results; Figure 3; Supplementary Table S2; Supplementary Table S3; Materials and Methods.",
+          "equation": "Figure 3 caption and Results: Birch-Murnaghan with K0'=4 fixed, represented by BM2.",
+          "V0": "Figure 3 caption and supplementary Table S3: fitted ambient conventional-cell volume V0=178.98(6) A^3.",
+          "K0": "Figure 3 caption and supplementary Table S3: K300=190(4) GPa.",
+          "K0_prime": "Figure 3 caption and supplementary Table S3 footnote: fixed at 4; represented structurally by BM2 and recorded in implicit_parameters.",
+          "temperature_ref": "Figure 3 and Table S3 label the fitted modulus K300. Table S2's temperatures describe reported high-temperature experimental conditions; the article discusses the refined structures as temperature-quenched samples.",
+          "composition": "Single-crystal refinement and Moessbauer-constrained Fe valence reported by the source."
+        },
+        "fit_provenance": {
+          "software": {"name": "not reported", "version": "not reported"},
+          "dataset": "fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography",
+          "selection": {
+            "reported": "Figure 3A says that the plotted compression and decompression observations were fitted, but the supplement tabulates only four selected crystallographic states and does not identify which of them are among the plotted fit markers.",
+            "exclusions": "No exclusions are stated. The full plotted observation list and row-level inclusion flags are not published, so an all-marker selection cannot be reconstructed losslessly.",
+            "reconstructable": false
+          },
+          "objective": "not reported",
+          "weights": [],
+          "weighting_note": "Figure 3 shows pressure and volume error bars, and Table S2 prints uncertainties for its four selected states, but the source does not identify the residual direction, effective-variance convention, or numerical weights.",
+          "refined_parameters": ["V0", "K0"],
+          "fixed_parameters": ["K0_prime"],
+          "statistics": {}
+        }
+      }
+    }
+  }
+}
