@@ -1,0 +1,154 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "fe073si027_d03",
+  "records": {
+    "fe073si027_d03_fischer_2014_vinet_1": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "B2 KBr",
+            "reference": {
+              "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Dera", "Prakapenka"],
+              "year": 2012,
+              "title": "Equation of state and phase diagram of Fe–16Si alloy as a candidate component of Earth’s core",
+              "source": "Earth and Planetary Science Letters",
+              "volume": "357–358",
+              "locator": "268-276",
+              "doi": "10.1016/j.epsl.2012.09.022"
+            },
+            "source_location": "Fischer (2014) Sections 2-3; Fischer (2012) methods/Table 1",
+            "notes": "Exact Fischer 2012 B2 KBr thermal calibration is not bundled; do not substitute the Dewaele 2012 KBr record. KBr is colder than the sample; the marker temperature requires the source gradient correction."
+          },
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "reference_calibration_record": "ruby_mao_1986",
+            "source_location": "Fischer (2014) Section 2; Fischer (2012) methods",
+            "notes": "Additional room-temperature pressure standard; no raw ruby wavelengths are tabulated."
+          },
+          {
+            "kind": "equation_of_state",
+            "material": "Neon",
+            "reference": {
+              "authors": ["Dewaele", "Datchi", "Loubeyre", "Mezouar"],
+              "year": 2008,
+              "title": "High pressure-high temperature equations of state of neon and diamond",
+              "source": "Physical Review B",
+              "volume": "77",
+              "locator": "094106",
+              "doi": "10.1103/PhysRevB.77.094106"
+            },
+            "source_location": "Fischer (2012) methods",
+            "notes": "Secondary room-temperature standard; no neon lattice readings are included in Table S2. Exact reference EOS not bundled."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Raw KBr lattice parameters are retained for all compressed observations. Marker temperatures are tabulated explicitly. Secondary ruby/neon raw readings are not tabulated."
+        },
+        "notes": "KBr is the principal pressure standard. Room-temperature compression uses neon medium and ruby as an additional standard; source tables do not include ruby wavelengths or per-row marker attribution. Zero uncertainties at the reference row do not define infinite fitting weight."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Complete single-phase source rows with published fixed choices. Unweighted pressure residuals and residual-scaled refit errors are diagnostics: source weights, coefficient confidence and covariance are unspecified. Parity denotes the ledger's numerical/combined-error criterion, not recovery of the authors' regression covariance. The Fe-16Si entry checks the 66-row thermal stage; the independent script also refits its 32-row static stage. See the [Fischer audit](literature-reproductions/fischer-2014-fesi.md)."
+            ],
+            "parameters": [
+              {
+                "parameter": "gamma0",
+                "published": 1.9,
+                "published_error": 0.07,
+                "refit": 1.8612195021760454,
+                "refit_error": 0.04918490127830141,
+                "difference": -0.03878049782395454,
+                "relative_difference": 0.020410788328397128,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "66 D03 observations above 300 K; source-staged gamma0 fit with the published 300 K coefficients fixed. The independent Fischer script also refits the 32-row static stage.",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "d03_volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["gamma0"],
+              "fixed_parameters": ["V0", "K0", "K0_prime", "Tr", "theta0", "q", "n"],
+              "observations": 66,
+              "observed_pressure_range_gpa": [15.620572398802592, 63.03555479484396],
+              "observed_temperature_range_k": [1176.73, 2395.535],
+              "observed_volume_range": [149.64600574235195, 178.9170725232182],
+              "degrees_of_freedom": 65,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 2.0723557131081476,
+              "published_rmse_gpa": 2.082229788298462,
+              "reduced_chi_square": 4.360729866292779,
+              "dataset_identifiers": ["fischer_2012_table_s2_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "fixed_parameters",
+            "primary_data",
+            "pressure_calibration",
+            "fit_selection",
+            "numerical_reproduction"
+          ],
+          "primary_source_check": {
+            "doi": "10.1002/2013JB010898",
+            "access_url": "https://doi.org/10.1002/2013JB010898",
+            "locations": ["Table S5 and Text S1, page 2", "2012 official Table S2, source worksheet row numbers retained"],
+            "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["fischer_2012_table_s2_pvt"],
+            "source_locations": ["2012 official Table S2, source worksheet row numbers retained"],
+            "finding": "All 185 rows and available coordinate errors/marker measurements are preserved. 98 D03 observations are selected for this branch. No mixed-phase observations are silently admitted."
+          },
+          "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table S5 and Text S1, page 2; 2012 official Table S2, source worksheet row numbers retained.",
+          "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
+          "V0": "Table S5 and Text S1, page 2: 6.799 cm^3/mol atoms; multiply by 16/0.602214076 for this cell. Measured and held fixed.",
+          "K0": "Table S5 and Text S1, page 2: 193.9 GPa. Fitted at 300 K then fixed in the thermal stage.",
+          "K0_prime": "Table S5 and Text S1, page 2: 4.91. Fitted at 300 K then fixed in the thermal stage.",
+          "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
+          "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. The inherited 2012 protocol fits K0/K0_prime to 32 room-temperature observations, then gamma0 to 66 high-temperature rows with the published static coefficients held fixed; the independent script reports both stages.",
+          "gamma0": "Table S5 and Text S1, page 2: 1.9 ± 0.07, fitted.",
+          "q": "Fixed at one.",
+          "theta0": "417 K, fixed to the adopted iron value.",
+          "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
+          "Tr": "300 K thermal-energy subtraction."
+        }
+      }
+    }
+  }
+}

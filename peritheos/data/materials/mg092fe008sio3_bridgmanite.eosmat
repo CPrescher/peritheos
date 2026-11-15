@@ -46,67 +46,13 @@
         "locator": "L04614",
         "doi": "10.1029/2003GL019132"
       },
-      "pressure_calibration": {
-        "status": "resolved",
-        "methods": [
-          {
-            "kind": "shock_wave",
-            "source_location": "Section 2",
-            "scope": "All 13 symmetric-impact experiments",
-            "notes": "Particle velocity and pressure-density states were calculated by impedance matching; Cu and 93W flyers are identified row by row in Table 1."
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "The source reports reduced states but not the complete flyer-standard state parameters needed to repeat the impedance match from raw timings."
-        },
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "The tabulated P-density observations are Hugoniot states, whereas this BM3 is a shock-reduced reference isentrope. Directly fitting the Hugoniot states to this isentrope is not a source-EOS reproduction. The thermal reduction inputs are not recoverable from this table; retain the shock observations without an invalid isentropic regression.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg092fe008sio3_bridgmanite/#record-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3",
-            "report_path": "docs/reconstruction-reports/mg092fe008sio3_bridgmanite.md#record-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3",
-            "fit": {
-              "fixed_parameters": [],
-              "dataset_identifiers": ["mg092fe008sio3_gong_2004_table1_shock"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2003GL019132",
-            "doi": "10.1029/2003gl019132",
-            "locations": ["Sections 2 and 3.3", "Table 1"],
-            "finding": "The paper reports one shock-reduced BM3 reference isentrope; the AIP conference version is the same experiment and was rejected as a duplicate."
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-05",
-            "dataset_identifiers": ["mg092fe008sio3_gong_2004_table1_shock"],
-            "finding": "All 13 printed shock states and their uncertainties are bundled."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2 and 3.3; Table 1.",
-          "equation": "Section 3.3 explicitly derives a third-order Eulerian finite-strain (Birch-Murnaghan) isentrope from the porosity-corrected shock states using a Mie-Gruneisen reduction.",
-          "parameters": "Section 3.3: K0S=260.1(9) GPa, K0S'=4.18(4), with rho0=4.19 g cm-3.",
-          "volume_basis": "V0 is calculated as Z M/(rho0 N_A), with Z=4 and nominal molar mass 102.9102 g mol-1, giving 163.13738187176514 A3.",
-          "thermodynamic_basis": "K0 and K0_prime are the source's adiabatic/isentrope coefficients K0S and K0S', not room-temperature isothermal K0T values. The schema's isothermal token denotes the executable equilibrium BM3 family because it has no separate adiabatic enum."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "The paper reports one shock-reduced BM3 reference isentrope; the AIP conference version is the same experiment and was rejected as a duplicate.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/mg092fe008sio3_bridgmanite.audit.json#mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3"
       }
     }
   ],

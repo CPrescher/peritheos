@@ -1,21 +1,31 @@
 //! Validation, round-trip serialization, and executable evaluation of
 //! Peritheos `.eosmat` material files.
 //!
-//! The loader accepts canonical Peritheos format 3 and legacy Dioptas format
-//! 2 documents. JSON extensions are retained in [`Material::document`] and
-//! [`EosRecord::document`], while equation construction is restricted to the
-//! built-in model registry.
+//! The loader accepts native EOSMAT v5 and v4, canonical Peritheos format 3
+//! and legacy Dioptas format 2 documents. JSON extensions are retained in
+//! [`Material::document`] and [`EosRecord::document`], while equation
+//! construction is restricted to the built-in model registry.
+//!
+//! EOSMAT v5 records may carry a `check` headline whose evidence lives in an
+//! audit sidecar. [`load_eosmat`] merges sidecars named by `check.audit`
+//! relative to the file; string, reader and value loads keep the document as
+//! given (see [`load_eosmat_str_with_audit`] and [`merge_eosmat_audit`]).
+//! [`EosRecord::reproduction`] and [`EosRecord::warning`] are available either
+//! way.
 
 use crate::experimental::maltby_2024::Maltby2024Published;
+mod audit;
 mod native_v4;
 mod uncertainty_units;
+
+pub use audit::{Reproduction, AUDIT_RECORD_KEYS, EOSMAT_AUDIT_FORMAT};
 
 use std::collections::HashMap;
 use std::error::Error;
 use std::fmt::{self, Display, Formatter};
 use std::fs::File;
 use std::io::{BufReader, Read, Write};
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 use serde::Deserialize;
 use serde_json::Value;
@@ -60,6 +70,8 @@ pub enum EosmatErrorKind {
     InvalidDocument,
     /// An individual EOS record cannot be constructed.
     InvalidRecord,
+    /// An audit sidecar named by a record's `check.audit` reference is missing.
+    MissingAudit,
 }
 
 /// Errors encountered while decoding or constructing an `.eosmat` material.
@@ -79,6 +91,17 @@ pub enum EosmatError {
         /// Human-readable validation or construction failure.
         reason: String,
     },
+    /// The audit sidecar named by a record's `check.audit` reference is missing.
+    ///
+    /// The record file alone does not contain the record's evidence.
+    MissingAudit {
+        /// Resolved sidecar path.
+        path: PathBuf,
+        /// First record whose `check.audit` names the sidecar.
+        record: String,
+        /// Underlying file-opening error.
+        source: std::io::Error,
+    },
 }
 
 impl EosmatError {
@@ -90,6 +113,7 @@ impl EosmatError {
             Self::Json(_) => EosmatErrorKind::Json,
             Self::InvalidDocument(_) => EosmatErrorKind::InvalidDocument,
             Self::InvalidRecord { .. } => EosmatErrorKind::InvalidRecord,
+            Self::MissingAudit { .. } => EosmatErrorKind::MissingAudit,
         }
     }
 
@@ -101,6 +125,7 @@ impl EosmatError {
             Self::Json(_) => "eosmat.json",
             Self::InvalidDocument(_) => "eosmat.invalid_document",
             Self::InvalidRecord { .. } => "eosmat.invalid_record",
+            Self::MissingAudit { .. } => "eosmat.audit_missing",
         }
     }
 
@@ -108,7 +133,10 @@ impl EosmatError {
     #[must_use]
     pub fn record_identifier(&self) -> Option<&str> {
         match self {
-            Self::InvalidRecord { identifier, .. } => Some(identifier),
+            Self::InvalidRecord { identifier, .. }
+            | Self::MissingAudit {
+                record: identifier, ..
+            } => Some(identifier),
             Self::Io(_) | Self::Json(_) | Self::InvalidDocument(_) => None,
         }
     }
@@ -123,6 +151,11 @@ impl Display for EosmatError {
             Self::InvalidRecord { identifier, reason } => {
                 write!(formatter, "invalid EOS record {identifier:?}: {reason}")
             }
+            Self::MissingAudit { path, record, .. } => write!(
+                formatter,
+                "audit sidecar {} referenced by EOS record {record:?} is missing; the record file alone does not contain its evidence",
+                path.display()
+            ),
         }
     }
 }
@@ -132,6 +165,7 @@ impl Error for EosmatError {
         match self {
             Self::Io(error) => Some(error),
             Self::Json(error) => Some(error),
+            Self::MissingAudit { source, .. } => Some(source),
             Self::InvalidDocument(_) | Self::InvalidRecord { .. } => None,
         }
     }
@@ -904,6 +938,8 @@ pub struct EosRecord {
     /// Original record including all extension fields.
     pub document: Value,
     volume_scale: f64,
+    reproduction: Reproduction,
+    warning: Option<String>,
 }
 
 /// Typed view of one phase-specific Hugoniot record.
@@ -1019,6 +1055,73 @@ impl HugoniotRecord<'_> {
 }
 
 impl EosRecord {
+    /// Whether a refit of the original data reproduced the published values.
+    ///
+    /// This is the stored `check.reproduction` of an EOSMAT v5 record, or,
+    /// without one, the fixed mapping of the inline assessment status. A
+    /// record with no assessment is [`Reproduction::Untested`].
+    #[must_use]
+    pub const fn reproduction(&self) -> Reproduction {
+        self.reproduction
+    }
+
+    /// Short stored usage restriction (`check.warning`), or `None`.
+    ///
+    /// Without a stored `check`, the warning is built from coded inline
+    /// restrictions only; free-text recommendations never become warnings.
+    #[must_use]
+    pub fn warning(&self) -> Option<&str> {
+        self.warning.as_deref()
+    }
+
+    /// Stored EOSMAT v5 `check` block, if the record carries one.
+    #[must_use]
+    pub fn check(&self) -> Option<&Value> {
+        self.document.get("check").filter(|check| check.is_object())
+    }
+
+    /// Relative reference to this record's audit-sidecar entry (`check.audit`).
+    #[must_use]
+    pub fn audit_reference(&self) -> Option<&str> {
+        self.check()
+            .and_then(|check| check.get("audit"))
+            .and_then(Value::as_str)
+    }
+
+    /// Whether this record's evidence is in an audit sidecar that was not merged.
+    ///
+    /// True for a record file loaded without its sidecar, for example through
+    /// [`load_eosmat_str`] or [`load_eosmat_without_audit`]. Use
+    /// [`load_eosmat`] or [`merge_eosmat_audit`] for the complete record.
+    #[must_use]
+    pub fn audit_is_external(&self) -> bool {
+        audit::is_external(&self.document)
+    }
+
+    /// The record's audit trail: `evidence`, `pressure_calibration` and the
+    /// other [`AUDIT_RECORD_KEYS`] blocks present on the record.
+    ///
+    /// Returns `None` when the record's evidence is in an audit sidecar that
+    /// was not merged (see [`Self::audit_is_external`]). For v3 or legacy
+    /// records, whose evidence fields are not grouped, the returned map holds
+    /// only the audit keys that are present.
+    #[must_use]
+    pub fn audit(&self) -> Option<serde_json::Map<String, Value>> {
+        if self.audit_is_external() {
+            return None;
+        }
+        Some(
+            AUDIT_RECORD_KEYS
+                .iter()
+                .filter_map(|key| {
+                    self.document
+                        .get(*key)
+                        .map(|value| ((*key).to_owned(), value.clone()))
+                })
+                .collect(),
+        )
+    }
+
     /// Source EOS whose published pressure-scale alternative this preserves.
     #[must_use]
     pub fn pressure_scale_variant_of(&self) -> Option<&str> {
@@ -1434,16 +1537,46 @@ struct RawComponent {
 
 /// Load an `.eosmat` file and construct every EOS record through the built-in registry.
 ///
+/// An EOSMAT v5 record file may keep its evidence in audit sidecars named by
+/// each record's `check.audit` reference (bundled materials do, for example
+/// `../audits/mgo.audit.json#<record>`). Those sidecars are resolved relative
+/// to the file and merged, so [`Material::document`] is the complete inline
+/// document. Files with inline evidence, or none, need no sidecar.
+///
 /// # Errors
 ///
 /// Returns an error for I/O failures, malformed JSON, unsupported formats or
-/// models, missing parameters, and invalid model parameters.
+/// models, missing parameters, and invalid model parameters. A referenced
+/// sidecar that does not exist is [`EosmatError::MissingAudit`].
 pub fn load_eosmat(path: impl AsRef<Path>) -> Result<Material, EosmatError> {
-    let reader = BufReader::new(File::open(path)?);
-    load_eosmat_reader(reader)
+    let path = path.as_ref();
+    let document: Value = serde_json::from_reader(BufReader::new(File::open(path)?))?;
+    let base = path.parent().unwrap_or_else(|| Path::new(""));
+    material_from_value(merge_referenced_eosmat_audits(&document, base)?)
+}
+
+/// Load an `.eosmat` file exactly as authored, without merging audit sidecars.
+///
+/// Records whose evidence is in a sidecar keep their `check` headline
+/// ([`EosRecord::reproduction`], [`EosRecord::warning`]) and remain
+/// executable, but [`EosRecord::audit`] is `None` for them. Checks that need
+/// the audit (refit `fit_provenance`, the EOS `pressure_calibration` used by
+/// dataset pressure reductions) are deferred until the complete document is
+/// validated.
+///
+/// # Errors
+///
+/// Returns the same errors as [`load_eosmat`], except missing sidecars.
+pub fn load_eosmat_without_audit(path: impl AsRef<Path>) -> Result<Material, EosmatError> {
+    load_eosmat_reader(BufReader::new(File::open(path)?))
 }
 
 /// Decode an `.eosmat` document from a UTF-8 reader.
+///
+/// A reader has no location from which to resolve `check.audit` references,
+/// so the document is loaded as authored, like [`load_eosmat_without_audit`].
+/// Use [`load_eosmat_str_with_audit`] or [`merge_eosmat_audit`] to supply a
+/// sidecar.
 ///
 /// # Errors
 ///
@@ -1455,12 +1588,77 @@ pub fn load_eosmat_reader(reader: impl Read) -> Result<Material, EosmatError> {
 
 /// Decode an `.eosmat` document from a JSON string.
 ///
+/// A string has no location from which to resolve `check.audit` references,
+/// so the document is loaded as authored, like [`load_eosmat_without_audit`].
+///
 /// # Errors
 ///
 /// Returns an error for malformed JSON or an invalid material document.
 pub fn load_eosmat_str(source: &str) -> Result<Material, EosmatError> {
     let document = serde_json::from_str(source)?;
     material_from_value(document)
+}
+
+/// Decode an EOSMAT v5 record file together with its audit sidecar.
+///
+/// This is [`merge_eosmat_audit`] followed by [`material_from_value`].
+///
+/// # Errors
+///
+/// Returns an error for malformed JSON, an invalid sidecar, a sidecar that
+/// names another material or unknown records, an audit block held both inline
+/// and in the sidecar, or an invalid merged document.
+pub fn load_eosmat_str_with_audit(
+    record_file: &str,
+    audit_sidecar: &str,
+) -> Result<Material, EosmatError> {
+    let document: Value = serde_json::from_str(record_file)?;
+    let sidecar: Value = serde_json::from_str(audit_sidecar)?;
+    material_from_value(merge_eosmat_audit(&document, &sidecar)?)
+}
+
+/// Merge an EOSMAT v5 audit sidecar into a record-file document.
+///
+/// Each sidecar entry is added to the record with the same identifier. The
+/// assessment `report_url`, `report_path` and `report` links, omitted from
+/// bundled sidecars when implied by the identifiers, are regenerated. The
+/// result is the complete inline v5 document; it is not validated here.
+///
+/// # Errors
+///
+/// Returns an error when the sidecar envelope is invalid, names another
+/// material or unknown records, or repeats a block the record holds inline.
+pub fn merge_eosmat_audit(document: &Value, sidecar: &Value) -> Result<Value, EosmatError> {
+    audit::merge(document, sidecar)
+}
+
+/// Merge the audit sidecars named by `check.audit`, resolved against `base_directory`.
+///
+/// Only records that carry `check.audit` and no inline audit blocks cause a
+/// sidecar to be read; a document without such records is returned unchanged.
+/// [`load_eosmat`] uses this with the file's directory.
+///
+/// # Errors
+///
+/// Returns [`EosmatError::MissingAudit`] when a referenced sidecar does not
+/// exist, and the errors of [`merge_eosmat_audit`] otherwise.
+pub fn merge_referenced_eosmat_audits(
+    document: &Value,
+    base_directory: impl AsRef<Path>,
+) -> Result<Value, EosmatError> {
+    audit::merge_referenced(document, base_directory.as_ref())
+}
+
+/// Derive a record's `check` headline from its inline evidence.
+///
+/// `record` is a native v4/v5 record with an `evidence` object, or a flattened
+/// v3 record. `material` supplies a material-level `recommendation_hold`. The
+/// result contains `reproduction` and `warning`, plus `finding`, `source` and
+/// `source_checked_on` when the evidence records them; it has no `audit` link.
+/// This reproduces the derivation that wrote the bundled `check` blocks.
+#[must_use]
+pub fn derive_eosmat_check(record: &Value, material: Option<&Value>) -> Value {
+    audit::check_block(record, material, None)
 }
 
 /// Validate a decoded `.eosmat` document without retaining an executable model.
@@ -1511,6 +1709,22 @@ pub fn export_eosmat_v3(document: &Value) -> Result<Value, EosmatError> {
         ))?,
     };
     uncertainty_units::to_model_units(&mut result, version == Some(5))?;
+    // The v5 check headline is derived from evidence that v3 records carry
+    // inline. A record whose evidence is still in an unmerged sidecar keeps
+    // its check block, so the export never silently loses the audit link.
+    let external: Vec<bool> = document["eos_records"]
+        .as_array()
+        .map(|records| records.iter().map(audit::is_external).collect())
+        .unwrap_or_default();
+    if let Some(records) = result["eos_records"].as_array_mut() {
+        for (index, record) in records.iter_mut().enumerate() {
+            if !external.get(index).copied().unwrap_or(false) {
+                if let Some(record) = record.as_object_mut() {
+                    record.remove("check");
+                }
+            }
+        }
+    }
     Ok(result)
 }
 
@@ -1547,10 +1761,20 @@ pub fn material_from_value(document: Value) -> Result<Material, EosmatError> {
             record.document = source.clone();
         }
         material.document = document;
+        assign_headlines(&mut material);
         return Ok(material);
     }
     validate_document_structure(&document)?;
-    construct_material(document)
+    let mut material = construct_material(document)?;
+    assign_headlines(&mut material);
+    Ok(material)
+}
+
+fn assign_headlines(material: &mut Material) {
+    for record in &mut material.eos_records {
+        (record.reproduction, record.warning) =
+            audit::headline(&record.document, Some(&material.document));
+    }
 }
 
 fn construct_material(document: Value) -> Result<Material, EosmatError> {
@@ -2057,17 +2281,20 @@ fn validate_dataset_pressure_metadata(
             let source = calibration(&column["pressure_scale"]["calibration_record"])?;
             let target = calibration(&reduction["target_calibration_record"])?;
             let methods = record["pressure_calibration"]["methods"].as_array();
-            if record["pressure_calibration"]["status"] != "resolved"
-                || !methods.is_some_and(|m| {
-                    m.len() == 1
-                        && m[0]["reference_calibration_record"] == target
-                        && m[0]["kind"]
-                            == if ruby_calibration(target).is_some() {
-                                "ruby_fluorescence"
-                            } else {
-                                "diamond_raman"
-                            }
-                })
+            // A record file whose pressure_calibration is in an unmerged audit
+            // sidecar is checked when the complete document is validated.
+            if !audit::is_external(record)
+                && (record["pressure_calibration"]["status"] != "resolved"
+                    || !methods.is_some_and(|m| {
+                        m.len() == 1
+                            && m[0]["reference_calibration_record"] == target
+                            && m[0]["kind"]
+                                == if ruby_calibration(target).is_some() {
+                                    "ruby_fluorescence"
+                                } else {
+                                    "diamond_raman"
+                                }
+                    }))
             {
                 return Err(invalid_document(
                     "reduction conflicts with EOS pressure_calibration",
@@ -2454,7 +2681,10 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
             }
         }
         let fit_provenance = record.get("fit_provenance");
-        if record_kind == "refit" && !fit_provenance.is_some_and(Value::is_object) {
+        if record_kind == "refit"
+            && !fit_provenance.is_some_and(Value::is_object)
+            && !audit::is_external(value)
+        {
             return Err(invalid_document(format!(
                 "{location} refit records require fit_provenance"
             )));
@@ -3078,6 +3308,8 @@ fn build_record(
         reference_temperature,
         document,
         volume_scale,
+        reproduction: Reproduction::Untested,
+        warning: None,
     })
 }
 

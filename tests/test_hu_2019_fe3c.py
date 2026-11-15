@@ -199,6 +199,13 @@ def test_native_and_compatibility_roundtrip_preserve_porosity_rows_and_scope(
                 entry["error"], rel=1e-14, abs=0
             )
             reconstructed["parameters"]["V0"]["error"] = entry["error"]
+        if "check" not in reconstructed:
+            # v3/v4 carry no check block; it is re-derived from the evidence.
+            from peritheos._eosmat_audit import check_block
+
+            check = original["check"]
+            assert check_block(reconstructed, restored, audit=check["audit"]) == check
+            reconstructed["check"] = check
     assert restored["eos_records"] == d["eos_records"]
     assert restored["datasets"] == d["datasets"]
     chosen = Material.from_eosmat(out, record_identifiers=[IDENTIFIER])

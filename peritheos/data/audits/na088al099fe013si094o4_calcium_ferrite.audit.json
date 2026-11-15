@@ -1,0 +1,183 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "na088al099fe013si094o4_calcium_ferrite",
+  "records": {
+    "na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Pt",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "Proceedings of the National Academy of Sciences",
+              "volume": "104",
+              "locator": "9182-9186",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Qin et al. (2023), Materials and methods, page 2332: Pt foil for pressure calibration (Fei et al. 2007)",
+            "scope": "all Table S4 diffraction observations",
+            "notes": "The citation identifies the internally consistent Fei et al. Pt scale, but that Pt scale is not presently an executable shared-library record."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Tables S3-S4 retain only reduced sample pressures; row-wise platinum lattice parameters or volumes are not published, so observation-level pressure recalculation is impossible."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 244.2,
+                "published_error": 0.2,
+                "refit": 244.28633550522827,
+                "refit_error": 0.9391725790742369,
+                "difference": 0.08633550522827704,
+                "relative_difference": 0.000353544247454042,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 211.0,
+                "published_error": 6.0,
+                "refit": 205.21533705752483,
+                "refit_error": 22.90440376666817,
+                "difference": -5.784662942475165,
+                "relative_difference": 0.027415464182346756,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 2.6,
+                "published_error": 0.3,
+                "refit": 2.933149724806815,
+                "refit_error": 1.1172876778709533,
+                "difference": 0.3331497248068147,
+                "relative_difference": 0.12813450954108258,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 10,
+              "observed_pressure_range_gpa": [0.0001, 44.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [206.6, 244.0],
+              "degrees_of_freedom": 7,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.22874104603148265,
+              "published_rmse_gpa": 0.3887326932802064,
+              "reduced_chi_square": 0.1028320444349107,
+              "dataset_identifiers": ["na088al099fe013si094o4_qin_2023_table_s4_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the final article and official MSA deposit AM-23-128432. The published BM3 coefficients reproduce the complete printed compression table to 0.3887 GPa pressure RMSE; the missing row-wise pressure uncertainties and exact EosFit7c weight configuration prevent coefficient-level refit parity and are not inferred.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "cell_setting",
+            "formula_units_per_cell",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am-2022-8432",
+            "locations": [
+              "article Materials and methods, pages 2332-2333",
+              "article EOS discussion, page 2333",
+              "official Online Materials Tables S4 and S5",
+              "official deposit AM-23-128432"
+            ],
+            "finding": "The source fully defines a room-temperature, three-free-parameter standard Eulerian BM3 fit for the Fe-bearing Na0.88Al0.99Fe0.13Si0.94O4 sample. Volumes are Pbnm conventional-cell values with Z=4. The official deposit does not include an exact Fe-bearing positional refinement, so the material's structural proxy is explicitly qualified.",
+            "doi": "10.2138/am-2022-8432",
+            "official_deposit_sha256": "465ff9b139fba3c60539f4bf1e0a86d877a716ab4522cefca682dd1f4fa1f07d",
+            "supplement_sha256": "f78e80d89fb11bb070cc3757c554e01adab3d4dcbf1ace93c2fc166aa5f3d1c7"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["na088al099fe013si094o4_qin_2023_table_s4_pv"],
+            "source_locations": ["Official Online Materials Table S4"],
+            "finding": "All 10 printed pressure, lattice-parameter, conventional-cell-volume, and parenthetical uncertainty rows are bundled verbatim. No pressure uncertainty or row-wise temperature is published."
+          },
+          "numerical_reproduction": {
+            "published_state": {"pressure_gpa": 44.0, "volume_a3": 206.6},
+            "calculated_pressure_gpa": 43.2093788099,
+            "absolute_difference_gpa": 0.7906211901,
+            "tolerance_gpa": 0.8,
+            "tolerance_basis": "The largest absolute pressure residual over all 10 Table S4 rows under the rounded published coefficients is 0.7907 GPa."
+          },
+          "refit_reproduction": {
+            "status": "fit_protocol_limited",
+            "published_curve_pressure_rmse_gpa": 0.3887326933,
+            "published_curve_max_abs_pressure_residual_gpa": 0.7906211901,
+            "unweighted_pressure_refit": {"V0": 244.32647529, "K0": 205.77556818, "K0_prime": 2.91664775, "rmse_gpa": 0.3305645286},
+            "volume_uncertainty_weighted_refit": {"V0": 244.05732255, "K0": 201.29958179, "K0_prime": 3.1071536, "reduced_chi_square": 0.5361142089},
+            "finding": "The article reports error-weighted EosFit7c regression but publishes no pressure uncertainties, covariance matrix, or detailed weight settings. Both documented diagnostic refits use all rows and remain separate from the published record."
+          },
+          "reported_inconsistencies": [
+            {
+              "field": "Table S4 superscript a",
+              "source_values": ["1.7 GPa marked with superscript a"],
+              "finding": "No definition for this superscript is printed in the Online Materials; the marker is retained as source_note_a without interpretation."
+            }
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: article Materials and methods, pages 2332-2333; article EOS discussion, page 2333; official Online Materials Tables S4 and S5; official deposit AM-23-128432.",
+          "equation": "Article pages 2332-2333 and official Online Materials Table S5: third-order Birch-Murnaghan EOS fitted with EosFit7c",
+          "V0": "Article abstract and page 2333; Online Materials Table S5, this-study Fe-bearing column: 244.2(2) A^3 fitted Pbnm conventional-cell volume",
+          "K0": "Article abstract and page 2333; Online Materials Table S5, this-study Fe-bearing column: KT0=211(6) GPa",
+          "K0_prime": "Article abstract and page 2333; Online Materials Table S5, this-study Fe-bearing column: K'T0=2.6(3)",
+          "temperature_ref": "Article states room-temperature compression; official companion CIF measurement reports 293(2) K",
+          "fit_selection": "Online Materials Tables S4 and S5 report 10 observations spanning 0-44.0 GPa; no exclusions are stated"
+        },
+        "source_lineage": [
+          {
+            "role": "published_parameterization_observations_composition_and_crystal_system",
+            "citation": "Qin et al. (2023), article and official deposit AM-23-128432",
+            "doi": "10.2138/am-2022-8432",
+            "locations": ["article pages 2332-2333", "Online Materials Tables S4 and S5"]
+          },
+          {
+            "role": "isostructural_positional_proxy",
+            "citation": "Qin et al. (2023), official deposited Fe-free 1.7 GPa CIF block",
+            "doi": "10.2138/am-2022-8432",
+            "locations": ["AM-23-128432, 8432qin.cif, data_p1_caicium_ferrite_phase"]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -122,7 +122,7 @@ def test_unvalidated_catalog_execution_and_export_preserve_qualification():
     assert record.volume(pressures, temperatures) == pytest.approx(volumes, abs=1e-8)
     assert record.thermal_pressure_increment(volumes, 300) == pytest.approx([0, 0, 0])
     material = get_material("argon_fcc")
-    exported = material.to_eosmat()
+    exported = material.to_eosmat(format_version=3)
     validate_eosmat_document(exported)
     exported = convert_eosmat(exported, version=3)
     row = next(

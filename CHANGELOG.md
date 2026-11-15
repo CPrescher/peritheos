@@ -16,6 +16,34 @@ All notable changes to Peritheos are documented here. The project follows
   Preserve physical uncertainties, coefficients, observations, confidence and
   scientific classifications. Python and Rust read v5; legacy exports convert
   uncertainty back to model-volume units for older readers.
+- Store each bundled material as a readable record file plus an audit sidecar,
+  `peritheos/data/audits/<id>.audit.json`, holding `evidence`, the detailed
+  pressure calibration and other audit blocks. Loading merges the sidecar by
+  default (`include_audit=False` returns the record file alone); a missing
+  sidecar raises `EosmatError` (`eosmat.audit_missing`). Standalone files keep
+  inline evidence and need no sidecar. v3/v4 and `convert` exports remain
+  complete. Coefficients, observations and classifications are unchanged
+  (receipt `docs/data/eosmat-v5-audit-split.json`). Materials later written as
+  complete inline files are split the same way with the repository command
+  `scripts/split_eosmat_audits.py --add`.
+- Add an optional record `check` block: `reproduction` (`reproduced`, `close`,
+  `disagrees`, `untested`, a fixed mapping of the stored assessment), `warning`,
+  `finding`, `source`, `source_checked_on` and `audit`. It must agree with any
+  evidence present.
+- Remove three generic statements repeated in every record; they are stated
+  once in the EOS label guide.
+- Add `EOSRecord.reproduction`, `EOSRecord.warning` and `EOSRecord.audit`.
+- Add `Material.summary()` and more forgiving material and record lookup.
+- Update the Rust EOSMAT reader for the record file and audit sidecar layout.
+- Lead each reconstruction-report section with its headline and warning, show
+  only recorded content and state shared conventions once per page; the report
+  index counts records by headline. Material summaries show the headline,
+  warning marker and source finding per record and link the reconstruction
+  report instead of repeating its comparison table.
+- Document the record/sidecar layout with an executable example in the EOSMAT
+  v5 reference. Remove hard-coded catalog counts and record-by-record narrative
+  from the validation and catalog guides in favor of the generated reports;
+  retire `scripts/generate_validation_summary.py`.
 
 ### Fixed
 

@@ -143,7 +143,11 @@ def test_native_fit_and_gamma_uncertainty_match_independent_sensitivity():
 
 
 def test_source_and_structural_preservation():
-    current = get_material_document("pyrope")
+    from scripts.split_eosmat_audits import pre_split_view
+
+    # The frozen fingerprint predates the record/audit split; undo only the
+    # receipt-backed check block and generic-statement removal first.
+    current = pre_split_view(get_material_document("pyrope"))
     native = convert_eosmat(current, version=4)
     assert (
         hashlib.sha256(

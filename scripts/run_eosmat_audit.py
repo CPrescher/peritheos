@@ -34,7 +34,9 @@ def historical_reconstruction_view(document: dict) -> dict:
     retains original evidence, coefficients and datasets. Ordinary library and
     compatibility exports always include the new assessment.
     """
-    result = historical_unit_view(document)
+    from scripts.split_eosmat_audits import pre_split_view
+
+    result = historical_unit_view(pre_split_view(document))
     for record in result.get("eos_records", []):
         reproduction = record.get("reproduction", {})
         assessment = reproduction.get("assessment", {})

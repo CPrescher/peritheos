@@ -1,0 +1,181 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "phase_d",
+  "records": {
+    "phase_d_ant_a_shieh_2000_bm2_1": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary article reports the AntA pressure-volume series but does not identify an exact executable pressure-calibration equation, and no row-wise calibrant observables are available."
+        },
+        "audit_date": "2026-09-06"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 134.0,
+                "published_error": 5.0,
+                "refit": 139.4652126595,
+                "refit_error": 4.502631252020866,
+                "difference": 5.465212659499997,
+                "relative_difference": 0.04078516910074625,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "sample=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [0.0001, 24.6],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [77.62, 88.12],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.7467023175219354,
+              "published_rmse_gpa": 1.2605738400213593,
+              "reduced_chi_square": 0.8874661576042226,
+              "dataset_identifiers": ["phase_d_shieh_2000_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/S0012-821X(00)00033-9",
+            "locations": [
+              "page 71, Table 2, AntA-D and AntB-D P-V data",
+              "pages 78-79, second-order Birch-Murnaghan fit and Figure 10"
+            ],
+            "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
+            "doi": "10.1016/s0012-821x(00)00033-9"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "phase_d.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["phase_d_shieh_2000_table2_pv"],
+            "source_locations": ["Table 2, page 71"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 71, Table 2, AntA-D and AntB-D P-V data; pages 78-79, second-order Birch-Murnaghan fit and Figure 10.",
+          "V0": "Shieh et al. (2000), Table 2, AntA-D ambient unit-cell volume",
+          "K0": "Shieh et al. (2000), pages 78-79: joint fit to the antigorite-derived phase-D volume data",
+          "equation": "Shieh et al. (2000), pages 78-79: second-order Birch-Murnaghan (K0'=4)"
+        }
+      }
+    },
+    "phase_d_ant_b_shieh_2000_bm2_1": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary article reports the AntB pressure-volume series but does not identify an exact executable pressure-calibration equation, and no row-wise calibrant observables are available."
+        },
+        "audit_date": "2026-09-06"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 134.0,
+                "published_error": 5.0,
+                "refit": 134.71378933177388,
+                "refit_error": 4.584414287476834,
+                "difference": 0.7137893317738815,
+                "relative_difference": 0.005326786058014041,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "sample=2",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0"],
+              "observations": 5,
+              "observed_pressure_range_gpa": [0.0001, 22.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [77.878, 87.191],
+              "degrees_of_freedom": 4,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 1.6822610591377454,
+              "published_rmse_gpa": 1.8398513712137285,
+              "reduced_chi_square": 3.8603412973846303,
+              "dataset_identifiers": ["phase_d_shieh_2000_table2_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/S0012-821X(00)00033-9",
+            "locations": [
+              "page 71, Table 2, AntA-D and AntB-D P-V data",
+              "pages 78-79, second-order Birch-Murnaghan fit and Figure 10"
+            ],
+            "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
+            "doi": "10.1016/s0012-821x(00)00033-9"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "phase_d.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["phase_d_shieh_2000_table2_pv"],
+            "source_locations": ["Table 2, page 71"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 71, Table 2, AntA-D and AntB-D P-V data; pages 78-79, second-order Birch-Murnaghan fit and Figure 10.",
+          "V0": "Shieh et al. (2000), Table 2, AntB-D ambient unit-cell volume",
+          "K0": "Shieh et al. (2000), pages 78-79: joint fit to the antigorite-derived phase-D volume data",
+          "equation": "Shieh et al. (2000), pages 78-79: second-order Birch-Murnaghan (K0'=4)"
+        }
+      }
+    }
+  }
+}

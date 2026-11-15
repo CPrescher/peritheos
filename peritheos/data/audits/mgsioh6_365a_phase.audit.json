@@ -1,0 +1,334 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "mgsioh6_365a_phase",
+  "records": {
+    "mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
+              "source": "Journal of Geophysical Research",
+              "volume": "91",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Experimental methods and Table 1",
+            "scope": "all three experiments"
+          },
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference": {
+              "authors": ["Heinz", "Jeanloz"],
+              "year": 1984,
+              "source": "Journal of Applied Physics",
+              "volume": "55"
+            },
+            "source_location": "Experimental methods",
+            "scope": "selected observations in experiment I; used as cross-check"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The supplement gives corrected sample pressures but no row-wise ruby wavelengths or Au lattice parameters."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 83.0,
+                "published_error": 1.0,
+                "refit": 87.00415883431158,
+                "refit_error": 2.6429846058628867,
+                "difference": 4.004158834311582,
+                "relative_difference": 0.04824287752182629,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.9,
+                "published_error": 0.2,
+                "refit": 4.412945405805343,
+                "refit_error": 0.33809443670353795,
+                "difference": -0.4870545941946576,
+                "relative_difference": 0.0993988967744199,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 95,
+              "observed_pressure_range_gpa": [0.0, 41.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [149.39, 195.03],
+              "degrees_of_freedom": 93,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.27316331421530027,
+              "published_rmse_gpa": 0.4197429648934268,
+              "reduced_chi_square": 0.09445939595414121,
+              "dataset_identifiers": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the primary article and official MSA supplemental tables; LitCurate was discovery-only.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "crystal_system",
+            "space_group",
+            "formula_units_per_cell",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf",
+            "doi": "10.2138/am-2015-5312",
+            "locations": ["Abstract", "Experimental and computational methods", "Equations 1-3", "Table 2", "Figure 3"],
+            "finding": "The paper identifies exact MgSi(OH)6, P21, Z=2 and reports this BM3 as the preferred experimental description."
+          },
+          "primary_data_check": {
+            "status": "complete_official_table",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
+            "source_locations": ["Official deposit AM-15-105312, Supplemental Table 1"],
+            "finding": "All 95 reported P-V observations, including experiment and loading path, are bundled verbatim."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental and computational methods; Equations 1-3; Table 2; Figure 3.",
+          "equation": "Equations 1-3 and Table 2: third-order Birch finite-strain EOS (BM3).",
+          "V0": "Table 2: 194.52(2) A3, fixed to the high-precision value measured on the same material by Wunder et al. (2012).",
+          "K0": "Table 2: 83(1) GPa.",
+          "K0_prime": "Table 2: 4.9(2). The abstract instead prints +/-0.1; the detailed parameter table is authoritative here.",
+          "uncertainties": "Parenthetical/plus-minus errors are published without an explicit confidence convention; V0 was fixed rather than freely refined.",
+          "fit_selection": "The source describes third- and fourth-order fits to the experimental data and deposits all 95 P-V observations, but does not publish a machine-readable row mask, weights, covariance, or regression objective."
+        }
+      }
+    },
+    "mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "source": "Journal of Geophysical Research",
+              "volume": "91",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Experimental methods and Table 1",
+            "scope": "all observations"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No row-wise ruby wavelengths or Au lattice parameters are deposited."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 77.0,
+                "published_error": 2.0,
+                "refit": 81.03456432406935,
+                "refit_error": 5.761664674518015,
+                "difference": 4.0345643240693505,
+                "relative_difference": 0.05239693927362793,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 7.9,
+                "published_error": 0.8,
+                "refit": 6.335145910920424,
+                "refit_error": 1.8140686022310453,
+                "difference": -1.5648540890795761,
+                "relative_difference": 0.19808279608602228,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_double_prime",
+                "published": -0.7,
+                "published_error": 0.2,
+                "refit": -0.3461543118382347,
+                "refit_error": 0.33298044588510545,
+                "difference": 0.35384568816176526,
+                "relative_difference": 0.5054938402310932,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime", "K0_double_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 95,
+              "observed_pressure_range_gpa": [0.0, 41.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [149.39, 195.03],
+              "degrees_of_freedom": 92,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.24776106629747363,
+              "published_rmse_gpa": 0.39704509212881717,
+              "reduced_chi_square": 0.08060328566822579,
+              "dataset_identifiers": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against Equations 1-3, Table 2, Figure 3d, and the official supplemental table.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "units",
+            "published_uncertainties",
+            "validity",
+            "primary_data",
+            "fit_relationship"
+          ],
+          "primary_source_check": {
+            "access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf",
+            "doi": "10.2138/am-2015-5312",
+            "locations": ["Equations 1-3", "Table 2", "Figure 3d"],
+            "finding": "The complete BM4 parameters are source-reported; LitCurate omitted K0' and K0''."
+          },
+          "primary_data_check": {
+            "status": "complete_official_table",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
+            "finding": "The BM4 sensitivity fit shares the full official experimental P-V table with BM3."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 2; Figure 3d.",
+          "equation": "Equations 1-3 and Table 2: fourth-order Birch finite-strain EOS (BM4).",
+          "V0": "Table 2: 194.52(2) A3, fixed.",
+          "K0": "Table 2: 77(+/-2.0) GPa.",
+          "K0_prime": "Table 2: 7.9(8).",
+          "K0_double_prime": "Table 2: -0.7(2) GPa^-1.",
+          "fit_selection": "Same deposited 95-point experimental P-V series as the BM3; retained separately because the source explicitly reports the full higher-order coefficient set."
+        }
+      }
+    },
+    "mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3": {
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "source_location": "First-principles simulation methods",
+            "scope": "static GGA energy-volume calculation"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "No experimental pressure calibration applies to a static first-principles model."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The full four-coefficient BM4 is tabulated and the computed P-V markers are plotted, but the numerical energy-volume grid is not deposited; no false-precision digitization is bundled.",
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated independently against the primary paper's equations, computational methods, Table 2, and Figure 3a.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "composition",
+            "phase",
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "theoretical_method",
+            "source_curve"
+          ],
+          "primary_source_check": {
+            "access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf",
+            "doi": "10.2138/am-2015-5312",
+            "locations": ["First-principles simulation", "Equations 1-3", "Table 2", "Figure 3a"],
+            "finding": "This is a separate theoretical BM4 parameterization of the stoichiometric P21 model crystal, not another fit to the experimental P-V table."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "source_locations": ["Table 2", "Figure 3a"],
+            "finding": "The full four-coefficient BM4 is tabulated and the computed P-V markers are plotted, but the numerical energy-volume grid is not deposited; no false-precision digitization is bundled."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Mookherjee (2015), static GGA model-crystal calculation: computed compression determines this BM4, separately from the two experimental fits in the same paper.",
+          "equation": "Table 2 labels the first-principles result fourth-order; Equations 1-3 define the BM4 convention.",
+          "V0": "Table 2, first-principles simulation: 202.02 A3.",
+          "K0": "Table 2: 80 GPa.",
+          "K0_prime": "Table 2: 3.4.",
+          "K0_double_prime": "Table 2: -0.05 GPa^-1.",
+          "model": "Methods: PAW-GGA in VASP, 1000 eV cutoff, 2x2x2 Monkhorst-Pack grid, P21 primitive cell; total energies converged within 5 meV/atom."
+        }
+      }
+    }
+  }
+}

@@ -19,7 +19,8 @@ from peritheos import (
 )
 from peritheos._eosmat_format import format_eosmat
 from peritheos.errors import EosmatError
-from scripts.generate_material_summaries import reconstruction
+from scripts.generate_material_summaries import reconstruction, record_check
+from scripts.generate_reconstruction_reports import report_page
 from scripts.run_eosmat_audit import historical_reconstruction_view
 from scripts.standardize_reconstruction_metadata import (
     REPORT,
@@ -137,7 +138,9 @@ def test_scope_distinguishes_independent_refit_and_source_equation():
     assert "parameters" not in assessment_for_record(record, row)
 
 
-def test_comparison_survives_exports_without_replacing_calculation_parameters():
+def test_comparison_survives_exports_without_replacing_calculation_parameters(
+    tmp_path,
+):
     document, row = sample()
     result = standardize_document(document, {row["record_identifier"]: row})
     legacy = convert_eosmat(result, version=3)
@@ -166,22 +169,31 @@ def test_comparison_survives_exports_without_replacing_calculation_parameters():
         "published",
         "published_error",
     ]
-    sheet = "\n".join(reconstruction(legacy["eos_records"][0]))
-    assert "180.1" in sheet and "160" in sheet
-    assert "180.12345678901235" not in sheet
-    assert "Fixed/adopted coefficients" in sheet and "do not replace" in sheet
-    assessment = legacy["eos_records"][0]["reproduction"]["assessment"]
+    # The material sheet shows the headline and links the report; the
+    # coefficient comparison itself is rendered once, in the report.
+    sheet = "\n".join(
+        reconstruction(
+            legacy["eos_records"][0], record_check(result["eos_records"][0], result)
+        )
+    )
+    assert "Reproduction: **disagrees**" in sheet
+    assert "180.1" not in sheet
+    page = report_page(result, root=tmp_path)
+    assert "180.1" in page and "160" in page
+    assert "180.12345678901235" not in page
+    assert "Fixed/adopted values are constraints" in page
+    assessment = result["eos_records"][0]["evidence"]["reproduction"]["assessment"]
     assessment["parameters"].append(
         {"parameter": "K0_prime", "published": 4, "refit": 4}
     )
-    sheet = "\n".join(reconstruction(legacy["eos_records"][0]))
-    assert "| 4 | Not reported | 4 | Not reported | Fixed/adopted |" in sheet
+    page = report_page(result, root=tmp_path)
+    assert "| 4 | Not reported | 4 | Not reported | Fixed/adopted |" in page
     assessment["fit"] = {
         "fixed_parameters": "K0_prime was constrained",
         "free_parameters": None,
     }
-    sheet = "\n".join(reconstruction(legacy["eos_records"][0]))
-    assert "| 4 | Not reported | 4 | Not reported | See protocol |" in sheet
+    page = report_page(result, root=tmp_path)
+    assert "| 4 | Not reported | 4 | Not reported | See protocol |" in page
 
 
 @pytest.mark.parametrize(

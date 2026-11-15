@@ -41,6 +41,11 @@ def test_integration_preserves_utf8_catalog_and_source_values(
     destination = tmp_path / source.relative_to(original_root)
     destination.parent.mkdir(parents=True)
     destination.write_bytes(before_bytes)
+    audits = destination.parent.parent / "audits"
+    audits.mkdir()
+    sidecar = original_root / f"peritheos/data/audits/{material}.audit.json"
+    sidecar_bytes = sidecar.read_bytes()
+    (audits / sidecar.name).write_bytes(sidecar_bytes)
     before = load_eosmat(destination)
     ledger = json.loads(
         (original_root / "docs/data/primary-eos-refits.json").read_text(
@@ -69,10 +74,13 @@ def test_integration_preserves_utf8_catalog_and_source_values(
         for record in document["eos_records"]:
             record["evidence"]["reproduction"].pop("assessment", None)
     assert before == after
-    assert "—" in destination.read_bytes().decode("utf-8")
+    assert "—" in (
+        destination.read_bytes() + (audits / sidecar.name).read_bytes()
+    ).decode("utf-8")
     json.loads(ledger_path.read_bytes().decode("utf-8"))
     (tmp_path / "docs/primary-eos-refits.md").read_bytes().decode("utf-8")
     assert source.read_bytes() == before_bytes
+    assert sidecar.read_bytes() == sidecar_bytes
 
 
 def test_scope_report_write_then_check_uses_utf8(

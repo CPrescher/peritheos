@@ -9,9 +9,11 @@ import pytest
 from peritheos import (
     get_eos_record,
     get_material_document,
+    load_eosmat,
     resolve_dataset_observations,
     search_eos_records,
 )
+from peritheos._eosmat_audit import remove_generic_statements
 from scripts.reproduce_dewaele_2008_metals import (
     experiment_rows,
     reproduce,
@@ -209,9 +211,7 @@ def test_common_ledger_retains_the_dedicated_source_outcomes():
         if "_paw_" in rid:
             path = RESEARCH / f"{expected['material_identifier']}.eosmat"
         native = next(
-            r
-            for r in json.loads(path.read_text())["eos_records"]
-            if r["identifier"] == rid
+            r for r in load_eosmat(path)["eos_records"] if r["identifier"] == rid
         )
         expected_assessment = assessment_for_record(native, rows[rid])
         if "_paw_" in rid:
@@ -223,7 +223,10 @@ def test_common_ledger_retains_the_dedicated_source_outcomes():
             temporary["evidence"]["reproduction"]["assessment"] = expected_assessment
             relocate_record_links(temporary)
             expected_assessment = temporary["evidence"]["reproduction"]["assessment"]
-        assert native["evidence"]["reproduction"]["assessment"] == expected_assessment
+        # The research collection keeps its inline files unchanged, including
+        # generic qualifications that bundled records no longer repeat.
+        stored = remove_generic_statements(native)
+        assert stored["evidence"]["reproduction"]["assessment"] == expected_assessment
 
 
 @pytest.mark.parametrize("material", ["nickel", "silver"])

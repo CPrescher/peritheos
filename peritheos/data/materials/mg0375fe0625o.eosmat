@@ -41,71 +41,13 @@
         "locator": "075136",
         "doi": "10.1103/PhysRevB.96.075136"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {"kind": "ab_initio", "source_location": "Methods and Table I", "scope": "DFT+DMFT energy-volume calculation"}
-        ],
-        "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg0375fe0625o/#record-mg0375fe0625o_leonov_2017_hs_bm3_1",
-            "report_path": "docs/reconstruction-reports/mg0375fe0625o.md#record-mg0375fe0625o_leonov_2017_hs_bm3_1",
-            "fit": {
-              "fixed_parameters": ["K0_prime"],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Validated against the author-repository primary PDF; LitCurate was used only for discovery and row enumeration.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "canonical_doi",
-            "composition",
-            "phase",
-            "equation",
-            "parameters",
-            "fixed_parameters",
-            "units",
-            "reference_state",
-            "theoretical_method",
-            "numerical_reproduction"
-          ],
-          "primary_source_check": {
-            "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
-            "doi": "10.1103/PhysRevB.96.075136",
-            "locations": ["Methods", "Table I", "Figures 1-4"],
-            "finding": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_plot_only",
-            "audit_date": "2026-09-05",
-            "source_locations": ["Table I", "Figures 1-2"],
-            "finding": "Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table I; Figures 1-4.",
-          "equation": "Methods: third-order Birch-Murnaghan fit to the DFT+DMFT total-energy results.",
-          "V0": "Table I: 139.5 bohr^3/formula unit, converted to a conventional Z=4 cell with the exact Bohr definition.",
-          "K0": "Table I high-spin column: 138 GPa.",
-          "K0_prime": "Table I: fixed to 4.1 for every composition.",
-          "fit_selection": "High-spin volume region fitted separately from the low-spin region; the numerical energy-volume grid is not deposited."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/mg0375fe0625o.audit.json#mg0375fe0625o_leonov_2017_hs_bm3_1"
       }
     }
   ],

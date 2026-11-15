@@ -1,0 +1,181 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "iridium",
+  "records": {
+    "iridium_anzellini_2025_bm3_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Dewaele", "Belonoshko", "Garbarino", "Occelli", "Bouvier", "Hanfland", "Mezouar"],
+              "year": 2012,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.85.214105"
+            },
+            "source_location": "Methods; KCl-B2 thermal EOS",
+            "reference_eos_record": "kcl_b2_dewaele_2012_vinet_3",
+            "scope": "KCl pressure-medium runs"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Speziale", "Zha", "Duffy", "Hemley", "Mao"],
+              "year": 2001,
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/2000JB900318"
+            },
+            "source_location": "Methods; MgO thermal EOS",
+            "reference_eos_record": "mgo_speziale_2001_bm3_2",
+            "scope": "MgO pressure-medium runs"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "The exact Equations 1-3 thermal correction and source temperature average are reproduced. With the published BM3 reference held fixed, all 122 laser-heating rows independently refit alpha0. A second, explicitly plot-derived reconstruction uses the vector marker centers for the missing 300 K and 830 K series and the source's stated +/-100 K temperature bands. It materially approaches all four published coefficients, but is not source parity because the original numerical rows, exact averaging/selection algorithm, weights, and covariance remain unpublished."
+            ],
+            "parameters": [
+              {
+                "parameter": "alpha0",
+                "published": 1.87e-05,
+                "published_error": 8e-07,
+                "refit": 1.7740295689829463e-05,
+                "refit_error": 3.2880224447968415e-07,
+                "difference": -9.597043101705374e-07,
+                "relative_difference": 0.051321086105376335,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "conditional_holland_powell_thermal_pressure",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "all 122 Supplementary Tables 1-3 laser-heating rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "mean_temperature_k", "volume": "iridium_lattice_a_angstrom"},
+              "absolute_sigma": false,
+              "free_parameters": ["alpha0"],
+              "fixed_parameters": ["Tr", "theta", "n"],
+              "observations": 122,
+              "observed_pressure_range_gpa": [22.7, 91.5],
+              "observed_temperature_range_k": [300.0, 5560.5],
+              "observed_volume_range": [47.911251968, 54.958685608],
+              "degrees_of_freedom": 121,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 3.0325674077570715,
+              "published_rmse_gpa": 3.1375096434286185,
+              "reduced_chi_square": 9.272468926248218,
+              "dataset_identifiers": ["iridium_anzellini_2025_tables_s1_s3_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1038/s43246-025-00963-4",
+            "locations": [
+              "Model description",
+              "Equations 1-3",
+              "Table 1, combined experimental fit",
+              "Methods, temperature averaging",
+              "Figure 4",
+              "Supplementary Figure 5"
+            ],
+            "finding": "The source publishes a BM3 300 K reference isotherm plus a volume-independent Holland-Powell Einstein thermal-pressure increment with Tr=300 K, theta=298 K, and alpha0=1.87(8)e-5 K^-1. The fit combines Monteseguro et al. (2019) ambient-temperature data with present resistive- and laser-heating data and averages the two pyrometry temperatures.",
+            "doi": "10.1038/s43246-025-00963-4"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "iridium.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["iridium_anzellini_2025_tables_s1_s3_pvt"],
+            "digitized_dataset_identifiers": ["iridium_anzellini_2025_figure4_300k_830k_vector_digitized"],
+            "source_locations": ["Supplementary Tables 1, 2, and 3", "Figure 4, 300 K and 830 K filled-circle series"],
+            "finding": "All 122 Ir P-V-T observations from the laser-heating runs printed in Supplementary Tables 1-3 are bundled, including two 300 K baseline rows and retaining the applicable MgO or KCl calibrant, both pyrometry measurements, and their source-required arithmetic mean. Figure 4 supplies vector presentation coordinates for 91 Monteseguro 300 K and 16 present-study 830 K markers; these 107 plot-derived rows are bundled separately with calibration and uncertainty metadata. The original numerical rows and exact fit protocol are not published, so the complete combined regression still cannot be rerun exactly."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Model description; Equations 1-3; Table 1, combined experimental fit; Methods, temperature averaging; Figure 4; Supplementary Figure 5.",
+          "equation": "Anzellini et al. (2025), Equations 1-3: 300 K BM3 reference pressure plus a volume-independent Holland-Powell Einstein thermal-pressure increment.",
+          "V0": "Table 1, experimental BM3 + HP row, A^3 per conventional fcc cell.",
+          "K0": "Table 1, experimental BM3 + HP row, GPa.",
+          "K0_prime": "Table 1, experimental BM3 + HP row, dimensionless.",
+          "Tr": "Equations 1-2 use 300 K as the reference temperature.",
+          "theta": "Text immediately following Equation 2 fixes the Einstein temperature at 298 K for Ir.",
+          "alpha0": "Table 1, experimental BM3 + HP row, K^-1.",
+          "n": "One atom per Ir formula unit; n cancels algebraically from the source pressure equation and is retained only to define the caloric molar basis."
+        },
+        "source_lineage": [
+          {
+            "role": "ambient-temperature pressure-volume observations used in the combined fit",
+            "citation": "Monteseguro et al. (2019)",
+            "doi": "10.1038/s41598-019-45401-x"
+          },
+          {
+            "role": "thermal-pressure equation, combined coefficients, and resistive- and laser-heating observations",
+            "citation": "Anzellini et al. (2025)",
+            "doi": "10.1038/s43246-025-00963-4"
+          }
+        ],
+        "fit_provenance": {
+          "software": {"name": "EosFit7", "version": "not reported"},
+          "dataset": "iridium_anzellini_2025_tables_s1_s3_pvt",
+          "reconstruction_datasets": ["iridium_anzellini_2025_tables_s1_s3_pvt", "iridium_anzellini_2025_figure4_300k_830k_vector_digitized"],
+          "selection": {
+            "published_scope": "Monteseguro et al. (2019) 300 K data plus present resistive-heating and laser-heating observations.",
+            "reproduction_scope": "Conditional check: all 122 Supplementary Tables 1-3 laser-heating rows with the published BM3 coefficients fixed. Plot-derived reconstruction: 91 vector 300 K markers, 16 vector 830 K markers, and the 65 exact laser-heating rows within plus-or-minus 100 K of the seven plotted high-temperature isotherms."
+          },
+          "objective": "EosFit7 combined P-V-T regression; residual space and weights were not reported.",
+          "refined_parameters": ["V0", "K0", "K0_prime", "alpha0"],
+          "fixed_parameters": ["Tr", "theta", "n"],
+          "statistics": {
+            "published_parameter_uncertainties": "Reported in Table 1; no goodness-of-fit statistic or covariance was published."
+          },
+          "reproduction": {
+            "software": "Peritheos fit_joint_eos",
+            "selection": "All 122 numerically published laser-heating rows",
+            "objective": "Unweighted pressure residuals",
+            "refined_parameters": ["alpha0"],
+            "fixed_parameters": ["V0", "K0", "K0_prime", "Tr", "theta", "n"],
+            "status": "conditional thermal-term check plus a plot-derived four-parameter reconstruction; not an exact reproduction of the complete combined fit",
+            "plot_derived_combined_fit": {
+              "selection": "91 Figure 4 300 K markers, 16 Figure 4 830 K markers, and 65 exact supplementary rows in the stated plus-or-minus 100 K isotherm bands",
+              "objective": "Unweighted pressure residuals",
+              "refined_parameters": ["V0", "K0", "K0_prime", "alpha0"],
+              "status": "reconstruction from presentation coordinates; not source parity"
+            }
+          },
+          "source_model": "BM3 300 K reference isotherm plus Holland-Powell Einstein thermal pressure",
+          "temperature_reduction": "Arithmetic mean of simultaneous upstream and downstream spectral-radiometry temperatures.",
+          "unavailable_details": [
+            "original numerical rows underlying the Figure 4 Monteseguro 300 K and present-study 830 K markers",
+            "exact source averaging and row-selection algorithm for the stated plus-or-minus 100 K isotherms",
+            "regression weights",
+            "parameter covariance"
+          ]
+        }
+      }
+    }
+  }
+}

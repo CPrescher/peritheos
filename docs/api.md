@@ -56,6 +56,28 @@ from peritheos.materials import DEFERRED_EOS_RECORDS
 
 `get_material(identifier)` returns a material phase and
 `list_materials(formula=...)` lists or filters all bundled materials.
+`get_material` resolves, in order: an exact identifier or alias (then a pre-0.7
+compatibility identifier); a case-insensitive identifier or a case-sensitive
+formula (`"Au"`, `"CO"` is not `"Co"`); a case-insensitive alias or name
+(`"periclase"`); and a case-insensitive formula for an all-lowercase query
+(`"au"`). The first step with exactly one match returns it. A step matching
+several materials raises `MaterialLookupError` listing the candidates and their
+phases (`context["matches"]`), so `get_material("Fe")` never picks a phase. An
+unknown name raises with ranked suggestions.
+
+`print(material.summary())` gives a plain-text overview: identity, cell contents
+and volume unit, then one row per record with model, calibration P/T envelope,
+reproduction headline and short reference; `*` marks the default and `!` a
+warning. `record.summary()` shows one record's coefficients with errors and
+units, reference and DOI, ranges, headline, warning and stored finding. Both
+read only the record file, never the audit sidecar. `repr()` of a `Material` or
+`EOSRecord` is one identifying line; `Material.default_record()` is a method.
+
+`EOSRecord.reproduction` is `"reproduced"`, `"close"`, `"disagrees"` or
+`"untested"`; `EOSRecord.warning` is the stored usage restriction or `None`;
+`EOSRecord.audit` loads the record's audit trail on first access.
+`Material.get_eos_record(identifier)` matches exact identifiers or aliases only;
+a miss suggests close identifiers without selecting one.
 `get_eos_record(identifier)` explicitly retrieves any executable record.
 `list_eos_records(formula=...)` lists source choices; pass
 `include_reference_variants=True` to include published pressure-scale alternatives,

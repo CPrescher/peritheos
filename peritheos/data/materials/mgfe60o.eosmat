@@ -29,99 +29,13 @@
         "locator": "3037-3045",
         "doi": "10.1029/JB094iB03p03037"
       },
-      "pressure_calibration": {
-        "status": "unresolved",
-        "methods": [],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-        },
-        "audit_date": "2026-09-03",
-        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "parity",
-            "scope": "parameter_agreement",
-            "source_status": "parity",
-            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mgfe60o/#record-mgfe60o_richet_1989_bm2_1",
-            "report_path": "docs/reconstruction-reports/mgfe60o.md#record-mgfe60o_richet_1989_bm2_1",
-            "parameters": [
-              {
-                "parameter": "K0",
-                "published": 149.0,
-                "published_error": 4.0,
-                "refit": 153.21653387830995,
-                "refit_error": 0.8282308408401619,
-                "difference": 4.216533878309946,
-                "relative_difference": 0.028298885089328495,
-                "similar": true,
-                "within_combined_2sigma": true
-              }
-            ],
-            "fit": {
-              "fit_kind": "isothermal_pv",
-              "objective": "pressure_residuals",
-              "selection": "all rows",
-              "columns": {"pressure": "pressure_kbar", "temperature": null, "volume": "volume_ratio"},
-              "absolute_sigma": true,
-              "free_parameters": ["K0"],
-              "fixed_parameters": ["V0"],
-              "observations": 14,
-              "observed_pressure_range_gpa": [0.0, 49.400000000000006],
-              "observed_temperature_range_k": null,
-              "observed_volume_range": [63.37162811058101, 78.430232810125],
-              "degrees_of_freedom": 13,
-              "solver_success": true,
-              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
-              "rmse_gpa": 0.6012132100186621,
-              "published_rmse_gpa": 1.0402420232743879,
-              "reduced_chi_square": 0.3892617334317858,
-              "dataset_identifiers": ["mgfe60o_richet_1989_table2_compression"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://doi.org/10.1029/JB094iB03p03037",
-            "locations": [
-              "page 3037, MW60 ambient a=4.2805(4) A",
-              "pages 3038-3039, Tables 1-2, MW60 BM2 fit and P-V data",
-              "page 3041, equation (1) and discussion of fixing K0'=4"
-            ],
-            "finding": "This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.",
-            "doi": "10.1029/jb094ib03p03037"
-          },
-          "migration_source": {
-            "project": "Dioptas",
-            "version": "0.10.0",
-            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-            "file": "mgfe60o.json"
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-03",
-            "dataset_identifiers": ["mgfe60o_richet_1989_table2_compression"],
-            "source_locations": ["Table 2, page 3039"],
-            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 3037, MW60 ambient a=4.2805(4) A; pages 3038-3039, Tables 1-2, MW60 BM2 fit and P-V data; page 3041, equation (1) and discussion of fixing K0'=4.",
-          "V0": "Richet et al. (1989), page 3037: a0=4.2805(4) A; V0=a0^3 for the four-formula-unit rocksalt cell",
-          "K0": "Richet et al. (1989), Table 1, MW60 this-work static fit",
-          "equation": "Richet et al. (1989), Table 1 footnote and equation (1): second-order Eulerian finite strain with K0'=4"
-        }
+      "check": {
+        "reproduction": "reproduced",
+        "warning": null,
+        "finding": "This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/mgfe60o.audit.json#mgfe60o_richet_1989_bm2_1"
       }
     },
     {
@@ -158,58 +72,13 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "pressure_calibration": {
-        "status": "unresolved",
-        "methods": [],
-        "recalculation": {"status": "missing_calibrant_observations", "notes": "Row-wise calibrants not reprinted."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Lin et al. report the 84-102 GPa spectroscopic interval and an approximately 1.6% volume drop at 95 GPa, but no P-V series for this composition; those constraints are not observations.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mgfe60o/#record-mgfe60o_solomatova_2016_hs_bm3_reference_1",
-            "report_path": "docs/reconstruction-reports/mgfe60o.md#record-mgfe60o_solomatova_2016_hs_bm3_reference_1",
-            "fit": {
-              "fixed_parameters": [],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
-            "doi": "10.2138/am-2016-5510",
-            "locations": ["Table 7"],
-            "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
-          },
-          "primary_data_check": {
-            "status": "transition_constraints_only",
-            "audit_date": "2026-09-08",
-            "source_locations": ["Table 7"],
-            "finding": "Lin et al. report only an 84-102 GPa spectroscopic crossover interval and an approximately 1.6% volume drop near 95 GPa for Mg0.40Fe0.60O, not a row-level pressure-volume series. Those transition constraints are not substituted for observations."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
-          "equation": "Table 7 paired BM3 reference branches.",
-          "V0": "Table 7: 77.9 A^3.",
-          "K0": "Table 7: 159 GPa.",
-          "K0_prime": "Table 7 HS value.",
-          "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/mgfe60o.audit.json#mgfe60o_solomatova_2016_hs_bm3_reference_1"
       }
     },
     {
@@ -246,58 +115,13 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "pressure_calibration": {
-        "status": "unresolved",
-        "methods": [],
-        "recalculation": {"status": "missing_calibrant_observations", "notes": "Row-wise calibrants not reprinted."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Lin et al. report the 84-102 GPa spectroscopic interval and an approximately 1.6% volume drop at 95 GPa, but no P-V series for this composition; those constraints are not observations.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mgfe60o/#record-mgfe60o_solomatova_2016_ls_bm3_reference_2",
-            "report_path": "docs/reconstruction-reports/mgfe60o.md#record-mgfe60o_solomatova_2016_ls_bm3_reference_2",
-            "fit": {
-              "fixed_parameters": ["K0_prime"],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
-            "doi": "10.2138/am-2016-5510",
-            "locations": ["Table 7"],
-            "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
-          },
-          "primary_data_check": {
-            "status": "transition_constraints_only",
-            "audit_date": "2026-09-08",
-            "source_locations": ["Table 7"],
-            "finding": "Lin et al. report only an 84-102 GPa spectroscopic crossover interval and an approximately 1.6% volume drop near 95 GPa for Mg0.40Fe0.60O, not a row-level pressure-volume series. Those transition constraints are not substituted for observations."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
-          "equation": "Table 7 paired BM3 reference branches.",
-          "V0": "Table 7: 73.83 A^3.",
-          "K0": "Table 7: 169 GPa.",
-          "K0_prime": "Fixed to 4.",
-          "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/mgfe60o.audit.json#mgfe60o_solomatova_2016_ls_bm3_reference_2"
       }
     }
   ],

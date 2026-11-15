@@ -1,331 +1,35 @@
 # Validation
 
-Peritheos uses several complementary validation layers.
+Peritheos keeps several kinds of validation separate. Passing one does not
+imply another, and none of them is experimental validation of a prediction.
 
-[EOS record categories](catalog.md#eos-record-categories) explains record origin,
-scientific validation and fit reproduction separately, including the distinction
-between a validated equation and a fully reproduced original fitting procedure.
-
-## Material-library validation levels
-
-Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 233 bundled material documents and 679 EOS records pass the
-native v4 validator; 230 documents construct executable materials. The
-coesite-V structure card and deferred fcc-Fe and wadsleyite source cards do not. The collection combines the reviewed Dioptas migration with
-native, primary-sourced records for pressure standards and material EOS models,
-including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
-audits discovered through the LitCurate intake. These structural checks
-establish file and software interoperability only.
-
-The primary-source audit covers all 679 bundled records: 658 are
-`primary_source_validated`, eighteen explicit-selection implementations are
-`not_reproduced`, and three records are `deferred`. The seven newly qualified
-records are the published Fu (2023) CaSiO3 thermal EOS, Baty (2024) experimental
-Pd BM3, and five Sakai (2014) Fe-Ni thermal variants; they are explicitly
-not recommended. The earlier Maltby, Chen, Miozzi and Yokoo qualifications
-remain. The two Frost (2023) Pd fits additionally fail strict coefficient
-reproduction and are not recommended; Pd automatic equilibrium default
-selection is on hold. The [Frost audit](literature-reproductions/palladium-frost-2023-audit.md)
-also corrects the earlier comparison of measured-volume and adjusted-volume
-pressure residuals. The deferred records are the two Campbell Fe/FeO records
-and the sole wadsleyite EOS, whose default is on hold pending source/model
-mapping review. See the [dispositions and fifteen audit corrections](research/eos-recommendation-dispositions-2026-10-17.md).
-The deferred records preserve source parameters for inspection and are
-excluded from executable discovery and loading by default. See the
-[Campbell mismatch report](literature-reproductions/campbell-2009-mismatch.md)
-and [FeS audit](literature-reproductions/morard-2026-fes.md). Morard FeS is accepted
-on staged parameter agreement within reported uncertainties (maintainer decision,
-2026-10-19); its residual-envelope discrepancy is informational, while the
-reconstruction label remains `similar` and exact author workflow is unverified.
-Promotion required a
-direct trace of the equation, every stored parameter, units, reference state,
-phase, published uncertainty convention, and represented data range to the
-cited primary publication or official supplement. Parsing or reproducing
-another library was never sufficient. Explicit refit records instead trace their
-observations and model choices to the source and identify optimized coefficients
-as Peritheos results. Both Fedotenko (2020) Pd fits have conditional coefficient
-parity. The fixed-K'=4 curve has poor data agreement and is available
-only through explicit diagnostic selection. Its published coefficients are
-preserved. Corrected weighting gives reduced chi-square about 25 under the
-documented independent absolute-error assumptions; see the
-[Fedotenko audit](literature-reproductions/palladium-fedotenko-2020-audit.md).
-
-The package ships the complete record-by-record ledger as
-`peritheos/data/primary-source-audit.json`. Each `.eosmat` record repeats its
-audit date, source URL, DOI or stable report/article locator,
-equation/table/page locations, outcome, and any
-caveat. `scripts/apply_primary_source_audit.py` deterministically reapplies
-the ledger after a mechanical Dioptas migration.
-
-Primary-source traceability is complemented by the independent
-[primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 687
-records, including selected columns, row count, published and refitted
-coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 358 scoped numerical parity matches and 72 additional numerically similar results.
-The Crichton–Ross (2000) phase E fit achieves parity within reported parameter
-errors: all three coefficient shifts are below 0.123 reported error widths,
-and the largest pressure-curve difference is about 0.0096 GPa. Its published
-coefficients remain unchanged. Exact author-workflow availability is a separate
-provenance assessment, not a failed-fit classification. See the
-[coefficient comparisons and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md).
-For opt-in Peritheos refits, including the provisional Ross + Errandonea argon
-refit, parity verifies the stored fit under its documented selection and
-objective; it does not imply reproduction of published author coefficients.
-The Fei (2007) NaCl-B2 staged thermal refit is available under this same
-qualification; the published parent still lacks thermal-fit parity.
-For the opt-in Litasov siderite thermal refit, parity means reproducing the
-stored Peritheos fit, not resolving the two conflicting published thermal
-parameter sets, which remain non-executable source evidence.
-This includes Sakai (2018) rhenium's numerical parity within reported parameter
-error widths, with comparable refit standard errors and an unspecified source
-confidence convention. Sakai (2011) contributes eight conditional fixed-V0
-parity matches within printed error widths, with weighting and marker-averaging
-qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-b2.md).
-[61 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 178 records cannot be
-directly refitted because row-level inputs or an executable source reduction
-are unavailable. Seventeen further records have source reconstructions without an independent
-EOS refit. There are no unresolved extraction or solver failures. The
-machine-readable results are in
-[`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).
-Refresh these totals with `python -m scripts.generate_validation_summary` after
-updating the ledger. Its `--check` option verifies synchronization without
-rerunning the scientific fits.
-
-The [source-audit index](source-audits.md) links the detailed publication-level
-investigations behind these classifications.
-
-### Audit outcome
-
-The validated set includes the eleven Sokolova material parameterizations;
-Fei Au and Ne; the Benedict, Datchi, and Dewaele diamond, c-BN, metal, and alkali-halide
-fits; and
-primary EOS results for graphite, FeO B1/B8, Fe7C3, B4C, hBN, Ru, Rh, Ir, Cr,
-Zr, Pd, MgO, bridgmanite/post-perovskite, SiC, high-pressure silica phases,
-garnets, carbonates, hydrides, ices VI/VII, coesite, zircon, the institutional
-fcc-Pb pressure-marker report, and additional well-documented solids. Stable
-publisher or institutional report URLs are accepted for older primary sources
-without DOIs. This expands executable coverage without treating a migrated
-label as evidence.
-
-Martinez et al.'s global aragonite P-V-T fit is intentionally not bundled. Its
-printed coefficient table omits a required fitted reference volume, and an
-independent reconstruction cannot recover its other coefficients from the 64
-printed observations using the documented equations. The separately reported
-staged BM2 P-V-T result is reproducible, validated, and executable.
-
-Primary-source findings changed or qualified several migrated records:
-
-- Campbell and Heinz publish the B2/B1 KCl volume ratio rather than an
-  absolute B2 reference volume. The executable composite record multiplies
-  `0.8483(57)` by Dewaele et al.'s experimental B1 `V0=62.36 angstrom^3`,
-  yielding `52.899988(355452) angstrom^3`; the error covers the ratio only
-  because Dewaele et al. publish no B1-`V0` uncertainty.
-- Muñoz and Kunc fit theoretical wurtzite InN energies with the Murnaghan
-  equation, not BM3. Its `V0=59.92519880888224 angstrom^3` is reconstructed
-  from their theoretical `a0=3.483 angstrom` and `c0=5.7039 angstrom` in
-  Table 1. Their cutoff-sensitivity estimate is documented but is not treated
-  as a covariance-derived coefficient error.
-
-- Hanfland et al. report graphite `V0 = 35.12(2) angstrom^3`; the omitted
-  `0.02` uncertainty is restored with an audit correction.
-- Clendenen and Drickamer's CoO coefficients belong to the Murnaghan equation
-  printed as Equation 4, not Birch--Murnaghan. The corrected record uses
-  Table II `a0 = 4.258 angstrom`, Table VI `B0 = 190.5 GPa` and `B0' = 3.9`,
-  and the 0--30.8 GPa Table III data span. The source prints no fit errors or
-  covariance and warns that these whole-range empirical constants need not be
-  the true one-atmosphere derivatives. The [detailed CoO reproduction](literature-reproductions.md#coo-clendenen-1966)
-  rules out decimal rounding alone. It identifies a strongly anticorrelated,
-  weakly identifiable coefficient pair plus unavailable source rows, weights,
-  and regression details; conditional fits recover either published
-  coefficient when the other is fixed.
-- Gleason et al.'s goethite record is a BM3 reference isotherm plus
-  Mie--Gruneisen--Debye thermal pressure, not a standalone room-temperature
-  BM3. The corrected validation now uses all 65 deposited P-V-T rows, but
-  `K0=183.338 GPa` and a boundary `K0'=0` still do not reproduce the printed
-  `140.3 GPa` and `4.6`. Depository row 32 is itself an isolated 100 degC,
-  6.66 GPa state at `V=122.80 angstrom^3`; the published EOS expects
-  `133.105 angstrom^3`. Removing it improves the curve residual but still gives
-  `K0=177.642 GPa` and `K0'=1.5419`. The
-  [detailed goethite reproduction](literature-reproductions.md#goethite-gleason-2008)
-  documents the anomaly, a fresh Figure 3 digitization cross-check, the paper's
-  malformed printed Equation 1, the 9 GPa non-hydrostatic discontinuity, and
-  the unresolved source weighting/reduction details. The figure agrees with the
-  primary table where points are shown, but omits the entire 100 degC series
-  containing row 32. Fitting the 47 visible markers independently gives
-  `K0=193.45 GPa` and `K0'=0.893` with the reconstructed thermal model, or
-  `203.78 GPa` and `0.262` as plain BM3; fixing `K0=140.3 GPa` requires
-  `K0'=6.112`, rather than `4.6`. This record is retained for provenance and
-  published-curve reproduction but is not recommended for quantitative
-  pressure-volume or thermoelastic work.
-- Noguchi et al.'s NiO record is a shock-derived 300 K isotherm, not a static
-  compression experiment. The official 1998 primary conference paper supplies
-  the sample's pseudo-cubic `a0 = 4.177(1) angstrom`, the Mie--Gruneisen
-  reduction, and the Murnaghan--Birch equation context; the final 1999 article
-  reports `K0 = 191 GPa`, `K0' = 3.9`, and the 147.6 GPa range. The `V0` error
-  is propagated from `a0`; neither article reports coefficient errors for
-  `K0` or `K0'`.
-- Somayazulu et al. call the B4C fit third-order Birch--Murnaghan in the
-  abstract but second-order in the Figure 1 caption while reporting
-  `K0' = 3.3(1)`. Peritheos retains BM3 because conventional BM2 fixes
-  `K0' = 4`, and stores the conflict in `reported_inconsistencies`.
-- Hazen and Finger's zircon value `K0 = 227(2) GPa` assumes `K0' = 6.5`.
-  The inherited BM2 record was therefore corrected to BM3 with the derivative
-  fixed, and its reported `V0 = 260.79(4) angstrom^3` was restored.
-- Ross's unconstrained magnesite BM3 fit reports `V0 = 279.41(8)
-  angstrom^3`; the migrated ambient measured volume and its uncertainty were
-  replaced by the fitted reference volume and error.
-- Haines et al. fit relative volumes for their Mo2C specimen. Its reference
-  volume is now normalized from their measured ambient subcell rather than
-  unrelated lattice constants, the represented range ends at 46 GPa, and the
-  measured `V0` is fixed in the refit as required by the source's `V/V0`
-  representation. The corrected result, `K0=325.874(9.500) GPa` and
-  `K0'=4.909(651)`, is within combined two-sigma uncertainty of the published
-  pair and is now classified `similar`; its remaining endpoint sensitivity is
-  documented in the [dedicated reproduction](literature-reproductions.md#mo2c-haines-2001).
-- Holmes et al.'s platinum pressure scale is Equation (11), the universal
-  (Vinet) EOS, not BM3. Its reference volume, 0--550 GPa static-isotherm range,
-  and Equation (12) constant thermal-pressure extension were restored. The
-  separate 32--660 GPa interval describes the shock Hugoniot.
-- Anderson et al.'s Au scale is Equation (29), not the inherited constant-
-  expansivity reference-state approximation. It now combines the adopted
-  300 K BM3 isotherm with the generic logarithmic-volume linear thermal
-  pressure and reproduces the top rows of Table V. The published partial
-  error on `(dKT/dT)V` is propagated; its additional unquantified contribution
-  from `K0'` uncertainty remains an explicit caveat rather than an invented
-  covariance.
-- Frank et al.'s ice-VII record is the simultaneous three-parameter 300 K BM3
-  fit from Equation (2). Its `12.4(1) cm^3/mol` reference volume is converted
-  explicitly to the two-formula-unit cubic cell, and a Table 1 state is
-  reproduced within its reported pressure uncertainty.
-- Shim and Mao's cubic CaSiO3 fits and Richet et al.'s separate B1/B2 CaO
-  fits are now traced to their primary tables. Reported one-standard-deviation
-  errors are retained, including Shim's published `V0=45.58(5) angstrom^3`
-  even though `V0` was fixed in that particular fit; parameters without a
-  published error remain null. Molar CaO volumes are converted explicitly to
-  the represented cells.
-- Hazen and Finger's rutile GeO2/SnO2 reference volumes are recalculated from
-  their Table 3 lattice constants. The paper reports errors for `K0` but no
-  EOS-fit error for derived `V0`, so Peritheos does not manufacture one.
-- Knorr et al.'s PbS record now uses their `a=5.9240(4) angstrom` sample,
-  giving `V0=207.8955(421) angstrom^3`, and restores the published
-  `K0=51.0(1.2) GPa` error. The unrelated migrated volume was removed.
-- Katsura et al.'s wadsleyite record restores `V0=538.49(2) angstrom^3`,
-  the source uncertainty on fixed `K0=169.2(9) GPa`, and the fitted
-  `gamma0=1.64(2)` and `q=1.5(1)` errors. Fixed `theta0=814 K` remains
-  errorless because the paper does not assign it an error.
-- Zhao et al.'s jadeite record now implements the complete 300--1280 K
-  Equation (1), not only its 300 K slice. It fixes the source's actual EOS
-  `V0=403 angstrom^3` and `K0'=5`, restores `K0=124.5(4.0) GPa`,
-  `dK/dT=-0.0165(49) GPa/K`, and `alpha=a+bT`, and fits all 31 hydrostatic
-  Table 1 states. The prior `V0=403.32(8) angstrom^3` was a measured ambient
-  row incorrectly substituted for the fixed coefficient. The Decker (1971)
-  NaCl pressure basis is identified, while absent calibrant volumes, exact
-  weights, covariance, and confidence convention remain explicit. The
-  full-table refit recovers every varied coefficient within its published
-  uncertainty and is classified `similar`; see the
-  [dedicated audit](literature-reproductions/zhao-1997-jadeite.md).
-- Walker et al.'s B2-KCl record now keeps one internally consistent preferred Table 3 fit.
-  Equation BE1 is represented as BM3 plus linear thermal pressure, rather than
-  as a temperature-shifted reference state. Individual `V0`, `K0`, `K0'`, and
-  `alpha0` errors remain null because the authors explicitly reject them as
-  meaningful under the strong parameter covariance; the directly reported
-  `alpha0*K0=0.0275(9) kbar/K` product and its uncertainty are retained and
-  propagated as `0.00275(9) GPa/K`. The refit campaign now follows the preferred
-  Table 3 staging: hold fictive `V0=53.53 angstrom^3`, fit `K0` and `K0'` to
-  the eight 23-24 degC rows, and then fit the thermal-pressure product. It
-  recovers `K0=23.775 GPa`, `K0'=4.416`, and
-  `alpha_KT=0.002766 GPa/K`; the previous large discrepancy came from comparing
-  an all-free simultaneous refit with the preferred staged row. The full
-  diagnosis is in the [Walker KCl reproduction](literature-reproductions.md#kcl-walker-2002).
-- Tateno et al.'s B2-KCl record now follows the final published article rather
-  than the accepted manuscript: `gamma0=2.3(2)`, `q=0.8(2)`, and Equation 6's
-  integrated-Gruneisen Debye-temperature law. The 39 observations are
-  retranscribed from the official MSA Supplemental Table S1 workbook, which
-  preserves the Pt-KCl row pairing that was lost across the split manuscript
-  table. The corrected joint refit gives `K0=18.3446 GPa`, `K0'=5.60096`,
-  `gamma0=2.29519`, and `q=0.82490`, restoring uncertainty parity. See the
-  [Tateno KCl reproduction](literature-reproductions.md#kcl-tateno-2019).
-- Chidester et al.'s B2-KCl record now declares both inputs to its published
-  simultaneous fit: all 123 Dewaele et al. (2012) room-temperature B2 rows and
-  all 155 new high-temperature rows. The corrected unweighted fit uses the
-  thermodynamically integrated constant-`q` Debye-temperature relation and
-  gives `V0=53.2036 angstrom^3`, `K0=23.9721 GPa`, `K0'=4.55798`,
-  `gamma0=2.91714`, and `q=0.96524`. All five regain uncertainty parity, and
-  the 1.582 GPa high-temperature RMSE matches the source's reported 1.6 GPa.
-  The earlier `q=0` boundary came from fitting only the high-temperature rows
-  with a different objective. See the
-  [Chidester KCl reproduction](literature-reproductions.md#kcl-chidester-2021).
-- Shen and Smith's eight Pt, Au, Ta, W, Mo, NaCl-B1, bcc-Fe and hcp-Fe fits
-  retain conditional coefficient parity. **MgO and NaCl-B2 are not reproduced
-  and not recommended for quantitative use**: published-curve pressure RMS is
-  1.161 and 0.622 GPa, versus diagnostic refit RMS 0.476 and 0.293 GPa.
-  All available Table S1 MgO/NaCl-B2 observations are accounted for, but exact
-  author fit-input completeness is unconfirmed because data availability
-  mentions additional author-held data. See the
-  [source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md).
-  The fixed reference volumes, fitted pressure
-  intervals, and printed `K0`/`K0'` errors are retained. The article does not
-  state the confidence level of those errors or publish their covariance, so
-  Peritheos records neither and explicitly assumes independent parameters when
-  propagating them. These room-temperature fits do not acquire a thermal model
-  merely because the experiment was controlled at `298.5(5) K`.
-
-The audit also restores model inputs that the interchange migration omitted:
-`n` and `Z` for the eleven Sokolova compositions, `n = 3` for the two SiO2
-Debye records, and `Tr = 300 K` for the Bezacier ice records. Each addition is
-recorded under `audit_corrections` with its primary equation/table location.
-All validated records are then instantiated in the test suite; a
-scientifically validated label is never allowed to mask an incomplete model.
-
-Martinez et al. (1996) provide two distinct aragonite reductions. Their staged
-second-order route fits `V0,T` and `K0,T` along each isotherm with `K0'=4`, then
-uses Equation (2) for linear `K0(T)` and Equation (3) for a directly linear
-reference volume. Regressing the printed Table 6 values gives
-`alpha_bar=6.484e-5 K^-1`, reproducing `6.5(1)e-5 K^-1`; unweighted and
-error-weighted `K0,T` slopes are `-0.01969` and `-0.01702 GPa/K`, bracketing
-the reported `-0.018(2) GPa/K`. Peritheos therefore provides this executable
-BM2 P-V-T record (`V0=227.5(8) angstrom^3`, `K0=64.81(348) GPa`). The conflict
-between its Table 6 `K0` error and the approximately 4.3 GPa summary error is
-retained in `reported_inconsistencies`.
-
-The paper's separate six-parameter global HT-BM3 reduction is excluded. Table
-7 omits its fitted `V0(298 K)` and error, and its remaining coefficients do not
-reproduce the 64 printed P--V--T observations under the documented equations
-with ordinary pressure- or volume-residual least squares. No Peritheos refit is
-substituted for that unreproducible published record.
-
-### Full-text resolution of the former deferred set
-
-Full published articles recovered during the 2026-09-01 audit resolve the
-other former blockers directly from primary evidence:
-
-| Material | Primary result represented | Important qualification |
+| Layer | What it establishes | Where to look |
 |---|---|---|
-| CsCl | Campbell and Heinz (1994) 300 K BM3, `K0=17.01(29) GPa`, `K0'=5.49(15)` | `V0` is fixed from the accepted `a0=4.123 angstrom`; all 13 new rows and nine corrected Yagi ratios are bundled. The 22-point refit achieves parity, with a qualification because the source does not publish its normalized-stress weights. |
-| RbCl B2 | Campbell et al. (1994) 300 K BM3, `K0=17.9(10) GPa`, `K0'=5.23(29)` | The non-quenchable phase uses the paper's fixed hypothetical `rho02=3.3068(10) Mg/m^3`; all 24 Table 1 rows are bundled and achieve parity. |
-| Fe3O4 | Mao et al. (1974) BM3, `K0=183(10) GPa` | `K0'=4.0(4)` is explicitly assumed; the `K0` error combines fit and pressure-scale contributions rather than defining covariance. |
-| Li | Hanfland et al. (1999) Vinet, `K0=11.32(10) GPa`, `K0'=3.62(4)` | This is one empirical fit spanning bcc and fcc data, not a phase-specific bcc EOS; the stored conventional bcc cell contains two atoms. |
-| majorite | Yagi et al. (1992) BM3, `V0=1513.1 angstrom^3`, `K0=161.2 GPa`, fixed `K0'=4` | The paper prints no fit error or covariance; the inherited `4 GPa` error was removed. |
-| `(Mg0.4Fe0.6)O` | Richet et al. (1989) BM2, `K0=149(4) GPa` | The corrected formula is `Mg0.4Fe0.6O`; `V0` and its error are propagated from `a0=4.2805(4) angstrom`. |
-| NiS | Campbell et al. (1993) BM3, `K0=156(10) GPa`, `K0'=4.4(12)` | The record is the metastable NiAs-type phase and uses the measured hexagonal reference cell. |
-| phase D | Shieh et al. (2000) BM2, `K0=134(5) GPa` | AntA and AntB have distinct measured `V0=88.12(32)` and `87.191(97) angstrom^3`; two records preserve those reference-volume conventions instead of inventing a shared fit value. |
-| cubic SnO2 | Ono et al. (2000) 300 K BM3, `V0=130.6(3) angstrom^3`, `K0=252(28) GPa`, `K0'=3.5(22)` | The paper's separate expansivity at 25 GPa is not a complete thermal EOS. The printed `130.6(3)` uncertainty is `0.3`, not `3.0 angstrom^3`. |
-| SrO B1 | Liu & Bassett (1973) BM3, `K0=91.3(27) GPa`, `K0'=4.3(3)` | The fit includes the reported slight tetragonal distortion because the paper observes no volume discontinuity. |
-| SrO B2 | Sato & Jeanloz (1981) BM2, `K0=160(19) GPa` | `V0=28.0224(9128) angstrom^3` is converted from the published extrapolated density; `K0'=4` is fixed. |
+| Structural | The `.eosmat` file matches its version's schema and declarations. File and software interoperability only. | `python -m peritheos validate` |
+| Source check | Equation, coefficients, units, normalization, reference state, phase, uncertainty convention and represented range were traced to the cited primary publication or official supplement. Parsing or reproducing another library is never sufficient. | Each record's `check.source`; [source-audit reports](source-audits.md) |
+| Reproduction | Whether a refit of the original data reproduced the published coefficients: the `check.reproduction` headline `reproduced`, `close`, `disagrees` or `untested`, plus any usage `warning`. | [Reconstruction reports](reconstruction-reports/index.md) (counts by headline and one section per record); [refit ledger](primary-eos-refits.md) |
+| Numerical | The implemented equations, inversions, fits and uncertainty propagation behave as specified. | The sections below |
 
-The same full-text pass confirms Scott et al.'s cementite result:
-`V0=155.26(14) angstrom^3`, `K0T=175.4(35) GPa`, and `K0T'=5.1(3)`.
-The reference volume is an adopted ambient measurement, not a simultaneously
-fitted coefficient. None of these articles publishes a parameter covariance
-matrix; Peritheos preserves each printed error and its stated convention, but
-does not create covariance or silently reinterpret a fixed parameter as fitted.
+The words, criteria and caveats are defined once in [EOS labels](eos-labels.md).
+A record that `disagrees`, is `untested` or carries a warning keeps its
+published coefficients; only its use is qualified. Record-specific findings,
+corrections and restrictions are stated in that record (see the
+[material summaries](material-summaries/index.md)), its reconstruction report
+and the linked source audits; the
+[recommendation dispositions](research/eos-recommendation-dispositions-2026-10-17.md)
+and [paper investigation ledger](paper-investigation-ledger.md) give the
+paper-level decisions. Records removed during the primary-source review are
+listed in the [material library README](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/README.md).
 
-Two cited migrated reductions remain removed rather than deferred. The
-Fei-labeled FeO citation is a thermal-expansion chapter that does not define
-the stored static BM3, and the Hixson tungsten shock paper publishes reduced
-isotherm tables rather than the inherited standalone BM3 coefficients.
+The package ships the record-by-record source-audit ledger as
+`peritheos/data/primary-source-audit.json`; each bundled record's audit sidecar
+holds its audit date, source URL, DOI or stable locator, equation/table/page
+locations, outcome and caveats. `scripts/apply_primary_source_audit.py`
+(repository only) deterministically reapplies that ledger after a mechanical
+Dioptas migration. Model inputs restored by the audit, such as Sokolova `n` and
+`Z`, are recorded under `audit_corrections` with their primary location. All
+validated records are instantiated in the test suite; a scientifically
+validated label is never allowed to mask an incomplete model.
 
 ## Reference-state identities
 
@@ -468,23 +172,3 @@ equation 3 and Table 1 directly rather than changing equations or parameters to
 match another implementation. The comparison can be rerun with
 `scripts/compare_external_black_boxes.py`; neither external package is a
 Peritheos dependency or test oracle.
-
-The [primary iron source audit](literature-reproductions/iron-fei-input-papers.md)
-adds 43 records and 348 observations. Its record-specific criteria distinguish
-Brown coefficient agreement at printed precision, conditional fits within
-reported errors, unavailable scale reductions, and unresolved thermal residuals.
-
-The [Fischer (2014) Fe–Si audit](literature-reproductions/fischer-2014-fesi.md)
-adds seven published records with complete single-phase data selections and
-independent BM3/Vinet/MGD checks. Both B2 FeSi thermal candidates remain
-withheld because physical Debye normalization fails to reproduce their
-observations; doubling thermal-energy amplitude is a diagnostic, not an
-accepted correction. Two separate Peritheos B2 refits reproduce the observations
-with physical normalization and retain full conditional covariance and sensitivity
-limits; their ledger parity refers to stored-refit reproduction. All three aggregate and eight computational candidates
-have explicit exclusions.
-
-The nondefault Maltby (2024) argon record is selectable with status
-`not_reproduced`. It preserves the published coefficients and an explicitly
-assumed lattice cutoff; its Table 8 discrepancy is retained. Executability,
-numerical consistency and source traceability do not establish validation.

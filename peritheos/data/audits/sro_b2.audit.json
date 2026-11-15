@@ -1,0 +1,107 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "sro_b2",
+  "records": {
+    "sro_b2_sato_1981_bm2_1": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 28.0224,
+                "published_error": 0.9127817589576549,
+                "refit": 27.961466689322425,
+                "refit_error": 0.8797588331305788,
+                "difference": -0.06093331067757646,
+                "relative_difference": 0.0021744501069707253,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 160.0,
+                "published_error": 19.0,
+                "refit": 162.70585070949238,
+                "refit_error": 36.64903930857559,
+                "difference": 2.705850709492381,
+                "relative_difference": 0.016911566934327382,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "density_mg_m3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 13,
+              "observed_pressure_range_gpa": [32.0, 59.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [22.152380069524913, 24.178967959527824],
+              "degrees_of_freedom": 11,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 2.800067278116326,
+              "published_rmse_gpa": 2.803143227793565,
+              "reduced_chi_square": 1.0450277086826225,
+              "dataset_identifiers": ["sro_b2_sato_1981_table1_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/JB086iB12p11773",
+            "locations": [
+              "page 11774, Table 1, B2-SrO density observations",
+              "pages 11775-11776, equations (1)-(7), finite-strain derivation",
+              "page 11776, second-order fit and Figure 3"
+            ],
+            "finding": "The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-unit B2 conventional-cell volume; no covariance is published.",
+            "doi": "10.1029/jb086ib12p11773"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "sro_b2.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["sro_b2_sato_1981_table1_compression"],
+            "source_locations": ["Table 1, page 11774"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 11774, Table 1, B2-SrO density observations; pages 11775-11776, equations (1)-(7), finite-strain derivation; page 11776, second-order fit and Figure 3.",
+          "V0": "Sato and Jeanloz (1981), page 11776: rho0=6.14+/-0.20 Mg/m^3, converted to the Z=1 Pm-3m conventional-cell volume",
+          "K0": "Sato and Jeanloz (1981), page 11776, second-order fit",
+          "equation": "Sato and Jeanloz (1981), equations (1)-(7) and page 11776: second-order Eulerian finite strain with K0'=4"
+        }
+      }
+    }
+  }
+}

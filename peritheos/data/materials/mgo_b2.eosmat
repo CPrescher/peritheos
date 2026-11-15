@@ -33,60 +33,13 @@
         "locator": "2495-2503",
         "doi": "10.1103/PhysRevB.44.2495"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {
-            "kind": "other",
-            "source_location": "Sections II-III, MPIB plus Debye vibrational free energy",
-            "notes": "Modified potential-induced-breathing theoretical model."
-          }
-        ],
-        "recalculation": {"status": "not_applicable", "notes": "Theoretical EOS."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Calculated states are plotted but not tabulated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mgo_b2/#record-mgo_b2_zhang_bukowinski_1991_mpib_bm3",
-            "report_path": "docs/reconstruction-reports/mgo_b2.md#record-mgo_b2_zhang_bukowinski_1991_mpib_bm3",
-            "fit": {
-              "fixed_parameters": [],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.44.2495/fulltext",
-            "doi": "10.1103/physrevb.44.2495",
-            "locations": ["Sections II.D-III.B", "Table IV"],
-            "finding": "Complete B2 coefficients on the Z=1 cell."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_plot_only",
-            "audit_date": "2026-09-05",
-            "finding": "Calculated states are plotted but not tabulated."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Sections II.D-III.B; Table IV.",
-          "equation": "Section III.B cubic-oxide Birch-Murnaghan framework.",
-          "parameters": "Table IV B2 room-temperature row: V0=18.07 A3, K0=175 GPa, K0'=4.20."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Complete B2 coefficients on the Z=1 cell.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/mgo_b2.audit.json#mgo_b2_zhang_bukowinski_1991_mpib_bm3"
       }
     }
   ],

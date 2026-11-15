@@ -1,0 +1,122 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "osmium",
+  "records": {
+    "osmium_takemura_2004_bm3_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Experimental pressure determination",
+            "reference_calibration_record": "ruby_mao_1986"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 27.9766135265,
+                "published_error": 0.0188,
+                "refit": 27.962128083022463,
+                "refit_error": 0.0036469995269804156,
+                "difference": -0.014485443477536109,
+                "relative_difference": 0.0005177697244813141,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 395.0,
+                "published_error": 15.0,
+                "refit": 403.5222582428868,
+                "refit_error": 2.907943757011201,
+                "difference": 8.522258242886778,
+                "relative_difference": 0.021575337323763995,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.5,
+                "published_error": 0.5,
+                "refit": 4.25301099206546,
+                "refit_error": 0.13222470923631685,
+                "difference": -0.24698900793454026,
+                "relative_difference": 0.05488644620767561,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_ratio"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 28,
+              "observed_pressure_range_gpa": [1.2, 58.2],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [24.963532249695948, 27.881493040509902],
+              "degrees_of_freedom": 25,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.1409971442658777,
+              "published_rmse_gpa": 0.1943870599645804,
+              "reduced_chi_square": 2.5433104086575606,
+              "dataset_identifiers": ["osmium_takemura_2004_table1_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.012101/fulltext",
+            "locations": ["Table I", "page 2 EOS discussion", "Figure 2"],
+            "finding": "The paper fixes relative V0 to unity; the absolute hcp cell follows its stated ambient lattice parameters.",
+            "doi": "10.1103/physrevb.70.012101"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "osmium.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["osmium_takemura_2004_table1_compression"],
+            "source_locations": ["Table I, page 012101-2"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I; page 2 EOS discussion; Figure 2."
+        }
+      }
+    }
+  }
+}

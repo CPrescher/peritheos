@@ -29,113 +29,12 @@
         "locator": "461-466",
         "doi": "10.1107/S0021889897000861"
       },
-      "pressure_calibration": {
-        "status": "unresolved",
-        "methods": [],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-        },
-        "audit_date": "2026-09-03",
-        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "parity",
-            "scope": "parameter_agreement",
-            "source_status": "parity",
-            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/alpha_quartz/#record-alpha_quartz_angel_1997_bm3_1",
-            "report_path": "docs/reconstruction-reports/alpha_quartz.md#record-alpha_quartz_angel_1997_bm3_1",
-            "parameters": [
-              {
-                "parameter": "V0",
-                "published": 112.981,
-                "published_error": 0.002,
-                "refit": 112.97156243085406,
-                "refit_error": 1.918255336614653,
-                "difference": -0.009437569145930524,
-                "relative_difference": 8.353235628938073e-05,
-                "similar": true,
-                "within_combined_2sigma": true
-              },
-              {
-                "parameter": "K0",
-                "published": 37.12,
-                "published_error": 0.09,
-                "refit": 37.20107673901708,
-                "refit_error": 18.085913257669695,
-                "difference": 0.08107673901708523,
-                "relative_difference": 0.0021841793916240635,
-                "similar": true,
-                "within_combined_2sigma": true
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 5.99,
-                "published_error": 0.04,
-                "refit": 5.957886249199415,
-                "refit_error": 5.610450371451321,
-                "difference": -0.032113750800585095,
-                "relative_difference": 0.00536122717872873,
-                "similar": true,
-                "within_combined_2sigma": true
-              }
-            ],
-            "fit": {
-              "fit_kind": "isothermal_pv",
-              "objective": "errors_in_variables",
-              "selection": "all rows",
-              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
-              "absolute_sigma": true,
-              "free_parameters": ["V0", "K0", "K0_prime"],
-              "fixed_parameters": [],
-              "observations": 23,
-              "observed_pressure_range_gpa": [0.0001, 8.905],
-              "observed_temperature_range_k": null,
-              "observed_volume_range": [96.989, 112.981],
-              "degrees_of_freedom": 20,
-              "solver_success": true,
-              "solver_message": "`ftol` termination condition is satisfied.",
-              "rmse_gpa": 0.013178421482088917,
-              "published_rmse_gpa": 0.013584537045929873,
-              "reduced_chi_square": 0.00019973736531579177,
-              "dataset_identifiers": ["alpha_quartz_angel_1997_table1_compression"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://doi.org/10.1107/S0021889897000861",
-            "locations": ["Primary abstract", "third-order Birch-Murnaghan fit"],
-            "doi": "10.1107/s0021889897000861"
-          },
-          "migration_source": {
-            "project": "Dioptas",
-            "version": "0.10.0",
-            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-            "file": "alpha_quartz.json"
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-03",
-            "dataset_identifiers": ["alpha_quartz_angel_1997_table1_compression"],
-            "source_locations": ["Table 1, journal page 463"],
-            "finding": "All 23 alpha-quartz unit-cell observations printed in Table 1, including the simultaneously measured fluorite volumes used to determine pressure."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary abstract; third-order Birch-Murnaghan fit."
-        }
+      "check": {
+        "reproduction": "reproduced",
+        "warning": null,
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/alpha_quartz.audit.json#alpha_quartz_angel_1997_bm3_1"
       }
     },
     {
@@ -169,67 +68,13 @@
         "locator": "9519-9524",
         "doi": "10.1073/pnas.0912130107"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {"kind": "ab_initio", "source_location": "Methods"}
-        ],
-        "recalculation": {"status": "not_applicable", "notes": "Quantum Monte Carlo thermal EOS."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/alpha_quartz/#record-alpha_quartz_driver_2010_qmc_300k_vinet",
-            "report_path": "docs/reconstruction-reports/alpha_quartz.md#record-alpha_quartz_driver_2010_qmc_300k_vinet",
-            "fit": {
-              "fixed_parameters": [],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
-          "audit_date": "2026-09-05",
-          "verified_fields": [
-            "canonical_doi",
-            "composition",
-            "phase",
-            "equation",
-            "parameters",
-            "uncertainties",
-            "volume_basis",
-            "reference_state",
-            "theoretical_method"
-          ],
-          "primary_source_check": {
-            "access_url": "https://arxiv.org/pdf/1001.2066",
-            "doi": "10.1073/pnas.0912130107",
-            "locations": ["Equations of States section", "Figure 1a", "Table 1"],
-            "finding": "The source reports a distinct QMC 300 K Vinet for quartz in addition to the two high-pressure silica rows found by LitCurate."
-          },
-          "primary_data_check": {
-            "status": "parameterization_and_plot_only",
-            "audit_date": "2026-09-05",
-            "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Equations of States section; Figure 1a; Table 1.",
-          "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
-          "parameters": "Table 1, quartz QMC column.",
-          "volume_conversion": "254(2) bohr3 per SiO2 multiplied by (0.529177210903 A/bohr)^3 and Z=3."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "The source reports a distinct QMC 300 K Vinet for quartz in addition to the two high-pressure silica rows found by LitCurate.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-05",
+        "audit": "../audits/alpha_quartz.audit.json#alpha_quartz_driver_2010_qmc_300k_vinet"
       }
     }
   ],

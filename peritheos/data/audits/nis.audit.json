@@ -1,0 +1,108 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "nis",
+  "records": {
+    "nis_campbell_1993_bm3_1": {
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 156.0,
+                "published_error": 10.0,
+                "refit": 163.3248572929364,
+                "refit_error": 7.584929046121433,
+                "difference": 7.3248572929364,
+                "relative_difference": 0.04695421341625897,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.4,
+                "published_error": 1.2,
+                "refit": 3.86225237798039,
+                "refit_error": 0.9418463211450339,
+                "difference": -0.5377476220196105,
+                "relative_difference": 0.12221536864082055,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "a_a"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 16,
+              "observed_pressure_range_gpa": [2.8, 44.9],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [44.611809098404436, 54.09011350126022],
+              "degrees_of_freedom": 14,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.8767862704884712,
+              "published_rmse_gpa": 2.0064945277546116,
+              "reduced_chi_square": 2.0315565307575785,
+              "dataset_identifiers": ["nis_campbell_1993_table1_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/0022-3697(93)90106-2",
+            "locations": [
+              "page 6, ambient NiAs-type lattice parameters",
+              "page 6, Table 1, measured P-a-c data",
+              "page 6, third-order Birch-Murnaghan fit and Figure 1"
+            ],
+            "finding": "The conventional hexagonal-cell V0 and its error are independently propagated from a=3.4395(2) A and c=5.3514(7) A. The paper reports no parameter covariance.",
+            "doi": "10.1016/0022-3697(93)90106-2"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "nis.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["nis_campbell_1993_table1_compression"],
+            "source_locations": ["Table 1, page 6"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 6, ambient NiAs-type lattice parameters; page 6, Table 1, measured P-a-c data; page 6, third-order Birch-Murnaghan fit and Figure 1.",
+          "V0": "Campbell and Heinz (1993), page 6: a0=3.4395(2) A and c0=5.3514(7) A; V0=sqrt(3)/2*a0^2*c0",
+          "K0": "Campbell and Heinz (1993), page 6, BM3 fit paragraph",
+          "K0_prime": "Campbell and Heinz (1993), page 6, BM3 fit paragraph",
+          "equation": "Campbell and Heinz (1993), page 6 and Figure 1"
+        }
+      }
+    }
+  }
+}

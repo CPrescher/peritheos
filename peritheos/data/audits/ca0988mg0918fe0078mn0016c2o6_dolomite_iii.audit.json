@@ -1,0 +1,269 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "ca0988mg0918fe0078mn0016c2o6_dolomite_iii",
+  "records": {
+    "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Pt",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "title": "Toward an internally consistent pressure scale",
+              "source": "Proceedings of the National Academy of Sciences",
+              "volume": "104",
+              "locator": "9182-9186",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Experimental Procedure, paragraph 5",
+            "scope": "all observations"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No row-wise Pt volumes or numerical sample P-V table are published."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 239.2,
+                "published_error": 1.5,
+                "refit": 239.66589306646065,
+                "refit_error": 4.829648480016263,
+                "difference": 0.46589306646066575,
+                "relative_difference": 0.0019477134885479339,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 164.0,
+                "published_error": 8.0,
+                "refit": 172.34398572048195,
+                "refit_error": 27.421246199205157,
+                "difference": 8.343985720481953,
+                "relative_difference": 0.05087796171025581,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "high_spin_fit_included=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 7,
+              "observed_pressure_range_gpa": [28.363636, 50.181818],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [197.55814, 210.813953],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 1.4655788533671394,
+              "published_rmse_gpa": 2.9550573964278923,
+              "reduced_chi_square": 3.007089925611715,
+              "dataset_identifiers": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and enumeration.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "cell_basis",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data",
+            "fit_selection_limitation"
+          ],
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
+            "doi": "10.1029/2011GL049519",
+            "locations": ["Results, paragraphs 8-9", "Discussion, paragraphs 10-11", "Figure 3", "auxiliary Table S1"],
+            "finding": "The primary source reports a composition-specific high-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed, while explicitly warning that V0 is unknown and strongly trades off with K0 and K0'."
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-05",
+            "digitized_dataset_identifiers": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
+            "source_locations": ["Figure 3b, larger-volume open-circle branch"],
+            "finding": "Seven separable larger-volume markers are bundled. No numerical phase-III P-V table is supplied by the article or auxiliary files."
+          },
+          "independent_refit": {
+            "method": "Unweighted diagnostic refits to digitized Figure 3 marker centers with K0'=4 fixed; both pressure and volume objectives are reported because source weights and objective are unavailable.",
+            "published_curve_pressure_rmse_gpa": 2.9550574,
+            "published_curve_volume_rmse_a3": 1.90504412,
+            "pressure_objective_parameters": {"V0": 239.66589277, "K0": 172.34398738, "K0_prime": 4.0},
+            "volume_objective_parameters": {"V0": 237.68620755, "K0": 184.47868223, "K0_prime": 4.0},
+            "assessment": "The printed curve is consistent with the plotted branch at raster resolution, and the two unconstrained objectives expose the large extrapolation tradeoff described by the authors. These diagnostics validate curve identity but do not reconstruct undocumented source weights."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results, paragraphs 8-9; Discussion, paragraphs 10-11; Figure 3; auxiliary Table S1.",
+          "equation": "Discussion paragraph 11 states the phase-III spin branches were fitted with third-order Birch-Murnaghan equations.",
+          "V0": "Discussion paragraph 11: high-spin V0=239.2(+/-1.5) A^3.",
+          "K0": "Discussion paragraph 11: high-spin K0=164(+/-8) GPa.",
+          "K0_prime": "Discussion paragraph 11: fixed at 4.",
+          "fit_selection": "Figure 3b larger-volume branch. The text says both compression and decompression results were used for high spin, while the plotted larger-volume markers are open decompression symbols; the exact original row mask is therefore not recoverable and is not silently invented."
+        }
+      }
+    },
+    "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Pt",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "title": "Toward an internally consistent pressure scale",
+              "source": "Proceedings of the National Academy of Sciences",
+              "volume": "104",
+              "locator": "9182-9186",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Experimental Procedure, paragraph 5",
+            "scope": "all observations"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No row-wise Pt volumes or numerical sample P-V table are published."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 231.8,
+                "published_error": 0.7,
+                "refit": 228.73882632422394,
+                "refit_error": 1.2091056864545087,
+                "difference": -3.0611736757760752,
+                "relative_difference": 0.013206098687558563,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0",
+                "published": 184.0,
+                "published_error": 4.0,
+                "refit": 209.40441994613167,
+                "refit_error": 7.4655053400739595,
+                "difference": 25.404419946131668,
+                "relative_difference": 0.13806749970723733,
+                "similar": true,
+                "within_combined_2sigma": false
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "low_spin_fit_included=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 18,
+              "observed_pressure_range_gpa": [46.181818, 84.242424],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [179.069767, 194.418605],
+              "degrees_of_freedom": 16,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.8586015012491195,
+              "published_rmse_gpa": 2.9152095406831338,
+              "reduced_chi_square": 0.8293461051906469,
+              "dataset_identifiers": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and enumeration.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "cell_basis",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data",
+            "fit_selection_limitation"
+          ],
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
+            "doi": "10.1029/2011GL049519",
+            "locations": ["Results, paragraphs 8-9", "Discussion, paragraphs 10-11", "Figure 3", "auxiliary Table S1"],
+            "finding": "The primary source reports a composition-specific low-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed and explicitly warns of the high-pressure extrapolation tradeoff."
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-05",
+            "digitized_dataset_identifiers": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
+            "source_locations": ["Figure 3b, lower-volume compression and decompression branch"],
+            "finding": "Eighteen separable lower-volume markers are bundled. No numerical phase-III P-V table is supplied by the article or auxiliary files."
+          },
+          "independent_refit": {
+            "method": "Unweighted diagnostic refits to digitized Figure 3 marker centers with K0'=4 fixed; both pressure and volume objectives are reported because source weights and objective are unavailable.",
+            "published_curve_pressure_rmse_gpa": 2.91520954,
+            "published_curve_volume_rmse_a3": 1.22683803,
+            "pressure_objective_parameters": {"V0": 228.73882646, "K0": 209.40441908, "K0_prime": 4.0},
+            "volume_objective_parameters": {"V0": 228.21183257, "K0": 212.76391156, "K0_prime": 4.0},
+            "assessment": "The published curve follows the lower-volume plotted branch within 1.95 A^3, while unconstrained refits move along the severe V0-K0 tradeoff expected from extrapolating a 46-84 GPa dataset to zero pressure. The source coefficients are preserved rather than replaced by a raster-dependent optimum."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results, paragraphs 8-9; Discussion, paragraphs 10-11; Figure 3; auxiliary Table S1.",
+          "equation": "Discussion paragraph 11: third-order Birch-Murnaghan equation of state.",
+          "V0": "Discussion paragraph 11: low-spin V0=231.8(+/-0.7) A^3.",
+          "K0": "Discussion paragraph 11: low-spin K0=184(+/-4) GPa.",
+          "K0_prime": "Discussion paragraph 11: fixed at 4.",
+          "fit_selection": "Figure 3b lower-volume branch on compression and decompression. The source does not publish row identifiers or regression weights, so the bundled marker mask records the visible branch rather than claiming exact recovery of the private input table."
+        }
+      }
+    }
+  }
+}

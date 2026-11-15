@@ -379,6 +379,20 @@ coefficients and statistics, source-check locations, verified fields and
 unresolved issues. Standalone user files may keep evidence inline and need
 neither a sidecar nor a `check` block.
 
+You may instead write a bundled material as one complete inline-evidence v5
+file in `peritheos/data/materials/`, without `check` blocks or a sidecar. To
+change an already split material, first save its complete document over the
+record file (`save_eosmat(path, get_material_document(id, format_version=5))`)
+and edit that. Then run the repository maintenance command
+`python scripts/split_eosmat_audits.py --add` (optionally naming materials).
+It splits every bundled file that still holds inline audit blocks or has no
+sidecar, derives each `check` block mechanically from the stored evidence,
+removes only the generic statements listed in the receipt
+`docs/data/eosmat-v5-audit-split.json`, and adds a binding there that
+recovers your inline file byte for byte. It refuses a file that is not
+canonically formatted or whose split would change anything else. Run
+`python scripts/split_eosmat_audits.py --verify` afterwards.
+
 Write both briefly. State each finding once, not again in basis, notes and
 qualifications. Do not restate a label's generic caveat; [EOS labels](eos-labels.md)
 holds it. Keep solver diagnostics and full-precision refit numbers out of the

@@ -59,110 +59,13 @@
         "locator": "16-22",
         "doi": "10.1080/08957959.2015.1123256"
       },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "source_location": "Experimental p.4: simultaneous NaCl:Au PTX-Cal solution",
-            "reference": {
-              "authors": ["Crichton", "Mezouar"],
-              "year": 2002,
-              "title": "Noninvasive pressure and temperature estimation in large-volume apparatus by equation-of-state cross-calibration",
-              "source": "High Temperatures-High Pressures",
-              "volume": "34",
-              "locator": "235-242"
-            },
-            "notes": "Method citation, not an identified NaCl/Au coefficient version. PTX-Cal solves |PNaCl-PAu|<1e-6 GPa scanning temperature; average returned P,T used. No exact executable standard link can be assigned."
-          }
-        ],
-        "recalculation": {
-          "status": "missing_calibrant_observations",
-          "notes": "No paired NaCl/Au cell volumes or exact calibration versions were recovered; original P,T reduction cannot be replayed."
-        },
-        "audit_date": "2026-09-19"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization.",
-            "qualifications": [
-              "Full final typeset article and any inaccessible supplement could not be verified.",
-              "Exact NaCl/Au calibration versions are unspecified in the accessible methods.",
-              "The Conclusion expansion percentages disagree with the explicit coefficients; the latter match the independent plotted isotherms.",
-              "Original row-wise temperatures and covariance are absent.",
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/vanadium_bcc/#record-vanadium_bcc_crichton_2016_bm3_thermal",
-            "report_path": "docs/reconstruction-reports/vanadium_bcc.md#record-vanadium_bcc_crichton_2016_bm3_thermal",
-            "fit": {
-              "fixed_parameters": ["Tr"],
-              "observations": 29,
-              "dataset_identifiers": ["vanadium_crichton_2016_figure2_points"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "audit_date": "2026-09-19",
-          "note": "Primary author manuscript and publisher abstract audit with independent Figure 2 curve reproduction; no claim of original 62-row fit recovery.",
-          "primary_source_check": {
-            "doi": "10.1080/08957959.2015.1123256",
-            "access_url": "https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf",
-            "source_version": "UCL author accepted manuscript; numerical abstract cross-checked on publisher publication-of-record page",
-            "locations": [
-              "Accepted manuscript pp.4-7: Experimental, Results, Conclusion",
-              "Accepted manuscript p.11: Figure 2",
-              "Publisher abstract (21 January 2016)",
-              "Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions"
-            ],
-            "finding": "Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit."
-          },
-          "verified_fields": [
-            "composition",
-            "bcc phase",
-            "conventional two-atom volume",
-            "V0",
-            "K0",
-            "K0_prime",
-            "Tr",
-            "alpha0",
-            "alpha1",
-            "dK_dT",
-            "absolute-temperature integrated expansivity",
-            "linear K0(T)",
-            "parameter errors",
-            "experimental domain"
-          ],
-          "primary_data_check": {
-            "status": "plot_only",
-            "digitized_dataset_identifiers": ["vanadium_crichton_2016_figure2_points"],
-            "finding": "Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization.",
-            "reproduction_script": "scripts/reproduce_crichton_2016_vanadium.py"
-          },
-          "unresolved": [
-            "Full final typeset article and any inaccessible supplement could not be verified.",
-            "Exact NaCl/Au calibration versions are unspecified in the accessible methods.",
-            "The Conclusion expansion percentages disagree with the explicit coefficients; the latter match the independent plotted isotherms.",
-            "Original row-wise temperatures and covariance are absent."
-          ]
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Accepted manuscript pp.4-7: Experimental, Results, Conclusion; Accepted manuscript p.11: Figure 2; Publisher abstract (21 January 2016); Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions.",
-          "V0": "Results p.5: unconstrained relative reference volume 1.005(1), equal to independently recovered 1.005 = 27.995 A^3; Figure 2 caption confirms equality. Conventional bcc cell, Z=2. Absolute fitted-volume uncertainty is not explicitly printed; retain ratio error separately.",
-          "K0": "Results p.5, unconstrained 62-point unweighted fit: 150.4 +/-6.2 GPa.",
-          "K0_prime": "Results p.5: 5.5(10), fitted; constant with T in EosFit5 convention.",
-          "alpha0": "Results p.5: 4.8(6)e-5 K^-1, fitted intercept at T=0 in alpha(T)=alpha0+alpha1*T, NOT alpha(300 K).",
-          "alpha1": "Results p.5: -2.4(9)e-8 K^-2, fitted.",
-          "dK_dT": "Results p.5: -0.0446(7) GPa/K, fitted slope of K0(T) at zero pressure, not derivative of K0-prime.",
-          "Tr": "Experimental p.4 and K0,300 label: 300 K.",
-          "equation": "BM3; EOS-FIT5.2 (Angel 2002) with linear alpha(T); Angel et al. 2014 doi:10.1515/zkri-2013-1711 p.410 explicitly documents earlier EosFit exponential integral of alpha0+alpha1*T, p.412 linear K0(T)."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-19",
+        "audit": "../audits/vanadium_bcc.audit.json#vanadium_bcc_crichton_2016_bm3_thermal"
       }
     }
   ],

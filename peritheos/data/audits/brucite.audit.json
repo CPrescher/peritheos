@@ -1,0 +1,546 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "brucite",
+  "records": {
+    "brucite_fukui_2003_300k_bm3": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-10-16",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference_eos_record": "gold_anderson_1989_bm3_1",
+            "reference": {
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
+              "year": 1989,
+              "title": "Anharmonicity and the equation of state for gold",
+              "source": "Journal of Applied Physics",
+              "volume": "65",
+              "locator": "1534-1543",
+              "doi": "10.1063/1.342969"
+            },
+            "source_location": "High-pressure experiments, p. 512; reference p. 516",
+            "scope": "Every Table 4 pressure; Au mixed with brucite 1:10 by weight"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No paired Au lattice parameters or volumes tabulated; pressure errors alone cannot reconstruct them. No inverse-EOS synthetic marker observations are created."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim.",
+              "Usage recommendation: Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 41.8,
+                "published_error": 1.3,
+                "refit": 42.0177360402393,
+                "refit_error": null,
+                "difference": 0.21773604023930204,
+                "relative_difference": 0.005208996177973733,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 6.6,
+                "published_error": 0.3,
+                "refit": 6.603483849128478,
+                "refit_error": null,
+                "difference": 0.0034838491284787665,
+                "relative_difference": 0.0005278559285573889,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "unweighted_pressure_residuals_fixed_source_V0",
+              "fixed_parameters": [],
+              "observations": 13,
+              "solver_success": true,
+              "rmse_gpa": 0.2167608081755301,
+              "published_rmse_gpa": 0.22790990500597397,
+              "dataset_identifiers": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
+              "reproduction_report": "docs/data/brucite-reproduction.json"
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-16",
+          "note": "Primary equation, coefficients, units, uncertainties and source PVT observations directly checked. Published parameters preserved; exact author regression is not reproduced. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
+          "primary_source_check": {
+            "doi": "10.1007/s00269-003-0353-z",
+            "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+            "source_equation_validated": true,
+            "locations": ["Eqs. 1-2 and Tables 1-6, pp. 512-515"],
+            "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "dataset_identifiers": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
+            "finding": "All 48 sample observations, including negative reported pressure, repeated temperatures and errors preserved; original Au readings unavailable."
+          },
+          "numerical_reproduction": {
+            "source_equation_validated": true,
+            "published_curve": {
+              "pressure_rmse_gpa": 0.22790990500597397,
+              "maximum_absolute_pressure_residual_gpa": 0.4401215188100771,
+              "pressure_residuals_gpa": [
+                0.05489446985425371,
+                0.008178716899726426,
+                -0.181141245406077,
+                0.14544602901929427,
+                0.17019744973397355,
+                -0.024033722153734338,
+                0.030605175295299603,
+                0.08452099023517334,
+                -0.4401215188100771,
+                -0.40291850702565135,
+                -0.2550677368819976,
+                0.34718645379899726,
+                -0.1973258854219786
+              ],
+              "max_absolute_effective_sigma_residual": 2.5420487416336193
+            },
+            "conditional_coefficient_agreement": "Pressure-sigma diagnostic fits agree with printed K0 and Kprime within each reported error; objective itself is not source-confirmed.",
+            "author_workflow_reproduced": false
+          },
+          "audit_report": "docs/literature-reproductions/brucite.md",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "source_phase_annotations"
+          ],
+          "usage_recommendation": "Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures."
+        },
+        "parameter_provenance": {
+          "determination_method": "Powder X-ray isothermal compression; V0(T) from independent ambient expansion measurements. No acoustic or shock coefficients substituted.",
+          "equation": "Equation (2), p. 513: ordinary third-order Birch-Murnaghan.",
+          "V0": "Table 2: V0(300)=40.917(12) A^3. For high-T slices, p. 513 states V0 was fixed from ambient expansion using Eq. (1) and Table 3 constant alpha=6.69(18)e-5 K^-1. V0(T)=40.917 exp[6.69e-5(T-300)]. Static compression V0 treatment is not separately stated; Table 2 anchoring is explicit here and subject to integration review. Derived high-T V0 errors are missing because covariance is unreported, not zero.",
+          "K0": "Table 5 and duplicated Table 6, p. 515; Kprime error 0.3 in Table 5, 0.4 in Table 6",
+          "K0_prime": "Table 5 and duplicated Table 6, p. 515; Kprime error 0.3 in Table 5, 0.4 in Table 6",
+          "temperature_ref": "Exact listed isotherm; no interpolation or temperature extrapolation between records."
+        },
+        "fit_provenance": {
+          "software": {"name": "not reported for EOS fitting", "version": "not reported"},
+          "dataset": "brucite_fukui_2003_table4",
+          "selection": {
+            "temperature_k": 300,
+            "source_rows": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+            "source_exclusions": "not reported; every printed same-T row retained in diagnostics"
+          },
+          "objective": "not reported; diagnostics compare three explicit objectives",
+          "source_weights": "not reported",
+          "source_covariance": "not reported",
+          "source_software": "not reported for EOS fitting",
+          "refined_parameters": ["K0", "K0_prime"],
+          "fixed_parameters": [],
+          "statistics": {"observations": 13},
+          "diagnostic_refits": {
+            "unweighted_pressure": {
+              "success": true,
+              "K0_gpa": 42.0177360402393,
+              "K0_prime": 6.603483849128478,
+              "delta_over_reported_errors": [0.16748926172254003, 0.011612830428262555],
+              "pressure_rmse_gpa": 0.2167608081755301,
+              "maximum_absolute_pressure_residual_gpa": 0.4590984923934016
+            },
+            "pressure_sigma": {
+              "success": true,
+              "K0_gpa": 41.59457263717242,
+              "K0_prime": 6.686400189709784,
+              "delta_over_reported_errors": [-0.15802104832890615, 0.28800063236594714],
+              "pressure_rmse_gpa": 0.22078163755892502,
+              "maximum_absolute_pressure_residual_gpa": 0.41515216508295083
+            },
+            "effective_sigma": {
+              "success": true,
+              "K0_gpa": 40.58210303332938,
+              "K0_prime": 7.029868137173733,
+              "delta_over_reported_errors": [-0.9368438205158578, 1.4328937905791121],
+              "pressure_rmse_gpa": 0.2286253221993115,
+              "maximum_absolute_pressure_residual_gpa": 0.5512677442673208
+            }
+          },
+          "diagnostic_refits_are_records": false
+        }
+      }
+    },
+    "brucite_fukui_2003_473k_bm3": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-10-16",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference_eos_record": "gold_anderson_1989_bm3_1",
+            "reference": {
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
+              "year": 1989,
+              "title": "Anharmonicity and the equation of state for gold",
+              "source": "Journal of Applied Physics",
+              "volume": "65",
+              "locator": "1534-1543",
+              "doi": "10.1063/1.342969"
+            },
+            "source_location": "High-pressure experiments, p. 512; reference p. 516",
+            "scope": "Every Table 4 pressure; Au mixed with brucite 1:10 by weight"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No paired Au lattice parameters or volumes tabulated; pressure errors alone cannot reconstruct them. No inverse-EOS synthetic marker observations are created."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim.",
+              "Usage recommendation: Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 32.6,
+                "published_error": 2.5,
+                "refit": 33.69147968162089,
+                "refit_error": null,
+                "difference": 1.0914796816208892,
+                "relative_difference": 0.03348097182886163,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 8.3,
+                "published_error": 1.1,
+                "refit": 8.085231223634171,
+                "refit_error": null,
+                "difference": -0.2147687763658297,
+                "relative_difference": 0.02587575618865418,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "unweighted_pressure_residuals_fixed_source_V0",
+              "fixed_parameters": ["V0"],
+              "observations": 8,
+              "solver_success": true,
+              "rmse_gpa": 0.2625605629411442,
+              "published_rmse_gpa": 0.33630739972845325,
+              "dataset_identifiers": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
+              "reproduction_report": "docs/data/brucite-reproduction.json"
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-16",
+          "note": "Primary equation, coefficients, units, uncertainties and source PVT observations directly checked. Published parameters preserved; exact author regression is not reproduced. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
+          "primary_source_check": {
+            "doi": "10.1007/s00269-003-0353-z",
+            "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+            "source_equation_validated": true,
+            "locations": ["Eqs. 1-2 and Tables 1-6, pp. 512-515"],
+            "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "dataset_identifiers": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
+            "finding": "All 48 sample observations, including negative reported pressure, repeated temperatures and errors preserved; original Au readings unavailable."
+          },
+          "numerical_reproduction": {
+            "source_equation_validated": true,
+            "published_curve": {
+              "pressure_rmse_gpa": 0.33630739972845325,
+              "maximum_absolute_pressure_residual_gpa": 0.5827339497893345,
+              "pressure_residuals_gpa": [
+                -0.06436565803310401,
+                0.14002874986690372,
+                -0.35597207387265684,
+                0.04853548442830302,
+                -0.5827339497893345,
+                0.009944575919075938,
+                -0.5780771826137858,
+                -0.279548846647085
+              ],
+              "max_absolute_effective_sigma_residual": 1.1986068064457116
+            },
+            "conditional_coefficient_agreement": "Pressure-sigma diagnostic fits agree with printed K0 and Kprime within each reported error; objective itself is not source-confirmed.",
+            "author_workflow_reproduced": false
+          },
+          "audit_report": "docs/literature-reproductions/brucite.md",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "source_phase_annotations"
+          ],
+          "usage_recommendation": "Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures."
+        },
+        "parameter_provenance": {
+          "determination_method": "Powder X-ray isothermal compression; V0(T) from independent ambient expansion measurements. No acoustic or shock coefficients substituted.",
+          "equation": "Equation (2), p. 513: ordinary third-order Birch-Murnaghan.",
+          "V0": "Table 2: V0(300)=40.917(12) A^3. For high-T slices, p. 513 states V0 was fixed from ambient expansion using Eq. (1) and Table 3 constant alpha=6.69(18)e-5 K^-1. V0(T)=40.917 exp[6.69e-5(T-300)]. Static compression V0 treatment is not separately stated; Table 2 anchoring is explicit here and subject to integration review. Derived high-T V0 errors are missing because covariance is unreported, not zero.",
+          "K0": "Table 6, p. 515",
+          "K0_prime": "Table 6, p. 515",
+          "temperature_ref": "Exact listed isotherm; no interpolation or temperature extrapolation between records."
+        },
+        "fit_provenance": {
+          "software": {"name": "not reported for EOS fitting", "version": "not reported"},
+          "dataset": "brucite_fukui_2003_table4",
+          "selection": {
+            "temperature_k": 473,
+            "source_rows": [14, 15, 16, 17, 18, 19, 20, 21],
+            "source_exclusions": "not reported; every printed same-T row retained in diagnostics"
+          },
+          "objective": "not reported; diagnostics compare three explicit objectives",
+          "source_weights": "not reported",
+          "source_covariance": "not reported",
+          "source_software": "not reported for EOS fitting",
+          "refined_parameters": ["K0", "K0_prime"],
+          "fixed_parameters": ["V0"],
+          "statistics": {"observations": 8},
+          "diagnostic_refits": {
+            "unweighted_pressure": {
+              "success": true,
+              "K0_gpa": 33.69147968162089,
+              "K0_prime": 8.085231223634171,
+              "delta_over_reported_errors": [0.43659187264835564, -0.19524434215075426],
+              "pressure_rmse_gpa": 0.2625605629411442,
+              "maximum_absolute_pressure_residual_gpa": 0.4140092419805299
+            },
+            "pressure_sigma": {
+              "success": true,
+              "K0_gpa": 31.8680418464292,
+              "K0_prime": 8.992743801416733,
+              "delta_over_reported_errors": [-0.29278326142832045, 0.6297670921970292],
+              "pressure_rmse_gpa": 0.2847123716692072,
+              "maximum_absolute_pressure_residual_gpa": 0.48275042233682797
+            },
+            "effective_sigma": {
+              "success": true,
+              "K0_gpa": 32.30120714742243,
+              "K0_prime": 8.464419259426498,
+              "delta_over_reported_errors": [-0.11951714103102802, 0.149472054024088],
+              "pressure_rmse_gpa": 0.3226373241773178,
+              "maximum_absolute_pressure_residual_gpa": 0.5798219487224054
+            }
+          },
+          "diagnostic_refits_are_records": false
+        }
+      }
+    },
+    "brucite_fukui_2003_673k_bm3": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-10-16",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference_eos_record": "gold_anderson_1989_bm3_1",
+            "reference": {
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
+              "year": 1989,
+              "title": "Anharmonicity and the equation of state for gold",
+              "source": "Journal of Applied Physics",
+              "volume": "65",
+              "locator": "1534-1543",
+              "doi": "10.1063/1.342969"
+            },
+            "source_location": "High-pressure experiments, p. 512; reference p. 516",
+            "scope": "Every Table 4 pressure; Au mixed with brucite 1:10 by weight"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No paired Au lattice parameters or volumes tabulated; pressure errors alone cannot reconstruct them. No inverse-EOS synthetic marker observations are created."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim.",
+              "Usage recommendation: Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 28.8,
+                "published_error": 2.1,
+                "refit": 29.03221567160922,
+                "refit_error": null,
+                "difference": 0.23221567160921808,
+                "relative_difference": 0.00806304415309785,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 9.0,
+                "published_error": 1.1,
+                "refit": 8.844925607540013,
+                "refit_error": null,
+                "difference": -0.1550743924599871,
+                "relative_difference": 0.017230488051109678,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "unweighted_pressure_residuals_fixed_source_V0",
+              "fixed_parameters": ["V0"],
+              "observations": 8,
+              "solver_success": true,
+              "rmse_gpa": 0.22807386078098604,
+              "published_rmse_gpa": 0.23027507836968086,
+              "dataset_identifiers": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
+              "reproduction_report": "docs/data/brucite-reproduction.json"
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-16",
+          "note": "Primary equation, coefficients, units, uncertainties and source PVT observations directly checked. Published parameters preserved; exact author regression is not reproduced. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
+          "primary_source_check": {
+            "doi": "10.1007/s00269-003-0353-z",
+            "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+            "source_equation_validated": true,
+            "locations": ["Eqs. 1-2 and Tables 1-6, pp. 512-515"],
+            "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "dataset_identifiers": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
+            "finding": "All 48 sample observations, including negative reported pressure, repeated temperatures and errors preserved; original Au readings unavailable."
+          },
+          "numerical_reproduction": {
+            "source_equation_validated": true,
+            "published_curve": {
+              "pressure_rmse_gpa": 0.23027507836968086,
+              "maximum_absolute_pressure_residual_gpa": 0.5071162310700625,
+              "pressure_residuals_gpa": [
+                0.008286650887340485,
+                0.17274658765582807,
+                -0.08659254442162734,
+                0.5071162310700625,
+                -0.3345427527928244,
+                0.008044943924741865,
+                -0.12762145302573735,
+                0.03697149185750881
+              ],
+              "max_absolute_effective_sigma_residual": 1.5670063989561438
+            },
+            "conditional_coefficient_agreement": "Pressure-sigma diagnostic fits agree with printed K0 and Kprime within each reported error; objective itself is not source-confirmed.",
+            "author_workflow_reproduced": false
+          },
+          "audit_report": "docs/literature-reproductions/brucite.md",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "source_phase_annotations"
+          ],
+          "usage_recommendation": "Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures."
+        },
+        "parameter_provenance": {
+          "determination_method": "Powder X-ray isothermal compression; V0(T) from independent ambient expansion measurements. No acoustic or shock coefficients substituted.",
+          "equation": "Equation (2), p. 513: ordinary third-order Birch-Murnaghan.",
+          "V0": "Table 2: V0(300)=40.917(12) A^3. For high-T slices, p. 513 states V0 was fixed from ambient expansion using Eq. (1) and Table 3 constant alpha=6.69(18)e-5 K^-1. V0(T)=40.917 exp[6.69e-5(T-300)]. Static compression V0 treatment is not separately stated; Table 2 anchoring is explicit here and subject to integration review. Derived high-T V0 errors are missing because covariance is unreported, not zero.",
+          "K0": "Table 6, p. 515",
+          "K0_prime": "Table 6, p. 515",
+          "temperature_ref": "Exact listed isotherm; no interpolation or temperature extrapolation between records."
+        },
+        "fit_provenance": {
+          "software": {"name": "not reported for EOS fitting", "version": "not reported"},
+          "dataset": "brucite_fukui_2003_table4",
+          "selection": {
+            "temperature_k": 673,
+            "source_rows": [22, 23, 24, 25, 26, 27, 28, 29],
+            "source_exclusions": "not reported; every printed same-T row retained in diagnostics"
+          },
+          "objective": "not reported; diagnostics compare three explicit objectives",
+          "source_weights": "not reported",
+          "source_covariance": "not reported",
+          "source_software": "not reported for EOS fitting",
+          "refined_parameters": ["K0", "K0_prime"],
+          "fixed_parameters": ["V0"],
+          "statistics": {"observations": 8},
+          "diagnostic_refits": {
+            "unweighted_pressure": {
+              "success": true,
+              "K0_gpa": 29.03221567160922,
+              "K0_prime": 8.844925607540013,
+              "delta_over_reported_errors": [0.1105788912424848, -0.14097672041817008],
+              "pressure_rmse_gpa": 0.22807386078098604,
+              "maximum_absolute_pressure_residual_gpa": 0.4559218187457752
+            },
+            "pressure_sigma": {
+              "success": true,
+              "K0_gpa": 30.435152600445516,
+              "K0_prime": 8.09535521735496,
+              "delta_over_reported_errors": [0.7786440954502454, -0.8224043478591269],
+              "pressure_rmse_gpa": 0.24543759454622888,
+              "maximum_absolute_pressure_residual_gpa": 0.5626506521838728
+            },
+            "effective_sigma": {
+              "success": true,
+              "K0_gpa": 28.861524067080495,
+              "K0_prime": 9.048109189443743,
+              "delta_over_reported_errors": [0.02929717480023543, 0.04373562676703877],
+              "pressure_rmse_gpa": 0.24607936258716104,
+              "maximum_absolute_pressure_residual_gpa": 0.5925598389376106
+            }
+          },
+          "diagnostic_refits_are_records": false
+        }
+      }
+    }
+  }
+}

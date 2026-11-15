@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from peritheos import validate_eosmat_document
+from peritheos._eosmat_audit import GENERIC_QUALIFICATIONS
 from peritheos._eosmat_format import format_eosmat
 from scripts.reconstruction_links import report_links
 
@@ -237,6 +238,13 @@ def assessment_for_record(
     result["source_status"] = row["status"]
     if row.get("parity_basis"):
         result["basis_code"] = copy.deepcopy(row["parity_basis"])
+    # Generic statements that hold for every assessment of their kind are
+    # defined once in docs/eos-labels.md, not repeated in each record.
+    kept = [q for q in result["qualifications"] if q not in GENERIC_QUALIFICATIONS]
+    if kept:
+        result["qualifications"] = kept
+    else:
+        del result["qualifications"]
     return result
 
 

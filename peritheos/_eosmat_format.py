@@ -120,8 +120,17 @@ _V4_RECORD_KEYS = (
 _V4_RECORD_TAIL = (
     "parameter_covariance",
     "reference",
+    "check",
     "pressure_calibration",
     "evidence",
+)
+_CHECK_KEYS = (
+    "reproduction",
+    "warning",
+    "finding",
+    "source",
+    "source_checked_on",
+    "audit",
 )
 _THERMAL_KEYS = (
     "model",
@@ -169,8 +178,16 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
     retain their order. Historical v2/v3 layout is unchanged. Short scalar groups
     fit on one line; long strings remain intact even above 120 columns.
     """
+    return _format(document, audit=False)
 
-    native = document.get("format_version") in (4, 5)
+
+def format_audit(sidecar: Mapping[str, Any]) -> str:
+    """Format an audit sidecar; each entry uses the native record ordering."""
+    return _format(sidecar, audit=True)
+
+
+def _format(document: Mapping[str, Any], *, audit: bool) -> str:
+    native = audit or document.get("format_version") in (4, 5)
 
     def scalar(value: Any) -> bool:
         return not isinstance(value, (Mapping, list, tuple))
@@ -187,7 +204,7 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
             raise TypeError("EOSMAT JSON object keys must be strings")
         if not value:
             return "{}" if isinstance(value, Mapping) else "[]"
-        if context not in {"material", "record", "thermal"}:
+        if context not in {"material", "record", "thermal", "audit", "audit_records"}:
             items = value.values() if isinstance(value, Mapping) else value
             if all(scalar(item) for item in items):
                 compact = encode(dict(value) if isinstance(value, Mapping) else value)
@@ -235,6 +252,8 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
                 priority = first + tuple(key for key in priority if key not in first)
             if context == "thermal":
                 priority = _THERMAL_KEYS
+            if context == "check":
+                priority = _CHECK_KEYS
             if context == "evidence":
                 priority = ("reproduction",)
             if context == "reproduction":
@@ -250,10 +269,16 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
             lines = []
             for key in keys:
                 child = key if context == "material" and key == "eos_records" else ""
+                if context == "audit" and key == "records":
+                    child = "audit_records"
+                if context == "audit_records":
+                    child = "record"
                 if context == "record" and native and key == "thermal":
                     child = "thermal"
                 if context == "record" and native and key == "evidence":
                     child = "evidence"
+                if context == "record" and native and key == "check":
+                    child = "check"
                 if context == "evidence" and key == "reproduction":
                     child = "reproduction"
                 if context == "reproduction" and key == "assessment":
@@ -279,4 +304,4 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
             + "]"
         )
 
-    return render(document, 0, "material") + "\n"
+    return render(document, 0, "audit" if audit else "material") + "\n"

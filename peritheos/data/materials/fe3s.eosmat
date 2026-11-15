@@ -27,129 +27,13 @@
         "locator": "1830-1833",
         "doi": "10.2138/am-2000-11-1229"
       },
-      "pressure_calibration": {
-        "status": "resolved",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Anderson", "Isaak", "Yamamoto"],
-              "year": 1989,
-              "source": "J. Appl. Phys.",
-              "volume": "65",
-              "locator": "1534-1543"
-            },
-            "source_location": "Experimental methods and compression discussion",
-            "scope": "primary pressure calibrant for all observations",
-            "reference_eos_record": "gold_anderson_1989_bm3_1"
-          },
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": ["Birch"],
-              "year": 1978,
-              "source": "J. Geophys. Res.",
-              "volume": "83",
-              "locator": "1257-1268"
-            },
-            "source_location": "Experimental methods and compression discussion",
-            "scope": "independent NaCl cross-check below the B1-B2 transition"
-          }
-        ],
-        "recalculation": {
-          "status": "ready",
-          "notes": "The primary Anderson gold EOS is bundled and monotonic; the digitized source-scale pressures can be inverted for approximate pressure-scale conversion. Raw Au lattice parameters were not published."
-        },
-        "audit_date": "2026-09-03",
-        "notes": "NaCl pressures were generally lower than Au pressures; above the NaCl B1-B2 transition near 29 GPa, pressure was calculated from Au alone."
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "similar",
-            "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe3s/#record-fe3s_fei_2000_bm3_1",
-            "report_path": "docs/reconstruction-reports/fe3s.md#record-fe3s_fei_2000_bm3_1",
-            "parameters": [
-              {
-                "parameter": "V0",
-                "published": 377.0,
-                "published_error": 0.2,
-                "refit": 379.84128501491625,
-                "refit_error": 0.8104313644832207,
-                "difference": 2.8412850149162523,
-                "relative_difference": 0.007536565026303056,
-                "similar": true,
-                "within_combined_2sigma": false
-              },
-              {
-                "parameter": "K0",
-                "published": 150.0,
-                "published_error": 2.0,
-                "refit": 143.48300548781444,
-                "refit_error": 2.8767283791412592,
-                "difference": -6.516994512185562,
-                "relative_difference": 0.04344663008123708,
-                "similar": true,
-                "within_combined_2sigma": true
-              }
-            ],
-            "fit": {
-              "fit_kind": "isothermal_pv",
-              "objective": "errors_in_variables",
-              "selection": "all rows",
-              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
-              "absolute_sigma": true,
-              "free_parameters": ["V0", "K0"],
-              "fixed_parameters": ["K0_prime"],
-              "observations": 13,
-              "observed_pressure_range_gpa": [1.073, 42.087],
-              "observed_temperature_range_k": null,
-              "observed_volume_range": [311.302, 376.058],
-              "degrees_of_freedom": 11,
-              "solver_success": true,
-              "solver_message": "`xtol` termination condition is satisfied.",
-              "rmse_gpa": 0.2127926367561062,
-              "published_rmse_gpa": 0.9920756427622142,
-              "reduced_chi_square": 0.92995379995829,
-              "dataset_identifiers": ["fe3s_fei_2000_figure2_digitized"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://doi.org/10.2138/am-2000-11-1229",
-            "locations": ["Experimental methods, journal pages 1830-1831", "Figure 2 and EOS discussion, journal pages 1832-1833"],
-            "finding": "Figure 2 provides 13 readable Fe3S compression markers. They were digitized from the supplied primary paper; the constrained K0'=4 BM3 fit is the EOS variant represented by this record.",
-            "doi": "10.2138/am-2000-11-1229"
-          },
-          "migration_source": {
-            "project": "Dioptas",
-            "version": "0.10.0",
-            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-            "file": "fe3s.json"
-          },
-          "primary_data_check": {
-            "status": "plot_only",
-            "audit_date": "2026-09-04",
-            "digitized_dataset_identifiers": ["fe3s_fei_2000_figure2_digitized"],
-            "source_locations": ["Figure 2, journal page 1833"],
-            "finding": "The 13 solid-circle compression observations are published only in Figure 2 and are bundled as a digitized dataset. The figure contains no plotted error bars; digitization uncertainty is stored separately."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods, journal pages 1830-1831; Figure 2 and EOS discussion, journal pages 1832-1833."
-        }
+      "check": {
+        "reproduction": "close",
+        "warning": null,
+        "finding": "Figure 2 provides 13 readable Fe3S compression markers. They were digitized from the supplied primary paper; the constrained K0'=4 BM3 fit is the EOS variant represented by this record.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/fe3s.audit.json#fe3s_fei_2000_bm3_1"
       }
     }
   ],

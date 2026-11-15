@@ -1,0 +1,479 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "magnesite",
+  "records": {
+    "magnesite_ross_1997_bm3_1": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Experimental pressure determination",
+            "reference_calibration_record": "ruby_mao_1986"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 279.41,
+                "published_error": 0.08,
+                "refit": 279.37704869613833,
+                "refit_error": 1.4721499659779278,
+                "difference": -0.03295130386169376,
+                "relative_difference": 0.00011793172707381181,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 117.0,
+                "published_error": 3.0,
+                "refit": 117.48414966843251,
+                "refit_error": 48.33234130237619,
+                "difference": 0.48414966843250795,
+                "relative_difference": 0.004138031354124,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 2.3,
+                "published_error": 0.7,
+                "refit": 2.4551582863872063,
+                "refit_error": 13.012617295708921,
+                "difference": 0.15515828638720652,
+                "relative_difference": 0.06746012451617675,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 19,
+              "observed_pressure_range_gpa": [0.0, 6.88],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [264.3, 279.28],
+              "degrees_of_freedom": 16,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.09527656356397574,
+              "published_rmse_gpa": 0.0972131635252727,
+              "reduced_chi_square": 0.010782540161738907,
+              "dataset_identifiers": ["magnesite_ross_1997_table1_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://rruff.info/doclib/am/vol82/AM82_682.pdf",
+            "locations": ["Abstract", "Table 1, measured P-V data", "Unit-cell parameters and equation of state, pages 684-685"],
+            "finding": "The unconstrained BM3 fit is represented. The alternative fit with K0'=4 fixed is not stored in this record.",
+            "doi": "10.2138/am-1997-7-805"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "magnesite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["magnesite_ross_1997_table1_pv"],
+            "source_locations": ["Table 1, page 683"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1, measured P-V data; Unit-cell parameters and equation of state, pages 684-685."
+        },
+        "audit_corrections": [
+          {
+            "path": "eos.parameters.V0",
+            "source_value": 279.28,
+            "value": 279.41,
+            "reason": "Use the V0 fitted jointly with the stored unconstrained BM3 parameters.",
+            "primary_reference": {
+              "doi": "10.2138/am-1997-7-805",
+              "location": "abstract and Unit-cell parameters and equation of state, pages 684-685"
+            }
+          },
+          {
+            "path": "parameter_errors.V0",
+            "source_value": 0.03,
+            "value": 0.08,
+            "reason": "The primary unconstrained BM3 fit reports V0=279.41(8) A^3.",
+            "primary_reference": {
+              "doi": "10.2138/am-1997-7-805",
+              "location": "abstract and Unit-cell parameters and equation of state, pages 684-685"
+            }
+          }
+        ]
+      }
+    },
+    "magnesite_vocadlo_1999_bm3_2": {
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "reference": {
+              "authors": ["Vocadlo"],
+              "year": 1999,
+              "source": "American Mineralogist",
+              "doi": "10.2138/am-1999-1017"
+            },
+            "source_location": "Simulation techniques and Results, pages 1627-1628",
+            "scope": "Static DFT-GGA total energies at nine fully relaxed cell volumes"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "This theoretical EOS has no experimental pressure-reference scale; Table 1 pressures are values of the fitted BM3 equation, not independently calibrated observations."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "source_equation",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Source-equation checkpoint coefficient recovery only: Table 1 pressures are calculated from the BM3 parameterization. Their near-exact refit is circular evidence for author-fit recovery, not an independent fit of measured pressures or the original E-V objective. V0=287.49 A^3 is checked at its 0.01 A^3 printed precision; the K0/K0-prime comparisons retain their source widths. The separately documented E-V fit and Table 1 cell-normalization correction remain distinct. Earlier audit wording (superseded only for the named numerical scope): "
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 287.49,
+                "published_error": null,
+                "refit": 287.49000195561416,
+                "refit_error": 2.279964013858719e-05,
+                "difference": 1.9556141523935366e-06,
+                "relative_difference": 6.8023727865092235e-09,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 99.0,
+                "published_error": 0.5,
+                "refit": 98.9999407843886,
+                "refit_error": 7.843909917808862e-05,
+                "difference": -5.9215611400986745e-05,
+                "relative_difference": 5.98137488898856e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.28,
+                "published_error": 0.01,
+                "refit": 4.280003401198884,
+                "refit_error": 1.7725938705363647e-06,
+                "difference": 3.4011988834237172e-06,
+                "relative_difference": 7.946726363139526e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "source_curve_validation_only",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 9,
+              "observed_pressure_range_gpa": [-2.41596, 207.419],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [160.0, 295.0],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 1.3718185808392503e-05,
+              "published_rmse_gpa": 3.994635008310426e-05,
+              "reduced_chi_square": 2.8228293281037224e-10,
+              "comparison_scope": "Compared free coefficients: V0, K0, K0_prime; scope=source_equation",
+              "reconstruction_kind": "published_calculated_pressure_checkpoints",
+              "dataset_identifiers": ["magnesite_vocadlo_1999_table1_energy_volume"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "The complete five-page primary article was audited directly. Its equation, coefficients, 30-atom cell basis, calculated E-V table, and pressure reproduction support an executable static BM3 record despite the explicitly documented Table 1 unit-label error.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "volume_basis",
+            "reference_state",
+            "phase",
+            "crystallography",
+            "published_uncertainties",
+            "validity",
+            "primary_data",
+            "numerical_reproduction"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am-1999-1017",
+            "locations": [
+              "Abstract, page 1627",
+              "Simulation techniques, page 1628",
+              "Results and printed energy equation, page 1628",
+              "Table 1 and Figure 1, page 1628",
+              "Table 2, page 1629",
+              "phase-transition qualification, page 1630"
+            ],
+            "finding": "The published BM3 parameters reproduce every Table 1 pressure to 0.00011 GPa or better. An independent four-parameter fit of the printed energy-volume rows on their internally required 30-atom-cell basis gives V0=287.492 A^3, K0=98.921 GPa, and K0_prime=4.27911, within the published precision and coefficient errors.",
+            "doi": "10.2138/am-1999-1017"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["magnesite_vocadlo_1999_table1_energy_volume"],
+            "source_locations": ["Table 1, page 1628"],
+            "finding": "All nine printed static energy-volume rows and their BM3-derived pressures are bundled. The source reports no row uncertainties, weights, fit statistic, or coefficient covariance."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Abstract, page 1627; Simulation techniques, page 1628; Results and printed energy equation, page 1628; Table 1 and Figure 1, page 1628; Table 2, page 1629; phase-transition qualification, page 1630.",
+          "V0": "Results, page 1628: the simulations predict V0=287.49 A^3 at P=0",
+          "K0": "Abstract and Table 2, pages 1627 and 1629: KT(0)=99.0(5) GPa for this work's unconstrained third-order fit",
+          "K0_prime": "Abstract and Table 2, pages 1627 and 1629: dK/dP=4.28(1) for this work's unconstrained third-order fit",
+          "equation": "Results, page 1628: printed E(V)=E1+E2+E3 third-order Birch-Murnaghan energy equation; the resulting pressure-volume convention is independently reproduced by all nine Table 1 pressure values"
+        }
+      }
+    },
+    "magnesite_yu_2024_bm3_mgd_3": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Pt",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "Proc. Natl. Acad. Sci. USA",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Yu et al. (2024), Experiments: pressures of the heated sample were determined with the Fei et al. Pt thermal EOS",
+            "scope": "heated Table S1 observations",
+            "notes": "The Pt calibration is the Fei et al. variable-exponent MGD pressure scale. It is distinct from the integrated-Gruneisen MGD temperature model fitted to magnesite."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The official Table S1 supplies calculated sample pressures but not row-wise Pt lattice parameters or volumes, so the published pressure reduction cannot be independently rerun. The reported Fei-scale pressures are retained unchanged for the EOS refit."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 105.0,
+                "published_error": 2.0,
+                "refit": 105.639749756634,
+                "refit_error": 1.423674941797126,
+                "difference": 0.6397497566340036,
+                "relative_difference": 0.006092854825085748,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.49,
+                "published_error": 0.05,
+                "refit": 4.477101496490224,
+                "refit_error": 0.09263344080732626,
+                "difference": -0.01289850350977595,
+                "relative_difference": 0.0028727179309077835,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "theta0",
+                "published": 850.0,
+                "published_error": 200.0,
+                "refit": 657.5651788419018,
+                "refit_error": 246.67470860439738,
+                "difference": -192.4348211580982,
+                "relative_difference": 0.22639390724482142,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.7,
+                "published_error": 0.2,
+                "refit": 1.9735760197133156,
+                "refit_error": 0.21354012202449588,
+                "difference": 0.2735760197133157,
+                "relative_difference": 0.16092707041959747,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 0.9,
+                "published_error": 0.3,
+                "refit": 1.3229206799499658,
+                "refit_error": 0.37029015111932445,
+                "difference": 0.42292067994996574,
+                "relative_difference": 0.46991186661107304,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "theta0", "gamma0", "q"],
+              "fixed_parameters": ["V0", "Tr", "n"],
+              "observations": 74,
+              "observed_pressure_range_gpa": [0.0, 119.0],
+              "observed_temperature_range_k": [300.0, 2200.0],
+              "observed_volume_range": [187.26, 280.71],
+              "degrees_of_freedom": 69,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.6996660457849787,
+              "published_rmse_gpa": 1.0304556631424304,
+              "reduced_chi_square": 0.5250059506696335,
+              "dataset_identifiers": ["magnesite_yu_2024_table_s1_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "The primary article, its complete official Table S1 data deposit, the exact thermal equations, conventional-cell basis, phase and composition scope, Pt pressure scale, and an independent Peritheos refit were audited directly.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "volume_basis",
+            "reference_state",
+            "composition",
+            "phase",
+            "pressure_scale",
+            "temperature_model",
+            "published_uncertainties",
+            "validity",
+            "primary_data",
+            "numerical_reproduction"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/2023JB028026",
+            "locations": [
+              "Experiments, pages 2-3",
+              "Results, Equations 1 and 4-8, pages 4-6",
+              "Table 1, page 5",
+              "Data Availability Statement",
+              "official author data deposit, doi:10.5281/zenodo.8399354, Table S1"
+            ],
+            "finding": "The preferred published model is an executable BM3-MGD EOS for nominal MgCO3 magnesite with V0=280.71 A^3 fixed, a 300 K reference isotherm, and n=5. Its integrated-Gruneisen Debye-temperature relation is fully supported by Peritheos. The separate Pt pressure calibration uses Fei et al.'s distinct variable-exponent relation.",
+            "doi": "10.1029/2023JB028026"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["magnesite_yu_2024_table_s1_pvt"],
+            "source_locations": ["official author data deposit, doi:10.5281/zenodo.8399354, data.docx, Table S1"],
+            "finding": "All 74 printed P-T-a-c-V rows and every parenthetical uncertainty are bundled in source order. The anomalous source-order row 5 is preserved verbatim: a=4.508 A and c=14.310 A imply 251.85 A^3, not the printed V=246.96 A^3 used by the EOS fit."
+          },
+          "independent_refit": {
+            "implementation": "peritheos.fitting.fit_joint_eos",
+            "selection": "all 74 official Table S1 rows, using the printed volume column",
+            "objective": "unweighted pressure residuals",
+            "fixed_parameters": {
+              "rt_eos.V0_a3_per_conventional_cell": 280.71,
+              "Tr_k": 300.0,
+              "n_atoms_per_formula_unit": 5.0,
+              "debye_temperature_law": "integrated_gruneisen"
+            },
+            "parameters": {
+              "rt_eos.K0": 105.63974787587165,
+              "rt_eos.K0_prime": 4.477101605441763,
+              "theta0": 657.5642321101462,
+              "gamma0": 1.9735760309784676,
+              "q": 1.3229215647013208
+            },
+            "standard_errors": {
+              "rt_eos.K0": 1.4236750278265324,
+              "rt_eos.K0_prime": 0.09263345033733188,
+              "theta0": 246.67508064933432,
+              "gamma0": 0.21354018578534056,
+              "q": 0.37029010599848894
+            },
+            "observations": 74,
+            "degrees_of_freedom": 69,
+            "published_curve_pressure_rmse_gpa": 1.0304556630476074,
+            "published_curve_maximum_absolute_residual_gpa": 2.8019396360871553,
+            "refit_pressure_rmse_gpa": 0.6996660457848404,
+            "refit_maximum_absolute_residual_gpa": 1.715217567092708,
+            "parity_tolerance": "Every refitted free parameter must lie within twice the corresponding published parenthetical error; the largest normalized difference is 1.410 for q.",
+            "finding": "All five free coefficients satisfy the declared two-parenthetical-error tolerance. The strong K0-K0_prime correlation (-0.977), the unreported source weighting, and rounding of the printed rows explain why the diagnostic refit is not expected to reproduce every central value exactly."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiments, pages 2-3; Results, Equations 1 and 4-8, pages 4-6; Table 1, page 5; Data Availability Statement; official author data deposit, doi:10.5281/zenodo.8399354, Table S1.",
+          "V0": "Yu et al. (2024), Experiments and Table 1: ambient conventional-cell volume 280.71 A^3, fixed in the fit; originally measured for sample V3782 by Yang et al. (2014)",
+          "K0": "Yu et al. (2024), Table 1, preferred Mie-Gruneisen fit: KT0=105(2) GPa",
+          "K0_prime": "Yu et al. (2024), Table 1, preferred Mie-Gruneisen fit: KT0'=4.49(5)",
+          "thermal.Tr": "Yu et al. (2024), text following Equation 4: 300 K reference isotherm",
+          "thermal.theta0": "Yu et al. (2024), Table 1: theta0=850(200) K",
+          "thermal.gamma0": "Yu et al. (2024), Table 1: gamma0=1.7(2)",
+          "thermal.q": "Yu et al. (2024), Table 1: q=0.9(3), fitted as a state-independent exponent parameter",
+          "thermal.n": "Yu et al. (2024), text following Equation 6: number of atoms in the MgCO3 formula, n=5",
+          "equation": "Yu et al. (2024), Equations 1 and 4-8: BM3 300 K reference isotherm plus integrated constant-q Mie-Gruneisen-Debye thermal pressure"
+        }
+      }
+    }
+  }
+}

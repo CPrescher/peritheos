@@ -14,6 +14,7 @@ from peritheos_build import (
     ROOT,
     digest,
     runtime_document,
+    source_document,
     stage_core,
     stage_datasets,
     version,
@@ -29,7 +30,7 @@ def test_exported_json_has_portable_checksum_bytes(tmp_path):
 
 def test_every_runtime_export_preserves_models_structures_and_scientific_status():
     for path in (ROOT / "peritheos/data/materials").glob("*.eosmat"):
-        original = json.loads(path.read_bytes())
+        original = source_document(path)
         exported = runtime_document(original)
         validate_eosmat_document(exported)
         assert all("rows" not in d for d in exported.get("datasets", []))
@@ -69,9 +70,19 @@ def test_core_export_contains_no_observation_resources_or_research(tmp_path):
     assert not list((stage / "peritheos/data").rglob("*.csv"))
     assert len(list((stage / "peritheos/data/datasets").glob("*.cif"))) == 10
     assert not (stage / "peritheos/data/primary-source-audit.json").exists()
-    for path in (stage / "peritheos/data/materials").glob("*.eosmat"):
+    materials = sorted((stage / "peritheos/data/materials").glob("*.eosmat"))
+    audits = sorted((stage / "peritheos/data/audits").glob("*.audit.json"))
+    assert [p.name.removesuffix(".audit.json") for p in audits] == [
+        p.stem for p in materials
+    ]
+    assert (stage / "peritheos/data/audits/__init__.py").is_file()
+    for path in materials:
         document = json.loads(path.read_bytes())
         assert all("rows" not in d for d in document.get("datasets", []))
+        assert all("evidence" not in r for r in document["eos_records"])
+        complete = source_document(path, stage)
+        validate_eosmat_document(complete)
+        assert all("evidence" in r for r in complete["eos_records"])
     assert 'build-backend = "maturin"' in (stage / "pyproject.toml").read_text()
 
 

@@ -28,123 +28,13 @@
         "locator": "12540-12550",
         "doi": "10.1103/PhysRevB.49.12540"
       },
-      "pressure_calibration": {
-        "status": "unresolved",
-        "methods": [],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-        },
-        "audit_date": "2026-09-03",
-        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "similar",
-            "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/iceviii/#record-iceviii_besson_1994_bm3_1",
-            "report_path": "docs/reconstruction-reports/iceviii.md#record-iceviii_besson_1994_bm3_1",
-            "parameters": [
-              {
-                "parameter": "V0",
-                "published": 165.39,
-                "published_error": null,
-                "refit": 164.20388092233128,
-                "refit_error": 0.9913120787739277,
-                "difference": -1.1861190776687067,
-                "relative_difference": 0.007171649299647541,
-                "similar": true,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0",
-                "published": 20.4,
-                "published_error": null,
-                "refit": 21.270881822937042,
-                "refit_error": 1.7708080007452651,
-                "difference": 0.8708818229370436,
-                "relative_difference": 0.04269028543809038,
-                "similar": true,
-                "within_combined_2sigma": null
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.7,
-                "published_error": null,
-                "refit": 4.613800292647819,
-                "refit_error": 0.37288871105817895,
-                "difference": -0.08619970735218097,
-                "relative_difference": 0.01834036326642148,
-                "similar": true,
-                "within_combined_2sigma": null
-              }
-            ],
-            "fit": {
-              "fit_kind": "isothermal_pv",
-              "objective": "pressure_residuals",
-              "selection": "all rows",
-              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "molar_volume_cm3_mol"},
-              "absolute_sigma": true,
-              "free_parameters": ["V0", "K0", "K0_prime"],
-              "fixed_parameters": [],
-              "observations": 8,
-              "observed_pressure_range_gpa": [2.7, 9.9],
-              "observed_temperature_range_k": null,
-              "observed_volume_range": [126.97145923238101, 148.54518279310363],
-              "degrees_of_freedom": 5,
-              "solver_success": true,
-              "solver_message": "`ftol` termination condition is satisfied.",
-              "rmse_gpa": 0.03116448674282915,
-              "published_rmse_gpa": 0.13812058093248714,
-              "reduced_chi_square": 0.0015539603743103584,
-              "dataset_identifiers": ["ice_viii_besson_1994_table2_structure"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.49.12540/fulltext",
-            "locations": ["Equation (1), page 12543", "Table I, 300 K row", "page 12544, stated 0-10 GPa limit"],
-            "finding": "The EOS and crystallographic data are for D2O ice VIII, not ordinary H2O; the material metadata was corrected accordingly. The authors state that no pressure/volume error can be quoted because it depends on the adopted EOS.",
-            "doi": "10.1103/physrevb.49.12540"
-          },
-          "migration_source": {
-            "project": "Dioptas",
-            "version": "0.10.0",
-            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-            "file": "iceviii.json"
-          },
-          "primary_data_check": {
-            "status": "bundled",
-            "audit_date": "2026-09-03",
-            "dataset_identifiers": ["ice_viii_besson_1994_table2_structure"],
-            "source_locations": ["Table II, journal page 12545"],
-            "finding": "All eight D2O ice-VIII structural refinements printed in Table II."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), page 12543; Table I, 300 K row; page 12544, stated 0-10 GPa limit."
-        },
-        "audit_corrections": [
-          {
-            "path": "material.formula",
-            "source_value": "H2O",
-            "value": "D2O",
-            "reason": "The primary neutron-diffraction EOS is explicitly for deuterated ice VIII.",
-            "primary_reference": {"doi": "10.1103/physrevb.49.12540", "location": "title, abstract, section II.B, and Table I"}
-          }
-        ]
+      "check": {
+        "reproduction": "close",
+        "warning": null,
+        "finding": "The EOS and crystallographic data are for D2O ice VIII, not ordinary H2O; the material metadata was corrected accordingly. The authors state that no pressure/volume error can be quoted because it depends on the adopted EOS.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/iceviii.audit.json#iceviii_besson_1994_bm3_1"
       }
     }
   ],

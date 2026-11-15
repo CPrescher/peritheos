@@ -41,57 +41,13 @@
         "locator": "1539",
         "doi": "10.1029/2002GL014683"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {"kind": "ab_initio", "source_location": "Computational method"}
-        ],
-        "recalculation": {"status": "not_applicable", "notes": "Static first-principles EOS."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Complete coefficients are printed, but the underlying energy-volume grid is not tabulated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg075fe025sio3_bridgmanite/#record-mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3",
-            "report_path": "docs/reconstruction-reports/mg075fe025sio3_bridgmanite.md#record-mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3",
-            "fit": {
-              "fixed_parameters": [],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://discovery.ucl.ac.uk/id/eprint/112632/",
-            "doi": "10.1029/2002gl014683",
-            "locations": ["Methods", "Table 1 and following paragraph"],
-            "finding": "The x=0.25 EOS triplet is explicitly reported and distinct from the Table 1 aggregate elastic modulus and derivative."
-          },
-          "primary_data_check": {
-            "status": "theoretical_parameterization_only",
-            "audit_date": "2026-09-05",
-            "finding": "Complete coefficients are printed, but the underlying energy-volume grid is not tabulated."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 1 and following paragraph.",
-          "equation": "Text following Table 1 identifies values derived from the equation of state; the static finite-strain energy form maps to BM3.",
-          "parameters": "Text following Table 1: V0=160.5 A^3, K0=270.0 GPa, K0'=3.96 for x=0.25.",
-          "method": "Variable-cell plane-wave pseudopotential GGA calculation with one Fe substituted for Mg in the 20-atom cell."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "The x=0.25 EOS triplet is explicitly reported and distinct from the Table 1 aggregate elastic modulus and derivative.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/mg075fe025sio3_bridgmanite.audit.json#mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3"
       }
     },
     {
@@ -130,58 +86,13 @@
         "locator": "049101",
         "doi": "10.7498/aps.62.049101"
       },
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {"kind": "ab_initio", "source_location": "Section 2"}
-        ],
-        "recalculation": {"status": "not_applicable", "notes": "First-principles static EOS."},
-        "audit_date": "2026-09-05"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg075fe025sio3_bridgmanite/#record-mg075fe025sio3_bridgmanite_wu_2013_gga_bm3",
-            "report_path": "docs/reconstruction-reports/mg075fe025sio3_bridgmanite.md#record-mg075fe025sio3_bridgmanite_wu_2013_gga_bm3",
-            "fit": {
-              "fixed_parameters": [],
-              "dataset_identifiers": []
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://wulixb.iphy.ac.cn/pdf-content/10.7498/aps.62.049101.pdf",
-            "doi": "10.7498/aps.62.049101",
-            "locations": ["Section 2", "Equation (10)", "Section 3 and Table 1"],
-            "finding": "Complete source-generated Fe25 high-spin BM3 composition branch."
-          },
-          "primary_data_check": {
-            "status": "theoretical_parameterization_only",
-            "audit_date": "2026-09-05",
-            "source_pdf_sha256": "765f2c28d5c76c557d61048877b49624e3cd8e3a15440ae5a61900e5163104fd",
-            "finding": "Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Equation (10); Section 3 and Table 1.",
-          "equation": "Equation (10), third-order Birch-Murnaghan pressure-volume EOS.",
-          "parameters": "Table 1 Fe25 calculation column: V0=164.977 A^3, B0=248 GPa, B0'=4.03.",
-          "method": "CASTEP ultrasoft-pseudopotential PBE-GGA static calculation with one high-spin Fe2+ replacing Mg in the 20-atom cell."
-        }
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "Complete source-generated Fe25 high-spin BM3 composition branch.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/mg075fe025sio3_bridgmanite.audit.json#mg075fe025sio3_bridgmanite_wu_2013_gga_bm3"
       }
     }
   ],

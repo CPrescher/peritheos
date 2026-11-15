@@ -1,0 +1,1145 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "diamond",
+  "records": {
+    "diamond_datchi_2007_vinet_1": {
+      "reproduction_audit": {
+        "dataset": "diamond_occelli_2003_figure2_digitized",
+        "reproduction_script": "scripts/reproduce_datchi_2007_diamond.py",
+        "report": "docs/data/datchi-2007-diamond-refit.json",
+        "fixed_parameters": {"V0": "5.6733 A^3/atom (45.3864 A^3/conventional cell), fixed by Datchi et al. for every Table II diamond fit"},
+        "published_exclusions": "not stated",
+        "published_weights": "not stated",
+        "best_supported_protocol": "Run 2 only with equal volume weights. This remains a documented hypothesis: it simultaneously approaches Datchi Table II on MXB1986 and H2005 and its H2005 volume chi-square from the published constant volume uncertainty is close to the printed value.",
+        "covariance": "not reconstructed or inferred"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Occelli et al. (2003), experimental pressure scale and reference 10",
+            "reference_calibration_record": "ruby_mao_1986",
+            "scope": "source pressure values"
+          },
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Holzapfel"],
+              "year": 2005,
+              "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+              "source": "High Pressure Research",
+              "doi": "10.1080/09511920500147501"
+            },
+            "source_location": "Datchi et al. (2007), Table II H2005 reanalysis",
+            "reference_calibration_record": "ruby_holzapfel_2005",
+            "scope": "target pressure values"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The digitized MXB1986 pressures are inverted to the common ruby R1 ratio and evaluated with the exact H2005 Freund-Ingalls equation. Raw R1 wavelengths are unnecessary for this ratio-preserving scale conversion; the remaining limitation is figure digitization, not the calibration path."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Agreement is conditional on the source-unconfirmed run-2/equal-volume hypothesis: 14 of 24 digitized markers, fixed source V0 and H2005 recalibration. Selection/weighting was supported by coefficient agreement, so this is hypothesis-dependent parameter agreement, not independent validation of that selection. Residual-scaled errors exclude graphical and calibration systematics; raw numerical observations and author workflow remain unavailable. Original run-2/equal-volume diagnostic in atomic A^3; digitization and calibration systematics are not estimated by residual scatter. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Conditional figure-level reproduction. The same run-2/equal-volume hypothesis approaches the independently printed MXB1986 and H2005 Table II coefficients and the H2005 chi-square, but Datchi et al. do not publish exclusions or weights and Occelli et al. do not print numerical rows. All 24 markers and all-marker sensitivity fits remain visible in the diagnostic. No refit covariance or parameter errors are inferred from the digitized points. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 443.0,
+                "published_error": 3.0,
+                "refit": 444.3462890944917,
+                "refit_error": 1.6959041624887992,
+                "difference": 1.3462890944916808,
+                "relative_difference": 0.0030390273013356224,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_published_fit_standard_deviation": true,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.97,
+                "published_error": 0.05,
+                "refit": 3.960700438665756,
+                "refit_error": 0.04452113439579489,
+                "difference": -0.009299561334244366,
+                "relative_difference": 0.002342458774368858,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_published_fit_standard_deviation": true,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "equal volume residuals; equivalent point estimates from the published constant 0.003 cm^3/mol volume uncertainty",
+              "selection": "Occelli Figure 2 run-2 open circles only (14/24 markers); best-supported but source-unconfirmed Table II selection hypothesis",
+              "weighting": "Original run-2/equal-volume diagnostic in atomic A^3; digitization and calibration systematics are not estimated by residual scatter.",
+              "absolute_sigma": false,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 14,
+              "observed_pressure_range_gpa": [13.227651913, 154.97533874678942],
+              "degrees_of_freedom": 12.0,
+              "solver_success": true,
+              "solver_message": "`gtol` termination condition is satisfied.",
+              "rmse_gpa": 0.2775872734356574,
+              "parameter_covariance": [
+                [2.876090928346835, -0.07300437454375149],
+                [-0.07300437454375149, 0.0019821314078884308]
+              ],
+              "covariance": {
+                "parameters": ["K0", "K0_prime"],
+                "matrix": [
+                  [2.876090928346835, -0.07300437454375149],
+                  [-0.07300437454375149, 0.0019821314078884308]
+                ],
+                "standard_errors": {"K0": 1.6959041624887992, "K0_prime": 0.04452113439579489},
+                "correlation_matrix": [
+                  [0.9999999999999999, -0.9668995471281052],
+                  [-0.9668995471281052, 1.0]
+                ],
+                "degrees_of_freedom": 12.0,
+                "local_student_t_95_intervals": {
+                  "K0": [440.651231347375, 448.04134684160834],
+                  "K0_prime": [3.863697219852859, 4.057703657478653]
+                },
+                "residual_variance": 3.7590038929119636e-06,
+                "max_abs_residual_jacobian_cosine": 4.6763181248455616e-08,
+                "residual_sum_squares": 4.510804671494356e-05,
+                "residual_count": 14,
+                "scaled_jacobian_condition_number": 12.795211207957927,
+                "derivative_step_halving_relative_change": 8.817628580174742e-10,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "qualification": "Conditional figure-level reproduction. The same run-2/equal-volume hypothesis approaches the independently printed MXB1986 and H2005 Table II coefficients and the H2005 chi-square, but Datchi et al. do not publish exclusions or weights and Occelli et al. do not print numerical rows. All 24 markers and all-marker sensitivity fits remain visible in the diagnostic. No refit covariance or parameter errors are inferred from the digitized points."
+                },
+                "assumptions": [
+                  "Original run-2/equal-volume diagnostic in atomic A^3; digitization and calibration systematics are not estimated by residual scatter.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
+              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+              "dataset_identifiers": ["diamond_occelli_2003_figure2_digitized"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-08",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/PhysRevB.75.214104",
+            "locations": [
+              "Equation 2",
+              "Table II",
+              "Occelli et al. (2003), Figure 2 and EOS paragraph",
+              "Holzapfel (2005), best-scale equation and coefficients"
+            ],
+            "doi": "10.1103/physrevb.75.214104"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "diamond.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-08",
+            "digitized_dataset_identifiers": ["diamond_occelli_2003_figure2_digitized"],
+            "source_locations": ["Datchi et al. (2007), Table II", "Occelli et al. (2003), Figure 2 and pages 151-152"],
+            "finding": "Datchi et al. reanalyze Occelli et al.'s diamond compression data but do not republish numerical rows. All 24 vector marker centers in Occelli Figure 2 are bundled as digitized numerical facts (14 run-2 open circles and 10 run-3 filled circles), then transformed exactly from MXB1986 to H2005. The source PDFs and figure artwork are not redistributed."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 2; Table II; Occelli et al. (2003), Figure 2 and EOS paragraph; Holzapfel (2005), best-scale equation and coefficients."
+        },
+        "audit_corrections": [
+          {
+            "path": "experimental_pressure_range_gpa",
+            "source_value": [0.0, 140.0],
+            "value": [0.0, 152.919271497],
+            "reason": "The record is on H2005, whereas the earlier 140 GPa limit was carried over from Occelli's original MXB1986 scale. Occelli explicitly report run 2 to 139 GPa; exact scale conversion gives 152.919271497 GPa on H2005. The final plotted marker digitizes slightly above the reported limit and remains separately documented in the figure dataset.",
+            "primary_reference": {"doi": "10.1103/physrevb.75.214104", "location": "Table II; H2005 diamond reanalysis"}
+          }
+        ]
+      }
+    },
+    "diamond_dewaele_2008_vinet_2": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Holzapfel"],
+              "year": 2005,
+              "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+              "source": "High Pressure Research",
+              "doi": "10.1080/09511920500147501"
+            },
+            "source_location": "Experimental pressure reduction; Holzapfel 2005 ruby scale (H05)",
+            "reference_calibration_record": "ruby_holzapfel_2005"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The H05 ruby scale is executable in Peritheos. Recalibration to another scale requires the original R1 wavelengths or a defensible inversion of the reported H05 pressures."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 45.3544,
+                "published_error": 0.0128,
+                "refit": 45.35739773988821,
+                "refit_error": 0.005958461183877768,
+                "difference": 0.0029977398882152784,
+                "relative_difference": 6.60959000276771e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.18,
+                "published_error": 0.15,
+                "refit": 4.094736716425615,
+                "refit_error": 0.0654791063011287,
+                "difference": -0.08526328357438473,
+                "relative_difference": 0.02039791473071405,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_h05_gpa", "temperature": "temperature_k", "volume": "lattice_a_angstrom"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0_prime"],
+              "fixed_parameters": ["K0"],
+              "observations": 23,
+              "observed_pressure_range_gpa": [0.0, 57.6],
+              "observed_temperature_range_k": [298.0, 298.0],
+              "observed_volume_range": [40.83196326287499, 45.36941878829601],
+              "degrees_of_freedom": 21,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.2312840795693689,
+              "published_rmse_gpa": 0.24196655068724385,
+              "reduced_chi_square": 0.05858683264913113,
+              "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.77.094106/fulltext",
+            "locations": ["Section II, H05 pressure calibration", "Table I, diamond aC rows", "Table III, 298 K diamond Vinet fit"],
+            "finding": "The diamond observations and fitted reference isotherm are explicitly on the Holzapfel (2005) H05 ruby scale.",
+            "doi": "10.1103/physrevb.77.094106"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "diamond.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt"],
+            "source_locations": ["Table I, diamond aC rows"],
+            "finding": "All 57 diamond observations printed in Table I for which the diamond lattice parameter was reported, spanning 0-900 K and pressures to 76.8 GPa."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section II, H05 pressure calibration; Table I, diamond aC rows; Table III, 298 K diamond Vinet fit."
+        }
+      }
+    },
+    "diamond_sokolova_2013_holzapfel_3": {
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "self_consistent",
+            "reference": {
+              "authors": ["Sokolova", "Dorogokupets", "Litasov"],
+              "year": 2013,
+              "source": "Russian Geology and Geophysics",
+              "doi": "10.1016/j.rgg.2013.01.005"
+            },
+            "source_location": "Equations 1-15 and Tables 1 and 4; simultaneous optimization"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "This is a jointly optimized pressure-scale model rather than a fit reduced with one external reference EOS."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
+            "fit": {
+              "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
+              "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+              "fixed_parameters": ["n", "Z", "n"],
+              "observations": 12,
+              "rmse_gpa": 0.34050399388283104,
+              "published_rmse_gpa": 0.3292803038925985,
+              "comparison_scope": "shared_ruby_calibration",
+              "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt"],
+              "published_ruby_parameters": {"A_gpa": 1870.0, "m": 6.0},
+              "sensitivity_fit_ruby_parameters": {"A_gpa": 1869.3837840502665, "m": 6.10334763359135}
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-06",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
+            "locations": [
+              "Equations 1-15",
+              "Table 1 input reference values",
+              "Table 4 optimized parameters for all eleven markers",
+              "Figures 3-11 cross-calibration tests"
+            ],
+            "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+            "doi": "10.1016/j.rgg.2013.01.005"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "diamond.json"
+          },
+          "primary_data_check": {
+            "status": "parameterization_only",
+            "audit_date": "2026-09-08",
+            "source_locations": [
+              "Sokolova et al. (2013), Tables 1-4 and Equation (20)",
+              "Dorogokupets and Oganov (2007), two-stage optimization protocol",
+              "Sokolova et al. (2016), official mmc1-mmc11 workbooks"
+            ],
+            "comparison_dataset_identifiers": ["diamond_dewaele_2008_table1_pvt"],
+            "manifest": "datasets/sokolova-2013-global-calibration-manifest.json",
+            "finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit."
+          },
+          "source_reconstruction": {
+            "status": "coupled_cross_calibration_reconstructed",
+            "result": "docs/data/sokolova-2013-global-calibration.json",
+            "observations": 392,
+            "markers": 11,
+            "independent_eos_refit": false
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Sokolova (2013), Tables 1 and 4: joint synthesis of shock, ultrasonic, diffraction, expansion and thermochemical measurements. The 2016 workbook implements the fit; it does not supply a separate theoretical fit grid."
+        },
+        "source_lineage": [
+          {
+            "role": "reference volume, composition, and shock inputs",
+            "citation": "Sokolova et al. (2013), Table 1",
+            "doi": "10.1016/j.rgg.2013.01.005"
+          },
+          {
+            "role": "final cross-calibrated Holzapfel and thermal coefficients",
+            "citation": "Sokolova et al. (2013), Table 4",
+            "doi": "10.1016/j.rgg.2013.01.005"
+          },
+          {
+            "role": "preceding simultaneous-optimization fit",
+            "citation": "Dorogokupets et al. (2012), Table 4",
+            "doi": "10.5800/GT-2012-3-2-0067"
+          },
+          {
+            "role": "spreadsheet implementation, conventions, and corrections",
+            "citation": "Sokolova et al. (2016), equations 1-12, Tables 1-3, and Appendix A",
+            "doi": "10.1016/j.cageo.2016.06.002"
+          },
+          {
+            "role": "principal room-temperature compression constraint",
+            "citation": "Occelli, Loubeyre, and LeToullec (2003)",
+            "doi": "10.1038/nmat831"
+          },
+          {
+            "role": "moderate-temperature diamond P-V-T context",
+            "citation": "Dewaele et al. (2008)",
+            "doi": "10.1103/PhysRevB.77.094106"
+          },
+          {"role": "ambient heat-capacity constraint", "citation": "Victor (1962)", "doi": "10.1063/1.1701288"},
+          {
+            "role": "ambient thermophysical-property constraint",
+            "citation": "Reeber and Wang (1996)",
+            "doi": "10.1007/BF02666175"
+          },
+          {
+            "role": "elastic-modulus constraint",
+            "citation": "Zouboulis et al. (1998)",
+            "doi": "10.1103/PhysRevB.57.2889"
+          }
+        ],
+        "audit_corrections": [
+          {
+            "path": "eos.parameters.n",
+            "source_value": null,
+            "value": 1.0,
+            "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
+            "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
+          },
+          {
+            "path": "eos.parameters.Z",
+            "source_value": null,
+            "value": 6.0,
+            "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
+            "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
+          },
+          {
+            "path": "thermal.parameters.n",
+            "source_value": null,
+            "value": 1.0,
+            "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
+            "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
+          }
+        ]
+      }
+    },
+    "diamond_correa_2008_double_debye_log_moment_5": {
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "reference": {
+              "authors": ["Primary-source authors"],
+              "year": 2008,
+              "source": "Primary publication",
+              "doi": "10.1103/physrevb.78.024101"
+            },
+            "source_location": "Electronic-structure calculation and theoretical energy-volume fit"
+          }
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "This theoretical EOS has no experimental pressure-reference EOS."},
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.",
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 46.28,
+                "published_error": null,
+                "refit": 46.67568341560049,
+                "refit_error": 0.7247320237314758,
+                "difference": 0.39568341560048736,
+                "relative_difference": 0.008549771296466883,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 368.2,
+                "published_error": null,
+                "refit": 348.6296511470743,
+                "refit_error": 31.750486487424126,
+                "difference": -19.57034885292569,
+                "relative_difference": 0.053151409160580365,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.038,
+                "published_error": null,
+                "refit": 4.112767509943601,
+                "refit_error": 0.1424364145584015,
+                "difference": 0.07476750994360071,
+                "relative_difference": 0.018515975716592546,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "Vp",
+                "published": 0.3354934617396,
+                "published_error": null,
+                "refit": 0.4531579639616889,
+                "refit_error": 0.18839276010015268,
+                "difference": 0.11766450222208891,
+                "relative_difference": 0.3507207014168776,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_a0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 8800.192275922882,
+                "refit_error": 0.0021508652211605734,
+                "difference": 6912.392275922882,
+                "relative_difference": 3.6616126051079996,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_a",
+                "published": -5.247303452269356,
+                "published_error": null,
+                "refit": 0.34052997825744297,
+                "refit_error": 5.594051377296249,
+                "difference": 5.587833430526799,
+                "relative_difference": 1.0648961855084196,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_a",
+                "published": 0.913,
+                "published_error": null,
+                "refit": -1.69049108424988,
+                "refit_error": 1.4573942664613533,
+                "difference": -2.60349108424988,
+                "relative_difference": 2.851578405531084,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_b0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 2882.0765942252824,
+                "refit_error": 0.0046442298091012415,
+                "difference": 994.2765942252825,
+                "relative_difference": 0.5266853449651883,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_b",
+                "published": 2.7897056328520624,
+                "published_error": null,
+                "refit": 2.436799666969396,
+                "refit_error": 5.666031630082069,
+                "difference": -0.35290596588266654,
+                "relative_difference": 0.12650294057078426,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_b",
+                "published": 0.429,
+                "published_error": null,
+                "refit": 0.24330607028691742,
+                "refit_error": 1.0605496759066428,
+                "difference": -0.18569392971308257,
+                "relative_difference": 0.4328529830141785,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_0_0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 37756.0,
+                "refit_error": 0.00015922406457022603,
+                "difference": 35868.2,
+                "relative_difference": 19.0,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_0",
+                "published": 2.175306177997739,
+                "published_error": null,
+                "refit": 1.5076531531149437,
+                "refit_error": 0.6482705375044794,
+                "difference": -0.6676530248827954,
+                "relative_difference": 0.30692370188427304,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_0",
+                "published": 0.202,
+                "published_error": null,
+                "refit": 0.3707658731740606,
+                "refit_error": 0.1443761186444315,
+                "difference": 0.1687658731740606,
+                "relative_difference": 0.8354746196735673,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "anharmonic_a",
+                "published": 3.8e-05,
+                "published_error": null,
+                "refit": 3.8e-05,
+                "refit_error": 0.0,
+                "difference": 0.0,
+                "relative_difference": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3_per_atom"},
+              "absolute_sigma": true,
+              "free_parameters": [
+                "rt_eos.V0",
+                "rt_eos.K0",
+                "rt_eos.K0_prime",
+                "Vp",
+                "theta_a0",
+                "a_a",
+                "b_a",
+                "theta_b0",
+                "a_b",
+                "b_b",
+                "theta_0_0",
+                "a_0",
+                "b_0",
+                "anharmonic_a"
+              ],
+              "fixed_parameters": [],
+              "observations": 57,
+              "observed_pressure_range_gpa": [169.148156, 740.079232],
+              "observed_temperature_range_k": [488.002376, 9887.43671],
+              "observed_volume_range": [25.68, 35.44],
+              "degrees_of_freedom": 43,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 1.0849336136496166,
+              "published_rmse_gpa": 1.7908921936844253,
+              "reduced_chi_square": 1.5603166028727558,
+              "dataset_identifiers": ["diamond_correa_2008_figure8_dft_md_vector_digitized"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.024101/fulltext",
+            "locations": ["Equations 2-7 and 13-18", "Table I, diamond row", "Figure 8, vector DFT-MD pressure markers"],
+            "finding": "The complete source equation and coefficients are represented. All 57 Figure 8 pressure markers are bundled as plot checkpoints, but the upstream cold-energy and phonon fitting grids are not tabulated.",
+            "doi": "10.1103/physrevb.78.024101"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-08",
+            "digitized_dataset_identifiers": ["diamond_correa_2008_figure8_dft_md_vector_digitized"],
+            "source_locations": ["Figure 8, vector pressure-temperature markers at 3.21, 4.00, and 4.43 A^3/atom"],
+            "finding": "All 57 diamond DFT-MD pressure markers in vector Figure 8 are bundled as plot-digitized checkpoints. The paper does not tabulate the upstream cold-energy grid, phonon DOS/moments, regression weights, or covariance needed to refit the published coefficients."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Equations 2-7 and 13-18; Table I, diamond row; Figure 8, vector DFT-MD pressure markers."
+        }
+      }
+    },
+    "diamond_benedict_2014_double_debye_4": {
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "reference": {
+              "authors": ["Primary-source authors"],
+              "year": 2014,
+              "source": "Primary publication",
+              "doi": "10.1103/physrevb.89.224109"
+            },
+            "source_location": "Electronic-structure calculation and theoretical energy-volume fit"
+          }
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "This theoretical EOS has no experimental pressure-reference EOS."},
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.",
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 45.6272,
+                "published_error": null,
+                "refit": 45.43830640995942,
+                "refit_error": 0.16427642472030632,
+                "difference": -0.18889359004058548,
+                "relative_difference": 0.004139933856133742,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 432.4,
+                "published_error": null,
+                "refit": 434.7686402071058,
+                "refit_error": 5.161777205753291,
+                "difference": 2.368640207105841,
+                "relative_difference": 0.005477891320781316,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 3.793,
+                "published_error": null,
+                "refit": 3.8153628918557647,
+                "refit_error": 0.03265526034489446,
+                "difference": 0.022362891855764566,
+                "relative_difference": 0.005895832284672968,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "Vp",
+                "published": 0.3354934617396,
+                "published_error": null,
+                "refit": 0.30427335355480856,
+                "refit_error": 0.24629048467406486,
+                "difference": -0.03122010818479143,
+                "relative_difference": 0.09305727754844756,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_a0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 2162.5684216252175,
+                "refit_error": 3.7279485700375514e-07,
+                "difference": 274.76842162521757,
+                "relative_difference": 0.14554954000700157,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_a",
+                "published": -5.247303452269356,
+                "published_error": null,
+                "refit": -4.759027255600479,
+                "refit_error": 0.017461243041600946,
+                "difference": 0.48827619666887667,
+                "relative_difference": 0.09305278437017146,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_a",
+                "published": 0.913,
+                "published_error": null,
+                "refit": -0.006774897358384057,
+                "refit_error": 0.1665931912876218,
+                "difference": -0.9197748973583841,
+                "relative_difference": 1.0074204790343746,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_b0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 1887.9776140426209,
+                "refit_error": 2.880109814737486e-05,
+                "difference": 0.17761404262091673,
+                "relative_difference": 9.40852010917029e-05,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_b",
+                "published": 2.7897056328520624,
+                "published_error": null,
+                "refit": 1.656209330531414,
+                "refit_error": 2.0953990760522867,
+                "difference": -1.1334963023206484,
+                "relative_difference": 0.4063139454472892,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_b",
+                "published": 0.429,
+                "published_error": null,
+                "refit": 0.5605710451121859,
+                "refit_error": 1.11806921712187,
+                "difference": 0.13157104511218592,
+                "relative_difference": 0.30669241284891824,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_1_0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 1770.9397043826275,
+                "refit_error": 4.341827958631915e-05,
+                "difference": -116.86029561737246,
+                "relative_difference": 0.061902900528325276,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_1",
+                "published": 1.4048160508290741,
+                "published_error": null,
+                "refit": 1.415784740358922,
+                "refit_error": 3.4888735844594683,
+                "difference": 0.010968689529847975,
+                "relative_difference": 0.0078079187117591885,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_1",
+                "published": 0.499,
+                "published_error": null,
+                "refit": 0.44506407104242596,
+                "refit_error": 1.014718409154025,
+                "difference": -0.05393592895757404,
+                "relative_difference": 0.10808803398311431,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "alpha0",
+                "published": 3.79e-05,
+                "published_error": null,
+                "refit": 6.099236905331258e-05,
+                "refit_error": 0.00011799979328728626,
+                "difference": 2.3092369053312584e-05,
+                "relative_difference": 0.6092973364990127,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "Ve",
+                "published": 0.348380842966,
+                "published_error": null,
+                "refit": 0.17547488477721068,
+                "refit_error": 3.125993114650048e-07,
+                "difference": -0.17290595818878934,
+                "relative_difference": 0.4963130484349393,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "kappa",
+                "published": 0.0,
+                "published_error": null,
+                "refit": 1.0,
+                "refit_error": 1.275694309879621,
+                "difference": 1.0,
+                "relative_difference": null,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3_per_atom"},
+              "absolute_sigma": true,
+              "free_parameters": [
+                "rt_eos.V0",
+                "rt_eos.K0",
+                "rt_eos.K0_prime",
+                "Vp",
+                "theta_a0",
+                "a_a",
+                "b_a",
+                "theta_b0",
+                "a_b",
+                "b_b",
+                "theta_1_0",
+                "a_1",
+                "b_1",
+                "alpha0",
+                "Ve",
+                "kappa"
+              ],
+              "fixed_parameters": [],
+              "observations": 96,
+              "observed_pressure_range_gpa": [40.476915, 871.127814],
+              "observed_temperature_range_k": [2000.0, 9000.0],
+              "observed_volume_range": [24.54661864, 43.12243824],
+              "degrees_of_freedom": 80,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 0.9415488724060389,
+              "published_rmse_gpa": 3.177925436805747,
+              "reduced_chi_square": 1.0638171349549002,
+              "dataset_identifiers": ["diamond_benedict_2014_supplement_solid_dft_md"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://arxiv.org/pdf/1311.4577",
+            "locations": [
+              "Equations 3-7",
+              "Table I, diamond column",
+              "Figure 7, DFT-MD pressure and internal-energy comparison",
+              "Supplemental Material, solid DFT-MD table"
+            ],
+            "finding": "The complete source equation and coefficients are represented. The exact 96-row solid DFT-MD pressure/internal-energy validation grid is bundled, but the upstream cold-energy and phonon fitting grids are not supplied.",
+            "doi": "10.1103/physrevb.89.224109"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["diamond_benedict_2014_supplement_solid_dft_md"],
+            "source_locations": ["Supplemental Material, solid DFT-MD table"],
+            "finding": "The exact 96-row solid DFT-MD pressure/internal-energy validation grid is bundled. It is downstream validation data; the cold-curve electronic-structure grid and phonon calculations used to fit Table I are not supplied."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Equations 3-7; Table I, diamond column; Figure 7, DFT-MD pressure and internal-energy comparison; Supplemental Material, solid DFT-MD table."
+        }
+      }
+    },
+    "diamond_correa_2008_dewaele_anchored": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Holzapfel"],
+              "year": 2005,
+              "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+              "source": "High Pressure Research",
+              "doi": "10.1080/09511920500147501"
+            },
+            "source_location": "Experimental pressure reduction; Holzapfel 2005 ruby scale (H05)",
+            "reference_calibration_record": "ruby_holzapfel_2005"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The H05 ruby scale is executable in Peritheos. Recalibration to another scale requires the original R1 wavelengths or a defensible inversion of the reported H05 pressures."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 80,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt", "diamond_correa_2008_figure8_dft_md_vector_digitized"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Exact source-equation reconstruction of separately audited reference-isotherm and simulated thermal components; no composite coefficients were fitted.",
+          "audit_date": "2026-09-03",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+            "locations": [
+              "Dewaele et al. (2008), Table III",
+              "Correa et al. (2008), equations 2-7 and 13-18 and Table I",
+              "Correa et al. (2008), Figure 8 vector DFT-MD markers"
+            ],
+            "finding": "Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Correa thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.",
+            "doi": "10.1103/physrevb.77.094106"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt"],
+            "source_locations": ["Dewaele et al. (2008), Table I diamond rows", "Correa et al. (2008), Figure 8 vector markers"],
+            "finding": "The experimental anchor and thermal-model checkpoints are bundled separately. This derived record is exactly reconstructible from published coefficients; the available rows do not constitute an independent fit of a composite model.",
+            "digitized_dataset_identifiers": ["diamond_correa_2008_figure8_dft_md_vector_digitized"]
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Experimental Dewaele (2008) 298 K Vinet reference plus the calculated Correa (2008) thermal increment; see the explicit composition in notes and source_lineage.",
+          "reference_isotherm": {
+            "V0": "Dewaele et al. (2008), Table III; 5.6693(16) A^3/atom",
+            "K0": "Dewaele et al. (2008), Table III; 444.5 GPa",
+            "K0_prime": "Dewaele et al. (2008), Table III; 4.18(15)"
+          },
+          "thermal_correction": {
+            "Vp": "Correa et al. (2008), Table I; 5.571 A^3/atom",
+            "theta_a0": "Correa et al. (2008), Table I; 1887.8 K",
+            "a_a": "Correa et al. (2008), Table I; beta_A=-0.316 A^-3",
+            "b_a": "Correa et al. (2008), Table I; alpha_A=0.913",
+            "theta_b0": "Correa et al. (2008), Table I; 1887.8 K",
+            "a_b": "Correa et al. (2008), Table I; beta_B=0.168 A^-3",
+            "b_b": "Correa et al. (2008), Table I; alpha_B=0.429",
+            "theta_0_0": "Correa et al. (2008), Table I; 1887.8 K",
+            "a_0": "Correa et al. (2008), Table I; beta_0=0.131 A^-3",
+            "b_0": "Correa et al. (2008), Table I; alpha_0=0.202",
+            "n": "one atom per elemental-carbon formula unit",
+            "anharmonic_a": "Correa et al. (2008), equation 18 and Table I; 3.8e-5 K^-1/atom",
+            "phi0": "Arbitrary zero for the integrated experimental reference isotherm",
+            "Tr": "Dewaele et al. (2008), Table III; 298 K reference isotherm"
+          },
+          "additional": {}
+        }
+      }
+    },
+    "diamond_benedict_2014_dewaele_anchored": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Holzapfel"],
+              "year": 2005,
+              "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+              "source": "High Pressure Research",
+              "doi": "10.1080/09511920500147501"
+            },
+            "source_location": "Experimental pressure reduction; Holzapfel 2005 ruby scale (H05)",
+            "reference_calibration_record": "ruby_holzapfel_2005"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The H05 ruby scale is executable in Peritheos. Recalibration to another scale requires the original R1 wavelengths or a defensible inversion of the reported H05 pressures."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 119,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt", "diamond_benedict_2014_supplement_solid_dft_md"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Exact source-equation reconstruction of separately audited reference-isotherm and simulated thermal components; no composite coefficients were fitted.",
+          "audit_date": "2026-09-03",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+            "locations": [
+              "Dewaele et al. (2008), Table III",
+              "Benedict et al. (2014), equations 3-7 and Table I",
+              "Benedict et al. (2014), Supplemental Material, solid DFT-MD table"
+            ],
+            "finding": "Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Benedict thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.",
+            "doi": "10.1103/physrevb.77.094106"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt", "diamond_benedict_2014_supplement_solid_dft_md"],
+            "source_locations": [
+              "Dewaele et al. (2008), Table I diamond rows",
+              "Benedict et al. (2014), Supplemental Material, solid DFT-MD table"
+            ],
+            "finding": "The experimental anchor and thermal-model checkpoints are bundled separately. This derived record is exactly reconstructible from published coefficients; the available rows do not constitute an independent fit of a composite model."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Experimental Dewaele (2008) 298 K Vinet reference plus the calculated Benedict (2014) thermal increment; see the explicit composition in notes and source_lineage.",
+          "reference_isotherm": {
+            "V0": "Dewaele et al. (2008), Table III; 5.6693(16) A^3/atom",
+            "K0": "Dewaele et al. (2008), Table III; 444.5 GPa",
+            "K0_prime": "Dewaele et al. (2008), Table III; 4.18(15)"
+          },
+          "thermal_correction": {
+            "Vp": "Benedict et al. (2014), Table I; 5.571 A^3/atom",
+            "theta_a0": "Benedict et al. (2014), Table I; 1887.8 K",
+            "a_a": "Benedict et al. (2014), Table I; -0.316 A^-3",
+            "b_a": "Benedict et al. (2014), Table I; 0.913",
+            "theta_b0": "Benedict et al. (2014), Table I; 1887.8 K",
+            "a_b": "Benedict et al. (2014), Table I; 0.168 A^-3",
+            "b_b": "Benedict et al. (2014), Table I; 0.429",
+            "theta_1_0": "Benedict et al. (2014), Table I; 1887.8 K",
+            "a_1": "Benedict et al. (2014), Table I; 0.0846 A^-3",
+            "b_1": "Benedict et al. (2014), Table I; 0.499",
+            "n": "one atom per elemental-carbon formula unit",
+            "alpha0": "Benedict et al. (2014), Table I; 3.79e-5 K^-1",
+            "Ve": "Benedict et al. (2014), Table I; 5.785 A^3/atom",
+            "kappa": "Benedict et al. (2014), Table I; 0.0",
+            "phi0": "Arbitrary zero for the integrated experimental reference isotherm",
+            "Tr": "Dewaele et al. (2008), Table III; 298 K reference isotherm"
+          },
+          "additional": {}
+        }
+      }
+    }
+  }
+}

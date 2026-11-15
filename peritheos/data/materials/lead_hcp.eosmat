@@ -37,123 +37,13 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "pressure_calibration": {
-        "status": "resolved",
-        "methods": [
-          {
-            "kind": "ruby_fluorescence",
-            "source_location": "mao_ruby_scale",
-            "reference_calibration_record": "ruby_mao_1986"
-          }
-        ],
-        "recalculation": {
-          "status": "missing_calibrant_observations",
-          "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
-        },
-        "audit_date": "2026-09-06"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/lead_hcp/#record-lead_hcp_dewaele_2019_mao_vinet",
-            "report_path": "docs/reconstruction-reports/lead_hcp.md#record-lead_hcp_dewaele_2019_mao_vinet",
-            "parameters": [
-              {
-                "parameter": "V0",
-                "published": 56.126,
-                "published_error": 0.11,
-                "refit": 58.83765142086295,
-                "refit_error": 0.5423223682041958,
-                "difference": 2.7116514208629496,
-                "relative_difference": 0.048313641108629686,
-                "similar": true,
-                "within_combined_2sigma": false
-              },
-              {
-                "parameter": "K0",
-                "published": 71.8,
-                "published_error": 2.1,
-                "refit": 63.48664918864778,
-                "refit_error": 6.106967044629139,
-                "difference": -8.313350811352215,
-                "relative_difference": 0.11578483024167431,
-                "similar": true,
-                "within_combined_2sigma": true
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.4,
-                "published_error": 0.08,
-                "refit": 3.303771258364891,
-                "refit_error": 0.3569619004575568,
-                "difference": -1.0962287416351093,
-                "relative_difference": 0.2491428958261612,
-                "similar": false,
-                "within_combined_2sigma": false
-              }
-            ],
-            "fit": {
-              "fit_kind": "isothermal_pv",
-              "objective": "pressure_residuals",
-              "selection": "all rows",
-              "columns": {"pressure": "reduced_pressure_gpa", "temperature": null, "volume": "atomic_volume_a3_per_atom"},
-              "absolute_sigma": true,
-              "free_parameters": ["V0", "K0", "K0_prime"],
-              "fixed_parameters": [],
-              "observations": 21,
-              "observed_pressure_range_gpa": [10.527, 35.121],
-              "observed_temperature_range_k": null,
-              "observed_volume_range": [42.3626, 51.3302],
-              "degrees_of_freedom": 18,
-              "solver_success": true,
-              "solver_message": "`ftol` termination condition is satisfied.",
-              "rmse_gpa": 0.60172036353428,
-              "published_rmse_gpa": 2.336133186552911,
-              "reduced_chi_square": 10.564031151343334,
-              "dataset_identifiers": ["lead_hcp_kuznetsov_2002_figure3_digitized"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-          "audit_date": "2026-09-06",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-            "doi": "10.3390/min9110684",
-            "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-          },
-          "primary_data_check": {
-            "status": "combined_primary_data_partially_bundled",
-            "audit_date": "2026-09-07",
-            "digitized_dataset_identifiers": ["lead_hcp_kuznetsov_2002_figure3_digitized"],
-            "source_locations": ["Dewaele (2019), Table 2", "Kuznetsov et al. (2002), Figure 3"],
-            "finding": "The 17 Dewaele rows are transcribed exactly and 21 hcp square markers from the earlier Kuznetsov data are explicitly stored as a plot digitization. Marker overlap, unavailable exact Kuznetsov rows, and an unspecified merged-fit selection/weighting protocol prevent a full independent-refit claim."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-          "V0": "Table 1",
-          "K0": "Table 1",
-          "K0_prime": "Table 1"
-        },
-        "source_lineage": [
-          {
-            "role": "scientific equation and coefficients",
-            "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-            "doi": "10.3390/min9110684"
-          }
-        ]
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-06",
+        "audit": "../audits/lead_hcp.audit.json#lead_hcp_dewaele_2019_mao_vinet"
       }
     },
     {
@@ -187,123 +77,13 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "pressure_calibration": {
-        "status": "resolved",
-        "methods": [
-          {
-            "kind": "ruby_fluorescence",
-            "source_location": "dor_ruby_scale",
-            "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
-          }
-        ],
-        "recalculation": {
-          "status": "missing_calibrant_observations",
-          "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
-        },
-        "audit_date": "2026-09-06"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_reproduced",
-            "scope": "parameter_agreement",
-            "source_status": "parity_not_achieved",
-            "basis": "The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/lead_hcp/#record-lead_hcp_dewaele_2019_dor_vinet",
-            "report_path": "docs/reconstruction-reports/lead_hcp.md#record-lead_hcp_dewaele_2019_dor_vinet",
-            "parameters": [
-              {
-                "parameter": "V0",
-                "published": 56.116,
-                "published_error": 0.11,
-                "refit": 58.83765340033019,
-                "refit_error": 0.5423226807534997,
-                "difference": 2.72165340033019,
-                "relative_difference": 0.04850048828017304,
-                "similar": true,
-                "within_combined_2sigma": false
-              },
-              {
-                "parameter": "K0",
-                "published": 70.0,
-                "published_error": 2.1,
-                "refit": 63.48662685422268,
-                "refit_error": 6.10696777076789,
-                "difference": -6.513373145777322,
-                "relative_difference": 0.0930481877968189,
-                "similar": true,
-                "within_combined_2sigma": true
-              },
-              {
-                "parameter": "K0_prime",
-                "published": 4.77,
-                "published_error": 0.08,
-                "refit": 3.3037725652189245,
-                "refit_error": 0.356961985762982,
-                "difference": -1.466227434781075,
-                "relative_difference": 0.3073852064530556,
-                "similar": false,
-                "within_combined_2sigma": false
-              }
-            ],
-            "fit": {
-              "fit_kind": "isothermal_pv",
-              "objective": "pressure_residuals",
-              "selection": "all rows",
-              "columns": {"pressure": "reduced_pressure_gpa", "temperature": null, "volume": "atomic_volume_a3_per_atom"},
-              "absolute_sigma": true,
-              "free_parameters": ["V0", "K0", "K0_prime"],
-              "fixed_parameters": [],
-              "observations": 21,
-              "observed_pressure_range_gpa": [10.527, 35.121],
-              "observed_temperature_range_k": null,
-              "observed_volume_range": [42.3626, 51.3302],
-              "degrees_of_freedom": 18,
-              "solver_success": true,
-              "solver_message": "`ftol` termination condition is satisfied.",
-              "rmse_gpa": 0.6017203646968212,
-              "published_rmse_gpa": 2.4014233818607034,
-              "reduced_chi_square": 10.564031151337183,
-              "dataset_identifiers": ["lead_hcp_kuznetsov_2002_figure3_digitized"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-          "audit_date": "2026-09-06",
-          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-          "primary_source_check": {
-            "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-            "doi": "10.3390/min9110684",
-            "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-          },
-          "primary_data_check": {
-            "status": "combined_primary_data_partially_bundled",
-            "audit_date": "2026-09-07",
-            "digitized_dataset_identifiers": ["lead_hcp_kuznetsov_2002_figure3_digitized"],
-            "source_locations": ["Dewaele (2019), Table 2", "Kuznetsov et al. (2002), Figure 3"],
-            "finding": "The 17 Dewaele rows are transcribed exactly and 21 hcp square markers from the earlier Kuznetsov data are explicitly stored as a plot digitization. Marker overlap, unavailable exact Kuznetsov rows, and an unspecified merged-fit selection/weighting protocol prevent a full independent-refit claim."
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-          "V0": "Table 1",
-          "K0": "Table 1",
-          "K0_prime": "Table 1"
-        },
-        "source_lineage": [
-          {
-            "role": "scientific equation and coefficients",
-            "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-            "doi": "10.3390/min9110684"
-          }
-        ]
+      "check": {
+        "reproduction": "disagrees",
+        "warning": null,
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-06",
+        "audit": "../audits/lead_hcp.audit.json#lead_hcp_dewaele_2019_dor_vinet"
       }
     },
     {
@@ -364,100 +144,13 @@
         "locator": "125-127",
         "doi": "10.1016/S0038-1098(02)00112-6"
       },
-      "pressure_calibration": {
-        "status": "resolved",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "material": "NaCl",
-            "reference": {
-              "authors": ["J. M. Brown"],
-              "year": 1999,
-              "source": "Journal of Applied Physics",
-              "volume": "86",
-              "locator": "5801",
-              "doi": "10.1063/1.371596"
-            },
-            "source_location": "Experimental section and reference 7",
-            "scope": "NaCl pressure medium and high-temperature pressure calibrant"
-          }
-        ],
-        "recalculation": {
-          "status": "missing_calibrant_observations",
-          "notes": "The Brown (1999) NaCl calibration is identified, but row-wise NaCl observations are not published."
-        },
-        "audit_date": "2026-09-08"
-      },
-      "evidence": {
-        "reproduction": {
-          "assessment": {
-            "status": "not_refittable",
-            "scope": "parameter_agreement",
-            "source_status": "not_refittable",
-            "basis": "The bundled Figure 3 coordinates are plot-digitized room-temperature and source-reduced markers, not the complete original P-V-T observations used to fit the nine-coefficient hcp thermal BM3 surface. The original rows, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md).",
-            "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
-              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
-            ],
-            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/lead_hcp/#record-lead_hcp_kuznetsov_2002_bm3_3",
-            "report_path": "docs/reconstruction-reports/lead_hcp.md#record-lead_hcp_kuznetsov_2002_bm3_3",
-            "fit": {
-              "fixed_parameters": [],
-              "dataset_identifiers": ["lead_hcp_kuznetsov_2002_figure3_digitized"]
-            },
-            "report": "docs/data/primary-eos-refits.json"
-          }
-        },
-        "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-08",
-          "verified_fields": [
-            "equation",
-            "parameters",
-            "units",
-            "reference_state",
-            "phase",
-            "published_uncertainties",
-            "validity",
-            "thermal_coefficients",
-            "fit_protocol",
-            "primary_data_limits",
-            "pressure_calibration",
-            "numerical_reproduction"
-          ],
-          "primary_source_check": {
-            "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
-            "doi": "10.1016/S0038-1098(02)00112-6",
-            "locations": ["Equations 1-3", "Tables 1-2", "Figures 2-3"],
-            "finding": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61."
-          },
-          "primary_data_check": {
-            "status": "combined_primary_data_partially_bundled",
-            "audit_date": "2026-09-08",
-            "digitized_dataset_identifiers": ["lead_hcp_kuznetsov_2002_figure3_digitized"],
-            "source_locations": ["Table 1 and Figure 3"],
-            "finding": "The slice reproduces seven digitized solid room-temperature hcp markers with 0.266 GPa pressure RMSE. All 21 direct and source-reduced markers give 0.642 GPa RMSE; the complete original P-V-T rows and fit protocol are unavailable.",
-            "reproduction_resource": "docs/literature-reproductions/fortes-2019-fcc-pb.md"
-          }
-        },
-        "parameter_provenance": {
-          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Tables 1-2; Figures 2-3.",
-          "equation": "Equation 1, third-order Birch-Murnaghan pressure.",
-          "reference_state": "Equations 2-3 define tau=T-T0 with T0=296 K.",
-          "V0": "Table 2 hcp V0=29.908 A^3/atom, converted to 59.816 A^3 per two-atom hcp cell.",
-          "K0": "Table 2 hcp B0=54.2 GPa.",
-          "K0_prime": "Table 2 hcp B0_prime=3.61.",
-          "published_uncertainties": "not reported",
-          "covariance": "not published"
-        },
-        "source_lineage": [
-          {
-            "role": "scientific equation, coefficients, phase assignment, and calibration context",
-            "citation": "Kuznetsov et al. (2002), Equations 1-3 and Tables 1-2",
-            "doi": "10.1016/S0038-1098(02)00112-6"
-          }
-        ]
+      "check": {
+        "reproduction": "untested",
+        "warning": null,
+        "finding": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61.",
+        "source": "primary_source_validated",
+        "source_checked_on": "2026-09-08",
+        "audit": "../audits/lead_hcp.audit.json#lead_hcp_kuznetsov_2002_bm3_3"
       }
     }
   ],

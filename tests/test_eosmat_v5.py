@@ -19,6 +19,7 @@ from peritheos import (
 )
 from peritheos.errors import EosmatError
 from scripts.migrate_eosmat_v5 import prior_material_bytes, restore_document
+from scripts.split_eosmat_audits import pre_split_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = ROOT / "crates/peritheos/tests/data/eosmat-v5-uncertainty.json"
@@ -167,9 +168,11 @@ def test_catalog_migration_preserves_every_predecessor_and_runtime_uncertainty()
     for relative, binding in receipt["materials"].items():
         from scripts.garnet_dataset_bindings import prior_dataset_bytes
 
+        # Undo the later steps first via their own receipts: the record/audit
+        # split, then the garnet dataset additions.
         current = json.loads(
             prior_dataset_bytes(
-                (ROOT / relative).read_bytes(), Path(relative).stem, ROOT
+                pre_split_bytes(Path(relative).stem), Path(relative).stem, ROOT
             )
         )
         assert current["format_version"] == 5

@@ -108,7 +108,9 @@ def main(argv: Sequence[str] | None = None) -> int:
             prepared = []
             for path in args.paths:
                 before = path.read_bytes()
-                document = load_eosmat(path)
+                # Formatting keeps a record file's layout; validation also
+                # requires referenced audit sidecars to exist and merge cleanly.
+                document = load_eosmat(path, include_audit=args.command == "validate")
                 if args.command == "validate":
                     print(
                         f"Valid EOSMAT v{document['format_version']}: {path} (structural validation only)"
@@ -139,6 +141,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             print(f"Formatted {len(prepared)} EOSMAT files; {len(changed)} changed.")
             return 0
         if args.command == "convert":
+            # Conversion always writes a complete file: sidecar evidence that a
+            # record file references is merged in.
             document = convert_eosmat(
                 load_eosmat(args.source),
                 version=args.format_version,

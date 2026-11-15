@@ -9,6 +9,7 @@ from typing import Any
 import numpy as np
 from numpy.typing import NDArray
 
+from peritheos._eosmat_audit import audit_is_external
 from peritheos.datasets import _PRESSURE_QUANTITIES, Dataset, _plain_mapping
 from peritheos.errors import DatasetError, EosmatError
 from peritheos.pressure_calibrations import (
@@ -128,10 +129,13 @@ def validate_dataset_pressure_metadata(document: Mapping[str, Any]) -> None:
                 raise EosmatError("Pressure reduction source scale is unresolved")
             source = scale["calibration_record"]
             target = reduction.get("target_calibration_record")
-            calibration(target)
+            calibration(target)  # Raises unless target is a known identifier.
+            target = str(target)
             eos_calibration = records[identifier].get("pressure_calibration") or {}
             methods = eos_calibration.get("methods", [])
-            if (
+            # A record file whose pressure_calibration is in an unloaded audit
+            # sidecar is checked when the complete document is validated.
+            if not audit_is_external(records[identifier]) and (
                 eos_calibration.get("status") != "resolved"
                 or len(methods) != 1
                 or methods[0].get("reference_calibration_record") != target

@@ -1,0 +1,308 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "qandilite",
+  "records": {
+    "qandilite_lv_2016_bm2": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference_calibration_record": "ruby_mao_1978",
+            "reference": {
+              "authors": ["Mao", "Bell", "Shaner", "Steinberg"],
+              "year": 1978,
+              "source": "Journal of Applied Physics",
+              "doi": "10.1063/1.325277"
+            },
+            "source_location": "Experimental method p. 302; Table 1 footnote a",
+            "notes": "Ne pressure medium; pressures averaged before and after each diffraction acquisition. The paper cites Mao 1978, not Mao 1986."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Individual before/after readings, R1 wavelengths and reference wavelengths are not tabulated. Only averaged pressure and assumed 0.1 GPa uncertainty are recoverable."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Exact source weighting and numerical covariance unpublished; cannot reproduce the original confidence ellipse exactly."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 603.21,
+                "published_error": 0.18,
+                "refit": 603.1925064483337,
+                "refit_error": 0.19518692105262656,
+                "difference": -0.01749355166634814,
+                "relative_difference": 2.9000765349294835e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 172.0,
+                "published_error": 1.0,
+                "refit": 172.11051554527242,
+                "refit_error": 1.333579457846535,
+                "difference": 0.11051554527242047,
+                "relative_difference": 0.000642532239955933,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 18,
+              "observed_pressure_range_gpa": [0.0001, 14.9],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [559.91, 602.58],
+              "degrees_of_freedom": 16,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.12836025451770725,
+              "published_rmse_gpa": 0.12839286307062586,
+              "reduced_chi_square": 0.018535899307331904,
+              "dataset_identifiers": ["qandilite_lv_2016_table1_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "verified_fields": [
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "reference_state",
+            "volume_basis",
+            "structure",
+            "pressure_calibration",
+            "primary_data",
+            "independent_reproduction"
+          ],
+          "primary_source_check": {
+            "doi": "10.1007/s00269-015-0794-1",
+            "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+            "locations": [
+              "Experimental method, p. 302",
+              "Table 1 and unnumbered BM equation, p. 303",
+              "Figures 3–5, p. 304",
+              "Table 2, p. 305"
+            ],
+            "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["qandilite_lv_2016_table1_pv"],
+            "source_locations": ["Table 1, p. 303"],
+            "finding": "All 18 rows with original P, a, V and every reported uncertainty. Raw ruby readings unavailable."
+          },
+          "reproduction": {
+            "script": "scripts/reproduce_lv_2016_qandilite.py",
+            "report": "docs/literature-reproductions/lv-2016-qandilite.md",
+            "result": "Both published curves reproduce Table 1; independent all-row unweighted refits recover all coefficients within reported one-sigma errors."
+          },
+          "unresolved": [
+            "Exact source weighting and numerical covariance unpublished; cannot reproduce the original confidence ellipse exactly."
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental method, p. 302; Table 1 and unnumbered BM equation, p. 303; Figures 3–5, p. 304; Table 2, p. 305.",
+          "equation": "Unnumbered standard Eulerian Birch–Murnaghan equation, p. 303; conventional cubic cell volume.",
+          "V0": "Fitted, p. 303: 603.21(18) A3; not the measured 602.58(49) A3 ambient volume.",
+          "K0": "Fitted, p. 303 and Table 2: 172.0 GPa.",
+          "K0_prime": "Fixed at 4 by BM2 model order; explicitly stated p. 303 and Table 2 footnote b.",
+          "reference_state": "P=0 GPa, T=300 K; Z=8 conventional cubic cell."
+        },
+        "fit_provenance": {
+          "scope": "Independent audit diagnostic, not the unpublished source regression settings.",
+          "software": {"name": "Peritheos", "version": "0.9.0"},
+          "dataset": "qandilite_lv_2016_table1_pv",
+          "selection": {"predicate": "all Table 1 rows", "included_rows": 18, "excluded_rows": 0},
+          "objective": "unweighted_pressure_residuals",
+          "weights": [],
+          "refined_parameters": ["V0", "K0"],
+          "fixed_parameters": [],
+          "fixed_model_choices": {"K0_prime": 4.0},
+          "reproduction": {"script": "scripts/reproduce_lv_2016_qandilite.py"},
+          "weight_notes": "Equal weights in independent audit; source numerical weights are unreported.",
+          "statistics": {"observations": 18, "free_parameters": 2, "pressure_rmse_gpa": 0.128360254517702}
+        }
+      }
+    },
+    "qandilite_lv_2016_bm3": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference_calibration_record": "ruby_mao_1978",
+            "reference": {
+              "authors": ["Mao", "Bell", "Shaner", "Steinberg"],
+              "year": 1978,
+              "source": "Journal of Applied Physics",
+              "doi": "10.1063/1.325277"
+            },
+            "source_location": "Experimental method p. 302; Table 1 footnote a",
+            "notes": "Ne pressure medium; pressures averaged before and after each diffraction acquisition. The paper cites Mao 1978, not Mao 1986."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Individual before/after readings, R1 wavelengths and reference wavelengths are not tabulated. Only averaged pressure and assumed 0.1 GPa uncertainty are recoverable."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Exact source weighting and numerical covariance unpublished; cannot reproduce the original confidence ellipse exactly."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 603.1,
+                "published_error": 0.25,
+                "refit": 603.0696348833889,
+                "refit_error": 0.26187526904391,
+                "difference": -0.030365116611164922,
+                "relative_difference": 5.034839431464918e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 175.0,
+                "published_error": 5.0,
+                "refit": 175.5118771820369,
+                "refit_error": 5.11605078308972,
+                "difference": 0.5118771820368977,
+                "relative_difference": 0.0029250124687822724,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.5,
+                "published_error": 0.7,
+                "refit": 3.4947201397685146,
+                "refit_error": 0.7238741340801185,
+                "difference": -0.0052798602314854115,
+                "relative_difference": 0.0015085314947101175,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 18,
+              "observed_pressure_range_gpa": [0.0001, 14.9],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [559.91, 602.58],
+              "degrees_of_freedom": 15,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.1263985446468416,
+              "published_rmse_gpa": 0.12730232663244365,
+              "reduced_chi_square": 0.019171910506607538,
+              "dataset_identifiers": ["qandilite_lv_2016_table1_pv"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "verified_fields": [
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "reference_state",
+            "volume_basis",
+            "structure",
+            "pressure_calibration",
+            "primary_data",
+            "independent_reproduction"
+          ],
+          "primary_source_check": {
+            "doi": "10.1007/s00269-015-0794-1",
+            "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+            "locations": [
+              "Experimental method, p. 302",
+              "Table 1 and unnumbered BM equation, p. 303",
+              "Figures 3–5, p. 304",
+              "Table 2, p. 305"
+            ],
+            "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["qandilite_lv_2016_table1_pv"],
+            "source_locations": ["Table 1, p. 303"],
+            "finding": "All 18 rows with original P, a, V and every reported uncertainty. Raw ruby readings unavailable."
+          },
+          "reproduction": {
+            "script": "scripts/reproduce_lv_2016_qandilite.py",
+            "report": "docs/literature-reproductions/lv-2016-qandilite.md",
+            "result": "Both published curves reproduce Table 1; independent all-row unweighted refits recover all coefficients within reported one-sigma errors."
+          },
+          "unresolved": [
+            "Exact source weighting and numerical covariance unpublished; cannot reproduce the original confidence ellipse exactly."
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental method, p. 302; Table 1 and unnumbered BM equation, p. 303; Figures 3–5, p. 304; Table 2, p. 305.",
+          "equation": "Unnumbered standard Eulerian Birch–Murnaghan equation, p. 303; conventional cubic cell volume.",
+          "V0": "Fitted, p. 303: 603.10(25) A3; not the measured 602.58(49) A3 ambient volume.",
+          "K0": "Fitted, p. 303 and Table 2: 175.0 GPa.",
+          "K0_prime": "Fitted 3.5(7), p. 303 and Table 2.",
+          "reference_state": "P=0 GPa, T=300 K; Z=8 conventional cubic cell."
+        },
+        "fit_provenance": {
+          "scope": "Independent audit diagnostic, not the unpublished source regression settings.",
+          "software": {"name": "Peritheos", "version": "0.9.0"},
+          "dataset": "qandilite_lv_2016_table1_pv",
+          "selection": {"predicate": "all Table 1 rows", "included_rows": 18, "excluded_rows": 0},
+          "objective": "unweighted_pressure_residuals",
+          "weights": [],
+          "refined_parameters": ["V0", "K0", "K0_prime"],
+          "fixed_parameters": [],
+          "fixed_model_choices": {},
+          "reproduction": {"script": "scripts/reproduce_lv_2016_qandilite.py"},
+          "weight_notes": "Equal weights in independent audit; source numerical weights are unreported.",
+          "statistics": {"observations": 18, "free_parameters": 3, "pressure_rmse_gpa": 0.12639854464684092}
+        }
+      }
+    }
+  }
+}

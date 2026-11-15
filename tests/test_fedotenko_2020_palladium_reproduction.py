@@ -131,11 +131,10 @@ def test_bm2_remains_available_only_by_explicit_diagnostic_selection():
     report = (
         Path(__file__).resolve().parents[1] / "docs/reconstruction-reports/palladium.md"
     )
-    assert (
-        "**Outcome: Coefficient parity achieved; poor data agreement.**"
-        in report.read_text()
-    )
-    assert "**Warning:** Do not use" in report.read_text()
+    section = report.read_text().split(f'<a id="record-{rid}"></a>', 1)[1]
+    assert f"**reproduced**, poor data agreement · `{rid}`" in section
+    assert "**Warning:** Not recommended for quantitative use." in section
+    assert "**Warning (source review):** Do not use" in section
 
 
 def test_source_reaudit_preserves_parity_and_negative_use_recommendation():

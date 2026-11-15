@@ -1,0 +1,805 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "rhenium",
+  "records": {
+    "rhenium_sakai_2025_rydberg_stacey_1": {
+      "network_reconstruction_audit": {
+        "report": "docs/literature-reproductions/sakai-2025-network.md",
+        "data": "docs/data/sakai-2025-network-reconstruction.json",
+        "scope": "Conditional measured subsets, published-upstream and sequential controls; original full-network workflow and uncertainty not reproduced."
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": [
+                "Sakai",
+                "Kadobayashi",
+                "Nakamoto",
+                "Dekura",
+                "Ishimatsu",
+                "Kawaguchi-Imada",
+                "Seto",
+                "Sekizawa",
+                "Nitta",
+                "Shimizu"
+              ],
+              "year": 2025,
+              "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+              "source": "Communications Materials",
+              "volume": "6",
+              "locator": "68",
+              "doi": "10.1038/s43246-025-00792-5"
+            },
+            "reference_eos_record": "copper_sakai_2025_rydberg_stacey_1",
+            "source_location": "Figure 1, Table 2, and Supplementary Table S8",
+            "scope": "Cross-calibration through the Sakai et al. Cu-anchored material network"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The exact Cu-anchored R-S pressure scale and the official simultaneous-volume workbooks are available."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
+            "fit": {
+              "fixed_parameters": ["V0", "K0", "K_infinity_prime"],
+              "dataset_identifiers": ["rhenium_sakai_2025_table_s1_measured_pairs"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1038/s43246-025-00792-5",
+            "locations": ["Equation (1)", "Table 2", "Supplementary Data 1, Tables S8-S10", "Official R-S EoS workbook"],
+            "finding": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+            "doi": "10.1038/s43246-025-00792-5"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "source_locations": ["Supplementary Data 1, Table S9"],
+            "finding": "Table S1 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.",
+            "dataset_identifiers": ["rhenium_sakai_2025_table_s1_measured_pairs"]
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
+        },
+        "source_lineage": [
+          {
+            "role": "scientific fit, equation, and coefficients",
+            "citation": "Sakai et al. (2025), Equation (1), Table 2, and Supplementary Tables S8-S10",
+            "doi": "10.1038/s43246-025-00792-5"
+          },
+          {
+            "role": "official executable formula and curve checkpoint",
+            "citation": "Sakai et al. (2025), R-S EoS workbook and Supplementary Data 1 Table S9",
+            "doi": "10.1038/s43246-025-00792-5"
+          }
+        ]
+      }
+    },
+    "rhenium_anzellini_2014_vinet_1": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Dorogokupets", "Oganov"],
+              "year": 2007,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.75.024115"
+            },
+            "source_location": "Section II and Table I",
+            "scope": "ruby-gauge run",
+            "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Dorogokupets", "Oganov"],
+              "year": 2007,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.75.024115"
+            },
+            "source_location": "Section II and Table I",
+            "scope": "W-gauge run",
+            "notes": "Dorogokupets-Oganov W EOS"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Dewaele et al."],
+              "year": 2003,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.67.094112"
+            },
+            "source_location": "Section II and Table I",
+            "scope": "He-gauge run"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 29.4666,
+                "published_error": 0.0332,
+                "refit": 29.47116809355935,
+                "refit_error": 0.01465445167215156,
+                "difference": 0.0045680935593495064,
+                "relative_difference": 0.00015502615026333227,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 352.6,
+                "published_error": 8.0,
+                "refit": 349.3235743292062,
+                "refit_error": 3.908645041756426,
+                "difference": -3.276425670793799,
+                "relative_difference": 0.009292188516148039,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.56,
+                "published_error": 0.17,
+                "refit": 4.650965022365095,
+                "refit_error": 0.08463980686232286,
+                "difference": 0.0909650223650953,
+                "relative_difference": 0.019948469816906865,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 59,
+              "observed_pressure_range_gpa": [0.65, 144.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [23.23852512, 29.45669406],
+              "degrees_of_freedom": 56,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.604047760657186,
+              "published_rmse_gpa": 0.6131883761770216,
+              "reduced_chi_square": 0.3844205023596911,
+              "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1063/1.4863300",
+            "locations": [
+              "Equation 6",
+              "Table III, measured pressures and lattice parameters",
+              "Table IV, 300 K Vinet fit",
+              "Figure 3"
+            ],
+            "doi": "10.1063/1.4863300"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "rhenium.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"],
+            "source_locations": ["Table III"],
+            "finding": "All 59 quasi-hydrostatic rhenium observations from the three compression runs are tabulated in Table III. The published a and c lattice parameters, pressure-gauge identity, and tungsten calibrant lattice parameter where reported are bundled; conventional-cell volumes are derived from the hexagonal lattice parameters."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 6; Table III, measured pressures and lattice parameters; Table IV, 300 K Vinet fit; Figure 3."
+        }
+      }
+    },
+    "rhenium_dewaele_2019_mao_vinet": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {"kind": "other", "source_location": "linked_tungsten_scale"}
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The bundled source pressure coordinate is converted between the Mao and Dorogokupets ruby scales by the equations in the dedicated Dewaele (2019) audit."
+        },
+        "audit_date": "2026-09-06"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 29.474,
+                "published_error": 0.04,
+                "refit": 29.476510755297845,
+                "refit_error": 0.014118117312373026,
+                "difference": 0.0025107552978447245,
+                "relative_difference": 8.518542776157714e-05,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0",
+                "published": 350.5,
+                "published_error": 8.0,
+                "refit": 349.46741636658453,
+                "refit_error": 3.765353037927594,
+                "difference": -1.03258363341547,
+                "relative_difference": 0.0029460303378472754,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.98,
+                "published_error": 0.17,
+                "refit": 4.012835983077084,
+                "refit_error": 0.083109466539166,
+                "difference": 0.032835983077083686,
+                "relative_difference": 0.008250247004292383,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "unweighted pressure residuals",
+              "selection": "complete",
+              "weighting": "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+              "absolute_sigma": false,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 59,
+              "observed_pressure_range_gpa": [0.6564113204013139, 134.16305399420037],
+              "degrees_of_freedom": 56.0,
+              "solver_success": true,
+              "solver_message": "dedicated Dewaele (2019) refit completed",
+              "rmse_gpa": 0.5744922590515854,
+              "parameter_covariance": [
+                [0.00019932123644592696, -0.04631251363935004, 0.000862979691364963],
+                [-0.04631251363935004, 14.17788350023056, -0.3014314061402138],
+                [0.000862979691364963, -0.3014314061402138, 0.006907183428424752]
+              ],
+              "covariance": {
+                "parameters": ["V0", "K0", "K0_prime"],
+                "matrix": [
+                  [0.00019932123644592696, -0.04631251363935004, 0.000862979691364963],
+                  [-0.04631251363935004, 14.17788350023056, -0.3014314061402138],
+                  [0.000862979691364963, -0.3014314061402138, 0.006907183428424752]
+                ],
+                "standard_errors": {"V0": 0.014118117312373026, "K0": 3.765353037927594, "K0_prime": 0.083109466539166},
+                "correlation_matrix": [
+                  [1.0, -0.8711959849440908, 0.7354841104121164],
+                  [-0.8711959849440908, 0.9999999999999999, -0.9632351073658452],
+                  [0.7354841104121164, -0.9632351073658452, 1.0]
+                ],
+                "degrees_of_freedom": 56.0,
+                "local_student_t_95_intervals": {
+                  "V0": [29.44822876782423, 29.50479274277146],
+                  "K0": [341.92450784017046, 357.0103248929986],
+                  "K0_prime": [3.8463477155841015, 4.179324250570065]
+                },
+                "residual_variance": 0.34772214262320394,
+                "max_abs_residual_jacobian_cosine": 4.235800384904377e-09,
+                "residual_sum_squares": 19.47243998689942,
+                "residual_count": 59,
+                "scaled_jacobian_condition_number": 160.5543178264438,
+                "derivative_step_halving_relative_change": 2.0204260080165965e-12,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "qualification": "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows."
+                },
+                "assumptions": [
+                  "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
+              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+              "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+          "audit_date": "2026-09-06",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+            "doi": "10.3390/min9110684",
+            "locations": ["Equation (1)", "Table 1"],
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-07",
+            "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"],
+            "source_locations": ["rhenium-anzellini-2014-table3-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
+            "finding": "All 59 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
+            "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
+            "fit_scope": "complete",
+            "record_parameter_comparison": {
+              "absolute_parameter_difference": [0.0012553776489223623, 1.03258363341547, 0.032835983077083686],
+              "max_abs_gpa": 2.0662818451512237,
+              "parameters": [14.738255377648922, 349.46741636658453, 4.012835983077084],
+              "rmse_gpa": 0.5744922590515854,
+              "within_reported_95pct_errors": true
+            }
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+          "V0": "Table 1",
+          "K0": "Table 1",
+          "K0_prime": "Table 1"
+        },
+        "source_lineage": [
+          {
+            "role": "scientific equation and coefficients",
+            "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+            "doi": "10.3390/min9110684"
+          }
+        ]
+      }
+    },
+    "rhenium_dewaele_2019_dor_vinet": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {"kind": "other", "source_location": "linked_tungsten_scale"}
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The bundled source pressure coordinate is converted between the Mao and Dorogokupets ruby scales by the equations in the dedicated Dewaele (2019) audit."
+        },
+        "audit_date": "2026-09-06"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 29.468,
+                "published_error": 0.04,
+                "refit": 29.471168094198738,
+                "refit_error": 0.01465445179380054,
+                "difference": 0.0031680941987382027,
+                "relative_difference": 0.00010750964431716447,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0",
+                "published": 350.5,
+                "published_error": 8.0,
+                "refit": 349.3235741323694,
+                "refit_error": 3.9086450951857956,
+                "difference": -1.1764258676305985,
+                "relative_difference": 0.0033564218762641897,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.62,
+                "published_error": 0.17,
+                "refit": 4.650965026819257,
+                "refit_error": 0.08463980907429594,
+                "difference": 0.03096502681925717,
+                "relative_difference": 0.006702386757414971,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "unweighted pressure residuals",
+              "selection": "complete",
+              "weighting": "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+              "absolute_sigma": false,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 59,
+              "observed_pressure_range_gpa": [0.65, 144.0],
+              "degrees_of_freedom": 56.0,
+              "solver_success": true,
+              "solver_message": "dedicated Dewaele (2019) refit completed",
+              "rmse_gpa": 0.6040477606572032,
+              "parameter_covariance": [
+                [0.00021475295737682383, -0.050210755359700765, 0.0009165339776793419],
+                [-0.05021075535970076, 15.277506480119976, -0.31844298782730274],
+                [0.0009165339776793419, -0.3184429878273028, 0.0071638972801332705]
+              ],
+              "covariance": {
+                "parameters": ["V0", "K0", "K0_prime"],
+                "matrix": [
+                  [0.00021475295737682383, -0.050210755359700765, 0.0009165339776793419],
+                  [-0.05021075535970076, 15.277506480119976, -0.31844298782730274],
+                  [0.0009165339776793419, -0.3184429878273028, 0.0071638972801332705]
+                ],
+                "standard_errors": {"V0": 0.01465445179380054, "K0": 3.9086450951857956, "K0_prime": 0.08463980907429594},
+                "correlation_matrix": [
+                  [0.9999999999999999, -0.8765989375213771, 0.7389317339974463],
+                  [-0.876598937521377, 1.0, -0.9625665749186858],
+                  [0.7389317339974463, -0.962566574918686, 1.0000000000000002]
+                ],
+                "degrees_of_freedom": 56.0,
+                "local_student_t_95_intervals": {
+                  "V0": [29.441811699653005, 29.50052448874447],
+                  "K0": [341.4936171221682, 357.1535311425706],
+                  "K0_prime": [4.481411114846118, 4.820518938792397]
+                },
+                "residual_variance": 0.3844205023596987,
+                "max_abs_residual_jacobian_cosine": 3.826488291930508e-09,
+                "residual_sum_squares": 21.527548132143128,
+                "residual_count": 59,
+                "scaled_jacobian_condition_number": 149.86670902532592,
+                "derivative_step_halving_relative_change": 2.936072050732519e-12,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "qualification": "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows."
+                },
+                "assumptions": [
+                  "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
+              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+              "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+          "audit_date": "2026-09-06",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+            "doi": "10.3390/min9110684",
+            "locations": ["Equation (1)", "Table 1"],
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-07",
+            "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"],
+            "source_locations": ["rhenium-anzellini-2014-table3-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
+            "finding": "All 59 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
+            "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
+            "fit_scope": "complete",
+            "record_parameter_comparison": {
+              "absolute_parameter_difference": [0.0015840470993691014, 1.1764258676305985, 0.03096502681925717],
+              "max_abs_gpa": 2.131179541029013,
+              "parameters": [14.735584047099369, 349.3235741323694, 4.650965026819257],
+              "rmse_gpa": 0.6040477606572032,
+              "within_reported_95pct_errors": true
+            }
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+          "V0": "Table 1",
+          "K0": "Table 1",
+          "K0_prime": "Table 1"
+        },
+        "source_lineage": [
+          {
+            "role": "scientific equation and coefficients",
+            "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+            "doi": "10.3390/min9110684"
+          }
+        ]
+      }
+    },
+    "rhenium_sakai_2018_yokoo_pt_vinet": {
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Yokoo", "Kawai", "Nakamura", "Kondo", "Tange", "Tsuchiya"],
+              "year": 2009,
+              "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
+              "source": "Physical Review B",
+              "doi": "10.1103/PhysRevB.80.104114"
+            },
+            "source_location": "Section 3, Figure 10 and following paragraph; reference [7]",
+            "scope": "Yokoo platinum Vinet scale applied to co-compressed Pt.",
+            "notes": "The Dewaele-Pt points in Figure 10 are a comparison, not the pressure scale of this fitted record. The named Vinet branch is verified in Yokoo Table IV (K0=276.4 GPa, K0_prime=5.48; density-derived V0=60.55 A^3). Sakai does not provide a separate unrounded Pt normalization; this resolves the published equation reference without claiming exact historical pressure replay.",
+            "reference_eos_record": "platinum_yokoo_2009_vinet_300k"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The published Yokoo 300 K Pt Vinet branch is bundled. Original paired Pt-Re volumes, pressure uncertainties and an independently stated unrounded Pt normalization are not tabulated; historical pressure recalculation remains unavailable."
+        },
+        "audit_date": "2026-10-09"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Numerical parity: 26 RP01 Yokoo-Pt Figure 10 points reproduce both coefficients within the quoted errors, with comparable conditional refit standard errors (10.23 GPa and 0.180). Parity is based on the reported parameter error widths, not a formal combined-two-sigma claim. Exact row selection, weights and source error confidence are unspecified. Including six Micro17 points shifts K0/K0' to about 327.1/5.373; this selection sensitivity is retained in the dedicated Sakai 2018 audit."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 358.0,
+                "published_error": 10.0,
+                "refit": 357.1917448671756,
+                "refit_error": 10.226614920564156,
+                "difference": -0.8082551328243994,
+                "relative_difference": 0.0022576959017441326,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.8,
+                "published_error": 0.2,
+                "refit": 4.834834244655565,
+                "refit_error": 0.18014696472120184,
+                "difference": 0.03483424465556517,
+                "relative_difference": 0.0072571343032427444,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "diagnostic_vector_digitized_vinet",
+              "objective": "pressure_residuals",
+              "selection": "26 RP01 Yokoo-Pt gray diamonds only; source membership inferred, not explicitly enumerated",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 26,
+              "observed_pressure_range_gpa": [138.5287109544056, 302.80959631080384],
+              "rmse_gpa": 3.1061686073745998,
+              "published_rmse_gpa": 3.2130888524322523,
+              "dataset_identifiers": ["rhenium_sakai_2018_figure10"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Primary PDF checked for the published Vinet fit and calibration. An independent refit of 26 RP01 Yokoo-Pt Figure 10 vector points achieves numerical parity: K0 and K0_prime agree within the quoted parameter error widths, with comparable conditional refit standard errors of 10.23 GPa and 0.180. Original weights, row selection and source error confidence remain unspecified; no formal combined-two-sigma claim is made.",
+          "audit_date": "2026-09-10",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1080/08957959.2018.1448082",
+            "doi": "10.1080/08957959.2018.1448082",
+            "source_filename": "08957959.2018.1448082.pdf",
+            "sha256": "b9cafc84c668283a96ae59c48d0c42696df38eae42765d9db483bc8f5117eb32",
+            "locations": [
+              "Section 2 (article p. 4), Re-Pt co-compression",
+              "Section 3, Figure 10 and following paragraph (article p. 10)",
+              "Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure"
+            ],
+            "finding": "One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work."
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-10",
+            "dataset_identifiers": ["rhenium_sakai_2018_figure10"],
+            "source_locations": ["Figure 10", "Table 1 (anvil/sample setup only)"],
+            "finding": "All 58 Figure 10 vector markers are bundled, preserving 26 RP01 observations on each Pt scale and six Micro17 observations. An unweighted Vinet refit of the 26 RP01 Yokoo-Pt points, with V0=29.47 A^3 fixed, gives K0=357.19 GPa and K0_prime=4.83483, within the printed 358(10) and 4.8(2). Original fit-row membership, residual coordinate, weights and uncertainty confidence are unspecified; including Micro17 or changing the objective shifts the optimum. This is a qualified digitized-data reproduction, not a recovery of the original fit table. See the [Sakai (2018) audit](literature-reproductions/sakai-2018-rhenium.md).",
+            "reproduction_resource": "docs/data/sakai-2018-rhenium-reproduction.json",
+            "digitized_dataset_identifiers": [],
+            "fit_scope": "qualified_digitized_reconstruction"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 2 (article p. 4), Re-Pt co-compression; Section 3, Figure 10 and following paragraph (article p. 10); Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure.",
+          "V0": "Section 3, paragraph below Figure 10 (article p. 10; final p. 116): fixed conventional hcp cell volume, 29.47 A^3, Z=2.",
+          "K0": "Same paragraph: 358(10) GPa, fitted.",
+          "K0_prime": "Same paragraph: 4.8(2), fitted.",
+          "temperature_ref": "Ambient-temperature DAC experiment; 300 K is the catalog room-temperature convention, not a measured value."
+        }
+      }
+    },
+    "rhenium_zha_2004_bm3_log_thermal": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
+              "year": 1989,
+              "source": "Journal of Applied Physics",
+              "doi": "10.1063/1.342969"
+            },
+            "source_location": "Table IIa caption and Section III",
+            "notes": "The cited Anderson gold EOS is known and Table IIa specifies Va=67.847 A^3. Applying the related catalog coefficients with that volume differs from the printed marker pressures by up to 0.318 GPa; exact numerical calibration provenance is unresolved. The related record is not an exact executable calibration link.",
+            "related_eos_record": "gold_anderson_1989_bm3_1"
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "All paired Au volumes and temperatures are available. The exact source realization of Anderson calibration is unresolved; the related catalog model with the explicit source reference volume does not reproduce every printed pressure. Retain source pressures and treat recalculation as a separate interpretation."
+        },
+        "audit_date": "2026-09-15"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
+            "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Both Table III thermal coefficients agree at five printed decimal places using the existing staged isochore-slope objective and fixed cold curve. Source errors and reconstruction covariance remain unknown. The eight Au pressure reductions and the 0.40849 GPa published-curve RMS remain separate unresolved findings; no measurement-error or author-workflow parity is claimed. Earlier audit wording (superseded only for the named numerical scope): Both thermal point estimates recover within 0.05%; source errors are unavailable. The source staged isochore objective differs from direct pressure least squares. See literature-reproductions/zha-2004-rhenium.md.",
+              "Both thermal point estimates recover within 0.05%; source errors are unavailable. The source staged isochore objective differs from direct pressure least squares. See literature-reproductions/zha-2004-rhenium.md."
+            ],
+            "parameters": [
+              {
+                "parameter": "alpha_KT_ref",
+                "published": 0.00776,
+                "published_error": null,
+                "refit": 0.007756156527449165,
+                "refit_error": null,
+                "difference": -3.84347255083517e-06,
+                "relative_difference": 0.0004952928544890682,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "dK_dT_V",
+                "published": -0.00815,
+                "published_error": null,
+                "refit": -0.008148788969999833,
+                "refit_error": null,
+                "difference": 1.2110300001665075e-06,
+                "relative_difference": 0.0001485926380572402,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isochore_slope_linear_regression",
+              "objective": "unweighted residuals of (P-P300)/(T-300), the staged isochore construction in Section III",
+              "free_parameters": ["alpha_KT_ref", "dK_dT_V"],
+              "fixed_parameters": ["V0", "K0", "K0_prime", "Tr"],
+              "observations": 8,
+              "observed_pressure_range_gpa": [6.41, 8.47],
+              "observed_temperature_range_k": [1380.3, 1914.5],
+              "solver_success": true,
+              "rmse_gpa": 0.4083849112682927,
+              "published_rmse_gpa": 0.4084918269955869,
+              "comparison_scope": "Compared free coefficients: alpha_KT_ref, dK_dT_V; scope=parameter_agreement",
+              "dataset_identifiers": ["rhenium_zha_2004_table2_paired_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Primary PDF equations and tables checked visually; independent isochore-slope regression reproduces both thermal coefficients and published derived free-V0 isotherms bound the high-temperature curve comparison.",
+          "audit_date": "2026-09-15",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "doi": "10.1063/1.1765752",
+            "access_url": "https://doi.org/10.1063/1.1765752",
+            "locations": [
+              "Equations (3)-(6), p. 2410",
+              "Table IIa-IIb, p. 2412",
+              "Tables III-IV and Figure 5, p. 2414",
+              "Table V, p. 2415",
+              "Appendix and Table VII, pp. 2416-2418"
+            ],
+            "finding": "Table III is a complete continuous thermal EOS, distinct from the preferred subsequent fixed-volume isotherms. Its fitted coefficients reproduce from all eight observed isochore slopes.",
+            "zotero_item_key": "9BAJ2FCF",
+            "zotero_attachment_key": "JABFZJUC"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-15",
+            "dataset_identifiers": ["rhenium_zha_2004_table2_paired_pvt"],
+            "source_locations": ["Table IIa-IIb"],
+            "finding": "All eight primary Re observations and paired Au marker diffraction values and uncertainties are bundled. Derived Tables IV/V and the six Table VII diffraction diagnostics are retained separately."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations (3)-(6), p. 2410; Table IIa-IIb, p. 2412; Tables III-IV and Figure 5, p. 2414; Table V, p. 2415; Appendix and Table VII, pp. 2416-2418.",
+          "V0": "Table III: Va=29.4087 A^3, conventional hcp cell, Z=2; JCPDS 05-0702.",
+          "K0": "Table III: 360 GPa, fixed ambient reference.",
+          "K0_prime": "Table III: 4.5, fixed ambient reference.",
+          "alpha_KT_ref": "Table III: 0.00776 GPa/K, fitted.",
+          "dK_dT_V": "Table III: -0.00815 GPa/K, fitted.",
+          "Tr": "Equations (3)-(6): 300 K.",
+          "equation": "Equation (6): BM3 plus [alpha*KT+(dKT/dT)_V ln(Va/V)](T-300)."
+        }
+      }
+    }
+  }
+}

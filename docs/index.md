@@ -8,12 +8,11 @@ least-squares parameter fitting.
 The documentation is organized around scientific workflows:
 
 - [Getting started](getting-started.md) introduces isothermal and thermal use.
-- [Material catalog](catalog.md) covers executable lookup and typed discovery
-  across 232 executable materials, 666 primary-source-validated records, and 18
-  qualified explicit-selection implementations.
-- [EOS record categories](catalog.md#eos-record-categories) explains published,
-  refit, derived and diagnostic records, scientific validation, and the separate
-  outcomes of fit reproduction.
+- [Material catalog](catalog.md) covers executable lookup and typed discovery;
+  [material summaries](material-summaries/index.md) show every bundled record's
+  coefficients, source, limits, reproduction headline and warning.
+- [Reconstruction reports](reconstruction-reports/index.md) show how each record
+  was checked, with per-material counts by headline.
 - [EOS models](models.md) lists parameters, assumptions, and useful limits.
 - [Equation reference](equation-reference.md) defines the implemented
   isothermal and thermal equations and their coefficients.
@@ -50,19 +49,19 @@ The documentation is organized around scientific workflows:
 - [Calculation uncertainty](uncertainty.md) propagates fitted or published
   parameter errors into EOS predictions.
 - [Dioptas and `.eosmat`](dioptas-integration.md) defines the shared material
-  ownership and bundled 235-material-document/687-record EOS library.
+  ownership and the bundled EOS library.
 - [Create and read EOSMAT](eosmat-authoring.md) starts with a small editable file
   and explains each field, including complete thermal and database-style examples.
-- [Native EOSMAT v5](eosmat-v5.md) documents the current structure, units, local
-  metadata sharing and reconstruction assessments. The [v3 compatibility
+- [Native EOSMAT v5](eosmat-v5.md) documents the current structure, units, the
+  record `check` headline and audit sidecars. The [v3 compatibility
   reference](eosmat-schema.md) retains historical layouts and advanced semantics.
 - [Advanced DAC analysis](dac-thermal-pressure.md) documents the optional
   two-volume thermal-pressure boundary-condition model.
 - [Units and reference states](units.md) explains the deliberately strict
   thermal volume convention.
 - [Validation](validation.md) describes the numerical and literature checks.
-- [EOS labels and reconstruction status](eos-labels.md) explains parity, similarity,
-  source checks and record origins without conflating them.
+- [EOS labels and reconstruction status](eos-labels.md) defines the reproduction
+  headlines, warnings, source checks and record origins without conflating them.
 - [Paper investigation ledger](paper-investigation-ledger.md) gives the final
   disposition of every primary paper reviewed, including unreproduced,
   unavailable-data, withheld, and deferred cases.

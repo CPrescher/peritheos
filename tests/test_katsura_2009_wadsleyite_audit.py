@@ -7,6 +7,7 @@ import numpy as np
 import pytest
 from scipy.integrate import quad
 
+from peritheos import load_eosmat
 from scripts.audit_katsura_2009_wadsleyite import (
     DATA,
     ROOT,
@@ -32,9 +33,7 @@ def test_all_source_rows_errors_and_original_catalog_are_preserved():
     assert hashlib.sha256(DATA.read_bytes()).hexdigest() == (
         "b0fba67929425c9f1c4c51137453b8a114d754cfd6ecd31280ebe89671538310"
     )
-    document = json.loads(
-        (ROOT / "peritheos/data/materials/wadsleyite.eosmat").read_text()
-    )
+    document = load_eosmat(ROOT / "peritheos/data/materials/wadsleyite.eosmat")
     record = document["eos_records"][0]
     assert record["parameters"]["V0"]["value"] == 538.49
     assert record["thermal"]["parameters"]["n"]["value"] == 7

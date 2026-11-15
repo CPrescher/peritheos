@@ -24,6 +24,7 @@ from scripts.scientific_source_snapshot import (
     assert_snapshot_lineage,
     scientific_snapshot,
 )
+from scripts.split_eosmat_audits import pre_split_bytes
 
 
 def test_each_declaration_and_resource_matches_the_recovered_source():
@@ -150,14 +151,15 @@ def test_grossular_missing_errors_specimen_and_digitization_remain_explicit():
 @pytest.mark.parametrize("name", ["pyrope", "grossular"])
 def test_published_records_and_frozen_predecessors_are_preserved(name):
     receipt = json.loads((ROOT / RECEIPT).read_bytes())
-    path = ROOT / f"peritheos/data/materials/{name}.eosmat"
-    previous = prior_dataset_bytes(path.read_bytes(), name, ROOT)
+    # Undo the later record/audit split through its receipt first.
+    data = pre_split_bytes(name)
+    previous = prior_dataset_bytes(data, name, ROOT)
     assert (
         hashlib.sha256(previous).hexdigest()
         == receipt["materials"][name]["before_sha256"]
     )
     old = json.loads(previous)
-    current = json.loads(path.read_bytes())
+    current = json.loads(data)
     for a, b in zip(old["eos_records"], current["eos_records"]):
         for key in (
             "model",

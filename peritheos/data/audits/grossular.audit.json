@@ -1,0 +1,110 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "grossular",
+  "records": {
+    "grossular_angel_2022_bm3_q_compromise_debye": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-11-08",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "quartz",
+            "source_location": "Methodology: Data sources; supplementary Table S1",
+            "reference": {
+              "authors": ["Scheidl"],
+              "year": 2016,
+              "source": "Journal of Applied Crystallography",
+              "volume": "49",
+              "locator": "2129-2137"
+            },
+            "notes": "Recalibration of the Milani PV subset explicitly stated by Angel (2022); this is one component of the multi-source fit."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Joint multi-source fit uses source-specific calibrations and refined scale factors. Complete paired calibrant inputs and transformed joint fit project are not recovered."
+        },
+        "notes": "Milani quartz-calibrated PV inputs were recalculated by Angel (2022) from Angel (1997) to Scheidl (2016). Other grossular series use ruby/Au/NaCl as described in supplementary S1; no single substitute pressure scale is assigned."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "source_equation",
+            "source_status": "not_refittable",
+            "basis": "Published parameterization verified by independent quadrature and official EosFit checks; complete original joint fit is unavailable.",
+            "qualifications": [
+              "Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.",
+              "All 52 Gwanmesia rows and the other recovered source tables are available separately. Original Thiéblot measurement errors, exact author volume normalization/anchors, assigned coordinate errors, Isaak expansion specimen processing and original joint-fit confidence/covariance remain unresolved. Diagnostic estimates are not source errors."
+            ],
+            "fit": {
+              "fit_kind": "source_curve_validation_only",
+              "fixed_parameters": ["V0", "Tr", "n"],
+              "dataset_identifiers": []
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-11-08",
+          "note": "Source parameterization and volume conventions independently verified. Complete original joint fit remains unrecovered; this is not author-workflow or experimental validation.",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "covariance",
+            "validity"
+          ],
+          "primary_source_check": {
+            "doi": "10.1007/s00410-022-01918-5",
+            "access_url": "https://doi.org/10.1007/s00410-022-01918-5",
+            "locations": [
+              "Methodology: EoS models and EoS refinement",
+              "Table 1",
+              "Official supplementary EOS file 1",
+              "Supplementary Table S1"
+            ],
+            "finding": "Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file."
+          },
+          "primary_data_check": {
+            "status": "not_available",
+            "audit_date": "2026-11-15",
+            "source_locations": [
+              "Official supplementary EOS files 1-4",
+              "Official supplementary PDF, Tables S1/S2",
+              "Author parameter downloads, March 2023 filenames"
+            ],
+            "finding": "The eleven recovered source tables and the separately labelled digitized series are available through Material.get_dataset(). They retain anchors, exclusions, specimen identities and unknown source errors. The original author-processed mixed volume/adiabatic-modulus project is still unavailable: exact normalization, assigned coordinate errors, selected-row processing and covariance are unresolved. The 219-row diagnostic includes explicitly estimated errors for 26 observations and does not replace the original project.",
+            "scope": "original_author_processed_joint_fit_inputs"
+          },
+          "numerical_reproduction": {
+            "report": "docs/data/garnet-angel-2022/audit.json",
+            "scope": "source_parameterization_only",
+            "finding": "Independent SI quadrature agrees over 20 mathematical test states per material; Table 1 derived reference expansivity reproduced. Official EosFit checks retained separately. Calculated checkpoints are not observations."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Joint synthesis of experimental volume and adiabatic bulk-modulus observations, selected for consistency with measured heat capacities; includes adopted fixed molar V0.",
+          "source_file": "docs/data/garnet-angel-2022/sources/grossular-official.eos",
+          "source_parameters": {
+            "V0_cm3_mol": 125.35,
+            "K0_gpa": 167.002,
+            "K0_prime": 5.06534,
+            "theta0_k": 749.825,
+            "gamma0": 1.15602,
+            "n": 20
+          },
+          "volume_conversion": "Vcell[A3] = Vm[cm3/mol] * 8 * 1e24 / NA, NA=6.02214076e23 mol^-1. Native volume=Vm/10 J/bar/mol.",
+          "uncertainty": "Inline errors are the unchanged printed Table 1 widths; confidence is unspecified. The source-file covariance is retained independently and is used for propagation. It is conditional on fixed V0 and all source model/selection/calibration assumptions; omitted nuisance scale factors are marginalized by taking the EOS submatrix. No error is invented for adopted V0.",
+          "covariance_gamma0_standard_error": 0.005097057974949863,
+          "printed_gamma0_error": 0.006
+        }
+      }
+    }
+  }
+}

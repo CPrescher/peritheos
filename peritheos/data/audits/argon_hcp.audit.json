@@ -1,0 +1,109 @@
+{
+  "format": "peritheos.eosmat-audit",
+  "format_version": 5,
+  "material": "argon_hcp",
+  "records": {
+    "argon_hcp_wittlinger_1997_bm2_1": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.1; ruby pieces in the sample chamber used for pressure measurement",
+            "notes": "The article does not identify the exact ruby calibration equation."
+          }
+        ],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "Ruby fluorescence is identified explicitly, but the exact scale is not."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "NOT REPRODUCED: the available digitization does not establish a source-faithful reproduction of the published fit. Original observations, regression settings and covariance are unavailable; the shared fitted V0 normalization limits independent coefficient recovery. The numerical fits below are diagnostics only. Broad error-bar overlap is not successful reproduction. Comparison uses atomic volume: hcp cell/2 and fcc cell/4. Different phases are compared, not identified. Nine digitized points have large volume errors and share the fitted 78 A^3 normalization; unknown covariance limits coefficient inference. No replacement EOS is promoted from this diagnostic. Original article could not be reopened without institutional access on 2026-09-24; source transcription relies on the existing primary-source audit.",
+            "qualifications": [
+              "Usage recommendation: NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 78.0,
+                "published_error": 3.0,
+                "refit": 72.78172096898437,
+                "refit_error": null,
+                "relative_difference": 0.06690101321814905,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 6.5,
+                "published_error": 1.3,
+                "refit": 8.060302736427957,
+                "refit_error": null,
+                "relative_difference": 0.2400465748350703,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "digitized_bm2_errors_in_variables",
+              "objective": "P and V residuals with digitization uncertainty combined with plotted volume error",
+              "selection": "All nine experimental markers; fitted ambient marker excluded",
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 9,
+              "solver_success": true,
+              "rmse_gpa": 0.4510113341777895,
+              "published_rmse_gpa": 0.7722620448085159,
+              "reduced_chi_square": 0.20254793447243688,
+              "dataset_identifiers": ["argon_hcp_wittlinger_1997_figure3_digitized"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Primary-source validation covers transcription of the equation and coefficients, not reproduction of the fit. NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. ",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1107/S0108768197005739",
+            "locations": ["Primary article", "hcp Ar EOS fit and reported uncertainty"],
+            "doi": "10.1107/s0108768197005739"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "argon_hcp.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["argon_hcp_wittlinger_1997_figure3_digitized"],
+            "source_locations": ["Figure 3; Section 3.2; journal pages 747-748"],
+            "finding": "The hcp-argon relative-volume observations used for the Birch-Murnaghan fit are published graphically in Figure 3. Nine experimental markers and their asymmetric vertical error bars were digitized. The plotted fitted reference point at P=0 and V/V0=1 was excluded because the paper explicitly states that ambient hcp volume was not measured."
+          },
+          "usage_recommendation": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.",
+          "independent_numerical_check": {
+            "audit_date": "2026-09-24",
+            "script": "scripts/reproduce_argon.py",
+            "report": "docs/data/argon-reproduction.json",
+            "finding": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Published transcription preserved. Large digitized volume errors admit the source curve, but coefficient identification is weak. Raw-observation residuals do not support the old 60-fold improvement claim from adjusted-coordinate RMSE. A fresh full-text check was blocked by institutional access; this diagnostic uses previously audited source values and stored digitization.",
+            "status": "not_reproduced"
+          },
+          "reproduction_status": "not_reproduced"
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary article; hcp Ar EOS fit and reported uncertainty."
+        }
+      }
+    }
+  }
+}

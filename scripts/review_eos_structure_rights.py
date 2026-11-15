@@ -126,6 +126,12 @@ def build_review(root=ROOT):
         relative = path.relative_to(root).as_posix()
         content = path.read_bytes()
         if hashlib.sha256(content).hexdigest() != policy["material_sha256"][relative]:
+            # The record/audit split changed only the layout. Its receipt
+            # recovers the exact reviewed bytes; any other change still fails.
+            from scripts.split_eosmat_audits import pre_split_bytes
+
+            content = pre_split_bytes(path.stem, root=root)
+        if hashlib.sha256(content).hexdigest() != policy["material_sha256"][relative]:
             raise ValueError(f"Reviewed material changed: {relative}")
         document = json.loads(content)
         runtime = runtime_document(document)

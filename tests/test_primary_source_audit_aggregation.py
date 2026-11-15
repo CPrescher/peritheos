@@ -12,6 +12,10 @@ def test_aggregate_preserves_candidate_evidence_and_missing_card_note(
     materials.mkdir()
     for name in ("qandilite.eosmat", "vanadium_bcc.eosmat", "manifest.json"):
         (materials / name).write_bytes((audit.MATERIALS / name).read_bytes())
+    audits = tmp_path / "audits"
+    audits.mkdir()
+    for name in ("qandilite.audit.json", "vanadium_bcc.audit.json"):
+        (audits / name).write_bytes((audit.MATERIALS / "../audits" / name).read_bytes())
     report = tmp_path / "audit.json"
     source_report = json.loads(audit.REPORT.read_text())
     selected = [

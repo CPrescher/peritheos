@@ -9,14 +9,15 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import re
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 from urllib.parse import quote
 
 from peritheos import list_materials
+from peritheos._eosmat_audit import check_block
 from peritheos.eosmat import convert_eosmat, load_eosmat
-from scripts.report_numbers import rounded_metadata, value_error
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs/material-summaries"
@@ -86,108 +87,48 @@ def details(label: str, value: Any) -> list[str]:
     ]
 
 
-def reconstruction(record: Mapping[str, Any]) -> list[str]:
-    """Show the scoped result and its actual coefficient comparison together."""
-    assessment = record.get("reproduction", {}).get("assessment")
-    if not assessment:
-        return []
-    lines = [
-        "",
-        "### Reconstruction",
-        "",
-        f"**Outcome:** {text(assessment['status'].replace('_', ' '))}.",
-        f"**Scope:** {text(assessment['scope'].replace('_', ' '))}.",
-        "",
-        f"**Comparison basis:** {text(assessment.get('basis', 'Not assessed'))}",
-        "",
-    ]
+def record_check(
+    record: Mapping[str, Any], material: Mapping[str, Any]
+) -> dict[str, Any]:
+    """A record's stored ``check`` block, derived from its evidence when absent."""
+    stored = record.get("check")
+    return {
+        **check_block(record, material),
+        **(stored if isinstance(stored, Mapping) else {}),
+    }
+
+
+def coded(value: Any) -> bool:
+    """Whether a usage recommendation is a code rather than prose."""
+    return (
+        isinstance(value, str) and value.replace("_", "").isalpha() and value.islower()
+    )
+
+
+def report_link(record: Mapping[str, Any]) -> str | None:
+    """The record's reconstruction report, as recorded in its assessment."""
+    assessment = record.get("reproduction", {}).get("assessment") or {}
     if assessment.get("report_path", "").startswith("docs/reconstruction-reports/"):
-        destination = "../" + assessment["report_path"].removeprefix("docs/")
-        lines.extend([f"[Open reconstruction report]({destination})", ""])
-    elif assessment.get("report_url", "").startswith(("https://", "http://")):
-        lines.extend([f"[Open reconstruction report]({assessment['report_url']})", ""])
-    if assessment.get("source_status"):
-        lines.extend([f"Original audit code: `{assessment['source_status']}`.", ""])
-    if assessment.get("qualifications"):
-        lines.extend(["**Limitations and qualifications:**", ""])
-        lines.extend(f"- {text(value)}" for value in assessment["qualifications"])
-        lines.append("")
-    rows = assessment.get("parameters", [])
-    if rows:
-        lines.extend(
-            [
-                '<details markdown="1">',
-                "<summary>Source and reconstructed coefficients</summary>",
-                "",
-                "These reconstructed values describe the named audit, including failed or",
-                "partial reconstructions. They do not replace the EOS parameters above.",
-                "For an independent-refit assessment, the source column is the stored",
-                "Peritheos refit. Parameter names and volume/temperature conventions follow",
-                "the named audit; reported errors retain their original meaning.",
-                "",
-                "| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |",
-                "| --- | --- | --- | --- | --- | --- |",
-            ]
-        )
-        fixed = assessment.get("fit", {}).get("fixed_parameters", [])
-        free = assessment.get("fit", {}).get("free_parameters", [])
-        # Older protocols can describe constraints as prose. Only explicit
-        # lists/maps identify names; substring matches must not label a fit role.
-        if not isinstance(fixed, (list, Mapping)):
-            fixed = []
-        if not isinstance(free, (list, Mapping)):
-            free = []
-        for row in rows:
-            published, published_error = value_error(
-                row["published"], row.get("published_error", row.get("published_sigma"))
-            )
-            refit, refit_error = value_error(
-                row["refit"], row.get("refit_error", row.get("refit_sigma"))
-            )
-            lines.append(
-                "| "
-                + " | ".join(
-                    text(value)
-                    for value in (
-                        row["parameter"],
-                        published,
-                        published_error,
-                        refit,
-                        refit_error,
-                        "Fixed/adopted"
-                        if row["parameter"] in fixed
-                        else "Free"
-                        if row["parameter"] in free
-                        else "See protocol",
-                    )
-                )
-                + " |"
-            )
-        lines.extend(
-            [
-                "",
-                "Fixed/adopted coefficients are constraints, not independently reconstructed values.",
-                "Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.",
-                "",
-            ]
-        )
-        if assessment.get("fit"):
-            lines.extend(metadata(rounded_metadata(assessment["fit"])))
-        lines.extend(["", "</details>", ""])
-    elif assessment.get("fit"):
-        lines.extend(
-            details(
-                "Reconstruction protocol and available diagnostics",
-                rounded_metadata(assessment["fit"]),
-            )
-        )
-    if assessment.get("report"):
-        lines.extend(
-            [
-                f"Machine-readable comparison: `{assessment['report']}` (this record's identifier).",
-                "",
-            ]
-        )
+        return "../" + assessment["report_path"].removeprefix("docs/")
+    if assessment.get("report_url", "").startswith(("https://", "http://")):
+        return assessment["report_url"]
+    return None
+
+
+def reconstruction(record: Mapping[str, Any], check: Mapping[str, Any]) -> list[str]:
+    """Headline, warning and source finding; the comparison itself is in the report."""
+    headline = f"**{check['reproduction']}**"
+    link = report_link(record)
+    if link:
+        headline += f" · [Reconstruction report]({link})"
+    lines = [f"Reproduction: {headline}", ""]
+    if check.get("warning"):
+        lines.extend([f"**Warning:** {text(check['warning'])}", ""])
+    source_warning = record.get("scientific_validation", {}).get("warning")
+    if source_warning:
+        lines.extend([f"**Warning (source review):** {text(source_warning)}", ""])
+    if check.get("finding"):
+        lines.extend([f"**Source finding:** {text(check['finding'])}", ""])
     return lines
 
 
@@ -232,16 +173,7 @@ def parameters(record: Mapping[str, Any]) -> list[str]:
                 f"{text(error) if error is not None else 'Not reported'} | "
                 f"{'Yes' if name in fixed else 'Not listed'} |"
             )
-    lines.extend(
-        [
-            "",
-            "Values use the source model's parameter units. Primary `V0` uses",
-            "the conventional-cell volume declared above. Errors retain their reported",
-            "meaning; an absent error is unknown, and absence of covariance does not",
-            "establish statistical independence.",
-            "",
-        ]
-    )
+    lines.append("")
     return lines
 
 
@@ -264,22 +196,38 @@ def coefficient(record: Mapping[str, Any], name: str) -> str:
 def render_material(
     document: Mapping[str, Any], *, executable: set[str], defaults: Mapping[str, str]
 ) -> str:
+    # Read the stored check blocks first: the v3 view used below omits them.
+    checks = {
+        record["identifier"]: record_check(record, document)
+        for record in document["eos_records"]
+    }
     if document.get("format_version") in (4, 5):
         document = convert_eosmat(document, version=3, legacy_uncertainty_units=False)
     identifier = document["identifier"]
     records = document["eos_records"]
     source = SOURCE_URL + "materials/" + quote(identifier) + ".eosmat"
+    links = [
+        "[All materials](index.md)",
+        f"[EOSMAT record file]({source})",
+    ]
+    if (ROOT / "peritheos/data/audits" / f"{identifier}.audit.json").is_file():
+        links.append(
+            f"[Audit sidecar]({SOURCE_URL}audits/{quote(identifier)}.audit.json)"
+        )
+    if records:
+        links.append(
+            f"[Reconstruction reports](../reconstruction-reports/{identifier}.md)"
+        )
     lines = [
         f"# {text(document['name'])}",
         "",
         _GENERATED,
         "",
-        f"[All materials](index.md) · [Complete EOSMAT source]({source})",
+        " · ".join(links),
         "",
-        "Generated from the material document and the current executable catalog.",
-        "Edit the EOSMAT source and regenerate this sheet; this summary does not",
-        "replace its full scientific provenance. Source validation, fit reproduction",
-        "and recommendation for use are distinct assessments.",
+        "Generated from EOSMAT and the current executable catalog; edit the source and",
+        "regenerate. Reproduction headlines, warnings and source status are separate",
+        "assessments, defined in [EOS labels](../eos-labels.md).",
         "",
         "| Material property | Value |",
         "| --- | --- |",
@@ -330,14 +278,12 @@ def render_material(
         )
     lines.extend(["", "## EOS comparison", ""])
     if not records:
-        lines.extend(
-            ["No executable EOS parameterization is stored in this document.", ""]
-        )
+        lines.extend(["This material card has no EOS record.", ""])
     else:
         lines.extend(
             [
-                "| Record | Model | Reference temperature (K) | Source status | Availability |",
-                "| --- | --- | --- | --- | --- |",
+                "| Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |",
+                "| --- | --- | --- | --- | --- | --- | --- |",
             ]
         )
     for record in records:
@@ -345,9 +291,12 @@ def render_material(
         model = record["eos"]["type"]
         if record.get("thermal"):
             model += " + " + record["thermal"]["type"]
+        check = checks[rid]
         lines.append(
             f"| [{text(record['label'])}](#record-{rid}) | {text(model)} | "
             f"{text(record.get('temperature_ref'))} | "
+            f"{check['reproduction']} | "
+            f"{'**Yes**' if check.get('warning') else ''} | "
             f"{text(record['scientific_validation']['status'].replace('_', ' '))} | "
             f"{availability(record, executable)} |"
         )
@@ -372,21 +321,16 @@ def render_material(
         lines.extend(
             [
                 "",
-                "Errors are shown only when supplied, with their source meaning; a bare",
-                "central value does not imply zero uncertainty. A dash means this parameter",
-                "is absent from that formulation. Full component tables follow below.",
+                "Values use each model's parameter units; primary `V0` uses the volume unit",
+                "above. Errors keep their reported meaning and appear only when supplied: a",
+                "missing error is unknown, not zero, and a missing covariance does not establish",
+                "independence. A dash means the formulation has no such parameter. Coverage and",
+                "evaluation limits are separate source declarations; marginal pressure and",
+                "temperature ranges do not define a joint stability domain or authorize",
+                "extrapolation.",
                 "",
             ]
         )
-    lines.extend(
-        [
-            "",
-            "Experimental coverage and evaluation limits below are separate source",
-            "declarations. Marginal pressure and temperature ranges do not establish",
-            "a joint phase-stability domain or authorize extrapolation.",
-            "",
-        ]
-    )
     for record in records:
         rid = record["identifier"]
         lines.extend(
@@ -395,10 +339,9 @@ def render_material(
                 "",
                 f"## {text(record['label'])}",
                 "",
-                f"Identifier: `{rid}`.",
+                f"`{rid}` · {availability(record, executable)}",
                 "",
-                f"Availability: **{availability(record, executable)}**.",
-                "",
+                *reconstruction(record, checks[rid]),
             ]
         )
         if rid in defaults:
@@ -413,29 +356,22 @@ def render_material(
                 ]
             )
         validation = record["scientific_validation"]
-        if validation.get("usage_recommendation"):
-            lines.extend(
-                [
-                    "**Usage qualification:** "
-                    + text(validation["usage_recommendation"]),
-                    "",
-                ]
-            )
+        usage = validation.get("usage_recommendation")
+        # A coded recommendation is already the fixed warning wording above.
+        if usage and not (checks[rid].get("warning") and coded(usage)):
+            lines.extend(["**Usage qualification:** " + text(usage), ""])
+        lines.extend(parameters(record))
+        status_fields = (
+            "reproduction_status",
+            "fit_reproduction_status",
+            "original_publication_reproduction_status",
+            "refit_status",
+        )
         lines.extend(
             metadata(
-                {
-                    key: validation[key]
-                    for key in (
-                        "reproduction_status",
-                        "fit_reproduction_status",
-                        "original_publication_reproduction_status",
-                        "refit_status",
-                    )
-                    if key in validation
-                }
+                {key: validation[key] for key in status_fields if key in validation}
             )
         )
-        lines.append("")
         lines.extend(
             metadata(
                 {
@@ -462,8 +398,9 @@ def render_material(
                 }
             )
         )
-        lines.extend(parameters(record))
-        lines.extend(reconstruction(record))
+        if record.get("parameter_covariance") is not None:
+            lines.append("- **Parameter covariance:** supplied in the EOSMAT source")
+        lines.append("")
         for name in ("eos", "thermal"):
             if name in record:
                 configuration = {
@@ -484,18 +421,21 @@ def render_material(
                     )
         if record.get("notes"):
             lines.extend([text(record["notes"]), ""])
-        if record.get("parameter_covariance") is not None:
-            lines.extend(
-                ["Parameter covariance is supplied in the complete EOSMAT source.", ""]
-            )
-        else:
-            lines.extend(["Parameter covariance is not supplied.", ""])
-        lines.extend(
-            details(
-                "Scientific validation and usage qualifications",
-                record["scientific_validation"],
-            )
-        )
+        # Fields shown above are not repeated in the collapsed audit view.
+        review = {
+            k: v
+            for k, v in validation.items()
+            if k not in {"status", "usage_recommendation", "warning", *status_fields}
+        }
+        source_check = review.get("primary_source_check")
+        if isinstance(source_check, Mapping) and source_check.get("finding") == checks[
+            rid
+        ].get("finding"):
+            review["primary_source_check"] = {
+                k: v for k, v in source_check.items() if k != "finding"
+            }
+        if review:
+            lines.extend(details("Source review", review))
         if record.get("pressure_calibration"):
             lines.extend(
                 details("Pressure calibration", record["pressure_calibration"])
@@ -541,7 +481,8 @@ def render_material(
             lines.extend(
                 ["", f"{len(dataset['rows'])} rows embedded in the EOSMAT source.", ""]
             )
-    return "\n".join(line.rstrip() for line in lines).rstrip() + "\n"
+    page = "\n".join(line.rstrip() for line in lines).rstrip() + "\n"
+    return re.sub(r"\n{3,}", "\n\n", page)
 
 
 def generated_pages() -> dict[str, str]:
@@ -557,14 +498,11 @@ def generated_pages() -> dict[str, str]:
         "",
         _GENERATED,
         "",
-        "Each sheet compares the stored EOS records and shows parameters, reported",
-        "errors, reference states, calibration, usage qualifications and datasets.",
-        "Deferred and diagnostic records remain visible. Automatic selections reflect",
-        "the current catalog, including default holds and pressure-scale variants.",
-        "",
-        "These sheets are generated from EOSMAT. Edit the material source, then run",
-        "`python -m scripts.generate_material_summaries`; `--check` detects drift.",
-        "See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template.",
+        "One sheet per material: identity, units, each EOS record's coefficients,",
+        "reference state, source, limits, reproduction headline and warning, and the",
+        "observation datasets. Sheets are generated from EOSMAT; edit the material",
+        "source, then run `python -m scripts.generate_material_summaries` (`--check`",
+        "detects drift). See [Reading and editing EOSMAT](../eosmat-authoring.md).",
         "",
         "| Material | Formula | Stored EOS records | Datasets |",
         "| --- | --- | --- | --- |",
