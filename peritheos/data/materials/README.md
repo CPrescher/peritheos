@@ -1,14 +1,16 @@
 # Bundled material library
 
-The material files use [native EOSMAT v4](../../../docs/eosmat-v4.md): model and
-annotated coefficients come first, with full scientific evidence in each
-record's `evidence` section. Units remain explicit and metadata stays inline.
-No companion representation or external metadata registry is needed to read a
-file. Scientific values, observations and qualifications are preserved.
+The material files use [native EOSMAT v5](../../../docs/eosmat-v5.md): model and
+annotated coefficients come first, each record ends with a short `check`
+headline, and datasets follow the records. Each record's audit trail
+(`evidence`, detailed `pressure_calibration` and other audit-only blocks) is
+in `../audits/<material>.audit.json`, keyed by record identifier. Scientific
+values, observations and qualifications are preserved.
 
-`load_eosmat(path)` reads that native layout. For established integrations,
-`get_material_document(identifier)` still returns a v3-shaped dictionary by
-default; pass `format_version=4` for native fields. Older file readers can use
+`load_eosmat(path)` and `get_material_document(identifier)` return the complete
+merged document (`include_audit=False` gives the record file alone).
+`get_material_document` returns a v3-shaped dictionary by default; pass
+`format_version=5` for native fields. Older file readers can use
 `python -m peritheos convert native.eosmat compatible.eosmat --format-version 3`.
 
 The 54 Dewaele (2008) PAW records are retained in a separate
@@ -224,8 +226,8 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The source checkout contains 412 distinct datasets with 33,459 retained rows,
-represented by 456 material-document links to 543 EOS records. These totals
+The source checkout contains 426 distinct datasets with 33,883 retained rows,
+represented by 470 material-document links to 544 EOS records. These totals
 include held research evidence and calculated grids. Standard `peritheos`
 installations retain declarations without observation values;
 `peritheos[datasets]` adds the reviewed selection of 451 material entries plus
