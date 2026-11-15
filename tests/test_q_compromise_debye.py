@@ -268,5 +268,5 @@ def test_later_garnet_v5_bindings_preserve_uncertainty_and_reject_tampering(
     temporary = tmp_path / path.relative_to(ROOT)
     temporary.parent.mkdir(parents=True)
     temporary.write_text(json.dumps(changed), encoding="utf-8")
-    with pytest.raises(ValueError, match="migration source changed"):
+    with pytest.raises(ValueError, match="source changed"):
         prior_material_bytes(material, root=tmp_path)

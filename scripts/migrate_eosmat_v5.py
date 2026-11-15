@@ -79,6 +79,9 @@ def prior_material_bytes(material: str, *, root: Path | None = None) -> bytes:
     """Recover the exact v4 predecessor for frozen historical audits."""
     relative = f"peritheos/data/materials/{material}.eosmat"
     data = ((ROOT if root is None else root) / relative).read_bytes()
+    from scripts.garnet_dataset_bindings import prior_dataset_bytes
+
+    data = prior_dataset_bytes(data, material, ROOT)
     if not RECEIPT.exists():
         return data
     binding = json.loads(RECEIPT.read_bytes())["materials"].get(relative)

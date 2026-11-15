@@ -1,0 +1,137 @@
+{
+  "schema": "peritheos.garnet-observation-datasets.v1",
+  "reviewed_on": "2026-11-15",
+  "baseline_commit": "1f1d0f8772a75609831b2d0cfc4a62db03e4335c",
+  "scope": "Add attributed numerical datasets; clarify historical prose without replacing any equation, coefficient, covariance, selection, uncertainty or scientific finding.",
+  "scientific_sha256_before": "3b628d7ea2db895867b33f340bd99ccf7b99221e9e9b51383dfd787e7d408d84",
+  "materials": {
+    "pyrope": {
+      "path": "peritheos/data/materials/pyrope.eosmat",
+      "before_sha256": "02afae97ba1aab7fe3631afb8f63ade6f60c5ee209e6070d8cf6045d517bdf25",
+      "appended_datasets": {
+        "pyrope_angel_2022_author_pvt": "cd82397775926387c279be5406cf2c796f2ce4a23f89bbe2eb2af0c35d1bc456",
+        "pyrope_angel_2022_author_pkt": "3c1e8e8a5cfb09d36a846b2a1a5fb20f7a60c75be349a9dec92f2e4703b6c05a"
+      },
+      "restored_fields": [
+        {
+          "path": [
+            "eos_records",
+            1,
+            "evidence",
+            "reproduction",
+            "assessment",
+            "fit",
+            "dataset_identifiers"
+          ],
+          "before": [],
+          "before_present": true
+        }
+      ],
+      "after_sha256": "a44a0c49c7194c8664f043a94bcb4df39b1abd9efeb20d04c6fa18167b600e28",
+      "scientific_datasets_before_sha256": "96523b57831c335f35437a41ebac5cbdd02185a367dcc736f5967120365ee4bd",
+      "scientific_datasets_after_sha256": "f5cd86f1e6ed3e31caac91d930549b87a0303ac98af168e2baef132b69d3af58"
+    },
+    "grossular": {
+      "path": "peritheos/data/materials/grossular.eosmat",
+      "before_sha256": "94ee9c5049d0e7757d512c1ff5a159625b44ef5c527842f3ef22ee45cc677f94",
+      "appended_datasets": {
+        "grossular_milani_2017_table2_vt": "19546aabc29a0b3851582604a06313ddd4101759c30a689ce5fe2f8d72421f3c",
+        "grossular_milani_2017_table3_pv": "c39141f13c3857065327e31d75dd0b21c45151208b7a844b21bb6843670ef000",
+        "grossular_du_2015_table2_vt": "e13403a2531a7e76dfa726db2ae0ed18a5fccfb212c98949db2c3d8a0372f153",
+        "grossular_bosenick_geiger_1997_table2_vt": "9300fb3f3d2d37a37b32b7f1c2181bf59373d99509b6b579aaa1f5c02e94ac9d",
+        "grossular_rodehorst_2002_table4a": "d2504603abd94305b95569378c0b9f4f509272ada8c1ae8df8e9eb11176858d3",
+        "grossular_isaak_1992_table2_gr2b_strain": "a59943b839224f6e50c3ae10b4ddab1af1e0dbb8ee54c50cd35c5c02c5e6b082",
+        "grossular_isaak_1992_table3b_ggd_moduli": "3793c0919693915a5078286a4d592dc569f5f5fbd0b51f5a5d20179792798a62",
+        "grossular_kono_2010_table1": "113eb12cd15bb4500f4e4c6e825420ee8996db8f7f1032574840878cb414f45c",
+        "grossular_conrad_1999_table6_stiffness": "f66a2df7dd369a7288229e9aa4f5e2344dfd0506a13c35e58ef189d5ca1ae6d6",
+        "grossular_bass_1989_ambient_moduli": "40811879487cd6bbee88cd435cb4c851fd7ed169f3b5a7d388519b6a6ce413bf",
+        "grossular_gwanmesia_2014_table1": "050778ed539111edd6aa97e68753dc88a5835c9b16b1f03ab2421a42b17c709c",
+        "grossular_thieblot_1998_angel_2022_figure4": "797bae8177d7f5393f87c3e93d5d286e44badb500573c3bb1f68eb10bd7932b3"
+      },
+      "restored_fields": [
+        {
+          "path": [
+            "eos_records",
+            0,
+            "notes"
+          ],
+          "before": "Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered grossular observations and a conditional 95-channel diagnostic are retained separately; they are not the original joint fit input. See docs/literature-reproductions/grossular-angel-2022.md.",
+          "before_present": true
+        },
+        {
+          "path": [
+            "eos_records",
+            0,
+            "evidence",
+            "reproduction",
+            "assessment",
+            "qualifications"
+          ],
+          "before": [
+            "Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.",
+            "Complete grossular joint V/Ks project, missing Gwanmesia/Thieblot rows, Isaak expansion reduction, normalization anchors, assigned errors and original fit confidence convention.",
+            "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+            "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+          ],
+          "before_present": true
+        },
+        {
+          "path": [
+            "eos_records",
+            0,
+            "evidence",
+            "scientific_validation",
+            "primary_data_check",
+            "audit_date"
+          ],
+          "before": "2026-11-08",
+          "before_present": true
+        },
+        {
+          "path": [
+            "eos_records",
+            0,
+            "evidence",
+            "scientific_validation",
+            "primary_data_check",
+            "finding"
+          ],
+          "before": "The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered grossular observations and a conditional 95-channel diagnostic are retained separately; they are not the original joint fit input. See docs/literature-reproductions/grossular-angel-2022.md.",
+          "before_present": true
+        },
+        {
+          "path": [
+            "eos_records",
+            0,
+            "evidence",
+            "scientific_validation",
+            "primary_data_check",
+            "scope"
+          ],
+          "before": null,
+          "before_present": false
+        }
+      ],
+      "after_sha256": "9b9826055d7a1374ca88409e75de3284cecf6d71c3c0ec18e7cc5f638777be50",
+      "scientific_datasets_before_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "scientific_datasets_after_sha256": "da4cc00d1d3d9f299e3d2bbb5f77fac12c62e5eecbebfcaa91719fb6d6b48441"
+    }
+  },
+  "sources": {
+    "docs/data/garnet-angel-2022/pyrope/author-2026-11-14-inputs.csv": "5b8ac829d9f9ebcc50aba162e21d21e8240dd966a9b31c5a1dc7c4fe34a9738c",
+    "docs/data/garnet-angel-2022/grossular/milani-2017-table-2.csv": "d81f3e60615b0de2b3b20d6dbf6a5661b6ffd967cecc06770d5fdbcc683ecaa8",
+    "docs/data/garnet-angel-2022/grossular/milani-2017-table-3.csv": "c66b473bdccded7f7ea938f5e9636dcca0b6d796b34921b3dde7fc6f5f428d87",
+    "docs/data/garnet-angel-2022/grossular/du-2015-final-table-2.csv": "c9f7990b001e4b76ac405785cc2d40dafdfb59ed5fbfcb289b2b338dc20f048f",
+    "docs/data/garnet-angel-2022/grossular/bosenick-geiger-1997-table-2.csv": "0efb7a07a0d8d365a2c04c7e6af567148571a0664dec7b29a517d7ded58fc95f",
+    "docs/data/garnet-angel-2022/grossular/rodehorst-2002-table-4a.csv": "7b5c8d0ab1e28e241bd92a9eac819617ee68457f2899df11fa2a8090f6159358",
+    "docs/data/garnet-angel-2022/grossular/isaak-1992-table-2.csv": "1a65106a3e20d292c1334d7fe064c73c347e6ca0360d96d272e61527c9728314",
+    "docs/data/garnet-angel-2022/grossular/isaak-1992-table-3b.csv": "3d7542c5d90c98c3f646dc65e3fe129dfc5719e85b24e6a864a31ef3016224b5",
+    "docs/data/garnet-angel-2022/grossular/kono-2010-table-1.csv": "283bf8e71dec19625c506e3e2442750642bf35b3d7c40d7a69e769d1b04456ef",
+    "docs/data/garnet-angel-2022/grossular/conrad-1999-table-6.csv": "63cf6fad8cfd22ef4e005108e4ac2205e746ff7ec8198a1b2471db42eb917a18",
+    "docs/data/garnet-angel-2022/grossular/bass-1989-ambient.csv": "93b8f1d3da3966202b56285f5928779bddbcafeec77d0ff735d85b52df00b1f9",
+    "docs/data/garnet-angel-2022/grossular/gwanmesia-2014-table-1.csv": "1c92f30ec3da70ec0d4f60acd364c136bd919978cd7dce4f021c2925f4fc069f",
+    "docs/data/garnet-angel-2022/grossular/figure4-thieblot-selected.csv": "4d285de3e82d9251d5771ff9a5cad3674a59ef64793d763e852b69e78ebbd5e2",
+    "docs/data/garnet-angel-2022/grossular/figure4-thieblot-excluded-visible.csv": "e4c7ca01710225fb610dfa6f267cb23f82c9cd67a991763eeb32e619c774fb2e"
+  },
+  "scientific_sha256_after": "36de73967d06e0d7a8946710752cef5bc31d26ed491d0b66813deb7f90f6d880"
+}

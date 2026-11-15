@@ -119,6 +119,12 @@ def assert_snapshot_lineage(snapshot: dict, historical_sha256: str) -> None:
 
     if fingerprint(snapshot) == historical_sha256:
         return
+    from scripts.garnet_dataset_bindings import prior_dataset_snapshot
+
+    previous = prior_dataset_snapshot(snapshot, ROOT)
+    if previous is not None:
+        assert_snapshot_lineage(previous, historical_sha256)
+        return
     migration_path = ROOT / "docs/data/eosmat-v5-migration.json"
     if migration_path.exists():
         migration = json.loads(migration_path.read_bytes())

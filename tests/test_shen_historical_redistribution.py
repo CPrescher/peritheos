@@ -135,7 +135,7 @@ def test_installed_review_and_notices_bind_admissions_without_bundling_originals
     package = stage_datasets(tmp_path / "optional") / "peritheos_datasets"
     manifest = json.loads((package / "manifest.json").read_bytes())
     review = json.loads((package / "redistribution-review.json").read_bytes())
-    assert manifest["dataset_count"] == 451
+    assert manifest["dataset_count"] == 465
     assert review["shen_historical_review"] == PROOF
     selected = {
         e["review_key"]: e

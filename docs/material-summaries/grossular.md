@@ -22,7 +22,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 1 |
-| Observation datasets | 0 |
+| Observation datasets | 12 |
 
 Nominal endmember diffraction model from Wang et al. (2019), Tables 3 and 5, synthetic Fe-free sample LMD611. The quenched single-crystal structure uses measured a=11.8418(3) A and oxygen coordinates, distinct from the EOS reference molar volume adopted by Angel (2022). No pressure/temperature-dependent axial or site model is supplied.
 
@@ -107,7 +107,7 @@ Original audit code: `not_refittable`.
 **Limitations and qualifications:**
 
 - Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.
-- Complete grossular joint V/Ks project, missing Gwanmesia/Thieblot rows, Isaak expansion reduction, normalization anchors, assigned errors and original fit confidence convention.
+- All 52 Gwanmesia rows and the other recovered source tables are available separately. Original Thiéblot measurement errors, exact author volume normalization/anchors, assigned coordinate errors, Isaak expansion specimen processing and original joint-fit confidence/covariance remain unresolved. Diagnostic estimates are not source errors.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 - No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
 
@@ -123,7 +123,7 @@ Original audit code: `not_refittable`.
 
 Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
-Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered grossular observations and a conditional 95-channel diagnostic are retained separately; they are not the original joint fit input. See docs/literature-reproductions/grossular-angel-2022.md.
+Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered source tables are available through the dataset API, including all 52 Gwanmesia rows. The separately documented full-inventory diagnostic uses 219 non-anchor channels with explicit estimated errors for 26 observations. These are not the recovered original joint fit input; normalization, selected-row processing, assigned errors and covariance remain incomplete. See docs/literature-reproductions/grossular-angel-2022.md.
 
 Parameter covariance is supplied in the complete EOSMAT source.
 
@@ -142,9 +142,10 @@ Parameter covariance is supplied in the complete EOSMAT source.
     - **Finding:** Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.
 - **Primary data check:**
     - **Status:** not\_available
-    - **Audit date:** 2026-11-08
+    - **Audit date:** 2026-11-15
     - **Source locations:** Official supplementary EOS files 1-4; Official supplementary PDF, Tables S1/S2; Author parameter downloads, March 2023 filenames
-    - **Finding:** The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered grossular observations and a conditional 95-channel diagnostic are retained separately; they are not the original joint fit input. See docs/literature-reproductions/grossular-angel-2022.md.
+    - **Finding:** The eleven recovered source tables and the separately labelled digitized series are available through Material.get\_dataset(). They retain anchors, exclusions, specimen identities and unknown source errors. The original author-processed mixed volume/adiabatic-modulus project is still unavailable: exact normalization, assigned coordinate errors, selected-row processing and covariance are unresolved. The 219-row diagnostic includes explicitly estimated errors for 26 observations and does not replace the original project.
+    - **Scope:** original\_author\_processed\_joint\_fit\_inputs
 - **Numerical reproduction:**
     - **Report:** docs/data/garnet-angel-2022/audit.json
     - **Scope:** source\_parameterization\_only
@@ -198,4 +199,244 @@ Parameter covariance is supplied in the complete EOSMAT source.
 
 ## Observation datasets
 
-No datasets are declared in this material document.
+### grossular\_milani\_2017\_table2\_vt
+
+- **Description:** Published temperature, lattice parameter and cell volume, including source tokens and reported standard deviations.
+- **Kind:** temperature\_lattice\_volume
+- **Reference:**
+    - **Authors:** Milani et al.
+    - **Year:** 2017
+    - **Source:** American Mineralogist
+    - **DOI:** 10.2138/am-2017-5855
+- **Source location:** Official deposit, Table 2, sheet2 rows 5:39
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_milani_2017_table2_vt.csv)
+— SHA-256 `d81f3e60615b0de2b3b20d6dbf6a5661b6ffd967cecc06770d5fdbcc683ecaa8`.
+
+### grossular\_milani\_2017\_table3\_pv
+
+- **Description:** All eight source rows, including the ambient normalization anchor; exact experimental temperature and original quartz readings are unavailable.
+- **Kind:** pressure\_lattice\_volume
+- **Reference:**
+    - **Authors:** Milani et al.
+    - **Year:** 2017
+    - **Source:** American Mineralogist
+    - **DOI:** 10.2138/am-2017-5855
+- **Source location:** Official deposit, Table 3, sheet3 rows 5:12
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_milani_2017_table3_pv.csv)
+— SHA-256 `c66b473bdccded7f7ea938f5e9636dcca0b6d796b34921b3dde7fc6f5f428d87`.
+
+### grossular\_du\_2015\_table2\_vt
+
+- **Description:** Final published table. Temperatures already include the source NaCl correction; the 0.2 K error bar is not identified as an independent Gaussian standard deviation. Calculated expansivity tokens are not measured observations.
+- **Kind:** temperature\_lattice\_volume
+- **Reference:**
+    - **Authors:** Du, Clark and Walker
+    - **Year:** 2015
+    - **Source:** American Mineralogist
+    - **DOI:** 10.2138/am-2015-4752
+- **Source location:** Final journal Table 2, p. 217, grossular block; checked against the preprint
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_du_2015_table2_vt.csv)
+— SHA-256 `c9f7990b001e4b76ac405785cc2d40dafdfb59ed5fbfcb289b2b338dc20f048f`.
+
+### grossular\_bosenick\_geiger\_1997\_table2\_vt
+
+- **Description:** All 20 molar-volume rows including repeats. The original study excludes selected low-temperature cooling data; the exact Angel mask/anchor covariance is unresolved. Source PDF was not pixel-verified.
+- **Kind:** temperature\_molar\_volume
+- **Reference:**
+    - **Authors:** Bosenick and Geiger
+    - **Year:** 1997
+    - **Source:** Journal of Geophysical Research
+    - **DOI:** 10.1029/97JB01612
+- **Source location:** Table 2, author-uploaded primary text indexed by the source archive
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_bosenick_geiger_1997_table2_vt.csv)
+— SHA-256 `0efb7a07a0d8d365a2c04c7e6af567148571a0664dec7b29a517d7ded58fc95f`.
+
+### grossular\_rodehorst\_2002\_table4a
+
+- **Description:** Ten lattice-parameter rows, including the 298 K anchor. Uniform 0.001 angstrom source error retained without assuming its confidence convention; temperature errors unavailable. Source PDF was not pixel-verified.
+- **Kind:** temperature\_lattice\_parameter
+- **Reference:**
+    - **Authors:** Rodehorst et al.
+    - **Year:** 2002
+    - **Source:** American Mineralogist
+    - **DOI:** 10.2138/am-2002-0417
+- **Source location:** Table 4A, p. 545, primary text indexed by RRUFF
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_rodehorst_2002_table4a.csv)
+— SHA-256 `7b5c8d0ab1e28e241bd92a9eac819617ee68457f2899df11fa2a8090f6159358`.
+
+### grossular\_isaak\_1992\_table2\_gr2b\_strain
+
+- **Description:** Observed strain is GR-2B (76.1 mol% grossular, 22.1 mol% andradite), not the GGD specimen named in Angel S1. Calculated strain/endmember expansivity remain separately labelled source-calculated tokens.
+- **Kind:** temperature\_strain
+- **Reference:**
+    - **Authors:** Isaak et al.
+    - **Year:** 1992
+    - **Source:** Physics and Chemistry of Minerals
+    - **DOI:** 10.1007/BF00198608
+- **Source location:** Table 2, p. 108; specimen discussion pp. 107-109
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_isaak_1992_table2_gr2b_strain.csv)
+— SHA-256 `0a68641d34bc133ab0a94f83338c0812b129927cba47217c988c91bd56c8839f`.
+
+### grossular\_isaak\_1992\_table3b\_ggd\_moduli
+
+- **Description:** GGD (96.53 mol% grossular). Only three of 22 modulus errors are printed; the other 19 remain missing. No temperature errors are inferred.
+- **Kind:** temperature\_adiabatic\_bulk\_modulus
+- **Reference:**
+    - **Authors:** Isaak et al.
+    - **Year:** 1992
+    - **Source:** Physics and Chemistry of Minerals
+    - **DOI:** 10.1007/BF00198608
+- **Source location:** Table 3b, p. 112
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_isaak_1992_table3b_ggd_moduli.csv)
+— SHA-256 `3d7542c5d90c98c3f646dc65e3fe129dfc5719e85b24e6a864a31ef3016224b5`.
+
+### grossular\_kono\_2010\_table1
+
+- **Description:** All 36 rows and all tabulated quantities/uncertainties retained. Angel uses the moduli but excludes these XRD volumes. Derived density, velocities and moduli share inputs; they are not independent constraints.
+- **Kind:** pressure\_temperature\_volume\_acoustics
+- **Reference:**
+    - **Authors:** Kono et al.
+    - **Year:** 2010
+    - **Source:** Journal of Earth Science
+    - **DOI:** 10.1007/s12583-010-0112-2
+- **Source location:** Table 1, p. 787
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_kono_2010_table1.csv)
+— SHA-256 `283bf8e71dec19625c506e3e2442750642bf35b3d7c40d7a69e769d1b04456ef`.
+
+### grossular\_conrad\_1999\_table6\_stiffness
+
+- **Description:** All five stiffness rows, including the two excluded by Angel. Cij standard deviations are reported; C11/C12 covariance is unavailable. No KS error or 2% diagnostic allowance is inserted into the source table.
+- **Kind:** pressure\_elastic\_stiffness
+- **Reference:**
+    - **Authors:** Conrad et al.
+    - **Year:** 1999
+    - **Source:** American Mineralogist
+    - **DOI:** 10.2138/am-1999-0321
+- **Source location:** Table 6, p. 379
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_conrad_1999_table6_stiffness.csv)
+— SHA-256 `63cf6fad8cfd22ef4e005108e4ac2205e746ff7ec8198a1b2471db42eb917a18`.
+
+### grossular\_bass\_1989\_ambient\_moduli
+
+- **Description:** 99.0 mol% grossular sample. The recovered source gives no exact numerical temperature. No full primary PDF was recovered.
+- **Kind:** ambient\_elastic\_moduli
+- **Reference:**
+    - **Authors:** Bass
+    - **Year:** 1989
+    - **Source:** Journal of Geophysical Research
+    - **DOI:** 10.1029/JB094iB06p07621
+- **Source location:** Original-author abstract in the Illinois institutional repository; cross-checked against Isaak Table 4
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_bass_1989_ambient_moduli.csv)
+— SHA-256 `93b8f1d3da3966202b56285f5928779bddbcafeec77d0ff735d85b52df00b1f9`.
+
+### grossular\_gwanmesia\_2014\_table1
+
+- **Description:** All 52 rows and 624 literal numerical cells. Temperature is Celsius (30 C = 303.15 K). Angel uses KS and excludes XRD volumes. Source relative error estimates are metadata, not invented per-row standard deviations.
+- **Kind:** pressure\_temperature\_volume\_acoustics
+- **Reference:**
+    - **Authors:** Gwanmesia, Wang, Heady and Liebermann
+    - **Year:** 2014
+    - **Source:** Physics of the Earth and Planetary Interiors
+    - **DOI:** 10.1016/j.pepi.2013.09.010
+- **Source location:** Final publisher HTML, Table 1 and associated methods/caption
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Covariance:** not\_recovered
+    - **Missing values:** unknown; blank cells load as NaN
+    - **Role:** Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.
+    - **Reported relative error estimates percent:**
+        - **Pressure typical precision:** 0.7
+        - **P transit time:** 0.1
+        - **S transit time:** 0.05
+        - **Length:** 0.2
+        - **Density caption:** 0.2
+        - **Density later text:** 0.1
+        - **Vp:** 0.3
+        - **Vs:** 0.25
+        - **Ks:** 0.8
+        - **Shear modulus:** 0.7
+        - **Cell volume largest refined uncertainty:** 0.04
+    - **Qualification:** These are source-reported estimates, not reconstructed per-row standard deviations. Density estimates differ between caption and later text and are both retained. The maximum volume uncertainty is not a per-row error. Confidence level, cross-coordinate covariance and numerical temperature errors are unspecified.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_gwanmesia_2014_table1.csv)
+— SHA-256 `1c92f30ec3da70ec0d4f60acd364c136bd919978cd7dce4f021c2925f4fc069f`.
+
+### grossular\_thieblot\_1998\_angel\_2022\_figure4
+
+- **Description:** Digitized, already normalized plotted volumes attributed to Thieblot, not recovered primary measurement values or author fit inputs.
+- **Kind:** digitized\_temperature\_normalized\_molar\_volume
+- **Reference:**
+    - **Authors:** Angel; Gilio; Mazzucchelli; Alvaro
+    - **Year:** 2022
+    - **Source:** Contributions to Mineralogy and Petrology
+    - **Volume:** 177
+    - **Locator:** 54
+    - **DOI:** 10.1007/s00410-022-01918-5
+- **Source location:** Figure 4, PDF p. 8; Thiéblot series, seven selected and six excluded visible markers
+- **Associated EOS records:** None declared
+- **Uncertainty:**
+    - **Measurement errors:** not\_recovered
+    - **Covariance:** not\_recovered
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/grossular_thieblot_1998_angel_2022_figure4.csv)
+— SHA-256 `3a2c8beabcbafbe788448ad546fc94fbc2896ed560e8e2e75b5d6577ddb12562`.

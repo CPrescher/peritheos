@@ -61,7 +61,7 @@ def test_optional_package_keeps_restricted_source_flags_and_excludes_lineage(
     manifest = json.loads((package / "manifest.json").read_bytes())
     review = json.loads((package / "redistribution-review.json").read_bytes())
     assert review["restricted_source_review"] == PROOF
-    assert manifest["dataset_count"] == 451
+    assert manifest["dataset_count"] == 465
     entries = {e["review_key"]: e for e in review["entries"]}
     selected = {
         e["review_key"]: e

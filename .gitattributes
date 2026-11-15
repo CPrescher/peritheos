@@ -102,3 +102,6 @@ peritheos/data/third_party/rust/** -text whitespace=-blank-at-eol,-blank-at-eof
 
 # Garnet audit receipts fingerprint exact source, CSV and calculator-output bytes.
 docs/data/garnet-angel-2022/** -text whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
+
+# Preserve recovered garnet table tokens and source line endings.
+peritheos/data/datasets/garnet-angel-2022/*.csv -text whitespace=cr-at-eol

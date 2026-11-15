@@ -165,7 +165,13 @@ def test_zero_null_and_fixed_annotations_and_extensions_survive_migration():
 def test_catalog_migration_preserves_every_predecessor_and_runtime_uncertainty():
     receipt = json.loads((ROOT / "docs/data/eosmat-v5-migration.json").read_bytes())
     for relative, binding in receipt["materials"].items():
-        current = load_eosmat(ROOT / relative)
+        from scripts.garnet_dataset_bindings import prior_dataset_bytes
+
+        current = json.loads(
+            prior_dataset_bytes(
+                (ROOT / relative).read_bytes(), Path(relative).stem, ROOT
+            )
+        )
         assert current["format_version"] == 5
         previous = json.loads(prior_material_bytes(Path(relative).stem))
         assert restore_document(current, binding) == previous

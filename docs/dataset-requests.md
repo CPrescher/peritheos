@@ -24,6 +24,13 @@ was sent by Clemens on 12 November 2026; its retained draft is not an
 independently verified sent copy. No further message has been sent by this
 work. Earlier updates below retain their dated investigation scope.
 
+**Dataset integration, 15 November 2026:** the [dataset API](datasets.md#pyrope-and-grossular-observations)
+now exposes the recovered tables in matching development builds. A short
+[grossular input request](data/garnet-angel-2022/grossular/correspondence/2026-11-15-input-request-draft.txt)
+is prepared as a draft; it has not been sent. The outstanding request concerns
+the original processed grossular project, not the already recovered Gwanmesia
+rows. Correspondence status and the scientific findings are unchanged.
+
 Paper: *Garnet EoS: a critical review and synthesis*,
 [doi:10.1007/s00410-022-01918-5](https://doi.org/10.1007/s00410-022-01918-5).
 The [source audit](literature-reproductions/garnet-angel-2022.md) accepts both

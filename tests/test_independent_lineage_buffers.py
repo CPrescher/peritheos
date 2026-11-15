@@ -180,7 +180,7 @@ def test_installed_graph_and_pressure_output_do_not_admit_held_originals(tmp_pat
     package = stage_datasets(tmp_path / "datasets") / "peritheos_datasets"
     review = json.loads((package / "redistribution-review.json").read_bytes())
     manifest = json.loads((package / "manifest.json").read_bytes())
-    assert manifest["dataset_count"] == 451
+    assert manifest["dataset_count"] == 465
     assert review["independent_lineage_buffers"] == PROOF
     assert len([e for e in review["entries"] if e["decision"] == "hold"]) == 5
     for name in [

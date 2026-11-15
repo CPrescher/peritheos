@@ -76,7 +76,10 @@ def outcome(record):
         assessment_basis="Conditional parameter agreement from the complete 194-observation author-processed input regression. All five free parameters meet the recorded combined-error and numerical similarity criteria; the separate final-log comparison differs by less than 0.01 reported standard errors. Published source coefficients/covariance remain unchanged.",
         assessment_qualifications=QUALIFICATIONS,
         qualification=" ".join(QUALIFICATIONS),
-        dataset_identifiers=[],
+        dataset_identifiers=[
+            "pyrope_angel_2022_author_pvt",
+            "pyrope_angel_2022_author_pkt",
+        ],
         fit_kind="author_processed_joint_volume_modulus_q_compromise",
         reproduction_report=REPORT,
         objective="Pressure residuals with iteratively frozen effective variances from all supplied P/T/value errors; separate from the public latent-coordinate fitter",

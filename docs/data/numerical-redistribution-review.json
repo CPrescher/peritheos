@@ -2,7 +2,7 @@
   "schema": "peritheos.numerical-redistribution-review.v1",
   "reviewed_on": "2026-11-05",
   "baseline_commit": "bfa7e16486a0539ee22b3ad4d3c4de9208c806d7",
-  "scope": "Maintainer redistribution assessment of existing normalized numerical resources. All 405 previously omitted material dataset entries were content/provenance-screened; the 44 previously admitted entries retain their original source-declaration basis. This is not a fresh scientific transcription audit, exhaustive source-contract review, legal opinion or Debian acceptance. Every numerical resource/declaration remains unchanged. Follow-up: two Morard entries admitted after a bound row-level lineage review; four newly calculated Campbell polynomial declarations added separately from original outputs. Collection follow-up: the complete normalized Shen/Smith primary-experiment results and the two named fixed historical numerical excerpts are admitted after distinct source/collection assessments, with no new source license or scientific changes. Restricted-source follow-up: 21 numerical entries admitted after source-specific applicability assessments while source NC/ND flags remain unchanged; the recent Sakai literature-lineage compilation remains held. Independent-generation follow-up adds a separate 37-edge evidence graph and two views of a new NNO relative pressure integral; held originals remain excluded. Supporting-study follow-up admits the two Barker numerical resources after separate review, through a dedicated study namespace rather than an assumed crystal phase or executable material.",
+  "scope": "Maintainer redistribution assessment of existing normalized numerical resources. All 405 previously omitted material dataset entries were content/provenance-screened; the 44 previously admitted entries retain their original source-declaration basis. This is not a fresh scientific transcription audit, exhaustive source-contract review, legal opinion or Debian acceptance. Every numerical resource/declaration remains unchanged. Follow-up: two Morard entries admitted after a bound row-level lineage review; four newly calculated Campbell polynomial declarations added separately from original outputs. Collection follow-up: the complete normalized Shen/Smith primary-experiment results and the two named fixed historical numerical excerpts are admitted after distinct source/collection assessments, with no new source license or scientific changes. Restricted-source follow-up: 21 numerical entries admitted after source-specific applicability assessments while source NC/ND flags remain unchanged; the recent Sakai literature-lineage compilation remains held. Independent-generation follow-up adds a separate 37-edge evidence graph and two views of a new NNO relative pressure integral; held originals remain excluded. Supporting-study follow-up admits the two Barker numerical resources after separate review, through a dedicated study namespace rather than an assumed crystal phase or executable material. Garnet addition (2026-11-15): 14 separately identified numerical tables admitted through a bound content/provenance assessment; original source terms and all five original holds remain unchanged.",
   "legal_context": [
     {
       "url": "https://creativecommons.org/faq/#which-components-of-databases-are-protected-by-copyright",
@@ -25342,6 +25342,627 @@
         "sha256": "1467343e6997fdf70234881bbbefa0b45fcdb5316c635ebffa088d60cf640380",
         "installed_receipt": "independent_lineage_buffers"
       }
+    },
+    {
+      "review_key": "pyrope/pyrope_angel_2022_author_pvt",
+      "material": "pyrope",
+      "dataset": "pyrope_angel_2022_author_pvt",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "cd82397775926387c279be5406cf2c796f2ce4a23f89bbe2eb2af0c35d1bc456",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/pyrope_angel_2022_author_pvt.csv",
+        "sha256": "6dffa3a5e8a2ede0a79ff1bea8683cf736092e7eace68016ee3f810bd726bd35",
+        "media_type": "text/csv"
+      },
+      "rows": 115,
+      "content_kind": "pressure_volume_temperature",
+      "columns": [
+        "temperature_k",
+        "temperature_assigned_error_k",
+        "pressure_gpa",
+        "pressure_assigned_error_gpa",
+        "molar_volume_cm3_mol",
+        "molar_volume_assigned_error_cm3_mol",
+        "source_file",
+        "source_line",
+        "source_dataset",
+        "source_row",
+        "fit_row",
+        "use",
+        "group",
+        "scale_index"
+      ],
+      "source_reference": {
+        "authors": [
+          "Angel",
+          "Gilio",
+          "Mazzucchelli",
+          "Alvaro"
+        ],
+        "year": 2022,
+        "source": "Contributions to Mineralogy and Petrology",
+        "volume": "177",
+        "locator": "54",
+        "doi": "10.1007/s00410-022-01918-5"
+      },
+      "source_location": "Author-processed Pyrope_PVT_used.dat, supplied by Ross Angel via Clemens Prescher on 2026-11-14; exact original line numbers retained.",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "author_processed_fit_inputs",
+      "source_verification_scope": "Author-processed numeric regression inputs and assigned errors; original attachments and upstream processing/exclusion history are not distributed or reconstructed."
+    },
+    {
+      "review_key": "pyrope/pyrope_angel_2022_author_pkt",
+      "material": "pyrope",
+      "dataset": "pyrope_angel_2022_author_pkt",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "3c1e8e8a5cfb09d36a846b2a1a5fb20f7a60c75be349a9dec92f2e4703b6c05a",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/pyrope_angel_2022_author_pkt.csv",
+        "sha256": "3c0a9238c526360891431c87081bd5d443a52879a869359d3a40575e4774536c",
+        "media_type": "text/csv"
+      },
+      "rows": 79,
+      "content_kind": "pressure_temperature_adiabatic_bulk_modulus",
+      "columns": [
+        "temperature_k",
+        "temperature_assigned_error_k",
+        "pressure_gpa",
+        "pressure_assigned_error_gpa",
+        "bulk_modulus_adiabatic_gpa",
+        "bulk_modulus_assigned_error_gpa",
+        "source_file",
+        "source_line",
+        "source_dataset",
+        "source_row",
+        "fit_row",
+        "use",
+        "group",
+        "scale_index"
+      ],
+      "source_reference": {
+        "authors": [
+          "Angel",
+          "Gilio",
+          "Mazzucchelli",
+          "Alvaro"
+        ],
+        "year": 2022,
+        "source": "Contributions to Mineralogy and Petrology",
+        "volume": "177",
+        "locator": "54",
+        "doi": "10.1007/s00410-022-01918-5"
+      },
+      "source_location": "Author-processed Pyrope_PKT_used.dat, supplied by Ross Angel via Clemens Prescher on 2026-11-14; exact original line numbers retained.",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "author_processed_fit_inputs",
+      "source_verification_scope": "Author-processed numeric regression inputs and assigned errors; original attachments and upstream processing/exclusion history are not distributed or reconstructed."
+    },
+    {
+      "review_key": "grossular/grossular_milani_2017_table2_vt",
+      "material": "grossular",
+      "dataset": "grossular_milani_2017_table2_vt",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "19546aabc29a0b3851582604a06313ddd4101759c30a689ce5fe2f8d72421f3c",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_milani_2017_table2_vt.csv",
+        "sha256": "d81f3e60615b0de2b3b20d6dbf6a5661b6ffd967cecc06770d5fdbcc683ecaa8",
+        "media_type": "text/csv"
+      },
+      "rows": 35,
+      "content_kind": "temperature_lattice_volume",
+      "columns": [
+        "source_row",
+        "worksheet_row",
+        "coordinate_token",
+        "lattice_a_token",
+        "cell_volume_token",
+        "temperature_k",
+        "temperature_sd",
+        "lattice_a_angstrom",
+        "lattice_a_sd_angstrom",
+        "cell_volume_a3",
+        "cell_volume_sd_a3"
+      ],
+      "source_reference": {
+        "authors": [
+          "Milani et al."
+        ],
+        "year": 2017,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-2017-5855"
+      },
+      "source_location": "Official deposit, Table 2, sheet2 rows 5:39",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_milani_2017_table3_pv",
+      "material": "grossular",
+      "dataset": "grossular_milani_2017_table3_pv",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "c39141f13c3857065327e31d75dd0b21c45151208b7a844b21bb6843670ef000",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_milani_2017_table3_pv.csv",
+        "sha256": "c66b473bdccded7f7ea938f5e9636dcca0b6d796b34921b3dde7fc6f5f428d87",
+        "media_type": "text/csv"
+      },
+      "rows": 8,
+      "content_kind": "pressure_lattice_volume",
+      "columns": [
+        "source_row",
+        "worksheet_row",
+        "coordinate_token",
+        "lattice_a_token",
+        "cell_volume_token",
+        "pressure_gpa",
+        "pressure_sd",
+        "lattice_a_angstrom",
+        "lattice_a_sd_angstrom",
+        "cell_volume_a3",
+        "cell_volume_sd_a3"
+      ],
+      "source_reference": {
+        "authors": [
+          "Milani et al."
+        ],
+        "year": 2017,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-2017-5855"
+      },
+      "source_location": "Official deposit, Table 3, sheet3 rows 5:12",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_du_2015_table2_vt",
+      "material": "grossular",
+      "dataset": "grossular_du_2015_table2_vt",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "e13403a2531a7e76dfa726db2ae0ed18a5fccfb212c98949db2c3d8a0372f153",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_du_2015_table2_vt.csv",
+        "sha256": "c9f7990b001e4b76ac405785cc2d40dafdfb59ed5fbfcb289b2b338dc20f048f",
+        "media_type": "text/csv"
+      },
+      "rows": 13,
+      "content_kind": "temperature_lattice_volume",
+      "columns": [
+        "source_row",
+        "temperature_k",
+        "temperature_error_k",
+        "lattice_a_token",
+        "lattice_a_angstrom",
+        "lattice_a_sd_angstrom",
+        "cell_volume_token",
+        "cell_volume_a3",
+        "cell_volume_sd_a3",
+        "calculated_alpha_x1e5_per_k_token"
+      ],
+      "source_reference": {
+        "authors": [
+          "Du, Clark and Walker"
+        ],
+        "year": 2015,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-2015-4752"
+      },
+      "source_location": "Final journal Table 2, p. 217, grossular block; checked against the preprint",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_bosenick_geiger_1997_table2_vt",
+      "material": "grossular",
+      "dataset": "grossular_bosenick_geiger_1997_table2_vt",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "9300fb3f3d2d37a37b32b7f1c2181bf59373d99509b6b579aaa1f5c02e94ac9d",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_bosenick_geiger_1997_table2_vt.csv",
+        "sha256": "0efb7a07a0d8d365a2c04c7e6af567148571a0664dec7b29a517d7ded58fc95f",
+        "media_type": "text/csv"
+      },
+      "rows": 20,
+      "content_kind": "temperature_molar_volume",
+      "columns": [
+        "source_row",
+        "temperature_k",
+        "molar_volume_token",
+        "molar_volume_cm3_mol",
+        "molar_volume_sd_cm3_mol",
+        "repeat_measurement",
+        "temperature_error_k",
+        "evidence"
+      ],
+      "source_reference": {
+        "authors": [
+          "Bosenick and Geiger"
+        ],
+        "year": 1997,
+        "source": "Journal of Geophysical Research",
+        "doi": "10.1029/97JB01612"
+      },
+      "source_location": "Table 2, author-uploaded primary text indexed by the source archive",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_rodehorst_2002_table4a",
+      "material": "grossular",
+      "dataset": "grossular_rodehorst_2002_table4a",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "d2504603abd94305b95569378c0b9f4f509272ada8c1ae8df8e9eb11176858d3",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_rodehorst_2002_table4a.csv",
+        "sha256": "7b5c8d0ab1e28e241bd92a9eac819617ee68457f2899df11fa2a8090f6159358",
+        "media_type": "text/csv"
+      },
+      "rows": 10,
+      "content_kind": "temperature_lattice_parameter",
+      "columns": [
+        "source_row",
+        "temperature_k",
+        "lattice_a_token",
+        "lattice_a_angstrom",
+        "lattice_a_sd_angstrom",
+        "temperature_error_k",
+        "role",
+        "evidence"
+      ],
+      "source_reference": {
+        "authors": [
+          "Rodehorst et al."
+        ],
+        "year": 2002,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-2002-0417"
+      },
+      "source_location": "Table 4A, p. 545, primary text indexed by RRUFF",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_isaak_1992_table2_gr2b_strain",
+      "material": "grossular",
+      "dataset": "grossular_isaak_1992_table2_gr2b_strain",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "a59943b839224f6e50c3ae10b4ddab1af1e0dbb8ee54c50cd35c5c02c5e6b082",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_isaak_1992_table2_gr2b_strain.csv",
+        "sha256": "0a68641d34bc133ab0a94f83338c0812b129927cba47217c988c91bd56c8839f",
+        "media_type": "text/csv"
+      },
+      "rows": 15,
+      "content_kind": "temperature_strain",
+      "columns": [
+        "source_row",
+        "temperature_k",
+        "observed_linear_strain",
+        "observed_volume_strain",
+        "observed_linear_strain_x1e3_token",
+        "observed_volume_strain_x1e2_token",
+        "calculated_volume_strain_x1e2_token",
+        "calculated_gr2b_alpha_x1e6_per_k_token",
+        "estimated_endmember_alpha_x1e6_per_k_token",
+        "observed_specimen",
+        "source_error_volume_strain",
+        "source_error_temperature_k"
+      ],
+      "source_reference": {
+        "authors": [
+          "Isaak et al."
+        ],
+        "year": 1992,
+        "source": "Physics and Chemistry of Minerals",
+        "doi": "10.1007/BF00198608"
+      },
+      "source_location": "Table 2, p. 108; specimen discussion pp. 107-109",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_isaak_1992_table3b_ggd_moduli",
+      "material": "grossular",
+      "dataset": "grossular_isaak_1992_table3b_ggd_moduli",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "3793c0919693915a5078286a4d592dc569f5f5fbd0b51f5a5d20179792798a62",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_isaak_1992_table3b_ggd_moduli.csv",
+        "sha256": "3d7542c5d90c98c3f646dc65e3fe129dfc5719e85b24e6a864a31ef3016224b5",
+        "media_type": "text/csv"
+      },
+      "rows": 22,
+      "content_kind": "temperature_adiabatic_bulk_modulus",
+      "columns": [
+        "source_row",
+        "temperature_k",
+        "ks_gpa_token",
+        "ks_gpa",
+        "ks_gpa_reported_error",
+        "density_g_cm3_token",
+        "specimen",
+        "temperature_error_k"
+      ],
+      "source_reference": {
+        "authors": [
+          "Isaak et al."
+        ],
+        "year": 1992,
+        "source": "Physics and Chemistry of Minerals",
+        "doi": "10.1007/BF00198608"
+      },
+      "source_location": "Table 3b, p. 112",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_kono_2010_table1",
+      "material": "grossular",
+      "dataset": "grossular_kono_2010_table1",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "113eb12cd15bb4500f4e4c6e825420ee8996db8f7f1032574840878cb414f45c",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_kono_2010_table1.csv",
+        "sha256": "283bf8e71dec19625c506e3e2442750642bf35b3d7c40d7a69e769d1b04456ef",
+        "media_type": "text/csv"
+      },
+      "rows": 36,
+      "content_kind": "pressure_temperature_volume_acoustics",
+      "columns": [
+        "source_row",
+        "temperature_k",
+        "temperature_error_k",
+        "pressure_gpa_token",
+        "pressure_gpa",
+        "pressure_gpa_error",
+        "cell_volume_a3_token",
+        "cell_volume_a3",
+        "cell_volume_a3_error",
+        "density_g_cm3_token",
+        "density_g_cm3",
+        "density_g_cm3_error",
+        "vp_km_s_token",
+        "vp_km_s",
+        "vp_km_s_error",
+        "vs_km_s_token",
+        "vs_km_s",
+        "vs_km_s_error",
+        "ks_gpa_token",
+        "ks_gpa",
+        "ks_gpa_error",
+        "g_gpa_token",
+        "g_gpa",
+        "g_gpa_error"
+      ],
+      "source_reference": {
+        "authors": [
+          "Kono et al."
+        ],
+        "year": 2010,
+        "source": "Journal of Earth Science",
+        "doi": "10.1007/s12583-010-0112-2"
+      },
+      "source_location": "Table 1, p. 787",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_conrad_1999_table6_stiffness",
+      "material": "grossular",
+      "dataset": "grossular_conrad_1999_table6_stiffness",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "f66a2df7dd369a7288229e9aa4f5e2344dfd0506a13c35e58ef189d5ca1ae6d6",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_conrad_1999_table6_stiffness.csv",
+        "sha256": "63cf6fad8cfd22ef4e005108e4ac2205e746ff7ec8198a1b2471db42eb917a18",
+        "media_type": "text/csv"
+      },
+      "rows": 5,
+      "content_kind": "pressure_elastic_stiffness",
+      "columns": [
+        "source_row",
+        "pressure_gpa",
+        "pressure_error_gpa",
+        "temperature_k",
+        "selection_angel_2022",
+        "c11_gpa_token",
+        "c11_gpa",
+        "c11_sd_gpa",
+        "c12_gpa_token",
+        "c12_gpa",
+        "c12_sd_gpa",
+        "c44_gpa_token",
+        "c44_gpa",
+        "c44_sd_gpa"
+      ],
+      "source_reference": {
+        "authors": [
+          "Conrad et al."
+        ],
+        "year": 1999,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-1999-0321"
+      },
+      "source_location": "Table 6, p. 379",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_bass_1989_ambient_moduli",
+      "material": "grossular",
+      "dataset": "grossular_bass_1989_ambient_moduli",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "40811879487cd6bbee88cd435cb4c851fd7ed169f3b5a7d388519b6a6ce413bf",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_bass_1989_ambient_moduli.csv",
+        "sha256": "93b8f1d3da3966202b56285f5928779bddbcafeec77d0ff735d85b52df00b1f9",
+        "media_type": "text/csv"
+      },
+      "rows": 1,
+      "content_kind": "ambient_elastic_moduli",
+      "columns": [
+        "source_row",
+        "ks_gpa",
+        "ks_gpa_reported_error",
+        "g_gpa",
+        "g_gpa_reported_error",
+        "temperature_k",
+        "specimen",
+        "source"
+      ],
+      "source_reference": {
+        "authors": [
+          "Bass"
+        ],
+        "year": 1989,
+        "source": "Journal of Geophysical Research",
+        "doi": "10.1029/JB094iB06p07621"
+      },
+      "source_location": "Original-author abstract in the Illinois institutional repository; cross-checked against Isaak Table 4",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_gwanmesia_2014_table1",
+      "material": "grossular",
+      "dataset": "grossular_gwanmesia_2014_table1",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "050778ed539111edd6aa97e68753dc88a5835c9b16b1f03ab2421a42b17c709c",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_gwanmesia_2014_table1.csv",
+        "sha256": "1c92f30ec3da70ec0d4f60acd364c136bd919978cd7dce4f021c2925f4fc069f",
+        "media_type": "text/csv"
+      },
+      "rows": 52,
+      "content_kind": "pressure_temperature_volume_acoustics",
+      "columns": [
+        "temperature_c",
+        "pressure_gpa",
+        "cell_volume_a3",
+        "tp_microsecond",
+        "ts_microsecond",
+        "length_mm",
+        "density_g_cm3",
+        "vp_km_s",
+        "vs_km_s",
+        "longitudinal_modulus_gpa",
+        "shear_modulus_gpa",
+        "ks_gpa"
+      ],
+      "source_reference": {
+        "authors": [
+          "Gwanmesia, Wang, Heady and Liebermann"
+        ],
+        "year": 2014,
+        "source": "Physics of the Earth and Planetary Interiors",
+        "doi": "10.1016/j.pepi.2013.09.010"
+      },
+      "source_location": "Final publisher HTML, Table 1 and associated methods/caption",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "source_table_transcription",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
+    },
+    {
+      "review_key": "grossular/grossular_thieblot_1998_angel_2022_figure4",
+      "material": "grossular",
+      "dataset": "grossular_thieblot_1998_angel_2022_figure4",
+      "decision": "admit",
+      "basis": "numerical_facts_assessment",
+      "rationale": "Scoped assessment of the actual numerical transcription, ordinary row/source labels and contributor metadata. Standard columns retain numeric values, error assignments and factual group/selection identities; no article prose, original layout, figure artwork/geometry, author software or original attachment containers are included. Author-processed selections and normalizations remain attributed; this is not a new source permission or a blanket finding about third-party collections.",
+      "previous_source_status": "limited_or_unspecified_source",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "797bae8177d7f5393f87c3e93d5d286e44badb500573c3bb1f68eb10bd7932b3",
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_thieblot_1998_angel_2022_figure4.csv",
+        "sha256": "3a2c8beabcbafbe788448ad546fc94fbc2896ed560e8e2e75b5d6577ddb12562",
+        "media_type": "text/csv"
+      },
+      "rows": 13,
+      "content_kind": "digitized_temperature_normalized_molar_volume",
+      "columns": [
+        "temperature_k",
+        "molar_volume_cm3_mol",
+        "selection",
+        "source_marker"
+      ],
+      "source_reference": {
+        "authors": [
+          "Angel",
+          "Gilio",
+          "Mazzucchelli",
+          "Alvaro"
+        ],
+        "year": 2022,
+        "source": "Contributions to Mineralogy and Petrology",
+        "volume": "177",
+        "locator": "54",
+        "doi": "10.1007/s00410-022-01918-5"
+      },
+      "source_location": "Figure 4, PDF p. 8; Thiéblot series, seven selected and six excluded visible markers",
+      "source_license_as_recorded": null,
+      "provenance_type_as_recorded": "digitized_normalized_plot",
+      "source_verification_scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit."
     }
   ],
   "supporting_studies": [
@@ -25425,17 +26046,17 @@
     }
   ],
   "counts": {
-    "catalog_entries": 456,
+    "catalog_entries": 470,
     "previously_admitted": 44,
-    "newly_admitted": 407,
-    "admitted_total": 451,
+    "newly_admitted": 421,
+    "admitted_total": 465,
     "held_material_entries": 5,
     "held_by_basis": {
       "source_nc_nd": 1,
       "large_collection": 4
     },
     "new_admissions_by_basis": {
-      "numerical_facts_assessment": 363,
+      "numerical_facts_assessment": 377,
       "author_grant_and_numerical_facts": 3,
       "historical_numerical_compilation_assessment": 2,
       "primary_experiment_collection_assessment": 10,
@@ -25447,7 +26068,7 @@
     },
     "admitted_supporting_entries": 2,
     "deferred_supporting_entries": 0,
-    "admitted_total_including_supporting": 453
+    "admitted_total_including_supporting": 467
   },
   "source_retrievals": [
     {
@@ -27595,6 +28216,32 @@
       "No source PDFs, source image pixels, artwork, captions, original table layout or vector drawing paths admitted.",
       "Liquid experiment origin remains unspecified; solid Ross marks remain a selected graphical subset, not new Barker measurements.",
       "Scientific status stays theoretical/not_reproduced; phase remains unspecified, no executable EOS added and no independent Monte Carlo reproduction claimed."
+    ]
+  },
+  "garnet_dataset_review": {
+    "reviewed_on": "2026-11-15",
+    "entries": [
+      "pyrope/pyrope_angel_2022_author_pvt",
+      "pyrope/pyrope_angel_2022_author_pkt",
+      "grossular/grossular_milani_2017_table2_vt",
+      "grossular/grossular_milani_2017_table3_pv",
+      "grossular/grossular_du_2015_table2_vt",
+      "grossular/grossular_bosenick_geiger_1997_table2_vt",
+      "grossular/grossular_rodehorst_2002_table4a",
+      "grossular/grossular_isaak_1992_table2_gr2b_strain",
+      "grossular/grossular_isaak_1992_table3b_ggd_moduli",
+      "grossular/grossular_kono_2010_table1",
+      "grossular/grossular_conrad_1999_table6_stiffness",
+      "grossular/grossular_bass_1989_ambient_moduli",
+      "grossular/grossular_gwanmesia_2014_table1",
+      "grossular/grossular_thieblot_1998_angel_2022_figure4"
+    ],
+    "evidence": "docs/data/garnet-angel-2022/dataset-integration-2026-11-15.json",
+    "limits": [
+      "Original author files remain private; no open source-data grant is inferred from receipt of the pyrope attachments.",
+      "The processed regression tables span several upstream studies and preserve the author attribution; admission is a scoped numerical-content assessment, not an exemption for complete collections.",
+      "Grossular tables are supporting upstream observations, not the unrecovered author project. Diagnostic estimated errors and Conrad allowances are excluded.",
+      "Digitized data contain physical coordinates and selection labels, not the original figure or PDF-space geometry."
     ]
   }
 }

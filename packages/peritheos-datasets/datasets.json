@@ -1,7 +1,7 @@
 {
   "schema": "peritheos.optional-datasets.v1",
   "reviewed_on": "2026-11-05",
-  "scope": "Explicit source grants and separately bound numerical assessments: 451 admitted material entries. Includes a new partial primary-source calibration graph and new relative NNO pressure integral, not regenerated absolute Campbell tables or the held S8 compilation. All five original holds remain. No source permission or scientific qualification is broadened. Also admits two Barker supporting-study entries through a separately bound study namespace. Material count 451 and five original material-entry holds remain; total selection 453.",
+  "scope": "Explicit source grants and separately bound numerical assessments: 451 admitted material entries. Includes a new partial primary-source calibration graph and new relative NNO pressure integral, not regenerated absolute Campbell tables or the held S8 compilation. All five original holds remain. No source permission or scientific qualification is broadened. Also admits two Barker supporting-study entries through a separately bound study namespace. Material count 451 and five original material-entry holds remain; total selection 453. Garnet addition: the current source selection adds 14 tables (465 material entries; 467 including supporting studies), without changing the original five holds or original source licenses.",
   "datasets": [
     {
       "material": "al_bearing_phase_d",
@@ -4838,11 +4838,151 @@
       "scope": "independent_thermodynamic_evaluation",
       "redistribution_basis": "independent_thermodynamic_evaluation",
       "review_key": "nickel_oxide_b1/campbell_2009_independent_nno_pressure_integral"
+    },
+    {
+      "material": "pyrope",
+      "dataset": "pyrope_angel_2022_author_pvt",
+      "declaration_sha256": "cd82397775926387c279be5406cf2c796f2ce4a23f89bbe2eb2af0c35d1bc456",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#pyrope/pyrope_angel_2022_author_pvt",
+      "scope": "Author-processed numeric regression inputs and assigned errors; original attachments and upstream processing/exclusion history are not distributed or reconstructed.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "pyrope/pyrope_angel_2022_author_pvt"
+    },
+    {
+      "material": "pyrope",
+      "dataset": "pyrope_angel_2022_author_pkt",
+      "declaration_sha256": "3c1e8e8a5cfb09d36a846b2a1a5fb20f7a60c75be349a9dec92f2e4703b6c05a",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#pyrope/pyrope_angel_2022_author_pkt",
+      "scope": "Author-processed numeric regression inputs and assigned errors; original attachments and upstream processing/exclusion history are not distributed or reconstructed.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "pyrope/pyrope_angel_2022_author_pkt"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_milani_2017_table2_vt",
+      "declaration_sha256": "19546aabc29a0b3851582604a06313ddd4101759c30a689ce5fe2f8d72421f3c",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_milani_2017_table2_vt",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_milani_2017_table2_vt"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_milani_2017_table3_pv",
+      "declaration_sha256": "c39141f13c3857065327e31d75dd0b21c45151208b7a844b21bb6843670ef000",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_milani_2017_table3_pv",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_milani_2017_table3_pv"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_du_2015_table2_vt",
+      "declaration_sha256": "e13403a2531a7e76dfa726db2ae0ed18a5fccfb212c98949db2c3d8a0372f153",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_du_2015_table2_vt",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_du_2015_table2_vt"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_bosenick_geiger_1997_table2_vt",
+      "declaration_sha256": "9300fb3f3d2d37a37b32b7f1c2181bf59373d99509b6b579aaa1f5c02e94ac9d",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_bosenick_geiger_1997_table2_vt",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_bosenick_geiger_1997_table2_vt"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_rodehorst_2002_table4a",
+      "declaration_sha256": "d2504603abd94305b95569378c0b9f4f509272ada8c1ae8df8e9eb11176858d3",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_rodehorst_2002_table4a",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_rodehorst_2002_table4a"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_isaak_1992_table2_gr2b_strain",
+      "declaration_sha256": "a59943b839224f6e50c3ae10b4ddab1af1e0dbb8ee54c50cd35c5c02c5e6b082",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_isaak_1992_table2_gr2b_strain",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_isaak_1992_table2_gr2b_strain"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_isaak_1992_table3b_ggd_moduli",
+      "declaration_sha256": "3793c0919693915a5078286a4d592dc569f5f5fbd0b51f5a5d20179792798a62",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_isaak_1992_table3b_ggd_moduli",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_isaak_1992_table3b_ggd_moduli"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_kono_2010_table1",
+      "declaration_sha256": "113eb12cd15bb4500f4e4c6e825420ee8996db8f7f1032574840878cb414f45c",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_kono_2010_table1",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_kono_2010_table1"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_conrad_1999_table6_stiffness",
+      "declaration_sha256": "f66a2df7dd369a7288229e9aa4f5e2344dfd0506a13c35e58ef189d5ca1ae6d6",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_conrad_1999_table6_stiffness",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_conrad_1999_table6_stiffness"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_bass_1989_ambient_moduli",
+      "declaration_sha256": "40811879487cd6bbee88cd435cb4c851fd7ed169f3b5a7d388519b6a6ce413bf",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_bass_1989_ambient_moduli",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_bass_1989_ambient_moduli"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_gwanmesia_2014_table1",
+      "declaration_sha256": "050778ed539111edd6aa97e68753dc88a5835c9b16b1f03ab2421a42b17c709c",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_gwanmesia_2014_table1",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_gwanmesia_2014_table1"
+    },
+    {
+      "material": "grossular",
+      "dataset": "grossular_thieblot_1998_angel_2022_figure4",
+      "declaration_sha256": "797bae8177d7f5393f87c3e93d5d286e44badb500573c3bb1f68eb10bd7932b3",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#grossular/grossular_thieblot_1998_angel_2022_figure4",
+      "scope": "Attributed numeric source observations/tokens and separately labelled digitized coordinates. Missing errors and uncertain specimen/normalization remain explicit.",
+      "redistribution_basis": "numerical_facts_assessment",
+      "review_key": "grossular/grossular_thieblot_1998_angel_2022_figure4"
     }
   ],
   "redistribution_review": {
     "path": "docs/data/numerical-redistribution-review.json",
-    "sha256": "04e13da22164ca6b3b748375c951fcb13d67d20119bc09c7e030639f12796345"
+    "sha256": "4424a9d9d0ad6f7cb997032cce37130b5606ec672871a35b1d7fb81de647ccf8"
   },
   "study_datasets": [
     {

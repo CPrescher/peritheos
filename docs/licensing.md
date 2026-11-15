@@ -124,3 +124,7 @@ publication CC BY 4.0 attributions. See the installed
 [scoped notice](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022.LICENSE.md)
 and the [source audit](literature-reproductions/garnet-angel-2022.md).
 No license for the complete upstream experimental compilation is inferred.
+
+The current source build additionally selects the 14 [garnet observation tables](datasets.md#pyrope-and-grossular-observations).
+They are unreleased numerical-content admissions with attribution and explicit
+source/uncertainty qualifications; no new author or publisher license is inferred.

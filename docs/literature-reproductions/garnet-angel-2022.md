@@ -1,9 +1,19 @@
 # Pyrope and grossular: Angel et al. (2022)
 
-Audit and integration: 8 November 2026. Source: Angel, Gilio, Mazzucchelli and
+Initial audit and integration: 8 November 2026; dataset integration updated
+15 November 2026. Source: Angel, Gilio, Mazzucchelli and
 Alvaro, *Garnet EoS: a critical review and synthesis*, Contributions to
 Mineralogy and Petrology **177**, 54,
 [doi:10.1007/s00410-022-01918-5](https://doi.org/10.1007/s00410-022-01918-5).
+
+**Current data access (15 November 2026):** the [dataset API](../datasets.md#pyrope-and-grossular-observations)
+now exposes all 194 author-processed pyrope rows as two tables, and the eleven
+recovered grossular source tables plus a separately labelled digitized series.
+Grossular source errors remain missing where unavailable; the 26 estimated
+errors and independent 2% Conrad allowance stay in diagnostic fit studies.
+Earlier dated recovery/refit sections below are historical snapshots. They do
+not supersede the completed processed-input pyrope replay or imply that the
+subsequently recovered grossular source rows are still absent.
 
 **Correspondence status:** Ross's reply and five attachments were supplied
 by Clemens on **14 November 2026**. The
@@ -110,17 +120,23 @@ Source-equation checks pass against independent SciPy quadrature, the paper's
 Table 1 thermal expansivities, and the actual official EosFit7c calculator.
 These establish the represented pressure equations and numerical conventions;
 they do not independently validate the experiments or reproduce the original
-joint regression. The reconstruction ledger therefore uses `not_refittable`,
-with `source_equation` scope in each record, rather than coefficient parity.
+joint regression. Grossular retains `not_refittable` with `source_equation`
+scope because the original processed joint project is unavailable. Pyrope now
+records qualified `parity` with `parameter_agreement` scope from all 194
+author-processed rows; upstream processing and complete raw-study workflow
+remain distinct, incomplete claims.
 
-The exact mixed volume/adiabatic-modulus input project is not supplied by the
-four official EOS supplements or the supplementary PDF. The latter is a
+The exact mixed volume/adiabatic-modulus input projects were not supplied by
+the four official EOS supplements or the supplementary PDF. Ross subsequently
+supplied the pyrope project; grossular's original processed project remains
+unavailable. The latter is a
 selection inventory, not numerical observations. Some upstream measurements
 are public, including the separately retained Milani (2015) pyrope PV table;
 that table is not the pressure-rescaled, volume-normalized 2022 fit input.
-No reconstructed observations or replacement fit are added to the catalog.
-The explicitly conditional diagnostic recoveries and refits below remain
-separate from published material records.
+Recovered source tables and the explicitly labelled pyrope processed inputs
+are now accessible as datasets. No diagnostic replacement coefficients or
+estimated grossular source errors are added to the published material records.
+The conditional recoveries/refits below retain their original scope.
 
 ## Source versions and coefficients
 

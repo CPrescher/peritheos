@@ -178,7 +178,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `goethite` | FeOOH | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
 | `gold` | Au | 23 | 23 | 14 | 9 | 0 | 1 | 0 | 30 |
 | `graphite` | C | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `grossular` | Ca3Al2Si3O12 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 0 |
+| `grossular` | Ca3Al2Si3O12 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 12 |
 | `hydrous_silica_cacl2_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
 | `hydrous_stishovite_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
 | `ice_vi` | H2O | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
@@ -286,7 +286,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `platinum` | Pt | 21 | 21 | 13 | 8 | 0 | 1 | 0 | 17 |
 | `praseodymium_dioxide` | PrO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `pseudowollastonite` | CaSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
-| `pyrope` | Mg3Al2Si3O12 | 2 | 2 | 1 | 1 | 0 | 0 | 0 | 1 |
+| `pyrope` | Mg3Al2Si3O12 | 2 | 2 | 1 | 1 | 0 | 0 | 0 | 3 |
 | `qandilite` | Mg2.00Ti1.00O4 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 1 |
 | `rbbr` | RbBr | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 2 |
 | `rbcl` | RbCl | 2 | 2 | 1 | 1 | 0 | 0 | 0 | 3 |

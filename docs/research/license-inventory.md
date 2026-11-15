@@ -9,6 +9,15 @@ calculation library, structures and EOS parameters. The separate
 `peritheos-datasets` distribution supplies selected observation values and other
 numerical datasets. It is optional and depends on the same core version.
 
+## Current source additions
+
+The unreleased source catalog contains 235 materials, 687 EOS records and
+470 material dataset declarations. The optional source build selects 465 of
+those declarations, plus the two existing supporting-study entries, using
+406 CSV resources and 14 inline tables. The 14 added garnet tables have
+separate numerical-content assessments; the original five holds remain.
+These source-build counts do not alter the released 0.18.0 inventory below.
+
 ## What is actually shipped?
 
 | Content in 0.18.0 | Core `peritheos` | Optional `peritheos-datasets` |

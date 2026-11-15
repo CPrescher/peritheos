@@ -21,7 +21,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 2 |
-| Observation datasets | 1 |
+| Observation datasets | 3 |
 
 Garnet coordinates from Armbruster et al., Am. Mineral. 77, 512-521 (1992); cell parameter is the cube root of the fitted V0.
 
@@ -297,7 +297,7 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Reduced chi square:** 2.23425
 - **Parameter covariance:** \[\["0.0974705", "-0.010986", "-0.108071", "0.000751533", "7.76667e-05"\], \["-0.010986", "0.00201402", "-0.0529801", "-0.000114287", "-4.55501e-05"\], \["-0.108071", "-0.0529801", "781.039", "0.27911", "0.00380724"\], \["0.000751533", "-0.000114287", "0.27911", "0.000134522", "2.01831e-06"\], \["7.76667e-05", "-4.55501e-05", "0.00380724", "2.01831e-06", "3.42813e-05"\]\]
 - **Covariance convention:** Conditional inverse-information covariance with final effective coordinate weights frozen, multiplied by chi-square/189; parameter order follows free\_parameters
-- **Dataset identifiers:** None declared
+- **Dataset identifiers:** pyrope\_angel\_2022\_author\_pvt; pyrope\_angel\_2022\_author\_pkt
 - **Reproduction report:** docs/literature-reproductions/pyrope-author-input-replay.md
 
 </details>
@@ -396,3 +396,45 @@ Parameter covariance is supplied in the complete EOSMAT source.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/pyrope-milani-2015-table-a2-compression.csv)
 — SHA-256 `c4bf6182012e81826e1f18d620377391033e65936140654b3b1063a8c4927f01`.
+
+### pyrope\_angel\_2022\_author\_pvt
+
+- **Description:** All 115 author-processed volume inputs, with assigned coordinate errors and final-log row/group identities.
+- **Kind:** pressure\_volume\_temperature
+- **Reference:**
+    - **Authors:** Angel; Gilio; Mazzucchelli; Alvaro
+    - **Year:** 2022
+    - **Source:** Contributions to Mineralogy and Petrology
+    - **Volume:** 177
+    - **Locator:** 54
+    - **DOI:** 10.1007/s00410-022-01918-5
+- **Source location:** Author-processed Pyrope\_PVT\_used.dat, supplied by Ross Angel via Clemens Prescher on 2026-11-14; exact original line numbers retained.
+- **Associated EOS records:** pyrope\_angel\_2022\_bm3\_q\_compromise\_debye
+- **Uncertainty:**
+    - **Reported as:** author-assigned EosFit coordinate error widths
+    - **Covariance:** not\_supplied
+    - **Qualification:** Preserved fit weights; not established raw-measurement standard deviations. The error columns deliberately use the generic uncertainty role.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/pyrope_angel_2022_author_pvt.csv)
+— SHA-256 `6dffa3a5e8a2ede0a79ff1bea8683cf736092e7eace68016ee3f810bd726bd35`.
+
+### pyrope\_angel\_2022\_author\_pkt
+
+- **Description:** All 79 author-processed adiabatic-modulus inputs, with assigned coordinate errors and final-log row/group identities.
+- **Kind:** pressure\_temperature\_adiabatic\_bulk\_modulus
+- **Reference:**
+    - **Authors:** Angel; Gilio; Mazzucchelli; Alvaro
+    - **Year:** 2022
+    - **Source:** Contributions to Mineralogy and Petrology
+    - **Volume:** 177
+    - **Locator:** 54
+    - **DOI:** 10.1007/s00410-022-01918-5
+- **Source location:** Author-processed Pyrope\_PKT\_used.dat, supplied by Ross Angel via Clemens Prescher on 2026-11-14; exact original line numbers retained.
+- **Associated EOS records:** pyrope\_angel\_2022\_bm3\_q\_compromise\_debye
+- **Uncertainty:**
+    - **Reported as:** author-assigned EosFit coordinate error widths
+    - **Covariance:** not\_supplied
+    - **Qualification:** Preserved fit weights; not established raw-measurement standard deviations. The error columns deliberately use the generic uncertainty role.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/garnet-angel-2022/pyrope_angel_2022_author_pkt.csv)
+— SHA-256 `3c0a9238c526360891431c87081bd5d443a52879a869359d3a40575e4774536c`.

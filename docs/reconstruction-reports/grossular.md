@@ -33,7 +33,7 @@ Record: `grossular_angel_2022_bm3_q_compromise_debye` · Model: `BM3`
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
 - Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.
-- Complete grossular joint V/Ks project, missing Gwanmesia/Thieblot rows, Isaak expansion reduction, normalization anchors, assigned errors and original fit confidence convention.
+- All 52 Gwanmesia rows and the other recovered source tables are available separately. Original Thiéblot measurement errors, exact author volume normalization/anchors, assigned coordinate errors, Isaak expansion specimen processing and original joint-fit confidence/covariance remain unresolved. Diagnostic estimates are not source errors.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 - No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
 

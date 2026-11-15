@@ -328,7 +328,7 @@
                 ]
               ],
               "covariance_convention": "Conditional inverse-information covariance with final effective coordinate weights frozen, multiplied by chi-square/189; parameter order follows free_parameters",
-              "dataset_identifiers": [],
+              "dataset_identifiers": ["pyrope_angel_2022_author_pvt", "pyrope_angel_2022_author_pkt"],
               "reproduction_report": "docs/literature-reproductions/pyrope-author-input-replay.md"
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -453,6 +453,256 @@
         "doi": "10.1016/j.lithos.2015.03.017"
       },
       "used_by_eos_records": ["pyrope_milani_2015_bm3_1"]
+    },
+    {
+      "identifier": "pyrope_angel_2022_author_pvt",
+      "kind": "pressure_volume_temperature",
+      "description": "All 115 author-processed volume inputs, with assigned coordinate errors and final-log row/group identities.",
+      "reference": {
+        "authors": ["Angel", "Gilio", "Mazzucchelli", "Alvaro"],
+        "year": 2022,
+        "source": "Contributions to Mineralogy and Petrology",
+        "volume": "177",
+        "locator": "54",
+        "doi": "10.1007/s00410-022-01918-5"
+      },
+      "source_location": "Author-processed Pyrope_PVT_used.dat, supplied by Ross Angel via Clemens Prescher on 2026-11-14; exact original line numbers retained.",
+      "columns": [
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_assigned_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_assigned_error_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "molar_volume_cm3_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
+        {
+          "name": "molar_volume_assigned_error_cm3_mol",
+          "quantity": "molar_volume",
+          "unit": "cm^3/mol",
+          "role": "uncertainty",
+          "of": "molar_volume_cm3_mol"
+        },
+        {"name": "source_file", "quantity": "source_file", "unit": "identifier", "role": "flag"},
+        {"name": "source_line", "quantity": "source_line", "unit": "1", "role": "flag"},
+        {"name": "source_dataset", "quantity": "source_dataset", "unit": "identifier", "role": "flag"},
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "fit_row", "quantity": "fit_row", "unit": "1", "role": "flag"},
+        {"name": "use", "quantity": "use", "unit": "1", "role": "flag"},
+        {"name": "group", "quantity": "group", "unit": "1", "role": "flag"},
+        {"name": "scale_index", "quantity": "scale_index", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/pyrope_angel_2022_author_pvt.csv",
+        "sha256": "6dffa3a5e8a2ede0a79ff1bea8683cf736092e7eace68016ee3f810bd726bd35",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["pyrope_angel_2022_bm3_q_compromise_debye"],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "author_processed_fit_inputs",
+      "uncertainty": {
+        "reported_as": "author-assigned EosFit coordinate error widths",
+        "covariance": "not_supplied",
+        "qualification": "Preserved fit weights; not established raw-measurement standard deviations. The error columns deliberately use the generic uncertainty role."
+      },
+      "processing": {
+        "volume_basis": "author common molar-volume scale, cm3/mol",
+        "volume_normalization": "Already applied by the author; upstream reductions and exclusions remain partial.",
+        "scale_convention": "Group 1: 115 volumes, fixed scale 1. Group 2: 64 moduli, fixed scale 1, including two ambient Sinogeikin-Bass (2000) points. Group 3: 15 pressure-dependent Sinogeikin-Bass (2000) moduli; one refined multiplier acts on CALCULATED modulus, not these observed values.",
+        "reference_temperature_k": 298.0,
+        "source_archive": "Original attachments remain private; only attributed numeric transcriptions are distributed."
+      },
+      "upstream_sources": [
+        {
+          "source_dataset": "zhang_helium",
+          "reference": {
+            "authors": ["Zhang et al."],
+            "year": 1998,
+            "source": "Physics and Chemistry of Minerals",
+            "doi": "10.1007/s002690050118"
+          }
+        },
+        {
+          "source_dataset": "zhang_neon",
+          "reference": {
+            "authors": ["Zhang et al."],
+            "year": 1998,
+            "source": "Physics and Chemistry of Minerals",
+            "doi": "10.1007/s002690050118"
+          }
+        },
+        {
+          "source_dataset": "zou_pv",
+          "reference": {
+            "authors": ["Zou et al."],
+            "year": 2012,
+            "source": "Journal of Applied Physics",
+            "doi": "10.1063/1.4736407"
+          }
+        },
+        {
+          "source_dataset": "du_pv",
+          "reference": {
+            "authors": ["Du, Clark and Walker"],
+            "year": 2015,
+            "source": "American Mineralogist",
+            "doi": "10.2138/am-2015-4752"
+          }
+        },
+        {
+          "source_dataset": "milani_pv",
+          "reference": {
+            "authors": ["Milani et al."],
+            "year": 2015,
+            "source": "Lithos",
+            "doi": "10.1016/j.lithos.2015.03.017"
+          }
+        },
+        {
+          "source_dataset": "chantel_pv",
+          "reference": {
+            "authors": ["Chantel et al."],
+            "year": 2016,
+            "source": "American Mineralogist",
+            "doi": "10.2138/am-2016-5335"
+          }
+        },
+        {
+          "source_dataset": "milani_vt",
+          "reference": {
+            "authors": ["Milani et al."],
+            "year": 2015,
+            "source": "Lithos",
+            "doi": "10.1016/j.lithos.2015.03.017"
+          }
+        },
+        {
+          "source_dataset": "hartwig_vt",
+          "reference": {
+            "authors": ["Hartwig and Galkin"],
+            "year": 2021,
+            "source": "Journal of Thermal Analysis and Calorimetry",
+            "doi": "10.1007/s10973-020-09396-2"
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "pyrope_angel_2022_author_pkt",
+      "kind": "pressure_temperature_adiabatic_bulk_modulus",
+      "description": "All 79 author-processed adiabatic-modulus inputs, with assigned coordinate errors and final-log row/group identities.",
+      "reference": {
+        "authors": ["Angel", "Gilio", "Mazzucchelli", "Alvaro"],
+        "year": 2022,
+        "source": "Contributions to Mineralogy and Petrology",
+        "volume": "177",
+        "locator": "54",
+        "doi": "10.1007/s00410-022-01918-5"
+      },
+      "source_location": "Author-processed Pyrope_PKT_used.dat, supplied by Ross Angel via Clemens Prescher on 2026-11-14; exact original line numbers retained.",
+      "columns": [
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_assigned_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_assigned_error_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "bulk_modulus_adiabatic_gpa", "quantity": "adiabatic_bulk_modulus", "unit": "GPa", "role": "value"},
+        {
+          "name": "bulk_modulus_assigned_error_gpa",
+          "quantity": "adiabatic_bulk_modulus",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "bulk_modulus_adiabatic_gpa"
+        },
+        {"name": "source_file", "quantity": "source_file", "unit": "identifier", "role": "flag"},
+        {"name": "source_line", "quantity": "source_line", "unit": "1", "role": "flag"},
+        {"name": "source_dataset", "quantity": "source_dataset", "unit": "identifier", "role": "flag"},
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "fit_row", "quantity": "fit_row", "unit": "1", "role": "flag"},
+        {"name": "use", "quantity": "use", "unit": "1", "role": "flag"},
+        {"name": "group", "quantity": "group", "unit": "1", "role": "flag"},
+        {"name": "scale_index", "quantity": "scale_index", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/pyrope_angel_2022_author_pkt.csv",
+        "sha256": "3c0a9238c526360891431c87081bd5d443a52879a869359d3a40575e4774536c",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["pyrope_angel_2022_bm3_q_compromise_debye"],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "author_processed_fit_inputs",
+      "uncertainty": {
+        "reported_as": "author-assigned EosFit coordinate error widths",
+        "covariance": "not_supplied",
+        "qualification": "Preserved fit weights; not established raw-measurement standard deviations. The error columns deliberately use the generic uncertainty role."
+      },
+      "processing": {
+        "volume_basis": "author common molar-volume scale, cm3/mol",
+        "volume_normalization": "Already applied by the author; upstream reductions and exclusions remain partial.",
+        "scale_convention": "Group 1: 115 volumes, fixed scale 1. Group 2: 64 moduli, fixed scale 1, including two ambient Sinogeikin-Bass (2000) points. Group 3: 15 pressure-dependent Sinogeikin-Bass (2000) moduli; one refined multiplier acts on CALCULATED modulus, not these observed values.",
+        "reference_temperature_k": 298.0,
+        "source_archive": "Original attachments remain private; only attributed numeric transcriptions are distributed."
+      },
+      "upstream_sources": [
+        {
+          "source_dataset": "sinogeikin_2000_ks",
+          "reference": {
+            "authors": ["Sinogeikin and Bass"],
+            "year": 2000,
+            "source": "Physics of the Earth and Planetary Interiors",
+            "doi": "10.1016/S0031-9201(00)00143-6"
+          }
+        },
+        {
+          "source_dataset": "sinogeikin_2002_ks",
+          "reference": {
+            "authors": ["Sinogeikin and Bass"],
+            "year": 2002,
+            "source": "Earth and Planetary Science Letters",
+            "doi": "10.1016/S0012-821X(02)00851-8"
+          }
+        },
+        {
+          "source_dataset": "zou_ks",
+          "reference": {
+            "authors": ["Zou et al."],
+            "year": 2012,
+            "source": "Journal of Applied Physics",
+            "doi": "10.1063/1.4736407"
+          }
+        },
+        {
+          "source_dataset": "chantel_ks",
+          "reference": {
+            "authors": ["Chantel et al."],
+            "year": 2016,
+            "source": "American Mineralogist",
+            "doi": "10.2138/am-2016-5335"
+          }
+        }
+      ]
     }
   ]
 }

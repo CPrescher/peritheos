@@ -36,6 +36,11 @@ supporting-study entries**. These use 392 CSV files and 14 small tables embedded
 in JSON; entries can share files. The tables include measured observations,
 numerical figure readouts and explicitly identified calculations.
 
+The current source build adds 14 garnet tables: **465 material entries**, two
+supporting entries and 406 CSV resources. These additions are unreleased and
+require matching core/data builds containing the new declarations. See
+[the garnet datasets](#pyrope-and-grossular-observations) below.
+
 Five material entries are not supplied: the original Sakai Table S8 lineage
 resource and four views of the original Campbell integration resource. Some
 separately named partial calculations are included, with their limits recorded;
@@ -79,6 +84,82 @@ See the [API reference](api.md#observation-datasets) for signatures, the
 [EOSMAT dataset schema](eosmat-schema.md#primary-experimental-datasets) for the
 storage contract, and [Error handling](error-handling.md) for exception types
 and stable codes.
+
+## Pyrope and grossular observations
+
+These identifiers are available in builds containing the 15 November 2026
+addition; they are not in the earlier published 0.18.0 distributions. Install a
+matching core and optional-data build. Repository/editable installations also
+load the resources through the same API.
+
+```python
+from peritheos import get_material
+
+pyrope = get_material("pyrope")
+pvt = pyrope.get_dataset("pyrope_angel_2022_author_pvt")
+pkt = pyrope.get_dataset("pyrope_angel_2022_author_pkt")
+assert len(pvt) == 115 and len(pkt) == 79
+assert (pkt["group"] == 3).sum() == 15
+print(pvt.values("molar_volume_cm3_mol"))
+print(pkt.values("bulk_modulus_adiabatic_gpa"))
+
+grossular = get_material("grossular")
+gwanmesia = grossular.get_dataset("grossular_gwanmesia_2014_table1")
+isaak = grossular.get_dataset("grossular_isaak_1992_table3b_ggd_moduli")
+assert len(gwanmesia) == 52 and len(isaak) == 22
+print(gwanmesia.values("temperature_c", unit="K"))
+print(isaak.values("ks_gpa_reported_error"))  # 19 missing errors remain NaN
+```
+
+Pyrope's two tables contain **author-processed fit inputs**, not raw published
+measurements. All 194 rows retain the supplied numeric tokens, assigned P/T/value
+errors, source-file lines and exact scale groups. Individual source-series citations are retained in `metadata["upstream_sources"]`.
+Volume uses cm³/mol. Convert
+it to conventional-cell Å³ before using `EOSRecord.pressure()`:
+
+```python
+cell_volume_a3 = pvt["molar_volume_cm3_mol"] * 8 * 1e24 / 6.02214076e23
+record = pyrope.get_eos_record("pyrope_angel_2022_bm3_q_compromise_debye")
+source_pressure_gpa = record.pressure(cell_volume_a3, pvt["temperature_k"])
+```
+
+Assigned coordinate errors use the generic `uncertainty` role. They are available
+as `PressureVolumeData.pressure_uncertainty` and `volume_uncertainty`; the
+`*_sigma` aliases remain `None` because the raw measurement confidence is not
+established. Group 3 contains the 15 high-pressure Sinogeikin–Bass (2000)
+moduli; its fitted factor multiplies calculated moduli. The two ambient points
+are in unscaled group 2. No factor is applied to these stored observations.
+The archived joint volume/modulus replay retains its separate EosFit-style
+objective; exposing its inputs does not change public fitter defaults.
+
+Grossular exposes eleven source tables and one separately labelled digitized
+series. Discover their complete identifiers and descriptions with:
+
+```python
+for metadata in grossular.datasets:
+    print(metadata["identifier"], metadata["description"])
+```
+
+The source tables retain anchors, repeats, source outliers and tabulated XRD
+volumes even where Angel's fit excluded them. They are supporting observations,
+with empty `used_by_eos_records`, rather than recovered author input selections.
+Isaak Table 2 is explicitly GR-2B (76.1 mol% grossular, 22.1 mol% andradite);
+Table 3b is GGD (96.53 mol% grossular). Source-calculated quantities, observed
+strain and source tokens remain distinguishable. Gwanmesia's relative error
+estimates remain metadata, not synthetic per-row errors. Its 30 °C rows are
+303.15 K. Calculated acoustic quantities share inputs and are not independent
+constraints.
+
+The Thiéblot table contains seven selected and six excluded visible Figure 4
+markers on Angel's already normalized molar-volume scale. Its digitization
+bounds are not measurement errors. The 26 estimated-error inputs and independent
+2% Conrad allowance remain in the separately documented diagnostic studies;
+they are not inserted into any source table. Exact grossular normalization,
+assigned weights and author fit inputs remain unresolved.
+
+See [the source audit](literature-reproductions/garnet-angel-2022.md) and
+[the pyrope replay](literature-reproductions/pyrope-author-input-replay.md).
+Published coefficients, covariance, defaults and scientific findings are retained.
 
 ## Find and load a dataset
 

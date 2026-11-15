@@ -144,10 +144,10 @@ def test_core_metadata_and_optional_hydration_are_separate(exported_study):
     assert "distribution" not in get_study_document(STUDY)["datasets"][0]
     manifest = json.loads((package / "manifest.json").read_bytes())
     review = json.loads((package / "redistribution-review.json").read_bytes())
-    assert manifest["dataset_count"] == 451
+    assert manifest["dataset_count"] == 465
     assert manifest["study_dataset_count"] == 2
-    assert manifest["total_dataset_count"] == 453
-    assert len(manifest["resources"]) == 392
+    assert manifest["total_dataset_count"] == 467
+    assert len(manifest["resources"]) == 406
     assert review["barker_review"] == PROOF
     assert all(e["decision"] == "admit" for e in review["supporting_studies"])
     assert len([e for e in review["entries"] if e["decision"] == "hold"]) == 5

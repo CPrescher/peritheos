@@ -10,19 +10,23 @@ applications such as Dioptas and for fitting your own observations. Installing
 this optional package adds values; it does not install a second EOS implementation
 or download additional source files at runtime.
 
-## What is included in 0.18.0?
+## What is included in the current source build?
+
+These counts include the unreleased garnet dataset addition. Released 0.18.0
+contains 451 material entries, 2 supporting entries and 392 CSV resources. The
+new garnet identifiers require a matching core/data build from this revision.
 
 | Content | Amount and location |
 | --- | --- |
-| Material dataset entries | 451, with declarations in `peritheos_datasets/declarations/` |
+| Material dataset entries | 465, with declarations in `peritheos_datasets/declarations/` |
 | Supporting-study entries | 2 Barker tables, in `peritheos_datasets/study-declarations/` |
-| Numerical CSV resources | 392, under `peritheos_datasets/data/datasets/` |
+| Numerical CSV resources | 406, under `peritheos_datasets/data/datasets/` |
 | Small inline tables | 14, within the declaration JSON files |
 | Source notices and inclusion decisions | `peritheos_datasets/notices/`, `manifest.json` and `redistribution-review.json` |
 
-The **453 entries** can share resource files. They include measurements, numerical
+The **467 entries** can share resource files. They include measurements, numerical
 figure readouts, explicitly calculated tables and a partial source-lineage graph;
-these are not 453 independent experiments. Original identifiers, units, errors,
+these are not 467 independent experiments. Original identifiers, units, errors,
 attribution and scientific qualifications are retained.
 
 This package contains no original papers, publisher artwork, source workbooks,

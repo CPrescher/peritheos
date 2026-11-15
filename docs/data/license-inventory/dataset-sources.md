@@ -1,6 +1,6 @@
 # Dataset source-rights index
 
-Generated from 456 material dataset entries in the research checkout. This is a source index, not the shipping list of either Python package. Entries can share files and are not counts of independent experiments. See [the current package inventory](../../research/license-inventory.md) for the 0.18.0 contents and the meaning of these labels. A source group does not give every item the same license.
+Generated from 470 material dataset entries in the research checkout. This is a source index, not the shipping list of either Python package. Entries can share files and are not counts of independent experiments. See [the current package inventory](../../research/license-inventory.md) for the 0.18.0 contents and the meaning of these labels. A source group does not give every item the same license.
 
 | Source | Dataset entries | Materials | Recorded statuses |
 | --- | ---: | --- | --- |
@@ -13,6 +13,7 @@ Generated from 456 material dataset entries in the research checkout. This is a 
 | [Ye 2017: 10.1002/2016JB013811](https://doi.org/10.1002/2016JB013811) | 4 | gold ; mgo ; platinum | limited_or_unspecified_source |
 | [Nisr 2017: 10.1002/2017JB014055](https://doi.org/10.1002/2017JB014055) | 6 | hydrous_silica_cacl2_nisr_2017 ; hydrous_stishovite_nisr_2017 ; sio2_stv_andr | limited_or_unspecified_source ; source_terms_not_recorded |
 | [Thompson 2017: 10.1002/2017JB014168](https://doi.org/10.1002/2017JB014168) | 1 | e_feooh_hc_low_spin | source_terms_not_recorded |
+| [Isaak et al. 1992: 10.1007/BF00198608](https://doi.org/10.1007/BF00198608) | 2 | grossular | limited_or_unspecified_source |
 | [Meng 1994: 10.1007/BF00203299](https://doi.org/10.1007/BF00203299) | 1 | ringwoodite | source_terms_not_recorded |
 | [Ono 2000: 10.1007/S002690000108](https://doi.org/10.1007/S002690000108) | 2 | sno2_cubic_27gpa ; sno2_pa_3_at_48gpa | source_terms_not_recorded |
 | [J. Li 2002: 10.1007/s00269-001-0224-4](https://doi.org/10.1007/s00269-001-0224-4) | 1 | cementite | limited_or_unspecified_source |
@@ -24,8 +25,10 @@ Generated from 456 material dataset entries in the research checkout. This is a 
 | [Lv 2016: 10.1007/s00269-015-0794-1](https://doi.org/10.1007/s00269-015-0794-1) | 1 | qandilite | limited_or_unspecified_source |
 | [Dubrovinsky 1997: 10.1007/s002690050070](https://doi.org/10.1007/s002690050070) | 1 | mgo | open_source_declared |
 | [Fiquet 1999: 10.1007/s002690050246](https://doi.org/10.1007/s002690050246) | 1 | mgo | open_source_declared |
+| [Angel 2022: 10.1007/s00410-022-01918-5](https://doi.org/10.1007/s00410-022-01918-5) | 3 | grossular ; pyrope | limited_or_unspecified_source |
 | [Redfern 1999: 10.1007/s004100050471](https://doi.org/10.1007/s004100050471) | 1 | calcite | source_terms_not_recorded |
 | [Xiao 2025: 10.1007/s10765-024-03469-2](https://doi.org/10.1007/s10765-024-03469-2) | 1 | argon_fcc | open_license_declared |
+| [Kono et al. 2010: 10.1007/s12583-010-0112-2](https://doi.org/10.1007/s12583-010-0112-2) | 1 | grossular | limited_or_unspecified_source |
 | [Anderson 1975: 10.1016/0022-3697(75)90004-9](https://doi.org/10.1016/0022-3697(75)90004-9) | 1 | argon_fcc | source_terms_not_recorded |
 | [Yagi 1978: 10.1016/0022-3697(78)90037-9](https://doi.org/10.1016/0022-3697(78)90037-9) | 1 | cscl | source_terms_not_recorded |
 | [Hazen 1981: 10.1016/0022-3697(81)90074-3](https://doi.org/10.1016/0022-3697(81)90074-3) | 2 | geo2_rutile ; sno2 | source_terms_not_recorded |
@@ -58,6 +61,7 @@ Generated from 456 material dataset entries in the research checkout. This is a 
 | [Ono, S. 2010: 10.1016/j.pepi.2010.03.008](https://doi.org/10.1016/j.pepi.2010.03.008) | 1 | cementite | limited_or_unspecified_source |
 | [Zhou 2014: 10.1016/j.pepi.2013.06.005](https://doi.org/10.1016/j.pepi.2013.06.005) | 1 | akimotoite | source_terms_not_recorded |
 | [Litasov 2013: 10.1016/j.pepi.2013.07.011](https://doi.org/10.1016/j.pepi.2013.07.011) | 1 | siderite_fe095mn005 | source_terms_not_recorded |
+| [Gwanmesia, Wang, Heady and Liebermann 2014: 10.1016/j.pepi.2013.09.010](https://doi.org/10.1016/j.pepi.2013.09.010) | 1 | grossular | limited_or_unspecified_source |
 | [Sakai 2014: 10.1016/j.pepi.2013.12.010](https://doi.org/10.1016/j.pepi.2013.12.010) | 2 | fe09ni01_hcp ; iron | limited_or_unspecified_source |
 | [Siersch 2021: 10.1016/j.pepi.2021.106786](https://doi.org/10.1016/j.pepi.2021.106786) | 1 | akimotoite | source_terms_not_recorded |
 | [Dorogokupets 2015: 10.1016/j.rgg.2015.01.011](https://doi.org/10.1016/j.rgg.2015.01.011) | 3 | akimotoite ; bridgmanite ; mgsio3_post_perovskite | source_terms_not_recorded |
@@ -107,12 +111,14 @@ Generated from 456 material dataset entries in the research checkout. This is a 
 | [Duffy 1995: 10.1029/94JB02065](https://doi.org/10.1029/94JB02065) | 1 | mgo | limited_or_unspecified_source |
 | [Wang 1996: 10.1029/95JB03254](https://doi.org/10.1029/95JB03254) | 3 | ca_perovskite | source_terms_not_recorded |
 | [Zhao 1997: 10.1029/96GL03769](https://doi.org/10.1029/96GL03769) | 1 | naalsi2o6 | source_terms_not_recorded |
+| [Bosenick and Geiger 1997: 10.1029/97JB01612](https://doi.org/10.1029/97JB01612) | 1 | grossular | limited_or_unspecified_source |
 | [Funamori 1998: 10.1029/98JB01575](https://doi.org/10.1029/98JB01575) | 2 | mgal2o4_cafe2o4 ; mgal2o4_cati2o4 | source_terms_not_recorded |
 | [Liu 1973: 10.1029/JB078i035p08470](https://doi.org/10.1029/JB078i035p08470) | 1 | sro | source_terms_not_recorded |
 | [Mao 1974: 10.1029/JB079i008p01165](https://doi.org/10.1029/JB079i008p01165) | 1 | fe3o4 | source_terms_not_recorded |
 | [Sato 1981: 10.1029/JB086iB12p11773](https://doi.org/10.1029/JB086iB12p11773) | 1 | sro_b2 | source_terms_not_recorded |
 | [Richet 1988: 10.1029/JB093iB12p15279](https://doi.org/10.1029/JB093iB12p15279) | 2 | cao ; cao_b2 | source_terms_not_recorded |
 | [Richet 1989: 10.1029/JB094iB03p03037](https://doi.org/10.1029/JB094iB03p03037) | 1 | mgfe60o | source_terms_not_recorded |
+| [Bass 1989: 10.1029/JB094iB06p07621](https://doi.org/10.1029/JB094iB06p07621) | 1 | grossular | limited_or_unspecified_source |
 | [Mao 1989: 10.1029/JB094iB12p17889](https://doi.org/10.1029/JB094iB12p17889) | 1 | ca_perovskite | source_terms_not_recorded |
 | [Mao 1990: 10.1029/JB095iB13p21737](https://doi.org/10.1029/JB095iB13p21737) | 1 | iron | source_terms_not_recorded |
 | [Lin 2005: 10.1038/nature03825](https://doi.org/10.1038/nature03825) | 1 | mg083fe017o | source_terms_not_recorded |
@@ -205,14 +211,18 @@ Generated from 456 material dataset entries in the research checkout. This is a 
 | [Xia 1998: 10.2138/am-1998-0107](https://doi.org/10.2138/am-1998-0107) | 1 | brucite | limited_or_unspecified_source |
 | [Saxena 1999: 10.2138/am-1999-0303](https://doi.org/10.2138/am-1999-0303) | 1 | bridgmanite | source_terms_not_recorded |
 | [Ross 1999: 10.2138/am-1999-0309](https://doi.org/10.2138/am-1999-0309) | 2 | calcium_germanate_perovskite ; calcium_titanate_perovskite | source_terms_not_recorded |
+| [Conrad et al. 1999: 10.2138/am-1999-0321](https://doi.org/10.2138/am-1999-0321) | 1 | grossular | limited_or_unspecified_source |
 | [Vocadlo 1999: 10.2138/am-1999-1017](https://doi.org/10.2138/am-1999-1017) | 1 | magnesite | source_terms_not_recorded |
 | [Fei 2000: 10.2138/am-2000-11-1229](https://doi.org/10.2138/am-2000-11-1229) | 1 | fe3s | source_terms_not_recorded |
+| [Rodehorst et al. 2002: 10.2138/am-2002-0417](https://doi.org/10.2138/am-2002-0417) | 1 | grossular | limited_or_unspecified_source |
 | [Angel 2002: 10.2138/am-2002-0419](https://doi.org/10.2138/am-2002-0419) | 1 | orthoenstatite | source_terms_not_recorded |
 | [Walker 2002: 10.2138/am-2002-0701](https://doi.org/10.2138/am-2002-0701) | 2 | kcl ; kcl_b1 | source_terms_not_recorded |
 | [Crichton 2002: 10.2138/am-2002-2-316](https://doi.org/10.2138/am-2002-2-316) | 1 | mg7si2o8 | source_terms_not_recorded |
 | [Andrault 2003: 10.2138/am-2003-2-307](https://doi.org/10.2138/am-2003-2-307) | 1 | sio2_stv_andr | source_terms_not_recorded |
+| [Du, Clark and Walker 2015: 10.2138/am-2015-4752](https://doi.org/10.2138/am-2015-4752) | 1 | grossular | limited_or_unspecified_source |
 | [Mookherjee 2015: 10.2138/am-2015-5312](https://doi.org/10.2138/am-2015-5312) | 1 | mgsioh6_365a_phase | source_terms_not_recorded |
 | [Solomatova 2016: 10.2138/am-2016-5510](https://doi.org/10.2138/am-2016-5510) | 2 | mg0490fe0483ti0027o | source_terms_not_recorded |
+| [Milani et al. 2017: 10.2138/am-2017-5855](https://doi.org/10.2138/am-2017-5855) | 2 | grossular | limited_or_unspecified_source |
 | [Finkelstein 2017: 10.2138/am-2017-5966](https://doi.org/10.2138/am-2017-5966) | 1 | mg0215fe0762vac0023o_b1 | source_terms_not_recorded |
 | [Chen 2018: 10.2138/am-2018-6087](https://doi.org/10.2138/am-2018-6087) | 1 | ca_perovskite_tetragonal | source_terms_not_recorded |
 | [Chidester 2018: 10.2138/am-2018-6212](https://doi.org/10.2138/am-2018-6212) | 2 | tho2_cotunnite ; thorianite | source_terms_not_recorded |

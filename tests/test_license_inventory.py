@@ -223,7 +223,7 @@ def test_committed_inventory_covers_release_members_and_inline_components():
         ) == (234 if state == "release" else 235)
         assert sum(
             r["state"] == state and r["kind"] == "dataset" for r in components
-        ) == (449 if state == "release" else 456)
+        ) == (449 if state == "release" else 470)
     assert summary["published_wheels_checked"] == 35
     assert not summary["all_wheel_data_bytes_identical"]
     assert summary["all_wheel_data_identical_after_crlf_normalization"]

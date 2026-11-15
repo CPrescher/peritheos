@@ -174,8 +174,8 @@ def test_both_exports_preserve_upstream_notices_review_and_runtime_science(tmp_p
     )
     assert not list(core_data.rglob("*.csv"))
     manifest = json.loads((optional_data / "manifest.json").read_bytes())
-    assert manifest["total_dataset_count"] == 453
-    assert len(manifest["resources"]) == 392
+    assert manifest["total_dataset_count"] == 467
+    assert len(manifest["resources"]) == 406
     assert not any(
         "campbell-2009-tables-s4-s5" in path
         or "sakai-2025-table-s8-calibration-lineage" in path

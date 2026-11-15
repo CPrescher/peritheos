@@ -61319,19 +61319,27 @@
       "label": "Angel et al. (2022), BM3 + q-compromise Debye",
       "material_identifier": "grossular",
       "model": "BM3",
-      "primary_data_finding": "The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered grossular observations and a conditional 95-channel diagnostic are retained separately; they are not the original joint fit input. See docs/literature-reproductions/grossular-angel-2022.md.",
+      "primary_data_finding": "The eleven recovered source tables and the separately labelled digitized series are available through Material.get_dataset(). They retain anchors, exclusions, specimen identities and unknown source errors. The original author-processed mixed volume/adiabatic-modulus project is still unavailable: exact normalization, assigned coordinate errors, selected-row processing and covariance are unresolved. The 219-row diagnostic includes explicitly estimated errors for 26 observations and does not replace the original project.",
       "primary_data_status": "not_available",
       "primary_source": "https://doi.org/10.1007/s00410-022-01918-5",
       "qualification": "Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.",
-      "reason": "Complete grossular joint V/Ks project, missing Gwanmesia/Thieblot rows, Isaak expansion reduction, normalization anchors, assigned errors and original fit confidence convention.",
+      "reason": "All 52 Gwanmesia rows and the other recovered source tables are available separately. Original Thiéblot measurement errors, exact author volume normalization/anchors, assigned coordinate errors, Isaak expansion specimen processing and original joint-fit confidence/covariance remain unresolved. Diagnostic estimates are not source errors.",
       "record_identifier": "grossular_angel_2022_bm3_q_compromise_debye",
       "source_equation_maximum_difference_gpa": 1.1284129186606151e-10,
-      "source_notes": "Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered grossular observations and a conditional 95-channel diagnostic are retained separately; they are not the original joint fit input. See docs/literature-reproductions/grossular-angel-2022.md.",
-      "status": "not_refittable"
+      "source_notes": "Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered source tables are available through the dataset API, including all 52 Gwanmesia rows. The separately documented full-inventory diagnostic uses 219 non-anchor channels with explicit estimated errors for 26 observations. These are not the recovered original joint fit input; normalization, selected-row processing, assigned errors and covariance remain incomplete. See docs/literature-reproductions/grossular-angel-2022.md.",
+      "status": "not_refittable",
+      "assessment_qualifications": [
+        "Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.",
+        "All 52 Gwanmesia rows and the other recovered source tables are available separately. Original Thiéblot measurement errors, exact author volume normalization/anchors, assigned coordinate errors, Isaak expansion specimen processing and original joint-fit confidence/covariance remain unresolved. Diagnostic estimates are not source errors.",
+        "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+      ]
     },
     {
       "assessment_basis": "Conditional parameter agreement from the complete 194-observation author-processed input regression. All five free parameters meet the recorded combined-error and numerical similarity criteria; the separate final-log comparison differs by less than 0.01 reported standard errors. Published source coefficients/covariance remain unchanged.",
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "pyrope_angel_2022_author_pvt",
+        "pyrope_angel_2022_author_pkt"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         33.4

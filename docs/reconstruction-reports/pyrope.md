@@ -140,7 +140,7 @@ Record: `pyrope_angel_2022_bm3_q_compromise_debye` · Model: `BM3`
 
 ### Data and reconstruction method
 
-- **Dataset identifiers:** None declared
+- **Dataset identifiers:** pyrope\_angel\_2022\_author\_pvt; pyrope\_angel\_2022\_author\_pkt
 - **Observations:** 194
 - **Fit kind:** author\_processed\_joint\_volume\_modulus\_q\_compromise
 - **Selection:** All 194 rows of docs/data/garnet-angel-2022/pyrope/author-2026-11-14-inputs.csv: 115 volumes and 79 adiabatic moduli; no further exclusions

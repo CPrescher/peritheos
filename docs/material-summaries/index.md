@@ -131,7 +131,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Goethite](goethite.md) | FeOOH | 1 | 1 |
 | [Gold](gold.md) | Au | 23 | 30 |
 | [Graphite](graphite.md) | C | 1 | 1 |
-| [Grossular](grossular.md) | Ca3Al2Si3O12 | 1 | 0 |
+| [Grossular](grossular.md) | Ca3Al2Si3O12 | 1 | 12 |
 | [Hydrous silica CaCl2 type (Nisr 2017)](hydrous_silica_cacl2_nisr_2017.md) | Si0.954O2H0.184 | 1 | 2 |
 | [Hydrous stishovite (Nisr 2017)](hydrous_stishovite_nisr_2017.md) | Si0.954O2H0.184 | 1 | 2 |
 | [Ice VI](ice_vi.md) | H2O | 1 | 1 |
@@ -201,7 +201,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Potassium chloride (B2)](kcl.md) | KCl | 10 | 10 |
 | [Praseodymium dioxide (fluorite)](praseodymium_dioxide.md) | PrO2 | 1 | 1 |
 | [Pseudowollastonite](pseudowollastonite.md) | CaSiO3 | 1 | 0 |
-| [Pyrope](pyrope.md) | Mg3Al2Si3O12 | 2 | 1 |
+| [Pyrope](pyrope.md) | Mg3Al2Si3O12 | 2 | 3 |
 | [Rh2O3(II)-type alumina](alumina_rh2o3_ii.md) | Al2O3 | 1 | 1 |
 | [Rhenium](rhenium.md) | Re | 6 | 8 |
 | [Rhodium](rhodium.md) | Rh | 1 | 1 |

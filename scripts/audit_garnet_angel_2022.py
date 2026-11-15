@@ -133,11 +133,17 @@ def ledger_outcome(record):
         return outcome(record)
     name = record["identifier"].split("_")[0]
     result = reproduce()["records"][name]
+    qualifications = [
+        "Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.",
+        "All 52 Gwanmesia rows and the other recovered source tables are available separately. Original Thiéblot measurement errors, exact author volume normalization/anchors, assigned coordinate errors, Isaak expansion specimen processing and original joint-fit confidence/covariance remain unresolved. Diagnostic estimates are not source errors.",
+        "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+    ]
     return {
         "status": "not_refittable",
         "dataset_identifiers": [],
         "fit_kind": "source_curve_validation_only",
-        "reason": result["unresolved_fit_inputs"],
+        "reason": qualifications[1],
+        "assessment_qualifications": qualifications,
         "assessment_basis": "Published parameterization verified by independent quadrature and official EosFit checks; complete original joint fit is unavailable.",
         "qualification": "Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.",
         "source_equation_maximum_difference_gpa": result[

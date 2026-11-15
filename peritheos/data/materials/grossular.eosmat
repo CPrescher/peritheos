@@ -31,7 +31,7 @@
       "experimental_temperature_range_k": [20.0, 1650.0],
       "determination_method": "experimental",
       "default": true,
-      "notes": "Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered grossular observations and a conditional 95-channel diagnostic are retained separately; they are not the original joint fit input. See docs/literature-reproductions/grossular-angel-2022.md.",
+      "notes": "Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered source tables are available through the dataset API, including all 52 Gwanmesia rows. The separately documented full-inventory diagnostic uses 219 non-anchor channels with explicit estimated errors for 26 observations. These are not the recovered original joint fit input; normalization, selected-row processing, assigned errors and covariance remain incomplete. See docs/literature-reproductions/grossular-angel-2022.md.",
       "range_provenance": {
         "source_location": "Supplementary Table S1, nonzero-used rows",
         "notes": "Union of volume and elastic-modulus constraints, including room-pressure low-T expansion and high-P room-T compression. Independent experimental series; not a rectangular phase-stability field. Rejected high-T PVT rows do not extend coverage."
@@ -87,7 +87,7 @@
             "basis": "Published parameterization verified by independent quadrature and official EosFit checks; complete original joint fit is unavailable.",
             "qualifications": [
               "Covariance is source-reported and conditional; no original-fit coefficient or formal-uncertainty reproduction is claimed.",
-              "Complete grossular joint V/Ks project, missing Gwanmesia/Thieblot rows, Isaak expansion reduction, normalization anchors, assigned errors and original fit confidence convention.",
+              "All 52 Gwanmesia rows and the other recovered source tables are available separately. Original Thiéblot measurement errors, exact author volume normalization/anchors, assigned coordinate errors, Isaak expansion specimen processing and original joint-fit confidence/covariance remain unresolved. Diagnostic estimates are not source errors.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
@@ -128,13 +128,14 @@
           },
           "primary_data_check": {
             "status": "not_available",
-            "audit_date": "2026-11-08",
+            "audit_date": "2026-11-15",
             "source_locations": [
               "Official supplementary EOS files 1-4",
               "Official supplementary PDF, Tables S1/S2",
               "Author parameter downloads, March 2023 filenames"
             ],
-            "finding": "The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered grossular observations and a conditional 95-channel diagnostic are retained separately; they are not the original joint fit input. See docs/literature-reproductions/grossular-angel-2022.md."
+            "finding": "The eleven recovered source tables and the separately labelled digitized series are available through Material.get_dataset(). They retain anchors, exclusions, specimen identities and unknown source errors. The original author-processed mixed volume/adiabatic-modulus project is still unavailable: exact normalization, assigned coordinate errors, selected-row processing and covariance are unresolved. The 219-row diagnostic includes explicitly estimated errors for 26 observations and does not replace the original project.",
+            "scope": "original_author_processed_joint_fit_inputs"
           },
           "numerical_reproduction": {
             "report": "docs/data/garnet-angel-2022/audit.json",
@@ -174,7 +175,923 @@
   ],
   "peaks": [],
   "notes": "Nominal endmember diffraction model from Wang et al. (2019), Tables 3 and 5, synthetic Fe-free sample LMD611. The quenched single-crystal structure uses measured a=11.8418(3) A and oxygen coordinates, distinct from the EOS reference molar volume adopted by Angel (2022). No pressure/temperature-dependent axial or site model is supplied.",
-  "datasets": [],
+  "datasets": [
+    {
+      "identifier": "grossular_milani_2017_table2_vt",
+      "kind": "temperature_lattice_volume",
+      "description": "Published temperature, lattice parameter and cell volume, including source tokens and reported standard deviations.",
+      "reference": {
+        "authors": ["Milani et al."],
+        "year": 2017,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-2017-5855"
+      },
+      "source_location": "Official deposit, Table 2, sheet2 rows 5:39",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "worksheet_row", "quantity": "worksheet_row", "unit": "1", "role": "flag"},
+        {
+          "name": "coordinate_token",
+          "quantity": "coordinate_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "lattice_a_token",
+          "quantity": "lattice_a_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "cell_volume_token",
+          "quantity": "cell_volume_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_sd",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "standard_deviation",
+          "of": "temperature_k"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_sd_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "cell_volume_sd_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_milani_2017_table2_vt.csv",
+        "sha256": "d81f3e60615b0de2b3b20d6dbf6a5661b6ffd967cecc06770d5fdbcc683ecaa8",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded."
+      }
+    },
+    {
+      "identifier": "grossular_milani_2017_table3_pv",
+      "kind": "pressure_lattice_volume",
+      "description": "All eight source rows, including the ambient normalization anchor; exact experimental temperature and original quartz readings are unavailable.",
+      "reference": {
+        "authors": ["Milani et al."],
+        "year": 2017,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-2017-5855"
+      },
+      "source_location": "Official deposit, Table 3, sheet3 rows 5:12",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "worksheet_row", "quantity": "worksheet_row", "unit": "1", "role": "flag"},
+        {
+          "name": "coordinate_token",
+          "quantity": "coordinate_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "lattice_a_token",
+          "quantity": "lattice_a_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "cell_volume_token",
+          "quantity": "cell_volume_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_sd",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_sd_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "cell_volume_sd_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_milani_2017_table3_pv.csv",
+        "sha256": "c66b473bdccded7f7ea938f5e9636dcca0b6d796b34921b3dde7fc6f5f428d87",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded."
+      }
+    },
+    {
+      "identifier": "grossular_du_2015_table2_vt",
+      "kind": "temperature_lattice_volume",
+      "description": "Final published table. Temperatures already include the source NaCl correction; the 0.2 K error bar is not identified as an independent Gaussian standard deviation. Calculated expansivity tokens are not measured observations.",
+      "reference": {
+        "authors": ["Du, Clark and Walker"],
+        "year": 2015,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-2015-4752"
+      },
+      "source_location": "Final journal Table 2, p. 217, grossular block; checked against the preprint",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {
+          "name": "lattice_a_token",
+          "quantity": "lattice_a_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_sd_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {
+          "name": "cell_volume_token",
+          "quantity": "cell_volume_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "cell_volume_sd_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "cell_volume_a3"
+        },
+        {
+          "name": "calculated_alpha_x1e5_per_k_token",
+          "quantity": "calculated_alpha_x1e5_per_k_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_calculated"
+        }
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_du_2015_table2_vt.csv",
+        "sha256": "c9f7990b001e4b76ac405785cc2d40dafdfb59ed5fbfcb289b2b338dc20f048f",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded."
+      }
+    },
+    {
+      "identifier": "grossular_bosenick_geiger_1997_table2_vt",
+      "kind": "temperature_molar_volume",
+      "description": "All 20 molar-volume rows including repeats. The original study excludes selected low-temperature cooling data; the exact Angel mask/anchor covariance is unresolved. Source PDF was not pixel-verified.",
+      "reference": {
+        "authors": ["Bosenick and Geiger"],
+        "year": 1997,
+        "source": "Journal of Geophysical Research",
+        "doi": "10.1029/97JB01612"
+      },
+      "source_location": "Table 2, author-uploaded primary text indexed by the source archive",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "molar_volume_token",
+          "quantity": "molar_volume_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "molar_volume_cm3_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
+        {
+          "name": "molar_volume_sd_cm3_mol",
+          "quantity": "molar_volume",
+          "unit": "cm^3/mol",
+          "role": "standard_deviation",
+          "of": "molar_volume_cm3_mol"
+        },
+        {"name": "repeat_measurement", "quantity": "repeat_measurement", "unit": "1", "role": "flag"},
+        {
+          "name": "temperature_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {
+          "name": "evidence",
+          "quantity": "evidence",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        }
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_bosenick_geiger_1997_table2_vt.csv",
+        "sha256": "0efb7a07a0d8d365a2c04c7e6af567148571a0664dec7b29a517d7ded58fc95f",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded."
+      }
+    },
+    {
+      "identifier": "grossular_rodehorst_2002_table4a",
+      "kind": "temperature_lattice_parameter",
+      "description": "Ten lattice-parameter rows, including the 298 K anchor. Uniform 0.001 angstrom source error retained without assuming its confidence convention; temperature errors unavailable. Source PDF was not pixel-verified.",
+      "reference": {
+        "authors": ["Rodehorst et al."],
+        "year": 2002,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-2002-0417"
+      },
+      "source_location": "Table 4A, p. 545, primary text indexed by RRUFF",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "lattice_a_token",
+          "quantity": "lattice_a_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_sd_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_a_angstrom"
+        },
+        {
+          "name": "temperature_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {
+          "name": "role",
+          "quantity": "role",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "evidence",
+          "quantity": "evidence",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        }
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_rodehorst_2002_table4a.csv",
+        "sha256": "7b5c8d0ab1e28e241bd92a9eac819617ee68457f2899df11fa2a8090f6159358",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded."
+      }
+    },
+    {
+      "identifier": "grossular_isaak_1992_table2_gr2b_strain",
+      "kind": "temperature_strain",
+      "description": "Observed strain is GR-2B (76.1 mol% grossular, 22.1 mol% andradite), not the GGD specimen named in Angel S1. Calculated strain/endmember expansivity remain separately labelled source-calculated tokens.",
+      "reference": {
+        "authors": ["Isaak et al."],
+        "year": 1992,
+        "source": "Physics and Chemistry of Minerals",
+        "doi": "10.1007/BF00198608"
+      },
+      "source_location": "Table 2, p. 108; specimen discussion pp. 107-109",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "observed_linear_strain",
+          "quantity": "linear_strain",
+          "unit": "1",
+          "role": "value",
+          "derivation": "source observed linear strain token times 1e-3"
+        },
+        {
+          "name": "observed_volume_strain",
+          "quantity": "volume_strain",
+          "unit": "1",
+          "role": "value",
+          "derivation": "source observed volume strain token times 1e-2"
+        },
+        {
+          "name": "observed_linear_strain_x1e3_token",
+          "quantity": "observed_linear_strain_x1e3_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "observed_volume_strain_x1e2_token",
+          "quantity": "observed_volume_strain_x1e2_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "calculated_volume_strain_x1e2_token",
+          "quantity": "calculated_volume_strain_x1e2_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_calculated"
+        },
+        {
+          "name": "calculated_gr2b_alpha_x1e6_per_k_token",
+          "quantity": "calculated_gr2b_alpha_x1e6_per_k_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_calculated"
+        },
+        {
+          "name": "estimated_endmember_alpha_x1e6_per_k_token",
+          "quantity": "estimated_endmember_alpha_x1e6_per_k_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_calculated"
+        },
+        {
+          "name": "observed_specimen",
+          "quantity": "observed_specimen",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "source_error_volume_strain",
+          "quantity": "volume_strain",
+          "unit": "1",
+          "role": "uncertainty",
+          "of": "observed_volume_strain"
+        },
+        {
+          "name": "source_error_temperature_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        }
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_isaak_1992_table2_gr2b_strain.csv",
+        "sha256": "0a68641d34bc133ab0a94f83338c0812b129927cba47217c988c91bd56c8839f",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded."
+      }
+    },
+    {
+      "identifier": "grossular_isaak_1992_table3b_ggd_moduli",
+      "kind": "temperature_adiabatic_bulk_modulus",
+      "description": "GGD (96.53 mol% grossular). Only three of 22 modulus errors are printed; the other 19 remain missing. No temperature errors are inferred.",
+      "reference": {
+        "authors": ["Isaak et al."],
+        "year": 1992,
+        "source": "Physics and Chemistry of Minerals",
+        "doi": "10.1007/BF00198608"
+      },
+      "source_location": "Table 3b, p. 112",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "ks_gpa_token",
+          "quantity": "ks_gpa_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "ks_gpa", "quantity": "adiabatic_bulk_modulus", "unit": "GPa", "role": "value"},
+        {
+          "name": "ks_gpa_reported_error",
+          "quantity": "adiabatic_bulk_modulus",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "ks_gpa"
+        },
+        {
+          "name": "density_g_cm3_token",
+          "quantity": "density_g_cm3_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "specimen",
+          "quantity": "specimen",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "temperature_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        }
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_isaak_1992_table3b_ggd_moduli.csv",
+        "sha256": "3d7542c5d90c98c3f646dc65e3fe129dfc5719e85b24e6a864a31ef3016224b5",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded."
+      }
+    },
+    {
+      "identifier": "grossular_kono_2010_table1",
+      "kind": "pressure_temperature_volume_acoustics",
+      "description": "All 36 rows and all tabulated quantities/uncertainties retained. Angel uses the moduli but excludes these XRD volumes. Derived density, velocities and moduli share inputs; they are not independent constraints.",
+      "reference": {
+        "authors": ["Kono et al."],
+        "year": 2010,
+        "source": "Journal of Earth Science",
+        "doi": "10.1007/s12583-010-0112-2"
+      },
+      "source_location": "Table 1, p. 787",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {
+          "name": "pressure_gpa_token",
+          "quantity": "pressure_gpa_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_gpa_error",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "cell_volume_a3_token",
+          "quantity": "cell_volume_a3_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "cell_volume_a3_error",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "cell_volume_a3"
+        },
+        {
+          "name": "density_g_cm3_token",
+          "quantity": "density_g_cm3_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "density_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "value"},
+        {
+          "name": "density_g_cm3_error",
+          "quantity": "density",
+          "unit": "g/cm^3",
+          "role": "uncertainty",
+          "of": "density_g_cm3"
+        },
+        {
+          "name": "vp_km_s_token",
+          "quantity": "vp_km_s_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "vp_km_s", "quantity": "compressional_velocity", "unit": "km/s", "role": "value"},
+        {
+          "name": "vp_km_s_error",
+          "quantity": "compressional_velocity",
+          "unit": "km/s",
+          "role": "uncertainty",
+          "of": "vp_km_s"
+        },
+        {
+          "name": "vs_km_s_token",
+          "quantity": "vs_km_s_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "vs_km_s", "quantity": "shear_velocity", "unit": "km/s", "role": "value"},
+        {"name": "vs_km_s_error", "quantity": "shear_velocity", "unit": "km/s", "role": "uncertainty", "of": "vs_km_s"},
+        {
+          "name": "ks_gpa_token",
+          "quantity": "ks_gpa_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "ks_gpa", "quantity": "adiabatic_bulk_modulus", "unit": "GPa", "role": "value"},
+        {
+          "name": "ks_gpa_error",
+          "quantity": "adiabatic_bulk_modulus",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "ks_gpa"
+        },
+        {
+          "name": "g_gpa_token",
+          "quantity": "g_gpa_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "g_gpa", "quantity": "elastic_modulus", "unit": "GPa", "role": "value"},
+        {"name": "g_gpa_error", "quantity": "elastic_modulus", "unit": "GPa", "role": "uncertainty", "of": "g_gpa"}
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_kono_2010_table1.csv",
+        "sha256": "283bf8e71dec19625c506e3e2442750642bf35b3d7c40d7a69e769d1b04456ef",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded."
+      }
+    },
+    {
+      "identifier": "grossular_conrad_1999_table6_stiffness",
+      "kind": "pressure_elastic_stiffness",
+      "description": "All five stiffness rows, including the two excluded by Angel. Cij standard deviations are reported; C11/C12 covariance is unavailable. No KS error or 2% diagnostic allowance is inserted into the source table.",
+      "reference": {
+        "authors": ["Conrad et al."],
+        "year": 1999,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-1999-0321"
+      },
+      "source_location": "Table 6, p. 379",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_error_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "selection_angel_2022",
+          "quantity": "selection_angel_2022",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "c11_gpa_token",
+          "quantity": "c11_gpa_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "c11_gpa", "quantity": "elastic_modulus", "unit": "GPa", "role": "value"},
+        {
+          "name": "c11_sd_gpa",
+          "quantity": "elastic_modulus",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "c11_gpa"
+        },
+        {
+          "name": "c12_gpa_token",
+          "quantity": "c12_gpa_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "c12_gpa", "quantity": "elastic_modulus", "unit": "GPa", "role": "value"},
+        {
+          "name": "c12_sd_gpa",
+          "quantity": "elastic_modulus",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "c12_gpa"
+        },
+        {
+          "name": "c44_gpa_token",
+          "quantity": "c44_gpa_token",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {"name": "c44_gpa", "quantity": "elastic_modulus", "unit": "GPa", "role": "value"},
+        {
+          "name": "c44_sd_gpa",
+          "quantity": "elastic_modulus",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "c44_gpa"
+        }
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_conrad_1999_table6_stiffness.csv",
+        "sha256": "63cf6fad8cfd22ef4e005108e4ac2205e746ff7ec8198a1b2471db42eb917a18",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded."
+      }
+    },
+    {
+      "identifier": "grossular_bass_1989_ambient_moduli",
+      "kind": "ambient_elastic_moduli",
+      "description": "99.0 mol% grossular sample. The recovered source gives no exact numerical temperature. No full primary PDF was recovered.",
+      "reference": {
+        "authors": ["Bass"],
+        "year": 1989,
+        "source": "Journal of Geophysical Research",
+        "doi": "10.1029/JB094iB06p07621"
+      },
+      "source_location": "Original-author abstract in the Illinois institutional repository; cross-checked against Isaak Table 4",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "ks_gpa", "quantity": "adiabatic_bulk_modulus", "unit": "GPa", "role": "value"},
+        {
+          "name": "ks_gpa_reported_error",
+          "quantity": "adiabatic_bulk_modulus",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "ks_gpa"
+        },
+        {"name": "g_gpa", "quantity": "elastic_modulus", "unit": "GPa", "role": "value"},
+        {
+          "name": "g_gpa_reported_error",
+          "quantity": "elastic_modulus",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "g_gpa"
+        },
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "specimen",
+          "quantity": "specimen",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        },
+        {
+          "name": "source",
+          "quantity": "source",
+          "unit": "text",
+          "role": "flag",
+          "observation_kind": "source_token_or_label"
+        }
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_bass_1989_ambient_moduli.csv",
+        "sha256": "93b8f1d3da3966202b56285f5928779bddbcafeec77d0ff735d85b52df00b1f9",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded."
+      }
+    },
+    {
+      "identifier": "grossular_gwanmesia_2014_table1",
+      "kind": "pressure_temperature_volume_acoustics",
+      "description": "All 52 rows and 624 literal numerical cells. Temperature is Celsius (30 C = 303.15 K). Angel uses KS and excludes XRD volumes. Source relative error estimates are metadata, not invented per-row standard deviations.",
+      "reference": {
+        "authors": ["Gwanmesia, Wang, Heady and Liebermann"],
+        "year": 2014,
+        "source": "Physics of the Earth and Planetary Interiors",
+        "doi": "10.1016/j.pepi.2013.09.010"
+      },
+      "source_location": "Final publisher HTML, Table 1 and associated methods/caption",
+      "columns": [
+        {"name": "temperature_c", "quantity": "temperature", "unit": "degC", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {"name": "tp_microsecond", "quantity": "tp_microsecond", "unit": "microsecond", "role": "value"},
+        {"name": "ts_microsecond", "quantity": "ts_microsecond", "unit": "microsecond", "role": "value"},
+        {"name": "length_mm", "quantity": "length_mm", "unit": "mm", "role": "value"},
+        {"name": "density_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "value"},
+        {"name": "vp_km_s", "quantity": "compressional_velocity", "unit": "km/s", "role": "value"},
+        {"name": "vs_km_s", "quantity": "shear_velocity", "unit": "km/s", "role": "value"},
+        {"name": "longitudinal_modulus_gpa", "quantity": "elastic_modulus", "unit": "GPa", "role": "value"},
+        {"name": "shear_modulus_gpa", "quantity": "elastic_modulus", "unit": "GPa", "role": "value"},
+        {"name": "ks_gpa", "quantity": "adiabatic_bulk_modulus", "unit": "GPa", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_gwanmesia_2014_table1.csv",
+        "sha256": "1c92f30ec3da70ec0d4f60acd364c136bd919978cd7dce4f021c2925f4fc069f",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "source_table_transcription",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "usage_recommendation": "Supporting upstream observations; not the recovered author-processed joint fit inputs. No missing uncertainty or normalization is inferred.",
+      "uncertainty": {
+        "covariance": "not_recovered",
+        "missing_values": "unknown; blank cells load as NaN",
+        "role": "Reported errors retain source definitions; assigned/estimated errors in diagnostic fits are excluded.",
+        "reported_relative_error_estimates_percent": {
+          "pressure_typical_precision": 0.7,
+          "p_transit_time": 0.1,
+          "s_transit_time": 0.05,
+          "length": 0.2,
+          "density_caption": 0.2,
+          "density_later_text": 0.1,
+          "vp": 0.3,
+          "vs": 0.25,
+          "ks": 0.8,
+          "shear_modulus": 0.7,
+          "cell_volume_largest_refined_uncertainty": 0.04
+        },
+        "qualification": "These are source-reported estimates, not reconstructed per-row standard deviations. Density estimates differ between caption and later text and are both retained. The maximum volume uncertainty is not a per-row error. Confidence level, cross-coordinate covariance and numerical temperature errors are unspecified."
+      },
+      "quantity_origins": {
+        "cell_volume_a3": "XRD observation, excluded from Angel fit",
+        "density_g_cm3": "source-derived from volume",
+        "vp_km_s": "source-derived from length/transit time",
+        "vs_km_s": "source-derived from length/transit time",
+        "ks_gpa": "source-derived acoustic modulus; correlated inputs"
+      }
+    },
+    {
+      "identifier": "grossular_thieblot_1998_angel_2022_figure4",
+      "kind": "digitized_temperature_normalized_molar_volume",
+      "description": "Digitized, already normalized plotted volumes attributed to Thieblot, not recovered primary measurement values or author fit inputs.",
+      "reference": {
+        "authors": ["Angel", "Gilio", "Mazzucchelli", "Alvaro"],
+        "year": 2022,
+        "source": "Contributions to Mineralogy and Petrology",
+        "volume": "177",
+        "locator": "54",
+        "doi": "10.1007/s00410-022-01918-5"
+      },
+      "source_location": "Figure 4, PDF p. 8; Thiéblot series, seven selected and six excluded visible markers",
+      "columns": [
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "molar_volume_cm3_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
+        {"name": "selection", "quantity": "selection", "unit": "identifier", "role": "flag"},
+        {"name": "source_marker", "quantity": "source_marker", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/garnet-angel-2022/grossular_thieblot_1998_angel_2022_figure4.csv",
+        "sha256": "3a2c8beabcbafbe788448ad546fc94fbc2896ed560e8e2e75b5d6577ddb12562",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "source_license": null,
+      "contributor_rights": "Contributor transcription, typed metadata and arrangement only; no third-party source license inferred.",
+      "provenance_type": "digitized_normalized_plot",
+      "related_eos_records": ["grossular_angel_2022_bm3_q_compromise_debye"],
+      "digitization": {
+        "temperature_resolution_k": 2.0,
+        "volume_resolution_cm3_mol": 0.003,
+        "qualification": "Graphical resolution bounds, not measurement standard deviations or independent error bars."
+      },
+      "uncertainty": {"measurement_errors": "not_recovered", "covariance": "not_recovered"}
+    }
+  ],
   "source": {
     "structure_reference": {
       "authors": ["Wang", "Sun", "Duan", "Liu", "Bao"],

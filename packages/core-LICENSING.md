@@ -8,7 +8,7 @@ Dioptas. The optional observation package is not a dependency of this install.
 ## What is included?
 
 - The Python/Rust calculation and fitting library.
-- 234 material documents with 685 EOS records, including coefficients, units,
+- 235 material documents with 687 EOS records, including coefficients, units,
   uncertainties, reference states, source citations and scientific qualifications.
 - Crystal structures, 10 COD CIF files and 10 calculated reference diffraction
   patterns. Structural and proxy limitations remain in their material records.
@@ -51,8 +51,10 @@ numerical parameter is prohibited from reuse.
 ## Adding observation data
 
 `python -m pip install "peritheos[datasets]"` adds the matching
-`peritheos-datasets` distribution. In 0.18.0 it supplies 451 material entries and
-two supporting-study entries, using 392 CSV files and 14 inline tables. It has
+`peritheos-datasets` distribution. The current source build selects 465 material entries and
+two supporting-study entries, using 406 CSV files and 14 inline tables.
+The garnet addition is unreleased; published 0.18.0 supplied 451 material
+entries and 392 CSV resources. It has
 its own source notices and selection review. It does not include every dataset
 described by the core catalog, and access does not download missing data at
 runtime.

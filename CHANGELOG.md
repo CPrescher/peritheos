@@ -48,6 +48,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Expose the 194 author-processed pyrope fit rows and twelve grossular source/
+  digitized tables through `Material.get_dataset()` and matching optional-data
+  builds. Preserve source tokens, unknown errors, specimen/selection labels and
+  author scale groups; keep diagnostic error estimates separate. Published EOS
+  coefficients, covariance, defaults and scientific findings are unchanged.
+
 - Add audited Angel (2022) pyrope and grossular thermal pressure records,
   source covariance and diffraction-ready grossular. Preserve the existing
   pyrope record and default. Retain the original joint-fit input gap and
