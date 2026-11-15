@@ -2,7 +2,7 @@
 
 ## Angel et al. (2022): pyrope and grossular
 
-**Current status: reply received and inputs replayed, 14 November 2026.**
+**Current status, 15 November 2026: pyrope inputs replayed; awaiting Ross's grossular reply.**
 Clemens reported sending the reproduction summary and meeting availability to Ross on 14 November 2026. This is user-reported correspondence; the exact sent copy has not been independently retrieved. No message was sent by the assistant.
 
 Clemens supplied Ross Angel's reply, two data files, an EOS file, a final
@@ -21,18 +21,20 @@ objective and results; the public fitter remains unchanged.
 The [correspondence receipt](data/garnet-angel-2022/pyrope/correspondence.json)
 records the user-supplied reply and attachment hashes. The initial request
 was sent by Clemens on 12 November 2026; its retained draft is not an
-independently verified sent copy. No further message has been sent by this
-work. Earlier updates below retain their dated investigation scope.
+independently verified sent copy. No message has been sent by the assistant.
+Earlier updates below retain their dated investigation scope.
 
 **Dataset integration, 15 November 2026:** the [dataset API](datasets.md#pyrope-and-grossular-observations)
-now exposes the recovered tables in matching development builds. A short
+now exposes the recovered tables in matching development builds. On
+15 November 2026, Clemens reported sending Ross the
 [grossular follow-up request](data/garnet-angel-2022/grossular/correspondence/2026-11-15-follow-up-draft.txt)
-is prepared as a fresh draft; it has not been sent. It requests the processed
+shown in the retained draft. It requests the processed
 input/error files, final EOS and refinement log, with normalization, Conrad
-weighting and Isaak specimen notes. The earlier short draft remains archived.
+weighting and Isaak specimen notes. The retained draft is not an independently
+verified copy of the sent email. The earlier short draft remains archived.
 The outstanding request concerns
 the original processed grossular project, not the already recovered Gwanmesia
-rows. Correspondence status and the scientific findings are unchanged.
+rows. We are awaiting Ross's reply; the scientific findings are unchanged.
 
 Paper: *Garnet EoS: a critical review and synthesis*,
 [doi:10.1007/s00410-022-01918-5](https://doi.org/10.1007/s00410-022-01918-5).
