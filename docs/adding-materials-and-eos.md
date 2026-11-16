@@ -13,7 +13,7 @@ References to legacy field paths below retain the same scientific meaning.
 
 This guide defines the minimum evidence and verification needed for new
 materials, literature EOS records, refits, and reusable equation families.
-The [`.eosmat` schema reference](eosmat-schema.md) remains the authority for
+The [EOSMAT v5 record reference](eosmat-reference.md) is the authority for
 individual fields.
 
 Start authoring with the small [EOSMAT template and editing guide](eosmat-authoring.md).
@@ -360,15 +360,15 @@ is a documented reason otherwise.
 
 ## 5. Create or update the `.eosmat` document
 
-Follow [EOSMAT v5](eosmat-v5.md), which defines the exact fields, and an
-existing reviewed material with the same model family.
+Follow the [EOSMAT v5 record reference](eosmat-reference.md), which defines the
+exact fields, and an existing reviewed material with the same model family.
 
 The **record** holds what a reader needs to use the EOS: identifier and label,
 citation, coefficients with errors and fixed flags, units, `temperature_ref`,
-experimental ranges, pressure calibration, linked datasets, and a `check`
+experimental ranges, linked datasets, and a `check`
 block. `check.reproduction`, `compared`, `why` and `source_check` follow
 mechanically from the audit's outcome code, scope, coefficient table and
-source-validation status ([mapping](eosmat-v5.md#the-check-block); words in
+source-validation status ([fields](eosmat-reference.md#the-check-block); words in
 [EOS labels](eos-labels.md)); the split command below derives them.
 Set `check.warning` only for an explicit usage restriction, such as a
 reproduced fit that describes its data poorly; otherwise leave it null.
@@ -378,8 +378,8 @@ changes to the maintainer, following the
 
 The **audit sidecar** `peritheos/data/audits/<id>.audit.json` holds the trail:
 detailed outcome code, scope, basis, conditions, fixed parameters, refit
-coefficients and statistics, source-check locations, verified fields and
-unresolved issues. Standalone user files may keep evidence inline and need
+coefficients and statistics, pressure calibration, source-check locations,
+verified fields and unresolved issues. Standalone user files may keep evidence inline and need
 neither a sidecar nor a `check` block.
 
 You may instead write a bundled material as one complete inline-evidence v5

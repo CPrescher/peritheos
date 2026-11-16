@@ -1,8 +1,10 @@
 # EOSMAT v3 compatibility reference
 
-New files use the simpler [native EOSMAT v5 format](eosmat-v5.md). This page
-documents historical v3 fields, unchanged advanced scientific semantics and
-compatibility exports. Both Python and Rust continue to read v3 directly.
+This page describes the historical v3 format, kept so that v3 files and v3
+compatibility exports can be read. Its field names and required fields are
+those of v3. Every field of a current file is defined in the
+[EOSMAT v5 record reference](eosmat-reference.md). Both Python and Rust
+continue to read v3 directly.
 
 `.eosmat` is Peritheos's material exchange format. A single flat JSON document
 can carry material identity, optional diffraction structure, and any number of
@@ -17,7 +19,7 @@ draft 2020-12. This page explains the fields and consumer behavior that cannot
 be conveyed by shape validation alone.
 
 For a small starting example and formatting instructions, see
-[Reading and editing EOSMAT](eosmat-authoring.md). The generated
+[Writing your own EOSMAT file](eosmat-authoring.md). The generated
 [material summaries](material-summaries/index.md) provide parameter comparisons
 and scientific qualifications without requiring readers to navigate the JSON.
 
@@ -639,8 +641,8 @@ default record, exact `type`/`model` pairing, and equation-specific choices.
 
 ## Compatibility rules
 
-- Native [EOSMAT v4](eosmat-v4.md) is the format for bundled and new material
-  files. Format 3 remains a supported input and explicit compatibility export.
+- [EOSMAT v5](eosmat-v5.md) is the format for bundled and new material files.
+  Format 3 remains a supported input and explicit compatibility export.
 - Native Dioptas 0.10 format-2 documents remain accepted as legacy input.
 - Unknown optional fields are preserved, but unknown equation types, models,
   or law values must be rejected before calculation.

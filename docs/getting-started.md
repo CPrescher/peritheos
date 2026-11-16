@@ -177,4 +177,7 @@ in the [thermal API reference](api.md#thermal-equations-of-state).
 | Calculate moduli, expansivity, heat capacities, or free energies | [Thermoelastic properties](thermoelastic-properties.md) |
 | Check units and reference-state conventions | [Units and reference states](units.md) |
 | Look up constructors and methods | [API reference](api.md) |
+| Write your own material file | [Writing your own EOSMAT file](eosmat-authoring.md) |
+| Look up an EOSMAT field | [EOSMAT v5 record reference](eosmat-reference.md) |
+| Understand a record's reproduction headline or warning | [EOS labels and reconstruction status](eos-labels.md) |
 | Review numerical and literature checks | [Validation](validation.md) |

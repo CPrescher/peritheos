@@ -40,8 +40,8 @@ def test_complete_teaching_files_are_native_unreviewed_and_numerically_compatibl
 
 
 def test_documented_record_file_and_audit_sidecar_load_as_described(tmp_path):
-    """The split example in docs/eosmat-v5.md is valid, consistent and complete."""
-    reference = (ROOT / "docs/eosmat-v5.md").read_text(encoding="utf-8")
+    """The split example in docs/eosmat-reference.md is valid and complete."""
+    reference = (ROOT / "docs/eosmat-reference.md").read_text(encoding="utf-8")
     blocks = {
         name: json.loads(
             re.search(
