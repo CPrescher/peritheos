@@ -2207,7 +2207,7 @@ Published Table II fitted 300 K Vinet branch: K0=167.5 GPa, K0\_prime=5.94. V0=6
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/gold.md#record-gold_yokoo_2009_pvt_reconstruction)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Source finding:** Equations 1-12 and Table III supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction.
 

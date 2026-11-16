@@ -1071,7 +1071,7 @@ Isothermal series, not a continuous thermal EOS. Do not interpolate temperature 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/argon_fcc.md#record-argon_fcc_chen_2010_bm3_reported_constants)
 
-**Warning:** Do not use. Explicit selection only; not loaded by default.
+**Warning:** Do not use. Never chosen automatically; select it explicitly.
 
 **Usage qualification:** DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.
 
@@ -1250,7 +1250,7 @@ Independent Peritheos refit; source publication EOS remains not\_reproduced. Nom
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/argon_fcc.md#record-argon_fcc_maltby_2024_published)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

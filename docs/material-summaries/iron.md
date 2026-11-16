@@ -3411,7 +3411,7 @@ Published full-range linear Us-up fit, operationally restricted to the solid-iro
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_bm3)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Source finding:** Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits.
 
@@ -3516,7 +3516,7 @@ Published coefficients are preserved, but the supplied primary observations are 
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_vinet)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Source finding:** Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits.
 
@@ -3621,7 +3621,7 @@ Published coefficients are preserved, but the supplied primary observations are 
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_bm3_mgd)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Source finding:** Printed preferred thermal coefficients and their uncertainties are preserved. Full MGD, n=2 with V0 approximately 6.87 cm3/mol and the final free V0 are attributed to recorded personal communication, rather than inferred from the printed equations. The author-setting replay improves residuals but does not recover the full original fit.
 

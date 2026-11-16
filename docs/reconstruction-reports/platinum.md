@@ -55,7 +55,7 @@ stays in EOSMAT and the ledger.
 | [Fei et al. (2007), Pt Vinet reference isotherm, 300 K](#record-platinum_fei_2007_vinet_300k) | **reproduced** |  |
 | [Fei et al. (2007), Pt Vinet-MGD thermal pressure scale](#record-platinum_fei_2007_vinet_mgd) | **disagrees** |  |
 | [Yokoo et al. (2009), Pt fitted Vinet isotherm, 300 K](#record-platinum_yokoo_2009_vinet_300k) | **untested** (not refittable) |  |
-| [Yokoo et al. (2009), Platinum PVT — diagnostic Table V reconstruction](#record-platinum_yokoo_2009_pvt_reconstruction) | **untested** (source calculation reconstructed) | Explicit selection only; not loaded by default. |
+| [Yokoo et al. (2009), Platinum PVT — diagnostic Table V reconstruction](#record-platinum_yokoo_2009_pvt_reconstruction) | **untested** (source calculation reconstructed) | Never chosen automatically; select it explicitly. |
 
 <a id="record-platinum_sakai_2025_rydberg_stacey_1"></a>
 
@@ -1045,7 +1045,7 @@ Both fits use the same 78 recovered audit input rows. **Volume coordinate:** aud
 
 **untested** (source calculation reconstructed) · `platinum_yokoo_2009_pvt_reconstruction` · `BM3` · [Coefficients and source](../material-summaries/platinum.md#record-platinum_yokoo_2009_pvt_reconstruction)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Scope:** Reconstruction of a source equation or calculation. **Basis:** Numerically checked diagnostic reconstruction of published table outputs. The published analytical PVT parameterization remains unreproduced: Au uses altered phonon coefficients and Pt adds an empirical pressure correction. This source-output status does not validate the published Yokoo pressure standard. The separate pressure-convention audit rules out cold-reference offsets and tests last-digit rounding; no caloric or original-fit inputs are required for PVT evaluation.
 

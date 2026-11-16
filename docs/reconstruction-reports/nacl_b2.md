@@ -37,7 +37,7 @@ stays in EOSMAT and the ledger.
 | --- | --- | --- |
 | [Sakai et al. (2025), NaCl-B2 generalized Rydberg-Stacey scale](#record-nacl_b2_sakai_2025_rydberg_stacey_1) | **untested** (not refittable) |  |
 | [Heinz and Jeanloz (1984), NaCl-B2 BM2](#record-nacl_b2_heinz_1984_bm2_1) | **reproduced** |  |
-| [Shen and Smith (2026), NaCl-B2 Cu-referenced Vinet](#record-nacl_b2_shen_2026_vinet_2) | **disagrees** | Not recommended for quantitative use. Explicit selection only; not loaded by default. |
+| [Shen and Smith (2026), NaCl-B2 Cu-referenced Vinet](#record-nacl_b2_shen_2026_vinet_2) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
 | [Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale](#record-nacl_b2_sakai_2014_yokoo_pt_bm3) | **untested** (not refittable) |  |
 | [Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_bm3) | **reproduced** |  |
 | [Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_vinet) | **reproduced** |  |
@@ -132,7 +132,7 @@ Both fits use the same 14 recovered audit input rows. **Volume coordinate:** vol
 
 **disagrees** · `nacl_b2_shen_2026_vinet_2` · `Vinet` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_shen_2026_vinet_2)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0\_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them. The paper identifies Table II as direct fits to this study's Cu-referenced P-V data, with earlier literature included for comparison. Its data-availability statement also mentions other author-held data, so completeness of the actual author fit inputs is unconfirmed. No additional experimental fit rows are identified by the published fitting description. See the \[source-input audit\](literature-reproductions/shen-smith-2026-cu-refits.md). Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0\_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.
 

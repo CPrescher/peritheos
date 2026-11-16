@@ -56,7 +56,7 @@ stays in EOSMAT and the ledger.
 | [Fei et al. (2004), gold BM3-MGD on Speziale MgO scale](#record-gold_fei_2004_bm3_mgd) | **untested** (not refittable) |  |
 | [Yokoo et al. (2009), Au fitted BM3 isotherm, 300 K](#record-gold_yokoo_2009_bm3_300k) | **untested** (not refittable) |  |
 | [Yokoo et al. (2009), Au fitted Vinet isotherm, 300 K](#record-gold_yokoo_2009_vinet_300k) | **untested** (not refittable) |  |
-| [Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | **untested** (source calculation reconstructed) | Explicit selection only; not loaded by default. |
+| [Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | **untested** (source calculation reconstructed) | Never chosen automatically; select it explicitly. |
 | [Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | **reproduced** |  |
 
 <a id="record-gold_sakai_2025_rydberg_stacey_1"></a>
@@ -1248,7 +1248,7 @@ Both fits use the same 26 recovered audit input rows. **Volume coordinate:** vol
 
 **untested** (source calculation reconstructed) · `gold_yokoo_2009_pvt_reconstruction` · `BM3` · [Coefficients and source](../material-summaries/gold.md#record-gold_yokoo_2009_pvt_reconstruction)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Scope:** Reconstruction of a source equation or calculation. **Basis:** Numerically checked diagnostic reconstruction of published table outputs. The published analytical PVT parameterization remains unreproduced: Au uses altered phonon coefficients and Pt adds an empirical pressure correction. This source-output status does not validate the published Yokoo pressure standard. The separate pressure-convention audit rules out cold-reference offsets and tests last-digit rounding; no caloric or original-fit inputs are required for PVT evaluation.
 

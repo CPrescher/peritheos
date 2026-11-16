@@ -51,11 +51,11 @@ stays in EOSMAT and the ledger.
 | [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | **reproduced** |  |
 | [Sakai et al. (2014), p6\_bm3](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | **disagrees** |  |
 | [Sakai et al. (2014), p6\_vinet](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | **disagrees** |  |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | **disagrees** | Not recommended for quantitative use. Explicit selection only; not loaded by default. |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | **disagrees** | Not recommended for quantitative use. Explicit selection only; not loaded by default. |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | **disagrees** | Not recommended for quantitative use. Explicit selection only; not loaded by default. |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | **disagrees** | Not recommended for quantitative use. Explicit selection only; not loaded by default. |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_3 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_3_thermal) | **disagrees** | Not recommended for quantitative use. Explicit selection only; not loaded by default. |
+| [Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_3 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_3_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_bm3"></a>
 
@@ -880,7 +880,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type1_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type1_thermal)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
@@ -948,7 +948,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type2_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type2_thermal)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
@@ -1015,7 +1015,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type4_1_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_1_thermal)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
@@ -1082,7 +1082,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type4_2_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_2_thermal)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
@@ -1148,7 +1148,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type4_3_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_3_thermal)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 

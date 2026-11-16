@@ -1576,7 +1576,7 @@ Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_pri
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type1_thermal)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Source finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma\_inf tied to gamma0 and theta=theta0\*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
 
@@ -1702,7 +1702,7 @@ Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. 
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type2_thermal)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Source finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
 
@@ -1828,7 +1828,7 @@ Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. 
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_1_thermal)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Source finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
 
@@ -1954,7 +1954,7 @@ Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. 
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_2_thermal)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Source finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
 
@@ -2080,7 +2080,7 @@ Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. 
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_3_thermal)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Source finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
 

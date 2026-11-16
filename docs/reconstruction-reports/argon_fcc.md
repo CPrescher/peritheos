@@ -46,9 +46,9 @@ stays in EOSMAT and the ledger.
 | [Anderson and Swenson (1975), 40 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_40p0k) | **untested** (not refittable) |  |
 | [Anderson and Swenson (1975), 60 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_60p0k) | **untested** (not refittable) |  |
 | [Anderson and Swenson (1975), 77 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_77p0k) | **untested** (not refittable) |  |
-| [Chen (2010) — original-constant BM3 reconstruction — DO NOT USE](#record-argon_fcc_chen_2010_bm3_reported_constants) | **untested** (not refittable) | Do not use. Explicit selection only; not loaded by default. |
+| [Chen (2010) — original-constant BM3 reconstruction — DO NOT USE](#record-argon_fcc_chen_2010_bm3_reported_constants) | **untested** (not refittable) | Do not use. Never chosen automatically; select it explicitly. |
 | [Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities](#record-argon_fcc_chen_2010_bm3_digitized_refit) | **reproduced** |  |
-| [Maltby et al. (2024) — unvalidated published EOS](#record-argon_fcc_maltby_2024_published) | **untested** (not refittable) | Explicit selection only; not loaded by default. |
+| [Maltby et al. (2024) — unvalidated published EOS](#record-argon_fcc_maltby_2024_published) | **untested** (not refittable) | Never chosen automatically; select it explicitly. |
 | [Provisional Peritheos BM3 refit: Ross (1986) + Errandonea (2006)](#record-argon_fcc_ross_1986_errandonea_2006_bm3_refit) | **reproduced** |  |
 
 <a id="record-argon_fcc_dewaele_2021_vinet_mgd"></a>
@@ -398,7 +398,7 @@ Both fits use the same 19 recovered audit input rows. **Volume coordinate:** aud
 
 **untested** (not refittable) · `argon_fcc_chen_2010_bm3_reported_constants` · `BM3` · [Coefficients and source](../material-summaries/argon_fcc.md#record-argon_fcc_chen_2010_bm3_reported_constants)
 
-**Warning:** Do not use. Explicit selection only; not loaded by default.
+**Warning:** Do not use. Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md.
 
@@ -483,7 +483,7 @@ Both fits use the same 80 recovered audit input rows. **Volume coordinate:** vol
 
 **untested** (not refittable) · `argon_fcc_maltby_2024_published` · `Maltby2024` · [Coefficients and source](../material-summaries/argon_fcc.md#record-argon_fcc_maltby_2024_published)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.
 
