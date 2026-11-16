@@ -18,7 +18,9 @@ mod audit;
 mod native_v4;
 mod uncertainty_units;
 
-pub use audit::{Reproduction, AUDIT_RECORD_KEYS, EOSMAT_AUDIT_FORMAT};
+pub use audit::{
+    Compared, Reproduction, SourceCheck, AUDIT_RECORD_KEYS, EOSMAT_AUDIT_FORMAT, WHY_MAX_LENGTH,
+};
 
 use std::collections::HashMap;
 use std::error::Error;
@@ -938,8 +940,7 @@ pub struct EosRecord {
     /// Original record including all extension fields.
     pub document: Value,
     volume_scale: f64,
-    reproduction: Reproduction,
-    warning: Option<String>,
+    headline: audit::Headline,
 }
 
 /// Typed view of one phase-specific Hugoniot record.
@@ -1055,14 +1056,34 @@ impl HugoniotRecord<'_> {
 }
 
 impl EosRecord {
-    /// Whether a refit of the original data reproduced the published values.
+    /// Outcome of the record's reconstruction check (`check.reproduction`).
     ///
-    /// This is the stored `check.reproduction` of an EOSMAT v5 record, or,
-    /// without one, the fixed mapping of the inline assessment status. A
-    /// record with no assessment is [`Reproduction::Untested`].
+    /// What it refers to is [`Self::compared`]. This is the stored
+    /// `check.reproduction` of an EOSMAT v5 record, or, without one, the
+    /// fixed mapping of the inline assessment status. A record with no
+    /// assessment is [`Reproduction::Untested`].
     #[must_use]
     pub const fn reproduction(&self) -> Reproduction {
-        self.reproduction
+        self.headline.reproduction
+    }
+
+    /// What [`Self::reproduction`] refers to (`check.compared`).
+    ///
+    /// Stored, or derived from the inline assessment status and scope; no
+    /// assessment is [`Compared::Nothing`].
+    #[must_use]
+    pub const fn compared(&self) -> Compared {
+        self.headline.compared
+    }
+
+    /// Reason for a `close` or `disagrees` headline (`check.why`), or `None`.
+    ///
+    /// Names the coefficients whose stored comparison failed. Without a
+    /// stored `check`, the line is generated from the inline comparison table
+    /// exactly as the Python library and [`derive_eosmat_check`] generate it.
+    #[must_use]
+    pub fn why(&self) -> Option<&str> {
+        self.headline.why.as_deref()
     }
 
     /// Short stored usage restriction (`check.warning`), or `None`.
@@ -1071,7 +1092,21 @@ impl EosRecord {
     /// restrictions only; free-text recommendations never become warnings.
     #[must_use]
     pub fn warning(&self) -> Option<&str> {
-        self.warning.as_deref()
+        self.headline.warning.as_deref()
+    }
+
+    /// Primary-source review (`check.source_check`), or `None` when not recorded.
+    ///
+    /// A fixed renaming of the stored `scientific_validation.status`.
+    #[must_use]
+    pub const fn source_check(&self) -> Option<SourceCheck> {
+        self.headline.source_check
+    }
+
+    /// The primary-source check's finding (`check.source_note`), or `None`.
+    #[must_use]
+    pub fn source_note(&self) -> Option<&str> {
+        self.headline.source_note.as_deref()
     }
 
     /// Stored EOSMAT v5 `check` block, if the record carries one.
@@ -1653,9 +1688,11 @@ pub fn merge_referenced_eosmat_audits(
 ///
 /// `record` is a native v4/v5 record with an `evidence` object, or a flattened
 /// v3 record. `material` supplies a material-level `recommendation_hold`. The
-/// result contains `reproduction` and `warning`, plus `finding`, `source` and
-/// `source_checked_on` when the evidence records them; it has no `audit` link.
-/// This reproduces the derivation that wrote the bundled `check` blocks.
+/// result contains `reproduction`, `compared` and `warning`, plus `why` (for
+/// `close` or `disagrees`, generated from the stored comparison table),
+/// `source_check`, `source_checked_on` and `source_note` when the evidence
+/// records them; it has no `audit` link. This reproduces the derivation that
+/// wrote the bundled `check` blocks.
 #[must_use]
 pub fn derive_eosmat_check(record: &Value, material: Option<&Value>) -> Value {
     audit::check_block(record, material, None)
@@ -1709,6 +1746,10 @@ pub fn export_eosmat_v3(document: &Value) -> Result<Value, EosmatError> {
         ))?,
     };
     uncertainty_units::to_model_units(&mut result, version == Some(5))?;
+    if version == Some(5) {
+        // Historical readers get an explicit default flag on every record.
+        native_v4::write_explicit_default_flags(&mut result);
+    }
     // The v5 check headline is derived from evidence that v3 records carry
     // inline. A record whose evidence is still in an unmerged sidecar keeps
     // its check block, so the export never silently loses the audit link.
@@ -1772,8 +1813,7 @@ pub fn material_from_value(document: Value) -> Result<Material, EosmatError> {
 
 fn assign_headlines(material: &mut Material) {
     for record in &mut material.eos_records {
-        (record.reproduction, record.warning) =
-            audit::headline(&record.document, Some(&material.document));
+        record.headline = audit::headline(&record.document, Some(&material.document));
     }
 }
 
@@ -3308,8 +3348,7 @@ fn build_record(
         reference_temperature,
         document,
         volume_scale,
-        reproduction: Reproduction::Untested,
-        warning: None,
+        headline: audit::Headline::default(),
     })
 }
 

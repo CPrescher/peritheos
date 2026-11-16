@@ -121,11 +121,12 @@ pub use eosmat::{
     derive_eosmat_check, export_eosmat_v3, load_eosmat, load_eosmat_reader, load_eosmat_str,
     load_eosmat_str_with_audit, load_eosmat_without_audit, material_from_value, merge_eosmat_audit,
     merge_referenced_eosmat_audits, save_eosmat, serialize_eosmat, validate_eosmat_document,
-    EosRecord, EosmatError, EosmatErrorKind, HugoniotBoundaryStatus, HugoniotBranchDomain,
-    HugoniotBranchKind, HugoniotDomainKind, HugoniotInitialState, HugoniotLoadingPath,
-    HugoniotModel, HugoniotRecord, HugoniotRecordMetadata, HugoniotState, HugoniotVolumeBasis,
-    IsothermalModel, LoadedEos, Material, Reproduction, ThermalModel, AUDIT_RECORD_KEYS,
-    EOSMAT_AUDIT_FORMAT, EOSMAT_FORMAT, EOSMAT_FORMAT_VERSION,
+    Compared, EosRecord, EosmatError, EosmatErrorKind, HugoniotBoundaryStatus,
+    HugoniotBranchDomain, HugoniotBranchKind, HugoniotDomainKind, HugoniotInitialState,
+    HugoniotLoadingPath, HugoniotModel, HugoniotRecord, HugoniotRecordMetadata, HugoniotState,
+    HugoniotVolumeBasis, IsothermalModel, LoadedEos, Material, Reproduction, SourceCheck,
+    ThermalModel, AUDIT_RECORD_KEYS, EOSMAT_AUDIT_FORMAT, EOSMAT_FORMAT, EOSMAT_FORMAT_VERSION,
+    WHY_MAX_LENGTH,
 };
 pub use error::{EosError, EosErrorKind};
 pub use pressure_calibration::{

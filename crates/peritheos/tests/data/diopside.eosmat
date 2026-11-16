@@ -6,10 +6,20 @@
   "phase": "C2/c clinopyroxene",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "diopside_thompson_2008_bm3"},
   "eos_records": [
     {
       "identifier": "diopside_thompson_2008_bm3",
       "label": "Thompson and Downs (2008), room-temperature BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-15",
+        "source_note": "Thompson (2008), Results and discussion, page 179: third-order Birch-Murnaghan fit to all weighted Table 1 data.",
+        "audit": "../audits/diopside.audit.json#diopside_thompson_2008_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,8 +28,7 @@
         "K0_prime": {"value": 3.8, "error": 0.3}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0001, 10.16],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0001, 10.16],
         "temperature_k": [300.0, 300.0],
@@ -28,19 +37,12 @@
           "Static source room temperature is nominally 300 K."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0001, 10.16],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default": true,
-      "experimental_configuration": {
-        "apparatus": "4-pin Merrill-Bassett diamond-anvil cell; Picker single-crystal diffractometer",
-        "pressure_medium": "15:4:1 methanol:ethanol:water",
-        "pressure_standard": "Ruby R1/R2 Lorentzian peak fits, Mao et al. (1978)",
-        "sample": "Natural DeKalb diopside, Smithsonian R18685; cell reloaded with same crystal after gasket began to fail at 5 GPa."
-      },
       "notes": "Independent static diffraction EOS, not combined with Zhao thermal coefficients. The source also reports a fixed-Kprime=4 alternative (K0=117.1(2) GPa, V0=438.66(2) A^3), retained in the audit rather than conflated with this free-Kprime record. Source P is Mao (1978) ruby scale. Room temperature is represented nominally as 300 K.",
       "fit_datasets": ["diopside_thompson_2008_table1"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Thompson", "Downs"],
         "year": 2008,
@@ -50,18 +52,26 @@
         "locator": "177-186",
         "doi": "10.2138/am.2008.2684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Thompson (2008), Results and discussion, page 179: third-order Birch-Murnaghan fit to all weighted Table 1 data.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-15",
-        "audit": "../audits/diopside.audit.json#diopside_thompson_2008_bm3"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "apparatus": "4-pin Merrill-Bassett diamond-anvil cell; Picker single-crystal diffractometer",
+        "pressure_medium": "15:4:1 methanol:ethanol:water",
+        "pressure_standard": "Ruby R1/R2 Lorentzian peak fits, Mao et al. (1978)",
+        "sample": "Natural DeKalb diopside, Smithsonian R18685; cell reloaded with same crystal after gasket began to fail at 5 GPa."
       }
     },
     {
       "identifier": "diopside_zhao_1998_thermal_bm3",
       "label": "Zhao et al. (1998), published thermal BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-15",
+        "source_note": "Zhao (1998), Equation (1), page 26: third-order Eulerian finite strain, with VT=V0 exp(integral alpha dT), alpha=a+bT, KT=KT0+dK/dT*(T-300 K), Kprime independent of T.",
+        "audit": "../audits/diopside.audit.json#diopside_zhao_1998_thermal_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -81,9 +91,7 @@
         "reference_volume_law": "integrated_expansivity"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 8.18],
-      "experimental_temperature_range_k": [300.0, 1280.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 8.18],
         "temperature_k": [300.0, 1280.0],
@@ -92,21 +100,14 @@
           "Published-model and parameter parity established with the documented table-error treatment; source inconsistencies remain recorded as provenance. Published coefficients and original observations are preserved."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 8.18],
+      "experimental_temperature_range_k": [300.0, 1280.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "default": false,
-      "experimental_configuration": {
-        "apparatus": "DIA-6 SAM-85 multi-anvil press; NSLS X-17B energy-dispersive diffraction",
-        "temperature_measurement": "Printed W-26%Rh/W thermocouple; composition retained as printed, not silently changed to Re. No row-wise T uncertainties reported.",
-        "pressure_standard": "Layer-packed NaCl, Decker (1971)",
-        "path": "Cold compression to maximum load, heating to maximum T, subsequent cooling and decompression; hydrostatic states only used for EOS according to source."
-      },
       "notes": "Published-model and parameter parity established within graphical precision and reported parameter errors using the independently digitized Figure 2 pressure for source row 15 in the audit calculation. The original 32-row table, duplicate ambient entries, printed errors and published EOS coefficients are preserved. Source-table pressure and lattice inconsistencies are documented provenance, not an EOS acceptance blocker. V0 is the source ambient-volume anchor. Exact original fit inputs and regression workflow are not recovered. The independent Thompson static record remains the room-temperature default; use this thermal record for elevated-temperature evaluation. The separately bundled corrected P-V-T dataset is recommended for refitting; its row-15 pressure is 4.58 GPa with a separate graphical reading bound.",
       "fit_datasets": ["diopside_zhao_1998_table1"],
-      "recommended_refit_dataset": "diopside_zhao_1998_table1_corrected_pvt",
       "analysis_datasets": ["diopside_zhao_1998_table1_corrected_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Zhao", "Von Dreele", "Zhang", "Weidner"],
         "year": 1998,
@@ -116,14 +117,14 @@
         "locator": "25-27",
         "doi": "10.4131/jshpreview.7.25"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Zhao (1998), Equation (1), page 26: third-order Eulerian finite strain, with VT=V0 exp(integral alpha dT), alpha=a+bT, KT=KT0+dK/dT*(T-300 K), Kprime independent of T.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-15",
-        "audit": "../audits/diopside.audit.json#diopside_zhao_1998_thermal_bm3"
-      }
+      "equation_kind": "thermal",
+      "experimental_configuration": {
+        "apparatus": "DIA-6 SAM-85 multi-anvil press; NSLS X-17B energy-dispersive diffraction",
+        "temperature_measurement": "Printed W-26%Rh/W thermocouple; composition retained as printed, not silently changed to Re. No row-wise T uncertainties reported.",
+        "pressure_standard": "Layer-packed NaCl, Decker (1971)",
+        "path": "Cold compression to maximum load, heating to maximum T, subsequent cooling and decompression; hydrostatic states only used for EOS according to source."
+      },
+      "recommended_refit_dataset": "diopside_zhao_1998_table1_corrected_pvt"
     }
   ],
   "aliases": ["CaMgSi2O6", "calcium magnesium silicate diopside"],

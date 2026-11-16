@@ -115,11 +115,145 @@ fn parameters(value: &Value) -> Result<Parameters, EosmatError> {
     Ok((values, errors, fixed))
 }
 
+/// Default-selection categories of `default_records`.
+const DEFAULT_CATEGORIES: [&str; 2] = ["equilibrium", "hugoniot"];
+
+/// `hugoniot` for a Hugoniot model, otherwise `equilibrium`.
+pub(super) fn default_category(record: &Map<String, Value>) -> &'static str {
+    let model = match record.get("eos").and_then(Value::as_object) {
+        Some(eos) => eos.get("type"),
+        None => record.get("model"),
+    };
+    if model.and_then(Value::as_str) == Some("LinearUsUpHugoniot") {
+        "hugoniot"
+    } else {
+        "equilibrium"
+    }
+}
+
+fn flags_default(record: &Map<String, Value>) -> bool {
+    record.get("default") == Some(&Value::Bool(true))
+        || record
+            .get("default_for")
+            .is_some_and(|value| !value.is_null())
+}
+
+fn quoted(value: &Value) -> String {
+    value
+        .as_str()
+        .map_or_else(|| value.to_string(), |text| format!("'{text}'"))
+}
+
+/// Write a material `default_records` map as per-record flags, in place.
+///
+/// The named record gets `default_for: <category>` and the map is removed.
+/// Per-record flags that are already present must agree with the map: a
+/// named record flagged `default: false` and any other record flagged as a
+/// default are errors, never silently resolved. Mirrors
+/// `expand_default_records` in `peritheos/_eosmat_v4.py`.
+fn expand_default_records(document: &mut Map<String, Value>) -> Result<(), EosmatError> {
+    let Some(mapping) = document.remove("default_records") else {
+        return Ok(());
+    };
+    let mapping = mapping
+        .as_object()
+        .filter(|mapping| !mapping.is_empty())
+        .cloned()
+        .ok_or_else(|| invalid_document("default_records must be a non-empty object"))?;
+    let unknown: Vec<&str> = mapping
+        .keys()
+        .map(String::as_str)
+        .filter(|key| !DEFAULT_CATEGORIES.contains(key))
+        .collect();
+    if !unknown.is_empty() {
+        let mut unknown = unknown;
+        unknown.sort_unstable();
+        return Err(invalid_document(format!(
+            "default_records keys must be equilibrium or hugoniot; got {unknown:?}"
+        )));
+    }
+    let records = document
+        .get_mut("eos_records")
+        .and_then(Value::as_array_mut)
+        .ok_or_else(|| invalid_document("eos_records must be an array"))?;
+    for (category, identifier) in &mapping {
+        let Some(identifier) = identifier.as_str().filter(|text| !text.is_empty()) else {
+            return Err(invalid_document(format!(
+                "default_records.{category} must be a record identifier"
+            )));
+        };
+        let record = records
+            .iter()
+            .filter_map(Value::as_object)
+            .find(|record| record.get("identifier").and_then(Value::as_str) == Some(identifier))
+            .ok_or_else(|| {
+                invalid_document(format!(
+                    "default_records.{category} names unknown record '{identifier}'"
+                ))
+            })?;
+        if default_category(record) != category {
+            return Err(invalid_document(format!(
+                "default_records.{category} names '{identifier}', which is not a {category} record"
+            )));
+        }
+    }
+    for record in records.iter_mut().filter_map(Value::as_object_mut) {
+        let category = default_category(record);
+        let identifier = record.get("identifier").cloned().unwrap_or(Value::Null);
+        let named = mapping.get(category);
+        if named.is_some_and(|named| *named == identifier) {
+            if record.get("default") == Some(&Value::Bool(false)) {
+                return Err(invalid_document(format!(
+                    "default_records.{category} names {}, which is flagged default: false",
+                    quoted(&identifier)
+                )));
+            }
+            record.insert("default_for".into(), json!(category));
+        } else if flags_default(record) {
+            return Err(invalid_document(format!(
+                "Record {} is flagged as the default {category} record, but default_records names {}",
+                quoted(&identifier),
+                named.map_or_else(|| format!("no {category} record"), quoted)
+            )));
+        }
+    }
+    Ok(())
+}
+
+/// Give every record an explicit `default` boolean, for v3 exports of v5.
+///
+/// The default of each category gets `default: true` and `default_for:
+/// <category>`, every other record `default: false`, so historical readers
+/// see the selection on every record.
+pub(super) fn write_explicit_default_flags(document: &mut Value) {
+    let Some(records) = document
+        .get_mut("eos_records")
+        .and_then(Value::as_array_mut)
+    else {
+        return;
+    };
+    for record in records.iter_mut().filter_map(Value::as_object_mut) {
+        let category = default_category(record);
+        let selected = record.get("default") == Some(&Value::Bool(true))
+            || record.get("default_for").and_then(Value::as_str) == Some(category);
+        record.insert("default".into(), Value::Bool(selected));
+        if selected {
+            record.insert("default_for".into(), json!(category));
+        }
+    }
+}
+
 #[allow(clippy::too_many_lines)]
 pub(super) fn expand(document: &Value) -> Result<Value, EosmatError> {
     let parameter_units = document["format_version"].as_u64() == Some(5);
     let expanded_metadata = shared_metadata::expand(document)?;
     let mut result = object(&expanded_metadata, "document")?;
+    if result.contains_key("default_records") && !parameter_units {
+        return Err(invalid_document(
+            "default_records requires EOSMAT format_version 5",
+        ));
+    }
+    expand_default_records(&mut result)?;
     if result.contains_key("format") {
         return Err(invalid_document("EOSMAT v4 uses format_version alone"));
     }
@@ -207,12 +341,17 @@ pub(super) fn expand(document: &Value) -> Result<Value, EosmatError> {
             .or_insert(json!("User-supplied parameters"));
         if !record.contains_key("scientific_validation") {
             // A record file whose evidence lives in an audit sidecar keeps the
-            // stored source-check status in its headline; nothing is inferred.
+            // stored source-check status in its headline (a fixed renaming of
+            // the sidecar code); nothing is inferred.
             let status = record
                 .get("check")
-                .and_then(|check| check.get("source"))
-                .cloned()
-                .unwrap_or_else(|| json!("pending_primary_source_check"));
+                .and_then(|check| check.get("source_check"))
+                .and_then(Value::as_str)
+                .and_then(audit::SourceCheck::from_check)
+                .map_or(
+                    "pending_primary_source_check",
+                    audit::SourceCheck::status_code,
+                );
             record.insert("scientific_validation".into(), json!({ "status": status }));
         }
         if let Some(value) = record.get("thermal") {

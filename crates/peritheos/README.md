@@ -98,8 +98,11 @@ the evidence in an audit sidecar named by `check.audit`. `load_eosmat(path)`
 merges those sidecars relative to the file (a missing one is
 `EosmatError::MissingAudit`); string and reader loads keep the document as
 given, and `load_eosmat_str_with_audit` or `merge_eosmat_audit` supply a
-sidecar explicitly. Every record reports `reproduction()` and `warning()`, and
-`audit()` returns its evidence once merged.
+sidecar explicitly. Every record reports `reproduction()`, what it
+`compared()`, `why()` for a `close` or `disagrees` result, `warning()`,
+`source_check()` and `source_note()`, and `audit()` returns its evidence once
+merged. A v5 material may name its defaults once in `default_records`;
+`is_default` and the default-record methods read that map or per-record flags.
 
 ## Run complete examples
 

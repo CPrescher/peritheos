@@ -131,7 +131,13 @@ use peritheos::{load_eosmat, load_eosmat_without_audit, Reproduction};
 let material = load_eosmat("peritheos/data/materials/mgo.eosmat")?;
 for record in &material.eos_records {
     let tested = record.reproduction() != Reproduction::Untested;
-    println!("{}: {} {:?}", record.identifier, record.reproduction(), record.warning());
+    println!(
+        "{}: {} ({}) {:?}",
+        record.identifier,
+        record.reproduction(),
+        record.compared(),
+        record.warning()
+    );
     // Complete evidence, pressure_calibration and other audit-only blocks.
     let audit = record.audit().expect("load_eosmat merged the sidecar");
     assert!(audit.contains_key("evidence") || !tested);
@@ -144,25 +150,48 @@ assert_eq!(record.reproduction(), material.eos_records[0].reproduction());
 # Ok::<(), Box<dyn std::error::Error>>(())
 ```
 
-`reproduction()` returns `Reproduced`, `Close`, `Disagrees` or `Untested`
-(`as_str()` gives the EOSMAT spelling) and `warning()` the stored usage
-restriction or `None`. A stored `check` value wins; without one, both are
-derived from the record's inline evidence exactly as the bundled blocks were
-written (`derive_eosmat_check(&record_document, Some(&material_document))`).
-A record without an assessment is `Untested`, never a positive result.
-`check()` and `audit_reference()` expose the stored block and its sidecar link.
+Each `check` field has an accessor; the [EOS labels](eos-labels.md) define the
+values:
 
-When `check` and inline evidence are both present, `check.reproduction` and
-`check.source` must agree with them or validation fails. A record file whose
+| Accessor | `check` field | Returns |
+| --- | --- | --- |
+| `reproduction()` | `reproduction` | `Reproduction::{Reproduced, Close, Disagrees, Untested}` |
+| `compared()` | `compared` | `Compared::{PublishedFit, PeritheosRefit, SourceEquation, Nothing}` |
+| `why()` | `why` | The generated reason for `close` or `disagrees`, or `None` |
+| `warning()` | `warning` | The stored usage restriction, or `None` |
+| `source_check()` | `source_check` | `SourceCheck::{Verified, Pending, Unresolved, Deferred}`, or `None` |
+| `source_note()` | `source_note` | The primary-source finding, or `None` |
+
+`as_str()` gives the EOSMAT spelling and `SourceCheck::status_code()` the
+`scientific_validation.status` code it renames. A stored `check` value wins;
+without one, every field is derived from the record's inline evidence exactly
+as the bundled blocks were written, `why` included
+(`derive_eosmat_check(&record_document, Some(&material_document))`). A record
+without an assessment is `Untested` with `Compared::Nothing`, never a positive
+result. `check()` and `audit_reference()` expose the stored block and its
+sidecar link.
+
+When `check` and inline evidence are both present, `check.reproduction`,
+`check.compared` and `check.source_check` must agree with them or validation
+fails. The earlier names `check.finding` and `check.source` are rejected with
+an error naming `source_note` and `source_check`. A record file whose
 audit is not merged is executable and gives the same pressures as the merged
 document. Checks that need audit-only blocks, such as a refit record's
 `fit_provenance` or the EOS `pressure_calibration` used by a dataset pressure
 reduction, are applied when the complete document is validated. Without its
-evidence, such a record reports `scientific_validation.status` from
-`check.source` (or `pending_primary_source_check`) in a v3 export.
+evidence, such a record reports the `scientific_validation.status` code that
+`check.source_check` renames (or `pending_primary_source_check`) in a v3 export.
+
+A v5 material may name its defaults once in `default_records`
+(`{"equilibrium": "<record id>", "hugoniot": "<record id>"}`), as bundled
+files do; per-record `default`/`default_for` flags remain valid without it.
+`EosRecord::is_default` and the default-record methods read either form. A
+map naming an unknown record or a record of the other category, an unknown
+key, or a record flag that contradicts the map is a validation error.
 
 `export_eosmat_v3` of a merged document carries the full evidence inline and
-omits `check`; a record whose sidecar was not merged keeps `check` so the
+omits `check`; for a v5 source it writes `default` on every record (and
+`default_for` on each designated default) in place of `default_records`; a record whose sidecar was not merged keeps `check` so the
 audit link is not lost. `Material::to_json()` and `save()` write the merged
 document as one self-contained file with inline evidence. v3 and v4 files are
 read unchanged.

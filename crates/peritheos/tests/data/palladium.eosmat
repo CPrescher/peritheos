@@ -17,6 +17,15 @@
     {
       "identifier": "palladium_baty_2024_bm3_dft_2",
       "label": "Baty et al. (2024), 0 K DFT BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-04",
+        "source_note": "The article identifies a separate 0 K DFT BM3 cold curve. Supplementary Table S3 evaluates that curve alongside five literature EOS parameterizations; it is not a table of observations used in the experimental fit.",
+        "audit": "../audits/palladium.audit.json#palladium_baty_2024_bm3_dft_2"
+      },
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -26,7 +35,6 @@
       },
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
-      "default": false,
       "notes": "Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values and reported as V0=14.6167 A^3/atom, K0=195.0(2.5) GPa, and K0'=5.1(1). The stored conventional-cell volume is four times the atomic value. This is the green curve in Figure 3 and the 'This work' column in supplementary Table S3; it is distinct from the authors' experimental 300 K BM3 fit.",
       "reference": {
         "authors": ["Baty", "Burakovsky", "Luscher", "Anzellini", "Errandonea"],
@@ -36,19 +44,20 @@
         "volume": "135",
         "locator": "075103",
         "doi": "10.1063/5.0179469"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The article identifies a separate 0 K DFT BM3 cold curve. Supplementary Table S3 evaluates that curve alongside five literature EOS parameterizations; it is not a table of observations used in the experimental fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/palladium.audit.json#palladium_baty_2024_bm3_dft_2"
       }
     },
     {
       "identifier": "palladium_guigue_2020_vinet_1",
       "label": "Guigue et al. (2020), Vinet",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-04",
+        "source_note": "The source reports a room-temperature Vinet EOS for pure fcc Pd compressed in neon, separately from the hydride results.",
+        "audit": "../audits/palladium.audit.json#palladium_guigue_2020_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -68,19 +77,20 @@
         "volume": "127",
         "locator": "075901",
         "doi": "10.1063/1.5138697"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The source reports a room-temperature Vinet EOS for pure fcc Pd compressed in neon, separately from the hydride results.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/palladium.audit.json#palladium_guigue_2020_vinet_1"
       }
     },
     {
       "identifier": "palladium_fedotenko_2020_bm3_1",
       "label": "Fedotenko et al. (2020), BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-04",
+        "source_note": "Table 1 supplies 15 pure-Pd P-V observations. Section 3.1 and Figure 1 report the BM3 parameters; the isolated 58.863 value in Table 2 conflicts with three occurrences of 58.868 and is treated as a typographical inconsistency.",
+        "audit": "../audits/palladium.audit.json#palladium_fedotenko_2020_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -100,19 +110,20 @@
         "volume": "844",
         "locator": "156179",
         "doi": "10.1016/j.jallcom.2020.156179"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 supplies 15 pure-Pd P-V observations. Section 3.1 and Figure 1 report the BM3 parameters; the isolated 58.863 value in Table 2 conflicts with three occurrences of 58.868 and is treated as a typographical inconsistency.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/palladium.audit.json#palladium_fedotenko_2020_bm3_1"
       }
     },
     {
       "identifier": "palladium_fedotenko_2020_bm2_2",
       "label": "Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
+        "source_check": "verified",
+        "source_checked_on": "2026-09-04",
+        "source_note": "Table 2 explicitly reports the second-order result K0=203(3) GPa with K0'=4. It uses the same Table 1 observations as the BM3 fit.",
+        "audit": "../audits/palladium.audit.json#palladium_fedotenko_2020_bm2_2"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -122,8 +133,6 @@
       "experimental_pressure_range_gpa": [0.0, 31.2],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "default": false,
-      "catalog_access": "explicit_selection",
       "notes": "Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency. Audit 2026-10-23: poor data agreement despite coefficient parity (0.934246 GPa pressure RMS, maximum residual 1.438559 GPa). Not recommended for quantitative predictions or pressure calibration. The published coefficients and errors are preserved. Fixed V0 is a diagnostic reconstruction constraint, not an established author choice.",
       "reference": {
         "authors": ["Fedotenko", "Dubrovinsky", "Khandarkhaeva", "Chariton", "Koemets", "Koemets", "Hanfland", "Dubrovinskaia"],
@@ -134,18 +143,21 @@
         "locator": "156179",
         "doi": "10.1016/j.jallcom.2020.156179"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
-        "finding": "Table 2 explicitly reports the second-order result K0=203(3) GPa with K0'=4. It uses the same Table 1 observations as the BM3 fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/palladium.audit.json#palladium_fedotenko_2020_bm2_2"
-      }
+      "catalog_access": "explicit_selection"
     },
     {
       "identifier": "palladium_frost_2023_vinet_1",
       "label": "Frost et al. (2023), Vinet",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0': refit 5.6037 vs published 5.473 (+2.4%), outside the combined error.",
+        "warning": "Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly.",
+        "source_check": "unresolved",
+        "source_checked_on": "2026-09-04",
+        "source_note": "The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.",
+        "audit": "../audits/palladium.audit.json#palladium_frost_2023_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -156,8 +168,6 @@
       "experimental_pressure_range_gpa": [0.0, 182.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "default": false,
-      "catalog_access": "explicit_selection",
       "notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3. Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.",
       "reference": {
         "authors": ["Frost", "Smith", "McBride", "Smith", "Glenzer"],
@@ -168,18 +178,21 @@
         "locator": "035901",
         "doi": "10.1063/5.0161038"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": "Not recommended for quantitative use. Default selection on hold pending review. Explicit selection only; not loaded by default.",
-        "finding": "The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.",
-        "source": "not_reproduced",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/palladium.audit.json#palladium_frost_2023_vinet_1"
-      }
+      "catalog_access": "explicit_selection"
     },
     {
       "identifier": "palladium_frost_2023_bm3_2",
       "label": "Frost et al. (2023), BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0': refit 5.1474 vs published 4.996 (+3.0%), outside the combined error.",
+        "warning": "Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly.",
+        "source_check": "unresolved",
+        "source_checked_on": "2026-09-04",
+        "source_note": "Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.",
+        "audit": "../audits/palladium.audit.json#palladium_frost_2023_bm3_2"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -190,8 +203,6 @@
       "experimental_pressure_range_gpa": [0.0, 182.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "default": false,
-      "catalog_access": "explicit_selection",
       "notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.",
       "reference": {
         "authors": ["Frost", "Smith", "McBride", "Smith", "Glenzer"],
@@ -202,18 +213,21 @@
         "locator": "035901",
         "doi": "10.1063/5.0161038"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": "Not recommended for quantitative use. Default selection on hold pending review. Explicit selection only; not loaded by default.",
-        "finding": "Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.",
-        "source": "not_reproduced",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/palladium.audit.json#palladium_frost_2023_bm3_2"
-      }
+      "catalog_access": "explicit_selection"
     },
     {
       "identifier": "palladium_baty_2024_bm3_1",
       "label": "Baty et al. (2024), BM3",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "V0 (+1.8%) and K0' (+15.1%): outside the combined error; K0 (-20.0%): outside the combined error and beyond the agreement limit.",
+        "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
+        "source_check": "unresolved",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The paper reports the BM3 fit in the text and plots its own 300 K P-V observations in Figure 3. The official supplementary Table S1 supplies the complete 78-point compression dataset.",
+        "audit": "../audits/palladium.audit.json#palladium_baty_2024_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -223,8 +237,6 @@
       },
       "experimental_pressure_range_gpa": [0.0, 80.0],
       "determination_method": "experimental",
-      "default": false,
-      "catalog_access": "explicit_selection",
       "notes": "Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.",
       "reference": {
         "authors": ["Baty", "Burakovsky", "Luscher", "Anzellini", "Errandonea"],
@@ -235,14 +247,7 @@
         "locator": "075103",
         "doi": "10.1063/5.0179469"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
-        "finding": "The paper reports the BM3 fit in the text and plots its own 300 K P-V observations in Figure 3. The official supplementary Table S1 supplies the complete 78-point compression dataset.",
-        "source": "not_reproduced",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/palladium.audit.json#palladium_baty_2024_bm3_1"
-      }
+      "catalog_access": "explicit_selection"
     }
   ],
   "symmetry": "CUBIC",

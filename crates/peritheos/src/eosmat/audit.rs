@@ -6,6 +6,9 @@
 //! detailed `pressure_calibration` and other audit-only blocks. Merging the
 //! sidecar restores the complete inline v5 document. Nothing here reclassifies
 //! a record: `check.reproduction` is a fixed mapping of the stored assessment
+//! status, `check.compared` a fixed mapping of its status and scope,
+//! `check.why` is composed only from the stored coefficient comparison table,
+//! `check.source_check` is a fixed renaming of the stored source-validation
 //! status and `check.warning` is built only from stored coded restrictions.
 
 use std::collections::{BTreeMap, BTreeSet};
@@ -36,44 +39,46 @@ pub const AUDIT_RECORD_KEYS: &[&str] = &[
     "author_input_followup",
 ];
 
-const SOURCE_STATUSES: &[&str] = &[
-    "primary_source_validated",
-    "pending_primary_source_check",
-    "not_reproduced",
-    "deferred",
-];
 const CHECK_KEYS: &[&str] = &[
     "reproduction",
+    "compared",
+    "why",
     "warning",
-    "finding",
-    "source",
+    "source_check",
     "source_checked_on",
+    "source_note",
     "audit",
 ];
+/// Earlier names of v5 `check` fields. They are rejected, never reinterpreted.
+const RENAMED_CHECK_KEYS: &[(&str, &str)] =
+    &[("finding", "source_note"), ("source", "source_check")];
+/// Maximum length of a `check.why` line, in characters.
+pub const WHY_MAX_LENGTH: usize = 160;
 
 const REPORT_LEDGER: &str = "docs/data/primary-eos-refits.json";
 
 const DO_NOT_USE_WARNING: &str = "Do not use.";
 const HOLD_WARNING: &str = "Default selection on hold pending review.";
-const EXPLICIT_SELECTION_WARNING: &str = "Explicit selection only; not loaded by default.";
+const EXPLICIT_SELECTION_WARNING: &str = "Never chosen automatically; select it explicitly.";
 
 /// Headline outcome of a record's reconstruction assessment (`check.reproduction`).
 ///
 /// This is a fixed mapping of `evidence.reproduction.assessment.status`:
 /// `parity` is [`Reproduction::Reproduced`], `similar` is
 /// [`Reproduction::Close`], `not_reproduced` is [`Reproduction::Disagrees`],
-/// and every other or absent status is [`Reproduction::Untested`]. It is not
-/// a physical validation or a recommendation for use.
+/// and every other or absent status is [`Reproduction::Untested`]. What was
+/// compared is [`Compared`]. It is not a physical validation or a
+/// recommendation for use.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 #[non_exhaustive]
 pub enum Reproduction {
-    /// A refit of the source data reproduced the published values (`parity`).
+    /// The comparison named by [`Compared`] passed (`parity`).
     Reproduced,
-    /// A refit agreed within the stated similarity scope (`similar`).
+    /// The comparison agreed within the stated similarity scope (`similar`).
     Close,
-    /// A refit did not reproduce the published values (`not_reproduced`).
+    /// The comparison did not agree (`not_reproduced`).
     Disagrees,
-    /// No reproduction was assessed, or it could not be attempted.
+    /// No comparison gave a result, or none could be attempted.
     Untested,
 }
 
@@ -121,6 +126,129 @@ impl Display for Reproduction {
     }
 }
 
+/// What a record's [`Reproduction`] headline refers to (`check.compared`).
+///
+/// A fixed mapping of the stored assessment status and scope: no assessment,
+/// or status `not_refittable` or `not_assessed`, is [`Compared::Nothing`];
+/// status `source_reconstruction` is [`Compared::SourceEquation`]; otherwise
+/// scope `parameter_agreement` or `author_workflow` is
+/// [`Compared::PublishedFit`], `independent_refit` is
+/// [`Compared::PeritheosRefit`] and `source_equation` is
+/// [`Compared::SourceEquation`].
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
+#[non_exhaustive]
+pub enum Compared {
+    /// A refit of the source data compared with the published coefficients.
+    PublishedFit,
+    /// A rerun of a stored Peritheos refit under its own inputs; it says
+    /// nothing about the original paper's coefficients.
+    PeritheosRefit,
+    /// The source equation or its calculated checkpoints were rebuilt.
+    SourceEquation,
+    /// Nothing could be compared (`none`).
+    Nothing,
+}
+
+impl Compared {
+    /// The EOSMAT `check.compared` spelling.
+    #[must_use]
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::PublishedFit => "published_fit",
+            Self::PeritheosRefit => "peritheos_refit",
+            Self::SourceEquation => "source_equation",
+            Self::Nothing => "none",
+        }
+    }
+
+    /// Parse a `check.compared` value.
+    #[must_use]
+    pub fn from_check(value: &str) -> Option<Self> {
+        match value {
+            "published_fit" => Some(Self::PublishedFit),
+            "peritheos_refit" => Some(Self::PeritheosRefit),
+            "source_equation" => Some(Self::SourceEquation),
+            "none" => Some(Self::Nothing),
+            _ => None,
+        }
+    }
+}
+
+impl Display for Compared {
+    fn fmt(&self, formatter: &mut Formatter<'_>) -> fmt::Result {
+        formatter.write_str(self.as_str())
+    }
+}
+
+/// Primary-source review of a record (`check.source_check`).
+///
+/// A fixed renaming of `scientific_validation.status`, whose original codes
+/// the audit sidecar and v3 exports keep.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
+#[non_exhaustive]
+pub enum SourceCheck {
+    /// The values were checked against the primary source
+    /// (`primary_source_validated`).
+    Verified,
+    /// The primary-source check is outstanding (`pending_primary_source_check`).
+    Pending,
+    /// The check found a discrepancy that is not resolved (`not_reproduced`).
+    Unresolved,
+    /// The check was deliberately deferred (`deferred`).
+    Deferred,
+}
+
+impl SourceCheck {
+    const ALL: [Self; 4] = [
+        Self::Verified,
+        Self::Pending,
+        Self::Unresolved,
+        Self::Deferred,
+    ];
+
+    /// The EOSMAT `check.source_check` spelling.
+    #[must_use]
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Verified => "verified",
+            Self::Pending => "pending",
+            Self::Unresolved => "unresolved",
+            Self::Deferred => "deferred",
+        }
+    }
+
+    /// The `scientific_validation.status` code this value renames.
+    #[must_use]
+    pub const fn status_code(self) -> &'static str {
+        match self {
+            Self::Verified => "primary_source_validated",
+            Self::Pending => "pending_primary_source_check",
+            Self::Unresolved => "not_reproduced",
+            Self::Deferred => "deferred",
+        }
+    }
+
+    /// Parse a `check.source_check` value.
+    #[must_use]
+    pub fn from_check(value: &str) -> Option<Self> {
+        Self::ALL.into_iter().find(|check| check.as_str() == value)
+    }
+
+    /// Rename a stored `scientific_validation.status` code.
+    #[must_use]
+    pub fn from_status_code(code: &str) -> Option<Self> {
+        Self::ALL
+            .into_iter()
+            .find(|check| check.status_code() == code)
+    }
+}
+
+impl Display for SourceCheck {
+    fn fmt(&self, formatter: &mut Formatter<'_>) -> fmt::Result {
+        formatter.write_str(self.as_str())
+    }
+}
+
 /// Evidence object of a native record, or the flattened v3 record itself.
 fn evidence(record: &Value) -> &Value {
     match record.get("evidence") {
@@ -154,6 +282,306 @@ pub(super) fn reproduction_headline(record: &Value) -> Reproduction {
     assessment_status(record).map_or(Reproduction::Untested, |status| {
         Reproduction::from_assessment_status(&status)
     })
+}
+
+/// Map the stored assessment status and scope (see [`Compared`]).
+pub(super) fn compared_scope(record: &Value) -> Compared {
+    let Some(assessment) = assessment(record) else {
+        return Compared::Nothing;
+    };
+    let status = match assessment.get("status") {
+        None | Some(Value::Null) => return Compared::Nothing,
+        Some(Value::String(text)) => text.as_str(),
+        // Python maps `str(status)`; no other value is a known status.
+        Some(_) => "",
+    };
+    match status {
+        "not_refittable" | "not_assessed" => Compared::Nothing,
+        "source_reconstruction" => Compared::SourceEquation,
+        _ => match assessment.get("scope").and_then(Value::as_str) {
+            Some("parameter_agreement" | "author_workflow") => Compared::PublishedFit,
+            Some("independent_refit") => Compared::PeritheosRefit,
+            Some("source_equation") => Compared::SourceEquation,
+            _ => Compared::Nothing,
+        },
+    }
+}
+
+fn why_unit(parameter: &str) -> &'static str {
+    match parameter {
+        "K0" => " GPa",
+        "K0_double_prime" => " GPa^-1",
+        "theta0" => " K",
+        _ => "",
+    }
+}
+
+fn parameter_text(row: &Map<String, Value>) -> String {
+    match row.get("parameter") {
+        Some(Value::String(text)) => text.clone(),
+        Some(other) => other.to_string(),
+        None => "None".to_owned(),
+    }
+}
+
+fn parameter_name(name: &str) -> String {
+    let name = name.strip_prefix("rt_eos.").unwrap_or(name);
+    if let Some(base) = name.strip_suffix("_double_prime") {
+        format!("{base}''")
+    } else if let Some(base) = name.strip_suffix("_prime") {
+        format!("{base}'")
+    } else {
+        name.to_owned()
+    }
+}
+
+fn number(value: Option<&Value>) -> Option<f64> {
+    value
+        .and_then(Value::as_number)
+        .and_then(serde_json::Number::as_f64)
+}
+
+/// Python's exponent spelling: a sign and at least two digits.
+fn python_exponent(text: &str) -> String {
+    let Some((mantissa, exponent)) = text.split_once('e') else {
+        return text.to_owned();
+    };
+    let value: i32 = exponent.parse().unwrap_or_default();
+    let sign = if value < 0 { '-' } else { '+' };
+    format!("{mantissa}e{sign}{:02}", value.unsigned_abs())
+}
+
+/// A stored number as Python's `json.dumps` prints it, without a spurious
+/// trailing `.0` for an integral float.
+fn printed(value: &Value) -> String {
+    let Some(number) = value.as_number() else {
+        return value.to_string();
+    };
+    if !number.is_f64() {
+        return number.to_string();
+    }
+    let float = number.as_f64().unwrap_or_default();
+    if float.fract() == 0.0 && float.abs() < 1e15 {
+        // Exact: an integral float below 1e15 converts without loss.
+        #[allow(clippy::cast_possible_truncation)]
+        return format!("{}", float as i64);
+    }
+    // Python's repr: shortest round-trip digits, scientific below 1e-4 and
+    // from 1e16.
+    let scientific = format!("{float:e}");
+    let exponent: i32 = scientific
+        .split_once('e')
+        .and_then(|(_, exponent)| exponent.parse().ok())
+        .unwrap_or_default();
+    if (-4..16).contains(&exponent) {
+        let text = format!("{float}");
+        if text.contains('.') {
+            text
+        } else {
+            format!("{text}.0")
+        }
+    } else {
+        python_exponent(&scientific)
+    }
+}
+
+/// Round to at most one digit more than the printed published value.
+fn rounded_refit(refit: f64, published: &str) -> String {
+    let lower = published.to_lowercase();
+    if let Some((mantissa, _)) = lower.split_once('e') {
+        let digits = mantissa
+            .chars()
+            .filter(|c| *c != '-' && *c != '.')
+            .skip_while(|c| *c == '0')
+            .count();
+        return python_exponent(&format!("{refit:.digits$e}"));
+    }
+    let decimals = lower
+        .split_once('.')
+        .map_or(0, |(_, fraction)| fraction.len());
+    let text = format!("{refit:.prec$}", prec = decimals + 1);
+    let text = if text.contains('.') {
+        text.trim_end_matches('0').trim_end_matches('.')
+    } else {
+        &text
+    };
+    if text == "-0" { "0" } else { text }.to_owned()
+}
+
+/// `a`, `a and b`, `a, b and c`.
+fn join(items: &[String]) -> String {
+    match items {
+        [] => String::new(),
+        [only] => only.clone(),
+        [rest @ .., last] => format!("{} and {last}", rest.join(", ")),
+    }
+}
+
+/// Phrases for the stored criterion flags that are `false` in one row.
+///
+/// `similar` is the audit's own agreement screen (the generic limits or the
+/// criterion recorded in the assessment basis), so it is reported as "beyond
+/// the agreement limit" without naming a limit.
+fn failed_criteria(row: &Map<String, Value>) -> Vec<String> {
+    [
+        ("within_combined_2sigma", "outside the combined error"),
+        ("similar", "beyond the agreement limit"),
+        ("within_reported_error", "outside the published error"),
+    ]
+    .into_iter()
+    .filter(|(flag, _)| row.get(*flag) == Some(&Value::Bool(false)))
+    .map(|(_, phrase)| phrase.to_owned())
+    .collect()
+}
+
+fn relative_change(row: &Map<String, Value>) -> Option<f64> {
+    let refit = number(row.get("refit"))?;
+    let base = number(row.get("published"))?;
+    (base != 0.0).then(|| (refit - base) / base.abs())
+}
+
+fn why_row(row: &Map<String, Value>, numbers: bool) -> String {
+    let parameter = parameter_text(row);
+    let name = parameter_name(&parameter);
+    let change = relative_change(row).map(|relative| format!("{:+.1}%", relative * 100.0));
+    if !numbers {
+        return change.map_or_else(|| name.clone(), |change| format!("{name} ({change})"));
+    }
+    let (Some(refit), Some(published)) = (
+        number(row.get("refit")),
+        row.get("published").filter(|value| value.is_number()),
+    ) else {
+        return name;
+    };
+    let unit = why_unit(parameter.strip_prefix("rt_eos.").unwrap_or(&parameter));
+    let published = printed(published);
+    let text = format!(
+        "{name}: refit {} vs published {published}{unit}",
+        rounded_refit(refit, &published)
+    );
+    match change {
+        Some(change) => format!("{text} ({change})"),
+        None => text,
+    }
+}
+
+/// At most this many failing coefficients are named; the rest are counted.
+const WHY_NAMED: usize = 3;
+
+type Failing<'a> = (&'a Map<String, Value>, Vec<String>);
+
+/// Candidate texts for the failing rows, most detailed first.
+fn failing_lines(mut failing: Vec<Failing<'_>>) -> Vec<String> {
+    let hidden = failing.len().saturating_sub(WHY_NAMED);
+    if hidden > 0 {
+        // Name the largest relative differences; rows without one come last.
+        let size = |item: &Failing<'_>| relative_change(item.0).map_or(-1.0, f64::abs);
+        failing.sort_by(|left, right| size(right).total_cmp(&size(left)));
+        failing.truncate(WHY_NAMED);
+    }
+    let mut groups: Vec<(String, Vec<&Map<String, Value>>)> = Vec::new();
+    for (row, failed) in &failing {
+        let phrase = join(failed);
+        match groups.iter_mut().find(|(key, _)| *key == phrase) {
+            Some((_, rows)) => rows.push(row),
+            None => groups.push((phrase, vec![row])),
+        }
+    }
+    let more = format!("{hidden} more");
+    let grouped = |name: &dyn Fn(&Map<String, Value>) -> String| {
+        if hidden > 0 && groups.len() == 1 {
+            let (failed, rows) = &groups[0];
+            let mut names: Vec<String> = rows.iter().map(|row| name(row)).collect();
+            names.push(more.clone());
+            return format!("{}: {failed}", join(&names));
+        }
+        let text = groups
+            .iter()
+            .map(|(failed, rows)| {
+                let names: Vec<String> = rows.iter().map(|row| name(row)).collect();
+                format!("{}: {failed}", join(&names))
+            })
+            .collect::<Vec<_>>()
+            .join("; ");
+        if hidden > 0 {
+            format!("{text}; and {more}")
+        } else {
+            text
+        }
+    };
+    let mut candidates = Vec::new();
+    if hidden == 0 {
+        candidates.push(
+            failing
+                .iter()
+                .map(|(row, failed)| format!("{}, {}", why_row(row, true), join(failed)))
+                .collect::<Vec<_>>()
+                .join("; "),
+        );
+    }
+    candidates.push(grouped(&|row| why_row(row, false)));
+    candidates.push(grouped(&|row| parameter_name(&parameter_text(row))));
+    candidates
+}
+
+/// One generated line saying which coefficients kept a refit from parity.
+///
+/// Only for [`Reproduction::Close`] and [`Reproduction::Disagrees`]. Built
+/// from the stored `assessment.parameters` rows and their criterion flags
+/// (`within_combined_2sigma`, `similar`, `within_reported_error`); no prose
+/// is interpreted. Published values print as stored (without a trailing
+/// `.0`); the refit is rounded to at most one digit more. More than three
+/// failing coefficients: the three largest relative differences are named
+/// and the rest counted. `None` when the table supports no statement within
+/// [`WHY_MAX_LENGTH`] characters. This mirrors `reproduction_why` in
+/// `peritheos/_eosmat_audit.py`.
+pub(super) fn reproduction_why(record: &Value) -> Option<String> {
+    let headline = reproduction_headline(record);
+    if !matches!(headline, Reproduction::Close | Reproduction::Disagrees) {
+        return None;
+    }
+    let rows: Vec<&Map<String, Value>> = assessment(record)?
+        .get("parameters")?
+        .as_array()?
+        .iter()
+        .filter_map(Value::as_object)
+        .filter(|row| row.contains_key("parameter"))
+        .collect();
+    let failing: Vec<Failing<'_>> = rows
+        .iter()
+        .map(|row| (*row, failed_criteria(row)))
+        .filter(|(_, failed)| !failed.is_empty())
+        .collect();
+    if !failing.is_empty() {
+        return failing_lines(failing)
+            .into_iter()
+            .find(|text| text.chars().count() < WHY_MAX_LENGTH)
+            .map(|text| text + ".");
+    }
+    if headline != Reproduction::Close {
+        return None;
+    }
+    let untested: Vec<String> = rows
+        .iter()
+        .filter(|row| row.get("within_combined_2sigma") == Some(&Value::Null))
+        .map(|row| parameter_name(&parameter_text(row)))
+        .collect();
+    if untested.is_empty() {
+        return None;
+    }
+    let verb = if untested.len() == 1 { "has" } else { "have" };
+    let mut text = format!(
+        "{} {verb} no error to test against the combined-error rule",
+        join(&untested)
+    );
+    if rows
+        .iter()
+        .all(|row| row.get("similar") == Some(&Value::Bool(true)))
+    {
+        text.push_str("; all within the agreement limit");
+    }
+    text.push('.');
+    (text.chars().count() <= WHY_MAX_LENGTH).then_some(text)
 }
 
 fn hold_covers(hold: &Value, identifier: &str) -> bool {
@@ -252,34 +680,52 @@ pub(super) fn usage_warning(record: &Value, material: Option<&Value>) -> Option<
     }
 }
 
+fn validation(record: &Value) -> Option<&Map<String, Value>> {
+    section(evidence(record), "scientific_validation")
+}
+
+fn source_finding(validation: Option<&Map<String, Value>>) -> Option<&str> {
+    validation?
+        .get("primary_source_check")?
+        .as_object()?
+        .get("finding")?
+        .as_str()
+        .filter(|finding| !finding.is_empty())
+}
+
 /// Derive a record's `check` block from its inline evidence.
 pub(super) fn check_block(record: &Value, material: Option<&Value>, audit: Option<&str>) -> Value {
-    let validation = section(evidence(record), "scientific_validation");
+    let validation = validation(record);
     let mut result = Map::new();
     result.insert(
         "reproduction".into(),
         Value::String(reproduction_headline(record).as_str().to_owned()),
     );
     result.insert(
+        "compared".into(),
+        Value::String(compared_scope(record).as_str().to_owned()),
+    );
+    if let Some(why) = reproduction_why(record) {
+        result.insert("why".into(), Value::String(why));
+    }
+    result.insert(
         "warning".into(),
         usage_warning(record, material).map_or(Value::Null, Value::String),
     );
     if let Some(validation) = validation {
-        if let Some(finding) = validation
-            .get("primary_source_check")
-            .and_then(Value::as_object)
-            .and_then(|check| check.get("finding"))
+        if let Some(check) = validation
+            .get("status")
             .and_then(Value::as_str)
-            .filter(|finding| !finding.is_empty())
+            .and_then(SourceCheck::from_status_code)
         {
-            result.insert("finding".into(), Value::String(finding.to_owned()));
-        }
-        if let Some(status) = validation.get("status") {
-            result.insert("source".into(), status.clone());
+            result.insert("source_check".into(), Value::String(check.as_str().into()));
         }
         if let Some(date) = validation.get("audit_date") {
             result.insert("source_checked_on".into(), date.clone());
         }
+    }
+    if let Some(finding) = source_finding(validation) {
+        result.insert("source_note".into(), Value::String(finding.to_owned()));
     }
     if let Some(audit) = audit {
         result.insert("audit".into(), Value::String(audit.to_owned()));
@@ -287,30 +733,96 @@ pub(super) fn check_block(record: &Value, material: Option<&Value>, audit: Optio
     Value::Object(result)
 }
 
-/// Effective reproduction headline and warning of a record.
+/// Effective `check` fields of a record, stored or derived.
+#[derive(Clone, Debug, PartialEq)]
+pub(super) struct Headline {
+    pub(super) reproduction: Reproduction,
+    pub(super) compared: Compared,
+    pub(super) why: Option<String>,
+    pub(super) warning: Option<String>,
+    pub(super) source_check: Option<SourceCheck>,
+    pub(super) source_note: Option<String>,
+}
+
+impl Default for Headline {
+    fn default() -> Self {
+        Self {
+            reproduction: Reproduction::Untested,
+            compared: Compared::Nothing,
+            why: None,
+            warning: None,
+            source_check: None,
+            source_note: None,
+        }
+    }
+}
+
+/// Effective `check` fields of a record.
 ///
 /// A stored `check` value wins; otherwise the value is derived from inline
-/// evidence. No assessment means [`Reproduction::Untested`].
-pub(super) fn headline(record: &Value, material: Option<&Value>) -> (Reproduction, Option<String>) {
+/// evidence exactly as [`check_block`] would. No assessment means
+/// [`Reproduction::Untested`] and [`Compared::Nothing`].
+pub(super) fn headline(record: &Value, material: Option<&Value>) -> Headline {
     let check = record.get("check").and_then(Value::as_object);
-    let reproduction = check
-        .and_then(|check| check.get("reproduction"))
-        .and_then(Value::as_str)
-        .filter(|value| !value.is_empty())
-        .and_then(Reproduction::from_check)
-        .unwrap_or_else(|| reproduction_headline(record));
-    let warning = match check.and_then(|check| check.get("warning")) {
-        Some(value) => value.as_str().map(str::to_owned),
-        None => usage_warning(record, material),
+    let stored = |key: &str| {
+        check
+            .and_then(|check| check.get(key))
+            .and_then(Value::as_str)
+            .filter(|value| !value.is_empty())
     };
-    (reproduction, warning)
+    let validation = validation(record);
+    Headline {
+        reproduction: stored("reproduction")
+            .and_then(Reproduction::from_check)
+            .unwrap_or_else(|| reproduction_headline(record)),
+        compared: stored("compared")
+            .and_then(Compared::from_check)
+            .unwrap_or_else(|| compared_scope(record)),
+        why: match check.and_then(|check| check.get("why")) {
+            Some(value) => value.as_str().map(str::to_owned),
+            None => reproduction_why(record),
+        },
+        warning: match check.and_then(|check| check.get("warning")) {
+            Some(value) => value.as_str().map(str::to_owned),
+            None => usage_warning(record, material),
+        },
+        source_check: stored("source_check")
+            .and_then(SourceCheck::from_check)
+            .or_else(|| {
+                validation
+                    .and_then(|validation| validation.get("status"))
+                    .and_then(Value::as_str)
+                    .and_then(SourceCheck::from_status_code)
+            }),
+        source_note: stored("source_note")
+            .or_else(|| source_finding(validation))
+            .map(str::to_owned),
+    }
 }
 
 /// Validate the structure of an optional record `check` block.
+#[allow(clippy::too_many_lines)]
 pub(super) fn validate_check(check: &Value, location: &str) -> Result<(), EosmatError> {
     let check = check
         .as_object()
         .ok_or_else(|| invalid_document(format!("{location}.check must be an object")))?;
+    for (old, new) in RENAMED_CHECK_KEYS {
+        if check.contains_key(*old) {
+            let codes = if *old == "source" {
+                format!(
+                    " ({})",
+                    SourceCheck::ALL
+                        .map(|value| format!("{} -> {}", value.status_code(), value.as_str()))
+                        .join(", ")
+                )
+            } else {
+                String::new()
+            };
+            return Err(invalid_document(format!(
+                "{location}.check.{old} is no longer read; EOSMAT v5 names this field check.{new}{codes}"
+            )));
+        }
+    }
     let unknown: BTreeSet<&str> = check
         .keys()
         .map(String::as_str)
@@ -321,17 +833,44 @@ pub(super) fn validate_check(check: &Value, location: &str) -> Result<(), Eosmat
             "{location}.check has unknown fields {unknown:?}"
         )));
     }
-    if let Some(value) = check.get("reproduction") {
-        if value.as_str().and_then(Reproduction::from_check).is_none() {
+    let reproduction = match check.get("reproduction") {
+        Some(value) => Some(value.as_str().and_then(Reproduction::from_check).ok_or_else(
+            || {
+                invalid_document(format!(
+                    "{location}.check.reproduction must be one of reproduced, close, disagrees, untested"
+                ))
+            },
+        )?),
+        None => None,
+    };
+    let compared = match check.get("compared") {
+        Some(value) => Some(value.as_str().and_then(Compared::from_check).ok_or_else(|| {
+            invalid_document(format!(
+                "{location}.check.compared must be one of published_fit, peritheos_refit, source_equation, none"
+            ))
+        })?),
+        None => None,
+    };
+    if let (Some(reproduction), Some(compared)) = (reproduction, compared) {
+        // Only an assessed comparison can give a result; `untested` has none
+        // or only a rebuilt source equation.
+        let allowed = if reproduction == Reproduction::Untested {
+            matches!(compared, Compared::Nothing | Compared::SourceEquation)
+        } else {
+            compared != Compared::Nothing
+        };
+        if !allowed {
             return Err(invalid_document(format!(
-                "{location}.check.reproduction must be one of reproduced, close, disagrees, untested"
+                "{location}.check.compared {:?} cannot accompany reproduction {:?}",
+                compared.as_str(),
+                reproduction.as_str()
             )));
         }
     }
-    if let Some(value) = check.get("source") {
-        if !value.as_str().is_some_and(|v| SOURCE_STATUSES.contains(&v)) {
+    if let Some(value) = check.get("source_check") {
+        if value.as_str().and_then(SourceCheck::from_check).is_none() {
             return Err(invalid_document(format!(
-                "{location}.check.source is invalid"
+                "{location}.check.source_check must be one of verified, pending, unresolved, deferred"
             )));
         }
     }
@@ -342,13 +881,28 @@ pub(super) fn validate_check(check: &Value, location: &str) -> Result<(), Eosmat
             )));
         }
     }
-    for key in ["finding", "source_checked_on", "audit"] {
+    for key in ["why", "source_note", "source_checked_on", "audit"] {
         if let Some(value) = check.get(key) {
             if value.as_str().is_none_or(str::is_empty) {
                 return Err(invalid_document(format!(
                     "{location}.check.{key} must be a non-empty string"
                 )));
             }
+        }
+    }
+    if let Some(why) = check.get("why").and_then(Value::as_str) {
+        if why.chars().count() > WHY_MAX_LENGTH {
+            return Err(invalid_document(format!(
+                "{location}.check.why must be at most {WHY_MAX_LENGTH} characters"
+            )));
+        }
+        if !matches!(
+            reproduction.unwrap_or(Reproduction::Close),
+            Reproduction::Close | Reproduction::Disagrees
+        ) {
+            return Err(invalid_document(format!(
+                "{location}.check.why is only given for reproduction close or disagrees"
+            )));
         }
     }
     Ok(())
@@ -362,14 +916,15 @@ pub(super) fn validate_check_consistency(
     let Some(check) = record.get("check").and_then(Value::as_object) else {
         return Ok(());
     };
-    if let (Some(stored), Some(status)) = (check.get("reproduction"), assessment_status(record)) {
+    let status = assessment_status(record);
+    if let (Some(stored), Some(status)) = (check.get("reproduction"), &status) {
         let expected = match status.as_str() {
             "parity"
             | "similar"
             | "not_reproduced"
             | "not_refittable"
             | "source_reconstruction"
-            | "not_assessed" => Some(Reproduction::from_assessment_status(&status).as_str()),
+            | "not_assessed" => Some(Reproduction::from_assessment_status(status).as_str()),
             _ => None,
         };
         if stored.as_str() != expected {
@@ -378,14 +933,29 @@ pub(super) fn validate_check_consistency(
             )));
         }
     }
-    if let (Some(source), Some(status)) = (
-        check.get("source"),
-        section(evidence(record), "scientific_validation")
-            .and_then(|validation| validation.get("status")),
-    ) {
-        if source != status {
+    if let (Some(stored), Some(status)) = (check.get("compared"), &status) {
+        let expected = compared_scope(record);
+        if stored.as_str() != Some(expected.as_str()) {
+            let scope = assessment(record)
+                .and_then(|assessment| assessment.get("scope"))
+                .unwrap_or(&Value::Null);
             return Err(invalid_document(format!(
-                "{location}.check.source contradicts scientific_validation.status"
+                "{location}.check.compared {stored} contradicts assessment status {status:?} and scope {scope} (expected {:?})",
+                expected.as_str()
+            )));
+        }
+    }
+    if let (Some(stored), Some(status)) = (
+        check.get("source_check"),
+        validation(record).and_then(|validation| validation.get("status")),
+    ) {
+        let expected = status
+            .as_str()
+            .and_then(SourceCheck::from_status_code)
+            .map(SourceCheck::as_str);
+        if stored.as_str() != expected {
+            return Err(invalid_document(format!(
+                "{location}.check.source_check {stored} contradicts scientific_validation.status {status}"
             )));
         }
     }

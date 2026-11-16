@@ -10,7 +10,7 @@ fn nacl_thermal_refit_matches_independent_quadrature_and_round_trips() {
     let record = material.record(refit_id).unwrap();
     assert_eq!(record.document["record_kind"], "refit");
     assert_eq!(record.document["derived_from_record"], "nacl_b2_fei_2007");
-    assert_eq!(record.document["default"], false);
+    assert!(!record.is_default);
     assert!(record.document["parameter_covariance"].is_null());
     // Independent SI quadrature using the two-stage figure-data coefficients.
     for (volume, temperature, pressure) in [
