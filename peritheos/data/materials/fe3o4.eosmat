@@ -10,6 +10,15 @@
     {
       "identifier": "fe3o4_mao_1974_bm3_1",
       "label": "Mao et al. (1974), magnetite BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "V0 and its error are propagated from the paper's own ambient lattice parameter. The +/-10 GPa K0 error is the authors' sum of independent fit, pressure-scale, and assumed-K0' contributions, not a covariance matrix or a uniform one-sigma statistical error.",
+        "audit": "../audits/fe3o4.audit.json#fe3o4_mao_1974_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 296.15,
       "parameters": {
@@ -29,14 +38,6 @@
         "volume": "79",
         "locator": "1165-1170",
         "doi": "10.1029/JB079i008p01165"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "V0 and its error are propagated from the paper's own ambient lattice parameter. The +/-10 GPa K0 error is the authors' sum of independent fit, pressure-scale, and assumed-K0' contributions, not a covariance matrix or a uniform one-sigma statistical error.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/fe3o4.audit.json#fe3o4_mao_1974_bm3_1"
       }
     }
   ],

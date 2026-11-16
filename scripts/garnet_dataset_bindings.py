@@ -7,7 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from peritheos._eosmat_format import format_eosmat
+from peritheos._eosmat_format import V4_LAYOUT, format_eosmat
 from peritheos_build import digest
 
 RECEIPT = "docs/data/garnet-angel-2022/dataset-integration-2026-11-15.json"
@@ -46,7 +46,8 @@ def prior_dataset_bytes(data: bytes, material: str, root: Path) -> bytes:
             node[field["path"][-1]] = copy.deepcopy(field["before"])
         else:
             node.pop(field["path"][-1], None)
-    previous = format_eosmat(document).encode()
+    # The predecessor predates the v5 reading-order revision.
+    previous = format_eosmat(document, layout=V4_LAYOUT).encode()
     if hashlib.sha256(previous).hexdigest() != binding["before_sha256"]:
         raise ValueError(f"Garnet dataset predecessor changed: {material}")
     return previous

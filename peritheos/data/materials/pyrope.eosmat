@@ -9,6 +9,14 @@
     {
       "identifier": "pyrope_milani_2015_bm3_1",
       "label": "Milani et al. (2015), BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/pyrope.audit.json#pyrope_milani_2015_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -27,18 +35,20 @@
         "volume": "227",
         "locator": "140-147",
         "doi": "10.1016/j.lithos.2015.03.017"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/pyrope.audit.json#pyrope_milani_2015_bm3_1"
       }
     },
     {
       "identifier": "pyrope_angel_2022_bm3_q_compromise_debye",
       "label": "Angel et al. (2022), BM3 + q-compromise Debye",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-11-14",
+        "source_note": "Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.",
+        "audit": "../audits/pyrope.audit.json#pyrope_angel_2022_bm3_q_compromise_debye"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -56,15 +66,6 @@
         }
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 33.4],
-      "experimental_temperature_range_k": [100.0, 1700.0],
-      "determination_method": "experimental",
-      "default": false,
-      "notes": "Published q-compromise pressure approximation, with constant theta0 and gamma/V and no q parameter. Adopted/fixed Holland and Powell (2011) V0 and the unchanged official EOS coefficients/covariance are retained separately from the later author-log snapshot and independent replay. All 194 author-processed observations, assigned errors and exact scale groups were recovered and replayed on 14 November 2026; coefficients and parameter errors agree closely with EosFit and the author log. Original upstream reduction/calibration covariance and all exclusion decisions remain partial. The model supplies P-V-T and pressure derivatives/parameter uncertainty, not a caloric potential or mixing model. Marginal source bounds do not define phase stability or a validated rectangle. See docs/literature-reproductions/pyrope-author-input-replay.md",
-      "range_provenance": {
-        "source_location": "Supplementary Table S2, nonzero-used rows",
-        "notes": "Union of volume and elastic-modulus constraints, including room-pressure low-T expansion and high-P room-T compression. Independent experimental series; not a rectangular phase-stability field. Rejected high-T PVT rows do not extend coverage."
-      },
       "parameter_covariance": {
         "parameter_order": ["rt_eos.K0", "rt_eos.K0_prime", "theta0", "gamma0"],
         "matrix": [
@@ -74,6 +75,14 @@
           [0.00075834, -0.00011528, 0.279, 0.00013458]
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 33.4],
+      "experimental_temperature_range_k": [100.0, 1700.0],
+      "range_provenance": {
+        "source_location": "Supplementary Table S2, nonzero-used rows",
+        "notes": "Union of volume and elastic-modulus constraints, including room-pressure low-T expansion and high-P room-T compression. Independent experimental series; not a rectangular phase-stability field. Rejected high-T PVT rows do not extend coverage."
+      },
+      "determination_method": "experimental",
+      "notes": "Published q-compromise pressure approximation, with constant theta0 and gamma/V and no q parameter. Adopted/fixed Holland and Powell (2011) V0 and the unchanged official EOS coefficients/covariance are retained separately from the later author-log snapshot and independent replay. All 194 author-processed observations, assigned errors and exact scale groups were recovered and replayed on 14 November 2026; coefficients and parameter errors agree closely with EosFit and the author log. Original upstream reduction/calibration covariance and all exclusion decisions remain partial. The model supplies P-V-T and pressure derivatives/parameter uncertainty, not a caloric potential or mixing model. Marginal source bounds do not define phase stability or a validated rectangle. See docs/literature-reproductions/pyrope-author-input-replay.md",
       "reference": {
         "authors": ["Angel", "Gilio", "Mazzucchelli", "Alvaro"],
         "year": 2022,
@@ -82,14 +91,6 @@
         "volume": "177",
         "locator": "54",
         "doi": "10.1007/s00410-022-01918-5"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-11-14",
-        "audit": "../audits/pyrope.audit.json#pyrope_angel_2022_bm3_q_compromise_debye"
       }
     }
   ],

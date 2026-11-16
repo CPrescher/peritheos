@@ -10,6 +10,15 @@
     {
       "identifier": "mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3",
       "label": "Kiefer et al. (2002), Fe25 GGA BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The x=0.25 EOS triplet is explicitly reported and distinct from the Table 1 aggregate elastic modulus and derivative.",
+        "audit": "../audits/mg075fe025sio3_bridgmanite.audit.json#mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -18,20 +27,17 @@
         "K0_prime": {"value": 3.96, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 136.0],
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 136.0],
         "temperature_k": [0.0, 0.0],
         "notes": ["Static ordered-composition GGA branch over the lower-mantle pressure range discussed by the source."]
       },
+      "experimental_pressure_range_gpa": [0.0, 136.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 108.272},
-      "sample_composition": "Static ordered (Mg0.75Fe0.25)SiO3 Pbnm perovskite calculation (x=0.25).",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Kiefer", "Stixrude", "Wentzcovitch"],
         "year": 2002,
@@ -41,18 +47,22 @@
         "locator": "1539",
         "doi": "10.1029/2002GL014683"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The x=0.25 EOS triplet is explicitly reported and distinct from the Table 1 aggregate elastic modulus and derivative.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg075fe025sio3_bridgmanite.audit.json#mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 108.272},
+      "sample_composition": "Static ordered (Mg0.75Fe0.25)SiO3 Pbnm perovskite calculation (x=0.25)."
     },
     {
       "identifier": "mg075fe025sio3_bridgmanite_wu_2013_gga_bm3",
       "label": "Wu et al. (2013), Fe25 high-spin GGA BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Complete source-generated Fe25 high-spin BM3 composition branch.",
+        "audit": "../audits/mg075fe025sio3_bridgmanite.audit.json#mg075fe025sio3_bridgmanite_wu_2013_gga_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -61,9 +71,7 @@
         "K0_prime": {"value": 4.03, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 140.0],
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 140.0],
         "temperature_k": [0.0, 0.0],
@@ -71,12 +79,11 @@
           "The source finds the Fe2+ high-spin state stable over the studied mantle pressure range; this is the static branch, not the separate quasiharmonic temperature correction."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 140.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 108.272},
-      "sample_composition": "Static ordered high-spin (Mg0.75Fe0.25)SiO3 Pbnm model cell.",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Wu", "Zhao", "Tian"],
         "year": 2013,
@@ -86,14 +93,9 @@
         "locator": "049101",
         "doi": "10.7498/aps.62.049101"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Complete source-generated Fe25 high-spin BM3 composition branch.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg075fe025sio3_bridgmanite.audit.json#mg075fe025sio3_bridgmanite_wu_2013_gga_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 108.272},
+      "sample_composition": "Static ordered high-spin (Mg0.75Fe0.25)SiO3 Pbnm model cell."
     }
   ],
   "aliases": ["(Mg0.75Fe0.25)SiO3 perovskite", "Fe25 bridgmanite", "25 mol.% FeSiO3 bridgmanite model"],

@@ -6,10 +6,20 @@
   "phase": "post-perovskite, CaIrO3-type orthorhombic Cmcm",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mggeo3_post_perovskite_kubo_2006_bm3_1"},
   "eos_records": [
     {
       "identifier": "mggeo3_post_perovskite_kubo_2006_bm3_1",
       "label": "Kubo et al. (2006), MgGeO3 post-perovskite preferred BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source selects a constrained room-temperature BM3 fit for CaIrO3-type Cmcm MgGeO3 post-perovskite, fixes K0'=4.4, and excludes only its three rows below 47 GPa.",
+        "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_kubo_2006_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,8 +28,7 @@
         "K0_prime": {"value": 4.4, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [47.3, 196.3],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [47.3, 196.3],
         "temperature_k": [300.0, 300.0],
@@ -29,21 +38,12 @@
           "V0 is an extrapolation far below the experimental pressure range."
         ]
       },
+      "experimental_pressure_range_gpa": [47.3, 196.3],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "experimental_configuration": {
-        "sample": "MgGeO3 orthoenstatite synthesized from MgO and GeO2, containing minor excess GeO2, then mixed with Pt in an 8:2 weight ratio; post-perovskite was synthesized by laser heating in a diamond-anvil cell",
-        "pressure_media": ["argon insulation in run 1", "NaCl insulation in run 2", "unmixed MgGeO3 insulation in run 3"],
-        "pressure_gauge": "Pt, Holmes et al. (1989), using only the Pt 111 reflection",
-        "diffraction": "angle-dispersive synchrotron X-ray diffraction at GSECARS 13-ID-D, Advanced Photon Source",
-        "temperature": "300 K measurements after laser heating; Figure 3 identifies the experimental P-V observations as 300 K"
-      },
       "notes": "Preferred source-selected 300 K experimental fit. V0 is the four-formula-unit conventional Cmcm-cell volume. K0' was fixed, while V0 and K0 were fitted with an external elasticity-systematics constraint.",
       "fit_datasets": ["mggeo3_post_perovskite_kubo_2006_table_s1_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Kubo", "Kiefer", "Shen", "Prakapenka", "Cava", "Duffy"],
         "year": 2006,
@@ -61,18 +61,27 @@
           "Supporting Information Table S1 and readme"
         ]
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source selects a constrained room-temperature BM3 fit for CaIrO3-type Cmcm MgGeO3 post-perovskite, fixes K0'=4.4, and excludes only its three rows below 47 GPa.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_kubo_2006_bm3_1"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "MgGeO3 orthoenstatite synthesized from MgO and GeO2, containing minor excess GeO2, then mixed with Pt in an 8:2 weight ratio; post-perovskite was synthesized by laser heating in a diamond-anvil cell",
+        "pressure_media": ["argon insulation in run 1", "NaCl insulation in run 2", "unmixed MgGeO3 insulation in run 3"],
+        "pressure_gauge": "Pt, Holmes et al. (1989), using only the Pt 111 reflection",
+        "diffraction": "angle-dispersive synchrotron X-ray diffraction at GSECARS 13-ID-D, Advanced Photon Source",
+        "temperature": "300 K measurements after laser heating; Figure 3 identifies the experimental P-V observations as 300 K"
       }
     },
     {
       "identifier": "mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2",
       "label": "Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source reports V0=175.9(6) A^3 and K0=245(5) GPa when K0'=4 specifically to demonstrate parameter trade-off; it does not select this curve over the fixed-4.4 result.",
+        "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -80,8 +89,7 @@
         "K0": {"value": 245.0, "error": 5.0}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [47.3, 196.3],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [47.3, 196.3],
         "temperature_k": [300.0, 300.0],
@@ -90,13 +98,12 @@
           "The source describes it as K0'=4 in its third-order Birch-Murnaghan convention; setting K0'=4 removes the third-order correction and is represented canonically as BM2."
         ]
       },
+      "experimental_pressure_range_gpa": [47.3, 196.3],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default": false,
       "notes": "Executable but deliberately non-default. It is the article's fixed-K0'=4 sensitivity result for the same data, not an independent experimental EOS.",
       "fit_datasets": ["mggeo3_post_perovskite_kubo_2006_table_s1_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Kubo", "Kiefer", "Shen", "Prakapenka", "Cava", "Duffy"],
         "year": 2006,
@@ -107,18 +114,20 @@
         "doi": "10.1029/2006GL025686",
         "locations": ["Results and discussion, paragraph 17", "Figure 3", "Supporting Information Table S1"]
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source reports V0=175.9(6) A^3 and K0=245(5) GPa when K0'=4 specifically to demonstrate parameter trade-off; it does not select this curve over the fixed-4.4 result.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "mggeo3_post_perovskite_hirose_2005_bm3_fixed_1",
       "label": "Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The fixed BM3 coefficients are explicitly source-reported for the Cmcm MgGeO3 post-perovskite data.",
+        "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_hirose_2005_bm3_fixed_1"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -127,9 +136,7 @@
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [6.25, 78.55],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [6.25, 78.55],
         "temperature_k": [300, 300],
@@ -137,14 +144,13 @@
           "Room-temperature decompression after repeated laser annealing; the source reports partial back-transformation by 6 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [6.25, 78.55],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default": false,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 145.916},
       "notes": "Abstract-selected fixed-K0'=4 fit to all nine Table 3 decompression observations. The abstract reports this better-constrained result; The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
       "fit_datasets": ["mggeo3_post_perovskite_hirose_2005_table3_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Hirose", "Kawamura", "Ohishi", "Tateno", "Sata"],
         "year": 2005,
@@ -154,18 +160,22 @@
         "locator": "262-265",
         "doi": "10.2138/am.2005.1702"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The fixed BM3 coefficients are explicitly source-reported for the Cmcm MgGeO3 post-perovskite data.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_hirose_2005_bm3_fixed_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 145.916}
     },
     {
       "identifier": "mggeo3_post_perovskite_hirose_2005_bm3_free_2",
       "label": "Hirose et al. (2005), MgGeO3 post-perovskite BM3 (free)",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0: refit 241.59 vs published 210.0 GPa (+15.0%), not similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The free BM3 coefficients are explicitly source-reported for the Cmcm MgGeO3 post-perovskite data.",
+        "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_hirose_2005_bm3_free_2"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -174,9 +184,7 @@
         "K0_prime": {"value": 3.5, "error": 0.5}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [6.25, 78.55],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [6.25, 78.55],
         "temperature_k": [300, 300],
@@ -184,14 +192,13 @@
           "Room-temperature decompression after repeated laser annealing; the source reports partial back-transformation by 6 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [6.25, 78.55],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default": false,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 145.916},
       "notes": "Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
       "fit_datasets": ["mggeo3_post_perovskite_hirose_2005_table3_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Hirose", "Kawamura", "Ohishi", "Tateno", "Sata"],
         "year": 2005,
@@ -201,14 +208,8 @@
         "locator": "262-265",
         "doi": "10.2138/am.2005.1702"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The free BM3 coefficients are explicitly source-reported for the Cmcm MgGeO3 post-perovskite data.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_hirose_2005_bm3_free_2"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 145.916}
     }
   ],
   "aliases": ["MgGeO3 pPv", "magnesium germanate post-perovskite"],

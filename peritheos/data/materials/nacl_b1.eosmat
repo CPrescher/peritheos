@@ -10,6 +10,15 @@
     {
       "identifier": "nacl_b1_shen_2026_vinet_1",
       "label": "Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+        "audit": "../audits/nacl_b1.audit.json#nacl_b1_shen_2026_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -28,14 +37,6 @@
         "volume": "113",
         "locator": "144113",
         "doi": "10.1103/fxgq-96sg"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/nacl_b1.audit.json#nacl_b1_shen_2026_vinet_1"
       }
     }
   ],

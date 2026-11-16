@@ -200,8 +200,9 @@ This fictional record file is `materials/example_oxide.eosmat`:
       "reference": "Fictional example; no experimental validation.",
       "check": {
         "reproduction": "reproduced",
+        "compared": "published_fit",
         "warning": null,
-        "source": "pending_primary_source_check",
+        "source_check": "pending",
         "audit": "../audits/example_oxide.audit.json#example_oxide_bm3"
       }
     }

@@ -9,6 +9,15 @@
     {
       "identifier": "feo_b8_2_fischer_2011_bm3_1",
       "label": "B8 Fe0.94O, Fischer et al. (2011)",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-07",
+        "source_note": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observation rules, 3% temperature correction, Figure 3 fallback volume errors, explicit comparison-point exclusions, and Ozawa-inclusive fit scope were reconstructed. Fischer's current-study rows and Ozawa's printed Table 2 P-V-T rows are bundled; only the exact combined selection and weighting protocol remain unpublished.",
+        "audit": "../audits/feo_b8_2.audit.json#feo_b8_2_fischer_2011_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -40,14 +49,6 @@
         "volume": "304",
         "locator": "496-502",
         "doi": "10.1016/j.epsl.2011.02.025"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observation rules, 3% temperature correction, Figure 3 fallback volume errors, explicit comparison-point exclusions, and Ozawa-inclusive fit scope were reconstructed. Fischer's current-study rows and Ozawa's printed Table 2 P-V-T rows are bundled; only the exact combined selection and weighting protocol remain unpublished.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-07",
-        "audit": "../audits/feo_b8_2.audit.json#feo_b8_2_fischer_2011_bm3_1"
       }
     }
   ],

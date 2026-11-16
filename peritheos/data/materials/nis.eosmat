@@ -10,6 +10,15 @@
     {
       "identifier": "nis_campbell_1993_bm3_1",
       "label": "Campbell and Heinz (1993), NiAs-type NiS BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The conventional hexagonal-cell V0 and its error are independently propagated from a=3.4395(2) A and c=5.3514(7) A. The paper reports no parameter covariance.",
+        "audit": "../audits/nis.audit.json#nis_campbell_1993_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -29,14 +38,6 @@
         "volume": "54",
         "locator": "5-7",
         "doi": "10.1016/0022-3697(93)90106-2"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The conventional hexagonal-cell V0 and its error are independently propagated from a=3.4395(2) A and c=5.3514(7) A. The paper reports no parameter covariance.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/nis.audit.json#nis_campbell_1993_bm3_1"
       }
     }
   ],

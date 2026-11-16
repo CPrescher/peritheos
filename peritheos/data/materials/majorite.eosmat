@@ -10,6 +10,16 @@
     {
       "identifier": "majorite_yagi_1992_bm3_1",
       "label": "Yagi et al. (1992), MgSiO3 majorite BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "No error available to test K0 against the combined-error rule; all marked similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not a fit error from this EOS and is removed.",
+        "audit": "../audits/majorite.audit.json#majorite_yagi_1992_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -29,14 +39,6 @@
         "volume": "74",
         "locator": "1-7",
         "doi": "10.1016/0031-9201(92)90063-2"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not a fit error from this EOS and is removed.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/majorite.audit.json#majorite_yagi_1992_bm3_1"
       }
     }
   ],

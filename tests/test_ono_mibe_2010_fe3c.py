@@ -38,6 +38,8 @@ def test_original_parameters_adopted_anchor_and_strict_scope(
     d = get_material_document("cementite", format_version=4)
     r = next(r for r in d["eos_records"] if r["identifier"] == IDENTIFIER)
     expected = catalog_record()
+    # v4 exports write an explicit default flag on every record.
+    assert r.pop("default") is False
     assert_record_replay_close(r, expected)
     assert r["parameters"] == {
         "V0": {"value": 155.4, "error": 0.2},

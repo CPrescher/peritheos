@@ -6,10 +6,21 @@
   "phase": "rhombohedral B1",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 3,
+  "default_records": {"hugoniot": "nickel_oxide_noguchi_1999_linear_hugoniot_2"},
   "eos_records": [
     {
       "identifier": "nickel_oxide_noguchi_1999_bm3_1",
       "label": "Noguchi et al. (1999), shock BM3 isotherm",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "No error available to test K0 and K0' against the combined-error rule; all marked similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The official open primary conference paper documents the same team's sample reference lattice and exact shock-to-300 K conventions: Debye theta0=390 K, gamma0=1.38 derived from 2s=gamma+1, gamma/V constant, and Us=5.36+1.19up. The final journal article extends the data and reports K0=191 GPa and K0'=3.9. The stored Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; the journal reports no coefficient errors for K0 or K0'.",
+        "audit": "../audits/nickel_oxide.audit.json#nickel_oxide_noguchi_1999_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -29,19 +40,20 @@
         "volume": "60",
         "locator": "509-514",
         "doi": "10.1016/S0022-3697(98)00296-0"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The official open primary conference paper documents the same team's sample reference lattice and exact shock-to-300 K conventions: Debye theta0=390 K, gamma0=1.38 derived from 2s=gamma+1, gamma/V constant, and Us=5.36+1.19up. The final journal article extends the data and reports K0=191 GPa and K0'=3.9. The stored Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; the journal reports no coefficient errors for K0 or K0'.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/nickel_oxide.audit.json#nickel_oxide_noguchi_1999_bm3_1"
       }
     },
     {
       "identifier": "nickel_oxide_noguchi_1999_linear_hugoniot_2",
       "label": "Noguchi et al. (1999), derived B1 principal Hugoniot",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-04",
+        "source_note": "All eight final shock states remain on the source's untransformed rocksalt/B1 interpretation. The paper reports pressure and volume errors below about 2% but no row-wise shock- or particle-velocity uncertainties, so the stored coefficient errors are residual-scaled OLS standard errors.",
+        "audit": "../audits/nickel_oxide.audit.json#nickel_oxide_noguchi_1999_linear_hugoniot_2"
+      },
       "model": "LinearUsUpHugoniot",
       "parameters": {
         "V0": {"value": 54.8725759195, "error": null, "fixed": true},
@@ -51,9 +63,13 @@
         "P0": {"value": 0.0, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [17.7, 147.6],
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": {
+        "parameter_order": ["c0", "s"],
+        "matrix": [
+          [0.0028212816024, -0.0014193469559],
+          [-0.0014193469559, 0.00087384760293]
+        ]
+      },
       "validity": {
         "pressure_gpa": [17.1, 147.7],
         "temperature_k": [298.15, 298.15],
@@ -63,10 +79,23 @@
           "The temperature bounds describe the normalized precursor state, not a constant-temperature shock path."
         ]
       },
+      "experimental_pressure_range_gpa": [17.7, 147.6],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "derived",
+      "notes": "Derived constrained principal Hugoniot for the untransformed rhombohedral B1 branch only. This is not the paper's separate 300 K Mie-Gruneisen-reduced isotherm and not a general P(V,T) EOS. Row-wise Us and up errors are unavailable, so the OLS covariance reflects residual scatter rather than a complete experimental error model. V0 is deterministically derived from rho0 and is not assigned an independent error.",
+      "reference": {
+        "authors": ["Noguchi", "Uchino", "Hikosaka", "Atou", "Kusaba", "Fukuoka", "Mashimo", "Syono"],
+        "year": 1999,
+        "title": "Equation of state of NiO studied by shock compression",
+        "source": "J. Phys. Chem. Solids",
+        "volume": "60",
+        "locator": "509-514",
+        "details": "Table 1, journal page 510",
+        "doi": "10.1016/S0022-3697(98)00296-0"
+      },
       "equation_kind": "hugoniot",
-      "default_for": "hugoniot",
       "loading_path": "principal",
       "branch_kind": "untransformed",
       "initial_state": {
@@ -90,7 +119,6 @@
           "Resolved Hugoniot elastic-limit states are separate precursor measurements and are not part of this fitted branch."
         ]
       },
-      "notes": "Derived constrained principal Hugoniot for the untransformed rhombohedral B1 branch only. This is not the paper's separate 300 K Mie-Gruneisen-reduced isotherm and not a general P(V,T) EOS. Row-wise Us and up errors are unavailable, so the OLS covariance reflects residual scatter rather than a complete experimental error model. V0 is deterministically derived from rho0 and is not assigned an independent error.",
       "derivation": {
         "source_kind": "published_table",
         "source_identifier": "nickel_oxide_noguchi_1999_table1_shock",
@@ -101,31 +129,6 @@
         },
         "software": {"name": "Peritheos fit_linear_us_up", "version": "0.6.0", "version_date": "2026-09-04"},
         "access_and_licensing": "The fit uses the primary Table 1 transcription already bundled with this material. Coefficients and fit diagnostics are derived facts; the source table's redistribution status remains separately documented."
-      },
-      "parameter_covariance": {
-        "parameter_order": ["c0", "s"],
-        "matrix": [
-          [0.0028212816024, -0.0014193469559],
-          [-0.0014193469559, 0.00087384760293]
-        ]
-      },
-      "reference": {
-        "authors": ["Noguchi", "Uchino", "Hikosaka", "Atou", "Kusaba", "Fukuoka", "Mashimo", "Syono"],
-        "year": 1999,
-        "title": "Equation of state of NiO studied by shock compression",
-        "source": "J. Phys. Chem. Solids",
-        "volume": "60",
-        "locator": "509-514",
-        "details": "Table 1, journal page 510",
-        "doi": "10.1016/S0022-3697(98)00296-0"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "All eight final shock states remain on the source's untransformed rocksalt/B1 interpretation. The paper reports pressure and volume errors below about 2% but no row-wise shock- or particle-velocity uncertainties, so the stored coefficient errors are residual-scaled OLS standard errors.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/nickel_oxide.audit.json#nickel_oxide_noguchi_1999_linear_hugoniot_2"
       }
     }
   ],

@@ -6,10 +6,20 @@
   "phase": "cation-deficient rocksalt magnesiowustite, cubic Fm-3m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "magnesiowustite_fe56_jacobsen_2002_bm3_1"},
   "eos_records": [
     {
       "identifier": "magnesiowustite_fe56_jacobsen_2002_bm3_1",
       "label": "Jacobsen et al. (2002), Fe56 error-weighted BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source defines a three-free-parameter, error-weighted BM3 fit to all 11 Fe56 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration.",
+        "audit": "../audits/magnesiowustite_fe56.audit.json#magnesiowustite_fe56_jacobsen_2002_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -18,9 +28,7 @@
         "K0_prime": {"value": 5.53, "error": 0.23}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0001, 8.923],
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0001, 8.923],
         "temperature_k": [298.0, 298.0],
@@ -31,22 +39,13 @@
           "The numeric temperature is operational because the source states only room/ambient temperature."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0001, 8.923],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 56.49216},
-      "experimental_configuration": {
-        "sample": "Fe56 single crystal, (Mg0.423Fe0.541 vacancy0.036)O, SigmaFe/(SigmaFe+Mg)=0.561(2), Fe3+/SigmaFe=0.13(2)",
-        "pressure_medium": "4:1 methanol-ethanol",
-        "pressure_cell": "four-pin beryllium-backed diamond-anvil cell with 0.6 mm culets",
-        "pressure_gauge": "single-crystal alpha-quartz internal diffraction standard of Angel et al. (1997); ruby fluorescence used only for quick between-measurement estimates",
-        "diffraction": "single-crystal X-ray diffraction on a Huber four-circle diffractometer in fixed-phi mode",
-        "temperature": "room/ambient temperature; no numeric thermometer reading reported"
-      },
       "notes": "The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.",
       "fit_datasets": ["magnesiowustite_fe56_jacobsen_2002_table4_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Jacobsen", "Reichmann", "Spetzler", "Mackwell", "Smyth", "Angel", "McCammon"],
         "year": 2002,
@@ -56,13 +55,15 @@
         "locator": "2037; ECV 4-1-ECV 4-14",
         "doi": "10.1029/2001JB000490"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source defines a three-free-parameter, error-weighted BM3 fit to all 11 Fe56 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/magnesiowustite_fe56.audit.json#magnesiowustite_fe56_jacobsen_2002_bm3_1"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 56.49216},
+      "experimental_configuration": {
+        "sample": "Fe56 single crystal, (Mg0.423Fe0.541 vacancy0.036)O, SigmaFe/(SigmaFe+Mg)=0.561(2), Fe3+/SigmaFe=0.13(2)",
+        "pressure_medium": "4:1 methanol-ethanol",
+        "pressure_cell": "four-pin beryllium-backed diamond-anvil cell with 0.6 mm culets",
+        "pressure_gauge": "single-crystal alpha-quartz internal diffraction standard of Angel et al. (1997); ruby fluorescence used only for quick between-measurement estimates",
+        "diffraction": "single-crystal X-ray diffraction on a Huber four-circle diffractometer in fixed-phi mode",
+        "temperature": "room/ambient temperature; no numeric thermometer reading reported"
       }
     }
   ],

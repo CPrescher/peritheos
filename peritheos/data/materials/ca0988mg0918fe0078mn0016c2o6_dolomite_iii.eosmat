@@ -10,6 +10,15 @@
     {
       "identifier": "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1",
       "label": "Mao et al. (2011), dolomite-III high-spin branch BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The primary source reports a composition-specific high-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed, while explicitly warning that V0 is unknown and strongly trades off with K0 and K0'.",
+        "audit": "../audits/ca0988mg0918fe0078mn0016c2o6_dolomite_iii.audit.json#ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,9 +27,7 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [26.0, 50.2],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_qualitatively",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [26.0, 50.2],
         "temperature_k": [300.0, 300.0],
@@ -30,8 +37,22 @@
           "V0 is a long metastable extrapolation because dolomite-III was observed only at high pressure."
         ]
       },
+      "experimental_pressure_range_gpa": [26.0, 50.2],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "No default_for is assigned because this is a bounded, metastable high-spin reference branch of a high-pressure phase.",
+      "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
+      "reference": {
+        "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
+        "year": 2011,
+        "title": "Dolomite III: A new candidate lower mantle carbonate",
+        "source": "Geophysical Research Letters",
+        "volume": "38",
+        "locator": "L22303",
+        "doi": "10.1029/2011GL049519"
+      },
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 187.159972},
       "sample_composition": "Natural Windham Fe-dolomite transformed by compression and laser annealing; electron-microprobe composition Ca0.988Mg0.918Fe0.078Mn0.016(CO3)2.",
@@ -42,31 +63,21 @@
         "pressure_gauge": "Pt pressure calibrant using Fei et al. (2007)",
         "diffraction": "angle-dispersive synchrotron XRD at GSECARS, Advanced Photon Source",
         "path": "room-temperature measurements after approximately 1500 K laser annealing during compression/decompression"
-      },
-      "notes": "No default_for is assigned because this is a bounded, metastable high-spin reference branch of a high-pressure phase.",
-      "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
-        "year": 2011,
-        "title": "Dolomite III: A new candidate lower mantle carbonate",
-        "source": "Geophysical Research Letters",
-        "volume": "38",
-        "locator": "L22303",
-        "doi": "10.1029/2011GL049519"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The primary source reports a composition-specific high-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed, while explicitly warning that V0 is unknown and strongly trades off with K0 and K0'.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/ca0988mg0918fe0078mn0016c2o6_dolomite_iii.audit.json#ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1"
       }
     },
     {
       "identifier": "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2",
       "label": "Mao et al. (2011), dolomite-III low-spin branch BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0: refit 228.74 vs published 231.8 (-1.3%), outside the combined error; K0: refit 209.4 vs published 184.0 GPa (+13.8%), outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The primary source reports a composition-specific low-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed and explicitly warns of the high-pressure extrapolation tradeoff.",
+        "audit": "../audits/ca0988mg0918fe0078mn0016c2o6_dolomite_iii.audit.json#ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -75,9 +86,7 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [46.2, 84.2],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_qualitatively",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [46.2, 84.2],
         "temperature_k": [300.0, 300.0],
@@ -87,8 +96,22 @@
           "V0 is a long extrapolation outside the observed stability range and is strongly correlated with K0."
         ]
       },
+      "experimental_pressure_range_gpa": [46.2, 84.2],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "No default_for is assigned because this is a bounded, metastable low-spin reference branch of a high-pressure phase.",
+      "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
+      "reference": {
+        "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
+        "year": 2011,
+        "title": "Dolomite III: A new candidate lower mantle carbonate",
+        "source": "Geophysical Research Letters",
+        "volume": "38",
+        "locator": "L22303",
+        "doi": "10.1029/2011GL049519"
+      },
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 187.159972},
       "sample_composition": "Same natural-composition monoclinic indexing phase as the high-spin record.",
@@ -99,26 +122,6 @@
         "pressure_gauge": "Pt pressure calibrant using Fei et al. (2007)",
         "diffraction": "angle-dispersive synchrotron XRD at GSECARS, Advanced Photon Source",
         "path": "room-temperature measurements after approximately 1500 K laser annealing during compression/decompression"
-      },
-      "notes": "No default_for is assigned because this is a bounded, metastable low-spin reference branch of a high-pressure phase.",
-      "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
-        "year": 2011,
-        "title": "Dolomite III: A new candidate lower mantle carbonate",
-        "source": "Geophysical Research Letters",
-        "volume": "38",
-        "locator": "L22303",
-        "doi": "10.1029/2011GL049519"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The primary source reports a composition-specific low-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed and explicitly warns of the high-pressure extrapolation tradeoff.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/ca0988mg0918fe0078mn0016c2o6_dolomite_iii.audit.json#ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2"
       }
     }
   ],

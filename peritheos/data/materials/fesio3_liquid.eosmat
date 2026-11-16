@@ -10,6 +10,15 @@
     {
       "identifier": "fesio3_liquid_sun_2019_2500k_bm4_1",
       "label": "Sun et al. (2019), liquid FeSiO3 2500 K BM4 reference",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The article explicitly defines a 2500 K BM4 reference isotherm and reports all four coefficients. Figure 1 states that circles are the liquid states used in the EOS fit and squares are nonliquid; matching the exact Table 1 P-V-T coordinates to symbol shape gives 40 circles and six squares without digitizing coordinates. At the Table 1 V/Vx=1 state (V=40.72 cm^3/mol), the converted executable BM4 gives 1.08485 GPa versus the printed 1.07(12) GPa.",
+        "audit": "../audits/fesio3_liquid.audit.json#fesio3_liquid_sun_2019_2500k_bm4_1"
+      },
       "model": "BM4",
       "temperature_ref": 2500.0,
       "parameters": {
@@ -19,9 +28,7 @@
         "K0_double_prime": {"value": -175.628, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 296.11],
-      "experimental_temperature_range_k": [2500.0, 2500.0],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 296.11],
         "temperature_k": [2500.0, 2500.0],
@@ -31,13 +38,13 @@
           "The numerical pressure envelope summarizes the reported FPMD grid and is not a phase-stability guarantee."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 296.11],
+      "experimental_temperature_range_k": [2500.0, 2500.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 131.928},
       "notes": "The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm. The exact 40-state liquid selection is bundled. The paper derives Cv from energy-temperature slopes and gamma from pressure-energy slopes before fitting their volume functions; the supporting information supplies those observations only as raster plots, whose regression-line slopes are now digitized in a separate dataset. The digitization closely recovers the published Cv function but cannot recover the authors' unknown relative weighting for the gamma function. Consequently, subtracting either rounded published or digitized thermal coefficients from Table 1 and freely fitting four BM4 coefficients remains an ill-conditioned sensitivity experiment, not a reproduction of the source regression.",
       "fit_datasets": ["fesio3_liquid_sun_2019_table1_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Sun", "Zhou", "Yin", "Lu"],
         "year": 2019,
@@ -47,14 +54,8 @@
         "locator": "3706-3716",
         "doi": "10.1029/2018GL081421"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The article explicitly defines a 2500 K BM4 reference isotherm and reports all four coefficients. Figure 1 states that circles are the liquid states used in the EOS fit and squares are nonliquid; matching the exact Table 1 P-V-T coordinates to symbol shape gives 40 circles and six squares without digitizing coordinates. At the Table 1 V/Vx=1 state (V=40.72 cm^3/mol), the converted executable BM4 gives 1.08485 GPa versus the printed 1.07(12) GPa.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/fesio3_liquid.audit.json#fesio3_liquid_sun_2019_2500k_bm4_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 131.928}
     }
   ],
   "aliases": ["liquid FeSiO3", "molten ferrosilite", "FeSiO3 melt"],

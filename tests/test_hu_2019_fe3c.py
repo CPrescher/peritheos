@@ -95,6 +95,8 @@ def test_saved_record_assessment_matches_ledger_and_existing_default(
 ):
     d = get_material_document("cementite_nonmagnetic", format_version=4)
     r = next(x for x in d["eos_records"] if x["identifier"] == IDENTIFIER)
+    # v4 exports write an explicit default flag beside default_for.
+    assert r.pop("default") is True
     assert_record_replay_close(r, catalog_record())
     entry = next(
         x
@@ -206,6 +208,23 @@ def test_native_and_compatibility_roundtrip_preserve_porosity_rows_and_scope(
             check = original["check"]
             assert check_block(reconstructed, restored, audit=check["audit"]) == check
             reconstructed["check"] = check
+    if version != 5:
+        # v3/v4 carry the default selection as per-record flags; the v5 file
+        # names it once in default_records.
+        for record in restored["eos_records"]:
+            category = d["default_records"].get(
+                "hugoniot" if record["model"] == "LinearUsUpHugoniot" else "equilibrium"
+            )
+            assert record.pop("default") is (record["identifier"] == category)
+            assert record.pop("default_for", None) == (
+                None
+                if record["identifier"] != category
+                else (
+                    "hugoniot"
+                    if record["model"] == "LinearUsUpHugoniot"
+                    else "equilibrium"
+                )
+            )
     assert restored["eos_records"] == d["eos_records"]
     assert restored["datasets"] == d["datasets"]
     chosen = Material.from_eosmat(out, record_identifiers=[IDENTIFIER])

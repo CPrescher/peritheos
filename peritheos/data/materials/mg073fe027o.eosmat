@@ -10,6 +10,15 @@
     {
       "identifier": "mg073fe027o_jacobsen_2005_bm3_1",
       "label": "Jacobsen et al. (2005), (Mg0.73Fe0.27)O BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source reports a cubic B1 Mg0.73Fe0.27O BM3 fit to all 16 Table 1 rows, with V0, K0, and K0' fitted.",
+        "audit": "../audits/mg073fe027o.audit.json#mg073fe027o_jacobsen_2005_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,9 +27,7 @@
         "K0_prime": {"value": 4.0, "error": 0.1}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 51.1],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 51.1],
         "temperature_k": [300.0, 300.0],
@@ -29,10 +36,12 @@
           "The source reports no phase transition or rhombohedral distortion over the experimental range."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 51.1],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "notes": "Published fit to all 16 Table 1 Fe27 observations from 0 to 51.1 GPa. V0, K0, and K0' are free parameters; none was fixed. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
       "fit_datasets": ["jacobsen_2005_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Jacobsen", "Lin", "Angel", "Shen", "Prakapenka", "Dera", "Mao", "Hemley"],
         "year": 2005,
@@ -41,14 +50,6 @@
         "volume": "12",
         "locator": "577-583",
         "doi": "10.1107/S0909049505022326"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source reports a cubic B1 Mg0.73Fe0.27O BM3 fit to all 16 Table 1 rows, with V0, K0, and K0' fitted.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg073fe027o.audit.json#mg073fe027o_jacobsen_2005_bm3_1"
       }
     }
   ],

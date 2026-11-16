@@ -10,6 +10,15 @@
     {
       "identifier": "fes_vi_morard_2026_bm3_mgd",
       "label": "Morard et al. (2026), FeS BM3-MGD",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-19",
+        "source_note": "Published BM3-MGD coefficients accepted unchanged on parameter agreement, following the 2026-10-19 maintainer decision. The confirmed selected author input has 21 literature cold and 146 thermal rows, excluding all 11 unsuitable quenched rows. Weighted and equal-weight cold-then-thermal EosFit fits recover all three cold coefficients within published error widths; equal-weight gamma0 is inside the published width and the weighted gamma0 interval overlaps it. Actual distributed-GUI fits agree closely with the console. Reconstruction remains classified similar: source error confidence and cross-fit covariance are unspecified and thermal errors condition on fixed cold coefficients. The staged weighted GUI thermal replay has RMS 1.63 GPa, maximum 5.29 GPa, and 12/146 rows outside +/-3 GPa. This residual-reporting discrepancy does not block use; exact original author-workflow reproduction is not claimed. See docs/literature-reproductions/fes-gui-replay.md and docs/literature-reproductions/fes-eosfit-direct.md.",
+        "audit": "../audits/fes_vi.audit.json#fes_vi_morard_2026_bm3_mgd"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -32,13 +41,12 @@
       "experimental_pressure_range_gpa": [29.59643816464321, 149.9480701694589],
       "experimental_temperature_range_k": [300, 2590.0],
       "pressure_range_status": "reported_exactly",
-      "determination_method": "experimental",
-      "default": false,
-      "notes": "One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. Accepted on staged parameter agreement within reported uncertainties. The residual-envelope discrepancy is informational; exact author workflow is unverified. Use the common EOS within the paper's 40-150 GPa scope and observed thermal coverage; this is not a phase-stability guarantee.",
       "range_provenance": {
         "source_location": "Table S1, Sheet1 A3:M148; Section III.D and Figure 6",
         "notes": "Marginal source coverage, not a rectangular phase-stability field. Thermal observations span 29.5964-149.9481 GPa and 1220-2590 K; 300 K denotes the separately fitted literature reference isotherm. The paper describes a 40-150 GPa model range. All supplied rows are retained; neither FeS-VI stability nor common-model applicability below 40 GPa is asserted."
       },
+      "determination_method": "experimental",
+      "notes": "One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. Accepted on staged parameter agreement within reported uncertainties. The residual-envelope discrepancy is informational; exact author workflow is unverified. Use the common EOS within the paper's 40-150 GPa scope and observed thermal coverage; this is not a phase-stability guarantee.",
       "fit_datasets": ["fes_morard_2026_table_s1_pvt"],
       "reference": {
         "authors": ["Morard", "Antonangeli", "Miozzi", "Baron", "Edmund", "Cerantola", "Mezouar"],
@@ -48,14 +56,6 @@
         "volume": "10",
         "locator": "063605",
         "doi": "10.1103/h4pj-rvxx"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Published BM3-MGD coefficients accepted unchanged on parameter agreement, following the 2026-10-19 maintainer decision. The confirmed selected author input has 21 literature cold and 146 thermal rows, excluding all 11 unsuitable quenched rows. Weighted and equal-weight cold-then-thermal EosFit fits recover all three cold coefficients within published error widths; equal-weight gamma0 is inside the published width and the weighted gamma0 interval overlaps it. Actual distributed-GUI fits agree closely with the console. Reconstruction remains classified similar: source error confidence and cross-fit covariance are unspecified and thermal errors condition on fixed cold coefficients. The staged weighted GUI thermal replay has RMS 1.63 GPa, maximum 5.29 GPa, and 12/146 rows outside +/-3 GPa. This residual-reporting discrepancy does not block use; exact original author-workflow reproduction is not claimed. See docs/literature-reproductions/fes-gui-replay.md and docs/literature-reproductions/fes-eosfit-direct.md.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-19",
-        "audit": "../audits/fes_vi.audit.json#fes_vi_morard_2026_bm3_mgd"
       }
     }
   ],

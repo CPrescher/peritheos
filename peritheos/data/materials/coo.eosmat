@@ -9,6 +9,16 @@
     {
       "identifier": "coo_clendenen_1966_murnaghan_1",
       "label": "Clendenen and Drickamer (1966), CoO Murnaghan",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0': refit 5.15 vs published 3.9 (+32.0%), not similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The CoO record is the empirical whole-range Murnaghan fit printed in Table VI, not a Birch-Murnaghan fit. V0 is calculated from the Table II ambient cubic lattice parameter. The paper prints no parameter errors or covariance and cautions both that B0 and B0' need not equal the true one-atmosphere derivatives and that calculated pressures are insensitive to their exact individual values when the pair is properly balanced.",
+        "audit": "../audits/coo.audit.json#coo_clendenen_1966_murnaghan_1"
+      },
       "model": "Murnaghan",
       "parameters": {
         "V0": {"value": 77.199941512, "error": null, "fixed": true},
@@ -27,14 +37,6 @@
         "volume": "44",
         "locator": "4223-4228",
         "doi": "10.1063/1.1726610"
-      },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "The CoO record is the empirical whole-range Murnaghan fit printed in Table VI, not a Birch-Murnaghan fit. V0 is calculated from the Table II ambient cubic lattice parameter. The paper prints no parameter errors or covariance and cautions both that B0 and B0' need not equal the true one-atmosphere derivatives and that calculated pressures are insensitive to their exact individual values when the pair is properly balanced.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/coo.audit.json#coo_clendenen_1966_murnaghan_1"
       }
     }
   ],

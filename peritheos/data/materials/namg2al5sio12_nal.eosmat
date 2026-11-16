@@ -6,10 +6,21 @@
   "phase": "new aluminous (NAL) phase, hexagonal P63/m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
+  "default_records": {"equilibrium": "namg2al5sio12_nal_kawai_2012_bm3_1"},
   "eos_records": [
     {
       "identifier": "namg2al5sio12_nal_kawai_2012_bm3_1",
       "label": "Kawai and Tsuchiya (2012), NaMg2Al5SiO12 NAL static-LDA BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "No error available to test V0, K0 and K0' against the combined-error rule; all marked similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 NAL. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.",
+        "audit": "../audits/namg2al5sio12_nal.audit.json#namg2al5sio12_nal_kawai_2012_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -18,9 +29,7 @@
         "K0_prime": {"value": 4.08, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 50.0],
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 50.0],
         "temperature_k": [0.0, 0.0],
@@ -30,23 +39,13 @@
           "Static LDA record; no thermal correction is included."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 50.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "sample_composition": "Exactly NaMg2Al5SiO12 (33Na-67Mg), represented by eight 63-atom 1x1x3 ordered NAL supercells",
-      "computational_configuration": {
-        "method": "density-functional theory in the local-density approximation",
-        "code": "PWSCF / Quantum ESPRESSO",
-        "plane_wave_cutoff_ry": 50.0,
-        "k_point_grid": [2, 2, 2],
-        "relaxation": "damped variable-cell-shape constant-pressure molecular dynamics; all structural parameters relaxed to residual forces below 5.0e-5 Ry/a.u.",
-        "configuration_sampling": "eight 1x1x3 supercells with distinct Na/vacancy and Al/Si orderings"
-      },
       "notes": "Published static-theory parameterization. All three printed coefficients are treated as fitted; no statistical errors are reported. There is no pressure calibration.",
       "fit_datasets": ["namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Kawai", "Tsuchiya"],
         "year": 2012,
@@ -56,13 +55,15 @@
         "locator": "305-314",
         "doi": "10.2138/am.2012.3915"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 NAL. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/namg2al5sio12_nal.audit.json#namg2al5sio12_nal_kawai_2012_bm3_1"
+      "equation_kind": "isothermal",
+      "sample_composition": "Exactly NaMg2Al5SiO12 (33Na-67Mg), represented by eight 63-atom 1x1x3 ordered NAL supercells",
+      "computational_configuration": {
+        "method": "density-functional theory in the local-density approximation",
+        "code": "PWSCF / Quantum ESPRESSO",
+        "plane_wave_cutoff_ry": 50.0,
+        "k_point_grid": [2, 2, 2],
+        "relaxation": "damped variable-cell-shape constant-pressure molecular dynamics; all structural parameters relaxed to residual forces below 5.0e-5 Ry/a.u.",
+        "configuration_sampling": "eight 1x1x3 supercells with distinct Na/vacancy and Al/Si orderings"
       }
     }
   ],

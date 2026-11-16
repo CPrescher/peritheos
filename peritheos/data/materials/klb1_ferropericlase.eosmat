@@ -10,6 +10,16 @@
     {
       "identifier": "klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt",
       "label": "Ricolleau et al. (2009), KLB-1 high-spin ferropericlase thermal BM2",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "alpha0: refit 2.76e-05 vs published 2.2e-05 (+25.4%), outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Independent high-spin reference thermal BM2 fit.",
+        "audit": "../audits/klb1_ferropericlase.audit.json#klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -28,9 +38,7 @@
         "reference_volume_law": "integrated_expansivity"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [30.0, 112.0],
-      "experimental_temperature_range_k": [300.0, 2569.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [30.0, 112.0],
         "temperature_k": [300.0, 2569.0],
@@ -39,12 +47,12 @@
           "No record-level molar mass is encoded because the coexisting phase composition evolves and the source gives only an approximate Mg0.80Fe0.20O description."
         ]
       },
+      "experimental_pressure_range_gpa": [30.0, 112.0],
+      "experimental_temperature_range_k": [300.0, 2569.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "sample_composition": "Pyrolitic ferropericlase; high-temperature behavior is stated to be reproduced by approximately (Mg0.80Fe0.20)O.",
       "fit_datasets": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Ricolleau",
@@ -66,18 +74,21 @@
         "locator": "L06302",
         "doi": "10.1029/2008GL036759"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Independent high-spin reference thermal BM2 fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/klb1_ferropericlase.audit.json#klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt"
-      }
+      "equation_kind": "thermal",
+      "sample_composition": "Pyrolitic ferropericlase; high-temperature behavior is stated to be reproduced by approximately (Mg0.80Fe0.20)O."
     },
     {
       "identifier": "klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2",
       "label": "Ricolleau et al. (2009), KLB-1 low-spin ferropericlase 300 K BM2",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Independent room-temperature low-spin BM2 branch.",
+        "audit": "../audits/klb1_ferropericlase.audit.json#klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -85,9 +96,7 @@
         "K0": {"value": 170.0, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [50.0, 112.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_qualitatively",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [50.0, 112.0],
         "temperature_k": [300.0, 300.0],
@@ -96,12 +105,12 @@
           "No record-level molar mass is encoded because the exact coexisting phase composition is not fixed by the source."
         ]
       },
+      "experimental_pressure_range_gpa": [50.0, 112.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "sample_composition": "Low-spin branch of pyrolitic ferropericlase at room temperature.",
       "fit_datasets": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Ricolleau",
@@ -123,14 +132,8 @@
         "locator": "L06302",
         "doi": "10.1029/2008GL036759"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Independent room-temperature low-spin BM2 branch.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/klb1_ferropericlase.audit.json#klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2"
-      }
+      "equation_kind": "isothermal",
+      "sample_composition": "Low-spin branch of pyrolitic ferropericlase at room temperature."
     }
   ],
   "aliases": [

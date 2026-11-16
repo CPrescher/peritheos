@@ -10,6 +10,15 @@
     {
       "identifier": "mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3",
       "label": "Akber-Knutson et al. (2005), static GGA OVM BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.",
+        "audit": "../audits/mgal0125si0875o29375_bridgmanite.audit.json#mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 0,
       "parameters": {
@@ -18,8 +27,7 @@
         "K0_prime": {"value": 3.96, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [-9.47989151, 216.7608449],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [-9.47989151, 216.7608449],
         "temperature_k": [0, 0],
@@ -29,13 +37,11 @@
           "The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [-9.47989151, 216.7608449],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 99.2491},
-      "sample_composition": "Static 0 K OVM model with 6.25 mol.% Al2O3 substitution; Table 1 values are normalized to an approximately five-atom formula basis.",
       "notes": "No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Akber-Knutson", "Steinle-Neumann", "Asimow"],
         "year": 2005,
@@ -45,14 +51,9 @@
         "locator": "L14303",
         "doi": "10.1029/2005GL023192"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mgal0125si0875o29375_bridgmanite.audit.json#mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 99.2491},
+      "sample_composition": "Static 0 K OVM model with 6.25 mol.% Al2O3 substitution; Table 1 values are normalized to an approximately five-atom formula basis."
     }
   ],
   "aliases": ["OVM 6.25 mol.% Al2O3 perovskite", "6.25 mol.% oxygen-vacancy Al bridgmanite model"],

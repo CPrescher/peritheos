@@ -6,10 +6,20 @@
   "phase": "orthorhombic perovskite (bridgmanite), Pbnm",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mg090fe009al0005ca0005sio3_bridgmanite_shieh_2006_bm3_1"},
   "eos_records": [
     {
       "identifier": "mg090fe009al0005ca0005sio3_bridgmanite_shieh_2006_bm3_1",
       "label": "Shieh et al. (2006), coexisting perovskite BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The coexisting pv EOS uses measured recovered V0=163.3(1) A^3, K0=255(10) GPa, and fixed K0'=3.7.",
+        "audit": "../audits/mg090fe009al0005ca0005sio3_bridgmanite.audit.json#mg090fe009al0005ca0005sio3_bridgmanite_shieh_2006_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,9 +28,7 @@
         "K0_prime": {"value": 3.7, "error": null, "fixed": true}
       },
       "parameter_error_confidence": 0.6826894921370859,
-      "experimental_pressure_range_gpa": [0.0, 106.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 106.0],
         "temperature_k": [300.0, 300.0],
@@ -29,21 +37,12 @@
           "Only the recovered V0 and 83-106 GPa coexisting-phase observations constrain this fit; the interval between them is an interpolation, not a densely sampled dataset."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 106.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "sample_composition": "Natural orthopyroxene starting material (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6; normalized Mg0.90Fe0.09Al0.005Ca0.005SiO3; pv and ppv coexisted after synthesis.",
-      "experimental_configuration": {
-        "sample": "Pbnm pv coexisting with Cmcm ppv after laser heating; V0 measured from recovered material.",
-        "pressure_medium": "argon or NaCl depending on run",
-        "pressure_cell": "symmetric diamond-anvil cells with 150 micrometre beveled culets and rhenium gaskets",
-        "pressure_gauge": "internal Pt, Au, or NaCl standards using Holmes et al. (1989), Shim et al. (2002), and Sata et al. (2002), respectively",
-        "diffraction": "angle-dispersive synchrotron XRD at GSECARS 13-ID-D and SPring-8 BL10XU",
-        "path": "300 K decompression without additional heating after synthesis"
-      },
       "fit_datasets": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_pv_digitized"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"],
         "year": 2006,
@@ -53,13 +52,15 @@
         "locator": "3039-3043",
         "doi": "10.1073/pnas.0506811103"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The coexisting pv EOS uses measured recovered V0=163.3(1) A^3, K0=255(10) GPa, and fixed K0'=3.7.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg090fe009al0005ca0005sio3_bridgmanite.audit.json#mg090fe009al0005ca0005sio3_bridgmanite_shieh_2006_bm3_1"
+      "equation_kind": "isothermal",
+      "sample_composition": "Natural orthopyroxene starting material (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6; normalized Mg0.90Fe0.09Al0.005Ca0.005SiO3; pv and ppv coexisted after synthesis.",
+      "experimental_configuration": {
+        "sample": "Pbnm pv coexisting with Cmcm ppv after laser heating; V0 measured from recovered material.",
+        "pressure_medium": "argon or NaCl depending on run",
+        "pressure_cell": "symmetric diamond-anvil cells with 150 micrometre beveled culets and rhenium gaskets",
+        "pressure_gauge": "internal Pt, Au, or NaCl standards using Holmes et al. (1989), Shim et al. (2002), and Sata et al. (2002), respectively",
+        "diffraction": "angle-dispersive synchrotron XRD at GSECARS 13-ID-D and SPring-8 BL10XU",
+        "path": "300 K decompression without additional heating after synthesis"
       }
     }
   ],

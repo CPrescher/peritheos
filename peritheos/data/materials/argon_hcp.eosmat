@@ -10,6 +10,14 @@
     {
       "identifier": "argon_hcp_wittlinger_1997_bm2_1",
       "label": "Wittlinger et al. (1997), hcp argon",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/argon_hcp.audit.json#argon_hcp_wittlinger_1997_bm2_1"
+      },
       "model": "BM2",
       "parameters": {
         "V0": {"value": 78.0, "error": 3.0},
@@ -26,13 +34,6 @@
         "volume": "53",
         "locator": "745-749",
         "doi": "10.1107/S0108768197005739"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/argon_hcp.audit.json#argon_hcp_wittlinger_1997_bm2_1"
       }
     }
   ],

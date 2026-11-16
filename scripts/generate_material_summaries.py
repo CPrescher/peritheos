@@ -127,8 +127,8 @@ def reconstruction(record: Mapping[str, Any], check: Mapping[str, Any]) -> list[
     source_warning = record.get("scientific_validation", {}).get("warning")
     if source_warning:
         lines.extend([f"**Warning (source review):** {text(source_warning)}", ""])
-    if check.get("finding"):
-        lines.extend([f"**Source finding:** {text(check['finding'])}", ""])
+    if check.get("source_note"):
+        lines.extend([f"**Source finding:** {text(check['source_note'])}", ""])
     return lines
 
 
@@ -430,7 +430,7 @@ def render_material(
         source_check = review.get("primary_source_check")
         if isinstance(source_check, Mapping) and source_check.get("finding") == checks[
             rid
-        ].get("finding"):
+        ].get("source_note"):
             review["primary_source_check"] = {
                 k: v for k, v in source_check.items() if k != "finding"
             }

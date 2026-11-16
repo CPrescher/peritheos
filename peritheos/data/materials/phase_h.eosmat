@@ -10,6 +10,15 @@
     {
       "identifier": "phase_h_tsuchiya_mookherjee_2015_gga_static_bm3",
       "label": "Tsuchiya and Mookherjee (2015), ordered phase H static GGA BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "One complete BM3 fit for ordered model-1 phase H at static 0 K.",
+        "audit": "../audits/phase_h.audit.json#phase_h_tsuchiya_mookherjee_2015_gga_static_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -18,9 +27,7 @@
         "K0_prime": {"value": 4.9, "error": 0.2}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 100.0],
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 100.0],
         "temperature_k": [0.0, 0.0],
@@ -28,12 +35,12 @@
           "Ordered P2/m model-1 branch. The source separately plots a metastable symmetric-hydrogen-bond extension; it is not an independent fitted EOS."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 100.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 118.399},
       "fit_datasets": ["phase_h_tsuchiya_mookherjee_2015_table1_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Tsuchiya", "Mookherjee"],
         "year": 2015,
@@ -43,14 +50,8 @@
         "locator": "15534",
         "doi": "10.1038/srep15534"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "One complete BM3 fit for ordered model-1 phase H at static 0 K.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/phase_h.audit.json#phase_h_tsuchiya_mookherjee_2015_gga_static_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 118.399}
     }
   ],
   "aliases": ["MgSiO4H2 phase H"],

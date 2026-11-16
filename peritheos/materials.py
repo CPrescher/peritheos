@@ -283,9 +283,18 @@ def _short_reference(reference: LiteratureReference) -> str:
     return f"{surname}{suffix} {reference.year}"
 
 
-def _record_check(record: EOSRecord) -> Mapping[str, Any]:
-    check = record._record_metadata().get("check")
-    return check if isinstance(check, Mapping) else {}
+_COMPARED_WORDS = {
+    "published_fit": "refit vs published fit",
+    "peritheos_refit": "rerun of a Peritheos refit",
+    "source_equation": "source equation rebuilt",
+    "none": "nothing compared",
+}
+
+
+def _check_line(reproduction: str, compared: str, why: str | None) -> str:
+    """``close (refit vs published fit). K0: ...`` for record summaries."""
+    text = f"{reproduction} ({_COMPARED_WORDS.get(compared, compared)})."
+    return text + (f" {_single_line(why)}" if why else "")
 
 
 def _display_parameter_blocks(
@@ -600,9 +609,44 @@ class EOSRecord:
         return str(self._headline()["reproduction"])
 
     @property
+    def compared(self) -> str:
+        """What :attr:`reproduction` refers to (``check.compared``).
+
+        ``"published_fit"`` (a refit compared with the published coefficients),
+        ``"peritheos_refit"`` (a separately defined Peritheos refit rerun),
+        ``"source_equation"`` (the source equation was rebuilt) or ``"none"``.
+        """
+        return str(self._headline()["compared"])
+
+    @property
+    def why(self) -> str | None:
+        """Generated reason for a ``close`` or ``disagrees`` headline, or ``None``.
+
+        Names the coefficients whose stored comparison failed (``check.why``).
+        """
+        value = self._headline()["why"]
+        return None if value is None else str(value)
+
+    @property
     def warning(self) -> str | None:
         """Short stored usage restriction (``check.warning``), or ``None``."""
         value = self._headline()["warning"]
+        return None if value is None else str(value)
+
+    @property
+    def source_check(self) -> str | None:
+        """Primary-source review: ``verified``, ``pending``, ``unresolved`` or ``deferred``.
+
+        ``check.source_check``; a fixed renaming of
+        :attr:`scientific_validation_status`. ``None`` when not recorded.
+        """
+        value = self._headline()["source_check"]
+        return None if value is None else str(value)
+
+    @property
+    def source_note(self) -> str | None:
+        """The primary-source check's finding (``check.source_note``), or ``None``."""
+        value = self._headline()["source_note"]
         return None if value is None else str(value)
 
     @property
@@ -669,8 +713,9 @@ class EOSRecord:
         """Return a compact multi-line description of this parameterization.
 
         Shows the model, coefficients with errors, the reference with DOI, the
-        calibration envelope, the reproduction headline, any warning and the
-        stored finding. It reads only the record itself, never the audit trail.
+        calibration envelope, the check headline with what it compared and
+        why, any warning, and the source check with its note. It reads only
+        the record itself, never the audit trail.
         """
         lines = [
             self.identifier + (" (default)" if self.is_default else ""),
@@ -678,7 +723,7 @@ class EOSRecord:
             f"  Material: {self.material}, {self.phase}",
             f"  Model: {_record_model_name(self)} ({self.equation_kind}); "
             f"reference temperature {_display_number(self.reference_temperature)} K",
-            f"  Reproduction: {self.reproduction}",
+            "  Check: " + _check_line(self.reproduction, self.compared, self.why),
             f"  Warning: {_single_line(self.warning) if self.warning else 'none'}",
         ]
         confidence = (
@@ -731,9 +776,14 @@ class EOSRecord:
             f"{_single_line(reference.title).rstrip('.')}."
             + (f" doi:{reference.doi}" if reference.doi else "")
         )
-        finding = _record_check(self).get("finding")
-        if finding:
-            lines.append(f"  Finding: {_single_line(str(finding))}")
+        if self.source_check is not None:
+            checked = self._headline()["source_checked_on"]
+            lines.append(
+                f"  Source check: {self.source_check}"
+                + (f" ({checked})" if checked else "")
+            )
+        if self.source_note:
+            lines.append(f"  Source note: {_single_line(self.source_note)}")
         return "\n".join(lines)
 
     @property
@@ -1239,7 +1289,7 @@ class _BundledAuditSource:
         if validation["status"] != record.scientific_validation_status:
             raise EosmatError(
                 f"Audit sidecar status for {record.identifier!r} contradicts the "
-                "record file check.source"
+                "record file check.source_check"
             )
         if name == "eosmat_metadata":
             return MappingProxyType(_plain_data(raw))
@@ -1637,9 +1687,11 @@ class Material:
     def summary(self) -> str:
         """Return a readable overview of the material and all its EOS records.
 
-        One row per record with model, calibration envelope, reproduction
-        headline and short reference. ``*`` marks the default record and ``!``
-        a record with a stored warning. It never loads the audit trail.
+        States the default record (or that none is designated, or the stored
+        hold reason), then one row per record, default first, with model,
+        calibration envelope, reproduction headline and short reference. ``*``
+        marks a designated default and ``!`` a record with a stored warning.
+        It never loads the audit trail.
         """
         title = self.name or self.identifier
         lines = [f"{title} ({self.identifier})" if title != self.identifier else title]
@@ -1651,9 +1703,27 @@ class Material:
         if self.family_id:
             lines.append(f"  Family: {self.family_id}")
         default = self.default_record()
-        lines.append(
-            "  default_record(): " + ("None" if default is None else default.identifier)
+        hold = self.eosmat_metadata.get("recommendation_hold")
+        hold = (
+            hold
+            if isinstance(hold, Mapping) and hold.get("status") == "on_hold"
+            else None
         )
+        if default is None:
+            lines.append(
+                "  Default: none (selection on hold)" if hold else "  Default: none"
+            )
+        elif default.is_default:
+            lines.append(
+                f"  Default: {_single_line(default.name)} ({default.identifier})"
+            )
+        else:
+            lines.append(
+                "  Default: none designated; the first record is used "
+                f"({default.identifier})"
+            )
+        if hold and hold.get("reason"):
+            lines.append(f"  Default hold: {_single_line(str(hold['reason']))}")
         count = len(self.eos_records)
         lines.append(
             f"  {count} EOS record{'s' if count != 1 else ''} "
@@ -1663,7 +1733,10 @@ class Material:
         header = ("", "identifier", "model", "P (GPa)", "T (K)", "reproduction")
         rows = [header]
         references = ["reference"]
-        for record in self.eos_records:
+        listed = ([default] if default is not None else []) + [
+            record for record in self.eos_records if record is not default
+        ]
+        for record in listed:
             markers = ("*" if record.is_default else "") + (
                 "!" if record.warning else ""
             )
@@ -1682,7 +1755,7 @@ class Material:
         for row, reference in zip(rows, references):
             cells = [f"{cell:<{width}}" for cell, width in zip(row, widths)]
             lines.append(("  " + "  ".join(cells) + "  " + reference).rstrip())
-        warned = [record for record in self.eos_records if record.warning]
+        warned = [record for record in listed if record.warning]
         if warned:
             lines.append("  Warnings:")
             lines.extend(
@@ -2200,6 +2273,9 @@ def _record_to_eosmat(
     result.pop("default_for", None)
     if record.is_default:
         result["default_for"] = "hugoniot" if record.is_hugoniot else "equilibrium"
+    if format_version in (3, 4):
+        # Historical readers get an explicit default flag on every record.
+        result["default"] = record.is_default
     reference_component = _merge_eosmat_component(
         result.get("eos"), _eosmat_component(reference_eos)
     )

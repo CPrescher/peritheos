@@ -6,10 +6,20 @@
   "phase": "rhombohedrally distorted Mw94",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
+  "default_records": {"equilibrium": "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1"},
   "eos_records": [
     {
       "identifier": "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1",
       "label": "Dobrosavljevic et al. (2019), Mw94 rhombohedral BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source defines an independent 12-row, 300 K rhombohedral BM3 fit with V0, K0, and K0-prime all refined and no stated prior or fixed coefficient.",
+        "audit": "../audits/mgfe94o_rhombohedral.audit.json#mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,9 +28,7 @@
         "K0_prime": {"value": 2.06, "error": 0.22}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [34.5, 88.7],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [34.5, 88.7],
         "temperature_k": [300.0, 300.0],
@@ -31,13 +39,13 @@
           "This is a structural branch, not a pure-spin phase-stability field."
         ]
       },
+      "experimental_pressure_range_gpa": [34.5, 88.7],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
       "notes": "Published rhombohedral parameterization on the Dewaele-2008 ruby scale. V0 is stored on a two-atom, one-formula-unit primitive EOS basis because the source does not publish a complete conventional-cell metric. All three coefficients were free; no numerical covariance matrix is available.",
       "fit_datasets": ["mgfe94o_dobrosavljevic_2019_table_s1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dobrosavljevic", "Sturhahn", "Jackson"],
         "year": 2019,
@@ -47,14 +55,7 @@
         "locator": "762",
         "doi": "10.3390/min9120762"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source defines an independent 12-row, 300 K rhombohedral BM3 fit with V0, K0, and K0-prime all refined and no stated prior or fixed coefficient.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mgfe94o_rhombohedral.audit.json#mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1"
-      }
+      "equation_kind": "isothermal"
     }
   ],
   "aliases": [

@@ -6,10 +6,20 @@
   "phase": "B1 ferropericlase",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mg0625fe0375o_leonov_2017_hs_bm3_1"},
   "eos_records": [
     {
       "identifier": "mg0625fe0375o_leonov_2017_hs_bm3_1",
       "label": "(Mg0.625Fe0.375)O B1 ferropericlase, Leonov et al. (2017) high-spin BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected.",
+        "audit": "../audits/mg0625fe0375o.audit.json#mg0625fe0375o_leonov_2017_hs_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 1160,
       "parameters": {
@@ -18,6 +28,7 @@
         "K0_prime": {"value": 4.1, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 61],
         "temperature_k": [1160, 1160],
@@ -28,10 +39,6 @@
       },
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.1315},
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Leonov", "Ponomareva", "Nazarov", "Abrikosov"],
         "year": 2017,
@@ -41,14 +48,8 @@
         "locator": "075136",
         "doi": "10.1103/PhysRevB.96.075136"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg0625fe0375o.audit.json#mg0625fe0375o_leonov_2017_hs_bm3_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.1315}
     }
   ],
   "aliases": [

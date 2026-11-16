@@ -10,6 +10,16 @@
     {
       "identifier": "mgsio3_liquid_akins_2004_adiabatic_bm3",
       "label": "Akins et al. (2004), candidate liquid MgSiO3 adiabatic BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "No error available to test V0 and K0 against the combined-error rule; all marked similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The paper reports a complete source-owned candidate liquid reference isentrope; LitCurate omitted the recoverable reference volume. The underlying author derivation confirms that measured shock observables are compared with a calculated Mie-Gruneisen offset from this isentrope, not fitted directly as BM3 P-V observations.",
+        "audit": "../audits/mgsio3_liquid.audit.json#mgsio3_liquid_akins_2004_adiabatic_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 298.15,
       "parameters": {
@@ -18,9 +28,7 @@
         "K0_prime": {"value": 4.0, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 206.0],
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "pressure_range_status": "reference_parameterization",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 206.0],
         "temperature_k": [298.15, 298.15],
@@ -29,14 +37,13 @@
           "The source's Gruneisen, heat-capacity, and transition-energy terms are not implied by this cold/reference-curve record."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 206.0],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 100.387},
-      "sample_composition": "Stoichiometric MgSiO3 high-pressure melt candidate constrained by shock states from MgSiO3 glass and enstatite starting materials.",
       "notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text. Retain in production as a published candidate reference isentrope with explicit qualification: it is not a direct P-rho fit, not a complete executable thermal Hugoniot, and not independently identifiable from the three melt states.",
       "fit_datasets": ["mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Akins", "Luo", "Asimow", "Ahrens"],
         "year": 2004,
@@ -46,14 +53,9 @@
         "locator": "L14612",
         "doi": "10.1029/2004GL020237"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The paper reports a complete source-owned candidate liquid reference isentrope; LitCurate omitted the recoverable reference volume. The underlying author derivation confirms that measured shock observables are compared with a calculated Mie-Gruneisen offset from this isentrope, not fitted directly as BM3 P-V observations.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mgsio3_liquid.audit.json#mgsio3_liquid_akins_2004_adiabatic_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 100.387},
+      "sample_composition": "Stoichiometric MgSiO3 high-pressure melt candidate constrained by shock states from MgSiO3 glass and enstatite starting materials."
     }
   ],
   "aliases": ["molten MgSiO3", "MgSiO3 melt"],

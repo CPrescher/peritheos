@@ -10,6 +10,15 @@
     {
       "identifier": "al2o3_perovskite_akber_knutson_2005_gga_bm3",
       "label": "Akber-Knutson et al. (2005), static GGA CCM BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.",
+        "audit": "../audits/al2o3_perovskite.audit.json#al2o3_perovskite_akber_knutson_2005_gga_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 0,
       "parameters": {
@@ -18,8 +27,7 @@
         "K0_prime": {"value": 4.03, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [-9.06596104, 211.30790612],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [-9.06596104, 211.30790612],
         "temperature_k": [0, 0],
@@ -29,13 +37,11 @@
           "The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [-9.06596104, 211.30790612],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 101.9601},
-      "sample_composition": "Static 0 K CCM model with 100 mol.% Al2O3 substitution; Table 1 values are normalized to an approximately five-atom formula basis.",
       "notes": "No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Akber-Knutson", "Steinle-Neumann", "Asimow"],
         "year": 2005,
@@ -45,18 +51,22 @@
         "locator": "L14303",
         "doi": "10.1029/2005GL023192"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/al2o3_perovskite.audit.json#al2o3_perovskite_akber_knutson_2005_gga_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 101.9601},
+      "sample_composition": "Static 0 K CCM model with 100 mol.% Al2O3 substitution; Table 1 values are normalized to an approximately five-atom formula basis."
     },
     {
       "identifier": "al2o3_perovskite_holland_2013_apv_modified_tait",
       "label": "Holland et al. (2013), apv modified Tait",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The apv endmember is a distinct modified-Tait reference isotherm.",
+        "audit": "../audits/al2o3_perovskite.audit.json#al2o3_perovskite_holland_2013_apv_modified_tait"
+      },
       "model": "ModifiedTait",
       "temperature_ref": 298.15,
       "parameters": {
@@ -65,18 +75,16 @@
         "K0_prime": {"value": 4.0, "error": null},
         "K0_double_prime": {"value": -0.02, "error": null}
       },
-      "experimental_pressure_range_gpa": [0.0001, 30.0],
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "pressure_range_status": "reference_parameterization",
       "validity": {
         "pressure_gpa": [0.0001, 30.0],
         "temperature_k": [298.15, 298.15],
         "notes": ["AlAlO3 perovskite thermodynamic endmember."]
       },
+      "experimental_pressure_range_gpa": [0.0001, 30.0],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "unknown",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 101.9601},
       "reference": {
         "authors": ["Holland", "Hudson", "Powell", "Harte"],
         "year": 2013,
@@ -86,14 +94,8 @@
         "locator": "1901-1920",
         "doi": "10.1093/petrology/egt035"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The apv endmember is a distinct modified-Tait reference isotherm.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/al2o3_perovskite.audit.json#al2o3_perovskite_holland_2013_apv_modified_tait"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 101.9601}
     }
   ],
   "aliases": ["CCM 100 mol.% Al2O3 perovskite", "Al2O3 perovskite model crystal"],

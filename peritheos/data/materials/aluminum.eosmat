@@ -9,6 +9,15 @@
     {
       "identifier": "aluminum_dewaele_2004_vinet_1",
       "label": "Dewaele et al. (2004), revised-ruby Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients.",
+        "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2004_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -17,13 +26,13 @@
         "K0_prime": {"value": 4.47, "error": 0.06}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 153.0],
-      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0, 153.0],
         "temperature_k": [298.0, 298.0],
         "notes": ["Published Table I data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [0.0, 153.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "notes": "Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'_R scale. Source-fixed parameters: V0. Published atomic V0 is converted to the material card's conventional-cell basis.",
       "reference": {
@@ -34,19 +43,20 @@
         "volume": "70",
         "locator": "094112",
         "doi": "10.1103/PhysRevB.70.094112"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2004_vinet_1"
       }
     },
     {
       "identifier": "aluminum_sokolova_2013_holzapfel_2",
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "audit": "../audits/aluminum.audit.json#aluminum_sokolova_2013_holzapfel_2"
+      },
       "model": "Holzapfel",
       "temperature_ref": 298.15,
       "parameters": {
@@ -89,19 +99,20 @@
         "locator": "181-199",
         "details": "Tables 1 and 4",
         "doi": "10.1016/j.rgg.2013.01.005"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/aluminum.audit.json#aluminum_sokolova_2013_holzapfel_2"
       }
     },
     {
       "identifier": "aluminum_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Al MAO-scale Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2019_mao_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -110,19 +121,18 @@
         "K0_prime": {"value": 4.16, "error": 0.06}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 155.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 155.0],
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [0.0, 155.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
       "fit_datasets": ["aluminum_dewaele_2004_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -130,18 +140,20 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2019_mao_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "aluminum_dewaele_2019_dor_vinet",
       "label": "Dewaele (2019), Al DOR-scale Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2019_dor_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -150,20 +162,18 @@
         "K0_prime": {"value": 4.52, "error": 0.06}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 155.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 155.0],
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [0.0, 155.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-      "pressure_scale_variant_of": "aluminum_dewaele_2019_mao_vinet",
       "fit_datasets": ["aluminum_dewaele_2004_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -171,18 +181,21 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2019_dor_vinet"
-      }
+      "equation_kind": "isothermal",
+      "pressure_scale_variant_of": "aluminum_dewaele_2019_mao_vinet"
     },
     {
       "identifier": "aluminum_dewaele_2004_mao_ruby_vinet",
       "label": "Dewaele et al. (2004), Al mao ruby Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
+        "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2004_mao_ruby_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -191,19 +204,17 @@
         "K0_prime": {"value": 4.16, "error": 0.05}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 144.3],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 144.3],
         "temperature_k": [298.0, 298.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [0.0, 144.3],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
-      "pressure_scale_variant_of": "aluminum_dewaele_2004_vinet_1",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele", "Loubeyre", "Mezouar"],
         "year": 2004,
@@ -211,14 +222,8 @@
         "source": "Physical Review B",
         "doi": "10.1103/PhysRevB.70.094112"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2004_mao_ruby_vinet"
-      }
+      "equation_kind": "isothermal",
+      "pressure_scale_variant_of": "aluminum_dewaele_2004_vinet_1"
     }
   ],
   "aliases": ["Aluminium"],

@@ -10,6 +10,15 @@
     {
       "identifier": "mgo_b2_zhang_bukowinski_1991_mpib_bm3",
       "label": "Zhang and Bukowinski (1991), MPIB B2 MgO",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Complete B2 coefficients on the Z=1 cell.",
+        "audit": "../audits/mgo_b2.audit.json#mgo_b2_zhang_bukowinski_1991_mpib_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -22,8 +31,6 @@
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 40.304},
       "reference": {
         "authors": ["Zhang", "Bukowinski"],
         "year": 1991,
@@ -33,14 +40,8 @@
         "locator": "2495-2503",
         "doi": "10.1103/PhysRevB.44.2495"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Complete B2 coefficients on the Z=1 cell.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mgo_b2.audit.json#mgo_b2_zhang_bukowinski_1991_mpib_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 40.304}
     }
   ],
   "aliases": ["CsCl-type MgO"],

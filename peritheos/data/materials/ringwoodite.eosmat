@@ -9,6 +9,14 @@
     {
       "identifier": "ringwoodite_meng_1994_bm3_1",
       "label": "Meng et al. (1994), 300 K BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/ringwoodite.audit.json#ringwoodite_meng_1994_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -27,13 +35,6 @@
         "volume": "21",
         "locator": "407-413",
         "doi": "10.1007/BF00203299"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/ringwoodite.audit.json#ringwoodite_meng_1994_bm3_1"
       }
     }
   ],

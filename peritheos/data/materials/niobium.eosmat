@@ -9,6 +9,15 @@
     {
       "identifier": "niobium_takemura_2006_bm3_1",
       "label": "Takemura and Singh (2006), helium-medium BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The adopted BM3 fit is the 0-71.5 GPa quasihydrostatic helium subset; the wider errors span the alternative fit through 134 GPa.",
+        "audit": "../audits/niobium.audit.json#niobium_takemura_2006_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -27,19 +36,20 @@
         "volume": "73",
         "locator": "224119",
         "doi": "10.1103/PhysRevB.73.224119"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The adopted BM3 fit is the 0-71.5 GPa quasihydrostatic helium subset; the wider errors span the alternative fit through 134 GPa.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/niobium.audit.json#niobium_takemura_2006_bm3_1"
       }
     },
     {
       "identifier": "niobium_sokolova_2013_holzapfel_2",
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "audit": "../audits/niobium.audit.json#niobium_sokolova_2013_holzapfel_2"
+      },
       "model": "Holzapfel",
       "temperature_ref": 298.15,
       "parameters": {
@@ -82,14 +92,6 @@
         "locator": "181-199",
         "details": "Tables 1 and 4",
         "doi": "10.1016/j.rgg.2013.01.005"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/niobium.audit.json#niobium_sokolova_2013_holzapfel_2"
       }
     }
   ],

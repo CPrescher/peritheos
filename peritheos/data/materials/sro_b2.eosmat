@@ -10,6 +10,15 @@
     {
       "identifier": "sro_b2_sato_1981_bm2_1",
       "label": "Sato and Jeanloz (1981), B2 SrO BM2",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-unit B2 conventional-cell volume; no covariance is published.",
+        "audit": "../audits/sro_b2.audit.json#sro_b2_sato_1981_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -28,14 +37,6 @@
         "volume": "86",
         "locator": "11773-11778",
         "doi": "10.1029/JB086iB12p11773"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-unit B2 conventional-cell volume; no covariance is published.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/sro_b2.audit.json#sro_b2_sato_1981_bm2_1"
       }
     }
   ],

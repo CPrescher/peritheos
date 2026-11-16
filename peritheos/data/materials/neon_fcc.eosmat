@@ -5,10 +5,20 @@
   "formula": "Ne",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "neon_fcc_fei_2007_vinet_2"},
   "eos_records": [
     {
       "identifier": "neon_fcc_fei_2007_bm3_1",
       "label": "Fei et al PNAS 2007 [BM3]",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
+        "audit": "../audits/neon_fcc.audit.json#neon_fcc_fei_2007_bm3_1"
+      },
       "model": "BM3",
       "parameters": {
         "V0": {"value": 88.967, "error": null, "fixed": true},
@@ -28,6 +38,7 @@
         "debye_temperature_law": "variable_exponent"
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [4.7, 115.0],
       "experimental_temperature_range_k": [300.0, 1000.0],
       "pressure_range_status": "reported_qualitatively",
@@ -39,6 +50,15 @@
         "neon_finger_1981_table1",
         "neon_fei_2007_figure5_1000k_digitized"
       ],
+      "reference": {
+        "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+        "year": 2007,
+        "title": "Toward an internally consistent pressure scale",
+        "source": "Proc. Natl. Acad. Sci. USA",
+        "volume": "104",
+        "locator": "9182-9186",
+        "doi": "10.1073/pnas.0609013104"
+      },
       "fit_data_sources": [
         {
           "source": "Fei et al. (2007), this study",
@@ -67,29 +87,20 @@
           "pressure_treatment": "Published Fei Pt scale; paired measured Pt volumes unavailable",
           "availability": "bundled_digitized"
         }
-      ],
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
-        "year": 2007,
-        "title": "Toward an internally consistent pressure scale",
-        "source": "Proc. Natl. Acad. Sci. USA",
-        "volume": "104",
-        "locator": "9182-9186",
-        "doi": "10.1073/pnas.0609013104"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/neon_fcc.audit.json#neon_fcc_fei_2007_bm3_1"
-      }
+      ]
     },
     {
       "identifier": "neon_fcc_fei_2007_vinet_2",
       "label": "Fei et al PNAS 2007 [Vinet]",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
+        "audit": "../audits/neon_fcc.audit.json#neon_fcc_fei_2007_vinet_2"
+      },
       "model": "Vinet",
       "parameters": {
         "V0": {"value": 88.967, "error": null, "fixed": true},
@@ -109,11 +120,11 @@
         "debye_temperature_law": "variable_exponent"
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [4.7, 115.0],
       "experimental_temperature_range_k": [300.0, 1000.0],
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
-      "default": true,
       "notes": "Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal parameters and Eq. 3 printed variable-exponent theta law, relative to 300 K. V0=88.967 A^3 is the fixed four-atom conventional fcc-cell volume for both branches; K0 and K0-prime remain specific to the cold equation. V0, theta0 and gamma0 are adopted source parameters; q=0.6(3) is retained with unspecified confidence/covariance. The room-temperature fit combined Finger (1981), Hemley (1989, recalculated to Dewaele 2004 ruby) and new Fei Pt/Au observations. All 14 Finger and 21 Hemley table rows, 13 separable new 300 K markers and six new 1000 K Pt-scale markers are bundled. Complete new rows, paired calibrant volumes and original weights are unrecovered. The 2000 K curve is a calculated extrapolation. See docs/literature-reproductions/fei-2007-neon.md; diagnostics do not replace published coefficients. Reported overall range is about 4.7-115 GPa; digitized/table recalculated endpoints carry their own rounding and can extend slightly above 115 GPa.",
       "fit_datasets": [
         "neon_fei_2007_figure5_digitized",
@@ -121,6 +132,15 @@
         "neon_finger_1981_table1",
         "neon_fei_2007_figure5_1000k_digitized"
       ],
+      "reference": {
+        "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+        "year": 2007,
+        "title": "Toward an internally consistent pressure scale",
+        "source": "Proc. Natl. Acad. Sci. USA",
+        "volume": "104",
+        "locator": "9182-9186",
+        "doi": "10.1073/pnas.0609013104"
+      },
       "fit_data_sources": [
         {
           "source": "Fei et al. (2007), this study",
@@ -149,29 +169,20 @@
           "pressure_treatment": "Published Fei Pt scale; paired measured Pt volumes unavailable",
           "availability": "bundled_digitized"
         }
-      ],
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
-        "year": 2007,
-        "title": "Toward an internally consistent pressure scale",
-        "source": "Proc. Natl. Acad. Sci. USA",
-        "volume": "104",
-        "locator": "9182-9186",
-        "doi": "10.1073/pnas.0609013104"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/neon_fcc.audit.json#neon_fcc_fei_2007_vinet_2"
-      }
+      ]
     },
     {
       "identifier": "neon_fcc_hemley_1989_bm3_refit",
       "label": "Hemley et al. (1989) Table I direct 300 K BM3 refit",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-04",
+        "source_note": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The stored coefficients are a Peritheos errors-in-variables fit to that table alone; the paper's published thermally reduced 0 K fit also includes the earlier Finger et al. low-pressure series.",
+        "audit": "../audits/neon_fcc.audit.json#neon_fcc_hemley_1989_bm3_refit"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -191,14 +202,6 @@
         "volume": "39",
         "locator": "11820-11827",
         "doi": "10.1103/PhysRevB.39.11820"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The stored coefficients are a Peritheos errors-in-variables fit to that table alone; the paper's published thermally reduced 0 K fit also includes the earlier Finger et al. low-pressure series.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/neon_fcc.audit.json#neon_fcc_hemley_1989_bm3_refit"
       }
     }
   ],

@@ -9,6 +9,14 @@
     {
       "identifier": "magnesium_bcc_stinton_2014_vinet_1",
       "label": "Stinton et al. (2014), bcc Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/magnesium_bcc.audit.json#magnesium_bcc_stinton_2014_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -28,13 +36,6 @@
         "volume": "90",
         "locator": "134105",
         "doi": "10.1103/PhysRevB.90.134105"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/magnesium_bcc.audit.json#magnesium_bcc_stinton_2014_vinet_1"
       }
     }
   ],

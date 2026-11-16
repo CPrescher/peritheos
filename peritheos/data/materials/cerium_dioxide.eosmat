@@ -9,6 +9,16 @@
     {
       "identifier": "cerium_dioxide_gerward_2005_bm3_1",
       "label": "Gerward et al. (2005), room-temperature BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0': refit 3.3 vs published 4.4 (-25.0%), not similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.",
+        "audit": "../audits/cerium_dioxide.audit.json#cerium_dioxide_gerward_2005_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -27,14 +37,6 @@
         "volume": "400",
         "locator": "56-61",
         "doi": "10.1016/j.jallcom.2005.04.008"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/cerium_dioxide.audit.json#cerium_dioxide_gerward_2005_bm3_1"
       }
     }
   ],

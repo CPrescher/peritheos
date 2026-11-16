@@ -121,10 +121,11 @@ def test_check_block_copies_stored_fields_verbatim():
     record = standalone(evidence=evidence("similar"))["eos_records"][0]
     assert check_block(record, audit="a.audit.json#example_bm3") == {
         "reproduction": "close",
+        "compared": "published_fit",
         "warning": None,
-        "finding": "Table 2 values match.",
-        "source": "primary_source_validated",
+        "source_check": "verified",
         "source_checked_on": "2026-01-02",
+        "source_note": "Table 2 values match.",
         "audit": "a.audit.json#example_bm3",
     }
 
@@ -147,7 +148,7 @@ def test_warning_uses_only_coded_restrictions():
         evidence={**evidence(), "reproduction": {"do_not_use": True}},
     )["eos_records"][0]
     assert usage_warning(flagged) == (
-        "Do not use. Explicit selection only; not loaded by default."
+        "Do not use. Never chosen automatically; select it explicitly."
     )
     held = {"recommendation_hold": {"status": "on_hold", "record": "example_bm3"}}
     assert usage_warning(coded, held) == (
@@ -195,11 +196,27 @@ def test_only_documented_statements_are_removed_and_numbers_are_bit_identical():
     for material in list_material_documents():
         before = json.loads(pre_split_bytes(material))
         merged = merged_document(material)
+        defaults = {}
         for old, new in zip(before["eos_records"], merged["eos_records"]):
             new = {k: v for k, v in new.items() if k != "check"}
+            flags = {k: old.pop(k) for k in ("default", "default_for") if k in old}
+            if flags.get("default") is True or flags.get("default_for"):
+                category = (
+                    "hugoniot"
+                    if old["model"] == "LinearUsUpHugoniot"
+                    else "equilibrium"
+                )
+                defaults[category] = old["identifier"]
             assert remove_generic_statements(old) == new
             for key in ("parameters", "thermal", "parameter_covariance"):
                 assert json.dumps(old.get(key)) == json.dumps(new.get(key))
+        # The per-record flags became one map naming exactly the same records.
+        assert merged.get("default_records", {}) == defaults
+        assert {
+            k: v
+            for k, v in merged.items()
+            if k not in ("eos_records", "default_records")
+        } == {k: v for k, v in before.items() if k != "eos_records"}
         assert json.dumps(before.get("datasets")) == json.dumps(merged.get("datasets"))
     generic = {*GENERIC_QUALIFICATIONS, *GENERIC_VALIDATION_NOTES}
     for path in AUDITS.glob("*.audit.json"):
@@ -289,6 +306,24 @@ def test_catalog_accessors_return_complete_evidence():
     assert by_id[record.identifier]["check"] == full["check"]
 
 
+def _default_flags_as_selection(document):
+    """Replace per-record default flags by the selection they express.
+
+    A ``default_records`` map is exported as ``default_for`` on the named
+    record; the pre-split files spelled the same selection as ``default:
+    true``, ``default_for`` or both, and marked others ``default: false``.
+    """
+    result = copy.deepcopy(document)
+    for record in result["eos_records"]:
+        flags = {
+            key: record.pop(key) for key in ("default", "default_for") if key in record
+        }
+        record["selected_default"] = bool(
+            flags.get("default") is True or flags.get("default_for")
+        )
+    return result
+
+
 def test_compatibility_exports_contain_the_full_evidence():
     for material in list_material_documents():
         full = get_material_document(material, format_version=5)
@@ -298,11 +333,23 @@ def test_compatibility_exports_contain_the_full_evidence():
         ]
         for version in (3, 4):
             exported = convert_eosmat(full, version=version)
-            assert exported == convert_eosmat(before, version=version)
+            assert "default_records" not in exported
+            # Identical apart from the spelling of the same default selection.
+            assert _default_flags_as_selection(exported) == _default_flags_as_selection(
+                convert_eosmat(before, version=version)
+            )
             assert all("check" not in r for r in exported["eos_records"])
+            if "default_records" in full:
+                for category, identifier in full["default_records"].items():
+                    record = next(
+                        r
+                        for r in exported["eos_records"]
+                        if r["identifier"] == identifier
+                    )
+                    assert record["default_for"] == category
         dioptas = get_material_document(material)
-        assert dioptas == convert_eosmat(
-            before, version=3, legacy_uncertainty_units=False
+        assert _default_flags_as_selection(dioptas) == _default_flags_as_selection(
+            convert_eosmat(before, version=3, legacy_uncertainty_units=False)
         )
         for record in dioptas["eos_records"]:
             assert "pressure_calibration" in record
@@ -355,10 +402,26 @@ def test_bundled_records_evaluate_identical_pressures_before_and_after():
                 new.pressure(volumes, temperature, check_validity=False),
             )
             assert old.parameter_errors == new.parameter_errors
+            assert old.parameter_error_confidence == new.parameter_error_confidence
             assert old.parameter_covariance == new.parameter_covariance
+            assert old.covariance_parameters == new.covariance_parameters
+            assert old.validity == new.validity
+            assert old.is_default == new.is_default
+            assert old.equation_kind == new.equation_kind
+            assert old.reproduction == new.reproduction
+            for key in ("record_kind", "fixed_parameters", "thermal"):
+                assert old.eosmat_metadata.get(key) == new.eosmat_metadata.get(key)
             assert old.scientific_validation_status == new.scientific_validation_status
             assert old.parameter_provenance == new.parameter_provenance
             assert old.pressure_calibration == new.pressure_calibration
+        for selector in (
+            "default_record",
+            "default_equilibrium_record",
+            "default_hugoniot_record",
+        ):
+            assert getattr(getattr(before, selector)(), "identifier", None) == getattr(
+                getattr(current, selector)(), "identifier", None
+            ), (material, selector)
 
 
 def test_standalone_inline_evidence_needs_no_sidecar(tmp_path):
@@ -558,3 +621,28 @@ def test_added_split_rejects_mixed_and_noncanonical_files(tmp_path):
     path.write_text(json.dumps(complete))
     with pytest.raises(ValueError, match="canonical"):
         split_added_materials(root=tmp_path, check_snapshot=False)
+
+
+def test_curator_inline_file_with_record_flags_splits_to_the_bundled_layout(tmp_path):
+    receipt_path = _split_catalog_copy(tmp_path, ["mgo"])
+    complete = get_material_document("mgo", format_version=5)
+    # A curator writes inline evidence with per-record default flags and no
+    # check blocks, in the current layout.
+    defaults = set(complete.pop("default_records").values())
+    assert len(defaults) == 2  # equilibrium and Hugoniot
+    for record in complete["eos_records"]:
+        record.pop("check")
+        if record["identifier"] in defaults:
+            record["default"] = True
+    path = tmp_path / "peritheos/data/materials/mgo.eosmat"
+    save_eosmat(path, complete)
+    inline = path.read_bytes()
+    assert split_added_materials(["mgo"], root=tmp_path, check_snapshot=False)
+    assert path.read_bytes() == (MATERIALS / "mgo.eosmat").read_bytes()
+    assert (tmp_path / "peritheos/data/audits/mgo.audit.json").read_bytes() == (
+        AUDITS / "mgo.audit.json"
+    ).read_bytes()
+    binding = json.loads(receipt_path.read_bytes())["materials"]["mgo"]
+    assert "layout" not in binding
+    assert binding["added_default_records"] is True
+    assert pre_split_bytes("mgo", root=tmp_path) == inline

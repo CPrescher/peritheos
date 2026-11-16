@@ -10,6 +10,15 @@
     {
       "identifier": "sro_liu_1973_bm3_1",
       "label": "Liu and Bassett (1973), SrO volumetric BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The first printed Birch formulation is the BM3 form represented by the record. The fixed ambient V0 error uses the paper's stated 0.3% volume accuracy. The fit spans a small reversible tetragonal distortion without a volume discontinuity.",
+        "audit": "../audits/sro.audit.json#sro_liu_1973_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 296.15,
       "parameters": {
@@ -30,14 +39,6 @@
         "volume": "78",
         "locator": "8470-8473",
         "doi": "10.1029/JB078i035p08470"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The first printed Birch formulation is the BM3 form represented by the record. The fixed ambient V0 error uses the paper's stated 0.3% volume accuracy. The fit spans a small reversible tetragonal distortion without a volume discontinuity.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/sro.audit.json#sro_liu_1973_bm3_1"
       }
     }
   ],

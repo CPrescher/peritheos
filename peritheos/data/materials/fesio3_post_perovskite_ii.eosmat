@@ -6,10 +6,20 @@
   "phase": "Cmmm post-perovskite-II (PPv-II), high-spin antiferromagnetic",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1"},
   "eos_records": [
     {
       "identifier": "fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1",
       "label": "Cohen and Lin (2014), static GGA+U FeSiO3 PPv-II Vinet",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The final paper introduces Cmmm PPv-II and reports its full 100 GPa structure and a separate Vinet fit. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.",
+        "audit": "../audits/fesio3_post_perovskite_ii.audit.json#fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 0.0,
       "parameters": {
@@ -18,8 +28,7 @@
         "K0_prime": {"value": 4.67, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [-10.0, 150.0],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [-10.0, 150.0],
         "temperature_k": [0.0, 0.0],
@@ -30,14 +39,11 @@
           "The eight energy calculations correspond to -10 through 150 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [-10.0, 150.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
-      "sample_composition": "Stoichiometric FeSiO3 PPv-II; static high-spin antiferromagnetic GGA+U model crystal.",
       "notes": "Retain as a directly published Vinet parameterization, without implying Cmmm stability across the whole mathematical interval. Keep not_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Cohen", "Lin"],
         "year": 2014,
@@ -47,14 +53,9 @@
         "locator": "140102(R)",
         "doi": "10.1103/PhysRevB.90.140102"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The final paper introduces Cmmm PPv-II and reports its full 100 GPa structure and a separate Vinet fit. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/fesio3_post_perovskite_ii.audit.json#fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
+      "sample_composition": "Stoichiometric FeSiO3 PPv-II; static high-spin antiferromagnetic GGA+U model crystal."
     }
   ],
   "aliases": ["FeSiO3 PPv-II", "Cohen-Lin FeSiO3 Cmmm phase"],

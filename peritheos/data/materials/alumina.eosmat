@@ -10,6 +10,15 @@
     {
       "identifier": "alumina_dewaele_2013_vinet_1",
       "label": "Dewaele and Torrent (2013), Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.",
+        "audit": "../audits/alumina.audit.json#alumina_dewaele_2013_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -29,19 +38,20 @@
         "volume": "88",
         "locator": "064107",
         "doi": "10.1103/PhysRevB.88.064107"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/alumina.audit.json#alumina_dewaele_2013_vinet_1"
       }
     },
     {
       "identifier": "alumina_shi_2022_bm3_mgd_2",
       "label": "Shi et al. (2022), selected BM3-MGD corundum model 3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source reports one selected BM3-MGD corundum parameterization, not three interchangeable BM3 records. Model 3 fixes the conventional-cell V0, K0', and theta0 and fits K0, gamma0, and q. The complete Table S1 reproduces those coefficients under an unweighted pressure-residual refit.",
+        "audit": "../audits/alumina.audit.json#alumina_shi_2022_bm3_mgd_2"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -60,14 +70,13 @@
         },
         "debye_temperature_law": "integrated_gruneisen"
       },
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 97.7],
       "experimental_temperature_range_k": [300.0, 2980.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "default": false,
       "notes": "Published corundum model 3 selected in main Table 1 and Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V [E_D(V,T)-E_D(V,300 K)], gamma=gamma0(V/V0)^q, and theta=theta0 exp[-(gamma-gamma0)/q], with n=5 atoms per Al2O3 formula unit. V0=255.1 A^3 is the fixed conventional six-formula-unit hexagonal corundum cell from Lutterotti and Scardi (1990); K0, gamma0, and q were fitted, while K0', V0, theta0, Tr, and n were fixed. Main Table 1 reports K0=246(2) GPa for the selected model, whereas sensitivity Table 2 reports 246(1) GPa; the selected-table uncertainty is retained and the discrepancy is explicit. Table 2's 500 K and 800 K Debye-temperature trials are sensitivity fits, not additional preferred records. All 75 Table S1 observations are bundled: 59 are grouped under Pt pressures (including the fixed 0 GPa reference row) and 16 under NaCl pressures. The source does not state an uncertainty confidence convention or coefficient covariance matrix. An independent unweighted Peritheos fit of pressure residuals at all 75 printed V-T states, with the published fixed parameters, returns K0=246.3083 GPa, gamma0=1.35931, and q=0.800868; all reproduce the published coefficients within their reported uncertainties. The published curve has a 1.23305 GPa pressure RMSE and the refit has a 1.19139 GPa RMSE. Weighting by the tabulated coordinate uncertainties does not recover q, so the parity result is specifically identified as an unweighted pressure-residual reproduction rather than an undocumented reconstruction of the authors' weighting.",
       "fit_datasets": ["alumina_shi_2022_table_s1_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Shi", "Wei", "Sun", "Mao", "Prakapenka"],
         "year": 2022,
@@ -76,14 +85,6 @@
         "volume": "127",
         "locator": "e2021JB023805",
         "doi": "10.1029/2021JB023805"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source reports one selected BM3-MGD corundum parameterization, not three interchangeable BM3 records. Model 3 fixes the conventional-cell V0, K0', and theta0 and fits K0, gamma0, and q. The complete Table S1 reproduces those coefficients under an unweighted pressure-residual refit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/alumina.audit.json#alumina_shi_2022_bm3_mgd_2"
       }
     }
   ],

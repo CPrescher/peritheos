@@ -10,6 +10,16 @@
     {
       "identifier": "lead_hcp_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Pb MAO-scale Vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "V0: refit 58.8377 vs published 56.126 (+4.8%), outside the combined error; K0': refit 3.3 vs published 4.4 (-24.9%), outside the combined error and not similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/lead_hcp.audit.json#lead_hcp_dewaele_2019_mao_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,18 +28,17 @@
         "K0_prime": {"value": 4.4, "error": 0.08}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [13.0, 131.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [13.0, 131.0],
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [13.0, 131.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -37,18 +46,21 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/lead_hcp.audit.json#lead_hcp_dewaele_2019_mao_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "lead_hcp_dewaele_2019_dor_vinet",
       "label": "Dewaele (2019), Pb DOR-scale Vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "V0 (+4.9%): outside the combined error; K0' (-30.7%): outside the combined error and not similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/lead_hcp.audit.json#lead_hcp_dewaele_2019_dor_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -57,19 +69,17 @@
         "K0_prime": {"value": 4.77, "error": 0.08}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [13.0, 131.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [13.0, 131.0],
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [13.0, 131.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-      "pressure_scale_variant_of": "lead_hcp_dewaele_2019_mao_vinet",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -77,18 +87,21 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/lead_hcp.audit.json#lead_hcp_dewaele_2019_dor_vinet"
-      }
+      "equation_kind": "isothermal",
+      "pressure_scale_variant_of": "lead_hcp_dewaele_2019_mao_vinet"
     },
     {
       "identifier": "lead_hcp_kuznetsov_2002_bm3_3",
       "label": "Kuznetsov et al. (2002), 296 K hcp BM3 slice",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61.",
+        "audit": "../audits/lead_hcp.audit.json#lead_hcp_kuznetsov_2002_bm3_3"
+      },
       "model": "BM3",
       "temperature_ref": 296.0,
       "parameters": {
@@ -96,9 +109,7 @@
         "K0": {"value": 54.2, "error": null},
         "K0_prime": {"value": 3.61, "error": null}
       },
-      "experimental_pressure_range_gpa": [12.0, 40.0],
-      "experimental_temperature_range_k": [296.0, 296.0],
-      "pressure_range_status": "reported_qualitatively",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [12.0, 40.0],
         "temperature_k": [296.0, 296.0],
@@ -107,10 +118,22 @@
           "At room temperature transformation begins near 12 GPa and fcc-hcp coexistence persists to about 20 GPa; this is not a sharp equilibrium stability boundary."
         ]
       },
+      "experimental_pressure_range_gpa": [12.0, 40.0],
+      "experimental_temperature_range_k": [296.0, 296.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit_fortes_2019_fcc_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.",
+      "reference": {
+        "authors": ["A. Kuznetsov", "V. Dmitriev", "L. Dubrovinsky", "V. Prakapenka", "H.-P. Weber"],
+        "year": 2002,
+        "title": "FCC-HCP phase boundary in lead",
+        "source": "Solid State Communications",
+        "volume": "122",
+        "locator": "125-127",
+        "doi": "10.1016/S0038-1098(02)00112-6"
+      },
+      "equation_kind": "isothermal",
       "published_fit_provenance": {
         "software": {"name": "not reported", "version": "not reported"},
         "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
@@ -133,24 +156,6 @@
           "partial_fit_is_reported_fit": false,
           "reason": "Figure 3 is a plot of direct and source-reduced markers, not the complete original P-V-T table or regression protocol."
         }
-      },
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["A. Kuznetsov", "V. Dmitriev", "L. Dubrovinsky", "V. Prakapenka", "H.-P. Weber"],
-        "year": 2002,
-        "title": "FCC-HCP phase boundary in lead",
-        "source": "Solid State Communications",
-        "volume": "122",
-        "locator": "125-127",
-        "doi": "10.1016/S0038-1098(02)00112-6"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/lead_hcp.audit.json#lead_hcp_kuznetsov_2002_bm3_3"
       }
     }
   ],

@@ -9,6 +9,15 @@
     {
       "identifier": "zinc_oxide_rocksalt_hanna_2011_bm2_1",
       "label": "Hanna et al. (2011), rocksalt BM2",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0: refit 205.84 vs published 172.0 GPa (+19.7%), not similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/zinc_oxide_rocksalt.audit.json#zinc_oxide_rocksalt_hanna_2011_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -27,13 +36,6 @@
         "volume": "110",
         "locator": "073511",
         "doi": "10.1063/1.3644969"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/zinc_oxide_rocksalt.audit.json#zinc_oxide_rocksalt_hanna_2011_bm2_1"
       }
     }
   ],

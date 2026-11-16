@@ -6,10 +6,20 @@
   "phase": "b2",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
+  "default_records": {"equilibrium": "fesi_b2_fischer_2014_bm3_refit"},
   "eos_records": [
     {
       "identifier": "fesi_b2_fischer_2014_bm3_refit",
       "label": "Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "peritheos_refit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-19",
+        "source_note": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.",
+        "audit": "../audits/fesi_b2.audit.json#fesi_b2_fischer_2014_bm3_refit"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -29,22 +39,6 @@
         "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [42.74768265572292, 146.9148894617161],
-      "experimental_temperature_range_k": [1162.665, 3146.8],
-      "pressure_range_status": "reported_exactly",
-      "determination_method": "experimental",
-      "record_kind": "refit",
-      "equation_kind": "thermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "sample_composition": "Stoichiometric FeSi; only observations labelled B2 in Table S2.",
-      "notes": "Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.",
-      "range_provenance": {
-        "source_location": "Fischer (2014), official Table S2",
-        "selection": "All 114 rows with exact phase=B2; no B20+B2 rows",
-        "note": "Marginal measured bounds, not a rectangular phase-stability domain; no validation for core extrapolation."
-      },
-      "fit_datasets": ["fischer_2014_table_s2_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.K0", "gamma0", "q"],
         "matrix": [
@@ -53,6 +47,18 @@
           [1.1770055611380172, 0.09088578309381642, 0.32064984119889434]
         ]
       },
+      "experimental_pressure_range_gpa": [42.74768265572292, 146.9148894617161],
+      "experimental_temperature_range_k": [1162.665, 3146.8],
+      "pressure_range_status": "reported_exactly",
+      "range_provenance": {
+        "source_location": "Fischer (2014), official Table S2",
+        "selection": "All 114 rows with exact phase=B2; no B20+B2 rows",
+        "note": "Marginal measured bounds, not a rectangular phase-stability domain; no validation for core extrapolation."
+      },
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "notes": "Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.",
+      "fit_datasets": ["fischer_2014_table_s2_pvt"],
       "reference": {
         "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
         "year": 2014,
@@ -62,18 +68,21 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-19",
-        "audit": "../audits/fesi_b2.audit.json#fesi_b2_fischer_2014_bm3_refit"
-      }
+      "equation_kind": "thermal",
+      "sample_composition": "Stoichiometric FeSi; only observations labelled B2 in Table S2."
     },
     {
       "identifier": "fesi_b2_fischer_2014_vinet_refit",
       "label": "Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "peritheos_refit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-19",
+        "source_note": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.",
+        "audit": "../audits/fesi_b2.audit.json#fesi_b2_fischer_2014_vinet_refit"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -93,21 +102,6 @@
         "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [42.74768265572292, 146.9148894617161],
-      "experimental_temperature_range_k": [1162.665, 3146.8],
-      "pressure_range_status": "reported_exactly",
-      "determination_method": "experimental",
-      "record_kind": "refit",
-      "equation_kind": "thermal",
-      "default": false,
-      "sample_composition": "Stoichiometric FeSi; only observations labelled B2 in Table S2.",
-      "notes": "Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.",
-      "range_provenance": {
-        "source_location": "Fischer (2014), official Table S2",
-        "selection": "All 114 rows with exact phase=B2; no B20+B2 rows",
-        "note": "Marginal measured bounds, not a rectangular phase-stability domain; no validation for core extrapolation."
-      },
-      "fit_datasets": ["fischer_2014_table_s2_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.K0", "gamma0", "q"],
         "matrix": [
@@ -116,6 +110,18 @@
           [1.1807548168808855, 0.07941391487529861, 0.31667397583692597]
         ]
       },
+      "experimental_pressure_range_gpa": [42.74768265572292, 146.9148894617161],
+      "experimental_temperature_range_k": [1162.665, 3146.8],
+      "pressure_range_status": "reported_exactly",
+      "range_provenance": {
+        "source_location": "Fischer (2014), official Table S2",
+        "selection": "All 114 rows with exact phase=B2; no B20+B2 rows",
+        "note": "Marginal measured bounds, not a rectangular phase-stability domain; no validation for core extrapolation."
+      },
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "notes": "Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.",
+      "fit_datasets": ["fischer_2014_table_s2_pvt"],
       "reference": {
         "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
         "year": 2014,
@@ -125,14 +131,8 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-19",
-        "audit": "../audits/fesi_b2.audit.json#fesi_b2_fischer_2014_vinet_refit"
-      }
+      "equation_kind": "thermal",
+      "sample_composition": "Stoichiometric FeSi; only observations labelled B2 in Table S2."
     }
   ],
   "aliases": ["CsCl-type FeSi", "iron monosilicide B2"],

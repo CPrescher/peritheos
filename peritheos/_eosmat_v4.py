@@ -137,8 +137,148 @@ def _pack_parameters(values: Any, errors: Any, fixed: Any) -> dict:
     return result
 
 
-def to_v3(document: Mapping[str, Any]) -> dict[str, Any]:
-    """Expand a native v4 document for historical consumers, without inference."""
+DEFAULT_CATEGORIES = ("equilibrium", "hugoniot")
+_HUGONIOT_MODELS = frozenset({"LinearUsUpHugoniot"})
+
+
+def default_category(record: Mapping[str, Any]) -> str:
+    """``hugoniot`` for a Hugoniot model, otherwise ``equilibrium``."""
+    eos = record.get("eos")
+    model = eos.get("type") if isinstance(eos, Mapping) else record.get("model")
+    return "hugoniot" if model in _HUGONIOT_MODELS else "equilibrium"
+
+
+def _flags_default(record: Mapping[str, Any]) -> bool:
+    return record.get("default") is True or record.get("default_for") is not None
+
+
+def expand_default_records(document: dict[str, Any]) -> dict[str, Any]:
+    """Write a material ``default_records`` map as per-record flags, in place.
+
+    The named record gets ``default_for: <category>``, the form historical
+    v3/v4 readers and Material exports use; the map is removed. Per-record
+    flags that are already present must agree with the map: a named record
+    flagged ``default: false`` and any other record flagged as a default are
+    errors, never silently resolved.
+    """
+    if "default_records" not in document:
+        return document
+    mapping = document.pop("default_records")
+    if not isinstance(mapping, Mapping) or not mapping:
+        raise EosmatError("default_records must be a non-empty object")
+    unknown = set(mapping) - set(DEFAULT_CATEGORIES)
+    if unknown:
+        raise EosmatError(
+            f"default_records keys must be {' or '.join(DEFAULT_CATEGORIES)}; "
+            f"got {sorted(unknown)}"
+        )
+    records = document.get("eos_records")
+    if not isinstance(records, list):
+        raise EosmatError("eos_records must be an array")
+    by_identifier = {
+        record.get("identifier"): record
+        for record in records
+        if isinstance(record, Mapping)
+    }
+    for category, identifier in mapping.items():
+        if not isinstance(identifier, str) or not identifier:
+            raise EosmatError(f"default_records.{category} must be a record identifier")
+        record = by_identifier.get(identifier)
+        if record is None:
+            raise EosmatError(
+                f"default_records.{category} names unknown record {identifier!r}"
+            )
+        if default_category(record) != category:
+            raise EosmatError(
+                f"default_records.{category} names {identifier!r}, which is not a "
+                f"{category} record"
+            )
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        category = default_category(record)
+        if mapping.get(category) == record.get("identifier"):
+            if record.get("default") is False:
+                raise EosmatError(
+                    f"default_records.{category} names {record['identifier']!r}, "
+                    "which is flagged default: false"
+                )
+            record["default_for"] = category
+        elif _flags_default(record):
+            named = mapping.get(category)
+            raise EosmatError(
+                f"Record {record.get('identifier')!r} is flagged as the default "
+                f"{category} record, but default_records names "
+                + (repr(named) if named else f"no {category} record")
+            )
+    return document
+
+
+def write_explicit_default_flags(document: dict[str, Any]) -> dict[str, Any]:
+    """Give every record an explicit ``default`` boolean, in place.
+
+    Used for v3/v4 exports of a v5 document, so historical readers see the
+    selection on every record: the default of each category gets ``default:
+    true`` and ``default_for: <category>``, every other record ``default:
+    false``. A ``default_records`` map is expanded first.
+    """
+    expand_default_records(document)
+    for record in document.get("eos_records", []):
+        if not isinstance(record, dict):
+            continue
+        category = default_category(record)
+        selected = (
+            record.get("default") is True or record.get("default_for") == category
+        )
+        record["default"] = selected
+        if selected:
+            record["default_for"] = category
+    return document
+
+
+def collect_default_records(document: dict[str, Any]) -> dict[str, Any]:
+    """Move per-record default flags into the material ``default_records`` map.
+
+    In place. Every ``default`` and ``default_for`` record key is removed;
+    records flagged ``default: true`` or ``default_for`` are named in the map,
+    which is created only when a record is flagged. An existing map must
+    agree with the flags.
+    """
+    records = document.get("eos_records", [])
+    mapping: dict[str, str] = {}
+    if "default_records" in document:
+        expand_default_records(document)
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        if _flags_default(record):
+            category = default_category(record)
+            if (
+                mapping.setdefault(category, record["identifier"])
+                != record["identifier"]
+            ):
+                raise EosmatError(
+                    f"A material may have at most one default {category} EOS record"
+                )
+        record.pop("default", None)
+        record.pop("default_for", None)
+    if mapping:
+        document["default_records"] = {
+            category: mapping[category]
+            for category in DEFAULT_CATEGORIES
+            if category in mapping
+        }
+    return document
+
+
+def to_v3(
+    document: Mapping[str, Any], *, explicit_defaults: bool = False
+) -> dict[str, Any]:
+    """Expand a native v4 document for historical consumers, without inference.
+
+    With ``explicit_defaults``, a v5 document's default selection is written
+    as an explicit per-record flag (see :func:`write_explicit_default_flags`).
+    """
     from peritheos._eosmat_audit import validate_check, validate_check_consistency
     from peritheos._eosmat_metadata import expand_metadata
 
@@ -146,6 +286,12 @@ def to_v3(document: Mapping[str, Any]) -> dict[str, Any]:
     native_version = result.get("format_version")
     if native_version not in (4, 5):
         raise EosmatError("Expected native EOSMAT format_version 4 or 5")
+    if "default_records" in result and native_version != 5:
+        raise EosmatError("default_records requires EOSMAT format_version 5")
+    if explicit_defaults and native_version == 5:
+        write_explicit_default_flags(result)
+    else:
+        expand_default_records(result)
     if native_version == 5:
         raw_records = result.get("eos_records")
         if not isinstance(raw_records, list):
@@ -207,11 +353,16 @@ def to_v3(document: Mapping[str, Any]) -> dict[str, Any]:
         if (
             "scientific_validation" not in record
             and isinstance(check, Mapping)
-            and "source" in check
+            and "source_check" in check
         ):
             # A record file whose evidence lives in an audit sidecar keeps the
-            # stored source-check status in its headline; nothing is inferred.
-            record["scientific_validation"] = {"status": check["source"]}
+            # stored source-check status in its headline (a fixed renaming of
+            # the sidecar code); nothing is inferred.
+            from peritheos._eosmat_audit import SOURCE_CHECK_CODES
+
+            record["scientific_validation"] = {
+                "status": SOURCE_CHECK_CODES[check["source_check"]]
+            }
         record.setdefault(
             "scientific_validation", {"status": "pending_primary_source_check"}
         )

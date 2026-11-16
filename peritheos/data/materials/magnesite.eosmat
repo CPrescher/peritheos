@@ -6,10 +6,20 @@
   "phase": "magnesite, rhombohedral R-3c",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 6,
+  "default_records": {"equilibrium": "magnesite_yu_2024_bm3_mgd_3"},
   "eos_records": [
     {
       "identifier": "magnesite_ross_1997_bm3_1",
       "label": "Ross (1997)",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The unconstrained BM3 fit is represented. The alternative fit with K0'=4 fixed is not stored in this record.",
+        "audit": "../audits/magnesite.audit.json#magnesite_ross_1997_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -28,19 +38,20 @@
         "volume": "82",
         "locator": "682-688",
         "doi": "10.2138/am-1997-7-805"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The unconstrained BM3 fit is represented. The alternative fit with K0'=4 fixed is not stored in this record.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/magnesite.audit.json#magnesite_ross_1997_bm3_1"
       }
     },
     {
       "identifier": "magnesite_vocadlo_1999_bm3_2",
       "label": "Vocadlo (1999), static GGA BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "source_equation",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The published BM3 parameters reproduce every Table 1 pressure to 0.00011 GPa or better. An independent four-parameter fit of the printed energy-volume rows on their internally required 30-atom-cell basis gives V0=287.492 A^3, K0=98.921 GPa, and K0_prime=4.27911, within the published precision and coefficient errors.",
+        "audit": "../audits/magnesite.audit.json#magnesite_vocadlo_1999_bm3_2"
+      },
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -48,13 +59,12 @@
         "K0": {"value": 99.0, "error": 0.5},
         "K0_prime": {"value": 4.28, "error": 0.01}
       },
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [-2.41596, 207.419],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "volume": {"reference_value": 287.49, "public_to_model_scale": 1.0, "model_unit": "angstrom^3/conventional_unit_cell"},
       "notes": "Static-lattice GGA pseudopotential calculation for the named magnesite phase using a fully relaxed 30-atom MgCO3 cell (Z=6), with atomic positions and cell shape relaxed at nine volumes. The source reports the zero-pressure reference volume and an isothermal BM3 fit, but no finite-temperature or vibrational contribution; temperature_ref=0 K records that static electronic reference. The nine calculated states span -2.41596 to 207.419 GPa. Table 1 incorrectly labels both its energy and volume columns as per formula unit: its 160-295 A^3 volumes, stated V0=287.49 A^3, Figure 1 volume axis, and exact BM3 pressure reproduction establish the 30-atom conventional-cell basis; the energy rows likewise recover K0=98.921 GPa only when interpreted per 30-atom cell and give a factor-of-six error under the printed label. The parenthetical K0 and K0_prime errors are preserved, but the source states no confidence convention or covariance and gives no V0 uncertainty. The alternative K0_prime=4 fit, K0=111(1) GPa is not stored because the article calls it a poor second-order fit and does not use it in the subsequent analysis. The calculation finds no discontinuity within the sampled pressure range but explicitly cannot rule out reconstructive transitions with an energy barrier.",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Vocadlo"],
         "year": 1999,
@@ -64,18 +74,21 @@
         "locator": "1627-1631",
         "doi": "10.2138/am-1999-1017"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The published BM3 parameters reproduce every Table 1 pressure to 0.00011 GPa or better. An independent four-parameter fit of the printed energy-volume rows on their internally required 30-atom-cell basis gives V0=287.492 A^3, K0=98.921 GPa, and K0_prime=4.27911, within the published precision and coefficient errors.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/magnesite.audit.json#magnesite_vocadlo_1999_bm3_2"
-      }
+      "volume": {"reference_value": 287.49, "public_to_model_scale": 1.0, "model_unit": "angstrom^3/conventional_unit_cell"}
     },
     {
       "identifier": "magnesite_yu_2024_bm3_mgd_3",
       "label": "Yu et al. (2024), BM3-MGD",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "q: refit 1.32 vs published 0.9 (+47.0%), not similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The preferred published model is an executable BM3-MGD EOS for nominal MgCO3 magnesite with V0=280.71 A^3 fixed, a 300 K reference isotherm, and n=5. Its integrated-Gruneisen Debye-temperature relation is fully supported by Peritheos. The separate Pt pressure calibration uses Fei et al.'s distinct variable-exponent relation.",
+        "audit": "../audits/magnesite.audit.json#magnesite_yu_2024_bm3_mgd_3"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -95,8 +108,7 @@
         "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 119.5],
-      "experimental_temperature_range_k": [300.0, 2200.0],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 119.5],
         "temperature_k": [300.0, 2200.0],
@@ -106,20 +118,12 @@
           "The record represents rhombohedral R-3c magnesite only. Measurements showing the high-temperature transformation to magnesite-II were not used in this EOS fit."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 119.5],
+      "experimental_temperature_range_k": [300.0, 2200.0],
       "determination_method": "experimental",
       "record_kind": "published",
-      "default": true,
-      "phase_scope": "rhombohedral magnesite, space group R-3c, conventional hexagonal cell with Z=6",
-      "volume": {"reference_value": 280.71, "public_to_model_scale": 0.010036901266666667, "model_unit": "J bar^-1 mol^-1"},
-      "sample_composition": {
-        "nominal_formula": "MgCO3",
-        "material": "natural single-crystal magnesite, Vargas Mineral Collection V3782",
-        "reported_impurities": "less than 0.5 mol.% Mn and Fe in total",
-        "qualification": "The Mn/Fe split and exact Mg occupancy are not reported; this record retains the paper's nominal MgCO3 identity and is not relabeled as a chemically pure synthetic endmember."
-      },
       "notes": "Preferred thermal parameterization from Table 1: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. Equations 7-8 specify gamma=gamma0(V/V0)^q and theta=theta0*exp[-(gamma-gamma0)/q], which is Peritheos's integrated_gruneisen law, not the Fei et al. variable-exponent law used for the Pt calibrant. The source conventional-cell volumes are converted internally to molar volume using Z=6, while the public API remains in A^3 per conventional hexagonal cell. The paper also reports a separate high-temperature BM3 reference-state fit with alpha0, alpha1, and dK/dT; it is not represented here because the preferred MGD model is explicitly described as more reliable for extrapolation and is used in the downstream mantle calculations. The publication does not report the regression weights, residual definition, coefficient covariance, or confidence convention for parenthetical parameter errors. An independent unweighted pressure-residual refit is therefore a transparent reproduction diagnostic rather than a claim to duplicate the unpublished regression protocol.",
       "fit_datasets": ["magnesite_yu_2024_table_s1_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Yu", "Sun", "Mao", "Li", "Prakapenka", "Lin"],
         "year": 2024,
@@ -129,13 +133,13 @@
         "locator": "e2023JB028026",
         "doi": "10.1029/2023JB028026"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The preferred published model is an executable BM3-MGD EOS for nominal MgCO3 magnesite with V0=280.71 A^3 fixed, a 300 K reference isotherm, and n=5. Its integrated-Gruneisen Debye-temperature relation is fully supported by Peritheos. The separate Pt pressure calibration uses Fei et al.'s distinct variable-exponent relation.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/magnesite.audit.json#magnesite_yu_2024_bm3_mgd_3"
+      "phase_scope": "rhombohedral magnesite, space group R-3c, conventional hexagonal cell with Z=6",
+      "volume": {"reference_value": 280.71, "public_to_model_scale": 0.010036901266666667, "model_unit": "J bar^-1 mol^-1"},
+      "sample_composition": {
+        "nominal_formula": "MgCO3",
+        "material": "natural single-crystal magnesite, Vargas Mineral Collection V3782",
+        "reported_impurities": "less than 0.5 mol.% Mn and Fe in total",
+        "qualification": "The Mn/Fe split and exact Mg occupancy are not reported; this record retains the paper's nominal MgCO3 identity and is not relabeled as a chemically pure synthetic endmember."
       }
     }
   ],

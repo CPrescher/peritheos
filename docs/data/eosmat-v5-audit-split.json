@@ -1,7 +1,8 @@
 {
-  "schema": "peritheos.eosmat-v5-audit-split.v1",
+  "schema": "peritheos.eosmat-v5-audit-split.v2",
   "source_commit": "4d89f0fa",
   "scope": "Layout only: per-record audit blocks moved to peritheos/data/audits; a check headline added; identifier-derived report links omitted from sidecars and regenerated on load; the generic statements listed here removed. Coefficients, errors, covariance, datasets, sources and scientific classifications are unchanged.",
+  "layout_revision": "2026-11-16: bindings regenerated from the unchanged pre-split files for the v5 check-block and reading-order revision. check fields renamed (finding -> source_note, source -> source_check) and compared/why added; per-record default flags moved to the material default_records map (default_flags/added_default_records restore them); record files use the v5 reading order. layout 'v4' names pre-split files rendered with the v4 key order. Sidecars and before_sha256 values are unchanged.",
   "removed_generic_statements": {
     "evidence.reproduction.assessment.qualifications": [
       "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
@@ -15,8 +16,9 @@
   "materials": {
     "akimotoite": {
       "before_sha256": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
-      "after_record_sha256": "366ef27ec7086fe4748ecd30fda23ef791756cf50fdefb48016ae238c1eb94d3",
+      "after_record_sha256": "1ac34db9c4ec5cc0d407b1e71ff32125b582aee6b5b1ec7689348401bd3c88b3",
       "after_audit_sha256": "1b4ca01bccfe936a425de369b00c05efda8741b152765f56c84c9e4569d73f1b",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -153,6 +155,15 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          6,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -175,8 +186,9 @@
     },
     "al2o3_perovskite": {
       "before_sha256": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
-      "after_record_sha256": "bcf6bfd00a1480efdf88d569809177e50fe184c5eb7fae289e7572be2c8db3ac",
+      "after_record_sha256": "f30b09451df87126e0ea1b628543a7496dd8a57e016c03563d2d34529e2ec6b1",
       "after_audit_sha256": "8b1c74b89dbbd51b3a1b463f5185fb3d7b4503e5561ec5be9ed15f222b94eb65",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -214,8 +226,9 @@
     },
     "al2o3_post_perovskite": {
       "before_sha256": "3e90fce67682690b7b908cd1983c093408348712425eb3beba4eced6c29c7c26",
-      "after_record_sha256": "9b9263c452a88d29e94c9f453388a448b575eefa9070a7d374323dbd93795e5f",
+      "after_record_sha256": "8b206017667923e9029354510e0218004d9e7d55ba1d0648030220b3a1be0d8a",
       "after_audit_sha256": "fe76c6af0bb2bb9ec826bdfdb7f1d1e42e0f5a9e1e79b928ca734788c2779aec",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -239,8 +252,9 @@
     },
     "al_bearing_phase_d": {
       "before_sha256": "9dd4ead13d3a3167757c612269ac842a417e5c2cdf9aa5e31684982f95b0a681",
-      "after_record_sha256": "e941ebde01f317af43bb76335c66f8d4c3006260c8290596b9339e564e599334",
+      "after_record_sha256": "6ef8a3ed461590a620ca1ab603fe5a0517811dbc275418dddd2eaf34710502e3",
       "after_audit_sha256": "61c69e0e033a57e30efed40874685337fbc4ec3b077cfa6b58dd9da699e208cf",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -256,11 +270,20 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "almandine": {
       "before_sha256": "e4b785e14e2ee0a8bdf85b3a1e2c7a1401c97b1d3458d975556da5e87a21930e",
-      "after_record_sha256": "92df7b4dea9a798c4dd83c1a1967769aec2790ed2edd5e2b778e2bf3177ee9f5",
+      "after_record_sha256": "5919cec8077c82a77d380795913ae5afd596d8761818828fc68514621ddca6a4",
       "after_audit_sha256": "93d4b128b22f19a4414b12e3ca92dc9bb52828ab9dc346de6514877ea3e21c57",
       "added_check": [
         0
@@ -304,8 +327,9 @@
     },
     "alpha_quartz": {
       "before_sha256": "847f661159550f2208d9553d61b3e837a628f7ac6ad6c6ff8d9e0ba5d9d75de0",
-      "after_record_sha256": "5cad74ee9a4c9d14650741c1f386c05129907d7c640434d01fe37b24acad428d",
+      "after_record_sha256": "dceb3ac4b904de3696328b6fccdc13839774ec5ec45936f6b50a24da8ad71a8b",
       "after_audit_sha256": "e0b8c373a1b8874b49bd0f23cb536783a9f5353ae96ed33243f2dd7cb70d5e06",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -362,8 +386,9 @@
     },
     "alumina": {
       "before_sha256": "9ea2b8ec82c8c24a0f258aca224843789d5b0a2555e6f6bad570ca58c3fc5969",
-      "after_record_sha256": "6ee3a516183283527ccd8f437d8339b88ab01d3ce759708cbf42613a61c090e5",
+      "after_record_sha256": "15f7485ce04a6985d3a7e0233e883e7fd37328416696df291682a987c9cf435c",
       "after_audit_sha256": "7950d52249422c11c01b07c7caf3783d9a5923970af7ed80349346b6d78d45f6",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -394,6 +419,14 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          1,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -416,8 +449,9 @@
     },
     "alumina_rh2o3_ii": {
       "before_sha256": "3682d216033a935799abd1d9b13e6799bee354a9adf0c819ef0ce95bacd9e9a6",
-      "after_record_sha256": "1fd8721404645121013cd65c9528dfc33de5208acab928b2fee38c2bca17f61d",
+      "after_record_sha256": "c5787e1eae3d759d8573e3a2837d22d274cd2c54d68680b6a1a1f70cc5279ca7",
       "after_audit_sha256": "ad65bf960ba6414223c81e07e43059a4ff5b2d2026aee850f6fb55f17b492f1d",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -436,6 +470,15 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
         ]
       ],
       "object_orders": [
@@ -459,8 +502,9 @@
     },
     "aluminum": {
       "before_sha256": "4b16946d93620465074c97d696830929ddb6fd61fd0f83e7b5a048ab414f8f97",
-      "after_record_sha256": "8ab1abaeb352d930edb14266972d00dae1c6c260d4444e6c78a533d4ddee4658",
+      "after_record_sha256": "556e477e52f34e7e82767f82cea65861dbeaec3d6a698990e4e3ff9dd4cdf07b",
       "after_audit_sha256": "ab03e6588fbdf96fe48d58194d52b4d74cc010d1fda8b2be924aab8e801e17c0",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -589,8 +633,9 @@
     },
     "aragonite": {
       "before_sha256": "dd271299745d7871e076ef22ec11704f0e9d57a4ab9d009a9915e8334e428bbb",
-      "after_record_sha256": "af8b7ef4a32cee81356e585f9fb3571d8de57569ce0661315169fe68b41b9a32",
+      "after_record_sha256": "12f3602d8334a49195ab578d401e14d2f77afe09321ba2566a58ce91ae0eb0d9",
       "after_audit_sha256": "bf1124bd22db947e1e32dbce981e40ed6da0cf6a94ea303eb6c99610f8e8e834",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -609,6 +654,15 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
         ]
       ],
       "object_orders": [
@@ -633,8 +687,9 @@
     },
     "argon_fcc": {
       "before_sha256": "1185c326c0a7bc1efdae33ee5945c6ed7ef8569dd5f52f2ec76fa003a2e5a469",
-      "after_record_sha256": "63e2e767ad103e4d2c24f0030c8ccbb5a58acff5336369ed51b7820941e2eda5",
+      "after_record_sha256": "d095dc4073887c0a45efd299623515386b692858a597c4ca470dbcc30957b478",
       "after_audit_sha256": "270a618015b7f3134863d030c0c0efb65d90c06123f593578e145adce1659679",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -812,11 +867,44 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ],
+        [
+          11,
+          {
+            "default": false
+          }
+        ],
+        [
+          12,
+          {
+            "default": false
+          }
+        ],
+        [
+          13,
+          {
+            "default": false
+          }
+        ],
+        [
+          14,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": []
     },
     "argon_hcp": {
       "before_sha256": "b2f43b2fe36fc3e0da65784b068c5e718f6524ef5a746ddc07542a744be11e50",
-      "after_record_sha256": "2ff8d0960215af6703c09a827455e7b800a73cb925ed25a70d302193b06e61f8",
+      "after_record_sha256": "9f08303a65be39aa1ecb33fbffd3093fb2175750c5cfc6b1cf13f415f07327c7",
       "after_audit_sha256": "c0c754d5e11d42436ff9b5124e9ee89d1d8ceb6b7b85d2865d153e5b191ef0a3",
       "added_check": [
         0
@@ -837,8 +925,9 @@
     },
     "b4c": {
       "before_sha256": "0369c88f1d6bd6b963b1a9cab636eae5d76ed987d782227008337c1d2f2ba395",
-      "after_record_sha256": "08c7f1d8facf22e2c70e15993f9efa5f2e0588a5ef2b07a3848702f00962e73f",
+      "after_record_sha256": "e7922aba1a5951fcf289734c66881f672949a11851ce957b64f84979cccd356b",
       "after_audit_sha256": "4ef6a8e56d924ca003cbcc51f8bc25750e56a0f49ef5a6741f44435551166b35",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -870,6 +959,15 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -893,8 +991,9 @@
     },
     "beryllium_hcp": {
       "before_sha256": "3985e308b3b34828f7439f21c28ac7febe3d2f4c80674ac69375871a5019c9f1",
-      "after_record_sha256": "8f9c494fa2c95190af449f429f3151556447dc2bd2ec6a22ce47ae108528e9dc",
+      "after_record_sha256": "f3c77236406b7ded089c4c56e8811b8d32fe66418ae54d6afb70a2a48f4206eb",
       "after_audit_sha256": "0626dcafaf1737fea5c8a47790900efbba2e24309da035ee92bfcc729161b15b",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -932,8 +1031,9 @@
     },
     "boron_nitride": {
       "before_sha256": "3f9409af2a99e1d14091785ec521d9db128cd8b850d28f894a6769a906ccec95",
-      "after_record_sha256": "08ce1e048b312e03d8c4ec4bff81038e4f101a95a10ca733445dafbf36bb7f13",
+      "after_record_sha256": "996b21f791d1e8cb7cd32483fa64dd061bce2f1768eec72c7742a76d1e66097f",
       "after_audit_sha256": "52aa709c8ccb40091a9b265dbca2a0261868b432f0c9fb62419846220f5fba27",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -981,12 +1081,40 @@
             "migration_source",
             "primary_data_check"
           ]
+        },
+        {
+          "path": [
+            "eos_records",
+            1
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "validity",
+            "determination_method",
+            "phase_scope",
+            "volume",
+            "sample_composition",
+            "notes",
+            "uncertainties",
+            "fit_datasets",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
         }
       ]
     },
     "boron_nitride_hexagonal": {
       "before_sha256": "f0113fc3e14815823970f8f4e0543b3cc24a8d802a5d4f17e9a1037d12401ad7",
-      "after_record_sha256": "da9f5185d57ad48e05ce87685448433bb3bf7818730340c863eb7a970c4628df",
+      "after_record_sha256": "2df9cd9b9d41b52e5ff71e232786fb1eddcb6ac5b208a53256df34c11d4882cf",
       "after_audit_sha256": "b98365fc9a6d4657b879c8b1c22f1627d444c8d521560e53a5a75ee26e097f31",
       "added_check": [
         0
@@ -1030,7 +1158,7 @@
     },
     "boron_phosphide": {
       "before_sha256": "3df9614717c98666dcf96261ca80c539bd0724f1ea11d84c7b4a79dd2688de72",
-      "after_record_sha256": "4a5c99d07bb31675ee703bab785313572e05ccf199868ab0ec1c65159986b116",
+      "after_record_sha256": "9f0dcfb79788ba404401ea098dfdc8164278963142c9933477f7517211c7c8be",
       "after_audit_sha256": "42e559f5d6f3317c29f8b6b77b712bb736411a38c7dba139ef80e0902ad23760",
       "added_check": [
         0
@@ -1074,8 +1202,9 @@
     },
     "breyite": {
       "before_sha256": "546a52629f488517d68781a40a8fee70a601b7cee1cde2b9511bff940451fa25",
-      "after_record_sha256": "bfecc485eee488c4fd91ade542c5fbf424cae94f48bc96aafb341f007aff8870",
+      "after_record_sha256": "610c6210ef30380a94aa01552f0524b3d0c22497369468930937e0622251faf3",
       "after_audit_sha256": "b13e20ad4ebe917102e1c5cd40594c1dda6a5e3a70f75c2757f570883fb29135",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -1121,8 +1250,9 @@
     },
     "bridgmanite": {
       "before_sha256": "67a9bf0efe34d3f6b85445dde5516cc5619077fe1c65beee5e513a42c1f040e5",
-      "after_record_sha256": "2e5e64d14897bba9b3dcdf4bb56dbc48b7e3bd767f4c6810d0fa33ff5481d6c5",
+      "after_record_sha256": "3811e7b70cc52dae014b1cff5024fdf21c31ab3b0fa7d5af68727babcf30e91c",
       "after_audit_sha256": "4368feb7a67593efd3369441616d45f8901aa32c4d6f4c6bd8015dfb90c7c532",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -1649,8 +1779,9 @@
     },
     "brucite": {
       "before_sha256": "8366590f85dca9e1b70b60e2edfbb856cbb4f37bc75663843e3fde532ed070ec",
-      "after_record_sha256": "8db343217689d720cebff3954baec344e22d3902666370d76f8e134f648a8208",
+      "after_record_sha256": "e4264ed6f27fe0fee2f1171221b179fb2c5f4d0eaf3f921e5e1a7fbe1d51aa5d",
       "after_audit_sha256": "fb6e7e5fe4876075d60c02349da793be160fdb828b21227835ede982fc549845",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -1686,12 +1817,34 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
+        ],
+        [
+          2,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": []
     },
     "ca0988mg0918fe0078mn0016c2o6_dolomite": {
       "before_sha256": "e9a3ff6184c4081a16f6b4adbdbc959db0bb253d663abbacd85288851e0fbb6f",
-      "after_record_sha256": "475c94c2cb80c2b8be4a870ece09e2b948df4492ae231a0b36b4528abf09ca40",
+      "after_record_sha256": "778e62a8a809bab4b4dead53a329eb52e99aa37689ff02a866a186a5f5e98081",
       "after_audit_sha256": "4c49c97ce4670dfcf053bbe253bf8f0a294e1ea3145f84f19c17c4570c78c022",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -1707,12 +1860,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "ca0988mg0918fe0078mn0016c2o6_dolomite_iii": {
       "before_sha256": "ab967f7e0b4237251beba8767fd9a8a71e347f5834da76dbabf4a7a1b9e5994e",
-      "after_record_sha256": "687baeb22e20c206fe3522ee608522f40493fce5ae9cdc25eba44601e3d6e3fc",
+      "after_record_sha256": "d27b203aecb7020646bf25c376f7f023e387d111f6d514f8f5eb0b9ad87b3b41",
       "after_audit_sha256": "c971044221b1b83909afd75b220de342a4999b59fd95317ee5ca5cfec15f54b3",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -1742,8 +1905,9 @@
     },
     "ca_perovskite": {
       "before_sha256": "04389255bb6da6c47d24cc171f1f4c94f74f5b82d91f6a0dbc8d5e4b69f10441",
-      "after_record_sha256": "ae2649ea816fb0581cce0095bdb85f26b39fc4bd2490f2214d6d2976c5ccc3fe",
+      "after_record_sha256": "c4f3a1d41b9cb895ec6ba134c004fcbd2d7cc49ac3d95d63a2d4f7957d8237a3",
       "after_audit_sha256": "546dec3c5a76f5930a368a5ee2d67c2a5363fb635f2720bdb701c772bb13a2d9",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -2122,6 +2286,39 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          3,
+          {
+            "default": false
+          }
+        ],
+        [
+          4,
+          {
+            "default": true
+          }
+        ],
+        [
+          5,
+          {
+            "default": false
+          }
+        ],
+        [
+          24,
+          {
+            "default": false
+          }
+        ],
+        [
+          28,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -2155,6 +2352,38 @@
             "primary_source_check",
             "migration_source",
             "primary_data_check"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            5
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default",
+            "phase_selection",
+            "experimental_configuration",
+            "notes",
+            "implicit_parameters",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
           ]
         },
         {
@@ -2273,8 +2502,9 @@
     },
     "ca_perovskite_tetragonal": {
       "before_sha256": "1b87756110d6851eb6496e246a797ef578cfdb3a58f72bf2b511e15399f59d6c",
-      "after_record_sha256": "f037c1463eadc0130ffa512a088c16bc494e7241def5d491826f84f8448e603c",
+      "after_record_sha256": "1c88865e8de7c144601e8cd4d4dbf22a1d3782d828ece11fd165ff51eb0c9320",
       "after_audit_sha256": "53277b29c93b794b37021845de61527ccff6d768bae7674cd074a5549fb07603",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -2462,8 +2692,9 @@
     },
     "cairo3_perovskite": {
       "before_sha256": "42f0f63e9eccdc078ccc675359c3bd3b63447a405e3cd92e70f36c1cd1952364",
-      "after_record_sha256": "86a912ec63913749fd3b2df5bf9b8fee83be0c239586438d85222f7916dd29b8",
+      "after_record_sha256": "f0d25e4fd4abcf22650f524590149458c52d0c8dc43092a0954893bfe4eb4921",
       "after_audit_sha256": "545c63facd07252bacbba254bc7e785fcd4ad074bbb7428de5b849590a164dd5",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -2479,12 +2710,23 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "cairo3_post_perovskite": {
       "before_sha256": "7c66a9d98da089fd3b1e76bbd8b658a105d4052b52f31f2f32f8daa54c82a837",
-      "after_record_sha256": "d917271169cb555c575b1ad711363f0bf110ffaf2f09c445dfafbebdd0b4a404",
+      "after_record_sha256": "1cdc3ed435d5e39189b05da9d216101f41ecf3be0e299af8c302708d348489cc",
       "after_audit_sha256": "009cbafc1a2876fb933a9bc3431ad25aab0e43fcc8eb3c46a008bf06433a66c9",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -2515,6 +2757,16 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -2536,7 +2788,7 @@
     },
     "calcite": {
       "before_sha256": "f5a904fe4924d9c5d91ebe004df45c78825d1afd441a9242a75f6a51ab465dc4",
-      "after_record_sha256": "55f101d3479ef5203603f7cab7ad9b8b3342c3750cb231d586ff9b0fb35e2267",
+      "after_record_sha256": "ee4bdc86690a695bfc73dc522379c98d8753f5bd75348fe8568354d223ab6b36",
       "after_audit_sha256": "ec43212beb291cb849e715dfe3524d292f75f3891241b3be1492a27b67c42760",
       "added_check": [
         0
@@ -2580,8 +2832,9 @@
     },
     "calcium_carbonate_post_aragonite": {
       "before_sha256": "425ba162a95d3bbb5d4801eb2f9af55c1f84abaaa1a6bb5eb9267b7f7b71ad57",
-      "after_record_sha256": "7b5017606001cd3c659e63d4aed35b2d0e4f17de9a3fb8543cef2ea6e7d3201d",
+      "after_record_sha256": "281f744ad671601873ace71833b21d68467b6fd5d469437232f89484950d8091",
       "after_audit_sha256": "43ce1e96767552538238f3c81ed6f32bfe0bf4dd30675f904ea0b1a4d3c39d34",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -2614,6 +2867,15 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
         ]
       ],
       "object_orders": [
@@ -2655,8 +2917,9 @@
     },
     "calcium_germanate_perovskite": {
       "before_sha256": "dd703cb86703a4b26787323cfe17bb96b18b77e9ae39282319c301046955bf59",
-      "after_record_sha256": "bd31b18fbaff378a3a61d968a73c1178dd4ece293a77ad9c0f2bb645f6b2b161",
+      "after_record_sha256": "77b759d27550ca3b78518ac89e5e12d89841638be317287788909ab77c6d6865",
       "after_audit_sha256": "f5f105855f7c991b8976b5230cf05e5c31328e09c81f0aeef9201132c8d184d9",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -2670,14 +2933,24 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": []
     },
     "calcium_titanate_perovskite": {
       "before_sha256": "51ea723d0a1e0689bdc5892ccd36be13bd1eedc242031e20f9848337f808b29c",
-      "after_record_sha256": "4ec9f805bbc41ff9516bb76a359c430db3f86b477c2204971b3270cfd1818034",
+      "after_record_sha256": "a39f02fc0d437f240705549a8eee6cea7769c47900a912c92af8d7a5d1738f8a",
       "after_audit_sha256": "2016d914569588bc62207058df6ed527902feba9056f30f65a7be3c80eec8318",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -2693,11 +2966,20 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "cao": {
       "before_sha256": "2a23a7fdc798dbfd75274faba3e33db3af887f101deb106b9fa786d2a4c98043",
-      "after_record_sha256": "52d44f5429b1fc9f86a91d6a961cf82d65f73c0974c9784d6cb1fae01b14bb40",
+      "after_record_sha256": "748967c775d897aad30aeb23139978d51ac001ff35631ee1cf579576b3089a6f",
       "after_audit_sha256": "45dcc73ad7536e3e3707226272d021512d03af30bca151f808fbdd70a0b4cb69",
       "added_check": [
         0
@@ -2741,7 +3023,7 @@
     },
     "cao_b2": {
       "before_sha256": "4fae546981f9fef3cb2a9116c12c340277b4faa61cafe46827ce73baad7adee5",
-      "after_record_sha256": "ada0c1af786129563996b8c25971e186ce3b1553b87937f9f97c734bba346f48",
+      "after_record_sha256": "4a2f0a736e605726e171aadb8443713c419f4b901498b4da1f75162589c4488a",
       "after_audit_sha256": "2185fa526dddd56a7886710ac41da017da8cb0e0b6b5759ec80d894c23fcd2d1",
       "added_check": [
         0
@@ -2785,8 +3067,9 @@
     },
     "casio2o5_titanite": {
       "before_sha256": "c5c75ce84a104ed6f32d219e089d9d2b61ae40afcfd1da4a39af1270de55a399",
-      "after_record_sha256": "658efd6019ddd79d6e57d67e7d537346d63df81fba90eddc44eee5262ad02c79",
+      "after_record_sha256": "c58dfd0a7fdad9acc6253f420a859b99ea8c39b96d35785af019b0591ca517c5",
       "after_audit_sha256": "efe692e6c8a1b7a3fad61d2246018c9f9b60754efb8eb5202989f9a9090cce3e",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -2832,8 +3115,9 @@
     },
     "casio3_perovskite_tetragonal": {
       "before_sha256": "f013c12b9155d448859a0afe5a96e26e32aa68a48aa3026af63c92b23e27d424",
-      "after_record_sha256": "391e536a09446cebfab61f59614580a0ba47cbbfdb643bc855b609161cc2038f",
+      "after_record_sha256": "5fcc8bb7e12c8b5bf4585457adde1d97a871f713ffedc8c7fd1000318ae598b2",
       "after_audit_sha256": "d2803809342fd2813564fbba395a9b28e6c7c705f94e3206b67693e2bf3300b1",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -2853,8 +3137,9 @@
     },
     "cementite": {
       "before_sha256": "34619d4469bcebc374cd08cc3e3bf9a3f5c882ac52b67ef19463b2af85c341dd",
-      "after_record_sha256": "05cc4fac61abd11a93adefb976103e399b92eced89eb1976a197bd9c0014c61a",
+      "after_record_sha256": "64cf20e3d7a008d26c208f829a8595c81b2f53aafb1c063764b283193d106106",
       "after_audit_sha256": "ab447a4ba4368fcd59964f51d636cd505b8d9e35dddf77547452c8c9d635d313",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -2922,8 +3207,9 @@
     },
     "cementite_nonmagnetic": {
       "before_sha256": "165bf9b64a3480d6a28cb4e6777ba770dc2d4591bbee71bf31d548d50a1b67da",
-      "after_record_sha256": "fe769f5fbbf9868fb9c5dd3f5ce98933cdf80f621b739fc1cf864376146f09f7",
+      "after_record_sha256": "5f5c6bd975b868c72d9d0d36fe6db12270bff38e660e395a55e8bb3616ed8499",
       "after_audit_sha256": "f91ad77bcb445ff1433cf02daf7df06e70b7da44459fd222f85d5e7c32e3dded",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -2969,7 +3255,57 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ],
+        [
+          2,
+          {
+            "default": false
+          }
+        ],
+        [
+          3,
+          {
+            "default_for": "hugoniot"
+          }
+        ]
+      ],
       "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            2
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "default",
+            "notes",
+            "range_provenance",
+            "published_reference_fit",
+            "parameter_uncertainty_convention",
+            "fit_datasets",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
         {
           "path": [
             "eos_records",
@@ -3010,7 +3346,7 @@
     },
     "cerium_dioxide": {
       "before_sha256": "d201f54099b0c9c5ca65ff31361ec1e17b161529521eb571c06b15cae28d10db",
-      "after_record_sha256": "1518ee9ea31ef4afd7506ec5ced91c6b684b0a1b03557af2fcf784ec07d9beb6",
+      "after_record_sha256": "e655ea01b92dae52461cb9ab8b2184d6fe2e5754eadae982f7ef26dc9eff6694",
       "after_audit_sha256": "988882fc16b664cce01ee909c1f3a6f65f330e25ba97b02cf41e83c5021b509c",
       "added_check": [
         0
@@ -3054,7 +3390,7 @@
     },
     "chromium": {
       "before_sha256": "2b571ee41b2b74595e3e84eeca7775987bb7e6d3afbf3b4e8b21720a7910eebe",
-      "after_record_sha256": "d7e091dcd8fde0cd378f5a4827bb7efbf51a6e2ccb2f4aa7605a768331b06c29",
+      "after_record_sha256": "5b1b17d1fe0e8ff184b3c0aae31f5e3d7637d51203b74a6294d4cc3d80f7e910",
       "after_audit_sha256": "78449766996a26a2274fdd63eb01d69d45817af68735d822414d1a6d1d103f6d",
       "added_check": [
         0
@@ -3098,8 +3434,9 @@
     },
     "cobalt_hcp": {
       "before_sha256": "abf546b5e6ce6cd59f84bf9ce6ed2dfae87d8e3823e4b582c6ad01cb4ab2aff7",
-      "after_record_sha256": "4888de1d64e1b1c17268c3674288dc7dbf960744e85c52bb0a698c5bfb9ceddd",
+      "after_record_sha256": "7f4db8118921569e28c7d51d1917bf7ead9fdb575d1173f004a7b75d32c21491",
       "after_audit_sha256": "1b1e683b268b9813bfce38f83b7dc9704f3fd52d001d379f9c04150cb228071f",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -3192,8 +3529,9 @@
     },
     "coesite": {
       "before_sha256": "e9686ca60ec8c285007bbc8fc17854ab2bdc54ce75ea55eb70763d3764a1f640",
-      "after_record_sha256": "c4a99e956b4c33d46e7ea87530b47e83eef316f51564df5785fa6d6094561ff2",
+      "after_record_sha256": "90912972ff74bc757910ef0082bb70260f43c61f062bc00930fd476b8cf15800",
       "after_audit_sha256": "bb17b41ed8ec4746c11eec434ba3ef8977d12b47be98bf9c8715f4d42ad18be1",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -3246,8 +3584,9 @@
     },
     "coesite_iv": {
       "before_sha256": "94f4a7490027dfaf9e70c9e39a89e8d668c2e93f97c44ad56f31ddd76b3d5caf",
-      "after_record_sha256": "5bea2ba940479dee3a3e2a9fb2831efcbe379087ef83e8db5a52315a60e199e6",
+      "after_record_sha256": "f182b2005ba15cee7bfd4570aba233233ca8c9de75b3cbdd96558cb4d78b49d1",
       "after_audit_sha256": "e6a27782deb90e99d6e6229465160ab243d9b237286b5144a35c9181896a9f0f",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -3268,7 +3607,77 @@
           ]
         ]
       ],
-      "object_orders": []
+      "default_flags": [
+        [
+          1,
+          {
+            "default": false
+          }
+        ]
+      ],
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "volume_basis",
+            "sample_composition",
+            "notes",
+            "derivation",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            1
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default",
+            "phase_scope",
+            "sample_composition",
+            "notes",
+            "temperature_ref_provenance",
+            "published_reference_state",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "coesite_v": {
       "before_sha256": "e589a2cbff1cba2aeee57981641e50b05842540e51769cf1fc0ed05c7dd474ce",
@@ -3281,7 +3690,7 @@
     },
     "coo": {
       "before_sha256": "49caab0f61ae8b7d39c684c3ee61976ba1a741193c0b018c554fb8ec293299f3",
-      "after_record_sha256": "da0f87f93da3ca5193a09d41d60c8738ad82275facbbdb50cece1719df6dff39",
+      "after_record_sha256": "a6449d825d7bcc3904c889cae3faf86764e386d29b884652092b22694c6ef864",
       "after_audit_sha256": "9cc45f149706327516698ed385e84b581684e651cfb5f8ef29407cf6319bc095",
       "added_check": [
         0
@@ -3325,8 +3734,9 @@
     },
     "copper": {
       "before_sha256": "24bba87db6989784f7bf6c0cd82d1d1529247bfc5d80b30b0bdbee0498f791d2",
-      "after_record_sha256": "81fb7ab7839a14bd73e0a9a63451acc9400b4cd9445efa149312085874ae0aea",
+      "after_record_sha256": "f4b584b1db2144a7b6b1953c2eea8a40323a517075dfcac514c2ed88f9b10034",
       "after_audit_sha256": "1d1ee2d99bdcde78f227b8e14565b6f3ccbad27ea2281ddd947eff3e45408d2f",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -3503,8 +3913,9 @@
     },
     "cscl": {
       "before_sha256": "fd8d67f174bf9a0d0a63cba3b3d721eccaa97a78e4f7dbb366f20b778ee312fd",
-      "after_record_sha256": "10ca44729e41db7fb7519f0b6206b89cc5b64a3b3605ef86ef6277479087255e",
+      "after_record_sha256": "01377eeca86acc13a32a01e883cd0d159a16def35c83bcbac37618ab0606a2e8",
       "after_audit_sha256": "8bcf5871cd9babc3e8dd975f98a5e259189a553a7e3d8fb3d37efed7cd8c40c2",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -3547,8 +3958,9 @@
     },
     "cu_handbook_1972_legacy": {
       "before_sha256": "2da40dc5a7cf535dd8d59b216e86f38967741a316d8cf7582931e309d83038c9",
-      "after_record_sha256": "54ff544ce5c2e07eb061a03ae54ad9ad2a27c2e6e980290f1602f3af1fa34677",
+      "after_record_sha256": "ac6343c67898691d02bf97663a9ad5d592a429b16d6b71760b3e4a55a4134bdb",
       "after_audit_sha256": "d6521ab3f0a477e59b219abcc67ef17fccd7bb628321264716acbfd7390bb9c2",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -3580,8 +3992,9 @@
     },
     "delta_alooh": {
       "before_sha256": "3c8978f9022dc401e62e8fe6eca5356eaf9cf0e11cfac164155649c9931b3bb5",
-      "after_record_sha256": "b06a4b316358430ac875e503e98d07313ef75bd7fb2687bc5ef382afea10e9ba",
+      "after_record_sha256": "d93340661560648047c98ab5712f38d913d9c4459708da6856140e288bc1e1d7",
       "after_audit_sha256": "faa510e6503967507a5e2f856542965e40c6be8e5075c2c55527300246d2eac2",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -3611,8 +4024,9 @@
     },
     "diamond": {
       "before_sha256": "3ce294f6cbc286a22be74205f1004ba250e20166e073426607b8d9f42b9d2b24",
-      "after_record_sha256": "c30f34339592d6cc7207bec7437f6c60ae29c894260651b3044e714ec268f9cf",
+      "after_record_sha256": "208eaf92cf3031836fdfc87fe6a1b564636f043cfba3e13e354a3055e26939a5",
       "after_audit_sha256": "51055afc4565f3e3f6fa202b7bdc4d44f0781cf24be1272a4e2c708f8007bc3f",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -3810,8 +4224,9 @@
     },
     "diopside": {
       "before_sha256": "e376c21e58c89f9139eb914159a3a7645272144596308630c557f7ca11773fda",
-      "after_record_sha256": "0cd5453584242a0e18990b7c303dba0374088807c47e750fab92f76d8c48f956",
+      "after_record_sha256": "053ba6e70f896ae0872276ec7ca01e3bb1d67d61013172165288c15c3220e7f4",
       "after_audit_sha256": "7db365794c5d54a27f8856437ce4a2de423be0dab89e312c0f523b13f323a070",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -3837,12 +4252,61 @@
           ]
         ]
       ],
-      "object_orders": []
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
+        ]
+      ],
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            1
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default",
+            "experimental_configuration",
+            "notes",
+            "fit_datasets",
+            "recommended_refit_dataset",
+            "analysis_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "e_feooh": {
       "before_sha256": "c822e66381e3b0abcd3e0a61629036346a0316dec14ab40d924ade69df6c4c50",
-      "after_record_sha256": "5e5dee15fcf5f87f9929f5ff439dc722a7c43a1bcb1a349ad343f5c03407804b",
+      "after_record_sha256": "8ea8a73d4241e7fe1e351239cab5756c19247514c699d71a97a1b397e78a270d",
       "after_audit_sha256": "0fbdc7ead6ef31f9a51e54f04194d43b12fb720ce785cc41e13477f35a46e871",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -3872,8 +4336,9 @@
     },
     "e_feooh_hc_low_spin": {
       "before_sha256": "5d995b6c37b6c149b971ce3c8021ae307b71c29d0e01e9e33bcf593a99185623",
-      "after_record_sha256": "3f08ba145bcc3cd616feeda73be112b1c110062c24a3f18f96f641781f00fefb",
+      "after_record_sha256": "b53bf8148c77cdbae24509d274e3117ffd0c5e789ac0e3c7df1d949e6dc3dd7c",
       "after_audit_sha256": "d630f92703e71bf3971550530d8f557d14aab43b075fa5175fdcd1a8265fdf32",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -3893,7 +4358,7 @@
     },
     "fayalite": {
       "before_sha256": "4d7bde6b417e6c13e3e1c895508d4ac915dd1a395de1f66bfe2c2decde492276",
-      "after_record_sha256": "58e875b83f0fa6956b1bb93d640cf0ccbf00f5f04a91be62b1e35fc38898bd91",
+      "after_record_sha256": "d46f546d24fcbc1e34a8efc7d981956e9945a7456103e5fa41e841b544bf733e",
       "after_audit_sha256": "c392a2342107facf4f3354dd8e871c4e8d8f126a347d9bc5525ae167e07a9405",
       "added_check": [
         0
@@ -3937,8 +4402,9 @@
     },
     "fe": {
       "before_sha256": "5114cddfb6c4cf6327cbe9f2c43cb566ad9d041bde276d4a756896a7734cdd90",
-      "after_record_sha256": "5b85b087ee51338adc02e0bb8806fcd3b7c08e73046379eb0c44a15156de2f8d",
+      "after_record_sha256": "5ae1f05ff6ee2c86f92036022be5d9e8cb4bf394fdb4963850e46313ce832394",
       "after_audit_sha256": "f73c65ad1448b4be14ac5e497dcfb0e4f708c5f7c5265f3dff14414d521c54e7",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -4001,8 +4467,9 @@
     },
     "fe073si027_d03": {
       "before_sha256": "124530f6f8255778259d500b3f858768b370f9b05a19e54f48800c8f1ebb0511",
-      "after_record_sha256": "2691fdd04be5bf3a8d5f14303ae64bc91369e69fe18cb90b2e3a534e582cccde",
+      "after_record_sha256": "c95c9c3e82e6c54c349432324ee6587a5316485c71220ecc72722c0399297764",
       "after_audit_sha256": "2e9909ab4ee9dfe1144ddef2db4e9805fddb24b946089a6252695615e557a4e9",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -4018,12 +4485,23 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "fe084si016_d03": {
       "before_sha256": "a70eda7402d4a491669eeff7d0ecb14487c9ef844059a367879a11a732c7d99c",
-      "after_record_sha256": "da44b8b27c37ee2f48cebf18bc0db56b34a097e47001ddefcff20a988386c11c",
+      "after_record_sha256": "bc32e0e9b08d5e01f57cc69d4b2e8d27ed6ce1513be397cc65253db61184acde",
       "after_audit_sha256": "72aebd0e9bcccf7a6cb4b6ae95c3acbea9f5e743ac6d8eb06bb0a8c27572cf0a",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -4047,14 +4525,31 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
         ]
       ],
       "object_orders": []
     },
     "fe084si016_hcp": {
       "before_sha256": "04dfaf27527a6f180774c2829dd2f5ef4fe3f0ba9c3a5596357237e97fd11e36",
-      "after_record_sha256": "c3a5ea1456fc9a9bf368ab46f696a301575b2c32e008d28f7237cee3db2e14d7",
+      "after_record_sha256": "06c85ae83a7162c73492a50449c65d445d4d098d1bdb3b9bfe4708389a15f07b",
       "after_audit_sha256": "2e31a5c6b890975d27a13f52ec4287dd20c64271dafe891c918baf4e3c212461",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -4080,12 +4575,29 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": []
     },
     "fe088sio3_bridgmanite": {
       "before_sha256": "03d702a07f9fd5df268b4cca7f39474dbcd20dd285ffe387a20935c2a83ca8a1",
-      "after_record_sha256": "ca4d636a16cd769cfd1b21076d4beb051db330f9509b1993fa7a62e6bf09fa3f",
+      "after_record_sha256": "b2c3877b19bb2e93226187cc7106edca09bfe0fc198b5d11e05554cb47c23d78",
       "after_audit_sha256": "0365f575b5f9f81b245a27b230a64bb498d44c61051725ab0fe19f4e759afc37",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -4105,12 +4617,44 @@
           ]
         ]
       ],
-      "object_orders": []
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "volume_basis",
+            "sample_composition",
+            "notes",
+            "implicit_parameters",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "fe093o_rhombohedral": {
       "before_sha256": "3242d068098311cf15e968bdc691ac6039bf6735fff9a70c5d236772c90af24e",
-      "after_record_sha256": "ebf72b1089169c4faf28835ee6f86e75a331d25fff72a64b28f755167bd738e3",
+      "after_record_sha256": "8eb2e484d2890e438e3f9a2bb767d69c750c14e7849b0462756e7dc078ad21cc",
       "after_audit_sha256": "3bfc660d9ce32689ddf068eced9e574b8e97c79d6de37dd37a4445409e6a161e",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -4130,8 +4674,9 @@
     },
     "fe09ni01_hcp": {
       "before_sha256": "8cfff539d6f017b103ca8f438537ee0d8255488a69f47b5c5f5fec4b9c3e5043",
-      "after_record_sha256": "9d4eef4a9f79d603ae0c00cfff516d787fd4484c59a23ebf69621afdc2a02aa0",
+      "after_record_sha256": "4b9bc15b460d63c2bdf0f1961dcf6639b8a533eadfd2482332ba9ce94d3f0082",
       "after_audit_sha256": "6d355b700314b1849d95a0ffdf76d304826d7ba57dfc5b8404b0a5e230874220",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -4363,11 +4908,43 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          16,
+          {
+            "default": false
+          }
+        ],
+        [
+          17,
+          {
+            "default": false
+          }
+        ],
+        [
+          18,
+          {
+            "default": false
+          }
+        ],
+        [
+          19,
+          {
+            "default": false
+          }
+        ],
+        [
+          20,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": []
     },
     "fe2o3": {
       "before_sha256": "6491132b83befa378612accbe59422e98893fa3da0b325193d4bfa4ee592595a",
-      "after_record_sha256": "196b1d228af1cdfd4b9e7dfae136d08174c15df3a00d650aea0edd204c1f7d00",
+      "after_record_sha256": "f150b293d74db6b4b017bad84d97682d8a2ea5b4a43c97c17e899650f7b24136",
       "after_audit_sha256": "b2feecaa72c42080e32af276f160d12370e25f9d0216ea69d4be5602a27e33f9",
       "added_check": [
         0
@@ -4411,7 +4988,7 @@
     },
     "fe3o4": {
       "before_sha256": "ac0d649f9629834c458b321e4565496c29840555334b0cc0f0d13dab8ba1cd80",
-      "after_record_sha256": "9eedd07a1b42614cb3c8095ef1592e90c5537d6cdd591fe73679a8b282a705df",
+      "after_record_sha256": "972a4b6993a1f251062e58f40d3164b38f9b474a6e0fcfd8bf210c5e6801dfd0",
       "after_audit_sha256": "d0115bfe14b7d18cac3c6a05c6a9e78c5e4fc11b3110f4e775e931ee97802624",
       "added_check": [
         0
@@ -4455,7 +5032,7 @@
     },
     "fe3s": {
       "before_sha256": "7757bf9b2ca98c80f5b7e8a11bc6b4f344b8554dcd78301b14efa2eb35d23c10",
-      "after_record_sha256": "1d0de459efcc4274f2f9f5d5184529e99d0727c0dd33338ef4182b273408e5c1",
+      "after_record_sha256": "4a82cf826be9368ca39ab84924c4976254fe2f3f9513d16ba24d3fb67f583e30",
       "after_audit_sha256": "17721701276cb27b2746b805b84f65e39a89abc28bc4d976035f5b0cbb4ddb94",
       "added_check": [
         0
@@ -4499,8 +5076,9 @@
     },
     "fe_bearing_al_phase_d": {
       "before_sha256": "387ba9e341df05ae054eb7d8daf9a8352a137fe254f6ab899e179426828dfcfc",
-      "after_record_sha256": "377eb57706cb904676da48ba3affe89a59483bb8249077d7309b748371a5a621",
+      "after_record_sha256": "93b028a3ef44af28c99daeaafc14cbd355381571f64a4e8f91c05da7f44c513a",
       "after_audit_sha256": "4d7a1496ce96ff67e200d1a966bc638a8ff8a87edfb2278ff21ef865c53b3fec",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -4526,12 +5104,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "fe_fcc": {
       "before_sha256": "9e9efe9b6c20f63584e624e581750e895ec67733aec06d97adf0626773fe231c",
-      "after_record_sha256": "95fdb645d69393136a6256dce7929a3f4d343e17b4fb881e3e537f6e8accb77b",
+      "after_record_sha256": "4892f429f933a1077a32ce3c0dd8d51c109c0873fd3b5c73a53e0dcb1c1e7952",
       "after_audit_sha256": "e3f3c776e2f0fcc6082df246bc9ba4da137d0341387c55d233603ee7cdcdcd9f",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -4551,7 +5139,7 @@
     },
     "feh2": {
       "before_sha256": "d2505255422dbb06e4852147c2e7e1c922a9b75a0786d1d3314596a29ea807dd",
-      "after_record_sha256": "23204df74e6108d98dd49288702ca761250217e7430c0df8fceccd9ac0e7c6a7",
+      "after_record_sha256": "08b4d9e3b9e90aa8bbc9a4f860c91927a6899ce5db19db31cc467a6ab4fc6de2",
       "after_audit_sha256": "eae1522ae6e63697aac5b2d7b53bbacba12dfb9b0130a4544a80cdd8875c87f3",
       "added_check": [
         0
@@ -4595,7 +5183,7 @@
     },
     "feh3": {
       "before_sha256": "7f1aa005c14ed63ddbbd5f9357caa333caaf426b96cef7f1a2be815390e2e057",
-      "after_record_sha256": "5ec587c604f1d15df05547fa0fb78c44eebb9cbf1bab9b28945872b1a0f86e27",
+      "after_record_sha256": "325dd1d938a06ad73895a9ff83ca22e67136a651809e3a36c901731a09e6c2ed",
       "after_audit_sha256": "c911c1106d018c5988d9db2faacd1fd0764403b4147788f8bf68404c0fc6021d",
       "added_check": [
         0
@@ -4639,8 +5227,9 @@
     },
     "feo": {
       "before_sha256": "6e75e10afe0a32786f82c92f9c1c4be306cff167e1250bec06719c6d31818808",
-      "after_record_sha256": "eb769c40fe8c56a69415b37546268b318d28988c6323bf99db0549ce80983651",
+      "after_record_sha256": "8ed892f1069e28e7bcebf87680eec52b64163d819721573855243b60b39cffb4",
       "after_audit_sha256": "5c4e655a8010aeb9106c603a8def5658e50ed0ea7f0adde59c989772ab9636b3",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -4731,7 +5320,7 @@
     },
     "feo_b8_2": {
       "before_sha256": "9f1be4305abdde5b1e47d0f10d092a174d8a5866dbdb69c41805c497ef73f238",
-      "after_record_sha256": "d0c9aab75922161699f60f5da302cdd2a6281b3f52fa1f3fd44453ab1f079ba7",
+      "after_record_sha256": "1d68f15621d37bdccb711dc12fb07cd7d20069c5f9cf06325e77d3b908f59dc4",
       "after_audit_sha256": "8d1918acb7a24c8bf5639e624f8ce44c20301eeda550ccbba50a6fcce622f2cf",
       "added_check": [
         0
@@ -4775,8 +5364,9 @@
     },
     "ferropericlase_fe27": {
       "before_sha256": "6397c4863972f954266190baca6eb144a6bdb8a66fd5f80e172e03af960baa1b",
-      "after_record_sha256": "d17d9470957266924a5a865ca0e0a533405743c0f736ad60903504d5ee79f65d",
+      "after_record_sha256": "c6b45aeace022449d09639c539a98753f51b7b105bbb9a9a2af0f4baa39642a2",
       "after_audit_sha256": "4cf459a889c626cbdbf0fa29948115344483b02a5ef4cc75bda7c766a7ad370c",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -4792,12 +5382,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "ferrous_ringwoodite": {
       "before_sha256": "68083ae20b534b7f57b027805f2d83ff44fd1dfe87e1920aee029b50a6f19e86",
-      "after_record_sha256": "15598e12b34cefe7c343287900ebcbfd9798967528914f50ebd67b7a424dd7f2",
+      "after_record_sha256": "8361c8dc6ce72688126ecd8000dc2de348796d9ffc1c64d4c801e4ae06ec54cd",
       "after_audit_sha256": "827405fb315d715ae6250f062463e7becd68e9376a7ee14216106bd9840096c6",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -4813,11 +5413,49 @@
           ]
         ]
       ],
-      "object_orders": []
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ]
+      ],
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "default",
+            "notes",
+            "published_constraints",
+            "parameter_uncertainty_convention",
+            "fit_datasets",
+            "derivation",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "fes": {
       "before_sha256": "f1baf114d619bdfaa2d093cd3ebf234ad9b60f4c846e7f310bc1d33b48ad1df5",
-      "after_record_sha256": "7cdbda882ea56dca80ebcc0cb79717d412ad6fb16156bddd4e9f58b1d3ffdf9b",
+      "after_record_sha256": "5faf6e99fb045b97cbc716b299c3aa845b942bcf7ccfc0959d7a72ddef679b94",
       "after_audit_sha256": "b1e2fb581de285128b67b3a5cd3ad5419fad701fd46c027637118cc2006a4af1",
       "added_check": [
         0
@@ -4861,8 +5499,9 @@
     },
     "fes_vi": {
       "before_sha256": "d3bb727f1367cc1d8a0a7855ae85911e711f8b656cbee7463f358fac3a4e22a5",
-      "after_record_sha256": "17b2e516d34a0881e50bf661a983ffc32e70441991c34ef6f713396669b3aa4a",
+      "after_record_sha256": "f396d23d813aea5b35932b8cd385822823c3e2768859f5be49ca9f78e476c04b",
       "after_audit_sha256": "c55a44d25dc0e1db2719199240e24bdd27a4b23042869df7546210807c190ce6",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -4878,24 +5517,50 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          0,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": []
     },
     "fesi_b2": {
       "before_sha256": "58e29b3256e5acef5fcd91b7807cd0034c00951c2c93dca99fada373f889d9a7",
-      "after_record_sha256": "8418e0e1ff7b96061f885f86e58dd50b681ee33f6d572238d3075696e5bb339d",
+      "after_record_sha256": "2bf3db58b70ebd0a19989c9e0bd8feb0ff063520b09106bae50e4358aa301db8",
       "after_audit_sha256": "de458cf7f444b0a971f383bd4d8e4118e208e52cdc3671d0e9855bb26a53bb24",
+      "layout": "v4",
       "added_check": [
         0,
         1
       ],
       "generic_notes": [],
       "generic_qualifications": [],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": []
     },
     "fesi_b20": {
       "before_sha256": "ad92a7a53b1bfb1b8696cfccbe27a607eff06f60c1a4de74efec73631ea79279",
-      "after_record_sha256": "0eab3a83cc9e3de0589de2c0001f880c841355a9fb7c6f55aae68522749fc810",
+      "after_record_sha256": "e13faff7bd485fd0bbe35b9da798d33a41d9d15956d795f14e2f14b6fe3c759e",
       "after_audit_sha256": "c99105988c3bcf4bb3e0a29343f58febdb971318fd33589def07b96fcbb62f93",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -4919,14 +5584,31 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
         ]
       ],
       "object_orders": []
     },
     "fesio3_bridgmanite": {
       "before_sha256": "39699d951f2c49f97b7840ec39fc4eb2adc7bd75bc387ae2524c7702be6f24ff",
-      "after_record_sha256": "fd3b8c2c53af62a84133c2239cdecc108de3ce246a4a16fb6ba670a82138293f",
+      "after_record_sha256": "9c97823dd6e0bbfb1c3be53cff408136cb32efe185bac82a5c688349220166ad",
       "after_audit_sha256": "43784a1d50c2d11aafec8503a04188d0c94bff8199bf238d03cac174c3b37367",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -4960,12 +5642,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "fesio3_liquid": {
       "before_sha256": "77b9728cf47f0a3cb2d955b734de17319d572ee75de8e388fdb1d976066fc969",
-      "after_record_sha256": "2439f7a21c564cb19a898ca0dee50fab0da6fcc2be2295da5e0bad017a758d56",
+      "after_record_sha256": "fdc3948382292cb1cf1b5c3ec6dedf6d0c180e51c8b9b160075bb0559f4ab3a6",
       "after_audit_sha256": "f4d22ec6ee4012a1bd3a2a0c115cf3e1cf5fa8f70bbc8cfb40b8707debe78684",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -4989,8 +5681,9 @@
     },
     "fesio3_post_perovskite": {
       "before_sha256": "f41c8d7ad1a9f5b590585b3577ecd391609b4dab01d1c076b71e4eadd07649d0",
-      "after_record_sha256": "e64adfd0950a64c44d338c850fef149b644be776b87dd758fd2843074bcfb4ec",
+      "after_record_sha256": "ce83a5d79b31486c6f5d981e360d200fd68160ad260f81a2dfed8df036dd0c6c",
       "after_audit_sha256": "dda7ffc57a124653a3feb614359c298e7358d85fab4dba028e46eaac399215a0",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -5008,14 +5701,24 @@
               1
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": []
     },
     "fesio3_post_perovskite_ii": {
       "before_sha256": "c5b589b1929ade72a75c27d76905a06ba5b0747b6936e19292f62e5c4629a5e1",
-      "after_record_sha256": "c1c6bf4c937aaa93c76e95f9441a03082644b6121a413bf3afa8a42826de0fa6",
+      "after_record_sha256": "3d4514addf7bd01d29eef551771fde70d590da2310f3dd02f981cd1b04fb6b8d",
       "after_audit_sha256": "d285f76f47045a1b5e2c99a4dbc2965c877cf8b81d659f639d5d22ef69a18131",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -5035,12 +5738,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "forsterite": {
       "before_sha256": "b5b078d66d5fe53c50ef34c53b322431ed8e62d0ba32b7ba182a3808d6df4c6a",
-      "after_record_sha256": "3d78f1777da22076e241fdb2f062fb4c1abe5efeef3a948f8bf94fbe915252d6",
+      "after_record_sha256": "b264ef1e153142d7a6d321d42f366faa95cdffc5d444837ac912441117650bf0",
       "after_audit_sha256": "50d151d1158633e4c26d28babe53c9c76f6b89120be22502217e9231a4057e3c",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -5081,6 +5794,20 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          1,
+          {
+            "default": false
+          }
+        ],
+        [
+          2,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -5103,7 +5830,7 @@
     },
     "geo2_rutile": {
       "before_sha256": "50f70ee6eaf48de5f0d9e77fc8c4c8fa92ffc86f717a9234a5f7260bf45b2e15",
-      "after_record_sha256": "5e8a60826b3515e585dbf2d9533c40e51f54d35ae300fcb352ba41e718570bed",
+      "after_record_sha256": "f329ab3f357ee725784f363f59abddf6fc14ab8ffb87cf1dc0bdcce0d7f53810",
       "after_audit_sha256": "a0e5d30b9bb15036b3e99ee7e074ccc345e750158dfa1c6830792dd2a44ef09f",
       "added_check": [
         0
@@ -5147,7 +5874,7 @@
     },
     "goethite": {
       "before_sha256": "e08637a1fc4e71718c059042cc5553f60ac843d96a0a8ce376829d08d7a5d8d7",
-      "after_record_sha256": "02eee1dee6d8dd0e22de17c23c906b3fa9dbf80bbffdc3bb1fb38c2fa2089454",
+      "after_record_sha256": "f98c3c51b82cc0b0b7de7340eceaa6f01922a0cfc374ec8415dc34b329d0b13d",
       "after_audit_sha256": "283267dc1022f23d305bc6b6daa2ebf3092b6d8373dec658282355b7b9ee0423",
       "added_check": [
         0
@@ -5168,8 +5895,9 @@
     },
     "gold": {
       "before_sha256": "4080811e1a7f001c662757a244b0d171f2eb00775651377d20228cd91ed9b13f",
-      "after_record_sha256": "0c7045d8d73787b054afac2685617f0b44a8365dbb101bbffd7cc807f7ec780a",
+      "after_record_sha256": "4a38dcb5cabcbb6efacf8c9abb898364e1b94af86d2bfb92df27635e28c5f169",
       "after_audit_sha256": "56529a109b75e20760b9596559d19ca89fdcac8331d163a17826c18f6fd966db",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -5441,6 +6169,27 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          4,
+          {
+            "default": true
+          }
+        ],
+        [
+          21,
+          {
+            "default": false
+          }
+        ],
+        [
+          22,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -5541,12 +6290,73 @@
             "primary_data_check",
             "reproduction"
           ]
+        },
+        {
+          "path": [
+            "eos_records",
+            15
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "volume_basis",
+            "notes",
+            "source_coefficient_rounding",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            22
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default",
+            "volume_basis",
+            "notes",
+            "supporting_references",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
         }
       ]
     },
     "graphite": {
       "before_sha256": "047575d489710ef8b26d2cc5e5c09d84211e03c6f843c635d9c72972dee8d5f2",
-      "after_record_sha256": "ceafdd9388bf3bba84aeee771dccff74759c3a395fecad32c660abf485ede1e8",
+      "after_record_sha256": "252851a0fbbdbbf16645985f59e0db7465441148fb77142220830f20b4ddcf01",
       "after_audit_sha256": "94098fd54ea8d16f39e49b6f802401c468e848793bf8fe37ed5cde2148b6b9e4",
       "added_check": [
         0
@@ -5590,8 +6400,9 @@
     },
     "grossular": {
       "before_sha256": "9b9826055d7a1374ca88409e75de3284cecf6d71c3c0ec18e7cc5f638777be50",
-      "after_record_sha256": "169cf01be076eac5c2e243d22dd5004b2ac34c5c7bb7573324fcf6fed378c7e4",
+      "after_record_sha256": "6ff315e3d415bfc1758b6974fa3d1bcbcb3626370de7f6c989129b631d4ca445",
       "after_audit_sha256": "6d89dae30b332e4dea8210eb416a50541b9a2cbf3470fa39431e0a20b7b6be37",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -5611,12 +6422,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ]
+      ],
       "object_orders": []
     },
     "hydrous_silica_cacl2_nisr_2017": {
       "before_sha256": "71392994a2472e562b97ea0cb43fd8e420cee6776aad51612865c8549700a29c",
-      "after_record_sha256": "5eec18ec897ee04144369e2fd1baf043966ca5aa4f37411530f0944242316443",
+      "after_record_sha256": "542ca37c31d242b1d17a1672e238214c436fd7332b37fd65f98b38b468911ef7",
       "after_audit_sha256": "cc7d68dd954cdbf5c7ee12e217efbb098dfd3da4d3043cf4685fab90100ca6f1",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -5630,14 +6451,24 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
         ]
       ],
       "object_orders": []
     },
     "hydrous_stishovite_nisr_2017": {
       "before_sha256": "f6ec580aa69c21b4c4015279d74c8daca2fe08927f896762688fb4e567257bda",
-      "after_record_sha256": "1119803e6b0291953fcaeee674f7d572a8b3c9b3ac2a4398f3df4011548cc6d7",
+      "after_record_sha256": "26cad24d2d0964466fb1c81e0574cd9a60640cd62ad7bb354b53a9a6fdd17e16",
       "after_audit_sha256": "5044fa6be8772cef33dd0e5578f7d8f53bc53e4dba46f04d9e9c451197a79b69",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -5653,12 +6484,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ]
+      ],
       "object_orders": []
     },
     "ice_vi": {
       "before_sha256": "3b6fe5212980c8a959603e21afe99234d53eb46101ee270d013784eabf1ba90c",
-      "after_record_sha256": "8f7e357ea59667b1982141b2b788e4708e5fdc8d3b5cec1a6d07d60ae237732b",
+      "after_record_sha256": "06994ff719b1146240d22385cb90991c391adb58e40842fa30723652622e8846",
       "after_audit_sha256": "dc468376952a9feef5a0babb06901168ebdc417994ee6c20b9a3a896df527349",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -5677,6 +6518,15 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
         ]
       ],
       "object_orders": [
@@ -5701,8 +6551,9 @@
     },
     "ice_vii": {
       "before_sha256": "1ced13b9457e8fe89367dbdb4501792f814a3df70aa158437a2c2cf2aa15ef55",
-      "after_record_sha256": "8e752588ccbd85efbf30974721266c988df894924ea4b3333919d3c753899d55",
+      "after_record_sha256": "fe7f8d2d468639e8bada368a09855451d7417ba3b63a82eb2b6546ed81a7106e",
       "after_audit_sha256": "f979259b9686f76b9a22917d875ed545bcb012fae09d9f19dc61296f4022c709",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -5735,6 +6586,15 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
         ]
       ],
       "object_orders": [
@@ -5776,7 +6636,7 @@
     },
     "iceviii": {
       "before_sha256": "f39ace4247af35608cbe94cad405fe1f1f0e4dd32085ac93f7e3a68265813bc6",
-      "after_record_sha256": "99d2acb7373954490e3d50b9610e74c9b719c6ec6b59367bd1058b5e11b36928",
+      "after_record_sha256": "47fc120d44c3e93f30591affc2615c7e9b22c6c5e157f96b2ad51c84165f4ef4",
       "after_audit_sha256": "5cf4d4279084d6fef929abc3db6b2ec95e3ea3411b07df41247989bba10145df",
       "added_check": [
         0
@@ -5820,7 +6680,7 @@
     },
     "indium_nitride": {
       "before_sha256": "54d38446b4b729d90e54933ae729b55aff5dedee16d32d50e683e399a7f05e0c",
-      "after_record_sha256": "4e5e8a1e78a36606ecce017cc8d8a7ea386f9419be1b5e30dceb5f353d55e32d",
+      "after_record_sha256": "9c4a899759d52eb9dbad4880ede6e6db1826d92d584e0904b39fd6d5fe2721b7",
       "after_audit_sha256": "1183bffbf84e02f2727bb4dd3ef639e5299d4aa1f7f97f686a76cf0a59edff4f",
       "added_check": [
         0
@@ -5868,8 +6728,9 @@
     },
     "iridium": {
       "before_sha256": "2bdb0815f1608da1bf17e5a476ef6f02ac3ce303b584a26021e9667f567087d6",
-      "after_record_sha256": "5e2ff7fe343424283f0f3c34b5ffe54db4406bdaf2068e264aa11c6977e8c8d8",
+      "after_record_sha256": "4707f78b8d7b6f90773be47d846fc0da917d81c6090504589f0e35b8e9a8bb73",
       "after_audit_sha256": "69089ee1da01103709994ed35a59ce499a88706f6b1cdd42fc4d9c9004c6ed47",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -5912,8 +6773,9 @@
     },
     "iron": {
       "before_sha256": "38526933cd6adfbc2756f83451a5253605f99c288e24dbc6bb7997e699388cc6",
-      "after_record_sha256": "987fcea918baa3dbcec3bc54fc3bd9a10939d304dde8d3669faeafad62f83848",
+      "after_record_sha256": "98b1001bf0a67e9b1a6703d0953094a7d4c8cc42ac995ca9d265494160773a23",
       "after_audit_sha256": "6ffec9a68ec7fe20fbf70fd32d8b77d8b70de1c41966aefbd5242a3b8b41b400",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -6334,6 +7196,38 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          33,
+          {
+            "default": false
+          }
+        ],
+        [
+          34,
+          {
+            "default": false
+          }
+        ],
+        [
+          35,
+          {
+            "default": false
+          }
+        ],
+        [
+          36,
+          {
+            "default": false
+          }
+        ],
+        [
+          37,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -6409,12 +7303,72 @@
             "migration_source",
             "primary_data_check"
           ]
+        },
+        {
+          "path": [
+            "eos_records",
+            36
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "reference_pressure_gpa",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "default",
+            "notes",
+            "range_provenance",
+            "supporting_references",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            37
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "reference_pressure_gpa",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "determination_method",
+            "record_kind",
+            "default",
+            "notes",
+            "supporting_references",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
         }
       ]
     },
     "iron_carbide_fe7c3": {
       "before_sha256": "c89c3e15a0df96d33efadbc4359b3cab1d1b3f1228de3e7d40bf38ab6095b227",
-      "after_record_sha256": "687a6fc259596182df07a6df78e12941496b9dc88c027978ebbb39b017970698",
+      "after_record_sha256": "69f8ac8b37db25f7fd47a018d171c9aae1c8b7ab2d8afb86cff78c6e550d49f6",
       "after_audit_sha256": "fd25a66d608d38692e8344123865d415de871182586dd426ec002bf56e223ec8",
       "added_check": [
         0
@@ -6458,7 +7412,7 @@
     },
     "kbr_b1": {
       "before_sha256": "6433aeaef7c02c0df778885c777bd0e2144ecfc433ec25391f7e52e862c0cf8b",
-      "after_record_sha256": "59456ec11467029d754a036c4b377cb01300c80830cb465ab6a5d1420e94e590",
+      "after_record_sha256": "b60d68d06cc30bbcc8c0c8ace5417c70a745dff7a5482797872961c9e3662a87",
       "after_audit_sha256": "7ab81a9d9d3ae6b3aec757ee0e44f8e81341d77f26c55eb97d204d3358c5dae5",
       "added_check": [
         0
@@ -6502,7 +7456,7 @@
     },
     "kbr_b2": {
       "before_sha256": "fa33f47ceb9542879438f2cf322f3a6a9ec14359165b609b9895eb4e701a6dff",
-      "after_record_sha256": "0a4e66271065533b580a630fafb9274d0c60e0d22da0c905b375aa199fcc5097",
+      "after_record_sha256": "ddb80af6aea74c2b17d3642e4c591d4f2f156d7544e32724aceb370233c71ac2",
       "after_audit_sha256": "76054158e7f15442f657e77dfa302ca19aec808c806499193c459da037def1ce",
       "added_check": [
         0
@@ -6546,8 +7500,9 @@
     },
     "kcl": {
       "before_sha256": "9a814225f19d94beb884591ae60e41306ffb1f92da49335b1e233c4d2cce203e",
-      "after_record_sha256": "3ed87c87354e3d2c54ffa8f9abcd7fa035572defb3533042722f4baba21aeef5",
+      "after_record_sha256": "cdccb921b1f8fe184dbfd381bd453eea72a32ddd09d52b98912de9be0586b5a7",
       "after_audit_sha256": "b09d176e7d4cbc964a6d5b337b1d2b1fd9f9aa6790635d35ffa646039081b72e",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -6666,6 +7621,45 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          2,
+          {
+            "default": true
+          }
+        ],
+        [
+          5,
+          {
+            "default": false
+          }
+        ],
+        [
+          6,
+          {
+            "default": false
+          }
+        ],
+        [
+          7,
+          {
+            "default": false
+          }
+        ],
+        [
+          8,
+          {
+            "default": false
+          }
+        ],
+        [
+          9,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -6722,8 +7716,9 @@
     },
     "kcl_b1": {
       "before_sha256": "ce55d36be4c1c0554f15a9eea3510d787c15f206bc49fdb5787c0d385557411a",
-      "after_record_sha256": "457eb44bc6c92dfbf764a7df171693becd63cb9c11fcd14471094412712b5fa7",
+      "after_record_sha256": "27d8e1a96ffd792a23090258f523f0c294591d6cd50fc14e7574b8aa213c9699",
       "after_audit_sha256": "538477b7ad3bef7f429df936cb227a853c4633ed55cc3eac72afe480de138798",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -6754,6 +7749,14 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          1,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -6776,8 +7779,9 @@
     },
     "klb1_ca_perovskite": {
       "before_sha256": "f7e04a6ad57e417b326ee62484ee6727aa0b9a921de88c58f98741123fdff775",
-      "after_record_sha256": "754296e94c03d54b0b23351cf051366bacc7a28f2a6b5f5463349b79464b380e",
+      "after_record_sha256": "e0aec27b84714b4445567d62d720e72de2f430d41acae85425cf5c6a8b7fd092",
       "after_audit_sha256": "a8e7bdd90dca4efc71d06cd75fdaed795cff10247f47ffd0cd636558c9cef656",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -6819,8 +7823,9 @@
     },
     "klb1_ferropericlase": {
       "before_sha256": "c684d09bd1fec54a7679bbe38793367822927db6c777b23f18fef179d7284c9f",
-      "after_record_sha256": "db3414bc66b982090499fc5d7c0b4fd721ab4ead0d7181df2eb071f3f8dcbec6",
+      "after_record_sha256": "8dd4d31e737c20aa9aaef54e9d6344e843d819b6a0e434f7fc26472deb484ba9",
       "after_audit_sha256": "3620cef83991bc082cc61221727c0826e536277779d3e48f031df867d0021f83",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -6892,8 +7897,9 @@
     },
     "klb1_mg_perovskite": {
       "before_sha256": "76a7c5538bcdaa007e4d3a7bf7a1e5732e52eed61aab9e00956524f82c5c2ad9",
-      "after_record_sha256": "d7b7e574246bec22b787235dcafee7ab6b5cf36f2bad92d6377c36593296aeef",
+      "after_record_sha256": "63205f530146599faeba8a89ccb334971c7da75681903cbaf9a0d778a4f63c6f",
       "after_audit_sha256": "d65f2d4d06be72d21ac53bdc37ed531c2ee266cd58a842357098c6a9b7cb8970",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -6935,8 +7941,9 @@
     },
     "larnite": {
       "before_sha256": "d49b4dcbe56ccfb1cd08d05f33174ada37a963f3e2f393f90bb4abc174545884",
-      "after_record_sha256": "2c58ffe27fd74ba6b2e828d8f8813c63c84d9e11eee7a29aba3bf50e4c170cb1",
+      "after_record_sha256": "816dd19d0a8140e9d087b6bea741153ad9a8feb163b323e135048ab774f5fa0f",
       "after_audit_sha256": "d2d43f327cc92ccabe0bf4efbf435cfe5be0cd2d35995aee645cbb66af3d930d",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -6982,8 +7989,9 @@
     },
     "lead_fcc": {
       "before_sha256": "a8cf315b7379fe5178fda884f09214d61908103d3db70bb81316c0718fcdb7ab",
-      "after_record_sha256": "8300dca7fadd7990124fd3aa087883ccf825d7cf0cb0a183a41ba8119aae9804",
+      "after_record_sha256": "467d87df2024fc0f677f2f2088e80ba299890b84afadddf83b4c6d053cd3d645",
       "after_audit_sha256": "3fdc3914f9c91332b06c763cfae0448e6640c7b9a83f819432115febcc0e9469",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -7026,6 +8034,15 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -7064,8 +8081,9 @@
     },
     "lead_hcp": {
       "before_sha256": "f12afd1b350adddd50117617d494e07a81302210504a8c9f8011cd498baa5151",
-      "after_record_sha256": "cda715920842b1bab98979f654f137e6661d63efafaf53a8a861a95a41675995",
+      "after_record_sha256": "3f1f6b88e8fc512acd49929e7908572311ba504ed5f0f4c2f9d1e3f4f914d86a",
       "after_audit_sha256": "0c1206825fa2611210b79096c8e43ec1a515ba091b96f61e19b7a42d54b9759a",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -7109,7 +8127,7 @@
     },
     "li_bcc": {
       "before_sha256": "f2ff43bf52d94581db94c0947a252e36158579bb2afe2249a7f5746832b58edb",
-      "after_record_sha256": "0eeb1cab438b24e1ee792293763683c5d1599d474766bed3f2b3c9916a3f96e1",
+      "after_record_sha256": "0e505422070a99e3153487fa706548fd87f8cd42e817b2e7ecf50e198afd0b67",
       "after_audit_sha256": "95c3f2a28285c46a5a8e5704061a61c4195102ced172a46147a6ae32b41fd0c0",
       "added_check": [
         0
@@ -7153,7 +8171,7 @@
     },
     "lif_b1": {
       "before_sha256": "9a44d19c13809ca18712015196107532fc15e9a2109eb60efc049316f4de496c",
-      "after_record_sha256": "b717961b8d432e5e249c57ae7ad77641e340d35e720bafd021a1e7947cfa3d72",
+      "after_record_sha256": "0cf86c20e26ec8463d7d3114181b7f662de4e6ae9fd3f528dfc5758200e7dae2",
       "after_audit_sha256": "3162f74274e523954b8b67024a52398edabdfcbde22a90f5d9bcdaf4fb335a1d",
       "added_check": [
         0
@@ -7197,8 +8215,9 @@
     },
     "magnesiowustite_fe56": {
       "before_sha256": "6ab8d623e431266e4fdeab753eec5ddf9ac372ba64a36c9a36b53ff1cff61e02",
-      "after_record_sha256": "6aa8b95d26879ac1afa595e264df1a3482dd93cedd1452cc89f4c2a6c91cf746",
+      "after_record_sha256": "2b536fe1becf7b8cf5f0c90a53457acfad2c3beed32aeea759ba97469e45a255",
       "after_audit_sha256": "1ec2d74c91867dd02b03a82c3cb41a881f529f7d740060ec0152e216390786ba",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -7212,14 +8231,24 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": []
     },
     "magnesiowustite_fe75": {
       "before_sha256": "7f7fcf815d378f4b9c938597790b50c51b3241e4991539af76a87abcd849156e",
-      "after_record_sha256": "73a149620886b376cb228f7b1b45a5ecc42b7e0666b4d21df44b1b92469c8e3f",
+      "after_record_sha256": "65754cb31bbfe9aded4a9f790a6809af0c0e9a05580fc0af2181d64551a7e419",
       "after_audit_sha256": "a56c8689265ec7681b82c623487473dd496c17208b1fbbc9d3fe564da0344749",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -7235,12 +8264,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "magnesite": {
       "before_sha256": "941e16b13732818387b7681f92b72cdb388bf429c4affb829b4ed5bf80f2f587",
-      "after_record_sha256": "90a2c4c3b278ad7b4fb9d69fbeec0540bf5afe68ab36962ccbc27f5d61573bc4",
+      "after_record_sha256": "97e9ddc7693700a0302c1f46f5bdbdf8c47494b65d287054f220f3d00fcbc317",
       "after_audit_sha256": "00de3d279376393d02d17cab4685532b57c007cd9d140e91195c8ae54bf34ef5",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -7281,6 +8320,15 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          2,
+          {
+            "default": true
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -7303,7 +8351,7 @@
     },
     "magnesium_bcc": {
       "before_sha256": "a649f56c47f4eb71fda95cb9f7ba65ac2041caab7740556b49c5d2e5c2b98212",
-      "after_record_sha256": "335b4e4d1d5df7c44874b93d94422f6f3b20c948f9970e05b4e9a731b7222c2a",
+      "after_record_sha256": "31edf717352715b6a2ca9ee75bf1d56568a7ad353f0ed9043e972dca26aca791",
       "after_audit_sha256": "379c9c48980ae3d604eaf3db81b9dfedba794bea1c3dce06349e4099668b529a",
       "added_check": [
         0
@@ -7347,7 +8395,7 @@
     },
     "magnesium_hcp": {
       "before_sha256": "934e152ef6b24ed9deec6d21cc9a4a66e763efadf9b25abb9008c16b0da6c578",
-      "after_record_sha256": "97e7db1c88eb5bb35c2e1a497e063e167fe78bbd81662d0ff0b395f6d7d6a27c",
+      "after_record_sha256": "ecada2f540bd71aed56dda45199f22e2dfdb0b80d97edf78d83cf8ed1149737d",
       "after_audit_sha256": "f41d2ac2ee122ee4eef64a8fa3b41f28c5babdd1938f684fcb66072687a4b38a",
       "added_check": [
         0
@@ -7391,7 +8439,7 @@
     },
     "majorite": {
       "before_sha256": "92bc6127d7be29d0faac716ae933f93c89d23a2eb870ce708c455b33711e4058",
-      "after_record_sha256": "3b24d6b0ffb40b66518f5cd8fdbcc687288324f4e7d29cd4f8109460c79e4eda",
+      "after_record_sha256": "d4385eb8ec205bdfed206c625fb07637cf40c541b197135c1d69bdb4e78c4ef6",
       "after_audit_sha256": "f18d670b130ed6caedea582463cf8c2704a9136c001533be5a4f7d2efd63b7a8",
       "added_check": [
         0
@@ -7435,7 +8483,7 @@
     },
     "manganese_alpha": {
       "before_sha256": "8858051aafdfdcf1d6e6a8ee7246cc5dcbdb5c78eee091a25c8f070204a0d9a1",
-      "after_record_sha256": "e66e945f39b7b10f53366788bad0445e6a370488896307fc10a407fc90263101",
+      "after_record_sha256": "bb06cb3182ccfe7e8498f2462f888ecc43b70e052233418186eb3a5758fb419b",
       "after_audit_sha256": "037fcd274da3722782e1ca4407a83a24f7913b3dd9f41caeb9163a34d750e886",
       "added_check": [
         0
@@ -7479,8 +8527,9 @@
     },
     "mg0125fe0875o": {
       "before_sha256": "50b76c2d509764b4a70c893abafde49904fea75847fe02a6bc25f12b4f8df110",
-      "after_record_sha256": "8441861173f0eda4158f271b00fb64b4b7303c00a6b8224106646dc97014589c",
+      "after_record_sha256": "d0ba362f632596010da98d444268bc974dd0570426c331af4b9be10565405357",
       "after_audit_sha256": "303cc6bc7075876b1b5e5bf36ede28057b491d50e708d281588e27a154ce3981",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -7500,12 +8549,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mg0215fe0762vac0023o_b1": {
       "before_sha256": "b31ad15521eb23decb37aab58884baae7ef1b0ea0f660bc913774333cc839960",
-      "after_record_sha256": "fb6baecb43286912703b10d09ff5b5220057e4120cb1625931899342accd4e84",
+      "after_record_sha256": "53840a9c7ed63b0b42e23ef17b42fa2e7c6aa1de4b83384c55cc0965356fec71",
       "after_audit_sha256": "234c269b51748b50c8ea8483f93a23f27042291ace8658952fa705fbd5c097e4",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -7531,12 +8590,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mg025fe075o": {
       "before_sha256": "72d2403c9789028ae28e36dfd1230e5a807bd64679b6dff643b53caecda54ad1",
-      "after_record_sha256": "febea793bda806ac62b4d4d1bd2300784939f1a3424c27dec9a89979f55617a8",
+      "after_record_sha256": "f2e99b25dfad2feb8de058526a3b5a9eb4859cdeeba480744d5143255344cb91",
       "after_audit_sha256": "87f2edabada65e16b7b0d98769b89741791d13cf5d02911df75fa11ddce73bef",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -7554,14 +8623,24 @@
               1
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": []
     },
     "mg0375fe0625o": {
       "before_sha256": "589ff908fdbef63803858a900a295cd8ee732c4839b5ed8d9ceabcc2343cf098",
-      "after_record_sha256": "6b9163b22335efdd5c142c7fe7fbd65cb37d99a817259658cd9c7a0a197a1f15",
+      "after_record_sha256": "755779579ebb6f977fb6c5d67d70ebeacda9d30236b48f098d68c55a55aa85cc",
       "after_audit_sha256": "7e56325a794b17abfd0708d97d197611b11564d18276db25640d159d8dc445c1",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -7581,12 +8660,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mg042fe058o": {
       "before_sha256": "3ad986b1a4198b7fdaabd7bf48e4d809419247bd3a7e63c81d5cd37b4c69b7c0",
-      "after_record_sha256": "68faff4d36d0402035b2cda79fb63d874ca29824760df7203b210966bd4cd126",
+      "after_record_sha256": "9171bd89006675fa60672c76987537326ff41b56c8467a3430220cef94d9ddd5",
       "after_audit_sha256": "efa5d4f1d18edf68ccdf205171b69e947cdae91431b4940220eb42722fdb61b7",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -7635,8 +8724,9 @@
     },
     "mg0490fe0483ti0027o": {
       "before_sha256": "45c98fc5dee191b6c780e8f1ce27d84e4aa6b6a18c53db1df609a7b8fdbd0240",
-      "after_record_sha256": "ca1e6042dd91f69ef0dcc7baa56a9da8a108aeacbfb3e1fe21740af9a0236f78",
+      "after_record_sha256": "ae029c176d4c218d4280259c3e3dc0cc024bcf6b55e8c6fd0fb1a1a38d5ba26c",
       "after_audit_sha256": "2c712438b9ff416bdaf53eccb672a4485a0004284574d1dae3a6028b10d9c360",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -7708,8 +8798,9 @@
     },
     "mg05fe05al05si05o3_bridgmanite": {
       "before_sha256": "175507d3d26a297c58871b0b78d5ae78194c7736a922eedcf57cbfd3862c41d4",
-      "after_record_sha256": "a1323b7318f4737b4c4531fdfb48ffe923ea622d806898d4a1cec9b939240a28",
+      "after_record_sha256": "aec6fb10013964706e40d8c84cf0ae3fbf1f6eefa49d81b3f1ceb9369802bcf5",
       "after_audit_sha256": "47d2d11f0d3c37e355702fc7df0e9a9c98a6e7929f63329d8bd5e39cad00717d",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -7755,12 +8846,144 @@
           ]
         ]
       ],
-      "object_orders": []
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default_for",
+            "sample_composition",
+            "experimental_configuration",
+            "notes",
+            "iron_speciation",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            1
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "sample_composition",
+            "experimental_configuration",
+            "notes",
+            "iron_speciation",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            2
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "sample_composition",
+            "experimental_configuration",
+            "notes",
+            "iron_speciation",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            3
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "sample_composition",
+            "experimental_configuration",
+            "notes",
+            "iron_speciation",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "mg05fe05o": {
       "before_sha256": "2bfc0d04f21cf119d4ada9e554a32a7497b4195304d5e8d115edc742aabe8058",
-      "after_record_sha256": "7bc2daed691b0b66ca4c5be2736fb171ba3f816f819dbaf233878c93e332109b",
+      "after_record_sha256": "6b5af30285d2ec76745443c772e9743a1c20b6be1d1ef8548ab45dae60c9def2",
       "after_audit_sha256": "ffcba11dfc7e0c90c9d02e2575a93adc8e722dfd6491badfa0888ecd6d7df292",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -7780,12 +9003,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mg061fe039o": {
       "before_sha256": "2c4ed896474a3a5b12c5da94c1d052649b00732f5aa710ebe7bc7068c8beeba0",
-      "after_record_sha256": "44c445b594af2002f23285bbf3f3c8edeca1b7ff9ca28642e7b3dcf80e961bac",
+      "after_record_sha256": "16afa5e3f77f153afc75fe2ad639e746ab89ed322ca2234bb00cafeb6bb2f894",
       "after_audit_sha256": "2b77f0675bbca79752b718667bf6f4a88bd7d720b087cfc30030b882406e3313",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -8003,8 +9236,9 @@
     },
     "mg0625fe0375o": {
       "before_sha256": "05a7123c51973d725a80e72824d1e3331145e4fee675e448020470bc53c1f59d",
-      "after_record_sha256": "01cbcd7935598631984c64c16b30968f5c22e3b8d05a756c0070c37c42ac1378",
+      "after_record_sha256": "d8047d7eab168eeb5b6a48b5c15fea476936b13fa837aa600acce8652e3c427a",
       "after_audit_sha256": "f5bba44ffe5ead9c32dd0feb35c8cf570cba0961cb34804ab87a287f7f65e045",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -8024,12 +9258,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mg065fe035o": {
       "before_sha256": "d63e49b199ff3935fde0e2a44ed7e58fd5bc6fa9b4117bd2dfaf32665074333c",
-      "after_record_sha256": "e7b088fba22058ec8cb05d1abdcf074462fd7349057a74707e1b533dcb80dffc",
+      "after_record_sha256": "9f273c2b96ce8665f3b0b226105cd87957093b4a05361abab18ea3661e9532ad",
       "after_audit_sha256": "5b75c336a07baf04ffb2c0ea46a194cad8d94729785d360636243b1c41f5d23b",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -8101,8 +9345,9 @@
     },
     "mg073fe027o": {
       "before_sha256": "ba51a78a6a6e4caafc34584d750d7daa19198b8c0f691ca277a378290f1e3a70",
-      "after_record_sha256": "11cf1a2a38581e0293f7ce113b7bca900214d96ed7a552b72c859ff1fa4aa564",
+      "after_record_sha256": "6b9fe42930dbdc4f803f055481e0ceab11c78d4b98df56e9bb9e5a5cea48399c",
       "after_audit_sha256": "3af42a1855bd1a62e07e876b6a519737b4610bac10d0b0fb33a6667929c530b5",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -8122,8 +9367,9 @@
     },
     "mg075fe025o": {
       "before_sha256": "f2394018bd7b16b5e5b572d76779e74bf99b027e0d20e3a577df5844d61d037f",
-      "after_record_sha256": "4f98bf662450146c0c7bf3bfcd119ec87d74858513773c7dd90ae699cbccb2e2",
+      "after_record_sha256": "be39d579b9c843832663486a76fd247ec7c5cdef074397816a50e96b1049142f",
       "after_audit_sha256": "1a154d69223c12356c1464178ad2ea68ebea0d9612cf2f62aeffb3223f0da992",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -8206,6 +9452,15 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -8221,6 +9476,68 @@
             "verified_fields",
             "primary_source_check",
             "primary_data_check"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            1
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "volume_basis",
+            "sample_composition",
+            "experimental_configuration",
+            "notes",
+            "iron_speciation",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            2
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "volume_basis",
+            "sample_composition",
+            "experimental_configuration",
+            "notes",
+            "iron_speciation",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
           ]
         },
         {
@@ -8259,8 +9576,9 @@
     },
     "mg075fe025sio3_bridgmanite": {
       "before_sha256": "0083736b632bec4d85a29d9a2aa26bcc234d168f1e75ebb16e913ebe609f3d92",
-      "after_record_sha256": "9b006570091bdc18545578f1777280d1d71f3f1607ba7ba52ebaaf6690a48747",
+      "after_record_sha256": "f04fd9cd59c53422ec2dcded2a73563b9481296e102327a62ac230416e339a0d",
       "after_audit_sha256": "cd71d1abc045706601c8939e9db67db41c38d9f600c913390504595bbfe08c64",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -8340,8 +9658,9 @@
     },
     "mg080fe020o": {
       "before_sha256": "a95def24dcd666615f4ba214986b7fff6ae70507e2750d4db7f99c98fdd97920",
-      "after_record_sha256": "041f37012db183530ded362549e7de0f6ddd269c7172be3328cc4be4cd933e7d",
+      "after_record_sha256": "69751bdd68236e16fadb151ba743302a781428f3ac9e27561be36801ac19471a",
       "after_audit_sha256": "c81932d0792c683f45dad7967d10272e712e01a1f8eb66b2467c7a451e8915a7",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -8376,6 +9695,15 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": [
@@ -8469,8 +9797,9 @@
     },
     "mg080fe020sio3_bridgmanite": {
       "before_sha256": "e0d3902d31ebdf8162c9a477a239109cb32a834eec69a8934d714f4b77de5591",
-      "after_record_sha256": "7474daba03bd496b5440fe5724c9822e3107e23fcbe4daab8aae6a1953719315",
+      "after_record_sha256": "f7b9dbb206a0dcd3e05d81bf43aa009f62eb77697db6b7fd68090b799dd58680",
       "after_audit_sha256": "6462cd6dea5fa2748d73d15d58abfb95abb9a27860db35b681d0f8d11c930027",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -8512,8 +9841,9 @@
     },
     "mg083fe017o": {
       "before_sha256": "3f74bdbc0d2a66f25dcab30433a98f80a320f617dcd2926b1c7c90a39a47f9f7",
-      "after_record_sha256": "a96cc0870288e485feebab962900f989e3427db151bd98536b2a02253fffc37b",
+      "after_record_sha256": "a6cc872ac846d78a834e059850251aa5812878f7b60c3fa73e3b280b4879c36a",
       "after_audit_sha256": "554ab0222d1cce148084096f9883517fedb2893b0c26f0fa01a9bfec1344af0a",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -8570,6 +9900,15 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -8623,8 +9962,9 @@
     },
     "mg0875fe0125o": {
       "before_sha256": "8233de3e4aaea5582989ea96259f54f35281c4dfe0bfec363df61df89bab0339",
-      "after_record_sha256": "5a4e1ee62219c57416a257d3820387ae11aa0129503b8fc57e0f9ce75ddabe29",
+      "after_record_sha256": "bd04566078b648efebdbaccc0c5f0144a02b894fab0bc56a9de82aaa7764e720",
       "after_audit_sha256": "1ee76d0005f95901cf68c0e0701a77bbce8f90f4f34b406986bb1699fb7af5a4",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -8644,12 +9984,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mg087fe013sio3_bridgmanite": {
       "before_sha256": "2cb4aad7e8e3c6b846517524e1d29bd9b020d7e4394d546197f7d916be0fa9b6",
-      "after_record_sha256": "dfbc1b1cb1f48b79f1e899a05314eff3791b83d70802368416300a679235d645",
+      "after_record_sha256": "500e73d6a59b344ff202c09e6d2c0e0f18cc2ce7b99e686efda1e0d06a32cb52",
       "after_audit_sha256": "2b630e230e892b8c281486c449e9eeb0ecd6bd1afcae37d153f32f984d6d75e3",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -8665,12 +10015,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mg088fe010al014si090o3_bridgmanite": {
       "before_sha256": "ffb28bd2280bbb2ade2b09c1cb9e782843e1b703b295a12b6f710884d75f2883",
-      "after_record_sha256": "8f739eb4279ee96696a725587dfc3f49f96575b53264f39fcd38b434b1868010",
+      "after_record_sha256": "79a937a52cf62256db28c6301f0a584bbca8e2433f136ad09ad37434379efd3f",
       "after_audit_sha256": "3ecce15037eb762ab1dd0640dc23059746734c3dd08577f18d3b522d692a1d51",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -8729,6 +10089,97 @@
         {
           "path": [
             "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "sample_composition",
+            "experimental_configuration",
+            "notes",
+            "implicit_parameters",
+            "author_fit_preference",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            1
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "sample_composition",
+            "experimental_configuration",
+            "notes",
+            "author_fit_preference",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            2
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "volume_basis",
+            "sample_composition",
+            "notes",
+            "implicit_parameters",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
             2,
             "evidence",
             "scientific_validation"
@@ -8762,8 +10213,9 @@
     },
     "mg090fe009al0005ca0005sio3_bridgmanite": {
       "before_sha256": "c3e06c1248c04f1a66cf0d665bbe0debe44ee89c7c645cc1641ba7764d7a1698",
-      "after_record_sha256": "3ecce263e54e4f9eee3ff0e6a56fc5382decef59b36bf20d9d43b37b30b972ea",
+      "after_record_sha256": "982dc0d1a21661a88cadcebfe4879e98d58c2e913fe6a2cf00709216093e7b57",
       "after_audit_sha256": "f08295f4782191f4fa421797de1156f51b1e102a38102306c30d620c130b31a0",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -8779,12 +10231,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mg090fe009al0005ca0005sio3_post_perovskite": {
       "before_sha256": "33c1eb5a7d5072b3589b9815216eda56c4e18e855638e840348f24c64b39d7b6",
-      "after_record_sha256": "815e333e7cbfc23e4a794e1000157ea7a229726fe2f0990f1715119b05e816e0",
+      "after_record_sha256": "28ac8f84ba3421718760a388be1b30237ce66729b5385ac79d65605436ded0bf",
       "after_audit_sha256": "fcd10d5279c096aa418c178feafed7a4a257f82c65fcb9c7a70d1c2238985319",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -8810,12 +10272,53 @@
           ]
         ]
       ],
-      "object_orders": []
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default_for",
+            "sample_composition",
+            "experimental_configuration",
+            "implicit_parameters",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "mg090fe010o": {
       "before_sha256": "643cc3e936656587203907f3717e6480cb578bcb1741ee27a8773d8a8f08a120",
-      "after_record_sha256": "5ba88fee446a22c6b954abc4759f2ad538a02afff642ef1b57e3c7f08a37a0b0",
+      "after_record_sha256": "c278e8ea2dc70869c21830e39140c92254e67d288afa6699e6bbe603b5284390",
       "after_audit_sha256": "5ffaf03aba4d0c0bf0086cf6e11ac4568c72aa1ba9f503f410c2a56e6b230a67",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -9016,13 +10519,44 @@
             "primary_source_check",
             "primary_data_check"
           ]
+        },
+        {
+          "path": [
+            "eos_records",
+            2
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "volume_basis",
+            "notes",
+            "fit_datasets",
+            "spin_crossover_context",
+            "supporting_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
         }
       ]
     },
     "mg092fe008o": {
       "before_sha256": "d50094856dddcc9766a851a7e057ab22a2767b136bb7011f9da19840996c298a",
-      "after_record_sha256": "c4ef96ec89f35bdce6cbdb4387da1e041164b55ad95c2230b64adbcb74155a9b",
+      "after_record_sha256": "9b6fa246c702959b55515cc6fe0fd66bbae60f4a0751f5b485cc6685b0f501a0",
       "after_audit_sha256": "9a996b3a0bc9427b377dc7321e134ef521bc105596ab794ba9e7a02101f49c35",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -9068,8 +10602,9 @@
     },
     "mg092fe008sio3_bridgmanite": {
       "before_sha256": "abea3590e7dd82f3763da2cd197e136782e3ebe30837875449871789a15ec24b",
-      "after_record_sha256": "3177090d9551cecb35d2eb61ad8f4df60e4ccca9d392d774f371b5a468f808f0",
+      "after_record_sha256": "30aaf6ad75dd51bceec7ece42f54b114cbf211402236ca91d7d396767519e6b5",
       "after_audit_sha256": "66107bb329006c3adb11667d0a2fdada6ddd24276d17baab71875e16f0890b6f",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -9115,8 +10650,9 @@
     },
     "mg09375al0125si09375o3_bridgmanite": {
       "before_sha256": "f48760415d2477cd890d37c562f1ffe3daf2f11a6006a867829ab28c749e0c8c",
-      "after_record_sha256": "72c65beccf3b5dc754ca8eb02d55d16d93197a9bd5326d61d8d66a39a1d8c60a",
+      "after_record_sha256": "b006e05725a963f4fb862fac4aca1086c467919646dbb2d3452ae4ffe8869034",
       "after_audit_sha256": "98ec5ae560c81026cead3ce044812757bacfc173dc32579c54fd8a08cd4fa65a",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -9140,8 +10676,9 @@
     },
     "mg09375al0125si09375o3_post_perovskite": {
       "before_sha256": "0a2a2a1b9c04e19aa7775cef6e0fba075a40c61f46618272af3db3563ec3902a",
-      "after_record_sha256": "b96108bbc7a84b9ad4b71b5915e8886a9046f433a0c15cb33f5a8fc2fa4bc3e1",
+      "after_record_sha256": "76203a9c3563da0f632fbfdea69c545447b7f8a8cfcbb2f29e8e9e14faf74fbc",
       "after_audit_sha256": "f0a731d9b81b0a247a98a2c8650d060a5a11bc5adc9db4c2cae064caa4ac5252",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -9165,8 +10702,9 @@
     },
     "mg09375fe00625o": {
       "before_sha256": "25df92bb6e4da044d136d1c7695ca6144fd2b8d7a9f5d2d2bf15fc74413e22dc",
-      "after_record_sha256": "fa95851d46b027ced2acbed1f8b2c02399dbc5cf9bc606f89b7af8b9bfdb14f6",
+      "after_record_sha256": "28f3318f05b2a1066e52f93b6e1213214d15ef2c7233f29054b67eabb76cfe22",
       "after_audit_sha256": "2de9ea631dd2f90907ea81d09b4856766c591dcbef4fa7441ea280ff3878f40f",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -9254,14 +10792,24 @@
               1
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": []
     },
     "mg09375fe00625sio3_bridgmanite": {
       "before_sha256": "1476bf4448461673ee32b8d0287a392f07b36d76b75fa9182cb2fab5b69d9b94",
-      "after_record_sha256": "5081ae4e465a94721394ffdc4293f54823808d93a0333e06bca559b99cedb9ca",
+      "after_record_sha256": "06d155d2f600f5ae6608eca463a759716a28ad43c4e7d1a52fe9030569c2d43e",
       "after_audit_sha256": "9e7f317f5be7f91a38c7e2bfcad8040478e870906b83376f6119e2fb5af11c6a",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -9351,12 +10899,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mg095al010si095o3_bridgmanite": {
       "before_sha256": "b88030368add7ecf5ff1bdd8666b3e759432b31f9c1a00fcefa77ea57377ffc2",
-      "after_record_sha256": "a913943589fa49e4314f00b561d844b37717e7d705eb1a088bb3f31e5b8bdc55",
+      "after_record_sha256": "f36daa13b4d5a3b6fd60df2fe7d46e697d1a53a67cc1d213ffeda679aa7bea3a",
       "after_audit_sha256": "ba094f6ce25f660e3b240649d1752ff07182526250ab4bee0863d235659567f4",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -9380,14 +10938,24 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": []
     },
     "mg096875fe003125o": {
       "before_sha256": "737838ce3e05cb08c6ceeb0bc77e7ae46cf8cc0ecf7eb0e21cd7914e661ebae8",
-      "after_record_sha256": "c34b4257063945dc44a664ba61be176be8a96c7bed2b1ed0af82987941b07259",
+      "after_record_sha256": "e5d13ab565f8fa8e2074fcaa431f7e4803a9cc57d9c4ca66d2cfffd0831cf2cb",
       "after_audit_sha256": "7b3d4b8dbd838a54ee04ac97e1a332258432fe530e5a278b4697f35ca9df3cdf",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -9421,12 +10989,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mg0991fe0008mn0001co3_magnesite": {
       "before_sha256": "d4299aaf81ad619cc780e1309e518ac8987db63f8a173a7000d23825662ff508",
-      "after_record_sha256": "0336e9179e67d750cdf6b5d67c3edb4f317e8661848bbb0806d73dd3015f06e7",
+      "after_record_sha256": "18b48f2ee3837e4ec76468e26437d59e491ce5b81e00e2076ade180d7fb210c2",
       "after_audit_sha256": "21c7301947c443643d0bea74ec806df06a93592901eb1bff5ad48fb460cafb89",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -9456,8 +11034,9 @@
     },
     "mg09al02si09o3_bridgmanite": {
       "before_sha256": "b3c37087cd0992fe439bb00a08f9753ba46387ae259128c7c861e7c019ba82a1",
-      "after_record_sha256": "14b2ea559b0deaec595e9c7722f98d339351143351deacb4346733438e08fa10",
+      "after_record_sha256": "4da683f32b83b2592a9035681daff2ca5f4e404a077da2140fa976e45c0fd21c",
       "after_audit_sha256": "50bf674d0309d363e1414c157779109fd4c66ed13d38fcd6237716685a04a328",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -9490,6 +11069,15 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": [
@@ -9529,8 +11117,9 @@
     },
     "mg09fe01sio3_bridgmanite": {
       "before_sha256": "664c842f5f713871014fb9f4aff713e0281cd307fdd7d09f9ccb13d6351f7c36",
-      "after_record_sha256": "a7b22962cfac594f89ce5bf3deeaf90b388df44f5f22f08bc4671c16c01c9266",
+      "after_record_sha256": "252f3964b0e9183077aea76d7892c7b5972d97cad4ceeb8b505724b4a1aa4244",
       "after_audit_sha256": "b545c3de42beae6f24356e7594b8e17f8a599b834c17c6e22616d5312b4789ab",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -9561,7 +11150,47 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default_for",
+            "sample_composition",
+            "experimental_configuration",
+            "notes",
+            "iron_speciation",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
         {
           "path": [
             "eos_records",
@@ -9582,7 +11211,7 @@
     },
     "mg7si2o8": {
       "before_sha256": "9baa57c795563c25230a7e0d0944f86640fa70de239b03b17363470fa1eaf456",
-      "after_record_sha256": "c822d9f68ea9674b5c27e3d523264d0ea871c03ed73e2a0a9ba03c91f32ef8af",
+      "after_record_sha256": "1dfd4ac26447eac4960e7c3628393d990d8c2f43a9a81b7b5e03e1bc0155fd87",
       "after_audit_sha256": "dc8b73b99147c3b22ae67bad626c1cea6ea4b41319f0e30206719acb58df1606",
       "added_check": [
         0
@@ -9626,8 +11255,9 @@
     },
     "mgal00625h00625si09375o3_bridgmanite": {
       "before_sha256": "e7c5d61e2715b76e719197e6bcfca4a0492476b0ca18498142a20a51c1c232a8",
-      "after_record_sha256": "3a50108b54703d7b0013ea15446de392ce454d915e3090bae73ca655023acf56",
+      "after_record_sha256": "3701364e91d0e4342ef7443bb823a1fafe41ef3a101b1e1401fca628df6713c3",
       "after_audit_sha256": "6007f8de791a5cc5e5428233d0719a07628d9bb2270813165f3a08a973748f6e",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -9651,8 +11281,9 @@
     },
     "mgal00625h00625si09375o3_post_perovskite": {
       "before_sha256": "cd4cc896b8d7b661fff6fdb1e2b331168f49b3a0aa13c72f67c8c2f2b1133733",
-      "after_record_sha256": "60e9da0880df3b3b952449721a17f0442ebce551a30fab9d6a83231a372986b6",
+      "after_record_sha256": "affe79ac97d029e8dcf5e195431f317d528d0633076a06abdb640bbb786acecc",
       "after_audit_sha256": "557ea6c65878d79ca88b75a56b3168e8ef075034c76f9ca3d6e535223f36d8ea",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -9676,8 +11307,9 @@
     },
     "mgal0125si0875o29375_bridgmanite": {
       "before_sha256": "6e3b867c1d0b916ec58b6074d747ade123d58a74ea179650239482cd3fba2d7e",
-      "after_record_sha256": "14f3e3c50ce4b0483f8ac7625f5183b22c317d8be958d10fa3af78eea5e8e31d",
+      "after_record_sha256": "e1b016f1f162d3282def9f877a5796781636a1430d3f36122c8294d1b99cf6b3",
       "after_audit_sha256": "444d70d2e6228e521b7f466f36da6cb776e98a7a40210b273ef73d9472158ab1",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -9701,8 +11333,9 @@
     },
     "mgal0125si0875o29375_post_perovskite": {
       "before_sha256": "bf6e7c0a788f6d91d38141608004731a59eb7f662c3cc2db3c41fe7fa081244c",
-      "after_record_sha256": "870785e214304f7206aaecc17166acf2a72e31b0fc83ea1f36572d285c5cb0a5",
+      "after_record_sha256": "d8daa8550b8da48ecd9daf2554be25d273aead6444fecf4aa9fef94312ca8487",
       "after_audit_sha256": "e63c1c1f1a9f4f0e2cc2b509ac58363661ba2341ba37a8c5fe5dac27fa03b77e",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -9726,8 +11359,9 @@
     },
     "mgal2o4_cafe2o4": {
       "before_sha256": "6e5cb3bc6c3e340a39a3b0156a621714a34cf23fc9d504894e9a733599466a1e",
-      "after_record_sha256": "690050728591c28d19d53eaec5a6a633626ead7affb0035c641b6cc3d8b9b57c",
+      "after_record_sha256": "059f095a2491c8c67a3fd0794a0b58a5c48eb9042638f701a9611cdad2370e82",
       "after_audit_sha256": "8df1f2f30aaec64bf3f010500f0f940b42ce5670ca7617a0602586e3a59a683a",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -9777,12 +11411,41 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
+        ],
+        [
+          2,
+          {
+            "default": false
+          }
+        ],
+        [
+          3,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mgal2o4_cati2o4": {
       "before_sha256": "cede67c59eb7c6a12e4e63aa9d015a3aae1a890658c107296af12fbe74f6ddde",
-      "after_record_sha256": "1295563ac285bd718348e73fb88465791bc91aab6badbcc6c4b680ce997df343",
+      "after_record_sha256": "d9afe1bd6d005310772bf01914c10e7d72db6c5243f289675a15f67bef25a4cd",
       "after_audit_sha256": "749399ad466892a4207b02347ff2e7ef5579562f36adedf4defc79dd641685c1",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -9812,12 +11475,29 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mgfe60o": {
       "before_sha256": "cc395b9718c675ef7de0d2421204a8423df9a84a8875a903a69cb68044319bcd",
-      "after_record_sha256": "f1a1391c77521a8d3485dcc647dc22d0a4b4bb27efdf3f2b8d35c7dad7ce9d36",
+      "after_record_sha256": "ef904c1feeac0eea4b8043ccc8bab8f9604eeb26826428ab8ff18560498c038d",
       "after_audit_sha256": "c6fe046f36c8109a9d803acaadbef0134825a2d6fdfc0dde6d6fd68d8be3c39b",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -9928,8 +11608,9 @@
     },
     "mgfe94o_b1": {
       "before_sha256": "04fff3e1521e83ccc3ad7c15cff567e180c43a917b570c4362a31b86c338018f",
-      "after_record_sha256": "dc8cc87d960a04290ab5ca51acb2bf8fe83b14e9ead3632400686869aea12051",
+      "after_record_sha256": "172d7906835110058ac0914aebfc61179146275967529f468a61ac56bb5f9ffe",
       "after_audit_sha256": "e560fb7e841f6c6a4c06e1f5fd360c379a01cf1e41ebfaa7866f559852b458b4",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -9943,14 +11624,24 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": []
     },
     "mgfe94o_rhombohedral": {
       "before_sha256": "890280ff369accccc9a1760634aee692feb6bdd34bb914b3299787671623de10",
-      "after_record_sha256": "b54662cc1e83d0df98a1cd0aada45f76a71e45a934045834813bda78c7533748",
+      "after_record_sha256": "482bb614e381deb0b875e366c535132623071501b33d2dd860dc875412c9e7b6",
       "after_audit_sha256": "821315ffce5fae5a0a25c40bde0d3638fbe46e3d76b9d0fc2960b7f731d2ae03",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -9966,12 +11657,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "mggeo3_post_perovskite": {
       "before_sha256": "7c7a6ccb9e9b159af5f9169fd6ee065c6249a922ae447a4c568e4ca6da0ee86b",
-      "after_record_sha256": "ae4e7e33914aa7b7c803233ea579d310f1cb7fcdd052daa8c7c502118c099e81",
+      "after_record_sha256": "2b102735bfa8c81df6e28f568592ca907e33892d68abc1859a76fc3e4c9f0582",
       "after_audit_sha256": "f265968551fef412fb976fc23791e291a7aa2fc395d1c076fb7f76d7b74e6c75",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -10032,6 +11733,34 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
+        ],
+        [
+          2,
+          {
+            "default": false
+          }
+        ],
+        [
+          3,
+          {
+            "default": false
+          }
         ]
       ],
       "object_orders": [
@@ -10103,8 +11832,9 @@
     },
     "mgo": {
       "before_sha256": "d6b9993e7dc4f2657ee74678d02b6989486a9d693fade28bfd52e028225d7c35",
-      "after_record_sha256": "77aa0e3bfabc8b72906c8137cd57826058d92468c1c669ac4b474af0cefb661d",
+      "after_record_sha256": "1e73de06da467eab9e777fe00621b60a03d86258b112050e88d18f5f34c490f2",
       "after_audit_sha256": "8e1d41208bc4c3b14bad007927cab64af68adc149029a4b1b9c63952eb3c98b8",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -10601,6 +12331,27 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          3,
+          {
+            "default": true
+          }
+        ],
+        [
+          7,
+          {
+            "default": false
+          }
+        ],
+        [
+          15,
+          {
+            "default_for": "hugoniot"
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -10827,8 +12578,9 @@
     },
     "mgo_b2": {
       "before_sha256": "d29d1b6ad8ffe563fe7a040f3496da2d492b75d252675a0f0501c8d899411e4f",
-      "after_record_sha256": "0bbf8a8fb20bfc320aa2108165b7bbcfa2145ddf88828a0ae100f1f549a6e5e1",
+      "after_record_sha256": "2aa45e545e7023bed8bb330a2b3fc059d9e916d840d53e33c0580e8e37e51477",
       "after_audit_sha256": "f039e04e5cf045551db5fcf8b03e6efbfb1f6e99b0339c7b484a62bbf708b148",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -10874,8 +12626,9 @@
     },
     "mgo_liquid": {
       "before_sha256": "60a6a3bf7c70564d6e9f9e919da70bb48d264055f8c55de3bf4fdbe013bab3d4",
-      "after_record_sha256": "6570eddba5bf07d08b28c9ec45e3bfeadae07a8e3e1b42d0d0d8c39ea9b8e450",
+      "after_record_sha256": "9ee78eda35a6e78e6212b7e7e8bd0d2b6a05e379ed704311cedf081501f51d13",
       "after_audit_sha256": "b25b09951c15dd1b1dd2d596418aabce93231e22dc4c8188adc9eb884aea2ba9",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -10921,8 +12674,9 @@
     },
     "mgsio3_liquid": {
       "before_sha256": "482aaf9ba18ef56de0552f6ba3a8d970136dd372aed163cb2b715286624077c0",
-      "after_record_sha256": "7b6e49b2db988c9288759e785be3413c51c9f588bf14c62703c5397b73608cf6",
+      "after_record_sha256": "808bee9d570702c161bb98175b21bbc381933000180afa7005f7c706f3e9ef2a",
       "after_audit_sha256": "f87ee883df3f4b623838aa254f4a0229b29203625210d30caffc8a9e528aa341",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -10942,8 +12696,9 @@
     },
     "mgsio3_post_perovskite": {
       "before_sha256": "466f019b8a72289ddaf7da1e11b35935ff716779a0b5b3fc5eb635d44ab940ac",
-      "after_record_sha256": "28ec781fa77b6e36fda505c0a8cad249e08ccc9322d0d7d6c0931509c26a0bba",
+      "after_record_sha256": "51e1cd056151517bd90a93a789be4a388017eb9e43d6bd9ebb96e7640273e1ef",
       "after_audit_sha256": "c063abba208cb4da5bb7be4af0f2cdaf99637b27abb5ce69d592589dbd081bd0",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -11245,8 +13000,9 @@
     },
     "mgsioh6_365a_phase": {
       "before_sha256": "349c51e3a34fc7813f19c525f2e3c48263c7c5af1fc4ac1f080ce7fd7fa6ca28",
-      "after_record_sha256": "b30020ee6233b5e420cda1007a9946b8eb99c75269e2fcd67125aa0082873fb0",
+      "after_record_sha256": "fb27220e24d200bde646c0aee08f4df115b4f9d14738285bd9631e9320f1600f",
       "after_audit_sha256": "47d72a0f8012bc26bf215b3a07d71353c3f9d4a4a7b02d7c052019cd89f6f1c4",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -11286,12 +13042,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "molybdenum": {
       "before_sha256": "69fcc4e7d496a97dc9c8d798e57ece2b20c0699d678fca53f2dac1786d3e40cd",
-      "after_record_sha256": "388026167a7ef3aa80d54ad1667923dcad0ce79d06c3aa067c943c0dacc58ad8",
+      "after_record_sha256": "293c04db133871fe6afba87090d1e9d5a820471d1c414a2ea938fd7be5c8f67e",
       "after_audit_sha256": "4d6df449a8b1cc60f58113717e8bab791b66ba1f5ed07a76d8a25e34dd4bbb84",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -11489,8 +13255,9 @@
     },
     "molybenum_carbide_mo2c": {
       "before_sha256": "8a261c7baba14e0a3e5e3b1ac464efe919881a7bf6b8a3e083183cb406a8ae54",
-      "after_record_sha256": "2631696056513b0fa3cbe1c4951a9ad5957f58a3f09feb569b18f115d78ecb0f",
+      "after_record_sha256": "8e9a2509e96bf9d535d9bed2f81bf4cf812d3bbc754c9a092924392e58f528cd",
       "after_audit_sha256": "a9d39c61766d74bcf330538408ac8b14e9c2dfc571f46848dfb2a132badf75dc",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -11534,8 +13301,9 @@
     },
     "na088al099fe013si094o4_calcium_ferrite": {
       "before_sha256": "612a181b3ab21ef8e4cd92ce1996f95c6d26f81c2b2e8497deed4e718f919666",
-      "after_record_sha256": "d6b151241dd9f616e2f8e5acb5dedc36f8be935c3cac6ece8691db07416ee16e",
+      "after_record_sha256": "e9492f46e730a4e2d97b505a26eaf7569c6515d403db60fe3671525ca918a166",
       "after_audit_sha256": "efed4fcb31c5bdb2c23da50d25ee80d6c15d64992dcf704c5933a331e003591c",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -11551,12 +13319,44 @@
           ]
         ]
       ],
-      "object_orders": []
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "sample_composition",
+            "experimental_configuration",
+            "notes",
+            "iron_valence",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "na093al102si100o4_calcium_ferrite": {
       "before_sha256": "cfb97e155eeb1a0db649a4d35e9c2c65292c004e04e28138c7f2487ba9ea9588",
-      "after_record_sha256": "f9105ad39c68c7bc18804e61ca2f1458a73d0b3b98428ef1cd4dc459f39694e9",
+      "after_record_sha256": "8d1c7770238e3da20fdcf0547a35ca6444f08bb667a8cc22c7a905c93e9357eb",
       "after_audit_sha256": "9836e22661445638b64a391e16d416bf2b4a762586ec84fc447ba60467b43a41",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -11576,8 +13376,9 @@
     },
     "naalsi2o6": {
       "before_sha256": "3880c815db9e96064be29ad4d9b929247c90ec03608f39984712f62b77f1a0ed",
-      "after_record_sha256": "4a4eb3682dfbf9d0b6ff6d0296d7793c8acef972fc60ca7efbbe9c8963ba0cbe",
+      "after_record_sha256": "d70a6bd3495b921da1634642ad9ea0bada65f3d5892595107c5f38b7f5faa5f5",
       "after_audit_sha256": "e02c0af86646bfe58f369b0b1cc5ae9cf747153e0b683b4bfc469e0f04410bf8",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -11597,7 +13398,7 @@
     },
     "naalsio4_calcium_ferrite": {
       "before_sha256": "b3c3e2ff96b34dfccef61f7d2ad9b393374306aa6e944b86ea3306f5af403742",
-      "after_record_sha256": "46a99388c8ea3edc55d365d5c10da94717e94cf5ca8306e63c3a875262bcc9a9",
+      "after_record_sha256": "05d7953fb16f87b73867bbf1570d529811c9e4a43270bbf6d8ae1e427a720b09",
       "after_audit_sha256": "221c5bd84f02b0bec20c1417829a20298f1529728ce654238a8497b2198cba20",
       "added_check": [
         0
@@ -11641,7 +13442,7 @@
     },
     "nacl_b1": {
       "before_sha256": "11be6cec3488eb7bf54dbeead4dd5a0e68e94c37c3147b90b1698b24bbf52c85",
-      "after_record_sha256": "55db0974f9389609cbb59e04a3851d7e3d1520a1061a781694f39ebd36528f41",
+      "after_record_sha256": "c157e095769a604cd2170c752510803f119f7876dca66d6da3f6ae5249054153",
       "after_audit_sha256": "3f7661f602d7e384f908a94ca846bebc77f845ecbf7d8a5cb5757e659936aab4",
       "added_check": [
         0
@@ -11685,8 +13486,9 @@
     },
     "nacl_b2": {
       "before_sha256": "08db059ca95531bd2546cc9b6a7f52ecf132a31c4ee005a3cfa4b84b07742291",
-      "after_record_sha256": "429cefa7573f87cb31d118efdfd5d03329fa1ffb692201c42d58a734a684a6fd",
+      "after_record_sha256": "dd299cffd217df266e2fed03790fa18181567bd6abe3c9d63e2f0c96c2cbd6f6",
       "after_audit_sha256": "2f3044ea43f82923089daa12fa7455390e9a59a3ebfc780ea272e04ef0356c3c",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -11840,6 +13642,20 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          2,
+          {
+            "default": false
+          }
+        ],
+        [
+          13,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -11878,8 +13694,9 @@
     },
     "namg2al5sio12_cf": {
       "before_sha256": "23b6e7a82de77d58cac005780090e6d377cb057ba29fbe81a19bfb5e0ce56a2b",
-      "after_record_sha256": "a4844ce5a25f9e2b9095dc68a5b860b3b6c4947e8b051008b99838edccb10222",
+      "after_record_sha256": "85c3062db711242c9deff47b4f6cf8dcd20893686a854b136835c69e7ae16cba",
       "after_audit_sha256": "92c7fa323f5628fbbb74cc63713241d2f4c087330c9bdb51ef029eb8debf5450",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -11893,14 +13710,25 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": []
     },
     "namg2al5sio12_nal": {
       "before_sha256": "583e6393e9a2766aae3311cd8efdc56bc19a7f3b23a76fe6e02ca305f72859bf",
-      "after_record_sha256": "b9df896d21215dbe59ada791ebdb0aba486e59e65ad9e86f708ac75d14ea5ff0",
+      "after_record_sha256": "5d174e04707fe1e5bab244631ff78c56e7a1caf14d5788ae5e2cb0db749e5cef",
       "after_audit_sha256": "d4534bb623eb5eed6480273e2d886de73e074d28084bf494e4d4462ef7a9fa66",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -11916,12 +13744,23 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true,
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "neon_fcc": {
       "before_sha256": "264e18cf5d41fd09a0a1704edc29c73d1db550b71eda894b346fbd5e75f40552",
-      "after_record_sha256": "f56b5a66e20aa1234c7d80024a64dbeebe24ad44b3af596e1439c921423ac2c6",
+      "after_record_sha256": "e58ce50f8c5ac1491d5bbcc23e7f6518c88ce412ec63e37b1a047608187d004f",
       "after_audit_sha256": "9b49295ad69cc6535627fa61c2ab713384d084241d3f49f541c7dcdedbd736fc",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -11964,6 +13803,15 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          1,
+          {
+            "default": true
+          }
         ]
       ],
       "object_orders": [
@@ -12009,8 +13857,9 @@
     },
     "nickel": {
       "before_sha256": "f15d2b539defc411a593c5e17b66e4cca02c11d5dc81addffe4a61ecab325189",
-      "after_record_sha256": "67f328ea2407eb8fd37ba618e6aa8b1b501dd1fecad50452089271779c987e2d",
+      "after_record_sha256": "867042ad41ceb96d201dedcd4e07f0a4feb69b5a4b57a036fb1036bc456c735f",
       "after_audit_sha256": "2dde9d02c6d9eca66a318b784db053b8e22a3a1f8077daf3529e5270b2e2c92e",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -12080,8 +13929,9 @@
     },
     "nickel_oxide": {
       "before_sha256": "30a0afe3d6aa6e7532aa10aa44b96a056a87a07b9f6b3fd2ccd559d6f43b693f",
-      "after_record_sha256": "4ed7f6a1ad3a700c9383fb25bf54336ac9b524efc6cb3ef00e7883ff349ea08a",
+      "after_record_sha256": "cdc8ae3a814305f5d522918cbb5b6a55c52047e2a97044036de18248d378e605",
       "after_audit_sha256": "5ed84d013811d1d69993de9cbc253efc6fd85a3fcb6d473ad4c603ba1f1fefd0",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -12112,6 +13962,15 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          1,
+          {
+            "default_for": "hugoniot"
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -12135,8 +13994,9 @@
     },
     "nickel_oxide_b1": {
       "before_sha256": "e7014dcb5c6f2fe165678362be33e156595e107fd0a78e8e84144ff8e6fdcd9a",
-      "after_record_sha256": "f8b05e62c530d5b2dab537e614a8c677d96fe2a2212016075366a20b62e8cbf4",
+      "after_record_sha256": "a8d279dacb891784f508b167f62a32a6fda41bdbdc898e514f83c0bf0670d8fe",
       "after_audit_sha256": "d951f182d3c0d08885aebb967def62184135a590081de55ede2258aa00e379cf",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -12156,7 +14016,7 @@
     },
     "niobium": {
       "before_sha256": "b80247126008e911223681b054ecfac593cece7fb4378410e4b88fdfc15623bd",
-      "after_record_sha256": "79b0ef0caea2db084814d9767e41fa53738ac408bb814faa7d3ef4fea5f5ad81",
+      "after_record_sha256": "cb01b792c409806d1682f0bd09ee0883db3aa57f9104510d9a4ae4bd14c6d37a",
       "after_audit_sha256": "711a3d3403048de48ce8652a3008ea91e47efdb1d6dd88ae237dc400b57732e7",
       "added_check": [
         0,
@@ -12236,7 +14096,7 @@
     },
     "nis": {
       "before_sha256": "d9c77e4471400ca695009e4b19f2422ebac2ff41ab72af5fce114187c6f83b3f",
-      "after_record_sha256": "8ef88004b3c4e1c542ec6c339b0587df9024679814c761668984cd1b0f6017a0",
+      "after_record_sha256": "cef548d61b1359c1bdff588b23a7dc6fd3bb4cfa8c4474868851ff77aae53d6d",
       "after_audit_sha256": "9268bf7cb11b08d4753aa5a89c7c7d30d679887cc4e20b507673f0df7f125cb5",
       "added_check": [
         0
@@ -12280,7 +14140,7 @@
     },
     "orthoenstatite": {
       "before_sha256": "a27e4a6b0b79a9d75659112df0d5a06a57f7c2a635710624a947924e1b24d1cb",
-      "after_record_sha256": "b11adb7f78540136a98233f43309f9ac435887cb069ab9c61e24e6c7366b63cc",
+      "after_record_sha256": "f3afae30db52d0e63dfc43b7ce5b857225892208f7cbef6b4dd35be8013977f7",
       "after_audit_sha256": "be5fe09cdaf20994e59ebef3b88127504b5250a9c77823bbbe7a04351308a84f",
       "added_check": [
         0
@@ -12324,7 +14184,7 @@
     },
     "osmium": {
       "before_sha256": "7739e06be8457e69f3706f7b202478611c139bd29ec4edba64b66a798c3e4e57",
-      "after_record_sha256": "e14e5934d5cf5b1487f257544705b7965025ce1ae8bcbd2f76849fa5a0cb313a",
+      "after_record_sha256": "f1615a6e52052fa8fb0472b08dda56363562dd509e5995054207b00e17c57801",
       "after_audit_sha256": "c20595aa4d959e5d906b82b6cca9f367f978f1e4c0f5dee9ce999a719e7ff075",
       "added_check": [
         0
@@ -12368,8 +14228,9 @@
     },
     "palladium": {
       "before_sha256": "e0f84f362f35a2e36af32fcf2d1f868898ccf23c87fd8274e8a00dce4ab845f3",
-      "after_record_sha256": "32b699860300276bdd34eed5a16e236fd5d994a6860b24b842030932d62413f4",
+      "after_record_sha256": "806085300f8ca89333fe9004169ff6680fe177e65203d37108a74ce2274f48fe",
       "after_audit_sha256": "93620b35b3bb844d57be3d636fa459898b9d02407bbec35ca12ef02938c3ef73",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -12458,6 +14319,38 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          0,
+          {
+            "default": false
+          }
+        ],
+        [
+          3,
+          {
+            "default": false
+          }
+        ],
+        [
+          4,
+          {
+            "default": false
+          }
+        ],
+        [
+          5,
+          {
+            "default": false
+          }
+        ],
+        [
+          6,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -12485,7 +14378,7 @@
     },
     "pbs_b1": {
       "before_sha256": "472941a90080e60ebbf75446bbdd0dcf11023a3606fe83e0f96eb7a5d86d5374",
-      "after_record_sha256": "f68d78953223e475099a667b198c6a4caea94308ed0f0b6b94df97f423f3a716",
+      "after_record_sha256": "2d629884c7a8992c8dd42ee52b854e83af34b94e4b29ed8c00991a2c57225f1d",
       "after_audit_sha256": "6805147fa4cbb9e9b73b34e9777aaf92c76e40281b77e4414ca4051708764f9c",
       "added_check": [
         0
@@ -12529,7 +14422,7 @@
     },
     "perovskite_orthorhombic": {
       "before_sha256": "7ad33f109c9638170830345847e5c0845097fbd85517356b8dfcda08b948ddd3",
-      "after_record_sha256": "a7c3e6516b061f7c6c619ac0d83260c8bdc4daab0c41933ad60c94e1a9a1c7c3",
+      "after_record_sha256": "f84404b446bfcf6353048448a61c10425f8e02f8cf3b59b254df7e207a605a44",
       "after_audit_sha256": "b0818a376cae04d07a2c808328e63a659187f8d9151dd67bd4b4eae26da6c165",
       "added_check": [
         0
@@ -12573,7 +14466,7 @@
     },
     "phase_d": {
       "before_sha256": "be171f8074321bfb620ccc042ad537f39e797f7ff34eb3af16996370e8d98890",
-      "after_record_sha256": "99d4307a2c271f3ffe807fc972aa143b823b22d224949f71f38414e56af8d70a",
+      "after_record_sha256": "2b63bdd3c525bcd4ae524593ad6834cd41c21900595b957e6fdbda81faee296b",
       "after_audit_sha256": "675fa2f40a6b7f868b6c29a0d010f6cf78e651999d3669321b7454d6b4f596ff",
       "added_check": [
         0,
@@ -12648,8 +14541,9 @@
     },
     "phase_e_fe0072": {
       "before_sha256": "1c3a29dbf7c600fd9782e5c5e667f714524471d5a0161166e7345637e8faa0f4",
-      "after_record_sha256": "6dd89a6a72eb4b936ed09d44cf8a5b88613d8a8a2b4929d5a362450702ca28d2",
+      "after_record_sha256": "df8d51b238222e42dbaa37a12a3fd4dd8c47eb1d549a34d80e6644fa571f10f7",
       "after_audit_sha256": "f51de3e25b58895baf1ce06c1feaf1848efed38f407665828074e2a0dea7cf2b",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -12665,12 +14559,22 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "phase_egg": {
       "before_sha256": "df85fbe8e720ed567252a50a9aeb1a5525c33df5ee3a66d80af25b93ef8b57b4",
-      "after_record_sha256": "3fc987105ad5daaf17357f3dbefcbf0867d5650368383f70c5ec0b59569172ae",
+      "after_record_sha256": "84cc2c98756efcb3c177db7fa1de6cc946407055b991516bf11b816c0544aafb",
       "after_audit_sha256": "1d755c8a93c4b2289972997bf29dab8325a20a03b7c83c365543f4b7ff5b630d",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -12711,6 +14615,15 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -12732,8 +14645,9 @@
     },
     "phase_h": {
       "before_sha256": "59c89e301ad3bb1d6ce0c89695c629feae690bfa2cbcf57cf72d0f2c7886af2d",
-      "after_record_sha256": "2783f3d28ff1896e263e75628f30f40df25b78dc42de867e5ffec6f24b118e4e",
+      "after_record_sha256": "f84454d4fcd3ac224b1d515d48ecb081cc9e4f9d70926c609fbcefbfc6a3c95b",
       "after_audit_sha256": "b21d7b3b822091cf76600441b8a69ed7d21094dadcd818fec6493912979a65cf",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -12775,8 +14689,9 @@
     },
     "platinum": {
       "before_sha256": "16a8bd3f2096f6e493a9972c497831460a862fddc1ffe92284fd6fbb4cbfcddf",
-      "after_record_sha256": "a9b6ea268c5dbb0d1fbcaa0c3fbc34a975fd73a5b61896eb68e995a9caae2973",
+      "after_record_sha256": "b7acfcbade49c743cbeb6df3496edad88385b6656972c42b9d52c44a958ca8e3",
       "after_audit_sha256": "58a0873b6df106fea34cd74a43a3c73c59521ddea48a73c89f94d351504e88df",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -13057,6 +14972,14 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          20,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -13220,7 +15143,7 @@
     },
     "praseodymium_dioxide": {
       "before_sha256": "44b95ad839ec1b40667e0b7bdfce3ffc48bb792657127436eef7f12c736a5132",
-      "after_record_sha256": "40e44f050346619e2edf939e62bf7026fc9bba321f9feede6178aeb23feefed0",
+      "after_record_sha256": "b549cf9d126d96cf7124f07f908e4fa4e35bb1e2255a831842ce451e30998b0a",
       "after_audit_sha256": "6a062902d29aba938b19a4fab92a2e3b3197b6eedfa3e6e831dfa0ef6ed2cdcc",
       "added_check": [
         0
@@ -13264,8 +15187,9 @@
     },
     "pseudowollastonite": {
       "before_sha256": "6bfbf5024cf78c1f79d339eeb8fa298bdc684cfc76ab0629316d3b2c01cc229a",
-      "after_record_sha256": "f19dd91f0e0e9aa0549fbb9f7e8996489f86135190deebe38df3014df201d6bd",
+      "after_record_sha256": "53811afeeb29e3a7bd6109227135980e6d49f8221622c6fee38a76b1675bbfd8",
       "after_audit_sha256": "c7cff000367254b6351664863a8c05b63199aaa8bfc86ae093c9237b84133004",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -13311,8 +15235,9 @@
     },
     "pyrope": {
       "before_sha256": "a44a0c49c7194c8664f043a94bcb4df39b1abd9efeb20d04c6fa18167b600e28",
-      "after_record_sha256": "7b31fd2965ec439143eacae6b5ab33372ea2f407133272387d1f3b6181c36c3a",
+      "after_record_sha256": "44fb2f6c4c273139e1eb4d0ad989414b50449b80b7f781d7789e26757551ce8b",
       "after_audit_sha256": "2c54317558bf29233a1354c0ed34346a9db109958219023a7a380afe6363abc9",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -13332,6 +15257,14 @@
               0
             ]
           ]
+        ]
+      ],
+      "default_flags": [
+        [
+          1,
+          {
+            "default": false
+          }
         ]
       ],
       "object_orders": [
@@ -13356,8 +15289,9 @@
     },
     "qandilite": {
       "before_sha256": "3951c7be8a42ccceba5c2844dc21ae0c5ee9d0b07dc421211b13ce1405c8a6d0",
-      "after_record_sha256": "8e43fc33e087ee34865ce55d6afbf9ff584e0f8f324601027089fb1cd1bf3f27",
+      "after_record_sha256": "012981c244a07adf33e03ffa87584aeb4998212c21aa36dc576edadefda61aee",
       "after_audit_sha256": "074c9e78fef6092b84a84d891e6e7bcfd2374a0caf9fffd03d148e678e118be2",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -13383,12 +15317,85 @@
           ]
         ]
       ],
-      "object_orders": []
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
+        ]
+      ],
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default",
+            "notes",
+            "range_provenance",
+            "parameter_error_convention",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        },
+        {
+          "path": [
+            "eos_records",
+            1
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default",
+            "notes",
+            "range_provenance",
+            "parameter_error_convention",
+            "fit_datasets",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "rbbr": {
       "before_sha256": "6121881f6386a1033f0286a7197580477ea443414481533afc0a6738dabf9102",
-      "after_record_sha256": "4b9851e8d9e9d1f1cbe4b7cdbc340702153ad178386ea2a9a62a22e32159c97c",
+      "after_record_sha256": "9b8d0891929cb22a016ac98fa9b32d2700d43f2f2087407ff9b38e258c601144",
       "after_audit_sha256": "243503ca9f0690dbd950b506cc7cee2cdb8d0826970d4421948de4c7f200e51f",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -13404,12 +15411,55 @@
           ]
         ]
       ],
-      "object_orders": []
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ]
+      ],
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default",
+            "notes",
+            "range_provenance",
+            "source_parameters",
+            "fit_datasets",
+            "fit_data_sources",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "rbcl": {
       "before_sha256": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
-      "after_record_sha256": "9564d18934e400734710456879b8b44638ccabcae655ac6494c5362e135d3c07",
+      "after_record_sha256": "b9792174e754b71f306a4c14cd0a629d845d72b1b83d9261b89606b274cb56f2",
       "after_audit_sha256": "500ddf37818cb55094c9d2c14eb3c1faf7858221f85807718ea06765e6bc54fb",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -13440,6 +15490,14 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          1,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -13456,13 +15514,46 @@
             "primary_source_check",
             "primary_data_check"
           ]
+        },
+        {
+          "path": [
+            "eos_records",
+            1
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default",
+            "notes",
+            "range_provenance",
+            "source_parameters",
+            "fit_datasets",
+            "fit_data_sources",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
         }
       ]
     },
     "rbi": {
       "before_sha256": "9da8eee8b9289fd73ce1f74ac74452bc15798d70be5a519e5ce5c862f1956b6a",
-      "after_record_sha256": "32cb9c4ba2ffa8306b2fa4f258ed3080bef2fe301b980cb350776cb667dcd8a7",
+      "after_record_sha256": "e5ec3038d9d20e0cdb1797fd0123c5c2dc8c4b07c1c5a4ad10f1594d21042856",
       "after_audit_sha256": "f3092e335cab67a5603823ff1463c74341244ae35f6c0168a60bf08f00b8ee14",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -13478,12 +15569,55 @@
           ]
         ]
       ],
-      "object_orders": []
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ]
+      ],
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "validity",
+            "determination_method",
+            "record_kind",
+            "equation_kind",
+            "default",
+            "notes",
+            "range_provenance",
+            "source_parameters",
+            "fit_datasets",
+            "fit_data_sources",
+            "parameter_covariance",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "rhenium": {
       "before_sha256": "e51ae24c36778bf646228457f4bb0c5db95f0bec3f78ab9418f8524c3b46d56b",
-      "after_record_sha256": "9803d1ced0f32727e8962680602de95d4b588c229eb6f6eff9c1839f911ed43f",
+      "after_record_sha256": "ed97020893c5890de097cc4ca2d2a6556b4ab2d2e0ca0f5b16539c137690250f",
       "after_audit_sha256": "27023e62df47737f5dbd7af48940112b17c1550b063779d8cac3fc84a563064b",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -13625,7 +15759,7 @@
     },
     "rhodium": {
       "before_sha256": "ed5abf2a4660429c7f69369b3bbdae9bf18fa5495d16da8b47863fd863aae1af",
-      "after_record_sha256": "7b4388b90822c1cfc131b2de833675c7b9e7b3d459b51d837d4caa9e99aec5da",
+      "after_record_sha256": "cc56e25f553dcdf8f0ada76cf57735afd9cc5c8f919cd36fafdcb27ff1ade2e6",
       "after_audit_sha256": "801ff0d3c37e36365b9388707a48357f038c339e7972c3c9064ffe3ecd3d0001",
       "added_check": [
         0
@@ -13669,7 +15803,7 @@
     },
     "ringwoodite": {
       "before_sha256": "8073b53eefc3cd33fdf9df469aba6d999da465b7569b62eca46d6029cf7c982b",
-      "after_record_sha256": "d1de3894c585e570c5da7438e533aceeb217aad45f053b8be4ec68b5ab24f1b9",
+      "after_record_sha256": "e7539d6aaae81e272ef89bf21708648e900395b57e66a2c39f07693f39742729",
       "after_audit_sha256": "2371f0de19913ff0253fc3d73628c08a9ef0aa88f4f24911238152766229fa89",
       "added_check": [
         0
@@ -13713,7 +15847,7 @@
     },
     "ruthenium": {
       "before_sha256": "233e638402d3439076d8fc6de4c83b30f7858573eb49eba58df688e26fb89278",
-      "after_record_sha256": "458a273c53cba69c5f5bbbd7855af000a8b7c6167fbc001bd50b59cf6d0a0aa3",
+      "after_record_sha256": "9b24072a573b828c150078ae1b66c703cef212aa276eff6c3c53f292c21491a2",
       "after_audit_sha256": "42c5fe11a507ea069db98c8fff4ed08dfbd6601cc545ff361f96d86e760b372c",
       "added_check": [
         0
@@ -13757,8 +15891,9 @@
     },
     "seifertite": {
       "before_sha256": "008a0a6c66cd01e610fc29997d96234dccf3d78834b396772eca2bcb3ff5c19d",
-      "after_record_sha256": "941680b4ad8051b667ee5619bac18707be27b4b7a88d9b67b7f8f76a427915ed",
+      "after_record_sha256": "552adca0763bb82a53607c7e37891a010613d1b6baadda58567b171d3fdde311",
       "after_audit_sha256": "96d5254809c065fe3b22802de1d23823ec378b4d7342fd44ad6c273ed318ef0a",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -13815,8 +15950,9 @@
     },
     "siderite_fe095mn005": {
       "before_sha256": "5c66a5f258a260e905a14823a7c9e1ac087e641c569dbbd43e52984a90cff786",
-      "after_record_sha256": "c6b401319999fb0f46eb650dcc3aeb02bc2e735e104c7839d082281eff7e5967",
+      "after_record_sha256": "8e4f2ec59ce4c0f3d65efb2c9842caf0017055c3ed71b2b3528b277c4a31cfa4",
       "after_audit_sha256": "20ae8535029c54a01571794654d651db346bacd3e60cce62cc4a7032152c3105",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -13833,11 +15969,26 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": []
     },
     "silica_cacl2": {
       "before_sha256": "8e211b414489fba0bbde0510b723ebb9b7481fb184bfa05e3f09c7e2b77428f7",
-      "after_record_sha256": "c36d0818a9068623ec77b924e9087a095cfe6ebb9664d6855daeb0274d522582",
+      "after_record_sha256": "c1606eb303a67410c28cf192c9544bf29f26a0542fcc9ae00b5cf9c6d0325e49",
       "after_audit_sha256": "9a7dfad914527e0ecb634565411d82cf59c8013408da02a358a713da03c2313a",
       "added_check": [
         0
@@ -13881,7 +16032,7 @@
     },
     "silicon": {
       "before_sha256": "05e692da1ef2525c55240f89cc80cc87e641c74fcb41cea812ee8bf659d105a0",
-      "after_record_sha256": "e19530d7790b5fa002f98e0ca9a11717311d27bddf94405a0e7073b64efa9ccc",
+      "after_record_sha256": "3a5c7391991a30d1381ccb20530d7c69c8d61b59e3ddaac53ef4341c4e2eba62",
       "after_audit_sha256": "12dcea0479d6f7038d6cd51095c3db1874b6e05418668194170d3d1bf38e4da4",
       "added_check": [
         0
@@ -13925,7 +16076,7 @@
     },
     "silicon_carbide_b1": {
       "before_sha256": "2fbbc17c670ea4771739ff494359cf543e0410985078560ae4a5a84e21eecb1c",
-      "after_record_sha256": "b038eed192d6cc70cecbaf573573f2c7c6332f0135676b3a5ce0fa7e984f2af7",
+      "after_record_sha256": "21fe7461d14586da22900bae63472935e4d3547cd98a6b585cf8d746ba909643",
       "after_audit_sha256": "3b3364a16c554d75d9fa590ca98da1eb4a9f796fb75336af969d44369c3b1d9d",
       "added_check": [
         0
@@ -13969,7 +16120,7 @@
     },
     "silicon_carbide_b3": {
       "before_sha256": "363c8fe3d9d04c71517c0845d8a948383c0a69ba5c694888b00f952a7241d480",
-      "after_record_sha256": "11bc6e34a660428937f1b027aef2914948e29c25efd8530c719d59852413fa41",
+      "after_record_sha256": "d40fc7bd6f1649b283a60c4303c8686ae5b6925055cd855d890a95edee9d2ebd",
       "after_audit_sha256": "b4df783fa8bf2cfe992557f07207a0debf5af2ec9416d844a24a8da2f9b160e0",
       "added_check": [
         0
@@ -14013,7 +16164,7 @@
     },
     "silicon_v": {
       "before_sha256": "f27c7aa9774bbac2b16fa537d755bafd08613e3717f1285a1152e2bd26f625c4",
-      "after_record_sha256": "4d32f0335a8939ed16b5fd7a8b5c44c429b0f6b9eee29fa6efd043c6bf4e747b",
+      "after_record_sha256": "38cb1f243607c95af5b337f6a1edec7b4246d33bfc108d482a740957237a53b2",
       "after_audit_sha256": "680dcc707ae7adf3755fa9a44cd38b4d0c826b90c8fe0a3f7c92cd9fe7f720c3",
       "added_check": [
         0
@@ -14057,7 +16208,7 @@
     },
     "silicon_vii": {
       "before_sha256": "dbc0c75fc788effd0654ee3fbb851c7a91e59e853d3911989474962c2be55a3f",
-      "after_record_sha256": "4cc08e105bf6d49c2148a3697a285dedbca69523e5a752a4bf5cabdc9b6acb1c",
+      "after_record_sha256": "936d86fe2b2b8bfaa558f48a6affc36bde0a9df2203da5e8612615fd60b126b9",
       "after_audit_sha256": "992cf3c393b53d5de52f384376d485bdf6e71354ebbcd78f19bfa0db38758088",
       "added_check": [
         0
@@ -14101,7 +16252,7 @@
     },
     "silicon_x": {
       "before_sha256": "eacb3d6bc2e3c0ac5dea0ee30f4371697f6741cb6c70ef378beb9f14b4f78503",
-      "after_record_sha256": "5c88a305b274c0079041c8d81387cb5ec2db3b79027886a24b861002c85e8623",
+      "after_record_sha256": "4cfec8311c0e42da2484b0189849b2b5d841923f6d7d68c8d57c6d37a3d5e9f3",
       "after_audit_sha256": "c7faab85ccd4ffcdfa63033b88fe02d253ba69a8349219cb933f6cc691975552",
       "added_check": [
         0
@@ -14145,8 +16296,9 @@
     },
     "silver": {
       "before_sha256": "32760aa6f737b7f34302bbd01ea58bddba4b014c6f7d5ef7e62e26ab8130a721",
-      "after_record_sha256": "ec74feae71ce0986a33049eb51cafeeb88ea742ae4e7c815870fbec1fe9840b0",
+      "after_record_sha256": "cdffdba53bd6b5e753415ff53f3c5c0738fb44d9d3b91cd6b2193b51f21d8feb",
       "after_audit_sha256": "f19fcf168dcb1200b646f3438d182c4d55c6dc141a2a70fc279ba63c48dadebf",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -14244,8 +16396,9 @@
     },
     "sio2_stv_andr": {
       "before_sha256": "b27101a5d98e22fadb97f8f377cecf6051b1eba23ee7f9b5c0f18666f16eea36",
-      "after_record_sha256": "b79a6ff9fd97877cae1a1d0a434f6db7626d7bbf89f1bae9520263550dd7ac5e",
+      "after_record_sha256": "7b3c9646a8d903b4d5dee474fc9acf403c1bb6ed5915e8a631fcd7e73012ed09",
       "after_audit_sha256": "36d07caf6c0092e5935db2ee90313c332a2350e30990c3622d1d09a03c1029cc",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -14350,6 +16503,14 @@
           ]
         ]
       ],
+      "default_flags": [
+        [
+          6,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": [
         {
           "path": [
@@ -14404,7 +16565,7 @@
     },
     "sno2": {
       "before_sha256": "c22895c23fa961e3183eace79dc52e6bb6f7fda6c191ab034fcfa3a7d3c11118",
-      "after_record_sha256": "b778d82fb8b1a065a5046bcc57d65334babdcb2ad2904402076b99908487c2bd",
+      "after_record_sha256": "4fbeed83ebd9dd51f2b761e6fdd8d73290e767964daefad51889bd79dfb71384",
       "after_audit_sha256": "cdbb7a9402b739d739c1d33ae9931850ff6463e4ab9831124e5bb90fcd68f374",
       "added_check": [
         0
@@ -14448,8 +16609,9 @@
     },
     "sno2_cubic_27gpa": {
       "before_sha256": "0fc023934773e9700cfa6cc1556a0cdb9ed8e70e754292254c282f31e9345dc4",
-      "after_record_sha256": "26106cbee67b601c13e9e0bd8fe1dac914c6399675ec66ba192a052d3b16c12e",
+      "after_record_sha256": "8c5633ca1ea4031b44bbb04f657c76b3491bac55f54198c95f0e9ce5d70ce896",
       "after_audit_sha256": "2bb1c4a0397bc2c536f6606ed8b806b47ed728367c0f915010d8ef65b7d65fcf",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -14492,8 +16654,9 @@
     },
     "sno2_pa_3_at_48gpa": {
       "before_sha256": "704592c779da232eaef973406358f19ebdc5d17fb4ea4fadd7dfe7c477582de2",
-      "after_record_sha256": "f4db6a7deca38416352d1acc250453bb5dad2f90d510cb6fcd284bdee47d1025",
+      "after_record_sha256": "a9529145f2bbe5fa79cafceb0701f627e54e5dfd889ce2c69ca4d991b508610f",
       "after_audit_sha256": "617c11b3832cbcda4a1684f8c1bb7e185267ce9895522ec49ca7ece4dc089f7c",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -14536,7 +16699,7 @@
     },
     "sro": {
       "before_sha256": "b120b9a1939d6fb570c20202bd827200a118ccb7ec842e933a866937c0c42225",
-      "after_record_sha256": "bfd3d185aef2bf8c88922bf59f11aafd5e36d09156d6414ae66533052d1a6b14",
+      "after_record_sha256": "ea0759d8034a8877887a9c66c269111dc440be9be7a5abe0bf98b23b19848385",
       "after_audit_sha256": "dcdfafcc2c11259ad11fb4a5ff2a18608a1e87104272e01005268bd6df831dd2",
       "added_check": [
         0
@@ -14580,7 +16743,7 @@
     },
     "sro_b2": {
       "before_sha256": "752c199e04ef0d682b2b6107b0c3d10f47d50fcfd16c9c8044f6f2f0449dc7e6",
-      "after_record_sha256": "7c22a3cd6202b203fa19b1c1ab17c530b3051e3dd3c9f3e41745646fbdbec77b",
+      "after_record_sha256": "046cc06a08310f6748672a2c6a0ba9c20c6b0117bb9c8fea59dfc88872673523",
       "after_audit_sha256": "7de0afdbcf641f6aaa2ff6139334a594c8527c7a84fc4136c7d71e35480036f5",
       "added_check": [
         0
@@ -14624,8 +16787,9 @@
     },
     "srsio3_6h_perovskite": {
       "before_sha256": "cdbd4a2aa790205bbfc21c60f5069639cb832c733341309736f2187b56b6e616",
-      "after_record_sha256": "3f3440a858685fcedf2c1201a48998e85b70ea0c17cc8da216aa6af20ea9455b",
+      "after_record_sha256": "5080f42e021c236812ad04dc4e71495fab157715c11cf0e8d4258b3e1677c056",
       "after_audit_sha256": "539bcb82287a2ead76d52398ddf2d543d4aa4b73d525ad3b4ef3af59f832fdba",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -14671,8 +16835,9 @@
     },
     "srsio3_cubic_perovskite": {
       "before_sha256": "4ad434e5f49a53f8494ab667f7169a9243f73fbc5212ae647e66da68e58cf40c",
-      "after_record_sha256": "ba4665e63f8f7937963da37bd4634d8219217d87e499db478754b146efc838db",
+      "after_record_sha256": "5b58101b58e885c8a3a527567f18d69ad2dec1cbe5e16e0703d4db28272e6c79",
       "after_audit_sha256": "22852777b52b40b8068aa00950b52b0c9bf9524068d93a0a2d57048e9e7be6cf",
+      "layout": "v4",
       "added_check": [
         0,
         1
@@ -14748,8 +16913,9 @@
     },
     "superhydrous_phase_b_lt": {
       "before_sha256": "09b90e114549d4c9bd0e1e2243f7a420a36ce23e798e017bca6691181fa52357",
-      "after_record_sha256": "ea514a50acc9f85ecebb93c88c241f57278ca5a97eebac273ec82711300f8a23",
+      "after_record_sha256": "be4cf0fe7a4fe2d10f07374eb005428446a7f83ea4e58eff358c718327788963",
       "after_audit_sha256": "46597a98b499e8fab2bf508d0cc6a64df7f0893b135cd147a525cfc8ab09da66",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -14825,12 +16991,58 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": false
+          }
+        ],
+        [
+          1,
+          {
+            "default": false
+          }
+        ],
+        [
+          2,
+          {
+            "default": true
+          }
+        ],
+        [
+          3,
+          {
+            "default": false
+          }
+        ],
+        [
+          4,
+          {
+            "default": false
+          }
+        ],
+        [
+          5,
+          {
+            "default": false
+          }
+        ],
+        [
+          6,
+          {
+            "default": false
+          }
+        ]
+      ],
       "object_orders": []
     },
     "tantalum": {
       "before_sha256": "db68b3cfaee1301ad94f5082292143c7915705f09c31b5042a84f9cbeebdab0b",
-      "after_record_sha256": "63a9fc34ef1aa8781a7fb3ff2f5d384a99e86b847db8c63f4870fd58c825e95c",
+      "after_record_sha256": "fb07c5a1fcee21cf81adcc91b8cc73a99aea465eb3c7a7ae20cb6476d0bbfb10",
       "after_audit_sha256": "8d74200ca6f47a31d3112681a488b4c74a35969d3f67803b4da9eacdaa19fe03",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -15020,8 +17232,9 @@
     },
     "tho2_cotunnite": {
       "before_sha256": "98f9f7325bfa1274a5ba2220ece60d913fed85f060975355778f41f18556f9ac",
-      "after_record_sha256": "9c6eb960af76618e9772e263d634f42044e0c6d6b3ac1e9ea45d163335f1d4bf",
+      "after_record_sha256": "ca801e6af5de0eda35f584145fbc3cc7d787120efcc7f1e94d306445e1c35e03",
       "after_audit_sha256": "09dc825417efe9779fff62e6deaed4839d500ced458cfa96dc0bb1b0e0c15be1",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -15035,14 +17248,24 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
         ]
       ],
       "object_orders": []
     },
     "thorianite": {
       "before_sha256": "fbee5255b5d65362675701ce3f900337fad89448978d237d05734d7f94e80bd0",
-      "after_record_sha256": "957cad5c1f564c7c741ed620fa2839c8e71a00861fea5762e4a25a4da6ab92ab",
+      "after_record_sha256": "42afc064a723e98ef3b595f84f6563d406ed5b18e0fac68d18716bab04265cde",
       "after_audit_sha256": "d36e76b5b1115c4692159ae7f2a5f6f9d9461ecc30ac40ea13494f3896eb75e5",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -15058,11 +17281,20 @@
           ]
         ]
       ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default_for": "equilibrium"
+          }
+        ]
+      ],
       "object_orders": []
     },
     "titanium_alpha": {
       "before_sha256": "c865e248a793a7afc68163844b767f12c59be37d67c7bb7cab5114fbeb645ee5",
-      "after_record_sha256": "12d5b740fe5db9bb2280ce16ae451b6a7f1a458f5061fc9e1b4d431601e2f767",
+      "after_record_sha256": "55075298f3771100d92003bba652f9c48ea32a2a07931de19d8af3418b154083",
       "after_audit_sha256": "1e29902a155c4653cdb7f306a2d10cb6585a4bb601f8dfe640ee82addaf73318",
       "added_check": [
         0
@@ -15106,7 +17338,7 @@
     },
     "titanium_omega": {
       "before_sha256": "dfbeef3f6004964955e8230a4a58c23b535787fdd1594b45adb6619a91062a3c",
-      "after_record_sha256": "4eb676031a7f1c8330366efcd95969ae246c493d1e185c919d230f9bee6025a0",
+      "after_record_sha256": "24ebd1d8f10e6840a0fe7e131cf6320c4ee6bf4fa7fba0baba9537a98bc36cbb",
       "after_audit_sha256": "80bdedffe9143e45cefa8b37fa8c1880ff1ea81434bbe5acc2894649a362751a",
       "added_check": [
         0
@@ -15150,8 +17382,9 @@
     },
     "tungsten": {
       "before_sha256": "383bb4f5e2c62ad64de3ceb249945499641f66f9146937e7e78b639c52599061",
-      "after_record_sha256": "61bc59a7f21636d1e0171deb5d5f6ec498ef15dbf400a0c490fe3b6989375c14",
+      "after_record_sha256": "2eabc78b579037aa25eae3bc025d6dbb9aa8ff7d1a2e5fc7afc674b63e639e07",
       "after_audit_sha256": "39f2100055d2df7d342ae15263eb06d2557072fc23631b44751e1975b7f23f25",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -15254,6 +17487,15 @@
               0
             ]
           ]
+        ]
+      ],
+      "added_default_records": true,
+      "default_flags": [
+        [
+          1,
+          {
+            "default": true
+          }
         ]
       ],
       "object_orders": [
@@ -15370,8 +17612,9 @@
     },
     "vanadium_bcc": {
       "before_sha256": "670c940ee40e34b4d6d9ca4f4ab43bf4a10c616361989b0df4c7b5b4150d5ec2",
-      "after_record_sha256": "f08248f7e2424a2ae2c144ae9510a10bf40a583143f16297930115deaf62e637",
+      "after_record_sha256": "0cf6d54f29dd56b71bc3aba55cb36b43190ff27b4e7a9974007fe02c3152f25d",
       "after_audit_sha256": "fd66da8f13ac7dec5a716f80505ce930aa2593e158377e697743f4dc7f05f335",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -15391,11 +17634,49 @@
           ]
         ]
       ],
-      "object_orders": []
+      "added_default_records": true,
+      "default_flags": [
+        [
+          0,
+          {
+            "default": true
+          }
+        ]
+      ],
+      "object_orders": [
+        {
+          "path": [
+            "eos_records",
+            0
+          ],
+          "keys": [
+            "identifier",
+            "label",
+            "model",
+            "temperature_ref",
+            "parameters",
+            "thermal",
+            "parameter_error_confidence",
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+            "pressure_range_status",
+            "determination_method",
+            "equation_kind",
+            "default",
+            "notes",
+            "range_provenance",
+            "source_volume_normalization",
+            "validation_datasets",
+            "reference",
+            "pressure_calibration",
+            "evidence"
+          ]
+        }
+      ]
     },
     "wadsleyite": {
       "before_sha256": "62a3ca6e375a3a3fddf1ae43634303d46f99592fe8b91d4c1d751f3cfd539c1c",
-      "after_record_sha256": "8aba680238657e432fe690af1eb08472de3e4e71eb838946065ba6b142ee63e4",
+      "after_record_sha256": "f7705f3e7cce7d4ca60844cb2d6a3adbdb5ea7984d65bdd3f0200b16b93fad92",
       "after_audit_sha256": "7854f6409e58ef2d9afbaddb76228441b7c20ab9c48bbf5f74dbcf6f017d5328",
       "added_check": [
         0
@@ -15444,8 +17725,9 @@
     },
     "wollastonite": {
       "before_sha256": "e07994e656121a524f408233a3da0c2f27a7b18e6e44854e22d5bc6649efa5f6",
-      "after_record_sha256": "259fdbee71c418fb4968ed999eb6f0e939af8811a22f415f329e1dcc7b304183",
+      "after_record_sha256": "a229098b671624f28ac3ac807a141e577dce5e489758edcdfb13424bfc0d14eb",
       "after_audit_sha256": "f8594d15fa7a129510c607f8b57ab5fdb1ca9725aa644f38e298655af64237a4",
+      "layout": "v4",
       "added_check": [
         0
       ],
@@ -15491,8 +17773,9 @@
     },
     "zinc_hcp": {
       "before_sha256": "7a8e4915dd1e5ea8dfbf5dfd2a3ee9c57ce81b7627678663f548d5fc8b9fd380",
-      "after_record_sha256": "92fcdc9c7ad17ae7ef20fa548a4bf5a617af0c2b4aae4dd412e833f9232a7485",
+      "after_record_sha256": "db7b5829e968b231c1fbe5badc2f1ee883f859d369481c569df6f57ea533b986",
       "after_audit_sha256": "b7968576643f868895745a2ebdb91d02a6d479cf9dde1f775c9ab74c694dfcb2",
+      "layout": "v4",
       "added_check": [
         0,
         1,
@@ -15542,7 +17825,7 @@
     },
     "zinc_oxide_rocksalt": {
       "before_sha256": "aec24a88f989c1c03177b77719ddde70f1d84d6982eec291e02459a068bbef49",
-      "after_record_sha256": "32b1377f2f2172307e7a06b36ee47cf91c3f46957578d88974a43739d74a0d00",
+      "after_record_sha256": "38f44c6b7fa7571e99e18030cba28b40bc1807dee617ac9e10e6e70bac7b837b",
       "after_audit_sha256": "9a3eab6cc5f97f22d767f6600bc14491009c738ec2e854103035298a8e0a8ed7",
       "added_check": [
         0
@@ -15586,7 +17869,7 @@
     },
     "zinc_oxide_wurtzite": {
       "before_sha256": "4a405d87e9517a5a1f6eaea79e34afaec1a7153b689366cce4fe64b68064d01c",
-      "after_record_sha256": "db9d907d1fc248a077a302926eeb03ff242c3b4093aa932e8ebb61c6e4ca41b8",
+      "after_record_sha256": "71a1264ff32f8481c356c0de8ad18ee6b6c7fbb4a07dad7a7d8f2ca1a68d80d3",
       "after_audit_sha256": "f5728ceb9c265ee47b5041ea02d60189f8af20aa2becba689e7242ee94138d29",
       "added_check": [
         0
@@ -15630,7 +17913,7 @@
     },
     "zircon": {
       "before_sha256": "336fa7fe5e3246ef300314ce3991ecba38c403e646a4c26ac231b99cfa69c047",
-      "after_record_sha256": "76bcae7e78a6e317cc9e3c8b1d54d60eeb76c2e70cb8b7ae74198c570dc0a533",
+      "after_record_sha256": "a1d8fb45629fba84216ff1af71f8e5c424fb2e104138586febdf89cefa0c7165",
       "after_audit_sha256": "cb427f88427f0118774217bffd179b0a8fdf11c55393ba0f6e6c1dc04d817ccb",
       "added_check": [
         0
@@ -15674,7 +17957,7 @@
     },
     "zirconium_alpha": {
       "before_sha256": "51bdb8830c5b5a8b5f0da74f27fa689bdeb61427bad27c2937eceb7a6e210967",
-      "after_record_sha256": "ae1dba86c824e69ead878f41d68e1e7c958710a5dca6ea2addcb8ecb14986d2d",
+      "after_record_sha256": "552838e5e277a57d67e96bc02ad3b089a32b8d33806488a8bab34d134a7b8113",
       "after_audit_sha256": "4635aca6ec5c468d08d2a1de5b0ddf8efb8e885d592a9960e989b885941037b2",
       "added_check": [
         0
@@ -15718,7 +18001,7 @@
     },
     "zirconium_beta": {
       "before_sha256": "928ab31abc037c15b6a290f51a8789fd32535c5ca4fc7708d16e3b00320b20a7",
-      "after_record_sha256": "f329880b969d221a9bbb7f703b790e5997c0271f4b1801900e7fec4d49a46b51",
+      "after_record_sha256": "9ae5345eb0be95d62b39a56be4d38a798f81b210233f7ff840d9e8ae6da8eb8a",
       "after_audit_sha256": "28c5ea924670079bad73db876a1c194417f8f0ba3ea51542bf25c578884f6799",
       "added_check": [
         0
@@ -15762,7 +18045,7 @@
     },
     "zirconium_omega": {
       "before_sha256": "a59290db18e468e4fc98da7c761cccaad00e385070601b28e55f7c512c6d480b",
-      "after_record_sha256": "de41dba3b9ef060b440e58d75373f162245ec9947f27c3645deac06f8262278d",
+      "after_record_sha256": "64fd9a8a6b1aef698acf213dfbed62e4a34e7f2fb8724b928755ea63c18225e7",
       "after_audit_sha256": "4580978309b7c0f836e0b40165014bdaf94b81e62de12c2ec0828ae71e89b59c",
       "added_check": [
         0

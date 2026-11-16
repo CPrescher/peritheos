@@ -10,6 +10,15 @@
     {
       "identifier": "mg092fe008o_yang_2015_hs_bm3_reference",
       "label": "Yang et al. (2015), high-spin BM3 reference branch",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The article supplies a complete high-spin BM3 reference branch when the reported ambient cell measurement is used for V0; the low-spin branch lacks its own V0.",
+        "audit": "../audits/mg092fe008o.audit.json#mg092fe008o_yang_2015_hs_bm3_reference"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -18,7 +27,7 @@
         "K0_prime": {"value": 4.1, "error": 0.2}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 40],
         "temperature_k": [300, 300],
@@ -27,18 +36,9 @@
           "The source reports the spin transition as a 40-60 GPa interval rather than a fitted midpoint uncertainty."
         ]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.8272},
-      "spin_crossover_context": {
-        "branch": "high_spin_reference",
-        "transition_pressure_gpa": 50,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 20,
-        "mixer_implemented": false
-      },
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Yang", "Tong", "Lin", "Okuchi", "Tomioka"],
         "year": 2015,
@@ -48,13 +48,14 @@
         "locator": "17188",
         "doi": "10.1038/srep17188"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The article supplies a complete high-spin BM3 reference branch when the reported ambient cell measurement is used for V0; the low-spin branch lacks its own V0.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg092fe008o.audit.json#mg092fe008o_yang_2015_hs_bm3_reference"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.8272},
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 50,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 20,
+        "mixer_implemented": false
       }
     }
   ],

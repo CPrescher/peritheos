@@ -9,6 +9,16 @@
     {
       "identifier": "geo2_rutile_hazen_1981_bm3_1",
       "label": "Hazen and Finger (1981), rutile GeO2 BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "No error available to test V0 against the combined-error rule; all marked similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The author-uploaded primary article reports K0 with K0'=7 assumed. The SnO2 and GeO2 V0 values are calculated from the Table 3 ambient lattice constants; no EOS-fit covariance or V0 error is published.",
+        "audit": "../audits/geo2_rutile.audit.json#geo2_rutile_hazen_1981_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 293.15,
       "parameters": {
@@ -27,14 +37,6 @@
         "volume": "42",
         "locator": "143-151",
         "doi": "10.1016/0022-3697(81)90074-3"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The author-uploaded primary article reports K0 with K0'=7 assumed. The SnO2 and GeO2 V0 values are calculated from the Table 3 ambient lattice constants; no EOS-fit covariance or V0 error is published.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/geo2_rutile.audit.json#geo2_rutile_hazen_1981_bm3_1"
       }
     }
   ],

@@ -6,19 +6,26 @@
   "phase": "gamma spinel, Fe endmember",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 8,
+  "default_records": {"equilibrium": "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"},
   "eos_records": [
     {
       "identifier": "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
       "label": "Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-16",
+        "source_note": "Source BM2 bulk modulus with explicitly adopted measured ambient cell; both compressed states agree within the printed coordinate errors. This is a derived reconstruction, not recovery of the original fitted intercept.",
+        "audit": "../audits/ferrous_ringwoodite.audit.json#ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"
+      },
       "model": "BM2",
       "temperature_ref": 296.15,
       "parameters": {
         "V0": {"value": 558.7, "error": 0.2, "fixed": true},
         "K0": {"value": 196.0, "error": 6.0}
       },
-      "experimental_pressure_range_gpa": [0.0001, 4.0],
-      "experimental_temperature_range_k": [296.15, 296.15],
-      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0, 4.0],
         "temperature_k": [296.15, 296.15],
@@ -28,10 +35,22 @@
           "Zero-pressure gauge approximation to the1bar measured ambient state is explicit and negligible at the source precision."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0001, 4.0],
+      "experimental_temperature_range_k": [296.15, 296.15],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "derived",
-      "default": true,
       "notes": "Derived ambient-cell reconstruction, not an independently refitted record and not a claim to have recovered the original fit intercept. Static default; the separate 2011 thermal candidate remains staged outside the executable catalog. PublishedK0 unchanged;Kprime=4 fixed. ReferenceT296.15K; no300K or thermal behavior claimed.",
+      "fit_datasets": ["ferrous_ringwoodite_finger_1979_table2"],
+      "reference": {
+        "authors": ["Finger, L. W.", "Hazen, R. M.", "Yagi, T."],
+        "year": 1979,
+        "title": "Crystal structures and electron densities of nickel and iron silicate spinels at elevated temperature or pressure",
+        "source": "American Mineralogist",
+        "volume": "64",
+        "locator": "1002-1009",
+        "url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf"
+      },
       "published_constraints": {
         "K0_prime": 4.0,
         "original_K0_mbar": 1.96,
@@ -39,7 +58,6 @@
         "measured_reference_pressure_kbar": 0.001
       },
       "parameter_uncertainty_convention": "V0 uncertainty is the Table2 measurement esd, not an EOS-fit error. K0 uncertainty is the printed1.96(6)Mbar error; its confidence level is not supplied. No covariance is known.",
-      "fit_datasets": ["ferrous_ringwoodite_finger_1979_table2"],
       "derivation": {
         "source_kind": "published_table",
         "source_identifier": "ferrous_ringwoodite_finger_1979_table2",
@@ -50,23 +68,6 @@
           "At1bar the pressure offset0.0001GPa is negligible relative to source coordinate precision."
         ],
         "reproduction_script": "scripts/ferrous_ringwoodite_reproduce.py"
-      },
-      "reference": {
-        "authors": ["Finger, L. W.", "Hazen, R. M.", "Yagi, T."],
-        "year": 1979,
-        "title": "Crystal structures and electron densities of nickel and iron silicate spinels at elevated temperature or pressure",
-        "source": "American Mineralogist",
-        "volume": "64",
-        "locator": "1002-1009",
-        "url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Source BM2 bulk modulus with explicitly adopted measured ambient cell; both compressed states agree within the printed coordinate errors. This is a derived reconstruction, not recovery of the original fitted intercept.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-16",
-        "audit": "../audits/ferrous_ringwoodite.audit.json#ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"
       }
     }
   ],

@@ -31,15 +31,24 @@ def test_native_practical_information_precedes_long_citations_and_evidence(tmp_p
     save_eosmat(path, document)
     result = json.loads(path.read_text())
     keys = list(result["eos_records"][0])
-    assert keys[:5] == ["identifier", "label", "model", "temperature_ref", "parameters"]
+    assert keys[:6] == [
+        "identifier",
+        "label",
+        "check",
+        "model",
+        "temperature_ref",
+        "parameters",
+    ]
     for key in (
         "parameter_error_confidence",
         "experimental_pressure_range_gpa",
         "experimental_temperature_range_k",
         "notes",
-        "source_specific_limit",
     ):
         assert keys.index(key) < keys.index("reference") < keys.index("evidence")
+    # Extensions keep their place after the named fields, ahead of the audit.
+    assert keys.index("reference") < keys.index("source_specific_limit")
+    assert keys.index("source_specific_limit") < keys.index("evidence")
     assert keys[-1] == "evidence"
     extension = result["eos_records"][0]["extension"]
     assert list(extension["thermal"]) == ["parameters", "model"]
@@ -71,8 +80,10 @@ def test_hold_selection_scope_and_covariance_are_visible_without_changing_meanin
     assert rendered.index('"recommendation_hold"') < rendered.index('"eos_records"')
     record = result["eos_records"][0]
     keys = list(record)
-    assert keys.index("validity") < keys.index("parameter_covariance")
-    assert keys.index("catalog_access") < keys.index("parameter_covariance")
+    # v5 reading order: covariance with the coefficients, then the envelope;
+    # selection metadata follows the citation.
+    assert keys.index("parameter_covariance") < keys.index("validity")
+    assert keys.index("validity") < keys.index("catalog_access")
     assert (
         record["experimental_pressure_range_gpa"] != record["validity"]["pressure_gpa"]
     )

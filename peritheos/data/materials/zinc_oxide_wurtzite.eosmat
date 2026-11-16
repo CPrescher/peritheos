@@ -9,6 +9,14 @@
     {
       "identifier": "zinc_oxide_wurtzite_hanna_2011_bm2_1",
       "label": "Hanna et al. (2011), wurtzite BM2",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/zinc_oxide_wurtzite.audit.json#zinc_oxide_wurtzite_hanna_2011_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -27,13 +35,6 @@
         "volume": "110",
         "locator": "073511",
         "doi": "10.1063/1.3644969"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/zinc_oxide_wurtzite.audit.json#zinc_oxide_wurtzite_hanna_2011_bm2_1"
       }
     }
   ],

@@ -9,6 +9,15 @@
     {
       "identifier": "mg7si2o8_crichton_2002_bm3_1",
       "label": "(OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Table 1 provides the complete pressure, a, c, and conventional-cell-volume series with estimated standard deviations; Table 2 provides the fitted volume and axial EOS parameters.",
+        "audit": "../audits/mg7si2o8.audit.json#mg7si2o8_crichton_2002_bm3_1"
+      },
       "model": "BM3",
       "parameters": {
         "V0": {"value": 512.56, "error": 0.03},
@@ -26,14 +35,6 @@
         "volume": "87",
         "locator": "333-338",
         "doi": "10.2138/am-2002-2-316"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 provides the complete pressure, a, c, and conventional-cell-volume series with estimated standard deviations; Table 2 provides the fitted volume and axial EOS parameters.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg7si2o8.audit.json#mg7si2o8_crichton_2002_bm3_1"
       }
     }
   ],

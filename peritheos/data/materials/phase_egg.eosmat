@@ -6,10 +6,20 @@
   "phase": "monoclinic Al-bearing hydrous phase Egg, sample S5050",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "phase_egg_schulze_2018_bm3_1"},
   "eos_records": [
     {
       "identifier": "phase_egg_schulze_2018_bm3_1",
       "label": "Schulze et al. (2018), single-crystal BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-04",
+        "source_note": "The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.",
+        "audit": "../audits/phase_egg.audit.json#phase_egg_schulze_2018_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 293.0,
       "parameters": {
@@ -17,22 +27,14 @@
         "K0": {"value": 153.0, "error": 8.0},
         "K0_prime": {"value": 8.6, "error": 1.2}
       },
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [1.09, 23.33],
       "experimental_temperature_range_k": [293.0, 293.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "experimental_configuration": {
-        "sample": "single crystal from synthesis run S5050",
-        "pressure_medium": "neon",
-        "pressure_gauge": "ruby R1 fluorescence shift on the Dewaele et al. (2008) scale",
-        "diffraction": "single-crystal synchrotron X-ray diffraction"
-      },
       "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0_prime were all fitted in EosFit7c; none was fixed or adopted. Parenthesized coefficient errors are stored as printed, but the article gives no confidence level or covariance matrix. Table 2 also prints a BM3 re-fit to Vanpeteghem et al. (2003): V0=211.41(11) A^3, K0=155(5) GPa, K0_prime=6.7(5). That comparison reduction belongs to the older powder dataset and is not a second parameterization of the 2018 single-crystal observations. The fitted V0 is a zero-pressure extrapolation because the only ambient observation was intentionally omitted. The experimental pressure envelope is not a phase-stability guarantee.",
       "fit_datasets": ["phase_egg_schulze_2018_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Schulze", "Pamato", "Kurnosov", "Boffa Ballaran", "Glazyrin", "Pakhomova", "Marquardt"],
         "year": 2018,
@@ -42,18 +44,26 @@
         "locator": "1975-1980",
         "doi": "10.2138/am-2018-6562"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/phase_egg.audit.json#phase_egg_schulze_2018_bm3_1"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "single crystal from synthesis run S5050",
+        "pressure_medium": "neon",
+        "pressure_gauge": "ruby R1 fluorescence shift on the Dewaele et al. (2008) scale",
+        "diffraction": "single-crystal synchrotron X-ray diffraction"
       }
     },
     {
       "identifier": "phase_egg_mookherjee_2019_bm3_lp_1",
       "label": "Mookherjee et al. (2019), static LP BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-04",
+        "source_note": "The final article identifies DOI 10.2138/am-2019-6694 and reports a static 0 K energy-volume BM3 fit for the ordered LP proton configuration. At V=196 A^3 the published coefficients give 14.72596 GPa, reproducing the supplement's 14.7 GPa after rounding. An unweighted diagnostic fit to all 11 supplementary LP P-V rows gives V0=210.2176 A^3, K0=164.8340 GPa, and K0'=7.08137, with pressure RMSE 0.02339 GPa; the underlying total energies, exact objective, weights, covariance, and error convention are not published.",
+        "audit": "../audits/phase_egg.audit.json#phase_egg_mookherjee_2019_bm3_lp_1"
+      },
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -62,9 +72,7 @@
         "K0_prime": {"value": 7.14, "error": 0.24}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [-6.4, 43.7],
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [-6.4, 15.0],
         "temperature_k": [0.0, 0.0],
@@ -75,12 +83,13 @@
           "The numerical bounds describe the represented low-pressure branch and calculation grid, not the broader experimental phase-stability field."
         ]
       },
+      "experimental_pressure_range_gpa": [-6.4, 43.7],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Published LP parameterization. All V0, K0, and K0' values were fitted; none was fixed or adopted. The source's separate HP proton-configuration parameters are scientifically distinct and are represented by a companion record rather than merged into this LP branch. The official supplement continues the LP calculation grid beyond the approximately 15 GPa proton-transfer boundary to 43.7 GPa; those rows document the source fit/curve but do not expand the recommended LP branch. The source reports no E0 value needed by pressure evaluation and no parameter covariance, confidence convention, row uncertainties, fit objective, weights, software-fit details, or fit statistic.",
       "fit_datasets": ["phase_egg_mookherjee_2019_supplement_lp_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Mookherjee", "Panero", "Wunder", "Jahn"],
         "year": 2019,
@@ -90,18 +99,21 @@
         "locator": "130-139",
         "doi": "10.2138/am-2019-6694"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The final article identifies DOI 10.2138/am-2019-6694 and reports a static 0 K energy-volume BM3 fit for the ordered LP proton configuration. At V=196 A^3 the published coefficients give 14.72596 GPa, reproducing the supplement's 14.7 GPa after rounding. An unweighted diagnostic fit to all 11 supplementary LP P-V rows gives V0=210.2176 A^3, K0=164.8340 GPa, and K0'=7.08137, with pressure RMSE 0.02339 GPa; the underlying total energies, exact objective, weights, covariance, and error convention are not published.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/phase_egg.audit.json#phase_egg_mookherjee_2019_bm3_lp_1"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "phase_egg_mookherjee_2019_bm3_hp_1",
       "label": "Mookherjee et al. (2019), static HP proton-transferred BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0: refit 223.51 vs published 222.8 GPa (+0.3%), outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Complete static HP BM3 parameterization for the proton-transferred structure.",
+        "audit": "../audits/phase_egg.audit.json#phase_egg_mookherjee_2019_bm3_hp_1"
+      },
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -110,9 +122,7 @@
         "K0_prime": {"value": 4.44, "error": 0.02}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [-11.3, 44.0],
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [15.0, 44.0],
         "temperature_k": [0.0, 0.0],
@@ -121,13 +131,13 @@
           "The authors identify the HP branch above the approximately 15 GPa proton-transfer pressure; lower-pressure HP calculations are a metastable extrapolation."
         ]
       },
+      "experimental_pressure_range_gpa": [-11.3, 44.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 120.071},
       "notes": "The five supplementary HP pressure points closely reproduce the printed rounded BM3 curve, but the authors fitted total energy versus volume. The unpublished energies, weights, objective, covariance, and confidence convention prevent an exact regression reconstruction.",
       "fit_datasets": ["phase_egg_mookherjee_2019_supplement_hp_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Mookherjee", "Panero", "Wunder", "Jahn"],
         "year": 2019,
@@ -137,14 +147,8 @@
         "locator": "130-139",
         "doi": "10.2138/am-2019-6694"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Complete static HP BM3 parameterization for the proton-transferred structure.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/phase_egg.audit.json#phase_egg_mookherjee_2019_bm3_hp_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 120.071}
     }
   ],
   "aliases": ["AlSiO3OH phase Egg", "AlSiO3(OH) phase Egg", "phase egg", "AlSiO3OH", "AlSiO4H"],

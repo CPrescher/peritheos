@@ -6,10 +6,20 @@
   "phase": "face-centered cubic lead, ambient-pressure phase",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "lead_fcc_fortes_2019_bm4_1"},
   "eos_records": [
     {
       "identifier": "lead_fcc_fortes_2019_bm4_1",
       "label": "Fortes (2019), 300 K BM4 slice",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-07",
+        "source_note": "The stored BM4 record is exactly the 300 K isotherm of the fully specified polynomial P-V-T surface. The report's Table 1 constants are evaluated at Delta T=0 (300 K), not at absolute zero.",
+        "audit": "../audits/lead_fcc.audit.json#lead_fcc_fortes_2019_bm4_1"
+      },
       "model": "BM4",
       "temperature_ref": 300.0,
       "parameters": {
@@ -21,8 +31,15 @@
       "experimental_pressure_range_gpa": [0.0, 13.0],
       "experimental_temperature_range_k": [295.0, 788.0],
       "determination_method": "experimental",
-      "default": true,
       "notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. The report first constrained V0(T) from thermal expansion and K0(T) from elastic, heat-capacity, and expansivity data. It then varied K0_prime(300 K), dK0_prime/dT, and temperature-invariant K0_double_prime against a compiled 295-788 K compression dataset. The full polynomial surface is independently executable in scripts/audit_fortes_2019_fcc_pb.py, but is not stored as this isothermal record because the current thermal schema cannot represent it.",
+      "reference": {
+        "authors": ["A. Dominic Fortes"],
+        "year": 2019,
+        "title": "A revised equation of state for in situ pressure determination using fcc-Pb (0 < P < 13 GPa, T > 100 K)",
+        "source": "STFC Rutherford Appleton Laboratory Technical Report",
+        "locator": "RAL-TR-2019-002",
+        "doi": "10.5286/raltr.2019002"
+      },
       "published_fit_provenance": {
         "software": {"name": "not reported", "version": "not reported"},
         "dataset": "compiled literature P-V-T data; exact table not deposited",
@@ -44,27 +61,20 @@
           "partial_fit_is_reported_fit": false,
           "reason": "The high-temperature Kuznetsov table was supplied privately to Fortes; the report also omits the exhaustive row mask, pressure-scale reduction, dependent variable, weights, and covariance procedure."
         }
-      },
-      "reference": {
-        "authors": ["A. Dominic Fortes"],
-        "year": 2019,
-        "title": "A revised equation of state for in situ pressure determination using fcc-Pb (0 < P < 13 GPa, T > 100 K)",
-        "source": "STFC Rutherford Appleton Laboratory Technical Report",
-        "locator": "RAL-TR-2019-002",
-        "doi": "10.5286/raltr.2019002"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored BM4 record is exactly the 300 K isotherm of the fully specified polynomial P-V-T surface. The report's Table 1 constants are evaluated at Delta T=0 (300 K), not at absolute zero.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-07",
-        "audit": "../audits/lead_fcc.audit.json#lead_fcc_fortes_2019_bm4_1"
       }
     },
     {
       "identifier": "lead_fcc_kuznetsov_2002_bm3_2",
       "label": "Kuznetsov et al. (2002), 296 K BM3 slice",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.",
+        "audit": "../audits/lead_fcc.audit.json#lead_fcc_kuznetsov_2002_bm3_2"
+      },
       "model": "BM3",
       "temperature_ref": 296.0,
       "parameters": {
@@ -72,9 +82,7 @@
         "K0": {"value": 40.5, "error": null},
         "K0_prime": {"value": 5.74, "error": null}
       },
-      "experimental_pressure_range_gpa": [0.0, 13.1],
-      "experimental_temperature_range_k": [296.0, 296.0],
-      "pressure_range_status": "reported_qualitatively",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 13.1],
         "temperature_k": [296.0, 296.0],
@@ -83,10 +91,22 @@
           "The paper reports transition onset at about 12 GPa at room temperature and sluggish fcc-hcp coexistence up to about 20 GPa; this validity envelope is not an assertion of a sharp equilibrium phase boundary."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 13.1],
+      "experimental_temperature_range_k": [296.0, 296.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Published 296 K isotherm of the source's temperature-dependent BM3 model. The complete P-V-T surface includes polynomial V0(T), K0(T), and K0_prime(T) terms and is independently executable in scripts/audit_fortes_2019_fcc_pb.py; only its 296 K slice is stored because the current thermal schema cannot represent those polynomials. This is a source-published parameterization, not a Peritheos refit.",
+      "reference": {
+        "authors": ["A. Kuznetsov", "V. Dmitriev", "L. Dubrovinsky", "V. Prakapenka", "H.-P. Weber"],
+        "year": 2002,
+        "title": "FCC-HCP phase boundary in lead",
+        "source": "Solid State Communications",
+        "volume": "122",
+        "locator": "125-127",
+        "doi": "10.1016/S0038-1098(02)00112-6"
+      },
+      "equation_kind": "isothermal",
       "published_fit_provenance": {
         "software": {"name": "not reported", "version": "not reported"},
         "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
@@ -108,24 +128,6 @@
           "partial_fit_is_reported_fit": false,
           "reason": "Table 1 prints only three rounded fcc transition states; the complete P-V-T observations and regression protocol are not published."
         }
-      },
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["A. Kuznetsov", "V. Dmitriev", "L. Dubrovinsky", "V. Prakapenka", "H.-P. Weber"],
-        "year": 2002,
-        "title": "FCC-HCP phase boundary in lead",
-        "source": "Solid State Communications",
-        "volume": "122",
-        "locator": "125-127",
-        "doi": "10.1016/S0038-1098(02)00112-6"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/lead_fcc.audit.json#lead_fcc_kuznetsov_2002_bm3_2"
       }
     }
   ],

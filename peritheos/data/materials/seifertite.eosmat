@@ -9,6 +9,16 @@
     {
       "identifier": "seifertite_sun_2019_bm2_1",
       "label": "Sun et al. (2019), BM2-MGD",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "theta0: refit 2329.4 vs published 1600.0 K (+45.6%), not similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The stored BM2 records are the 300 K reference isotherms of the MGD fits.",
+        "audit": "../audits/seifertite.audit.json#seifertite_sun_2019_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -37,19 +47,20 @@
         "volume": "124",
         "locator": "12620-12630",
         "doi": "10.1029/2019JB017853"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The stored BM2 records are the 300 K reference isotherms of the MGD fits.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/seifertite.audit.json#seifertite_sun_2019_bm2_1"
       }
     },
     {
       "identifier": "seifertite_driver_2010_qmc_300k_vinet",
       "label": "Driver et al. (2010), QMC 300 K Vinet",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly.",
+        "audit": "../audits/seifertite.audit.json#seifertite_driver_2010_qmc_300k_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -57,18 +68,16 @@
         "K0": {"value": 329.0, "error": 4.0},
         "K0_prime": {"value": 4.1, "error": 0.1}
       },
-      "experimental_pressure_range_gpa": [0.0, 220.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "theoretical",
       "validity": {
         "pressure_gpa": [0.0, 220.0],
         "temperature_k": [300.0, 300.0],
         "notes": ["QMC plus quasiharmonic phonons; the low-pressure part is a metastable extrapolation of alpha-PbO2-type SiO2."]
       },
+      "experimental_pressure_range_gpa": [0.0, 220.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 60.083},
       "reference": {
         "authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"],
         "year": 2010,
@@ -78,14 +87,8 @@
         "locator": "9519-9524",
         "doi": "10.1073/pnas.0912130107"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/seifertite.audit.json#seifertite_driver_2010_qmc_300k_vinet"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 60.083}
     }
   ],
   "symmetry": "ORTHORHOMBIC",

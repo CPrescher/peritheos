@@ -6,10 +6,20 @@
   "phase": "dense hydrous magnesium silicate phase E, Fe-bearing cation-disordered R-3m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
+  "default_records": {"equilibrium": "phase_e_fe0072_crichton_ross_2000_bm3"},
   "eos_records": [
     {
       "identifier": "phase_e_fe0072_crichton_ross_2000_bm3",
       "label": "Crichton and Ross (2000), Fe-bearing phase E, free BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-16",
+        "source_note": "Publication-of-record PDF inspected in full, Table 1 checked visually. Published BM3 retained; source residual benchmarks reproduced and independent refits establish parity within reported uncertainty. Exact implementation provenance is separately documented and does not negate fit recovery.",
+        "audit": "../audits/phase_e_fe0072.audit.json#phase_e_fe0072_crichton_ross_2000_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -18,8 +28,7 @@
         "K0_prime": {"value": 7.3, "error": 0.2}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0001, 6.671],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 6.671],
         "notes": [
@@ -27,18 +36,12 @@
           "Zero pressure is the model reference; lowest observed pressure is 0.0001 GPa. No numerical experimental temperature range is asserted."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0001, 6.671],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
       "notes": "Only the physical volume BM3 is executable. Axial BM3-on-edge-cubes fits are supporting data, not volume EOS records. Published parameters remain unchanged. Independent refits are diagnostic outputs in the material-specific reproduction report, not replacement published coefficients. Room temperature is represented nominally as 298 K.",
-      "temperature_ref_provenance": {
-        "kind": "assumed_room_temperature",
-        "reported_condition": "room temperature",
-        "note": "298 K is a nominal exchange reference only; the article does not report a numerical experimental temperature."
-      },
       "fit_datasets": ["phase_e_crichton_ross_2000_table1"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Crichton, W. A.", "Ross, N. L."],
         "year": 2000,
@@ -48,13 +51,11 @@
         "locator": "561–567",
         "doi": "10.1180/002646100549427"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Publication-of-record PDF inspected in full, Table 1 checked visually. Published BM3 retained; source residual benchmarks reproduced and independent refits establish parity within reported uncertainty. Exact implementation provenance is separately documented and does not negate fit recovery.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-16",
-        "audit": "../audits/phase_e_fe0072.audit.json#phase_e_fe0072_crichton_ross_2000_bm3"
+      "equation_kind": "isothermal",
+      "temperature_ref_provenance": {
+        "kind": "assumed_room_temperature",
+        "reported_condition": "room temperature",
+        "note": "298 K is a nominal exchange reference only; the article does not report a numerical experimental temperature."
       }
     }
   ],

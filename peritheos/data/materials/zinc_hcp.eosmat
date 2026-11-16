@@ -10,6 +10,15 @@
     {
       "identifier": "zinc_hcp_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Zn MAO-scale Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/zinc_hcp.audit.json#zinc_hcp_dewaele_2019_mao_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,19 +27,18 @@
         "K0_prime": {"value": 5.3, "error": 0.1}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 157.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 157.0],
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [0.0, 157.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
       "fit_datasets": ["zinc_dewaele_2008_table2_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -38,18 +46,20 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/zinc_hcp.audit.json#zinc_hcp_dewaele_2019_mao_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "zinc_hcp_dewaele_2019_dor_vinet",
       "label": "Dewaele (2019), Zn DOR-scale Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/zinc_hcp.audit.json#zinc_hcp_dewaele_2019_dor_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -58,20 +68,18 @@
         "K0_prime": {"value": 5.705, "error": 0.1}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 157.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 157.0],
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [0.0, 157.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-      "pressure_scale_variant_of": "zinc_hcp_dewaele_2019_mao_vinet",
       "fit_datasets": ["zinc_dewaele_2008_table2_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -79,18 +87,21 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/zinc_hcp.audit.json#zinc_hcp_dewaele_2019_dor_vinet"
-      }
+      "equation_kind": "isothermal",
+      "pressure_scale_variant_of": "zinc_hcp_dewaele_2019_mao_vinet"
     },
     {
       "identifier": "zinc_hcp_dewaele_2008_table4_vinet",
       "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-23",
+        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "audit": "../audits/zinc_hcp.audit.json#zinc_hcp_dewaele_2008_table4_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -99,14 +110,13 @@
         "K0_prime": {"value": 5.69, "error": 0.07}
       },
       "parameter_error_confidence": 0.95,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 156.6],
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
       "fit_datasets": ["zinc_hcp_dewaele_2008_source_table"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
         "year": 2008,
@@ -116,18 +126,20 @@
         "locator": "104102",
         "doi": "10.1103/PhysRevB.78.104102"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-23",
-        "audit": "../audits/zinc_hcp.audit.json#zinc_hcp_dewaele_2008_table4_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "zinc_hcp_dewaele_2008_table4_us_k0_60_vinet",
       "label": "Dewaele et al. (2008), Table IV Vinet, US K0=60 GPa fixed",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-23",
+        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "audit": "../audits/zinc_hcp.audit.json#zinc_hcp_dewaele_2008_table4_us_k0_60_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -136,14 +148,13 @@
         "K0_prime": {"value": 5.73, "error": 0.01}
       },
       "parameter_error_confidence": 0.95,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 156.6],
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
       "fit_datasets": ["zinc_hcp_dewaele_2008_source_table"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
         "year": 2008,
@@ -153,14 +164,7 @@
         "locator": "104102",
         "doi": "10.1103/PhysRevB.78.104102"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-23",
-        "audit": "../audits/zinc_hcp.audit.json#zinc_hcp_dewaele_2008_table4_us_k0_60_vinet"
-      }
+      "equation_kind": "isothermal"
     }
   ],
   "cell_contents": "Two Zn atoms per conventional hcp cell; lattice parameters are not inferred from the EOS records.",

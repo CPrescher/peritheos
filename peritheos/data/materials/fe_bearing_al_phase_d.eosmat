@@ -6,10 +6,21 @@
   "phase": "partially cation-ordered Fe-bearing Al-phase D, P63 22 structural model",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
+  "default_records": {"equilibrium": "fe_bearing_al_phase_d_criniti_2023_bm3_1"},
   "eos_records": [
     {
       "identifier": "fe_bearing_al_phase_d_criniti_2023_bm3_1",
       "label": "Criniti et al. (2023), pre-crossover BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0 (-0.1%), K0 (+5.1%), K0' (-17.1%): outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The article's abstract, plotted curves, and phase-D comparison table privilege the freely fitted BM3 record, while Table 2 also reports a freely fitted Vinet alternative and ambient-volume-fixed variants. The BM3 and Vinet curves are stated to overlap over 0.0001-38 GPa. BM3 is therefore the canonical record and Vinet is retained as a published non-default alternative.",
+        "audit": "../audits/fe_bearing_al_phase_d.audit.json#fe_bearing_al_phase_d_criniti_2023_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 293.0,
       "parameters": {
@@ -17,9 +28,7 @@
         "K0": {"value": 166.3, "error": 1.5},
         "K0_prime": {"value": 4.46, "error": 0.12}
       },
-      "experimental_pressure_range_gpa": [0.35, 37.92],
-      "experimental_temperature_range_k": [291.0, 295.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 38.0],
         "temperature_k": [291.0, 295.0],
@@ -29,20 +38,13 @@
           "The paper places the broad Fe3+ spin crossover at approximately 30-65 GPa, so the fitted 0-38 GPa interval is not a rectangular high-spin phase-stability field."
         ]
       },
+      "experimental_pressure_range_gpa": [0.35, 37.92],
+      "experimental_temperature_range_k": [291.0, 295.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "experimental_configuration": {
-        "sample": "single crystal of Al1.53(2)Fe0.22(1)Si0.86(1)O6H3.33(9)",
-        "pressure_medium": "helium loaded at 0.13 GPa",
-        "pressure_cell": "BX-90 diamond-anvil cells",
-        "diffraction": "single-crystal synchrotron X-ray diffraction at PETRA III P02.2",
-        "runs": "run 1 to 37.92 GPa and run 2 to 52.41 GPa; the room-temperature EOS uses all 21 rows at or below 38 GPa"
-      },
       "notes": "Canonical room-temperature record. The first BM3 row of Table 2 freely fits V0, K0, and K0'; neither of the two ambient-volume-fixed alternatives is stored as another executable record. The BM3 choice is justified by the abstract's reported coefficients, Figure 3's exclusive display of BM3 curves, and Table 3's BM comparison across phase-D studies. Parenthetical errors are retained as generic published uncertainties because the source does not state a confidence convention.",
       "fit_datasets": ["fe_bearing_al_phase_d_criniti_2023_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Criniti", "Ishii", "Kurnosov", "Glazyrin", "Husband", "Boffa Ballaran"],
         "year": 2023,
@@ -52,18 +54,28 @@
         "locator": "1764-1772",
         "doi": "10.2138/am-2022-8559"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The article's abstract, plotted curves, and phase-D comparison table privilege the freely fitted BM3 record, while Table 2 also reports a freely fitted Vinet alternative and ambient-volume-fixed variants. The BM3 and Vinet curves are stated to overlap over 0.0001-38 GPa. BM3 is therefore the canonical record and Vinet is retained as a published non-default alternative.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/fe_bearing_al_phase_d.audit.json#fe_bearing_al_phase_d_criniti_2023_bm3_1"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "single crystal of Al1.53(2)Fe0.22(1)Si0.86(1)O6H3.33(9)",
+        "pressure_medium": "helium loaded at 0.13 GPa",
+        "pressure_cell": "BX-90 diamond-anvil cells",
+        "diffraction": "single-crystal synchrotron X-ray diffraction at PETRA III P02.2",
+        "runs": "run 1 to 37.92 GPa and run 2 to 52.41 GPa; the room-temperature EOS uses all 21 rows at or below 38 GPa"
       }
     },
     {
       "identifier": "fe_bearing_al_phase_d_criniti_2023_vinet_2",
       "label": "Criniti et al. (2023), pre-crossover Vinet alternative",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0 (-0.1%), K0 (+5.0%), K0' (-17.3%): outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "This freely fitted Vinet parameterization is a genuine published alternative over the same 21 observations as BM3. The source states that the curves overlap over 0.0001-38 GPa but displays and summarizes BM3 preferentially, so Vinet is intentionally non-default.",
+        "audit": "../audits/fe_bearing_al_phase_d.audit.json#fe_bearing_al_phase_d_criniti_2023_vinet_2"
+      },
       "model": "Vinet",
       "temperature_ref": 293.0,
       "parameters": {
@@ -71,9 +83,7 @@
         "K0": {"value": 165.5, "error": 1.5},
         "K0_prime": {"value": 4.62, "error": 0.12}
       },
-      "experimental_pressure_range_gpa": [0.35, 37.92],
-      "experimental_temperature_range_k": [291.0, 295.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 38.0],
         "temperature_k": [291.0, 295.0],
@@ -83,19 +93,13 @@
           "Do not extrapolate through the changed compression behavior above 38 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [0.35, 37.92],
+      "experimental_temperature_range_k": [291.0, 295.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "experimental_configuration": {
-        "sample": "single crystal of Al1.53(2)Fe0.22(1)Si0.86(1)O6H3.33(9)",
-        "pressure_medium": "helium loaded at 0.13 GPa",
-        "pressure_cell": "BX-90 diamond-anvil cells",
-        "diffraction": "single-crystal synchrotron X-ray diffraction at PETRA III P02.2",
-        "runs": "run 1 to 37.92 GPa and run 2 to 52.41 GPa; the room-temperature EOS uses all 21 rows at or below 38 GPa"
-      },
       "notes": "Published non-default alternative. The first Vinet row of Table 2 freely fits V0, K0, and K0'; the two ambient-volume-fixed variants are documented but not multiplied into additional executable records. Parenthetical errors are retained as generic published uncertainties because their confidence convention is not stated.",
       "fit_datasets": ["fe_bearing_al_phase_d_criniti_2023_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Criniti", "Ishii", "Kurnosov", "Glazyrin", "Husband", "Boffa Ballaran"],
         "year": 2023,
@@ -105,13 +109,13 @@
         "locator": "1764-1772",
         "doi": "10.2138/am-2022-8559"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "This freely fitted Vinet parameterization is a genuine published alternative over the same 21 observations as BM3. The source states that the curves overlap over 0.0001-38 GPa but displays and summarizes BM3 preferentially, so Vinet is intentionally non-default.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/fe_bearing_al_phase_d.audit.json#fe_bearing_al_phase_d_criniti_2023_vinet_2"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "single crystal of Al1.53(2)Fe0.22(1)Si0.86(1)O6H3.33(9)",
+        "pressure_medium": "helium loaded at 0.13 GPa",
+        "pressure_cell": "BX-90 diamond-anvil cells",
+        "diffraction": "single-crystal synchrotron X-ray diffraction at PETRA III P02.2",
+        "runs": "run 1 to 37.92 GPa and run 2 to 52.41 GPa; the room-temperature EOS uses all 21 rows at or below 38 GPa"
       }
     }
   ],

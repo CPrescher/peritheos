@@ -9,6 +9,16 @@
     {
       "identifier": "silicon_x_anzellini_2019_vinet_1",
       "label": "Anzellini et al. (2019), 300 K Vinet",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0 (-15.8%), K0 (+264.7%), K0' (-100.0%): not similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Per-atom volumes were converted using each phase's conventional-cell Z.",
+        "audit": "../audits/silicon_x.audit.json#silicon_x_anzellini_2019_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -28,14 +38,6 @@
         "volume": "9",
         "locator": "15537",
         "doi": "10.1038/s41598-019-51931-1"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Per-atom volumes were converted using each phase's conventional-cell Z.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/silicon_x.audit.json#silicon_x_anzellini_2019_vinet_1"
       }
     }
   ],

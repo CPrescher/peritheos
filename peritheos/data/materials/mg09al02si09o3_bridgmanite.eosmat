@@ -6,10 +6,20 @@
   "phase": "orthorhombic aluminous silicate perovskite, synthesis run en90G3",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_1"},
   "eos_records": [
     {
       "identifier": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_1",
       "label": "Kubo et al. (2000), adopted fixed-derivative BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source reports a preferred fixed-K0_prime BM3 and a secondary unconstrained BM3 for one Pbnm Mg0.9Al0.2Si0.9O3 specimen. It explicitly rejects precise interpretation of the free derivative, not the underlying fit.",
+        "audit": "../audits/mg09al02si09o3_bridgmanite.audit.json#mg09al02si09o3_bridgmanite_kubo_2000_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,9 +28,7 @@
         "K0_prime": {"value": 4.0, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 8.71],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 8.71],
         "temperature_k": [300.0, 300.0],
@@ -31,23 +39,13 @@
           "The source normalized ap and ku observations to their separate measured atmospheric volumes of 163.6 and 163.5 A^3. The executable record uses the more precise ap value 163.6(4) A^3 as its single conventional-cell V0."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 8.71],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "sample_composition": "Sintered polycrystalline Mg0.9Al0.2Si0.9O3 perovskite from run en90G3; synthesized from 90 mol% MgSiO3 plus 10 mol% Al2O3 glass and composition-confirmed by EPMA",
-      "experimental_configuration": {
-        "sample": "Sintered polycrystalline run en90G3, synthesized at 27 GPa and 2000 degrees C for 83 minutes in a 6-8 multianvil apparatus; recovered single-phase Pbnm perovskite with grain size below 1 micrometre",
-        "pressure_medium": "4:1 by volume methanol-ethanol mixture, reported hydrostatic through 9 GPa",
-        "pressure_cell": "lever-and-spring diamond-anvil cell; separate ap and ku decompression runs",
-        "pressure_gauge": "Mao et al. (1986) ruby R1 fluorescence; Anderson et al. (1989) Au EOS was an independent ku-series cross-check",
-        "diffraction": "room-temperature angle-dispersive synchrotron powder X-ray diffraction with imaging-plate detector at Photon Factory beamline 13-B2",
-        "path": "sample first compressed to 9-10 GPa; diffraction patterns collected during pressure decrease after 2-3 hours of stabilization"
-      },
       "notes": "Preferred source result. K0_prime was fixed rather than fitted. The source calls this a third-order Birch-Murnaghan fit; preserving BM3 plus an explicit fixed parameter avoids changing the published model label.",
       "fit_datasets": ["mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"],
-      "author_fit_preference": "preferred; the abstract reports this result, Figure 2 uses its curve, and the article adopts K0_prime=4 because less than 4% compression does not constrain the derivative accurately",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Kubo", "Yagi", "Ono", "Akaogi"],
         "year": 2000,
@@ -57,18 +55,30 @@
         "locator": "103-107",
         "doi": "10.2183/pjab.76.103"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source reports a preferred fixed-K0_prime BM3 and a secondary unconstrained BM3 for one Pbnm Mg0.9Al0.2Si0.9O3 specimen. It explicitly rejects precise interpretation of the free derivative, not the underlying fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg09al02si09o3_bridgmanite.audit.json#mg09al02si09o3_bridgmanite_kubo_2000_bm3_1"
-      }
+      "equation_kind": "isothermal",
+      "sample_composition": "Sintered polycrystalline Mg0.9Al0.2Si0.9O3 perovskite from run en90G3; synthesized from 90 mol% MgSiO3 plus 10 mol% Al2O3 glass and composition-confirmed by EPMA",
+      "experimental_configuration": {
+        "sample": "Sintered polycrystalline run en90G3, synthesized at 27 GPa and 2000 degrees C for 83 minutes in a 6-8 multianvil apparatus; recovered single-phase Pbnm perovskite with grain size below 1 micrometre",
+        "pressure_medium": "4:1 by volume methanol-ethanol mixture, reported hydrostatic through 9 GPa",
+        "pressure_cell": "lever-and-spring diamond-anvil cell; separate ap and ku decompression runs",
+        "pressure_gauge": "Mao et al. (1986) ruby R1 fluorescence; Anderson et al. (1989) Au EOS was an independent ku-series cross-check",
+        "diffraction": "room-temperature angle-dispersive synchrotron powder X-ray diffraction with imaging-plate detector at Photon Factory beamline 13-B2",
+        "path": "sample first compressed to 9-10 GPa; diffraction patterns collected during pressure decrease after 2-3 hours of stabilization"
+      },
+      "author_fit_preference": "preferred; the abstract reports this result, Figure 2 uses its curve, and the article adopts K0_prime=4 because less than 4% compression does not constrain the derivative accurately"
     },
     {
       "identifier": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_2",
       "label": "Kubo et al. (2000), unconstrained BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The unconstrained coefficients are genuinely source-reported, but the paper treats them as a poorly constrained sensitivity result and adopts the fixed-derivative alternative.",
+        "audit": "../audits/mg09al02si09o3_bridgmanite.audit.json#mg09al02si09o3_bridgmanite_kubo_2000_bm3_2"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -77,9 +87,7 @@
         "K0_prime": {"value": 7.2, "error": 1.4}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 8.71],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 8.71],
         "temperature_k": [300.0, 300.0],
@@ -90,8 +98,22 @@
           "The authors explicitly caution that the pressure range and less than 4% compression do not constrain K0_prime accurately; this record is retained as a reported alternative, not as the equilibrium default."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 8.71],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Valid source-reported but nonpreferred unconstrained fit. The derivative is not treated as a robust physical determination because the source says its less than 4% compression range cannot determine K0_prime accurately.",
+      "fit_datasets": ["mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"],
+      "reference": {
+        "authors": ["Kubo", "Yagi", "Ono", "Akaogi"],
+        "year": 2000,
+        "title": "Compressibility of Mg0.9Al0.2Si0.9O3 perovskite",
+        "source": "Proceedings of the Japan Academy, Series B",
+        "volume": "76",
+        "locator": "103-107",
+        "doi": "10.2183/pjab.76.103"
+      },
       "equation_kind": "isothermal",
       "sample_composition": "Sintered polycrystalline Mg0.9Al0.2Si0.9O3 perovskite from run en90G3; synthesized from 90 mol% MgSiO3 plus 10 mol% Al2O3 glass and composition-confirmed by EPMA",
       "experimental_configuration": {
@@ -102,27 +124,7 @@
         "diffraction": "room-temperature angle-dispersive synchrotron powder X-ray diffraction with imaging-plate detector at Photon Factory beamline 13-B2",
         "path": "sample first compressed to 9-10 GPa; diffraction patterns collected during pressure decrease after 2-3 hours of stabilization"
       },
-      "notes": "Valid source-reported but nonpreferred unconstrained fit. The derivative is not treated as a robust physical determination because the source says its less than 4% compression range cannot determine K0_prime accurately.",
-      "fit_datasets": ["mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"],
-      "author_fit_preference": "nonpreferred; source-reported sensitivity fit whose K0_prime the authors state cannot be determined very accurately from less than 4% compression",
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Kubo", "Yagi", "Ono", "Akaogi"],
-        "year": 2000,
-        "title": "Compressibility of Mg0.9Al0.2Si0.9O3 perovskite",
-        "source": "Proceedings of the Japan Academy, Series B",
-        "volume": "76",
-        "locator": "103-107",
-        "doi": "10.2183/pjab.76.103"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The unconstrained coefficients are genuinely source-reported, but the paper treats them as a poorly constrained sensitivity result and adopts the fixed-derivative alternative.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg09al02si09o3_bridgmanite.audit.json#mg09al02si09o3_bridgmanite_kubo_2000_bm3_2"
-      }
+      "author_fit_preference": "nonpreferred; source-reported sensitivity fit whose K0_prime the authors state cannot be determined very accurately from less than 4% compression"
     }
   ],
   "aliases": [

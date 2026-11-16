@@ -9,6 +9,16 @@
     {
       "identifier": "perovskite_orthorhombic_knittle_1987_bm3_1",
       "label": "Knittle and Jeanloz (1987), (Mg0.88Fe0.12)SiO3 BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0: refit 194.75 vs published 266.0 GPa (-26.8%), not similar; K0': refit 5.49 vs published 3.9 (+40.8%), not similar.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The primary PDF identifies the sample as (Mg0.88Fe0.12)SiO3 and reports the unconstrained Eulerian finite-strain BM3 fit.",
+        "audit": "../audits/perovskite_orthorhombic.audit.json#perovskite_orthorhombic_knittle_1987_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -27,14 +37,6 @@
         "volume": "235",
         "locator": "668-670",
         "doi": "10.1126/science.235.4789.668"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The primary PDF identifies the sample as (Mg0.88Fe0.12)SiO3 and reports the unconstrained Eulerian finite-strain BM3 fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/perovskite_orthorhombic.audit.json#perovskite_orthorhombic_knittle_1987_bm3_1"
       }
     }
   ],

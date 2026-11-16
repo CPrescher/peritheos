@@ -9,6 +9,14 @@
     {
       "identifier": "iron_carbide_fe7c3_prescher_2015_bm3_1",
       "label": "Prescher et al. (2015), orthorhombic Fe7C3 BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/iron_carbide_fe7c3.audit.json#iron_carbide_fe7c3_prescher_2015_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -48,13 +56,6 @@
         "volume": "8",
         "locator": "220-223",
         "doi": "10.1038/ngeo2370"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/iron_carbide_fe7c3.audit.json#iron_carbide_fe7c3_prescher_2015_bm3_1"
       }
     }
   ],

@@ -10,6 +10,15 @@
     {
       "identifier": "phase_d_ant_a_shieh_2000_bm2_1",
       "label": "Shieh et al. (2000), antigorite-derived phase D (AntA)",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
+        "audit": "../audits/phase_d.audit.json#phase_d_ant_a_shieh_2000_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -28,19 +37,20 @@
         "volume": "177",
         "locator": "69-80",
         "doi": "10.1016/S0012-821X(00)00033-9"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/phase_d.audit.json#phase_d_ant_a_shieh_2000_bm2_1"
       }
     },
     {
       "identifier": "phase_d_ant_b_shieh_2000_bm2_1",
       "label": "Shieh et al. (2000), antigorite-derived phase D (AntB)",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
+        "audit": "../audits/phase_d.audit.json#phase_d_ant_b_shieh_2000_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -59,14 +69,6 @@
         "volume": "177",
         "locator": "69-80",
         "doi": "10.1016/S0012-821X(00)00033-9"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/phase_d.audit.json#phase_d_ant_b_shieh_2000_bm2_1"
       }
     }
   ],

@@ -9,6 +9,15 @@
     {
       "identifier": "zirconium_omega_mchardy_2026_vinet_1",
       "label": "McHardy et al. (2026), omega Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
+        "audit": "../audits/zirconium_omega.audit.json#zirconium_omega_mchardy_2026_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -28,14 +37,6 @@
         "volume": "113",
         "locator": "174115",
         "doi": "10.1103/zp3m-kjpc"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/zirconium_omega.audit.json#zirconium_omega_mchardy_2026_vinet_1"
       }
     }
   ],

@@ -10,6 +10,15 @@
     {
       "identifier": "fe093o_rhombohedral_jacobsen_2005_bm3_1",
       "label": "Jacobsen et al. (2005), rhombohedral Fe0.93O constrained BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source's preferred rhombohedral Fe0.93O parameterization is the ambient-reference BM3 cross-check on all nine 27.7-51.1 GPa rows, with V0 and K0 varied and K0'=4 fixed.",
+        "audit": "../audits/fe093o_rhombohedral.audit.json#fe093o_rhombohedral_jacobsen_2005_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,9 +27,7 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [27.7, 51.1],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [27.7, 51.1],
         "temperature_k": [300.0, 300.0],
@@ -29,10 +36,12 @@
           "The source first observes the phase at 27.7 GPa; V0 is only the EOS reference parameter and is outside the phase's observed stability interval."
         ]
       },
+      "experimental_pressure_range_gpa": [27.7, 51.1],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "notes": "Published preferred cross-check fit to all nine rhombohedral Table 1 observations from 27.7 to 51.1 GPa, using a 1 atm reference without an artificial P0 data point. V0 and K0 are free and K0'=4 is fixed. The executable V0 is a metastable zero-pressure extrapolation for a phase observed only above 23 GPa. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
       "fit_datasets": ["jacobsen_2005_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Jacobsen", "Lin", "Angel", "Shen", "Prakapenka", "Dera", "Mao", "Hemley"],
         "year": 2005,
@@ -41,14 +50,6 @@
         "volume": "12",
         "locator": "577-583",
         "doi": "10.1107/S0909049505022326"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source's preferred rhombohedral Fe0.93O parameterization is the ambient-reference BM3 cross-check on all nine 27.7-51.1 GPa rows, with V0 and K0 varied and K0'=4 fixed.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/fe093o_rhombohedral.audit.json#fe093o_rhombohedral_jacobsen_2005_bm3_1"
       }
     }
   ],

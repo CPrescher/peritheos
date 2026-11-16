@@ -1,12 +1,14 @@
 """Repository maintenance: split the bundled v5 catalog into records and audits.
 
 Each ``peritheos/data/materials/<id>.eosmat`` keeps the material header, the
-EOS records with a short ``check`` block, and datasets. The audit trail moves
-to ``peritheos/data/audits/<id>.audit.json``. The receipt
-``docs/data/eosmat-v5-audit-split.json`` records, per material, every change
-between the pre-split file and ``record file + sidecar`` merged: the added
-``check`` blocks and the removed generic statements. ``pre_split_bytes``
-uses it to recover each pre-split file byte for byte.
+``default_records`` map, the EOS records with a short ``check`` block, and
+datasets. The audit trail moves to ``peritheos/data/audits/<id>.audit.json``.
+The receipt ``docs/data/eosmat-v5-audit-split.json`` records, per material,
+every change between the pre-split file and ``record file + sidecar`` merged:
+the added ``check`` blocks, the per-record default flags replaced by
+``default_records``, the removed generic statements and the key-order layout
+of the pre-split file. ``pre_split_bytes`` uses it to recover each pre-split
+file byte for byte.
 
 The whole-catalog split ran once (``python scripts/split_eosmat_audits.py``)
 and refuses to run again over an existing receipt. Afterwards, curators who
@@ -41,7 +43,13 @@ from peritheos._eosmat_audit import (  # noqa: E402
     merge_audit,
     split_document,
 )
-from peritheos._eosmat_format import format_audit, format_eosmat  # noqa: E402
+from peritheos._eosmat_format import (  # noqa: E402
+    V4_LAYOUT,
+    V5_LAYOUT,
+    Layout,
+    format_audit,
+    format_eosmat,
+)
 from peritheos.eosmat import validate_eosmat_document  # noqa: E402
 
 MATERIALS = ROOT / "peritheos/data/materials"
@@ -62,6 +70,19 @@ _NOTE = ("evidence", "scientific_validation", "note")
 _QUALIFICATIONS = ("evidence", "reproduction", "assessment", "qualifications")
 
 
+#: Key-order layouts a pre-split file may use. Files split before the v5
+#: reading-order revision used the v4 layout; ``layout`` names it in a binding.
+LAYOUTS: dict[str | None, Layout] = {None: V5_LAYOUT, "v4": V4_LAYOUT}
+_DEFAULT_FLAGS = ("default", "default_for")
+
+
+def _render(document: dict, binding: dict) -> bytes:
+    """The pre-split file bytes, in the layout the binding records."""
+    return format_eosmat(document, layout=LAYOUTS[binding.get("layout")]).encode(
+        "utf-8"
+    )
+
+
 def _node(document: Any, path: list) -> Any:
     for key in path:
         document = document[key]
@@ -72,6 +93,9 @@ def restore(document: dict, binding: dict) -> dict:
     """Undo the split changes listed in one material's receipt binding.
 
     ``added_check`` names records whose ``check`` block was added.
+    ``added_default_records`` marks a ``default_records`` map made from the
+    per-record flags; ``default_flags`` restores each record's original
+    ``default`` / ``default_for`` keys as ``[index, {key: value}]``.
     ``generic_notes`` / ``generic_qualifications`` restore removed generic
     statements by index into the receipt's ``removed_generic_statements``
     (qualifications as ``[position, statement]`` pairs in original order).
@@ -81,6 +105,10 @@ def restore(document: dict, binding: dict) -> dict:
     records = result["eos_records"]
     for index in binding.get("added_check", []):
         del records[index]["check"]
+    if binding.get("added_default_records"):
+        del result["default_records"]
+    for index, flags in binding.get("default_flags", []):
+        records[index].update(flags)
     for index, statement in binding.get("generic_notes", []):
         validation = records[index]["evidence"]["scientific_validation"]
         validation["note"] = GENERIC["note"][statement]
@@ -99,11 +127,14 @@ def restore(document: dict, binding: dict) -> dict:
 
 def _differences(before: dict, merged: dict) -> dict:
     """Describe the split as explicit, allowed restore operations."""
-    binding: dict[str, list] = {
+    binding: dict[str, Any] = {
         "added_check": [],
         "generic_notes": [],
         "generic_qualifications": [],
     }
+    if "default_records" in merged and "default_records" not in before:
+        binding["added_default_records"] = True
+    flags: list = []
     if len(before["eos_records"]) != len(merged["eos_records"]):
         raise ValueError("Record count changed")
     for index, (old, new) in enumerate(
@@ -111,6 +142,9 @@ def _differences(before: dict, merged: dict) -> dict:
     ):
         if "check" in new and "check" not in old:
             binding["added_check"].append(index)
+        removed = {k: old[k] for k in _DEFAULT_FLAGS if k in old and k not in new}
+        if removed:
+            flags.append([index, removed])
         try:
             note = _node(old, list(_NOTE))
         except (KeyError, TypeError):
@@ -128,6 +162,8 @@ def _differences(before: dict, merged: dict) -> dict:
         ]
         if inserts:
             binding["generic_qualifications"].append([index, inserts])
+    if flags:
+        binding["default_flags"] = flags
     return binding
 
 
@@ -173,7 +209,7 @@ def pre_split_bytes(material: str, *, root: Path | None = None) -> bytes:
     if _sha(audit) != binding["after_audit_sha256"]:
         raise ValueError(f"EOSMAT audit split sidecar changed: {material}")
     restored = restore(merged_document(material, root), binding)
-    original = format_eosmat(restored).encode("utf-8")
+    original = _render(restored, binding)
     if _sha(original) != binding["before_sha256"]:
         raise ValueError(f"EOSMAT audit split predecessor changed: {relative}")
     return original
@@ -183,9 +219,10 @@ def pre_split_view(document: dict, root: Path = ROOT) -> dict:
     """Project a complete bundled document onto its pre-split content.
 
     For frozen historical fingerprints only. Accepts the native or the
-    v3-shaped layout, matches records by identifier, removes ``check`` and
-    re-inserts the generic statements recorded in the receipt. Documents
-    without a receipt binding are returned unchanged.
+    v3-shaped layout, matches records by identifier, removes ``check``,
+    restores the original per-record default flags in place of
+    ``default_records`` and re-inserts the generic statements recorded in the
+    receipt. Documents without a receipt binding are returned unchanged.
     """
     receipt_path = root / RECEIPT.relative_to(ROOT)
     material = document.get("identifier")
@@ -209,6 +246,17 @@ def pre_split_view(document: dict, root: Path = ROOT) -> dict:
 
     for record in records.values():
         record.pop("check", None)
+    # Bindings record every pre-split default flag; exports and the
+    # default_records map spell the same selection differently.
+    if "added_check" in binding:
+        result.pop("default_records", None)
+        for record in records.values():
+            for key in _DEFAULT_FLAGS:
+                record.pop(key, None)
+        for index, flags in binding.get("default_flags", []):
+            record = records.get(order[index])
+            if record is not None:
+                record.update(flags)
     for index, statement in binding.get("generic_notes", []):
         node = evidence(index)
         if node is not None and "note" not in node.get("scientific_validation", {}):
@@ -227,9 +275,23 @@ def pre_split_view(document: dict, root: Path = ROOT) -> dict:
 
 
 def split_material(original: bytes) -> tuple[bytes, bytes, dict]:
+    """Split one complete inline v5 file; return record, sidecar and binding.
+
+    The input must be canonically formatted in the current v5 layout or, for
+    files written before the v5 reading-order revision, the v4 layout; the
+    binding names the layout so the file is recovered byte for byte.
+    """
     before = json.loads(original)
     validate_eosmat_document(before)
-    if format_eosmat(before).encode("utf-8") != original:
+    layout = next(
+        (
+            name
+            for name, candidate in LAYOUTS.items()
+            if format_eosmat(before, layout=candidate).encode("utf-8") == original
+        ),
+        False,
+    )
+    if layout is False:
         raise ValueError("Pre-split file is not in canonical EOSMAT layout")
     record_file, sidecar = split_document(before)
     record_bytes = format_eosmat(record_file).encode("utf-8")
@@ -242,6 +304,7 @@ def split_material(original: bytes) -> tuple[bytes, bytes, dict]:
         "before_sha256": _sha(original),
         "after_record_sha256": _sha(record_bytes),
         "after_audit_sha256": _sha(audit_bytes),
+        **({"layout": layout} if layout is not None else {}),
         **_differences(before, merged),
     }
     restored = restore(merged, binding)
@@ -254,10 +317,10 @@ def split_material(original: bytes) -> tuple[bytes, bytes, dict]:
             **binding,
             "object_orders": [o for o in binding["object_orders"] if o is not ordering],
         }
-        if format_eosmat(restore(merged, trial)).encode("utf-8") == original:
+        if _render(restore(merged, trial), binding) == original:
             binding = trial
     restored = restore(merged, binding)
-    if restored != before or format_eosmat(restored).encode("utf-8") != original:
+    if restored != before or _render(restored, binding) != original:
         raise ValueError("Record file and sidecar do not reconstruct the source")
     return record_bytes, audit_bytes, binding
 

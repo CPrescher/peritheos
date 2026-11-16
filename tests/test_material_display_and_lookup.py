@@ -145,7 +145,8 @@ def test_material_summary_lists_every_record_with_status():
     assert "Formula: MgO" in text and "B1 (periclase)" in text
     assert "4 formula units per conventional unit cell" in text
     assert "angstrom^3/conventional_unit_cell" in text
-    assert f"default_record(): {material.default_record().identifier}" in text
+    default = material.default_record()
+    assert f"  Default: {default.name} ({default.identifier})" in lines
     for record in material.eos_records:
         row = next(line for line in lines if f" {record.identifier} " in line)
         assert record.reproduction in row
@@ -176,12 +177,13 @@ def test_record_summary_shows_coefficients_reference_and_finding():
     assert "K0       = 160.2 (fixed)  [GPa]" in text
     assert "q1     = 11.8 +/- 0.2" in text
     assert "confidence level not stated" in text
-    assert "Reproduction: reproduced" in text
+    assert "Check: reproduced (refit vs published fit)." in text
     assert "Warning: none" in text
     assert "Calibration envelope: P 0-203 GPa, T 300-3663 K" in text
     assert "Experimental pressure range: 0-52 GPa" in text
     assert "doi:10.1029/2000JB900318" in text
-    assert "Finding: Published final BM3 + variable-q Debye model" in text
+    assert "Source check: verified" in text
+    assert "Source note: Published final BM3 + variable-q Debye model" in text
 
 
 def test_record_summary_converts_molar_volume_errors_to_the_public_unit():

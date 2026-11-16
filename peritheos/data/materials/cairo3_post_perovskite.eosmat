@@ -6,10 +6,20 @@
   "phase": "post-perovskite-type, orthorhombic Cmcm",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "cairo3_post_perovskite_boffa_ballaran_2007_bm3_1"},
   "eos_records": [
     {
       "identifier": "cairo3_post_perovskite_boffa_ballaran_2007_bm3_1",
       "label": "Boffa Ballaran et al. (2007), CaIrO3 post-perovskite BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source defines a standard zero-pressure BM3 fit for the Cmcm conventional-cell volume, reports all three coefficients with standard deviations, excludes decompression data, and identifies the Mao et al. (1986) ruby scale. No separate supplement or machine-readable data attachment was located.",
+        "audit": "../audits/cairo3_post_perovskite.audit.json#cairo3_post_perovskite_boffa_ballaran_2007_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -18,8 +28,7 @@
         "K0_prime": {"value": 2.3, "error": 0.8}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0001, 7.79],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0001, 7.79],
         "notes": [
@@ -28,26 +37,12 @@
           "The authors caution that extrapolation beyond 15-20 GPa reverses the relative compressibilities of the two low-pressure fits."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0001, 7.79],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "experimental_configuration": {
-        "sample": "single CaIrO3 post-perovskite crystal synthesized at 1435 degrees C and 1 GPa; minor Ca(OH)2 was present in the run product",
-        "pressure_medium": "4:1 methanol:ethanol",
-        "pressure_gauge": "ruby spheres, Mao et al. (1986)",
-        "diffraction": "single-crystal X-ray diffraction, non-monochromatized Mo K-alpha radiation",
-        "temperature": "room temperature; no numerical value reported"
-      },
       "notes": "This record is limited to the Cmcm CaIrO3 post-perovskite polymorph and must not be used for the Pbnm perovskite. V0 is the four-formula-unit conventional-cell volume. The source describes V0, K0, and K' together as refined parameters and marks none fixed, so fixed_parameters is empty. The printed standard deviations are retained without conversion to a confidence interval, and numerical covariance is absent rather than assumed zero.",
-      "temperature_ref_provenance": {
-        "kind": "assumed_room_temperature",
-        "reported_condition": "room temperature",
-        "note": "298 K is a nominal room-temperature convention, not a measured or numerically reported source temperature. This isothermal EOS has no thermal correction."
-      },
       "fit_datasets": ["cairo3_post_perovskite_boffa_ballaran_2007_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Boffa Ballaran", "Trønnes", "Frost"],
         "year": 2007,
@@ -62,18 +57,32 @@
           "Tables 1-2, journal pages 1761-1762"
         ]
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source defines a standard zero-pressure BM3 fit for the Cmcm conventional-cell volume, reports all three coefficients with standard deviations, excludes decompression data, and identifies the Mao et al. (1986) ruby scale. No separate supplement or machine-readable data attachment was located.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/cairo3_post_perovskite.audit.json#cairo3_post_perovskite_boffa_ballaran_2007_bm3_1"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "single CaIrO3 post-perovskite crystal synthesized at 1435 degrees C and 1 GPa; minor Ca(OH)2 was present in the run product",
+        "pressure_medium": "4:1 methanol:ethanol",
+        "pressure_gauge": "ruby spheres, Mao et al. (1986)",
+        "diffraction": "single-crystal X-ray diffraction, non-monochromatized Mo K-alpha radiation",
+        "temperature": "room temperature; no numerical value reported"
+      },
+      "temperature_ref_provenance": {
+        "kind": "assumed_room_temperature",
+        "reported_condition": "room temperature",
+        "note": "298 K is a nominal room-temperature convention, not a measured or numerically reported source temperature. This isothermal EOS has no thermal correction."
       }
     },
     {
       "identifier": "cairo3_post_perovskite_martin_2007_bm2",
       "label": "Martin et al. (2007), room-temperature BM2",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The author's dissertation reproduces the complete in-press American Mineralogist chapter and its exact pressure-volume table.",
+        "audit": "../audits/cairo3_post_perovskite.audit.json#cairo3_post_perovskite_martin_2007_bm2"
+      },
       "model": "BM3",
       "temperature_ref": 298.15,
       "parameters": {
@@ -82,9 +91,7 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "parameter_error_confidence": 0.6827,
-      "experimental_pressure_range_gpa": [0.3, 29.0],
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.3, 29.0],
         "temperature_k": [298.15, 298.15],
@@ -93,13 +100,13 @@
           "The high-pressure NaCl-series observations were laser annealed and contain diffraction features from dissociation products, as explicitly cautioned by the source."
         ]
       },
+      "experimental_pressure_range_gpa": [0.3, 29.0],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 280.292},
       "notes": "Accepted LitCurate source record litcurate_5e62ecacf2340445.",
       "fit_datasets": ["cairo3_martin_2007_table1a_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Martin", "Chapman", "Chupas", "Prakapenka", "Lee", "Shastri", "Parise"],
         "year": 2007,
@@ -109,14 +116,8 @@
         "locator": "1048-1053",
         "doi": "10.2138/am.2007.2473"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The author's dissertation reproduces the complete in-press American Mineralogist chapter and its exact pressure-volume table.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/cairo3_post_perovskite.audit.json#cairo3_post_perovskite_martin_2007_bm2"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 280.292}
     }
   ],
   "aliases": ["CaIrO3 ppv", "calcium iridate post-perovskite", "CaIrO3-type structure"],

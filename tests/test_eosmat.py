@@ -2186,7 +2186,9 @@ def test_dewaele_2012_kcl_b2_table_i_and_equation_2_regression(
         document, record_identifiers=[source["identifier"]]
     ).eos_records[0]
 
-    assert source["default"] is True
+    # The material's default_records map is exported as a per-record flag.
+    assert source["default_for"] == "equilibrium"
+    assert record.is_default
     assert source["fixed_parameters"] == ["V0"]
     assert source["parameter_errors"] == {
         "V0": None,

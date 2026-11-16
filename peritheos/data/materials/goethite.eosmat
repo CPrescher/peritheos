@@ -9,6 +9,16 @@
     {
       "identifier": "goethite_gleason_2008_bm3_1",
       "label": "Gleason et al. (2008)",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0 (+30.7%), K0' (-100.0%): outside the combined error and not similar.",
+        "warning": "Not recommended for quantitative use.",
+        "source_check": "verified",
+        "source_checked_on": "2026-09-04",
+        "source_note": "The source defines a BM3 reference plus Mie-Gruneisen-Debye thermal pressure and says that all 65 deposited P-V-T rows determine K0 and K0'. The deposit's row 32 values are retained verbatim but flagged as an isolated source-data/refinement anomaly. An independent fit of the 47 plotted Figure 3a marker centers also fails badly, and Equation 1 is malformed as printed; the record is retained for provenance but is not recommended for quantitative use.",
+        "audit": "../audits/goethite.audit.json#goethite_gleason_2008_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -38,14 +48,6 @@
         "volume": "93",
         "locator": "1882-1885",
         "doi": "10.2138/am.2008.2942"
-      },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": "Not recommended for quantitative use.",
-        "finding": "The source defines a BM3 reference plus Mie-Gruneisen-Debye thermal pressure and says that all 65 deposited P-V-T rows determine K0 and K0'. The deposit's row 32 values are retained verbatim but flagged as an isolated source-data/refinement anomaly. An independent fit of the 47 plotted Figure 3a marker centers also fails badly, and Equation 1 is malformed as printed; the record is retained for provenance but is not recommended for quantitative use.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-04",
-        "audit": "../audits/goethite.audit.json#goethite_gleason_2008_bm3_1"
       }
     }
   ],

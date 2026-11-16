@@ -10,6 +10,15 @@
     {
       "identifier": "mg080fe020sio3_bridgmanite_mao_1991_bm2_1",
       "label": "Mao et al. (1991), Fe20 bridgmanite K0'=4 fit",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations.",
+        "audit": "../audits/mg080fe020sio3_bridgmanite.audit.json#mg080fe020sio3_bridgmanite_mao_1991_bm2_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -18,16 +27,14 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 30.0],
       "experimental_temperature_range_k": [298.0, 298.0],
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 106.695},
       "notes": "BM2 is represented as BM3 with V0 and K0_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.",
       "fit_datasets": ["mao_1991_tables2_3_bridgmanite_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Mao", "Hemley", "Fei", "Shu", "Chen", "Jephcoat", "Wu", "Bassett"],
         "year": 1991,
@@ -37,14 +44,8 @@
         "locator": "8069-8079",
         "doi": "10.1029/91JB00176"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg080fe020sio3_bridgmanite.audit.json#mg080fe020sio3_bridgmanite_mao_1991_bm2_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 106.695}
     }
   ],
   "aliases": ["20 mol.% Fe MgSiO3 perovskite", "(Mg0.8Fe0.2)SiO3 bridgmanite"],

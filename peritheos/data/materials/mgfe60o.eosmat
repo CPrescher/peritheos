@@ -10,6 +10,15 @@
     {
       "identifier": "mgfe60o_richet_1989_bm2_1",
       "label": "Richet et al. (1989), (Mg0.4Fe0.6)O BM2",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.",
+        "audit": "../audits/mgfe60o.audit.json#mgfe60o_richet_1989_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 298.0,
       "parameters": {
@@ -28,19 +37,20 @@
         "volume": "94",
         "locator": "3037-3045",
         "doi": "10.1029/JB094iB03p03037"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mgfe60o.audit.json#mgfe60o_richet_1989_bm2_1"
       }
     },
     {
       "identifier": "mgfe60o_solomatova_2016_hs_bm3_reference_1",
       "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "audit": "../audits/mgfe60o.audit.json#mgfe60o_solomatova_2016_hs_bm3_reference_1"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -55,14 +65,6 @@
       },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 59.228},
-      "spin_crossover_context": {
-        "branch": "high_spin_reference",
-        "transition_pressure_gpa": 78.6,
-        "transition_width_20_80_gpa": 25.1,
-        "mixer_implemented": false
-      },
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -72,18 +74,27 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mgfe60o.audit.json#mgfe60o_solomatova_2016_hs_bm3_reference_1"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 59.228},
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 78.6,
+        "transition_width_20_80_gpa": 25.1,
+        "mixer_implemented": false
       }
     },
     {
       "identifier": "mgfe60o_solomatova_2016_ls_bm3_reference_2",
       "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "audit": "../audits/mgfe60o.audit.json#mgfe60o_solomatova_2016_ls_bm3_reference_2"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -98,14 +109,6 @@
       },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 59.228},
-      "spin_crossover_context": {
-        "branch": "low_spin_reference",
-        "transition_pressure_gpa": 78.6,
-        "transition_width_20_80_gpa": 25.1,
-        "mixer_implemented": false
-      },
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -115,13 +118,13 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mgfe60o.audit.json#mgfe60o_solomatova_2016_ls_bm3_reference_2"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 59.228},
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 78.6,
+        "transition_width_20_80_gpa": 25.1,
+        "mixer_implemented": false
       }
     }
   ],

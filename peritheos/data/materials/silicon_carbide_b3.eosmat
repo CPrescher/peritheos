@@ -9,6 +9,14 @@
     {
       "identifier": "silicon_carbide_b3_miozzi_2018_bm3_1",
       "label": "Miozzi et al. (2018), 300 K BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/silicon_carbide_b3.audit.json#silicon_carbide_b3_miozzi_2018_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -27,13 +35,6 @@
         "volume": "123",
         "locator": "2295-2309",
         "doi": "10.1029/2018JE005582"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/silicon_carbide_b3.audit.json#silicon_carbide_b3_miozzi_2018_bm3_1"
       }
     }
   ],

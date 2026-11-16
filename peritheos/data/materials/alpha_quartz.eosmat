@@ -9,6 +9,14 @@
     {
       "identifier": "alpha_quartz_angel_1997_bm3_1",
       "label": "Angel et al. (1997), single-crystal BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/alpha_quartz.audit.json#alpha_quartz_angel_1997_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -28,18 +36,20 @@
         "volume": "30",
         "locator": "461-466",
         "doi": "10.1107/S0021889897000861"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/alpha_quartz.audit.json#alpha_quartz_angel_1997_bm3_1"
       }
     },
     {
       "identifier": "alpha_quartz_driver_2010_qmc_300k_vinet",
       "label": "Driver et al. (2010), QMC 300 K Vinet",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source reports a distinct QMC 300 K Vinet for quartz in addition to the two high-pressure silica rows found by LitCurate.",
+        "audit": "../audits/alpha_quartz.audit.json#alpha_quartz_driver_2010_qmc_300k_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -47,18 +57,16 @@
         "K0": {"value": 32.0, "error": 6.0},
         "K0_prime": {"value": 7.0, "error": 1.0}
       },
-      "experimental_pressure_range_gpa": [0.0, 40.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "theoretical",
       "validity": {
         "pressure_gpa": [0.0, 40.0],
         "temperature_k": [300.0, 300.0],
         "notes": ["QMC plus quasiharmonic phonons; quartz is metastable above its transition."]
       },
+      "experimental_pressure_range_gpa": [0.0, 40.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 60.083},
       "reference": {
         "authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"],
         "year": 2010,
@@ -68,14 +76,8 @@
         "locator": "9519-9524",
         "doi": "10.1073/pnas.0912130107"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The source reports a distinct QMC 300 K Vinet for quartz in addition to the two high-pressure silica rows found by LitCurate.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/alpha_quartz.audit.json#alpha_quartz_driver_2010_qmc_300k_vinet"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 60.083}
     }
   ],
   "symmetry": "TRIGONAL",

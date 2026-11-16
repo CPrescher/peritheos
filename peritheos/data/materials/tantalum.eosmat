@@ -9,6 +9,15 @@
     {
       "identifier": "tantalum_cynn_1999_bm3_1",
       "label": "Cynn and Yoo (1999)",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The fixed V0=10.865 cm3/mol was converted to a two-atom bcc cell.",
+        "audit": "../audits/tantalum.audit.json#tantalum_cynn_1999_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -27,19 +36,20 @@
         "volume": "59",
         "locator": "8526-8529",
         "doi": "10.1103/PhysRevB.59.8526"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The fixed V0=10.865 cm3/mol was converted to a two-atom bcc cell.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/tantalum.audit.json#tantalum_cynn_1999_bm3_1"
       }
     },
     {
       "identifier": "tantalum_shen_2026_vinet_2",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+        "audit": "../audits/tantalum.audit.json#tantalum_shen_2026_vinet_2"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -58,19 +68,20 @@
         "volume": "113",
         "locator": "144113",
         "doi": "10.1103/fxgq-96sg"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/tantalum.audit.json#tantalum_shen_2026_vinet_2"
       }
     },
     {
       "identifier": "tantalum_sokolova_2013_holzapfel_3",
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "audit": "../audits/tantalum.audit.json#tantalum_sokolova_2013_holzapfel_3"
+      },
       "model": "Holzapfel",
       "temperature_ref": 298.15,
       "parameters": {
@@ -113,19 +124,20 @@
         "locator": "181-199",
         "details": "Tables 1 and 4",
         "doi": "10.1016/j.rgg.2013.01.005"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/tantalum.audit.json#tantalum_sokolova_2013_holzapfel_3"
       }
     },
     {
       "identifier": "tantalum_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Ta MAO-scale Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/tantalum.audit.json#tantalum_dewaele_2019_mao_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -134,19 +146,18 @@
         "K0_prime": {"value": 3.17, "error": 0.1}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 90.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 90.0],
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [0.0, 90.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
       "fit_datasets": ["tantalum_dewaele_2004_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -154,18 +165,20 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/tantalum.audit.json#tantalum_dewaele_2019_mao_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "tantalum_dewaele_2019_dor_vinet",
       "label": "Dewaele (2019), Ta DOR-scale Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/tantalum.audit.json#tantalum_dewaele_2019_dor_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -174,20 +187,18 @@
         "K0_prime": {"value": 3.64, "error": 0.1}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 90.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 90.0],
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [0.0, 90.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-      "pressure_scale_variant_of": "tantalum_dewaele_2019_mao_vinet",
       "fit_datasets": ["tantalum_dewaele_2004_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -195,18 +206,21 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/tantalum.audit.json#tantalum_dewaele_2019_dor_vinet"
-      }
+      "equation_kind": "isothermal",
+      "pressure_scale_variant_of": "tantalum_dewaele_2019_mao_vinet"
     },
     {
       "identifier": "tantalum_dewaele_2004_mao_ruby_vinet",
       "label": "Dewaele et al. (2004), Ta mao ruby Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
+        "audit": "../audits/tantalum.audit.json#tantalum_dewaele_2004_mao_ruby_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -215,18 +229,17 @@
         "K0_prime": {"value": 3.07, "error": 0.14}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 90.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 90.0],
         "temperature_k": [298.0, 298.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [0.0, 90.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele", "Loubeyre", "Mezouar"],
         "year": 2004,
@@ -234,18 +247,20 @@
         "source": "Physical Review B",
         "doi": "10.1103/PhysRevB.70.094112"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/tantalum.audit.json#tantalum_dewaele_2004_mao_ruby_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "tantalum_dewaele_2004_revised_ruby_vinet",
       "label": "Dewaele et al. (2004), Ta revised ruby Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
+        "audit": "../audits/tantalum.audit.json#tantalum_dewaele_2004_revised_ruby_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -254,18 +269,17 @@
         "K0_prime": {"value": 3.52, "error": 0.03}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 93.6],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 93.6],
         "temperature_k": [298.0, 298.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "experimental_pressure_range_gpa": [0.0, 93.6],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele", "Loubeyre", "Mezouar"],
         "year": 2004,
@@ -273,14 +287,7 @@
         "source": "Physical Review B",
         "doi": "10.1103/PhysRevB.70.094112"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/tantalum.audit.json#tantalum_dewaele_2004_revised_ruby_vinet"
-      }
+      "equation_kind": "isothermal"
     }
   ],
   "symmetry": "CUBIC",
