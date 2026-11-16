@@ -1959,6 +1959,9 @@
         },
         "check": {
           "$ref": "#/$defs/check"
+        },
+        "superseded_record_text": {
+          "$ref": "#/$defs/superseded_record_text"
         }
       },
       "additionalProperties": true,
@@ -3059,6 +3062,48 @@
           "type": "string",
           "minLength": 1,
           "description": "Relative sidecar path and #record identifier, for example ../audits/mgo.audit.json#mgo_record. Bundled materials store evidence, pressure_calibration and the other audit-only record blocks there."
+        }
+      },
+      "additionalProperties": false
+    },
+    "superseded_record_text": {
+      "type": "object",
+      "description": "Audit-only: the original value of each free-text field replaced by a later text revision, kept verbatim so no wording is lost. label, notes, validity_notes (validity.notes) and thermal_notes (thermal.notes) hold the replaced value; null means the field was absent. A field appears only if it changed; a later revision never overwrites a stored original. superseded_on is the ISO date of the revision. Bundled materials store this block in the audit sidecar.",
+      "required": [
+        "superseded_on"
+      ],
+      "minProperties": 2,
+      "properties": {
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validity_notes": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "thermal_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "superseded_on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
         }
       },
       "additionalProperties": false

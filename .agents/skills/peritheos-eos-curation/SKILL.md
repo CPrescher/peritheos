@@ -48,6 +48,7 @@ The record holds what a reader needs to use the EOS; the per-material sidecar `p
 - No solver diagnostics or full-precision refit numbers in the record.
 - No hard-coded catalog counts in prose, and no sections that only say nothing is recorded.
 - Prefer a short specific statement over defensive qualification.
+- Labels, notes, validity notes and thermal notes follow `docs/record-text-standard.md`. Rewrite existing record text only with `scripts/apply_record_text.py`, which keeps every replaced original in the sidecar's `superseded_record_text`.
 
 Bad (record): "Parity achieved. This does not establish experimental accuracy, phase stability or author-workflow reproduction. Parity here means … Refit V0=263.929881998 …", with the same sentence again in notes.
 Good (record): `reproduction: reproduced`, `warning: null`. Good (sidecar entry): scope `parameter_agreement`; basis "within printed source widths; K0 fixed at 210 GPa"; refit coefficients with errors; source "Table 2, pp. 64-65".

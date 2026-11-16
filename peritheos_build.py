@@ -67,6 +67,7 @@ AUDIT_RECORD_KEYS = (
     "migration_corrections",
     "scope_history",
     "author_input_followup",
+    "superseded_record_text",
 )
 _REPORT_LINKS = {
     "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/{material}/#record-{record}",

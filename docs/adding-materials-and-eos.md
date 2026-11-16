@@ -401,7 +401,10 @@ qualifications. Do not restate a label's generic caveat; [EOS labels](eos-labels
 holds it. Keep solver diagnostics and full-precision refit numbers out of the
 record. Do not hard-code catalog counts in prose or add sections that only say
 nothing is recorded. Prefer a short specific statement over defensive
-qualification.
+qualification. Labels, notes, validity notes and thermal notes follow the
+[record text standard](record-text-standard.md); rewrite existing record text
+only with `scripts/apply_record_text.py`, which keeps every replaced original
+in the sidecar.
 
 | | Record `check` | Audit entry |
 |---|---|---|

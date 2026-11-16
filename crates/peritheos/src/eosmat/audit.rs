@@ -37,7 +37,14 @@ pub const AUDIT_RECORD_KEYS: &[&str] = &[
     "migration_corrections",
     "scope_history",
     "author_input_followup",
+    "superseded_record_text",
 ];
+
+/// Free-text record fields whose replaced original text a record keeps in its
+/// `superseded_record_text` audit block: `label`, `notes`, `validity_notes`
+/// (`validity.notes`) and `thermal_notes` (`thermal.notes`). `null` means the
+/// field was absent before.
+const SUPERSEDED_TEXT_FIELDS: &[&str] = &["label", "notes", "validity_notes", "thermal_notes"];
 
 const CHECK_KEYS: &[&str] = &[
     "reproduction",
@@ -962,6 +969,95 @@ pub(super) fn validate_check_consistency(
     Ok(())
 }
 
+/// Validate a record's `superseded_record_text` audit block.
+///
+/// The block keeps the original value of every free-text field replaced by a
+/// text revision (see [`SUPERSEDED_TEXT_FIELDS`]) and the ISO date
+/// `superseded_on`. It never changes how the record is read.
+pub(super) fn validate_superseded_record_text(
+    value: &Value,
+    location: &str,
+) -> Result<(), EosmatError> {
+    let place = format!("{location}.superseded_record_text");
+    let object = value
+        .as_object()
+        .ok_or_else(|| invalid_document(format!("{place} must be an object")))?;
+    let unknown: BTreeSet<&str> = object
+        .keys()
+        .map(String::as_str)
+        .filter(|key| *key != "superseded_on" && !SUPERSEDED_TEXT_FIELDS.contains(key))
+        .collect();
+    if !unknown.is_empty() {
+        return Err(invalid_document(format!(
+            "{place} has unknown fields {unknown:?}"
+        )));
+    }
+    if !SUPERSEDED_TEXT_FIELDS
+        .iter()
+        .any(|key| object.contains_key(*key))
+    {
+        return Err(invalid_document(format!(
+            "{place} names no superseded field"
+        )));
+    }
+    if !object
+        .get("superseded_on")
+        .and_then(Value::as_str)
+        .is_some_and(is_iso_date)
+    {
+        return Err(invalid_document(format!(
+            "{place}.superseded_on must be an ISO date (YYYY-MM-DD)"
+        )));
+    }
+    for key in ["label", "notes", "thermal_notes"] {
+        if object
+            .get(key)
+            .is_some_and(|value| !value.is_null() && !value.is_string())
+        {
+            return Err(invalid_document(format!(
+                "{place}.{key} must be a string or null"
+            )));
+        }
+    }
+    if object.get("validity_notes").is_some_and(|value| {
+        !value.is_null()
+            && !value
+                .as_array()
+                .is_some_and(|notes| notes.iter().all(Value::is_string))
+    }) {
+        return Err(invalid_document(format!(
+            "{place}.validity_notes must be an array of strings or null"
+        )));
+    }
+    Ok(())
+}
+
+/// Whether `text` is a calendar date written `YYYY-MM-DD`.
+fn is_iso_date(text: &str) -> bool {
+    let bytes = text.as_bytes();
+    if bytes.len() != 10
+        || bytes[4] != b'-'
+        || bytes[7] != b'-'
+        || !bytes
+            .iter()
+            .enumerate()
+            .all(|(index, byte)| index == 4 || index == 7 || byte.is_ascii_digit())
+    {
+        return false;
+    }
+    let number = |range: std::ops::Range<usize>| text[range].parse::<u32>().unwrap_or(0);
+    let (year, month, day) = (number(0..4), number(5..7), number(8..10));
+    let leap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+    let days = match month {
+        1 | 3 | 5 | 7 | 8 | 10 | 12 => 31,
+        4 | 6 | 9 | 11 => 30,
+        2 if leap => 29,
+        2 => 28,
+        _ => return false,
+    };
+    year >= 1 && (1..=days).contains(&day)
+}
+
 /// Whether a record names a sidecar entry and carries no inline audit.
 pub(super) fn is_external(record: &Value) -> bool {
     record
@@ -1051,6 +1147,9 @@ pub(super) fn validate_sidecar(sidecar: &Value, material: &str) -> Result<(), Eo
                 "audit sidecar entry {identifier:?} may contain only {}",
                 AUDIT_RECORD_KEYS.join(", ")
             )));
+        }
+        if let Some(block) = entry.get("superseded_record_text") {
+            validate_superseded_record_text(block, &format!("audit sidecar entry {identifier:?}"))?;
         }
     }
     Ok(())

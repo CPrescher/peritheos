@@ -279,7 +279,11 @@ def to_v3(
     With ``explicit_defaults``, a v5 document's default selection is written
     as an explicit per-record flag (see :func:`write_explicit_default_flags`).
     """
-    from peritheos._eosmat_audit import validate_check, validate_check_consistency
+    from peritheos._eosmat_audit import (
+        validate_check,
+        validate_check_consistency,
+        validate_superseded_record_text,
+    )
     from peritheos._eosmat_metadata import expand_metadata
 
     result = expand_metadata(_object(document, "document"))
@@ -343,6 +347,8 @@ def to_v3(
         if "check" in record:
             validate_check(record["check"], location)
             validate_check_consistency(record, location)
+        if "superseded_record_text" in record:
+            validate_superseded_record_text(record["superseded_record_text"], location)
         evidence = _object(record.pop("evidence", {}), "evidence")
         if set(evidence) & (set(record) | EVIDENCE_RESERVED):
             raise EosmatError("Evidence fields collide with EOS record fields")

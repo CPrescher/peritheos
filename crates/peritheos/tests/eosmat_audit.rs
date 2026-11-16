@@ -1150,3 +1150,68 @@ fn bundled_default_selection_uses_the_material_map() {
     }
     assert!(mapped > 50, "unexpectedly few default_records maps");
 }
+
+#[test]
+fn superseded_record_text_is_an_audit_block_read_like_the_others() {
+    let block = json!({
+        "label": "Example (2020), BM3 (diagnostic only)",
+        "notes": "Original wording, kept verbatim.",
+        "validity_notes": ["Original range note."],
+        "thermal_notes": null,
+        "superseded_on": "2026-11-16"
+    });
+    assert!(AUDIT_RECORD_KEYS.contains(&"superseded_record_text"));
+    let (record_file, mut sidecar) = split_example();
+    sidecar["records"]["example_bm3"]["superseded_record_text"] = block.clone();
+    let merged =
+        load_eosmat_str_with_audit(&record_file.to_string(), &sidecar.to_string()).unwrap();
+    let audit = merged.eos_records[0].audit().unwrap();
+    assert_eq!(audit["superseded_record_text"], block);
+    // Compatibility exports carry it inline, like the other audit blocks.
+    let legacy = export_eosmat_v3(&merged.document).unwrap();
+    assert_eq!(legacy["eos_records"][0]["superseded_record_text"], block);
+    // A standalone file may keep it inline.
+    let inline =
+        material_from_value(standalone(&json!({"superseded_record_text": block}))).unwrap();
+    assert_eq!(
+        inline.eos_records[0].audit().unwrap()["superseded_record_text"],
+        block
+    );
+    let mut both = record_file.clone();
+    both["eos_records"][0]["superseded_record_text"] = block.clone();
+    assert!(merge_eosmat_audit(&both, &sidecar)
+        .unwrap_err()
+        .to_string()
+        .contains("both inline and in its audit sidecar"));
+    for (invalid, message) in [
+        (json!({"notes": "x"}), "superseded_on must be an ISO date"),
+        (
+            json!({"notes": "x", "superseded_on": "2026-02-30"}),
+            "superseded_on must be an ISO date",
+        ),
+        (
+            json!({"note": "x", "superseded_on": "2026-11-16"}),
+            "unknown fields",
+        ),
+        (
+            json!({"superseded_on": "2026-11-16"}),
+            "names no superseded field",
+        ),
+        (
+            json!({"validity_notes": "x", "superseded_on": "2026-11-16"}),
+            "validity_notes must be an array of strings or null",
+        ),
+        (
+            json!({"label": 3, "superseded_on": "2026-11-16"}),
+            "label must be a string or null",
+        ),
+    ] {
+        let mut wrong = sidecar.clone();
+        wrong["records"]["example_bm3"]["superseded_record_text"] = invalid.clone();
+        let error = merge_eosmat_audit(&record_file, &wrong).unwrap_err();
+        assert!(error.to_string().contains(message), "{error}");
+        let error = material_from_value(standalone(&json!({"superseded_record_text": invalid})))
+            .unwrap_err();
+        assert!(error.to_string().contains(message), "{error}");
+    }
+}

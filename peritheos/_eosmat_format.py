@@ -123,6 +123,7 @@ _V4_RECORD_TAIL = (
     "check",
     "pressure_calibration",
     "evidence",
+    "superseded_record_text",
 )
 
 # Native v5 records read in this order: what the record is and how it was
@@ -184,6 +185,7 @@ _V5_RECORD_KEYS = (
 _V5_RECORD_TAIL = (
     "pressure_calibration",
     "evidence",
+    "superseded_record_text",
 )
 _V4_MATERIAL_FIRST = (
     "format_version",

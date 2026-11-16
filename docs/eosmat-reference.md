@@ -94,7 +94,8 @@ Without either, `Material.default_record()` uses the first record.
 
 Saved v5 records use this order. Fields not listed here are
 [extension fields](#extension-fields), written after `aliases`; the audit
-blocks `pressure_calibration` and `evidence` come last.
+blocks `pressure_calibration`, `evidence` and `superseded_record_text` come
+last.
 
 | Field | Required | Type and unit | Meaning |
 | --- | --- | --- | --- |
@@ -167,6 +168,11 @@ Catalog search (`search_eos_records`) instead takes each quantity separately:
 isothermal record, `temperature_ref`. A quantity with no range never matches a
 range query. Write `validity` with every quantity you want enforced.
 
+Every stated range (`validity`, `experimental_pressure_range_gpa`,
+`experimental_temperature_range_k`) is the envelope of the published fit or of
+its observations. It is not a phase-stability field and does not license
+extrapolation; records do not repeat this.
+
 ## Parameters
 
 **An error uses the same unit as its parameter value. A covariance entry uses
@@ -183,7 +189,9 @@ an object with any of these keys:
 
 An object with only `error` or `fixed: true` records information about a
 parameter the equation does not store. `parameter_error_confidence` gives the
-confidence level of all errors of the record.
+confidence level of all errors of the record. In a curated record, an absent or
+`null` `parameter_error_confidence` or `parameter_covariance` means the source
+did not report it; records do not repeat this.
 
 ### Covariance
 
@@ -355,13 +363,22 @@ Rules:
 - An entry may contain only `evidence`, `pressure_calibration`,
   `fit_input_inventory`, `network_reconstruction_audit`, `reproduction_audit`,
   `numerical_reproduction`, `validation_selection`, `migration_corrections`,
-  `scope_history` and `author_input_followup`. Each keeps its inline meaning.
+  `scope_history`, `author_input_followup` and `superseded_record_text`. Each
+  keeps its inline meaning.
 - A record uses its entry when `check.audit` names it and the record holds none
   of these blocks inline. The path is resolved relative to the record file; the
   fragment must equal the record identifier.
 - Merging gives the complete inline record. A block present in both places is
   an error. Absent `report_url`, `report_path` and `report` of an assessment are
   filled in from the material and record identifiers.
+
+`superseded_record_text` keeps the original wording of free text that a later
+revision under the [record text standard](record-text-standard.md) replaced:
+`label`, `notes`, `validity_notes` (`validity.notes`) and `thermal_notes`
+(`thermal.notes`), each verbatim and only if it changed (`null`: the field was
+absent), with the revision date `superseded_on`. A later revision never
+overwrites a stored original, and the block never changes how the record is
+read.
 
 The fields inside `evidence.reproduction.assessment` are described in
 [EOSMAT v4](eosmat-v4.md#a-consistent-reconstruction-assessment) and the

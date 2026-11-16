@@ -64,6 +64,7 @@ explicit conventions and complete working examples over layers of abstraction.
 - Prefer a short specific statement over defensive qualification. Do not
   generate sections or pages that only say nothing is recorded.
 - Do not hard-code catalog counts in prose; generate them or omit them.
+- Record text follows the [record text standard](docs/record-text-standard.md).
 
 ## Documentation and verification
 

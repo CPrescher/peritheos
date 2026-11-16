@@ -324,6 +324,13 @@ pub(super) fn expand(document: &Value) -> Result<Value, EosmatError> {
             audit::validate_check(check, &location)?;
             audit::validate_check_consistency(source, &location)?;
         }
+        if let Some(block) = source.get("superseded_record_text") {
+            let location = format!(
+                "eos_records[{}]",
+                source.get("identifier").unwrap_or(&Value::Null)
+            );
+            audit::validate_superseded_record_text(block, &location)?;
+        }
         let evidence = object(&record.remove("evidence").unwrap_or(json!({})), "evidence")?;
         if evidence
             .keys()

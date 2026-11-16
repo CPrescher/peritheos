@@ -52,7 +52,14 @@ AUDIT_RECORD_KEYS = (
     "migration_corrections",
     "scope_history",
     "author_input_followup",
+    "superseded_record_text",
 )
+
+#: Free-text record fields whose replaced original text a record keeps in its
+#: ``superseded_record_text`` audit block: ``label``, ``notes``,
+#: ``validity_notes`` (``validity.notes``) and ``thermal_notes``
+#: (``thermal.notes``). ``null`` means the field was absent before.
+SUPERSEDED_TEXT_FIELDS = ("label", "notes", "validity_notes", "thermal_notes")
 
 #: Fixed mapping from ``evidence.reproduction.assessment.status``.
 REPRODUCTION_HEADLINES = {
@@ -543,6 +550,45 @@ def validate_check(check: Any, location: str) -> None:
             )
 
 
+def validate_superseded_record_text(value: Any, location: str) -> None:
+    """Validate a record's ``superseded_record_text`` audit block.
+
+    The block keeps the original value of every free-text field replaced by a
+    text revision (see :data:`SUPERSEDED_TEXT_FIELDS`) and the ISO date
+    ``superseded_on``. It never changes how the record is read.
+    """
+    import datetime
+    import re
+
+    where = f"{location}.superseded_record_text"
+    if not isinstance(value, Mapping):
+        raise EosmatError(f"{where} must be an object")
+    unknown = set(value) - {*SUPERSEDED_TEXT_FIELDS, "superseded_on"}
+    if unknown:
+        raise EosmatError(f"{where} has unknown fields {sorted(unknown)}")
+    if not any(key in value for key in SUPERSEDED_TEXT_FIELDS):
+        raise EosmatError(f"{where} names no superseded field")
+    date = value.get("superseded_on")
+    try:
+        valid_date = (
+            isinstance(date, str)
+            and re.fullmatch(r"\d{4}-\d{2}-\d{2}", date) is not None
+            and datetime.date.fromisoformat(date) is not None
+        )
+    except ValueError:
+        valid_date = False
+    if not valid_date:
+        raise EosmatError(f"{where}.superseded_on must be an ISO date (YYYY-MM-DD)")
+    for key in ("label", "notes", "thermal_notes"):
+        if key in value and value[key] is not None and not isinstance(value[key], str):
+            raise EosmatError(f"{where}.{key} must be a string or null")
+    notes = value.get("validity_notes")
+    if notes is not None and (
+        not isinstance(notes, list) or not all(isinstance(n, str) for n in notes)
+    ):
+        raise EosmatError(f"{where}.validity_notes must be an array of strings or null")
+
+
 def validate_check_consistency(record: Mapping[str, Any], location: str) -> None:
     """A ``check`` headline must agree with inline evidence it summarizes."""
     check = record.get("check")
@@ -719,6 +765,10 @@ def validate_sidecar(sidecar: Any, material: str) -> None:
                 f"Audit sidecar entry {identifier!r} may contain only "
                 f"{', '.join(AUDIT_RECORD_KEYS)}"
             )
+        if "superseded_record_text" in entry:
+            validate_superseded_record_text(
+                entry["superseded_record_text"], f"audit sidecar entry {identifier!r}"
+            )
 
 
 def merge_audit(
@@ -831,6 +881,7 @@ __all__ = [
     "GENERIC_QUALIFICATIONS",
     "GENERIC_VALIDATION_NOTES",
     "REPRODUCTION_HEADLINES",
+    "SUPERSEDED_TEXT_FIELDS",
     "audit_entry",
     "check_block",
     "compared_scope",
@@ -841,4 +892,5 @@ __all__ = [
     "reproduction_why",
     "split_document",
     "usage_warning",
+    "validate_superseded_record_text",
 ]
