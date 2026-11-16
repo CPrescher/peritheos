@@ -19,6 +19,13 @@ blocks or has no sidecar, with the same mechanical procedure and adds its
 binding to the receipt; a replaced binding is kept under ``superseded``.
 ``--verify`` re-checks the current catalog. This is not an installed-package
 tool; standalone EOSMAT files keep inline evidence and need no sidecar.
+
+A later text revision (``scripts/apply_record_text.py``) replaces free text
+(``label``, ``notes``, ``validity.notes``, ``thermal.notes``) and keeps every
+replaced original in the record's ``superseded_record_text`` sidecar block. Its
+binding lists those records under ``superseded_record_text``; recovery first
+puts the stored originals back and removes the block (:func:`restore`), then
+undoes the split as before.
 """
 
 from __future__ import annotations
@@ -39,6 +46,7 @@ from peritheos._eosmat_audit import (  # noqa: E402
     AUDIT_RECORD_KEYS,
     GENERIC_QUALIFICATIONS,
     GENERIC_VALIDATION_NOTES,
+    SUPERSEDED_TEXT_FIELDS,
     audit_is_external,
     merge_audit,
     split_document,
@@ -89,9 +97,65 @@ def _node(document: Any, path: list) -> Any:
     return document
 
 
+def record_text(record: dict, field: str) -> Any:
+    """Current value of one free-text field (``None`` when absent).
+
+    ``field`` is one of :data:`SUPERSEDED_TEXT_FIELDS`; ``validity_notes`` and
+    ``thermal_notes`` name ``validity.notes`` and ``thermal.notes``.
+    """
+    if field in ("label", "notes"):
+        return copy.deepcopy(record.get(field))
+    container = record.get("validity" if field == "validity_notes" else "thermal")
+    if not isinstance(container, dict):
+        return None
+    return copy.deepcopy(container.get("notes"))
+
+
+def set_record_text(record: dict, field: str, value: Any) -> None:
+    """Write one free-text field; ``None``, ``""`` or ``[]`` removes it.
+
+    A note keeps its position; a new note is appended (``notes`` is the last
+    key of every bundled ``validity`` and ``thermal`` object). A ``validity``
+    object left empty is removed; a missing one is created.
+    """
+    if field not in SUPERSEDED_TEXT_FIELDS:
+        raise ValueError(f"Unknown record text field {field!r}")
+    absent = value is None or value == "" or value == []
+    if field in ("label", "notes"):
+        if absent:
+            record.pop(field, None)
+        else:
+            record[field] = copy.deepcopy(value)
+        return
+    key = "validity" if field == "validity_notes" else "thermal"
+    container = record.get(key)
+    if absent:
+        if isinstance(container, dict):
+            container.pop("notes", None)
+            if key == "validity" and not container:
+                del record[key]
+        return
+    if container is None and key == "validity":
+        container = record["validity"] = {}
+    if not isinstance(container, dict):
+        raise ValueError(f"Record {record.get('identifier')!r} has no {key} object")
+    container["notes"] = copy.deepcopy(value)
+
+
+def restore_record_text(record: dict) -> None:
+    """Put a record's ``superseded_record_text`` originals back; drop the block."""
+    block = record.pop("superseded_record_text")
+    for field in SUPERSEDED_TEXT_FIELDS:
+        if field in block:
+            set_record_text(record, field, block[field])
+
+
 def restore(document: dict, binding: dict) -> dict:
     """Undo the split changes listed in one material's receipt binding.
 
+    ``superseded_record_text`` names records whose free text was revised after
+    the split; their stored originals are restored and the block removed
+    before anything else.
     ``added_check`` names records whose ``check`` block was added.
     ``added_default_records`` marks a ``default_records`` map made from the
     per-record flags; ``default_flags`` restores each record's original
@@ -103,6 +167,8 @@ def restore(document: dict, binding: dict) -> dict:
     """
     result = copy.deepcopy(document)
     records = result["eos_records"]
+    for index in binding.get("superseded_record_text", []):
+        restore_record_text(records[index])
     for index in binding.get("added_check", []):
         del records[index]["check"]
     if binding.get("added_default_records"):
@@ -222,7 +288,9 @@ def pre_split_view(document: dict, root: Path = ROOT) -> dict:
     v3-shaped layout, matches records by identifier, removes ``check``,
     restores the original per-record default flags in place of
     ``default_records`` and re-inserts the generic statements recorded in the
-    receipt. Documents without a receipt binding are returned unchanged.
+    receipt. Text revised after the split is restored from the
+    ``superseded_record_text`` blocks the receipt binds. Documents without a
+    receipt binding are returned unchanged.
     """
     receipt_path = root / RECEIPT.relative_to(ROOT)
     material = document.get("identifier")
@@ -244,6 +312,10 @@ def pre_split_view(document: dict, root: Path = ROOT) -> dict:
             return None
         return record.get("evidence", record)
 
+    for index in binding.get("superseded_record_text", []):
+        record = records.get(order[index])
+        if record is not None and "superseded_record_text" in record:
+            restore_record_text(record)
     for record in records.values():
         record.pop("check", None)
     # Bindings record every pre-split default flag; exports and the
@@ -391,6 +463,50 @@ def verify_catalog(root: Path = ROOT) -> int:
     return len(receipt["materials"])
 
 
+RECORD_TEXT_REVISION = (
+    "Free-text revisions after the split (label, notes, validity.notes, "
+    "thermal.notes) keep every replaced original verbatim in the record's "
+    "superseded_record_text sidecar block. A binding's superseded_record_text "
+    "lists those record indices; recovery restores the originals and removes "
+    "the block first. after_record_sha256 and after_audit_sha256 bind the "
+    "revised files; before_sha256 values are unchanged."
+)
+
+
+def bind_record_text_revision(revised: dict[str, list[int]], root: Path = ROOT) -> None:
+    """Bind text revisions of split materials in the receipt and verify them.
+
+    ``revised`` maps a material to the complete list of indices of records
+    whose ``superseded_record_text`` block was added after the split (an empty
+    list removes the entry). The after-hashes are refreshed from the written
+    files, and the unchanged pre-split file must still be recovered exactly.
+    """
+    receipt_path = root / RECEIPT.relative_to(ROOT)
+    receipt = json.loads(receipt_path.read_bytes())
+    changed = []
+    for material, indices in sorted(revised.items()):
+        binding = receipt["materials"].get(material)
+        if binding is None:
+            continue
+        if indices:
+            binding["superseded_record_text"] = sorted(set(indices))
+        else:
+            binding.pop("superseded_record_text", None)
+        binding["after_record_sha256"] = _sha(
+            (root / f"peritheos/data/materials/{material}.eosmat").read_bytes()
+        )
+        binding["after_audit_sha256"] = _sha(
+            (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
+        )
+        changed.append(material)
+    if not changed:
+        return
+    receipt.setdefault("record_text_revision", RECORD_TEXT_REVISION)
+    receipt_path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+    for material in changed:
+        pre_split_bytes(material, root=root)
+
+
 def holds_inline_audit(material: str, root: Path = ROOT) -> bool:
     """Whether a bundled file still needs the split: inline audit or no sidecar."""
     document = json.loads(
@@ -502,8 +618,12 @@ if __name__ == "__main__":
 
 
 __all__ = [
+    "bind_record_text_revision",
     "merged_document",
     "pre_split_bytes",
+    "record_text",
+    "restore_record_text",
+    "set_record_text",
     "split_added_materials",
     "split_material",
 ]

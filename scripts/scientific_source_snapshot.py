@@ -3,10 +3,16 @@
 This deliberately excludes names, aliases and reconstruction narratives. A
 reviewed fingerprint protects source values independently of the metadata-only
 compatibility exceptions in merge_source_bindings.py.
+
+``thermal`` is retained whole, including its free-text ``notes``. A later text
+revision keeps the replaced original in the record's ``superseded_record_text``
+sidecar block; the snapshot reads ``thermal.notes`` at that stored original, so
+a text-only revision does not change the fingerprint.
 """
 
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
 from pathlib import Path
@@ -29,11 +35,30 @@ RECORD_FIELDS = (
 )
 
 
+def _record_fields(record: dict, entry: dict) -> dict:
+    """Snapshot fields of one record; ``thermal.notes`` at its stored original."""
+    fields = {key: record.get(key) for key in RECORD_FIELDS}
+    original = entry.get("superseded_record_text", {})
+    if "thermal_notes" in original and isinstance(fields["thermal"], dict):
+        thermal = copy.deepcopy(fields["thermal"])
+        thermal.pop("notes", None)
+        if original["thermal_notes"] not in (None, ""):
+            thermal["notes"] = original["thermal_notes"]
+        fields["thermal"] = thermal
+    return fields
+
+
 def scientific_snapshot(root: Path = ROOT) -> dict:
     """Retain literal scientific fields and the actual bytes of every resource."""
     documents = []
     for path in sorted((root / "peritheos/data/materials").glob("*.eosmat")):
         document = json.loads(path.read_text(encoding="utf-8"))
+        audit = root / "peritheos/data/audits" / f"{path.stem}.audit.json"
+        entries = (
+            json.loads(audit.read_text(encoding="utf-8"))["records"]
+            if audit.exists()
+            else {}
+        )
         datasets = []
         for dataset in document.get("datasets", []):
             entry = {
@@ -78,7 +103,7 @@ def scientific_snapshot(root: Path = ROOT) -> dict:
                     )
                 },
                 "eos_records": [
-                    {key: record.get(key) for key in RECORD_FIELDS}
+                    _record_fields(record, entries.get(record["identifier"], {}))
                     for record in document["eos_records"]
                 ],
                 "datasets": datasets,
