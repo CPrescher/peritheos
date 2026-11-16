@@ -19,7 +19,8 @@ metadata to create an EOS for your own calculations.
 | Which equation and coefficients? | `model`, `temperature_ref`, `parameters`; optional `thermal` |
 | What do the errors mean? | Each parameter's `error`/`fixed`, then confidence convention and covariance if available |
 | Where may I use it? | `validity`; measured coverage is separate |
-| Was it checked? (curated records) | `check`: the reproduction headline, any warning and the source check |
+| Was it checked? (curated records) | `check`: the reproduction headline and what it compared, any warning and the source check |
+| Which record is the default? | The material's `default_records` (or a record's `default` flag) |
 
 For catalog display names, put the mineral family first and keep useful sample,
 structure, spin or model qualifiers after it. Store the exact composition in
@@ -191,10 +192,11 @@ in [Adding materials and EOS](adding-materials-and-eos.md).
 A file needs neither of these to load or calculate.
 
 - A record's `check` block states its reproduction headline (`reproduced`,
-  `close`, `disagrees` or `untested`), any usage `warning` and the source check.
-  When `evidence` is present, the headline must agree with it. Without `check`,
-  `EOSRecord.reproduction` and `EOSRecord.warning` are derived from the
-  evidence; without evidence the record is `untested`.
+  `close`, `disagrees` or `untested`), what it `compared`, a generated `why`
+  for `close` or `disagrees`, any usage `warning` and the `source_check`.
+  When `evidence` is present, these must agree with it. Without `check`, the
+  `EOSRecord` properties of the same names are derived from the evidence;
+  without evidence the record is `untested` and compared `none`.
 - `evidence.reproduction.assessment` holds the reconstruction outcome, basis and
   limitations; its `parameters` table holds the source-versus-reconstructed
   values, including failed reconstructions, and `fit` the selection, objective,

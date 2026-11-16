@@ -329,7 +329,7 @@ literal source calculation, quantitative differences, comparison tolerances,
 affected pressure/temperature range, checks performed, and unresolved inputs
 or contradictions in the audit sidecar. Set the headline to `disagrees` and the
 source-validation status to `not_reproduced`; use `deferred` when the
-source/model mapping is incomplete. Such a record is never a default.
+source/model mapping is incomplete. Do not propose such a record as a default.
 A maintainer may accept a scoped discrepancy for a specific record; the
 acceptance and its reason belong in that record's audit.
 Any retained executable diagnostic must be explicitly identified as such and
@@ -366,12 +366,15 @@ existing reviewed material with the same model family.
 The **record** holds what a reader needs to use the EOS: identifier and label,
 citation, coefficients with errors and fixed flags, units, `temperature_ref`,
 experimental ranges, pressure calibration, linked datasets, and a `check`
-block. Set `check.reproduction` from the outcome code as defined in
-[EOS labels](eos-labels.md) (`reproduced`, `close`, `disagrees` or `untested`).
+block. `check.reproduction`, `compared`, `why` and `source_check` follow
+mechanically from the audit's outcome code, scope, coefficient table and
+source-validation status ([mapping](eosmat-v5.md#the-check-block); words in
+[EOS labels](eos-labels.md)); the split command below derives them.
 Set `check.warning` only for an explicit usage restriction, such as a
 reproduced fit that describes its data poorly; otherwise leave it null.
-Propose default changes to the maintainer; never make a `disagrees` or warned
-record the default.
+The material's `default_records` names its default records. Propose default
+changes to the maintainer, following the
+[selection guideline](eos-labels.md#warning).
 
 The **audit sidecar** `peritheos/data/audits/<id>.audit.json` holds the trail:
 detailed outcome code, scope, basis, conditions, fixed parameters, refit
@@ -403,7 +406,7 @@ qualification.
 | | Record `check` | Audit entry |
 |---|---|---|
 | Bad | "Parity achieved. This does not establish experimental accuracy, phase stability or author-workflow reproduction …", repeated in notes, plus refit V0=263.929881998 | The same disclaimer again under basis and qualifications |
-| Good | `reproduction: reproduced`, `warning: null` | Scope `parameter_agreement`; basis "within printed source widths, K0 fixed at 210 GPa"; refit coefficients with errors; source "Table 2, pp. 64-65" |
+| Good | `reproduction: reproduced`, `compared: published_fit`, `warning: null` | Scope `parameter_agreement`; basis "within printed source widths, K0 fixed at 210 GPa"; refit coefficients with errors; source "Table 2, pp. 64-65" |
 
 Only set `primary_source_validated` after the source and numerical checks are
 complete. Schema-valid JSON alone does not establish scientific validity.

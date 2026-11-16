@@ -190,9 +190,10 @@ map naming an unknown record or a record of the other category, an unknown
 key, or a record flag that contradicts the map is a validation error.
 
 `export_eosmat_v3` of a merged document carries the full evidence inline and
-omits `check`; for a v5 source it writes `default` on every record (and
-`default_for` on each designated default) in place of `default_records`; a record whose sidecar was not merged keeps `check` so the
-audit link is not lost. `Material::to_json()` and `save()` write the merged
+omits `check`; a record whose sidecar was not merged keeps `check` so the
+audit link is not lost. For a v5 source the export writes `default` on every
+record (and `default_for` on each designated default) instead of
+`default_records`. `Material::to_json()` and `save()` write the merged
 document as one self-contained file with inline evidence. v3 and v4 files are
 read unchanged.
 

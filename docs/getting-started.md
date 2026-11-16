@@ -46,8 +46,9 @@ alias or unambiguous formula (`get_material("periclase")`, `get_material("Au")`)
 ```python
 print(mgo.summary())  # one row per record: model, P/T range, reproduction, reference
 default = mgo.default_record()  # a method, not an attribute
-print(default.summary())  # coefficients with errors and units, DOI, finding
+print(default.summary())  # coefficients with errors and units, DOI, check, source note
 print(default.reproduction)  # "reproduced", "close", "disagrees" or "untested"
+print(default.compared)  # what that headline refers to, e.g. "published_fit"
 print(default.warning)  # stored usage restriction, or None
 ```
 

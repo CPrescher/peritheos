@@ -25,9 +25,9 @@ completed additions and evidence-dependent holds.
 
 Each record carries separate answers to three questions: **where the
 coefficients come from** (`record_kind`), **whether the represented EOS was
-checked against its source** (`scientific_validation.status`) and **whether a
-refit reproduced it** (the `check.reproduction` headline and its detailed
-code). They are independent fields, not a single quality ranking. All words
+checked against its source** (`check.source_check`, renaming
+`scientific_validation.status`) and **whether a comparison reproduced it**
+(the `check.reproduction` headline, what it `compared`, and its detailed code). They are independent fields, not a single quality ranking. All words
 and codes are defined in [EOS labels](eos-labels.md). A new fit receives its
 own record and never silently replaces the published coefficients. Older files
 without `record_kind` mean `published`. Primary-source validation supports the

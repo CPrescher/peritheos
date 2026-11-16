@@ -26,15 +26,27 @@ All notable changes to Peritheos are documented here. The project follows
   (receipt `docs/data/eosmat-v5-audit-split.json`). Materials later written as
   complete inline files are split the same way with the repository command
   `scripts/split_eosmat_audits.py --add`.
-- Add an optional record `check` block: `reproduction` (`reproduced`, `close`,
-  `disagrees`, `untested`, a fixed mapping of the stored assessment), `warning`,
-  `finding`, `source`, `source_checked_on` and `audit`. It must agree with any
+- Add an optional record `check` block, placed after the record's label:
+  `reproduction` (`reproduced`, `close`, `disagrees`, `untested`, a fixed
+  mapping of the stored assessment), `compared` (`published_fit`,
+  `peritheos_refit`, `source_equation`, `none`: what the headline refers to),
+  `why` (for `close` and `disagrees`, a line generated from the stored
+  coefficient table), `warning`, `source_check` (`verified`, `pending`,
+  `unresolved`, `deferred`, renaming `scientific_validation.status`),
+  `source_checked_on`, `source_note` and `audit`. It must agree with any
   evidence present.
+- Name a material's default records once in a `default_records` map
+  (`equilibrium`, `hugoniot`); bundled files use it. Per-record `default` and
+  `default_for` flags remain valid and must agree with the map; v3/v4 exports
+  write an explicit `default` flag on every record.
 - Remove three generic statements repeated in every record; they are stated
   once in the EOS label guide.
-- Add `EOSRecord.reproduction`, `EOSRecord.warning` and `EOSRecord.audit`.
+- Add `EOSRecord.reproduction`, `compared`, `why`, `warning`, `source_check`,
+  `source_note` and `audit`.
 - Add `Material.summary()` and more forgiving material and record lookup.
-- Update the Rust EOSMAT reader for the record file and audit sidecar layout.
+- Update the Rust EOSMAT reader for the record file and audit sidecar layout,
+  the check fields (`EosRecord::compared()`, `why()`, `source_check()`,
+  `source_note()`, with `Compared` and `SourceCheck`) and `default_records`.
 - Lead each reconstruction-report section with its headline and warning, show
   only recorded content and state shared conventions once per page; the report
   index counts records by headline. Material summaries show the headline,

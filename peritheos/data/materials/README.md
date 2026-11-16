@@ -1,8 +1,9 @@
 # Bundled material library
 
-The material files use [native EOSMAT v5](../../../docs/eosmat-v5.md): model and
-annotated coefficients come first, each record ends with a short `check`
-headline, and datasets follow the records. Each record's audit trail
+The material files use [native EOSMAT v5](../../../docs/eosmat-v5.md): the
+material names its default records once in `default_records`, each record
+opens with its identifier, label and a short `check` headline followed by the
+model and annotated coefficients, and datasets follow the records. Each record's audit trail
 (`evidence`, detailed `pressure_calibration` and other audit-only blocks) is
 in `../audits/<material>.audit.json`, keyed by record identifier. Scientific
 values, observations and qualifications are preserved.

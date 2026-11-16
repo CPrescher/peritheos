@@ -9,7 +9,9 @@ the product of the units of its two parameters.**
 A user file is one self-contained `.eosmat` file. Curated records may add two
 optional pieces: a short [`check` block](#the-check-block) with the record's
 reproduction headline, and an [audit sidecar](#audit-sidecars) that holds the
-audit trail in a second file. Neither is needed to write or use your own EOS.
+audit trail in a second file. A material may name its default records once in
+[`default_records`](#default-records). None of these is needed to write or use
+your own EOS.
 The [authoring guide](eosmat-authoring.md) has complete editable examples.
 
 ## Small standalone file
@@ -76,38 +78,67 @@ are rejected.
 | Field | Allowed values |
 | --- | --- |
 | `reproduction` | `reproduced`, `close`, `disagrees` or `untested` |
+| `compared` | `published_fit`, `peritheos_refit`, `source_equation` or `none`: what `reproduction` refers to |
+| `why` | Non-empty text of at most 160 characters, only with `close` or `disagrees`: the coefficients that failed |
 | `warning` | `null` or non-empty text: an explicit usage restriction |
-| `finding` | Non-empty text: the source check's finding |
-| `source` | `primary_source_validated`, `pending_primary_source_check`, `not_reproduced` or `deferred` |
+| `source_check` | `verified`, `pending`, `unresolved` or `deferred` |
 | `source_checked_on` | Non-empty text, the date of the source check (`YYYY-MM-DD` in bundled records) |
+| `source_note` | Non-empty text: the source check's finding |
 | `audit` | Non-empty text: the record's entry in an audit sidecar, `<path relative to this file>#<record identifier>` |
 
-The words are defined in [EOS labels](eos-labels.md). `reproduction` is a fixed
-mapping of `evidence.reproduction.assessment.status`:
+The words are defined in [EOS labels](eos-labels.md). Every field is a fixed
+mapping of the stored evidence, with nothing inferred:
 
-| Assessment status | `reproduction` |
-| --- | --- |
-| `parity` | `reproduced` |
-| `similar` | `close` |
-| `not_reproduced` | `disagrees` |
-| `not_refittable`, `source_reconstruction`, `not_assessed`, or no assessment | `untested` |
+| Field | From | Mapping |
+| --- | --- | --- |
+| `reproduction` | `evidence.reproduction.assessment.status` | `parity`: `reproduced`; `similar`: `close`; `not_reproduced`: `disagrees`; `not_refittable`, `source_reconstruction`, `not_assessed` or no assessment: `untested` |
+| `compared` | assessment `status` and `scope` | status `not_refittable`, `not_assessed` or no assessment: `none`; status `source_reconstruction`: `source_equation`; otherwise scope `parameter_agreement` or `author_workflow`: `published_fit`, `independent_refit`: `peritheos_refit`, `source_equation`: `source_equation` |
+| `why` | assessment `parameters` rows | the flags `within_combined_2sigma`, `similar` and `within_reported_error` that are false, as *outside the combined error*, *beyond the agreement limit* and *outside the published error*; for `close` with no failure, the rows whose combined-error flag is `null` |
+| `source_check` | `scientific_validation.status` | `primary_source_validated`: `verified`; `pending_primary_source_check`: `pending`; `not_reproduced`: `unresolved`; `deferred`: `deferred` |
+| `source_checked_on` | `scientific_validation.audit_date` | copied |
+| `source_note` | `scientific_validation.primary_source_check.finding` | copied |
 
-When the evidence is present (inline or merged from a sidecar), `reproduction`
-and `source` must agree with it, or loading fails. `finding`, `source` and
-`source_checked_on` copy `scientific_validation.primary_source_check.finding`,
-`scientific_validation.status` and `scientific_validation.audit_date`.
+`why` prints published values as stored, the refit to at most one more
+decimal, and names at most three coefficients (the largest relative
+differences) before counting the rest. An `untested` headline allows only
+`compared: none` or `source_equation`; any other headline rules out `none`.
+When the evidence is present (inline or merged from a sidecar),
+`reproduction`, `compared` and `source_check` must agree with it, or loading
+fails. The earlier names `finding` and `source` are rejected with an error
+naming `source_note` and `source_check`.
+
 In bundled records, `warning` is composed only from coded fields, in this order,
 with fixed wording: `evidence.reproduction.do_not_use: true` ("Do not use."), a
 coded `scientific_validation.usage_recommendation` such as
 `not_recommended_for_quantitative_use` ("Not recommended for quantitative use."),
 a material `recommendation_hold` naming the record ("Default selection on hold
-pending review.") and `catalog_access: "explicit_selection"` ("Explicit
-selection only; not loaded by default."). Free-text recommendations are never
+pending review.") and `catalog_access: "explicit_selection"` ("Never chosen
+automatically; select it explicitly."). Free-text recommendations are never
 turned into a warning.
 
-Without a `check` block, Python derives the same `reproduction` and `warning`
-from the evidence (`EOSRecord.reproduction`, `EOSRecord.warning`); a record with
-no assessment is `untested`. Loading never adds a positive headline.
+Without a `check` block, Python and Rust derive the same fields from the
+evidence (`EOSRecord.reproduction`, `.compared`, `.why`, `.warning`,
+`.source_check`, `.source_note`); a record with no assessment is `untested`
+and compared `none`. Loading never adds a positive headline.
+
+<a id="default-records"></a>
+
+## Default records
+
+A material names its default records once, directly before `eos_records`:
+
+```json
+"default_records": {"equilibrium": "my_material_bm3"}
+```
+
+The keys are `equilibrium` (isothermal and thermal records) and `hugoniot`;
+each value names one record of the file in that category. Without the map, the
+per-record flags `default: true` or `default_for` remain valid; when both forms
+are present they must agree. A map naming an unknown record or a record of the
+other category, an unknown key, or a record flag that contradicts the map is
+an error. With neither, `Material.default_record()` uses the first record.
+Bundled files use the map. v3 and v4 exports write `default` on every record
+instead (`true`, with `default_for`, on each designated default).
 
 ## Audit sidecars
 
@@ -145,8 +176,8 @@ in when absent, with the values implied by the material and record identifiers
 stored values that differ are kept.
 
 The bundled library stores each material as
-`peritheos/data/materials/<id>.eosmat` (header, EOS records with their `check`
-blocks, then datasets) and `peritheos/data/audits/<id>.audit.json`. Generic
+`peritheos/data/materials/<id>.eosmat` (header, `default_records`, EOS records
+with their `check` blocks, then datasets) and `peritheos/data/audits/<id>.audit.json`. Generic
 caveats are stated once in [EOS labels](eos-labels.md) rather than per record;
 the receipt `docs/data/eosmat-v5-audit-split.json` lists the three removed
 statements and their original positions. A bundled material written later as
@@ -248,8 +279,9 @@ record = Material.from_eosmat(document, require_primary_validation=False).eos_re
 print(record.reproduction, record.warning)  # reproduced None
 ```
 
-`parity` maps to `reproduced`, and `source` repeats the evidence status, so the
-two files are consistent. The record remains an unreviewed teaching example.
+`parity` with scope `parameter_agreement` maps to `reproduced` and
+`compared: published_fit`, and `source_check: pending` renames the stored
+`pending_primary_source_check`, so the two files are consistent. The record remains an unreviewed teaching example.
 Writing the same blocks inline under the record, without `check.audit`, gives
 an equivalent single file.
 
@@ -306,9 +338,11 @@ uncertainty units and annotations; that view requires a current reader.
 
 All other [v4 field definitions](eosmat-v4.md), model identifiers, optional
 metadata sharing, source evidence and reconstruction assessment semantics remain
-supported. Saved v5 files use the same
-[human-readable order](eosmat-v4.md#reading-order-in-saved-files), placing model,
-reference state and coefficients before detailed evidence.
+supported. Saved v5 records read in this order: identifier, label, `check`,
+model, reference state, coefficients, error convention and covariance, validity
+and experimental ranges, how the values were determined, notes, linked datasets
+and the reference, then the remaining fields; audit blocks come last. v4 files
+keep the [v4 order](eosmat-v4.md#reading-order-in-saved-files).
 
 `parameter_error_volume_basis` and `parameter_covariance.volume_basis` are
 prohibited in v5 records: the version already specifies the units. The schema

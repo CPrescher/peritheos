@@ -66,16 +66,23 @@ phases (`context["matches"]`), so `get_material("Fe")` never picks a phase. An
 unknown name raises with ranked suggestions.
 
 `print(material.summary())` gives a plain-text overview: identity, cell contents
-and volume unit, then one row per record with model, calibration P/T envelope,
-reproduction headline and short reference; `*` marks the default and `!` a
-warning. `record.summary()` shows one record's coefficients with errors and
-units, reference and DOI, ranges, headline, warning and stored finding. Both
-read only the record file, never the audit sidecar. `repr()` of a `Material` or
+and volume unit, the default record (or that none is designated, or the hold
+reason), then one row per record, default first, with model, calibration P/T
+envelope, reproduction headline and short reference; `*` marks a designated
+default and `!` a warning. `record.summary()` shows one record's coefficients
+with errors and units, reference and DOI, ranges, the check with what it
+compared and why, any warning, and the source check with its note. Both read
+only the record file, never the audit sidecar. `repr()` of a `Material` or
 `EOSRecord` is one identifying line; `Material.default_record()` is a method.
 
 `EOSRecord.reproduction` is `"reproduced"`, `"close"`, `"disagrees"` or
-`"untested"`; `EOSRecord.warning` is the stored usage restriction or `None`;
-`EOSRecord.audit` loads the record's audit trail on first access.
+`"untested"`; `EOSRecord.compared` is `"published_fit"`, `"peritheos_refit"`,
+`"source_equation"` or `"none"`; `EOSRecord.why` names the failed coefficients
+of a `close` or `disagrees` record, else `None`; `EOSRecord.warning` is the
+stored usage restriction or `None`; `EOSRecord.source_check` is `"verified"`,
+`"pending"`, `"unresolved"`, `"deferred"` or `None`, and
+`EOSRecord.source_note` its finding. [EOS labels](eos-labels.md) defines the
+words. `EOSRecord.audit` loads the record's audit trail on first access.
 `Material.get_eos_record(identifier)` matches exact identifiers or aliases only;
 a miss suggests close identifiers without selecting one.
 `get_eos_record(identifier)` explicitly retrieves any executable record.

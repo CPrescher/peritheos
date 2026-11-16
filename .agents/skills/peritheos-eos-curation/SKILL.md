@@ -39,7 +39,7 @@ Apply the [contributor guide's stopping rule](../../../docs/adding-materials-and
 
 ## Write the record and the audit
 
-Set the headline from the outcome code as defined in `docs/eos-labels.md`: `parity` → `reproduced`, `similar` → `close`, `parity_not_achieved`/`not_reproduced` → `disagrees`, otherwise `untested`. `untested` is not a failure. Add a `warning` only for an explicit usage restriction the reader must see, for example a reproduced fit that describes its data poorly. Do not change a default; propose it to the maintainer.
+Set the headline from the outcome code as defined in `docs/eos-labels.md`: `parity` → `reproduced`, `similar` → `close`, `parity_not_achieved`/`not_reproduced` → `disagrees`, otherwise `untested`. `untested` is not a failure. `check.compared` (what the headline refers to), `why`, `source_check` and `source_note` follow mechanically from the assessment and source-validation status (`docs/eosmat-v5.md`); the split command derives them. Add a `warning` only for an explicit usage restriction the reader must see, for example a reproduced fit that describes its data poorly. Do not change a default (the material's `default_records`); propose it to the maintainer.
 
 The record holds what a reader needs to use the EOS; the per-material sidecar `peritheos/data/audits/<id>.audit.json` holds scope, basis, conditions, fixed parameters, refit numbers and source-check locations. Field layout is in `docs/eosmat-v5.md`.
 

@@ -9,14 +9,28 @@ stated here once; individual records and reports do not repeat them.
 
 ## Headline: reproduction
 
-Each curated EOS record has a `check` block whose `reproduction` is one word:
+Each curated EOS record has a `check` block whose `reproduction` is one word
+and whose `compared` says what that word refers to:
 
 | Word | Meaning | What it does not establish |
 |---|---|---|
-| **reproduced** | A refit of the original data gave the published coefficients under the stated criterion. | Experimental accuracy, phase stability, recommended use or replay of the authors' full workflow. |
-| **close** | A refit gave similar coefficients but did not meet the full criterion. | Statistical equivalence or exact coefficient recovery. |
-| **disagrees** | A refit was attempted and did not match. | The cause, an error in the paper, or permission to replace its coefficients. |
-| **untested** | There are no data to refit, or only the source equation was rebuilt. | Failure. `untested` is not a negative result and must never be shown as one. |
+| **reproduced** | The comparison named by `compared` met the stated criterion: a refit of the source data gave the published coefficients (`published_fit`), a stored Peritheos refit was recovered under its own inputs (`peritheos_refit`), or the rebuilt source equation met its checkpoints (`source_equation`). | Experimental accuracy, phase stability, recommended use or replay of the authors' full workflow. |
+| **close** | The comparison gave similar coefficients but did not meet the full criterion. | Statistical equivalence or exact coefficient recovery. |
+| **disagrees** | The comparison was made and did not match. | The cause, an error in the paper, or permission to replace its coefficients. |
+| **untested** | Nothing could be refitted (`none`), or only the source equation or its checkpoints were rebuilt (`source_equation`). | Failure. `untested` is not a negative result and must never be shown as one. |
+
+| `compared` | What the headline refers to |
+|---|---|
+| `published_fit` | A refit of the source data, compared with the published coefficients. |
+| `peritheos_refit` | A replay of a stored Peritheos refit under its own inputs and objective. It says nothing about the original paper. |
+| `source_equation` | The source's own equation or calculated checkpoints were rebuilt; no data were refitted. An `untested` record can therefore still have a verified equation. |
+| `none` | Nothing could be refitted or compared. |
+
+For `close` and `disagrees`, `why` names the coefficients that failed, with
+the refit and published values or their relative difference, using the terms
+*outside the combined error*, *beyond the agreement limit* and *outside the
+published error* defined [below](#what-parity-compares). It is generated from
+the audit's coefficient table and says nothing the table does not.
 
 ## Warning
 
@@ -27,10 +41,11 @@ reproducing a poor fit is still reproduction. Fedotenko (2020) Pd with fixed
 K'=4 is such a case; see its
 [audit](literature-reproductions/palladium-fedotenko-2020-audit.md).
 
-A default record is `reproduced` where the material has one, else `close`, else
-`untested`. A record that `disagrees` or carries a warning is never a default.
-Default selection is a maintainer decision. A default is not globally best,
-valid at arbitrary conditions or experimentally proven.
+When choosing a material's default record (`default_records`), maintainers
+prefer a `reproduced` record, then `close`, then `untested`, and avoid one that
+`disagrees` or carries a warning. Default selection is a maintainer decision;
+the default's own headline and warning still apply. A default is not globally
+best, valid at arbitrary conditions or experimentally proven.
 
 The exact field layout is defined in [EOSMAT v5](eosmat-v5.md). Standalone user
 files need no `check` block; loading a file never gives it a positive label.
@@ -61,9 +76,11 @@ combined-error comparison and the numerical similarity screen:
 \leq 2\sqrt{s_{\mathrm{source}}^2+s_{\mathrm{refit}}^2}.
 \]
 
-The error values are the comparison quantities recorded by the audit. Source
-confidence convention, error model, covariance, weighting, fixed constraints and
-row selection still matter; the rule is not a universal 95% confidence claim.
+The right-hand side is the **combined error**; a coefficient whose source or
+refit error is missing cannot be tested against it. The error values are the
+comparison quantities recorded by the audit. Source confidence convention,
+error model, covariance, weighting, fixed constraints and row selection still
+matter; the rule is not a universal 95% confidence claim.
 Fixed/adopted coefficients do not become independently recovered coefficients
 because a comparison keeps them fixed.
 
@@ -76,12 +93,13 @@ because a comparison keeps them fixed.
 | `alpha...`, `dK_dT` | 30% relative difference |
 | Other coefficients | 20% relative difference |
 
-**Similar** means each free coefficient passes either the combined-error
-comparison or its similarity limit; **parity** requires both. A dedicated source
-audit may use a stricter or explicitly documented alternative criterion, such as
-agreement within printed source error widths; its recorded basis takes
-precedence. Agreement within printed widths without a reconstruction covariance,
-or at printed precision, is not a formal combined-error result.
+A coefficient's **agreement limit** is its limit in this table, or the
+criterion a dedicated source audit records instead: a stricter or explicitly
+documented alternative, such as agreement within the printed source error width
+(the **published error**). **Similar** means each free coefficient passes
+either the combined-error comparison or its agreement limit; **parity** requires
+both. Agreement within printed widths without a reconstruction covariance, or
+at printed precision, is not a formal combined-error result.
 
 ## Qualified results and comparison scope
 
@@ -107,14 +125,16 @@ Older v4 assessment fields are described in
 
 ## Source-validation status
 
-Source review is a separate axis from reconstruction:
+Source review is a separate axis from reconstruction. A record's
+`check.source_check` renames the `scientific_validation.status` code that the
+audit sidecar keeps, and `check.source_note` copies the check's finding:
 
-| Status | Meaning |
-|---|---|
-| `primary_source_validated` | Equation, coefficients, conventions and qualifications were traced to the primary source; for a refit, its inputs and analysis are traceable. Not fit parity or physical accuracy. |
-| `not_reproduced` | A documented unresolved reconstruction problem is retained with its affected scope and use restrictions. Executable diagnostic access is not a recommendation. |
-| `deferred` | Source or model mapping is unresolved; the record is kept as evidence and excluded from ordinary executable loading. |
-| `pending_primary_source_check` | An unreviewed user or staged record. Structural validity and numerical construction do not change this. |
+| `source_check` | Stored status | Meaning |
+|---|---|---|
+| `verified` | `primary_source_validated` | Equation, coefficients, conventions and qualifications were traced to the primary source; for a refit, its inputs and analysis are traceable. Not fit parity or physical accuracy. |
+| `unresolved` | `not_reproduced` | A documented unresolved reconstruction problem is retained with its affected scope and use restrictions. Executable diagnostic access is not a recommendation. |
+| `deferred` | `deferred` | Source or model mapping is unresolved; the record is kept as evidence and excluded from ordinary executable loading. |
+| `pending` | `pending_primary_source_check` | An unreviewed user or staged record. Structural validity and numerical construction do not change this. |
 
 See the [validation guide](validation.md) and
 [contribution requirements](adding-materials-and-eos.md) for eligibility. An
