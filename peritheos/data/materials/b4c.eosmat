@@ -14,7 +14,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "q: refit 1.05 vs published 2.1 (-50.0%), not similar.",
+        "why": "q: refit 1.05 vs published 2.1 (-50.0%), beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-03",
@@ -60,7 +60,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "dK_dT: refit -0.0123 vs published -0.008 (-54.0%), not similar.",
+        "why": "dK_dT: refit -0.0123 vs published -0.008 (-54.0%), beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-03",

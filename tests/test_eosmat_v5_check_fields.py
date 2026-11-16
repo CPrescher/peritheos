@@ -170,7 +170,7 @@ def test_why_names_failed_coefficients_from_the_stored_table():
     )
     assert reproduction_why(disagrees) == (
         "K0': refit 4.183 vs published 4.91 (-14.8%), outside the combined "
-        "error and not similar and outside the published error."
+        "error, beyond the agreement limit and outside the published error."
     )
     untested_rule = record(
         "similar",
@@ -180,8 +180,40 @@ def test_why_names_failed_coefficients_from_the_stored_table():
         ],
     )
     assert reproduction_why(untested_rule) == (
-        "No error available to test K0 and K0' against the combined-error rule; "
-        "all marked similar."
+        "K0 and K0' have no error to test against the combined-error rule; "
+        "all within the agreement limit."
+    )
+    single = record(
+        "similar",
+        rows=[row("V0", 74.7, 74.71, similar=True, within_combined_2sigma=None)],
+    )
+    assert reproduction_why(single) == (
+        "V0 has no error to test against the combined-error rule; "
+        "all within the agreement limit."
+    )
+    # Published values print as stored, without a trailing ".0"; the refit
+    # gets at most one more decimal.
+    integral = record(
+        "similar",
+        rows=[row("theta0", 600.0, 766.2634, similar=False)],
+    )
+    assert reproduction_why(integral) == (
+        "theta0: refit 766.3 vs published 600 K (+27.7%), beyond the agreement limit."
+    )
+    # More than three failures: the three largest relative differences are
+    # named and the rest counted.
+    four = record(
+        "not_reproduced",
+        rows=[
+            row("V0", 74.7, 75.0, similar=False),
+            row("K0", 160, 200, similar=False),
+            row("K0_prime", 4, 2, similar=False),
+            row("gamma0", 1.5, 1.6, similar=False),
+        ],
+    )
+    assert reproduction_why(four) == (
+        "K0' (-50.0%), K0 (+25.0%), gamma0 (+6.7%) and 1 more: "
+        "beyond the agreement limit."
     )
     # Nothing failed and nothing untested: no statement is invented.
     passing = record(
@@ -207,6 +239,12 @@ def test_why_names_failed_coefficients_from_the_stored_table():
     assert text is None or len(text) <= WHY_MAX_LENGTH
 
 
+def printed(value):
+    """A stored number as the why line prints it (no trailing ``.0``)."""
+    integral = isinstance(value, float) and value.is_integer()
+    return json.dumps(int(value) if integral else value)
+
+
 def test_bundled_why_lines_are_short_and_rounded():
     with_why = 0
     without = set()
@@ -227,7 +265,7 @@ def test_bundled_why_lines_are_short_and_rounded():
                 refit, published = match.groups()
                 decimals = len(published.partition(".")[2])
                 assert len(refit.partition(".")[2]) <= decimals + 1
-                assert any(json.dumps(r["published"]) == published for r in rows)
+                assert any(printed(r["published"]) == published for r in rows)
     assert without == RECORDS_WITHOUT_WHY
     assert with_why == 127
 

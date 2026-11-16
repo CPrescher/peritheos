@@ -27,7 +27,7 @@ from __future__ import annotations
 
 import copy
 import json
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from functools import lru_cache
 from importlib import resources
 from pathlib import Path
@@ -225,10 +225,16 @@ def _number(value: Any) -> float | None:
     return float(value)
 
 
-def _rounded_refit(refit: float, published: Any) -> str:
-    """Round to at most one digit more than the published value prints."""
-    printed = json.dumps(published)
-    mantissa, _, exponent = printed.lower().partition("e")
+def _printed(value: Any) -> str:
+    """The stored number as JSON prints it, without a spurious trailing ``.0``."""
+    if isinstance(value, float) and value.is_integer() and abs(value) < 1e15:
+        return str(int(value))
+    return json.dumps(value)
+
+
+def _rounded_refit(refit: float, published: str) -> str:
+    """Round to at most one digit more than the printed published value."""
+    mantissa, _, exponent = published.lower().partition("e")
     if exponent:
         digits = len(mantissa.replace("-", "").replace(".", "").lstrip("0"))
         return f"{refit:.{digits}e}"
@@ -239,39 +245,91 @@ def _rounded_refit(refit: float, published: Any) -> str:
     return "0" if text == "-0" else text
 
 
+def _join(items: list[str]) -> str:
+    """``a``, ``a and b``, ``a, b and c``."""
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
 def _failed_criteria(row: Mapping[str, Any]) -> list[str]:
     """Phrases for the stored criterion flags that are ``false`` in one row.
 
-    ``similar`` is reported as the stored flag ("not similar"): its criterion
-    is the one recorded in the assessment basis, not always the generic screen.
+    ``similar`` is the audit's own agreement screen (the generic limits or the
+    criterion recorded in the assessment basis), so it is reported as "beyond
+    the agreement limit" without naming a limit.
     """
     failed = []
     if row.get("within_combined_2sigma") is False:
         failed.append("outside the combined error")
     if row.get("similar") is False:
-        failed.append("not similar")
+        failed.append("beyond the agreement limit")
     if row.get("within_reported_error") is False:
         failed.append("outside the published error")
     return failed
 
 
+def _relative_change(row: Mapping[str, Any]) -> float | None:
+    refit, base = _number(row.get("refit")), _number(row.get("published"))
+    if refit is None or base is None or base == 0.0:
+        return None
+    return (refit - base) / abs(base)
+
+
 def _why_row(row: Mapping[str, Any], *, numbers: bool) -> str:
     name = _parameter_name(str(row["parameter"]))
     published, refit = row.get("published"), _number(row.get("refit"))
-    base = _number(published)
-    change = (
-        f"{(refit - base) / abs(base) * 100:+.1f}%"
-        if refit is not None and base is not None and base != 0.0
-        else None
-    )
+    relative = _relative_change(row)
+    change = None if relative is None else f"{relative * 100:+.1f}%"
     if not numbers:
         return name if change is None else f"{name} ({change})"
-    if refit is None or base is None:
+    if refit is None or _number(published) is None:
         return name
     unit = _WHY_UNITS.get(str(row["parameter"]).removeprefix("rt_eos."), "")
-    text = f"{name}: refit {_rounded_refit(refit, published)} vs published "
-    text += f"{json.dumps(published)}{unit}"
+    printed = _printed(published)
+    text = f"{name}: refit {_rounded_refit(refit, printed)} vs published "
+    text += f"{printed}{unit}"
     return text + (f" ({change})" if change else "")
+
+
+#: At most this many failing coefficients are named; the rest are counted.
+_WHY_NAMED = 3
+
+
+def _failing_lines(failing: list[tuple[Mapping[str, Any], list[str]]]) -> list[str]:
+    """Candidate texts for the failing rows, most detailed first."""
+    hidden = max(0, len(failing) - _WHY_NAMED)
+    if hidden:
+        # Name the largest relative differences; rows without one come last.
+        def size(item: tuple[Mapping[str, Any], list[str]]) -> float:
+            change = _relative_change(item[0])
+            return -1.0 if change is None else abs(change)
+
+        failing = sorted(failing, key=size, reverse=True)[:_WHY_NAMED]
+    groups: dict[str, list[Mapping[str, Any]]] = {}
+    for row, failed in failing:
+        groups.setdefault(_join(failed), []).append(row)
+    more = f"{hidden} more"
+
+    def grouped(name: Callable[[Mapping[str, Any]], str]) -> str:
+        if hidden and len(groups) == 1:
+            ((failed, group),) = groups.items()
+            return f"{_join([name(r) for r in group] + [more])}: {failed}"
+        text = "; ".join(
+            f"{_join([name(r) for r in group])}: {failed}"
+            for failed, group in groups.items()
+        )
+        return text + (f"; and {more}" if hidden else "")
+
+    candidates = []
+    if not hidden:
+        candidates.append(
+            "; ".join(
+                f"{_why_row(row, numbers=True)}, {_join(failed)}"
+                for row, failed in failing
+            )
+        )
+    candidates.append(grouped(lambda r: _why_row(r, numbers=False)))
+    candidates.append(grouped(lambda r: _parameter_name(str(r["parameter"]))))
+    return candidates
 
 
 def reproduction_why(record: Mapping[str, Any]) -> str | None:
@@ -280,9 +338,11 @@ def reproduction_why(record: Mapping[str, Any]) -> str | None:
     Only for ``close`` and ``disagrees``. Built from the stored
     ``assessment.parameters`` rows and their criterion flags
     (``within_combined_2sigma``, ``similar``, ``within_reported_error``);
-    no prose is interpreted. The refit value is rounded to at most one digit
-    more than the published value prints. Returns ``None`` when the table
-    supports no statement.
+    no prose is interpreted. Published values print as stored (without a
+    trailing ``.0``); the refit is rounded to at most one digit more. More
+    than three failing coefficients: the three largest relative differences
+    are named and the rest counted. Returns ``None`` when the table supports
+    no statement within :data:`WHY_MAX_LENGTH` characters.
     """
     headline = reproduction_headline(record)
     if headline not in ("close", "disagrees"):
@@ -293,25 +353,7 @@ def reproduction_why(record: Mapping[str, Any]) -> str | None:
     rows = [r for r in rows if isinstance(r, Mapping) and "parameter" in r]
     failing = [(row, _failed_criteria(row)) for row in rows if _failed_criteria(row)]
     if failing:
-        full = "; ".join(
-            f"{_why_row(row, numbers=True)}, {' and '.join(failed)}"
-            for row, failed in failing
-        )
-        groups: dict[str, list[Mapping[str, Any]]] = {}
-        for row, failed in failing:
-            groups.setdefault(" and ".join(failed), []).append(row)
-        for text in (
-            full,
-            "; ".join(
-                f"{', '.join(_why_row(r, numbers=False) for r in group)}: {failed}"
-                for failed, group in groups.items()
-            ),
-            "; ".join(
-                f"{', '.join(_parameter_name(str(r['parameter'])) for r in group)}: "
-                f"{failed}"
-                for failed, group in groups.items()
-            ),
-        ):
+        for text in _failing_lines(failing):
             if len(text) + 1 <= WHY_MAX_LENGTH:
                 return text + "."
         return None
@@ -324,14 +366,10 @@ def reproduction_why(record: Mapping[str, Any]) -> str | None:
     ]
     if not untested:
         return None
-    names = (
-        untested[0]
-        if len(untested) == 1
-        else ", ".join(untested[:-1]) + " and " + untested[-1]
-    )
-    text = f"No error available to test {names} against the combined-error rule"
+    verb = "has" if len(untested) == 1 else "have"
+    text = f"{_join(untested)} {verb} no error to test against the combined-error rule"
     if rows and all(row.get("similar") is True for row in rows):
-        text += "; all marked similar"
+        text += "; all within the agreement limit"
     text += "."
     return text if len(text) <= WHY_MAX_LENGTH else None
 

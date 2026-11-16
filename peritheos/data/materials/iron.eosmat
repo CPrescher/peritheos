@@ -61,7 +61,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "K0: refit 135.03 vs published 165.0 GPa (-18.2%), not similar.",
+        "why": "K0: refit 135 vs published 165 GPa (-18.2%), beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
@@ -635,7 +635,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "K0: refit 183.74 vs published 179.6 GPa (+2.3%), not similar.",
+        "why": "K0: refit 183.74 vs published 179.6 GPa (+2.3%), beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
@@ -718,7 +718,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "K0: refit 170.63 vs published 164.8 GPa (+3.5%), not similar; K0': refit 4.993 vs published 5.18 (-3.6%), not similar.",
+        "why": "K0: refit 170.63 vs published 164.8 GPa (+3.5%), beyond the agreement limit; K0': refit 4.993 vs published 5.18 (-3.6%), beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
@@ -760,7 +760,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "K0: refit 163.4 vs published 160.1 GPa (+2.1%), not similar.",
+        "why": "K0: refit 163.4 vs published 160.1 GPa (+2.1%), beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
@@ -802,7 +802,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "V0: refit 22.5517 vs published 22.468 (+0.4%), not similar.",
+        "why": "V0: refit 22.5517 vs published 22.468 (+0.4%), beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
@@ -844,7 +844,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "V0: refit 22.523 vs published 22.468 (+0.2%), not similar.",
+        "why": "V0: refit 22.523 vs published 22.468 (+0.2%), beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
@@ -1066,7 +1066,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "K0: refit 198.59 vs published 195.1 GPa (+1.8%), not similar.",
+        "why": "K0: refit 198.59 vs published 195.1 GPa (+1.8%), beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
@@ -1241,7 +1241,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "K0: refit 175.55 vs published 171.7 GPa (+2.2%), not similar.",
+        "why": "K0: refit 175.55 vs published 171.7 GPa (+2.2%), beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
@@ -1326,7 +1326,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "V0 (+0.5%), K0 (-6.7%), K0' (+5.8%): not similar.",
+        "why": "V0 (+0.5%), K0 (-6.7%) and K0' (+5.8%): beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
@@ -1397,7 +1397,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "V0 (+0.6%), K0 (-7.0%), K0' (+7.4%): not similar.",
+        "why": "V0 (+0.6%), K0 (-7.0%) and K0' (+7.4%): beyond the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
@@ -1640,7 +1640,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "V0 (-1.4%): outside the published error; K0 (+26.6%), K0' (-11.3%): not similar and outside the published error.",
+        "why": "V0 (-1.4%): outside the published error; K0 (+26.6%) and K0' (-11.3%): beyond the agreement limit and outside the published error.",
         "warning": "Never chosen automatically; select it explicitly.",
         "source_check": "unresolved",
         "source_checked_on": "2026-10-02",
@@ -1684,7 +1684,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "K0 (+25.0%), K0' (-8.6%): not similar and outside the published error.",
+        "why": "K0 (+25.0%) and K0' (-8.6%): beyond the agreement limit and outside the published error.",
         "warning": "Never chosen automatically; select it explicitly.",
         "source_check": "unresolved",
         "source_checked_on": "2026-10-02",
@@ -1728,7 +1728,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "K0 (+3.1%), K0' (+1.7%): outside the published error; gamma0 (+10.2%), q (+353.8%): not similar and outside the published error.",
+        "why": "q (+353.8%) and gamma0 (+10.2%): beyond the agreement limit and outside the published error; K0 (+3.1%): outside the published error; and 1 more.",
         "warning": "Never chosen automatically; select it explicitly.",
         "source_check": "unresolved",
         "source_checked_on": "2026-10-03",
