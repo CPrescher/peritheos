@@ -30,17 +30,12 @@
       "parameter_error_confidence": null,
       "parameter_covariance": null,
       "validity": {
-        "pressure_gpa": [0.0, 6.671],
-        "notes": [
-          "Room-temperature static compression only; upper bound is experimental coverage, not a phase-stability boundary.",
-          "Zero pressure is the model reference; lowest observed pressure is 0.0001 GPa. No numerical experimental temperature range is asserted."
-        ]
+        "pressure_gpa": [0.0, 6.671]
       },
       "experimental_pressure_range_gpa": [0.0001, 6.671],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Only the physical volume BM3 is executable. Axial BM3-on-edge-cubes fits are supporting data, not volume EOS records. Published parameters remain unchanged. Independent refits are diagnostic outputs in the material-specific reproduction report, not replacement published coefficients. Room temperature is represented nominally as 298 K.",
       "fit_datasets": ["phase_e_crichton_ross_2000_table1"],
       "reference": {
         "authors": ["Crichton, W. A.", "Ross, N. L."],

@@ -80,7 +80,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[15.8, 40.9\]
 - **Reported error confidence level:** 0.95
 
-Table 8 room-temperature fit. Si-V was observed from 15.8 to 40.9 GPa; V0 is an extrapolated atomic and one-atom cell volume.
+Room-temperature fit of Table 8. V0 is an extrapolated volume per atom, equal to the one-atom cell volume.
 
 <details markdown="1">
 <summary>Source review</summary>

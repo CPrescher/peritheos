@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Reported error confidence level:** 0.95
 
-Metastably extrapolated omega-phase reference volume; the measurements extend to 121 GPa.
+V0 is a metastably extrapolated omega-phase reference volume.
 
 <details markdown="1">
 <summary>Source review</summary>

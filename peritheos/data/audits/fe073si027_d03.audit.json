@@ -148,6 +148,10 @@
           "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
           "Tr": "300 K thermal-energy subtraction."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. The inherited 2012 protocol fits K0/K0_prime to 32 room-temperature observations, then gamma0 to 66 high-temperature rows with the published static coefficients held fixed; the independent script reports both stages. The Fe–16Si Vinet alternative is a 2014 source-owned reanalysis of 2012 observations. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

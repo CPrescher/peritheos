@@ -215,6 +215,10 @@
           "determination_method": "Experimental cold compression and LH-DAC PVT fits; fixed Debye temperature adopted from measured hcp-Fe EOS, fixed q is an analytical model choice. Section III.D.",
           "debye_temperature_law": "Full integrated MGD confirmed for the supplied March 2024 FeS6.eos (Thermal=7, Param14=0, q=1). The printed source coefficients and 300 K reference are retained; the supplied author-used file has different V0, gamma0 and Tref. The user confirms these are the complete author-used inputs; staged parameter agreement within reported uncertainties is accepted, while exact author-workflow reproduction remains unverified."
         }
+      },
+      "superseded_record_text": {
+        "notes": "One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. Accepted on staged parameter agreement within reported uncertainties. The residual-envelope discrepancy is informational; exact author workflow is unverified. Use the common EOS within the paper's 40-150 GPa scope and observed thermal coverage; this is not a phase-stability guarantee.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

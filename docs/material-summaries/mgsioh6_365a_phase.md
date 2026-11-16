@@ -93,14 +93,14 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 41.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.767993, 1.002622\]
-    - **Notes:** The range is the measured room-temperature envelope, including decompression to ambient pressure; it is not a thermodynamic stability field.; The 3.65 A phase is expected to form from the 10 A phase near 9-10 GPa but was retained metastably below that pressure.
+    - **Notes:** The 3.65 Å phase is expected to form from the 10 Å phase near 9-10 GPa; below that pressure it was retained metastably.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 154.433
 - **Reported error confidence level:** Not specified
 
-Preferred source fit. Table 2's K0' uncertainty (0.2) is stored instead of the abstract's inconsistent 0.1.
+The authors' preferred fit. The K0' error is from Table 2; the abstract gives 0.1.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -201,14 +201,14 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgs
     - **Pressure gpa:** \[0.0, 41.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.767993, 1.002622\]
-    - **Notes:** Higher-order sensitivity parameterization of the same experimental observations, not the paper's preferred EOS.; Do not extrapolate K0'' outside the measured compression envelope.
+    - **Notes:** Do not extrapolate K0'' outside the measured compression range.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 154.433
 - **Reported error confidence level:** Not specified
 
-Sensitivity record only; intentionally has no default\_for. Its K0, K0', and K0'' are strongly covariant and the source does not publish covariance.
+BM4 sensitivity fit to the same data as the preferred BM3 record; not the paper's preferred EOS. K0, K0' and K0'' are strongly correlated; the source gives no covariance.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -297,14 +297,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Pressure gpa:** \[-8.0, 115.0\]
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.594001, 1.138501\]
-    - **Notes:** Static PAW-GGA model-crystal curve; it is not an experimental ambient-temperature fit.; The numerical energy-volume grid is not tabulated; the bounds conservatively follow the green Figure 3a calculation markers.
+    - **Notes:** The energy-volume grid is not tabulated; the bounds conservatively follow the calculation markers of Figure 3a.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 154.433
 - **Reported error confidence level:** Not specified
 
-Clearly distinct theoretical record. No default\_for is assigned; the preferred catalog equilibrium record is the experimental BM3.
+Static PAW-GGA model-crystal curve, not an experimental ambient-temperature fit.
 
 <details markdown="1">
 <summary>Source review</summary>

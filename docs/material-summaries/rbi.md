@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.54, 26.05\]
     - **Temperature k:** \[300.0, 1800.0\]
-    - **Notes:** Only the B2 solid branch. B1 transition and melting curves are not encoded; confirm phase before using as a marker.; Bounds describe marginal coverage; high-temperature data reach about 21 GPa, not 26 GPa.; The zero-pressure reference is hypothetical and is not stable ambient B2 material.
+    - **Notes:** B2 solid only, with a hypothetical zero-pressure reference. B1 transition and melting curves are not encoded; confirm the phase before use as a marker.; High-temperature data reach only about 21 GPa. The 26 GPa bound is 300 K DAC data.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -103,7 +103,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.
+Published preferred case 1, with pressures on the CsCl scale. The printed molar and cell V0 errors disagree after conversion; V0 and its error are converted from the molar value used in the EoSFit7 program. The errors are estimated standard deviations.
 
 <details markdown="1">
 <summary>Source review</summary>

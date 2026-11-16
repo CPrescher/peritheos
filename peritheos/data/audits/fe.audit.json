@@ -132,6 +132,10 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 2.5 GPa and K0' +/- 0.5. The bcc phase data extend to 15.5 GPa.",
+        "superseded_on": "2026-11-16"
       }
     },
     "fe_dewaele_2008_table4_vinet": {
@@ -240,6 +244,10 @@
             "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+        "superseded_on": "2026-11-16"
       }
     },
     "fe_dewaele_2008_table4_us_k0_165_vinet": {
@@ -336,6 +344,10 @@
             "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

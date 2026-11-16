@@ -41,17 +41,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [30.0, 112.0],
-        "temperature_k": [300.0, 2569.0],
-        "notes": [
-          "High-spin reference branch used for the smooth high-temperature pyrolitic ferropericlase EOS.",
-          "No record-level molar mass is encoded because the coexisting phase composition evolves and the source gives only an approximate Mg0.80Fe0.20O description."
-        ]
+        "temperature_k": [300.0, 2569.0]
       },
       "experimental_pressure_range_gpa": [30.0, 112.0],
       "experimental_temperature_range_k": [300.0, 2569.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin reference branch used for the smooth high-temperature EOS of pyrolitic ferropericlase. No molar mass is encoded because the coexisting phase composition evolves and the source describes it only approximately as Mg0.80Fe0.20O.",
       "fit_datasets": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"],
       "reference": {
         "authors": [
@@ -99,17 +96,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [50.0, 112.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Room-temperature low-spin branch above the observed volume contraction near 50 GPa.",
-          "No record-level molar mass is encoded because the exact coexisting phase composition is not fixed by the source."
-        ]
+        "temperature_k": [300.0, 300.0]
       },
       "experimental_pressure_range_gpa": [50.0, 112.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Room-temperature low-spin branch above the volume contraction observed near 50 GPa. No molar mass is encoded because the source does not fix the exact composition of the coexisting phase.",
       "fit_datasets": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"],
       "reference": {
         "authors": [

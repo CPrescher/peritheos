@@ -89,10 +89,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.7085889564, 1.0\]
-    - **Notes:** Bounded to the Figure 2d and Figure 5 CF calculation interval; this is not a phase-stability guarantee.; Static LDA record; no thermal correction is included.
+    - **Notes:** Bounded by the Figure 2d and Figure 5 calculation interval for the CF phase.
 - **Reported error confidence level:** Not specified
 
-Published static-theory parameterization. All three printed coefficients are treated as fitted; no statistical errors are reported. There is no pressure calibration. The LitCurate description 'orthorhombic perovskite' is corrected to calcium-ferrite type Pbnm.
+Published static-LDA parameterization with no thermal correction and no pressure calibration.
 
 <details markdown="1">
 <summary>Source review</summary>

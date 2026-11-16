@@ -97,7 +97,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Molar mass g mol:** 183.84
 - **Reported error confidence level:** Not specified
 
-Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
+Table 2 parameterization. The authors fix most ambient V0 and K0 values from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -181,10 +181,9 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 153.0\]
     - **Temperature k:** \[298.0, 298.0\]
-    - **Notes:** Published Table I data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'\_R scale. Source-fixed parameters: V0. Published atomic V0 is converted to the material card's conventional-cell basis.
+Static 298 K Vinet fit to all Table I observations, with pressures on the revised ruby scale (P'\_R in the paper). Published atomic V0 is stored per conventional cell (×2).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -265,7 +264,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 140.0\]
 
-Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.8 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.
+Table II fit to the combined DAC-1 and DAC-2 data, with pressures from the simultaneously measured Cu volumes.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -361,7 +360,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reference temperature (K):** 298.15
 - **Coverage provenance:** reference\_parameterization
 
-This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
+Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to shock-wave, ultrasonic, X-ray diffraction, dilatometric and thermochemical data: reference volume from Table 1, Holzapfel and thermal coefficients from Table 4. Sokolova et al. (2016) supplies the spreadsheet implementation, reference-temperature convention and corrected equations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -450,10 +449,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 155.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -540,10 +538,9 @@ Published pressure-scale alternative of [tungsten\_dewaele\_2019\_mao\_vinet](#r
 - **Validity:**
     - **Pressure gpa:** \[0.0, 155.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986 record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -630,10 +627,9 @@ Published pressure-scale alternative of [tungsten\_dewaele\_2004\_vinet\_2](#rec
 - **Validity:**
     - **Pressure gpa:** \[0.0, 144.3\]
     - **Temperature k:** \[298.0, 298.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.
+Static 298 K synchrotron X-ray fit to all Table I observations, with pressures on the classical Mao ruby scale. V0 is fixed from the authors' 0-5 GPa determination. The revised-ruby record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>

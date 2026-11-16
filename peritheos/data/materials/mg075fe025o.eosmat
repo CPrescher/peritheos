@@ -44,17 +44,14 @@
       "validity": {
         "pressure_gpa": [0.0, 47.0],
         "temperature_k": [300.0, 1100.0],
-        "notes": [
-          "Valid only for the high-spin B1 branch; the paper deliberately excludes observations at and above the approximately 47 GPa cutoff from fitting.",
-          "The dataset retains all measurements through 57.85 GPa to expose the onset and growth of the spin-crossover volume anomaly."
-        ]
+        "notes": ["High-spin B1 branch only. The authors exclude observations at and above about 47 GPa from the fit."]
       },
       "experimental_pressure_range_gpa": [0.0, 47.0],
       "experimental_temperature_range_k": [300.0, 1100.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.",
+      "notes": "The thermal term is the source's reference-subtracted increment from 300 K, not absolute Debye pressure.",
       "fit_datasets": ["mg075fe025o_matsui_2012_table2_pvt"],
       "reference": {
         "authors": ["Matsui", "Ito", "Yamazaki", "Yoshino", "Guo", "Shan", "Higo", "Funakoshi"],
@@ -100,9 +97,7 @@
         "pressure_gpa": [0.0, 50.0],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "This is the authors' 300 K high-spin reference branch, not the continuous spin-crossover model.",
-          "The source places the 300 K mixed-spin interval at 50-75 GPa; do not extend this branch through or above that interval.",
-          "The bundled points are digitized from corrected Figure 1 because the official Table S1 attachment was discoverable but returned HTTP 403 during this audit."
+          "The source places the 300 K mixed-spin interval at 50-75 GPa. Do not extend this branch through or above that interval."
         ]
       },
       "experimental_pressure_range_gpa": [0.0, 48.4],
@@ -110,7 +105,7 @@
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case.",
+      "notes": "The authors' 300 K high-spin reference branch, not the continuous spin-crossover model. The corrected source calls the fit third-order Birch-Murnaghan. With K0' fixed at 4 it is identical to BM2.",
       "fit_datasets": ["mg075fe025o_mao_2011_figure1_300k_digitized"],
       "reference": {
         "authors": ["Mao", "Lin", "Liu", "Prakapenka"],
@@ -159,9 +154,8 @@
         "pressure_gpa": [76.1, 129.6],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "This is the authors' 300 K low-spin reference branch, not the continuous spin-crossover model.",
-          "The fitted V0 is an ambient-pressure extrapolation for the low-spin state; it is not an observable ambient low-spin cell volume.",
-          "Do not apply this branch below the first digitized post-crossover observation at 76.1 GPa."
+          "V0 is an ambient-pressure extrapolation for the low-spin state, not an observable ambient low-spin cell volume.",
+          "Do not apply this branch below the first post-crossover observation at 76.1 GPa."
         ]
       },
       "experimental_pressure_range_gpa": [76.1, 129.6],
@@ -169,7 +163,7 @@
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case.",
+      "notes": "The authors' 300 K low-spin reference branch, not the continuous spin-crossover model. The corrected source calls the fit third-order Birch-Murnaghan. With K0' fixed at 4 it is identical to BM2.",
       "fit_datasets": ["mg075fe025o_mao_2011_figure1_300k_digitized"],
       "reference": {
         "authors": ["Mao", "Lin", "Liu", "Prakapenka"],
@@ -215,10 +209,11 @@
       "validity": {
         "pressure_gpa": [0, 52],
         "temperature_k": [1160, 1160],
-        "notes": ["High-spin paramagnetic B1 branch; upper bound is the source transition midpoint."]
+        "notes": ["The upper bound is the source's transition midpoint."]
       },
       "determination_method": "theoretical",
       "record_kind": "published",
+      "notes": "High-spin paramagnetic B1 branch.",
       "reference": {
         "authors": ["Leonov", "Ponomareva", "Nazarov", "Abrikosov"],
         "year": 2017,
@@ -252,11 +247,11 @@
       },
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": ["HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+        "temperature_k": [300, 300]
       },
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin reference branch of a coupled spin-crossover fit to the Mao data (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -296,11 +291,11 @@
       },
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": ["LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+        "temperature_k": [300, 300]
       },
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Low-spin reference branch of a coupled spin-crossover fit to the Mao data (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,

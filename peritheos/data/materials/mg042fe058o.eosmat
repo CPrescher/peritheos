@@ -33,15 +33,14 @@
         "pressure_gpa": [0, 42.75],
         "temperature_k": [300, 300],
         "notes": [
-          "Published high-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve.",
-          "The printed upper limit is approximately 42 GPa; the catalog assumes it includes the Table S3 B1 point at 42.75 GPa. This endpoint interpretation is explicit and does not extend the EOS into the rhombohedral phase."
+          "The paper's approximate 42 GPa limit is taken to include the Table S3 B1 point at 42.75 GPa; the range does not extend into the rhombohedral phase.",
+          "Do not use one branch across the spin crossover; outside its spin regime the curve is an extrapolation."
         ]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "notes": "The range is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
       "fit_datasets": ["mg042fe058o_fei_2007_table_s3_pv"],
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],

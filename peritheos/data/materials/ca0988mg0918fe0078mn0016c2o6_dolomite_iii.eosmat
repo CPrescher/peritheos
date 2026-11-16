@@ -33,8 +33,8 @@
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.825913, 0.881329],
         "notes": [
-          "Empirical larger-volume spin branch around and below the approximately 47 GPa transition; the endpoints are bounded by the separable Figure 3 markers, not a thermodynamic spin boundary.",
-          "V0 is a long metastable extrapolation because dolomite-III was observed only at high pressure."
+          "Larger-volume (high-spin) branch around and below the transition near 47 GPa; the bounds are the separable Figure 3 points, not a spin boundary.",
+          "V0 is a long metastable extrapolation: dolomite-III was observed only at high pressure."
         ]
       },
       "experimental_pressure_range_gpa": [26.0, 50.2],
@@ -42,7 +42,6 @@
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "No default_for is assigned because this is a bounded, metastable high-spin reference branch of a high-pressure phase.",
       "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
       "reference": {
         "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
@@ -92,7 +91,7 @@
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.773522, 0.838734],
         "notes": [
-          "Empirical lower-volume spin branch around and above the approximately 47 GPa transition; the endpoints are the digitized Figure 3 audit envelope, not a thermodynamic spin boundary.",
+          "Lower-volume (low-spin) branch around and above the transition near 47 GPa; the bounds are the digitized Figure 3 points, not a spin boundary.",
           "V0 is a long extrapolation outside the observed stability range and is strongly correlated with K0."
         ]
       },
@@ -101,7 +100,6 @@
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "No default_for is assigned because this is a bounded, metastable low-spin reference branch of a high-pressure phase.",
       "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
       "reference": {
         "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],

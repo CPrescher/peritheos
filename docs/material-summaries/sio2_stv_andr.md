@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.2138/am-2003-2-307
 - **Reported pressure coverage (GPa):** \[0.0, 53.0\]
 
-Andrault et al. report V0 = 46.51(61) A^3, K0 = 309.9(1.1) GPa, and K0' = 4.59(23). The stored V0 retains the more precise ambient lattice product.
+Published V0 = 46.51(61) Å³; the stored V0 is the more precise product of the ambient lattice parameters.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -199,7 +199,14 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[300.0, 1700.0\]
 
-This is a thermal EOS, not a standalone room-temperature Vinet fit. Equations 1 and 4-8 add a Debye Mie-Gruneisen pressure increment relative to 300 K; with a=1, gamma(V)=gamma0\*(V/V0)^b and theta(V)=theta0\*exp\[-gamma0\*((V/V0)^b-1)/b\]. The paper also reports an equally successful BM3-MGD alternative: V0=46.55 A^3 fixed, K0=294(2) GPa, K0'=4.85(12), theta0=1130(100) K, gamma0=1.66(7), a=1 fixed, and b=2.9(4). Vinet is retained as the single executable record from this paper because Figure 2 uses it and Tables 3-4 present its values first, with BM3 in parentheses; the authors state that the two fits agree within analytical uncertainty rather than explicitly designating a preferred model. The fixed V0 rounds the independently measured recovered-sample value 46.553(19) A^3; null in parameter\_errors means it was not a fitted coefficient, not that the ambient measurement lacked uncertainty. Several measurements crossed the established stishovite-CaCl2-type boundary without transforming on the experimental timescale; the authors report that excluding them gives identical fit results, so the marginal P-T envelope is not a rectangular phase-stability claim.
+<details markdown="1">
+<summary>Thermal equation choices</summary>
+
+- **Notes:** With a = 1, gamma(V) = gamma0\*(V/V0)^b and theta(V) = theta0\*exp\[-gamma0\*((V/V0)^b-1)/b\].
+
+</details>
+
+Thermal EOS: 300 K Vinet plus a Debye Mie-Grüneisen increment relative to 300 K (Equations 1 and 4-8); fixed V0 rounds the measured recovered volume 46.553(19) Å³. An equally successful BM3-MGD alternative is not stored; the paper prefers neither. Some data lie past the stishovite-CaCl2-type boundary, untransformed on the experimental timescale; the authors report identical fits without them.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -373,11 +380,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 30.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** Stishovite thermodynamic endmember reference isotherm.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 60.083
+
+Stishovite (stv) thermodynamic endmember reference isotherm.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -457,12 +465,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Rutile-type stishovite benchmark calculated with the same VIBC potential used for the CaSiO3 analysis.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 60.083
 - **Reported error confidence level:** Not specified
+
+Rutile-type stishovite benchmark calculated with the same VIBC potential used for the CaSiO3 analysis.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -613,7 +622,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Reported error confidence level:** Not specified
 
-Source-owned new dry reference specimen (10 GPa, 1473 K, 1 h synthesis), co-compressed with hydrous sample in He. Distinct dataset and pressure scale from Andrault (2003); only K0\_prime is adopted. Table 3 EOS V0=46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612; preserve both. All S1 volumes are source-refined tetragonal values; article describes onset of dry post-stishovite distortion near 60 GPa. Full 0-62.934 GPa fit is the authors' reference curve, not a claim of rutile stability throughout. No dry CaCl2 EOS is fitted in this paper; Table 4 dry row cites Andrault (2003). Existing ambient crystallography is retained separately from this EOS reference cell.
+Dry reference stishovite synthesized at 10 GPa and 1473 K, co-compressed with the hydrous sample in helium; the authors report the onset of the dry post-stishovite distortion near 60 GPa, inside the fitted range. The data and pressure scale are distinct from Andrault (2003), from which only K0' is adopted. Table 3 V0 = 46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612.
 
 <details markdown="1">
 <summary>Source review</summary>

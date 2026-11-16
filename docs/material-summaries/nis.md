@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 44.9\]
 - **Coverage provenance:** reported\_exactly
 
-Room-temperature third-order Birch-Murnaghan fit for metastable NiAs-type (B8) NiS. V0 and its independent propagated error use the primary paper's ambient a and c values. K0=156(10) GPa and K0'=4.4(1.2). The last tabulated readable P-V point is 44.9 GPa; above 45 GPa the diffraction lines become unreadable. No fitted-parameter covariance is published.
+Room-temperature BM3 for metastable NiAs-type (B8) NiS. V0 and its error are propagated from the paper's ambient a and c. Above 45 GPa the diffraction lines become unreadable.
 
 <details markdown="1">
 <summary>Source review</summary>

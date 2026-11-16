@@ -117,6 +117,15 @@
           "K0_double_prime": "Section 3.1: K''_T0=-175.628 GPa^-1.",
           "uncertainties": "The paper gives pressure standard errors for Table 1 states but no uncertainties or covariance for the fitted EOS coefficients."
         }
+      },
+      "superseded_record_text": {
+        "notes": "The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm. The exact 40-state liquid selection is bundled. The paper derives Cv from energy-temperature slopes and gamma from pressure-energy slopes before fitting their volume functions; the supporting information supplies those observations only as raster plots, whose regression-line slopes are now digitized in a separate dataset. The digitization closely recovers the published Cv function but cannot recover the authors' unknown relative weighting for the gamma function. Consequently, subtracting either rounded published or digitized thermal coefficients from Table 1 and freely fitting four BM4 coefficients remains an ill-conditioned sensitivity experiment, not a reproduction of the source regression.",
+        "validity_notes": [
+          "This executable record is only the T0=2500 K BM4 reference term of the paper's larger P-V-T liquid model.",
+          "The paper classifies individual simulations from mean-square displacement. Figure 1 maps every Table 1 state to an unambiguous circle (liquid and used in the EOS fit) or square (nonliquid); the six square states are excluded by the bundled fit-selection flag.",
+          "The numerical pressure envelope summarizes the reported FPMD grid and is not a phase-stability guarantee."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

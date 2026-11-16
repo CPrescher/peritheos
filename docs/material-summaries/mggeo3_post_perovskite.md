@@ -94,10 +94,10 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[47.3, 196.3\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The pressure interval is the marginal range of the 22 included room-temperature observations, not a phase-stability claim.; The three Table S1 rows below 47 GPa are preserved in the dataset but excluded as in the source because their weak, broad peaks gave anomalously large volumes.; V0 is an extrapolation far below the experimental pressure range.
+    - **Notes:** The three Table S1 rows below 47 GPa are excluded, as in the source, because their weak, broad peaks gave anomalously large volumes.; V0 is an extrapolation far below the experimental pressure range.
 - **Reported error confidence level:** Not specified
 
-Preferred source-selected 300 K experimental fit. V0 is the four-formula-unit conventional Cmcm-cell volume. K0' was fixed, while V0 and K0 were fitted with an external elasticity-systematics constraint.
+The authors' preferred 300 K fit. V0 is per conventional Cmcm cell (four formula units). K0' was fixed, with V0 and K0 fitted under an external elasticity-systematics constraint.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -191,10 +191,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[47.3, 196.3\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** This is a nonpreferred parameter-trade-off sensitivity fit to the same 22 rows as the default record.; The source describes it as K0'=4 in its third-order Birch-Murnaghan convention; setting K0'=4 removes the third-order correction and is represented canonically as BM2.
 - **Reported error confidence level:** Not specified
 
-Executable but deliberately non-default. It is the article's fixed-K0'=4 sensitivity result for the same data, not an independent experimental EOS.
+Nonpreferred sensitivity fit with K0' = 4, reported to show the parameter trade-off; same data as the preferred BM3 record, not an independent EOS. The source calls it a third-order fit with K0' = 4, which is equivalent to BM2.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -293,7 +292,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Molar mass g mol:** 145.916
 - **Reported error confidence level:** Not specified
 
-Abstract-selected fixed-K0'=4 fit to all nine Table 3 decompression observations. The abstract reports this better-constrained result; The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.
+Fit with K0' fixed at 4 to all nine Table 3 decompression observations; the abstract reports this better-constrained result.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -388,7 +387,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgg
     - **Molar mass g mol:** 145.916
 - **Reported error confidence level:** Not specified
 
-Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.
+Source-reported free BM3 alternative, fitted to all nine Table 3 decompression observations; a same-data sensitivity fit.
 
 <details markdown="1">
 <summary>Source review</summary>

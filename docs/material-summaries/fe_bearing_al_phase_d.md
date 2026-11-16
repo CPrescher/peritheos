@@ -91,9 +91,9 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 38.0\]
     - **Temperature k:** \[291.0, 295.0\]
     - **Volume ratio:** \[0.85207935, 1.0\]
-    - **Notes:** Empirical room-temperature pre-crossover fit only; it does not represent the changed compression behavior above 38 GPa.; The paper places the broad Fe3+ spin crossover at approximately 30-65 GPa, so the fitted 0-38 GPa interval is not a rectangular high-spin phase-stability field.
+    - **Notes:** Room-temperature pre-crossover fit only; it does not represent the changed compression behavior above 38 GPa.; The paper places the broad Fe3+ spin crossover at about 30-65 GPa, so the 0-38 GPa interval is not a high-spin stability field.
 
-Canonical room-temperature record. The first BM3 row of Table 2 freely fits V0, K0, and K0'; neither of the two ambient-volume-fixed alternatives is stored as another executable record. The BM3 choice is justified by the abstract's reported coefficients, Figure 3's exclusive display of BM3 curves, and Table 3's BM comparison across phase-D studies. Parenthetical errors are retained as generic published uncertainties because the source does not state a confidence convention.
+Room-temperature fit of the first BM3 row of Table 2, with V0, K0 and K0' all free. The two ambient-volume-fixed variants in Table 2 are not stored as records.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -197,9 +197,9 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/fe_
     - **Pressure gpa:** \[0.0, 38.0\]
     - **Temperature k:** \[291.0, 295.0\]
     - **Volume ratio:** \[0.85207935, 1.0\]
-    - **Notes:** Published alternative to the canonical BM3 fit over the same room-temperature pre-crossover observations.; Do not extrapolate through the changed compression behavior above 38 GPa.
+    - **Notes:** Do not extrapolate through the changed compression behavior above 38 GPa.
 
-Published non-default alternative. The first Vinet row of Table 2 freely fits V0, K0, and K0'; the two ambient-volume-fixed variants are documented but not multiplied into additional executable records. Parenthetical errors are retained as generic published uncertainties because their confidence convention is not stated.
+Published alternative to the BM3 record over the same room-temperature pre-crossover observations: the first Vinet row of Table 2, with V0, K0 and K0' all free. The two ambient-volume-fixed variants are not stored as records.
 
 <details markdown="1">
 <summary>Source review</summary>

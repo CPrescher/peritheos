@@ -101,7 +101,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.
+The authors' preferred fit; the Vinet record is their published alternative. Do not extrapolate this hcp thermal EOS across phase-coexistence boundaries.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -210,7 +210,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.
+Published alternative to the authors' preferred BM3 fit. Do not extrapolate this hcp thermal EOS across phase-coexistence boundaries.
 
 <details markdown="1">
 <summary>Source review</summary>

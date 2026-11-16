@@ -151,7 +151,11 @@
           }
         ]
       },
-      "superseded_record_text": {"label": "Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite",
+        "notes": "Explicit composite B2-KCl reference isotherm. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 constrained over 2-56 GPa. The absolute B2 V0 is 0.8483*62.36=52.899988 A^3/formula unit, using the independently published experimental B1-KCl V0 of Dewaele et al. (2012). Its 0.355452 A^3 uncertainty propagates the Campbell ratio error only; Dewaele et al. report no B1 V0 error or covariance. This composite is not presented as a single-paper Campbell parameter set.",
+        "superseded_on": "2026-11-16"
+      }
     },
     "kcl_walker_2002_bm3_2": {
       "pressure_calibration": {
@@ -333,6 +337,10 @@
             "primary_reference": {"doi": "10.2138/am-2002-0701", "location": "Equation BE1, Tables 2-3, and pages 807-810"}
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Walker et al.'s preferred bold Table 3 B2-KCl BE1 result is staged: the fictive V0=53.53 A^3 reference is held fixed while K0=23.7 GPa and K0'=4.4 are fitted to the room-temperature data, then Equation BE1 fits the directly reported alpha0*K0=0.0275+/-0.0009 kbar/K thermal-pressure coefficient to the P-V-T data. The separate italic Table 3 row is a simultaneous four-parameter solution (V0=55.25 A^3, K0=14.8 GPa, K0'=6.9, alpha0=0.00018 K^-1) and is not this record. The paper states that individual parameter errors are not meaningful because of correlation, so only the published error of the identifiable alpha0*K0 product is retained. The represented data span 3.18-8.14 GPa and 23-600 degC.",
+        "superseded_on": "2026-11-16"
       }
     },
     "kcl_b2_dewaele_2012_vinet_3": {
@@ -445,6 +453,14 @@
             "alpha_KT": "Equation (2) and Table V; 0.00224 GPa/K from the molecular-dynamics thermal-pressure fit"
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Preferred broadly useful B2-KCl pressure calibration. The reference isotherm is the Rydberg-Vinet fit to helium-medium 298 K measurements; the paper writes it as a 300 K term in Equation (2). V0 is a fictive zero-pressure B2 value fixed from the 2-6 GPa observations. The additive alpha*K_T term comes from ab initio molecular dynamics. The paper tabulates neither individual coefficient errors nor covariance, so they remain unavailable rather than being set to zero.",
+        "validity_notes": [
+          "The 298 K experimental compression data extend from the B1-B2 transition at 2.6 GPa to 165 GPa.",
+          "Equation (2) and Table V extend the calibration to 200 GPa and 7000 K using molecular-dynamics thermal pressures over V/V0=0.4-1.0; states above 165 GPa or 298 K are not direct static-compression measurements."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "kcl_b2_tateno_2019_vinet_4": {
@@ -609,6 +625,14 @@
             "primary_reference": {"doi": "10.2138/am-2019-6779", "location": "MSA deposit AM-19-56779, 6779TableS1 revised.xlsx"}
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Preferred final-publication Tateno fit on the Sokolova Pt scale. The final article reports gamma0=2.3+/-0.2 and q=0.8+/-0.2 and defines theta(V)=theta0*exp[(gamma0-gamma(V))/q], the integrated-Gruneisen Debye law. The accepted manuscript instead printed gamma0=0.58+/-0.05 and q=0.9+/-0.2; those superseded values are not used. Table 1 also gives a Holmes-Pt alternative, which is not represented by this record. All 39 observations come from the official MSA Supplemental Table S1 workbook.",
+        "validity_notes": [
+          "Room-temperature compression reaches 228.6 GPa; the heated observations reach 60.7 GPa and 2560 K.",
+          "The B2 phase has a fictive zero-pressure reference state."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "kcl_b2_chidester_2021_bm3_5": {
@@ -782,6 +806,15 @@
             "primary_reference": {"doi": "10.1103/PhysRevB.104.094107", "location": "Equations 3-4, Table I, and Figure 3"}
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "The preferred Birch-Murnaghan reference EOS from Table I. Published molar V0=32.0(3) cm^3/mol is converted to one B2 formula unit per conventional cell with the exact Avogadro constant. Chidester et al. fitted the 155 new high-temperature observations simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 observations. Pressures in the author-deposited high-temperature table were calculated from the Dorogokupets-Oganov (2007) Pt EOS. This is an experimental, effective-temperature-calibrated P-V-T pressure scale: KCl volumes and Pt-derived pressures are measured constraints, while the KCl temperature coordinate comes from the authors' gradient model for this laser-heated DAC geometry.",
+        "validity_notes": [
+          "The fit combines Dewaele et al. (2012) room-temperature data with four new laser-heating experiments.",
+          "The KCl temperature is a modeled effective temperature below the measured Pt surface temperature; the bundled table stores the authors' KCl temperature.",
+          "The high-temperature calibration is experimental in pressure and volume but geometry-conditioned in temperature: it should not be interpreted as a homogeneous-temperature KCl thermodynamic dataset."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "kcl_b2_tateno_2019_holmes_vinet_mgd": {
@@ -986,6 +1019,15 @@
             "n": "Final Table 1 and Equations 2-6: theta0=235 K fixed, n=2 atoms/formula unit, Tr=300 K, integrated-Gruneisen law."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.",
+        "validity_notes": [
+          "Published Sokolova-coordinate coverage reaches 228.6 GPa at room temperature and 60.7 GPa in the heated subset; these are not Holmes-coordinate bounds.",
+          "The B2 phase has a fictive zero-pressure reference state.",
+          "Pressure bounds here are diagnostic Holmes-coordinate extrema, not published Sokolova bounds. The marginal range is not a rectangular validated region."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "kcl_b2_tateno_2019_holmes_vinet_linear_thermal": {
@@ -1166,6 +1208,15 @@
             "alpha_KT": "Final Table 1 and Equation 7: additive constant alpha_KT*(T-300), slope and error specific to this row."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.",
+        "validity_notes": [
+          "Published Sokolova-coordinate coverage reaches 228.6 GPa at room temperature and 60.7 GPa in the heated subset; these are not Holmes-coordinate bounds.",
+          "The B2 phase has a fictive zero-pressure reference state.",
+          "Pressure bounds here are diagnostic Holmes-coordinate extrema, not published Sokolova bounds. The marginal range is not a rectangular validated region."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "kcl_b2_tateno_2019_sokolova_vinet_linear_thermal": {
@@ -1340,6 +1391,14 @@
             "alpha_KT": "Final Table 1 and Equation 7: additive constant alpha_KT*(T-300), slope and error specific to this row."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Nondefault final-publication Table 1 alternative. The final linear-thermal Sokolova row reports K0 error 0.2 GPa, distinct from the MGD row error 0.3 GPa. All 39 official Sokolova-pressure rows are used in the independent joint diagnostic.",
+        "validity_notes": [
+          "Room-temperature compression reaches 228.6 GPa; the heated observations reach 60.7 GPa and 2560 K.",
+          "The B2 phase has a fictive zero-pressure reference state."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "kcl_b2_chidester_2021_vinet_mgd": {
@@ -1645,6 +1704,15 @@
             "notes": "Effective KCl temperature from the geometry-dependent heating model. Raw Pt volume and calibration covariance are not deposited; reported Pt-derived pressures are retained."
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Nondefault Rydberg-Vinet alternative from Table I. Published V0=34.3(5) cm^3/mol converts to 56.956490004062935 A^3/B2 conventional cell with Z=1 and exact Avogadro constant. All five listed parameters are fitted; theta0=235 K, Tr=300 K, n=2 are held fixed. Fit includes all 123 Dewaele room-temperature rows and all 155 author-deposited Chidester effective-temperature rows. The integrated-Gruneisen Debye relation reproduces the complete fit. Dewaele and high-temperature Pt-derived pressures retain distinct calibration ancestry. KCl effective temperatures depend on the laser-heating gradient model; they are not directly measured homogeneous temperatures.",
+        "validity_notes": [
+          "The fit combines Dewaele et al. (2012) room-temperature data with four new laser-heating experiments.",
+          "The KCl temperature is a modeled effective temperature below the measured Pt surface temperature; the bundled table stores the authors' KCl temperature.",
+          "The high-temperature calibration is experimental in pressure and volume but geometry-conditioned in temperature: it should not be interpreted as a homogeneous-temperature KCl thermodynamic dataset."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "kcl_b2_ma_2024_bm3_mgd": {
@@ -1879,6 +1947,15 @@
             "citation": "10.2138/am.2012.4136"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Nondefault final published Table 1 BM3+MGD pressure scale. Uses 300 K thermal-energy subtraction and integrated-Gruneisen Debye law with q=1 and n=2. Source observations, reduced KT and Walker inputs, and modeled grids are separately identified. Marginal coefficient errors are preserved without assuming their confidence or reconstructing the missing source covariance. Published rounded coefficients remain unchanged despite diagnostic refit or grid-precision reconstruction.",
+        "validity_notes": [
+          "Room-temperature acoustic experiment extends to about 85 GPa; the low-pressure anchors are eight Walker states at 296.15/297.15 K recalibrated and corrected to 300 K.",
+          "S3 model grid extends to 144.1826 GPa, and S4 thermal grid to 4000 K. These are pressure extrapolation and modeled thermal extension, not experimental coverage.",
+          "Fictive zero-pressure B2 V0 is extrapolated; B2 KCl is stable only above about 2-3 GPa. No rectangular P-T phase-stability guarantee is supplied."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

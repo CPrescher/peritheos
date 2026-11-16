@@ -89,10 +89,9 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 10.16\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.; Static source room temperature is nominally 300 K.
 - **Reported error confidence level:** Not specified
 
-Independent static diffraction EOS, not combined with Zhao thermal coefficients. The source also reports a fixed-Kprime=4 alternative (K0=117.1(2) GPa, V0=438.66(2) A^3), retained in the audit rather than conflated with this free-Kprime record. Source P is Mao (1978) ruby scale. Room temperature is represented nominally as 300 K.
+Static room-temperature diffraction EOS with pressures on the Mao (1978) ruby scale, independent of the Zhao thermal coefficients. The source also reports an alternative fit with K0' fixed at 4, not stored here.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -199,7 +198,6 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 8.18\]
     - **Temperature k:** \[300.0, 1280.0\]
-    - **Notes:** Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.; Published-model and parameter parity established with the documented table-error treatment; source inconsistencies remain recorded as provenance. Published coefficients and original observations are preserved.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -210,7 +208,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published-model and parameter parity established within graphical precision and reported parameter errors using the independently digitized Figure 2 pressure for source row 15 in the audit calculation. The original 32-row table, duplicate ambient entries, printed errors and published EOS coefficients are preserved. Source-table pressure and lattice inconsistencies are documented provenance, not an EOS acceptance blocker. V0 is the source ambient-volume anchor. Exact original fit inputs and regression workflow are not recovered. The independent Thompson static record remains the room-temperature default; use this thermal record for elevated-temperature evaluation. The separately bundled corrected P-V-T dataset is recommended for refitting; its row-15 pressure is 4.58 GPa with a separate graphical reading bound.
+Thermal EOS for elevated-temperature use, independent of the Thompson static record. V0 is the source's ambient-volume anchor.
 
 <details markdown="1">
 <summary>Source review</summary>

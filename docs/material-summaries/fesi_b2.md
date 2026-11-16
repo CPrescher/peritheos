@@ -102,7 +102,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.
+Peritheos refit of the B2 observations of Fischer et al. (2014, Table S2), not their published coefficients or a source correction. Errors are local 1-sigma estimates assuming equal, independent pressure-residual variance. The choice of K0' and reference values strongly affects gamma0, so the formal errors are not the total uncertainty.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -209,7 +209,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.
+Peritheos refit of the B2 observations of Fischer et al. (2014, Table S2), not their published coefficients or a source correction. Errors are local 1-sigma estimates assuming equal, independent pressure-residual variance. The choice of K0' and reference values strongly affects gamma0, so the formal errors are not the total uncertainty.
 
 <details markdown="1">
 <summary>Source review</summary>

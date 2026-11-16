@@ -30,15 +30,12 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -82,15 +79,12 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -134,15 +128,12 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -185,15 +176,12 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -236,17 +224,14 @@
       "validity": {
         "pressure_gpa": [15.5, 70.9],
         "temperature_k": [300, 300],
-        "notes": [
-          "High-spin compression branch only; the first volume collapse occurs at 72.2 GPa.",
-          "BM2 makes K0_prime=4 part of the equation definition."
-        ]
+        "notes": ["High-spin compression branch only; the first volume collapse occurs at 72.2 GPa."]
       },
       "experimental_pressure_range_gpa": [15.5, 70.9],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "This is Zhuravlev et al.'s source-owned high-spin EOS, distinct from the later Solomatova et al. coupled crossover branches fitted to the full compression trajectory. The paper states that the printed pressure uncertainties describe drift during acquisition and that the true pressure uncertainty is likely closer to 3%; exact EOS-FIT weights and covariance are not published.",
+      "notes": "High-spin EOS of Zhuravlev et al., separate from the later Solomatova et al. coupled crossover branches. The paper states that printed pressure errors describe drift during acquisition and that the true pressure uncertainty is likely closer to 3%.",
       "fit_datasets": ["mg061fe039o_zhuravlev_2010_table5_pv"],
       "reference": {
         "authors": ["Zhuravlev", "Jackson", "Wolf", "Wicks", "Yan", "Clark", "Prakapenka"],
@@ -285,14 +270,13 @@
         "pressure_gpa": [0, 55],
         "temperature_k": [300, 300],
         "notes": [
-          "Published high-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+          "Approximate fitting domain stated in the paper, not a sharp spin-state boundary.",
+          "Do not use one branch across the spin crossover; outside its spin regime the curve is an extrapolation."
         ]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
       "fit_datasets": ["mg061fe039o_fei_2007_table_s2_pv"],
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
@@ -332,14 +316,13 @@
         "pressure_gpa": [60, 148],
         "temperature_k": [300, 300],
         "notes": [
-          "Published low-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+          "Approximate fitting domain stated in the paper, not a sharp spin-state boundary.",
+          "Do not use one branch across the spin crossover; outside its spin regime the curve is an extrapolation."
         ]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
       "fit_datasets": ["mg061fe039o_fei_2007_table_s2_pv"],
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],

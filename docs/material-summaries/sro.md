@@ -83,7 +83,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[293.15, 299.15\]
 
-Volumetric BM3 fit to all 23+/-3 degC SrO data through 34.05 GPa. K0=91.3+/-2.7 GPa and K0'=4.3+/-0.3 are one-standard-deviation fit errors. The fixed V0 error represents the paper's stated 0.3% volume accuracy. Between about 7 and 30.7 GPa the nominal B1 cell shows a small tetragonal distortion, but the paper reports no volume discontinuity and deliberately fits all data together. No parameter covariance is published.
+Volumetric BM3 fit to all SrO data at 23 ± 3 °C, with one-standard-deviation errors on K0 and K0'. The fixed V0 error is the paper's stated 0.3% volume accuracy. Between about 7 and 30.7 GPa the B1 cell shows a small tetragonal distortion without volume discontinuity, and the paper fits all data together.
 
 <details markdown="1">
 <summary>Source review</summary>

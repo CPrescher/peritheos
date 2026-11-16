@@ -91,10 +91,10 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 7.79\]
-    - **Notes:** The interval is the marginal range of the included room-temperature compression observations, not a phase-stability claim.; The source gives only 'room temperature', without a numerical temperature in kelvin; this is an isothermal record with no thermal correction.; The authors caution that extrapolation beyond 15-20 GPa reverses the relative compressibilities of the two low-pressure fits.
+    - **Notes:** The authors caution that extrapolation beyond 15-20 GPa reverses the relative compressibilities of the two low-pressure fits.
 - **Reported error confidence level:** Not specified
 
-This record is limited to the Pbnm CaIrO3 perovskite polymorph and must not be used for the Cmcm post-perovskite. V0 is the four-formula-unit conventional-cell volume. The source describes V0, K0, and K' together as refined parameters and marks none fixed, so fixed\_parameters is empty. The printed standard deviations are retained without conversion to a confidence interval, and numerical covariance is absent rather than assumed zero.
+Pbnm CaIrO3 perovskite only; do not use it for the Cmcm post-perovskite. V0 is per four-formula-unit conventional cell. The errors are the printed standard deviations.
 
 <details markdown="1">
 <summary>Source review</summary>

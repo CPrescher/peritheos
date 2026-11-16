@@ -103,7 +103,7 @@ Automatic selection for equilibrium calculations.
     - **Molar mass g mol:** 95.95
 - **Reported error confidence level:** Not specified
 
-Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
+Table 2 parameterization. The authors fix most ambient V0 and K0 values from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -182,7 +182,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 140.0\]
 
-Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.5 GPa and K0' +/- 0.02. Measurements extend to 140 GPa.
+Table II fit to the combined DAC-1 and DAC-2 data, with pressures from the simultaneously measured Cu volumes.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -278,7 +278,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reference temperature (K):** 298.15
 - **Coverage provenance:** reference\_parameterization
 
-This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
+Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to shock-wave, ultrasonic, X-ray diffraction, dilatometric and thermochemical data: reference volume from Table 1, Holzapfel and thermal coefficients from Table 4. Sokolova et al. (2016) supplies the spreadsheet implementation, reference-temperature convention and corrected equations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -367,10 +367,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 124.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -457,10 +456,9 @@ Published pressure-scale alternative of [molybdenum\_dewaele\_2019\_mao\_vinet](
 - **Validity:**
     - **Pressure gpa:** \[0.0, 124.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986 record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -545,10 +543,10 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[0.0, 207.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.; The available auxiliary rows containing Mo span 43.1-214.6 GPa in the source's printed derived pressures.
+    - **Notes:** The range is that of the published Table 2 pressure-standard parameterization, not the observation envelope.; The available Mo data rows span 43.1-214.6 GPa (printed derived pressures).
 - **Reported error confidence level:** Not specified
 
-Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
+Pressure-standard fit to co-compression data, with pressures from the Tange et al. (2009) MgO Vinet EOS (their Fit 3) as fixed 300 K anchor. This K0-fixed solution and the K0-free record are correlated alternatives from the same data, not independent experiments.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -649,10 +647,10 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[0.0, 207.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.; The available auxiliary rows containing Mo span 43.1-214.6 GPa in the source's printed derived pressures.
+    - **Notes:** The range is that of the published Table 2 pressure-standard parameterization, not the observation envelope.; The available Mo data rows span 43.1-214.6 GPa (printed derived pressures).
 - **Reported error confidence level:** Not specified
 
-Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
+Pressure-standard fit to co-compression data, with pressures from the Tange et al. (2009) MgO Vinet EOS (their Fit 3) as fixed 300 K anchor. This K0-free solution and the K0-fixed record are correlated alternatives from the same data, not independent experiments.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -759,7 +757,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Reported error confidence level:** 0.95
 
-Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data; run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -836,7 +834,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Reported error confidence level:** 0.95
 
-Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+Table IV fit with V0 fixed from a separate fit to the 0-5 GPa data and K0 adopted from ultrasound; it is distinct from the later 2019 all-free-parameter recalibration. Run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
 
 <details markdown="1">
 <summary>Source review</summary>

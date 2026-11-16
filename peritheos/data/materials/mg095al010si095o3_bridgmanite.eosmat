@@ -37,19 +37,14 @@
       "validity": {
         "pressure_gpa": [0.37, 39.97],
         "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.8815994217, 0.9986154845],
-        "notes": [
-          "The pressure and volume-ratio bounds are the complete auxiliary Table 1 observation envelope, not a broader phase-stability guarantee.",
-          "The record follows the authors' mixed pressure coordinate: Mao-1986 ruby below 25 GPa and Hemley-1989 neon above 25 GPa.",
-          "The BM2 family enforces K0_prime=4 by definition; V0 and K0 are the two free coefficients."
-        ]
+        "volume_ratio": [0.8815994217, 0.9986154845]
       },
       "experimental_pressure_range_gpa": [0.37, 39.97],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Preferred second-order Birch-Murnaghan fit. K0_prime=4 is intrinsic to BM2, so V0 and K0 are the only free EOS parameters and fixed_parameters is empty. The one-sigma covariance is reconstructed transparently from the published marginal errors and correlation.",
+      "notes": "The authors' preferred fit. Pressures follow their mixed coordinate: Mao-1986 ruby below 25 GPa, Hemley-1989 neon above. The stored one-standard-deviation covariance is built from the published marginal errors and correlation.",
       "fit_datasets": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"],
       "reference": {
         "authors": ["Daniel", "Bass", "Fiquet", "Cardon", "Zhang", "Hanfland"],
@@ -95,19 +90,14 @@
       "validity": {
         "pressure_gpa": [0.37, 39.97],
         "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.8816210255, 0.9986399559],
-        "notes": [
-          "The pressure and volume-ratio bounds are the complete auxiliary Table 1 observation envelope, not a broader phase-stability guarantee.",
-          "The record follows the authors' mixed pressure coordinate: Mao-1986 ruby below 25 GPa and Hemley-1989 neon above 25 GPa.",
-          "V0, K0, and K0_prime were all free; the source finds no significant departure of K0_prime from 4."
-        ]
+        "volume_ratio": [0.8816210255, 0.9986399559]
       },
       "experimental_pressure_range_gpa": [0.37, 39.97],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Third-order Birch-Murnaghan alternative with V0, K0, and K0_prime all fitted. Its derivative is statistically indistinguishable from 4 and the paper therefore favors the BM2 representation.",
+      "notes": "Alternative BM3 fit; K0' is statistically indistinguishable from 4, so the paper favors the BM2 record. Pressures follow the authors' mixed coordinate: Mao-1986 ruby below 25 GPa, Hemley-1989 neon above.",
       "fit_datasets": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"],
       "reference": {
         "authors": ["Daniel", "Bass", "Fiquet", "Cardon", "Zhang", "Hanfland"],

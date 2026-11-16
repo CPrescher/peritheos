@@ -54,8 +54,7 @@
         "temperature_k": [300.0, 2455.0],
         "volume_ratio": [0.75030645, 0.89844325],
         "notes": [
-          "Marginal envelope of the 153 observations; the sampled P-T paths are not a rectangular phase-stability guarantee.",
-          "The authors report that every experimental state followed a thermodynamic path within the bridgmanite stability field and found no H-phase exsolution."
+          "The authors report that every experimental state followed a path within the bridgmanite stability field and found no H-phase exsolution."
         ]
       },
       "experimental_pressure_range_gpa": [33.15, 132.7],
@@ -63,7 +62,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "The 300 K Vinet parameters and thermal parameters are one coupled published thermal EOS. V0, K0, K0', gamma0, and q were fitted; Tr=300 K, theta0=1000 K, and the 20-atom conventional-cell count were fixed. The complete five-parameter covariance is reconstructed from Tables 3-4 rather than treating strongly correlated errors as independent. Table 5 provides an independent source-output check: at 108.7 GPa and 2387 K the implementation reproduces density 5.40 g/cm3, KS=604.5 GPa, gamma=1.23, and Cv/(3Nk)=0.9838 at the source's printed precision.",
+      "notes": "The 300 K Vinet and thermal parameters form one coupled published thermal EOS. The complete five-parameter covariance is reconstructed from Tables 3-4; the errors are strongly correlated and should not be treated as independent.",
       "fit_datasets": ["mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt"],
       "reference": {
         "authors": ["Wolf", "Jackson", "Dera", "Prakapenka"],

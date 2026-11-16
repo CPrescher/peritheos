@@ -63,6 +63,14 @@
           "K0_prime": "Table 1 note and Section 3.2: fixed at 3.94.",
           "uncertainties": "No coefficient errors or covariance are reported."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Preferred static configuration among the six Table 1 Fe-bearing fits.",
+        "validity_notes": [
+          "Static 0 K LSDA+U fit to calculations at 0, 30, 60, 90, 120, and 150 GPa.",
+          "Model 1 is the source-selected representative configuration for subsequent thermodynamic work."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3": {
@@ -121,6 +129,11 @@
           "K0_prime": "Fixed at 3.94.",
           "uncertainties": "Not reported."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Configuration sensitivity, not an independent composition.",
+        "validity_notes": ["Static 0 K model-configuration sensitivity fit; no default role."],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3": {
@@ -179,6 +192,11 @@
           "K0_prime": "Fixed at 3.94.",
           "uncertainties": "Not reported."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Configuration sensitivity, not an independent composition.",
+        "validity_notes": ["Static 0 K model-configuration sensitivity fit; no default role."],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3": {
@@ -238,6 +256,13 @@
           "K0_prime": "Fixed at 3.94.",
           "uncertainties": "Not reported."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Do not use as the equilibrium spin branch.",
+        "validity_notes": [
+          "Metastable low-spin comparison: the source finds LS Fe thermodynamically unstable through lower-mantle pressures and dynamically unstable at 0 GPa."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3": {
@@ -297,6 +322,11 @@
           "K0_prime": "Fixed at 3.94.",
           "uncertainties": "Not reported."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Do not use as the equilibrium spin branch.",
+        "validity_notes": ["Metastable low-spin model-configuration sensitivity fit; no default role."],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3": {
@@ -356,6 +386,11 @@
           "K0_prime": "Fixed at 3.94.",
           "uncertainties": "Not reported."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Do not use as the equilibrium spin branch.",
+        "validity_notes": ["Metastable low-spin model-configuration sensitivity fit; no default role."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

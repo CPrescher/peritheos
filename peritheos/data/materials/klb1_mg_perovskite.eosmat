@@ -40,17 +40,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [30.0, 112.0],
-        "temperature_k": [300.0, 2569.0],
-        "notes": [
-          "Effective EOS includes the small phase-composition changes of the coexisting pyrolite assemblage.",
-          "No record-level molar mass is encoded because the source does not define one fixed Mg-Fe-Al-Si composition."
-        ]
+        "temperature_k": [300.0, 2569.0]
       },
       "experimental_pressure_range_gpa": [30.0, 112.0],
       "experimental_temperature_range_k": [300.0, 2569.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Effective EOS that includes the small phase-composition changes of the coexisting pyrolite assemblage. No molar mass is given because the source does not define one fixed Mg-Fe-Al-Si composition.",
       "fit_datasets": ["klb1_ricolleau_2009_table_s1_mg_perovskite_pvt"],
       "reference": {
         "authors": [

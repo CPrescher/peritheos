@@ -34,8 +34,7 @@
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.792358, 1.0],
         "notes": [
-          "Empirical nominal-300 K cubic compression curve through the helium data range plus its zero-pressure reference; the bounds are not a phase-stability guarantee.",
-          "The crystal remains metrically cubic through 55.5 GPa, but spin state was measured only at room pressure before loading and is unresolved under compression.",
+          "The crystal stays metrically cubic through 55.5 GPa, but its spin state was measured only at room pressure and is unresolved under compression.",
           "Helium is the more hydrostatic baseline, although the article cites gradual nonhydrostaticity in helium above about 23 GPa."
         ]
       },
@@ -43,7 +42,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Canonical equilibrium-oriented record. V0 is fitted under a 78.94 +/- 0.1 A^3 ambient prior rather than fixed; K0 and K0_prime are freely varied. Parenthetical values are the source's 1-sigma fit uncertainties, stored with null confidence because they are standard errors rather than interval half-widths. The 300 K reference is nominal room temperature and no row-wise temperature observations are reported.",
+      "notes": "Fit to the helium-medium cubic-cell data with an ambient V0 prior of 78.94 ± 0.1 Å³; V0 is not fixed, and K0 and K0' are free. The errors are the source's 1-sigma standard errors, not interval half-widths, so no confidence level is stored.",
       "fit_datasets": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"],
       "reference": {
         "authors": ["Finkelstein", "Jackson", "Sturhahn", "Zhang", "Alp", "Toellner"],
@@ -91,8 +90,7 @@
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.9074588, 1.0],
         "notes": [
-          "Empirical nominal-300 K low-pressure cubic-indexing fit plus its zero-pressure reference; it is not an equilibrium recommendation.",
-          "Neon crystallizes near 4.8 GPa, and the authors state that the unit-cell volume is affected below the approximately 20 GPa onset of resolvable hexagonal distortion.",
+          "Neon crystallizes near 4.8 GPa; the authors state that the cell volume is affected below the onset of resolvable hexagonal distortion near 20 GPa.",
           "Do not extrapolate this stress-sensitive fit into the high-pressure distorted branch."
         ]
       },
@@ -100,7 +98,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Published stress-sensitive low-pressure neon alternative. V0 and K0_prime were constrained by priors, not fixed, so fixed_parameters is empty. The authors attribute the stiffer curve relative to helium to neon crystallization and nonhydrostaticity; this record is intentionally not the default. Parenthetical values are 1-sigma fit uncertainties.",
+      "notes": "Stress-sensitive low-pressure fit to the cubic-indexable neon observations; not an equilibrium recommendation. V0 and K0' are constrained by priors, not fixed, and the errors are 1-sigma fit uncertainties. The authors attribute the stiffer curve relative to helium to neon crystallization and nonhydrostaticity.",
       "fit_datasets": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"],
       "reference": {
         "authors": ["Finkelstein", "Jackson", "Sturhahn", "Zhang", "Alp", "Toellner"],

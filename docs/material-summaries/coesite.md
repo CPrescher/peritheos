@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
     - **Locator:** 324-333
 - **Reported pressure coverage (GPa):** \[0.0, 5.2\]
 
-Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.
+V0 is the volume of the cited ambient structure; no V0 error was reported.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -32,16 +32,13 @@
         "pressure_gpa": [-8.55476541, 205.91219499],
         "temperature_k": [0, 0],
         "volume_ratio": [0.65, 1.05],
-        "notes": [
-          "Static 0 K GGA model-crystal fit; not an experimental stability field.",
-          "The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa."
-        ]
+        "notes": ["The source energy grid spans about 105% to 65% of V0 and reaches just above 200 GPa."]
       },
       "experimental_pressure_range_gpa": [-8.55476541, 205.91219499],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "notes": "No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.",
+      "notes": "Static 0 K GGA model-crystal fit, not an experimental result.",
       "reference": {
         "authors": ["Akber-Knutson", "Steinle-Neumann", "Asimow"],
         "year": 2005,

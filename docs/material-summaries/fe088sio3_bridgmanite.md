@@ -86,14 +86,12 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[14.0, 132.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Composition-specific vacancy-rich iron bridgmanite. The source synthesizes it between approximately 45 and 110 GPa, while Figure 3 plots compression/decompression observations from about 14 to 132 GPa; V0 is the fitted ambient extrapolation, not an observation.
+    - **Notes:** Synthesized at about 45-110 GPa; Figure 3 shows compression and decompression data from about 14 to 132 GPa. V0 is a fitted extrapolation.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 125.225
 - **Reported error confidence level:** Not specified
-
-Published 300 K BM2 for vacancy-rich Fe0.88SiO3 bridgmanite. Figure 3A contains about fifteen compression/decompression markers, whereas supplementary Table S2 explicitly lists only four selected crystallographic states. The four rows are bundled as exact checkpoints, not asserted as the complete fit input. No source exclusion rule, residual objective, numerical weighting convention, covariance, or parameter-error confidence convention is reported.
 
 <details markdown="1">
 <summary>Source review</summary>

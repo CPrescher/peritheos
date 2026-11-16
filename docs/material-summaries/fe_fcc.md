@@ -90,10 +90,11 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 <summary>Thermal equation choices</summary>
 
 - **Debye temperature law:** variable\_exponent
+- **Notes:** theta = theta0\*(V/V0)^(-gamma(V)) with gamma = gamma0\*(V/V0)^q. No explicit electronic or anharmonic pressure.
 
 </details>
 
-Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0\*(V/V0)^q and theta=theta0\*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. The published fit also includes Seagle et al. (2008). Its 81 V-T rows are linked, but exact row-wise pressures and Campbell recalibration are not published. Independent refits therefore report a current-study subset and a nominal-isobar sensitivity reconstruction. Only stable fcc-Fe rows enter this branch; hcp Fe is explicitly adopted from Dewaele (2006), not a new Campbell fit.
+Equation (5) and Table 1: 295 K BM3 plus Mie-Grüneisen-Debye thermal pressure, fitted to this study's data and those of Seagle et al. (2008). Only stable fcc-Fe rows enter this branch. The published molar V0 is stored per Z = 4 conventional cell; the confidence convention and covariance of published errors are not specified.
 
 <details markdown="1">
 <summary>Source review</summary>

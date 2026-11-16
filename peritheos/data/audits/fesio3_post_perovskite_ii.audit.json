@@ -93,6 +93,15 @@
           "uncertainties": "No coefficient uncertainties or covariance are published.",
           "method": "Quantum ESPRESSO PAW-PBE GGA+U, U=6.0 eV, 20-atom cell, 4x4x4 k mesh, 80 Ry cutoff; high-spin antiferromagnetic state."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Retain as a directly published Vinet parameterization, without implying Cmmm stability across the whole mathematical interval. Keep not_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.",
+        "validity_notes": [
+          "Static 0 K GGA+U fit interval, not a Cmmm phase-stability field.",
+          "The source reports a displacive Cmmm-to-C2/m distortion at low pressure; use the Cmmm structure specifically near the 100 GPa tabulated state.",
+          "The eight energy calculations correspond to -10 through 150 GPa."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

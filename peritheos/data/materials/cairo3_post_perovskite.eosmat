@@ -32,8 +32,6 @@
       "validity": {
         "pressure_gpa": [0.0001, 7.79],
         "notes": [
-          "The interval is the marginal range of the included room-temperature compression observations, not a phase-stability claim.",
-          "The source gives only 'room temperature', without a numerical temperature in kelvin; this is an isothermal record with no thermal correction.",
           "The authors caution that extrapolation beyond 15-20 GPa reverses the relative compressibilities of the two low-pressure fits."
         ]
       },
@@ -41,7 +39,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "This record is limited to the Cmcm CaIrO3 post-perovskite polymorph and must not be used for the Pbnm perovskite. V0 is the four-formula-unit conventional-cell volume. The source describes V0, K0, and K' together as refined parameters and marks none fixed, so fixed_parameters is empty. The printed standard deviations are retained without conversion to a confidence interval, and numerical covariance is absent rather than assumed zero.",
+      "notes": "Limited to the Cmcm CaIrO3 post-perovskite polymorph; do not use it for the Pbnm perovskite. V0 is the four-formula-unit conventional-cell volume. The printed errors are standard deviations.",
       "fit_datasets": ["cairo3_post_perovskite_boffa_ballaran_2007_table1_compression"],
       "reference": {
         "authors": ["Boffa Ballaran", "Trønnes", "Frost"],
@@ -96,8 +94,7 @@
         "pressure_gpa": [0.3, 29.0],
         "temperature_k": [298.15, 298.15],
         "notes": [
-          "298.15 K is the conventional numeric normalization of the source's room-temperature isotherm.",
-          "The high-pressure NaCl-series observations were laser annealed and contain diffraction features from dissociation products, as explicitly cautioned by the source."
+          "The high-pressure NaCl-series observations were laser annealed and show diffraction features of dissociation products, as the source cautions."
         ]
       },
       "experimental_pressure_range_gpa": [0.3, 29.0],
@@ -105,7 +102,6 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Accepted LitCurate source record litcurate_5e62ecacf2340445.",
       "fit_datasets": ["cairo3_martin_2007_table1a_compression"],
       "reference": {
         "authors": ["Martin", "Chapman", "Chupas", "Prakapenka", "Lee", "Shastri", "Parise"],

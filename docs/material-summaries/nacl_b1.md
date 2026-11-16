@@ -80,7 +80,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 31.0\]
 
-Table II Cu-referenced fit using DAC-2 data; V0 fixed to the JCPDS 5-0628 value. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.06. The B1 phase data extend to 31 GPa; coexistence-region data near 30-35 GPa were excluded.
+Table II fit to the DAC-2 data, with pressures from the Cu volumes measured in the same runs. V0 is fixed to the JCPDS 5-0628 value. Coexistence-region data near 30-35 GPa are excluded.
 
 <details markdown="1">
 <summary>Source review</summary>

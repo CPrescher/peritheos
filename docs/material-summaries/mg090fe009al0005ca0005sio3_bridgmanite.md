@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 106.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.771164, 1.0\]
-    - **Notes:** Only the recovered V0 and 83-106 GPa coexisting-phase observations constrain this fit; the interval between them is an interpolation, not a densely sampled dataset.
+    - **Notes:** Only the recovered V0 and the 83-106 GPa coexisting-phase observations constrain this fit, so pressures between them are interpolated.
 - **Reported error confidence level:** 0.6826894921370859
 
 <details markdown="1">

@@ -87,12 +87,13 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 100.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Ordered P2/m model-1 branch. The source separately plots a metastable symmetric-hydrogen-bond extension; it is not an independent fitted EOS.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 118.399
 - **Reported error confidence level:** Not specified
+
+Ordered P2/m model-1 branch. The metastable symmetric-hydrogen-bond extension plotted in the source is not an independently fitted EOS.
 
 <details markdown="1">
 <summary>Source review</summary>

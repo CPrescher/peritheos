@@ -134,5 +134,9 @@ def test_mao_branch_validity_excludes_the_mixed_spin_interval():
         low_spin.volume(76.0, 300.0, check_validity=True)
 
     for identifier in (HIGH_SPIN_ID, LOW_SPIN_ID):
-        notes = " ".join(sources[identifier]["validity"]["notes"])
-        assert "continuous spin-crossover model" in notes
+        assert "not the continuous spin-crossover model" in sources[identifier]["notes"]
+    high_notes = " ".join(sources[HIGH_SPIN_ID]["validity"]["notes"])
+    assert "mixed-spin interval at 50-75 GPa" in high_notes
+    assert "Do not extend this branch" in high_notes
+    low_notes = " ".join(sources[LOW_SPIN_ID]["validity"]["notes"])
+    assert "Do not apply this branch below" in low_notes

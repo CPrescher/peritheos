@@ -89,10 +89,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 50.0\]
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.8485974231, 1.0\]
-    - **Notes:** Bounded to the Figure 2c and Figure 5 NAL calculation interval; this is not a phase-stability guarantee.; Static LDA record; no thermal correction is included.
+    - **Notes:** Bounded to the NAL calculation interval of Figures 2c and 5.
 - **Reported error confidence level:** Not specified
 
-Published static-theory parameterization. All three printed coefficients are treated as fitted; no statistical errors are reported. There is no pressure calibration.
+Static LDA calculation; no thermal correction is included.
 
 <details markdown="1">
 <summary>Source review</summary>

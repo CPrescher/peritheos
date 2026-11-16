@@ -33,8 +33,7 @@
         "pressure_gpa": [47.3, 196.3],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "The pressure interval is the marginal range of the 22 included room-temperature observations, not a phase-stability claim.",
-          "The three Table S1 rows below 47 GPa are preserved in the dataset but excluded as in the source because their weak, broad peaks gave anomalously large volumes.",
+          "The three Table S1 rows below 47 GPa are excluded, as in the source, because their weak, broad peaks gave anomalously large volumes.",
           "V0 is an extrapolation far below the experimental pressure range."
         ]
       },
@@ -42,7 +41,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Preferred source-selected 300 K experimental fit. V0 is the four-formula-unit conventional Cmcm-cell volume. K0' was fixed, while V0 and K0 were fitted with an external elasticity-systematics constraint.",
+      "notes": "The authors' preferred 300 K fit. V0 is per conventional Cmcm cell (four formula units). K0' was fixed, with V0 and K0 fitted under an external elasticity-systematics constraint.",
       "fit_datasets": ["mggeo3_post_perovskite_kubo_2006_table_s1_pv"],
       "reference": {
         "authors": ["Kubo", "Kiefer", "Shen", "Prakapenka", "Cava", "Duffy"],
@@ -92,17 +91,13 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [47.3, 196.3],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "This is a nonpreferred parameter-trade-off sensitivity fit to the same 22 rows as the default record.",
-          "The source describes it as K0'=4 in its third-order Birch-Murnaghan convention; setting K0'=4 removes the third-order correction and is represented canonically as BM2."
-        ]
+        "temperature_k": [300.0, 300.0]
       },
       "experimental_pressure_range_gpa": [47.3, 196.3],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Executable but deliberately non-default. It is the article's fixed-K0'=4 sensitivity result for the same data, not an independent experimental EOS.",
+      "notes": "Nonpreferred sensitivity fit with K0' = 4, reported to show the parameter trade-off; same data as the preferred BM3 record, not an independent EOS. The source calls it a third-order fit with K0' = 4, which is equivalent to BM2.",
       "fit_datasets": ["mggeo3_post_perovskite_kubo_2006_table_s1_pv"],
       "reference": {
         "authors": ["Kubo", "Kiefer", "Shen", "Prakapenka", "Cava", "Duffy"],
@@ -149,7 +144,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Abstract-selected fixed-K0'=4 fit to all nine Table 3 decompression observations. The abstract reports this better-constrained result; The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
+      "notes": "Fit with K0' fixed at 4 to all nine Table 3 decompression observations; the abstract reports this better-constrained result.",
       "fit_datasets": ["mggeo3_post_perovskite_hirose_2005_table3_pv"],
       "reference": {
         "authors": ["Hirose", "Kawamura", "Ohishi", "Tateno", "Sata"],
@@ -197,7 +192,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
+      "notes": "Source-reported free BM3 alternative, fitted to all nine Table 3 decompression observations; a same-data sensitivity fit.",
       "fit_datasets": ["mggeo3_post_perovskite_hirose_2005_table3_pv"],
       "reference": {
         "authors": ["Hirose", "Kawamura", "Ohishi", "Tateno", "Sata"],

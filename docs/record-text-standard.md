@@ -76,7 +76,11 @@ belongs in the sidecar (keys under `records.<record id>`):
 | Audit dates | `evidence.scientific_validation.audit_date` |
 | Curation history, related Peritheos models, the replaced wording itself | `superseded_record_text` (kept verbatim by the apply tool) |
 
-**`validity.notes`.** Only statements about the range: why a bound differs
+**`validity.notes`.** Only in a record that has a `validity` object; a
+`validity` object replaces the experimental ranges as the enforced envelope
+([Which range the reader uses](eosmat-reference.md#which-range-the-reader-uses)),
+so a note never creates one: in a record without it, range facts go in
+`notes`. Only statements about the range: why a bound differs
 from the paper's headline number; where data are sparse inside the rectangle
 (e.g. "Thermal data cover 92.7-148.9 GPa only"); a usage restriction on the
 domain ("Not for the mixed-spin region"). Never: the range itself; the generic
@@ -168,8 +172,9 @@ review it sentence by sentence.
    rows of a CSV flagged `mechanical`.
 2. Run `python scripts/apply_record_text.py FILE.json --labels LABELS.csv
    --check`. Every refusal is listed: a `before` text that differs from the
-   file, or a failed guard (a new number, a length limit, a duplicate label, a
-   repository path). Fix the text; use `--allow RECORD:GUARD` only for a stated
+   file, a validity note that would create or remove the record's `validity`
+   object, or a failed guard (a new number, a length limit, a duplicate label,
+   a repository path). Fix the text; use `--allow RECORD:GUARD` only for a stated
    false positive.
 3. Run it without `--check`, then `--verify`, and regenerate the generated
    pages.

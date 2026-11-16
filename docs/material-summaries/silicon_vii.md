@@ -80,7 +80,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[46.0, 94.4\]
 - **Reported error confidence level:** 0.95
 
-Table 8 room-temperature fit. Published V0=14.3 A^3/atom is multiplied by two atoms in the hcp cell; V0 is extrapolated because Si-VII was observed only at high pressure.
+Table 8 room-temperature fit. Published V0 = 14.3 Å³/atom; stored per hcp cell (×2). V0 is extrapolated because Si-VII was observed only at high pressure.
 
 <details markdown="1">
 <summary>Source review</summary>

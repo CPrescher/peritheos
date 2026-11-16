@@ -179,7 +179,11 @@
           "thermal_equation": "Fei Eq3: subtract E(300 K,theta(V)) at the same volume and use printed theta=theta0*(V/V0)^(-gamma(V)), gamma(V)=gamma0*(V/V0)^q."
         }
       },
-      "superseded_record_text": {"label": "Fei et al PNAS 2007 [BM3]", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "Fei et al PNAS 2007 [BM3]",
+        "notes": "Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal parameters and Eq. 3 printed variable-exponent theta law, relative to 300 K. V0=88.967 A^3 is the fixed four-atom conventional fcc-cell volume for both branches; K0 and K0-prime remain specific to the cold equation. V0, theta0 and gamma0 are adopted source parameters; q=0.6(3) is retained with unspecified confidence/covariance. The room-temperature fit combined Finger (1981), Hemley (1989, recalculated to Dewaele 2004 ruby) and new Fei Pt/Au observations. All 14 Finger and 21 Hemley table rows, 13 separable new 300 K markers and six new 1000 K Pt-scale markers are bundled. Complete new rows, paired calibrant volumes and original weights are unrecovered. The 2000 K curve is a calculated extrapolation. See docs/literature-reproductions/fei-2007-neon.md; diagnostics do not replace published coefficients. Reported overall range is about 4.7-115 GPa; digitized/table recalculated endpoints carry their own rounding and can extend slightly above 115 GPa.",
+        "superseded_on": "2026-11-16"
+      }
     },
     "neon_fcc_fei_2007_vinet_2": {
       "migration_corrections": [
@@ -357,7 +361,11 @@
           "thermal_equation": "Fei Eq3: subtract E(300 K,theta(V)) at the same volume and use printed theta=theta0*(V/V0)^(-gamma(V)), gamma(V)=gamma0*(V/V0)^q."
         }
       },
-      "superseded_record_text": {"label": "Fei et al PNAS 2007 [Vinet]", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "Fei et al PNAS 2007 [Vinet]",
+        "notes": "Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal parameters and Eq. 3 printed variable-exponent theta law, relative to 300 K. V0=88.967 A^3 is the fixed four-atom conventional fcc-cell volume for both branches; K0 and K0-prime remain specific to the cold equation. V0, theta0 and gamma0 are adopted source parameters; q=0.6(3) is retained with unspecified confidence/covariance. The room-temperature fit combined Finger (1981), Hemley (1989, recalculated to Dewaele 2004 ruby) and new Fei Pt/Au observations. All 14 Finger and 21 Hemley table rows, 13 separable new 300 K markers and six new 1000 K Pt-scale markers are bundled. Complete new rows, paired calibrant volumes and original weights are unrecovered. The 2000 K curve is a calculated extrapolation. See docs/literature-reproductions/fei-2007-neon.md; diagnostics do not replace published coefficients. Reported overall range is about 4.7-115 GPa; digitized/table recalculated endpoints carry their own rounding and can extend slightly above 115 GPa.",
+        "superseded_on": "2026-11-16"
+      }
     },
     "neon_fcc_hemley_1989_bm3_refit": {
       "pressure_calibration": {
@@ -461,7 +469,11 @@
           "equation": "Third-order Birch-Murnaghan equation used by Hemley et al. (1989)"
         }
       },
-      "superseded_record_text": {"label": "Hemley et al. (1989) Table I direct 300 K BM3 refit", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "Hemley et al. (1989) Table I direct 300 K BM3 refit",
+        "notes": "Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Hemley et al. Table I, using the tabulated Mao-ruby pressures and lattice-parameter uncertainties. V0 is fixed to the paper's low-temperature 13.394 cm^3/mol value converted to the four-atom fcc cell. This direct table-only reference is intentionally distinct from Hemley et al.'s published thermally reduced 0 K fit, which also included the earlier Finger et al. low-pressure data and reported K0=1.097 GPa and K0'=9.23(3).",
+        "superseded_on": "2026-11-16"
+      }
     }
   }
 }

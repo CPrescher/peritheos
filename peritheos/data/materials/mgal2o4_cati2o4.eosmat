@@ -29,18 +29,13 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 64.3],
-        "notes": [
-          "The only nonzero-pressure volume is the in-situ run-4 observation after laser heating; the zero-pressure volume is measured after recovery.",
-          "The interval describes the two observations constraining the source parameterization, not a continuous stability field.",
-          "K0'=4 is fixed by the second-order Birch finite-strain model.",
-          "This is a historical one-point endpoint construction, not a regression EOS; later multi-point studies should be preferred for quantitative compression work."
-        ]
+        "notes": ["The range spans only the two observations that define the EOS, not a continuous stability field."]
       },
       "experimental_pressure_range_gpa": [0.0, 64.3],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "This record describes the CaTi2O4-type product established by runs 3 and 4. It is distinct from the lower-pressure CaFe2O4-type run-2 phase. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.",
+      "notes": "CaTi2O4-type product established by runs 3 and 4, distinct from the lower-pressure CaFe2O4-type run-2 phase. A one-point construction, not a multi-point fit: the only compressed volume is the in-situ run-4 observation after laser heating, and V0 was measured after recovery.",
       "fit_datasets": ["mgal2o4_cati2o4_funamori_1998_text_pv"],
       "reference": {
         "authors": ["Funamori", "Jeanloz", "Nguyen", "Kavner", "Caldwell", "Fujino", "Miyajima", "Shinmei", "Tomioka"],
@@ -86,9 +81,8 @@
         "pressure_gpa": [0.0, 91.2],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "The nonzero Table 3 measurements span 42.7-91.2 GPa; two recovered ambient cells are also printed. This is not a continuous equilibrium stability field.",
-          "The approximately 45-117 GPa high-temperature phase-stability observations are separate from the 300 K EOS; no thermal extension is published.",
-          "K0-prime=4 is implicit in BM2, not a fitted parameter."
+          "The compressed Table 3 data span 42.7-91.2 GPa. The 0 GPa bound comes from two recovered ambient cells.",
+          "The approximately 45-117 GPa high-temperature phase-stability observations are not part of this 300 K EOS."
         ]
       },
       "experimental_pressure_range_gpa": [0.0, 91.2],
@@ -96,7 +90,6 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "The structural lattice remains independently sourced to Funamori (1998); it is not the fitted Ono reference volume. No epsilon-phase EOS or cited theoretical/comparison fit is reassigned to this paper. See docs/literature-reproductions/ono-2006-mgal2o4-cati2o4.md.",
       "fit_datasets": ["mgal2o4_cati2o4_ono_2006_table3"],
       "reference": {
         "authors": ["Ono", "Kikegawa", "Ohishi"],

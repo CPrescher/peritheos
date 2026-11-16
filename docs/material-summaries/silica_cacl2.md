@@ -84,7 +84,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[55.0, 147.0\]
 - **Reported temperature coverage (K):** \[300.0, 3500.0\]
 
-Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.
+Thermal EOS from laser-heated diamond-anvil-cell data.
 
 <details markdown="1">
 <summary>Source review</summary>

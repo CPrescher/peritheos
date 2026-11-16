@@ -95,9 +95,9 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[30.0, 150.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Intended Peritheos application range is 30-150 GPa at 300 K, within the direct 21.5-199.2 GPa P-V coverage.; This is the quenched tetragonal I4/mcm phase; it is not a thermal EOS or a cubic-phase parameterization.
+    - **Notes:** The 30-150 GPa bounds are the intended application range; the 300 K P-V data cover 21.5-199.2 GPa.; Quenched tetragonal I4/mcm phase only; not a thermal EOS or a cubic-phase parameterization.
 
-Selected fixed-K0'=4 BM3 fit: the published Z=1 V0=45.6(2) A^3 is stored as 182.4(8) A^3 for the conventional Z=4 I4/mcm cell, while K0=229(4) GPa is unchanged. The direct 300 K P-V data span 21.5-199.2 GPa; routine use is intentionally limited to 30-150 GPa. Table 1 combines 14 Sun et al. (2016) quenched observations reanalyzed on the common Pt scale with nine new 2022 observations. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces both the free- and fixed-K0' Table 2 alternatives after rounding.
+Fixed-K0' fit of Table 2. Published V0 = 45.6(2) Å³ per formula unit (Z = 1); stored per conventional I4/mcm cell (Z = 4, ×4). Data: 14 quenched observations of Sun et al. (2016), reanalyzed on the common Pt scale, and nine new 2022 observations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -184,12 +184,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[13.0, 100.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The source identifies I4/mcm as the stable 300 K Ca-perovskite modification above 13 GPa; Table 2 reports V0 on a Z=1 basis, multiplied here by four for the conventional I4/mcm cell.
+    - **Notes:** The lower bound is where the source finds I4/mcm the stable 300 K Ca-perovskite modification (above 13 GPa).
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** Not specified
+
+Table 2 gives V0 per formula unit (Z = 1); stored per conventional I4/mcm cell (×4).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -265,12 +267,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[13.0, 100.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The source identifies I4/mcm as the stable 300 K Ca-perovskite modification above 13 GPa; Table 2 reports V0 on a Z=1 basis, multiplied here by four for the conventional I4/mcm cell.
+    - **Notes:** The lower bound is where the source finds I4/mcm the stable 300 K Ca-perovskite modification (above 13 GPa).
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** Not specified
+
+Table 2 gives V0 per formula unit (Z = 1); stored per conventional I4/mcm cell (×4).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -346,14 +350,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0, 160\]
     - **Temperature k:** \[0, 0\]
-    - **Notes:** Static-lattice DFT branch; not an ambient-stability claim.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 116.161
 - **Reported error confidence level:** Not specified
 
-Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.
+Static 0 K calculation of the I4/mcm (a0a0c-) octahedral-tilt branch; the source also fits BM4 to the same series. The source's energy accuracy of about 20 meV/molecule is not a coefficient error.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -438,14 +441,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0, 160\]
     - **Temperature k:** \[0, 0\]
-    - **Notes:** Static-lattice DFT branch; not an ambient-stability claim.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 116.161
 - **Reported error confidence level:** Not specified
 
-Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.
+Static 0 K calculation of the I4/mcm (a0a0c-) octahedral-tilt branch; the source also fits BM3 to the same series. The source's energy accuracy of about 20 meV/molecule is not a coefficient error.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -532,14 +534,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[28.824, 62.477\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Thermally stress-annealed tetragonal I4/mcm CaSiO3 in a neon pressure medium.; The fitted zero-pressure volume is an extrapolated EOS parameter because CaSiO3 perovskite is unstable at one bar.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 116.161
 - **Reported error confidence level:** 0.9544997361036416
 
-Accepted LitCurate source record litcurate\_cb91837589707f8c after correcting its omitted V0 and erroneous BM2 identity against the primary paper. The seven rounded Table 1 points support a source-scope Vinet refit but not exact methodological reproduction: pressure errors, objective weights, software, and parameter covariance are not published.
+Vinet fit to seven observations (Table 1) of thermally stress-annealed tetragonal I4/mcm CaSiO3 in a neon pressure medium. V0 is an extrapolated fit parameter because CaSiO3 perovskite is unstable at one bar.
 
 <details markdown="1">
 <summary>Source review</summary>

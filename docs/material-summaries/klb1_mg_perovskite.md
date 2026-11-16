@@ -90,7 +90,6 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[30.0, 112.0\]
     - **Temperature k:** \[300.0, 2569.0\]
-    - **Notes:** Effective EOS includes the small phase-composition changes of the coexisting pyrolite assemblage.; No record-level molar mass is encoded because the source does not define one fixed Mg-Fe-Al-Si composition.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -100,6 +99,8 @@ Automatic selection for equilibrium calculations.
 - **Reference volume law:** integrated\_expansivity
 
 </details>
+
+Effective EOS that includes the small phase-composition changes of the coexisting pyrolite assemblage. No molar mass is given because the source does not define one fixed Mg-Fe-Al-Si composition.
 
 <details markdown="1">
 <summary>Source review</summary>

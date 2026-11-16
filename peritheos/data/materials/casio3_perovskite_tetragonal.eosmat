@@ -32,15 +32,14 @@
         "pressure_gpa": [19.7, 45.8],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "The measurements were made after laser annealing and temperature quench; the paper does not establish this tetragonal structure as the simultaneous high-temperature phase.",
-          "V0 is an adopted zero-pressure extrapolation because CaSiO3 perovskite is not recovered as this phase at ambient conditions."
+          "Measured after laser annealing and temperature quench; the paper does not establish this tetragonal structure as the high-temperature phase."
         ]
       },
       "experimental_pressure_range_gpa": [19.7, 45.8],
       "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "The stored volume basis is the source's P4/mmm pseudocell (Z=1), while the phase identity remains generically tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals. Figure 2a supporting observations are now bundled as an explicitly digitized dataset; the 19.7 GPa cubic refinement is flagged separately.",
+      "notes": "Volumes are per the source's P4/mmm pseudocell (Z = 1); the phase is identified only as tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals. V0 is an adopted zero-pressure extrapolation, since this phase is not recovered at ambient conditions. The 19.7 GPa refinement is cubic.",
       "supporting_datasets": ["casio3_perovskite_tetragonal_shim_2002_figure2a_digitized"],
       "reference": {
         "authors": ["Shim", "Jeanloz", "Duffy"],

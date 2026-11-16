@@ -139,6 +139,14 @@
           "fit_selection": "The 300 K BM3 fit and subsequent 700/1100 K thermal fit use measured rows below 47 GPa; all higher-pressure rows are retained but excluded because the source limits the EOS to high-spin Fe2+.",
           "weighting": "Least-squares fitting is stated for gamma0 and q, but the source does not publish weights, covariance, or the numerical fitting program."
         }
+      },
+      "superseded_record_text": {
+        "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.",
+        "validity_notes": [
+          "Valid only for the high-spin B1 branch; the paper deliberately excludes observations at and above the approximately 47 GPa cutoff from fitting.",
+          "The dataset retains all measurements through 57.85 GPa to expose the onset and growth of the spin-crossover volume anomaly."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg075fe025o_mao_2011_high_spin_bm3_1": {
@@ -270,6 +278,15 @@
           "K0_prime": "Corrected article, Results paragraph 7: fixed K0'=4.",
           "fit_selection": "Corrected Figure 1 room-temperature observations below the source's 50 GPa crossover onset; 15 digitized points at 0.0-48.4 GPa."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case.",
+        "validity_notes": [
+          "This is the authors' 300 K high-spin reference branch, not the continuous spin-crossover model.",
+          "The source places the 300 K mixed-spin interval at 50-75 GPa; do not extend this branch through or above that interval.",
+          "The bundled points are digitized from corrected Figure 1 because the official Table S1 attachment was discoverable but returned HTTP 403 during this audit."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg075fe025o_mao_2011_low_spin_bm3_1": {
@@ -411,6 +428,15 @@
           "K0_prime": "Corrected article, Results paragraph 7: fixed K0'=4.",
           "fit_selection": "Corrected Figure 1 room-temperature observations above the source's 75 GPa crossover completion; 18 digitized points at 76.1-129.6 GPa."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case.",
+        "validity_notes": [
+          "This is the authors' 300 K low-spin reference branch, not the continuous spin-crossover model.",
+          "The fitted V0 is an ambient-pressure extrapolation for the low-spin state; it is not an observable ambient low-spin cell volume.",
+          "Do not apply this branch below the first digitized post-crossover observation at 76.1 GPa."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg075fe025o_leonov_2017_hs_bm3_1": {
@@ -460,6 +486,11 @@
           "K0": "Table I HS: 151 GPa.",
           "K0_prime": "Fixed 4.1."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": ["High-spin paramagnetic B1 branch; upper bound is the source transition midpoint."],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg075fe025o_solomatova_2016_hs_bm3_reference_1": {
@@ -552,7 +583,12 @@
           "original_dataset": "Mao et al. (2011), DOI 10.1029/2011GL049915."
         }
       },
-      "superseded_record_text": {"label": "Solomatova et al. (2016), Mao-data high-spin BM3 reference branch", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "Solomatova et al. (2016), Mao-data high-spin BM3 reference branch",
+        "notes": null,
+        "validity_notes": ["HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."],
+        "superseded_on": "2026-11-16"
+      }
     },
     "mg075fe025o_solomatova_2016_ls_bm3_reference_2": {
       "pressure_calibration": {
@@ -644,7 +680,12 @@
           "original_dataset": "Mao et al. (2011), DOI 10.1029/2011GL049915."
         }
       },
-      "superseded_record_text": {"label": "Solomatova et al. (2016), Mao-data low-spin BM3 reference branch", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "Solomatova et al. (2016), Mao-data low-spin BM3 reference branch",
+        "notes": null,
+        "validity_notes": ["LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."],
+        "superseded_on": "2026-11-16"
+      }
     }
   }
 }

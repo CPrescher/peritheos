@@ -34,17 +34,14 @@
         "pressure_gpa": [0.0, 150.0],
         "temperature_k": [0.0, 0.0],
         "volume_ratio": [0.7085889564, 1.0],
-        "notes": [
-          "Bounded to the Figure 2d and Figure 5 CF calculation interval; this is not a phase-stability guarantee.",
-          "Static LDA record; no thermal correction is included."
-        ]
+        "notes": ["Bounded by the Figure 2d and Figure 5 calculation interval for the CF phase."]
       },
       "experimental_pressure_range_gpa": [0.0, 150.0],
       "experimental_temperature_range_k": [0.0, 0.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "notes": "Published static-theory parameterization. All three printed coefficients are treated as fitted; no statistical errors are reported. There is no pressure calibration. The LitCurate description 'orthorhombic perovskite' is corrected to calcium-ferrite type Pbnm.",
+      "notes": "Published static-LDA parameterization with no thermal correction and no pressure calibration.",
       "fit_datasets": ["namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized"],
       "reference": {
         "authors": ["Kawai", "Tsuchiya"],

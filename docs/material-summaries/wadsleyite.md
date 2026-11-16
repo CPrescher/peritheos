@@ -93,7 +93,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reported pressure coverage (GPa):** \[11.0, 20.0\]
 - **Reported temperature coverage (K):** \[300.0, 2100.0\]
 
-Katsura et al. fit 11-20 GPa and 300-2100 K data with a BM3 reference isotherm plus Mie-Gruneisen-Debye thermal pressure. Their measured V0=538.49(2) A^3 and K0=169.2(9) GPa are fixed during the fit; K0'=4.1(1), gamma0=1.64(2), and q=1.5(1) are fitted, while theta0=814 K is fixed. Fixed source parameters retain their published uncertainties.
+BM3 reference isotherm + Mie-Grüneisen-Debye thermal pressure. V0 and K0 are the authors' measured values, fixed in the fit; their stored errors are the published measurement uncertainties.
 
 <details markdown="1">
 <summary>Source review</summary>

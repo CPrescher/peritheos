@@ -88,14 +88,14 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[-10.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.718447, 1.050881\]
-    - **Notes:** Static 0 K GGA+U curve; it is not an experimental ambient-pressure stability field.; The source energy grid corresponds to -10, 0, 25, 50, 75, 100, 125, and 150 GPa.
+    - **Notes:** The source energy grid corresponds to -10, 0, 25, 50, 75, 100, 125 and 150 GPa.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 131.928
 - **Reported error confidence level:** Not specified
 
-Retain as a directly published Vinet parameterization. Keep not\_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.
+Published static 0 K GGA+U Vinet fit; the numerical E(V) grid was not deposited.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -210,11 +210,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 30.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** Ideal FeSiO3 perovskite thermodynamic endmember, not an ambient stable phase or individual experiment.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 131.928
+
+Ideal FeSiO3 perovskite thermodynamic endmember, not an ambient stable phase or an individual experiment.
 
 <details markdown="1">
 <summary>Source review</summary>

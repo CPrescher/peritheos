@@ -80,7 +80,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 2.6\]
 - **Reported temperature coverage (K):** \[298.0, 298.0\]
 
-The published 62.36 A^3/formula-unit V0 is multiplied by four for the conventional B1 cell. The source gives no individual fit uncertainties and fixes K0'=5.5.
+Published V0 = 62.36 Å³/formula unit; stored per conventional B1 cell (×4).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -163,7 +163,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/kcl
 - **Reported pressure coverage (GPa):** \[0, 1.733\]
 - **Reported temperature coverage (K):** \[303.15, 873.15\]
 
-Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0\*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177\*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.
+V0 is the B1 reference volume 37.50 cm³/mol selected in Figure 1, stored per Z = 4 cell; Tables 1 and 3 instead print 249.53 Å³ (37.57 cm³/mol). Table 3 gives K0 = 177 kbar and the thermal coefficient as the directly reported alpha0\*K0 = 0.0195(5) kbar/K, not the rounded product. Tr is 23 °C (296.15 K).
 
 <details markdown="1">
 <summary>Source review</summary>

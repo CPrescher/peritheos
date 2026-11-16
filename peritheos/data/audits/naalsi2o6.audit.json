@@ -233,6 +233,14 @@
             }
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Complete preferred high-temperature BM3 parameterization from Zhao et al. (1997), fitted to the 31 hydrostatic Table 1 P-V-T states. The authors fixed V0=403 A^3 and K0'=5, and varied K0, dK/dT, a, and b. Their alternate K0'=4, K0'=6, and unconstrained-K0' tradeoff solutions remain documented in the source audit rather than being silently combined. The source does not report the regression objective, row weights, parameter covariance, or confidence convention.",
+        "validity_notes": [
+          "Experimental P-T bounds are an observed envelope, not a rectangular extrapolation guarantee.",
+          "The source states that the pressure range is too small to resolve K0' confidently; K0'=5 is the preferred constrained alternative."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

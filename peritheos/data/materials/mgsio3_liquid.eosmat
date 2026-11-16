@@ -31,18 +31,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 206.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": [
-          "This executable BM3 is the source's zero-pressure reference isentrope for its candidate high-pressure melt EOS, not an ambient liquid isotherm.",
-          "The source's Gruneisen, heat-capacity, and transition-energy terms are not implied by this cold/reference-curve record."
-        ]
+        "temperature_k": [298.15, 298.15]
       },
       "experimental_pressure_range_gpa": [0.0, 206.0],
       "experimental_temperature_range_k": [298.15, 298.15],
       "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text. Retain in production as a published candidate reference isentrope with explicit qualification: it is not a direct P-rho fit, not a complete executable thermal Hugoniot, and not independently identifiable from the three melt states.",
+      "notes": "The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS; not an ambient liquid isotherm, a direct P-rho fit or a complete thermal Hugoniot. V0 is computed from the source's rho0. The source's Grüneisen, heat-capacity and transition-energy terms are not included.",
       "fit_datasets": ["mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt"],
       "reference": {
         "authors": ["Akins", "Luo", "Asimow", "Ahrens"],

@@ -85,14 +85,14 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[19.7, 45.8\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The measurements were made after laser annealing and temperature quench; the paper does not establish this tetragonal structure as the simultaneous high-temperature phase.; V0 is an adopted zero-pressure extrapolation because CaSiO3 perovskite is not recovered as this phase at ambient conditions.
+    - **Notes:** Measured after laser annealing and temperature quench; the paper does not establish this tetragonal structure as the high-temperature phase.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.161
 - **Reported error confidence level:** 0.6826894921370859
 
-The stored volume basis is the source's P4/mmm pseudocell (Z=1), while the phase identity remains generically tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals. Figure 2a supporting observations are now bundled as an explicitly digitized dataset; the 19.7 GPa cubic refinement is flagged separately.
+Volumes are per the source's P4/mmm pseudocell (Z = 1); the phase is identified only as tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals. V0 is an adopted zero-pressure extrapolation, since this phase is not recovered at ambient conditions. The 19.7 GPa refinement is cubic.
 
 <details markdown="1">
 <summary>Source review</summary>

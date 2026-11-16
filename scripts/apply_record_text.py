@@ -28,7 +28,11 @@ object left empty is removed. Labels come only from ``--labels`` (CSV columns
 ``mechanical`` are applied.
 
 A record is refused, and reported, when a ``before`` text or the CSV's current
-label differs from the file, or when one of these guards fails:
+label differs from the file, when a validity note would create or remove the
+record's ``validity`` object (``validity_scope``: a ``validity`` object replaces
+the experimental ranges as the enforced envelope, so this would change the
+record's behaviour; returning to a stored original is accepted), or when one
+of these guards fails:
 
 ``numbers``
     an after text contains a number (decimals, or integers of two or more
@@ -446,6 +450,22 @@ def plan_changes(
                 and not isinstance(record.get("thermal"), dict)
             ):
                 reasons.append(("no_thermal", "the record has no thermal object"))
+            if new and "validity_notes" in new:
+                trial = copy.deepcopy(record)
+                set_record_text(trial, "validity_notes", new["validity_notes"])
+                restores = stored is not None and "validity_notes" in stored
+                restores = (
+                    restores
+                    and _normal(stored["validity_notes"]) == (new["validity_notes"])
+                )
+                if ("validity" in trial) != ("validity" in record) and not restores:
+                    reasons.append(
+                        (
+                            "validity_scope",
+                            "adding or removing the validity object changes the "
+                            "range check_validity enforces; use notes instead",
+                        )
+                    )
             for reason, detail in reasons:
                 plan.refusals.append(Refusal(material, identifier, reason, detail))
             if reasons or not new:

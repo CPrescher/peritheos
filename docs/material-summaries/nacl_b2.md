@@ -113,7 +113,7 @@ Automatic selection for equilibrium calculations.
     - **Molar mass g mol:** 58.44277
 - **Reported error confidence level:** Not specified
 
-Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
+Table 2 parameterization of a joint pressure-scale network. For most materials the source fixes V0 and K0 from cited primary measurements and fits K0' to the internally consistent compression network. K\_infinity' is fixed at 5/3 except for Cu.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -189,7 +189,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **DOI:** 10.1103/PhysRevB.30.6045
 - **Reported pressure coverage (GPa):** \[25.0, 70.0\]
 
-Heinz and Jeanloz report V0(B2)/V0(B1) = 0.929 +/- 0.071 and K0 = 36.2 +/- 4.2 GPa from a second-order finite-strain fit, which fixes K0' at 4. The V0 uncertainty is propagated using the ambient B1 volume. The uncitable Sata/Shen fit was removed.
+Second-order finite-strain fit (K0' = 4). The paper gives V0(B2)/V0(B1) = 0.929 ± 0.071; the stored V0 and its error are converted using the ambient B1 volume.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -265,7 +265,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[33.0, 140.0\]
 
-Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.11 GPa and K0' +/- 0.02. The B2 phase data are above 33 GPa. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0\_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.
+Table II Cu-referenced fit to the DAC-2 data. The published curve gives negative residuals for all DAC-2 Table S1 observations above 35 GPa; the source-fit discrepancy is unresolved.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -356,14 +356,14 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3]
 - **Validity:**
     - **Pressure gpa:** \[30, 330\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
+    - **Notes:** Approximate: the article does not give the pressure extrema of the recalculated data.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
 - **Reported error confidence level:** Not specified
 
-New Yokoo-Pt calibration of Sakai (2011a) NaCl-B2 observations. V0=38.34(4.69) A³ from g-G analysis, then fixed. The unusually large printed V0 uncertainty is retained verbatim. Exact new calibration pressure extrema and original paired NaCl/Pt rows are not given in this article; the validity envelope is approximate.
+Sakai (2011a) NaCl-B2 observations recalculated on the Yokoo et al. (2009) Pt scale. V0 was determined by a g-G analysis and then fixed.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -449,14 +449,14 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[53.7, 304.4\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations.
+    - **Notes:** Range of the new Table I data on this Pt scale; the fit also includes lower-pressure Sata et al. (2002) data.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
 - **Reported error confidence level:** Not specified
 
-Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
+Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -544,14 +544,14 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[53.7, 304.4\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations.
+    - **Notes:** Range of the new Table I data on this Pt scale; the fit also includes lower-pressure Sata et al. (2002) data.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
 - **Reported error confidence level:** Not specified
 
-Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
+Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -641,14 +641,14 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3]
 - **Validity:**
     - **Pressure gpa:** \[54, 301.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations.
+    - **Notes:** Range of the new Table I data on this Pt scale; the fit also includes lower-pressure Sata et al. (2002) data.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
 - **Reported error confidence level:** Not specified
 
-Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
+Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -738,14 +738,14 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_vine
 - **Validity:**
     - **Pressure gpa:** \[54, 301.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations.
+    - **Notes:** Range of the new Table I data on this Pt scale; the fit also includes lower-pressure Sata et al. (2002) data.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
 - **Reported error confidence level:** Not specified
 
-Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
+Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -835,14 +835,14 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3]
 - **Validity:**
     - **Pressure gpa:** \[54.7, 313.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations.
+    - **Notes:** Range of the new Table I data on this Pt scale; the fit also includes lower-pressure Sata et al. (2002) data.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
 - **Reported error confidence level:** Not specified
 
-Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
+Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -932,14 +932,14 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_vine
 - **Validity:**
     - **Pressure gpa:** \[54.7, 313.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations.
+    - **Notes:** Range of the new Table I data on this Pt scale; the fit also includes lower-pressure Sata et al. (2002) data.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
 - **Reported error confidence level:** Not specified
 
-Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
+Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1029,14 +1029,14 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3]
 - **Validity:**
     - **Pressure gpa:** \[54.5, 333.1\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations.
+    - **Notes:** Range of the new Table I data on this Pt scale; the fit also includes lower-pressure Sata et al. (2002) data.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
 - **Reported error confidence level:** Not specified
 
-Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
+Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1125,14 +1125,14 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_vine
 - **Validity:**
     - **Pressure gpa:** \[54.5, 333.1\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations.
+    - **Notes:** Range of the new Table I data on this Pt scale; the fit also includes lower-pressure Sata et al. (2002) data.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
 - **Reported error confidence level:** Not specified
 
-Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
+Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1233,7 +1233,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 </details>
 
-Published coefficients retained. One NaCl formula unit and two atoms per B2 cell. Source reports room-temperature data up to 107 GPa and a 1000 K decompression series from 98 to 34 GPa; vector points extend slightly beyond rounded prose endpoints. The 2000 K curve is calculated extrapolation, not measured data. Parenthetical parameter error widths have unspecified confidence and no covariance. Diagnostic fits do not replace this record. The direct variable-exponent theta law follows the printed equation, although drawn curves cannot uniquely distinguish it from the integrated law. No default changed.
+Vinet + Mie-Grüneisen-Debye fit to room-temperature data up to 107 GPa and a 1000 K decompression series from 98 to 34 GPa; the paper's 2000 K curve is an extrapolation. The Debye temperature follows the printed variable-exponent equation; the drawn curves cannot uniquely distinguish it from the integrated law.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1343,7 +1343,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[31.46241121667742, 107.53915690434465\]
     - **Temperature k:** \[300.0, 1000.0\]
-    - **Notes:** Marginal digitized-observation coverage only. Separate 300 K cold and 1000 K hot series; no rectangular phase-stability or intermediate-temperature validation claim.
+    - **Notes:** Only separate 300 K and 1000 K series; no data at intermediate temperatures.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
@@ -1357,7 +1357,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Independent Peritheos staged refit of digitized Fei (2007) NaCl-B2 study markers: 12 Figure 3 rows at 300 K determine K0/K0-prime with V0 fixed; then all 12 Figure 4 rows at 1000 K determine q with the cold fit frozen. The printed variable-exponent Debye law, V0, gamma0 and theta0 are inherited from the published record. Equal pressure weights are an analyst choice. Duplicate Figure 4 cold markers, other-paper comparisons and calculated curve vertices are excluded. This is a conditional figure-data refit, not reproduction of the authors' fit or independent validation of pressure accuracy. Original unrounded measurements, P/V/T errors, measured Pt cells, source weights and calibration covariance remain unavailable. Conditional stage errors are archived in fit statistics only; catalog parameter errors and covariance are unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty are not propagated. Coverage consists of separate 300 and 1000 K series, not a validated P-T rectangle.
+Peritheos two-stage refit of data digitized from Fei (2007): 300 K Figure 3 points give K0 and K0' with V0 fixed, then 1000 K Figure 4 points give q with the cold fit frozen. V0, gamma0, theta0 and the variable-exponent Debye law are taken from the published record. Not a reproduction of the authors' fit or an independent validation of pressure accuracy.
 
 <details markdown="1">
 <summary>Source review</summary>

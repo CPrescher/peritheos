@@ -116,6 +116,10 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section II; Table I; Figure 1 caption; Table IV."
         }
+      },
+      "superseded_record_text": {
+        "notes": "V0=5.9062 A^3/atom multiplied by 8 atoms in the conventional cubic cell. The fitted range is described as 160 GPa in prose; Table IV's highest row is 162.5 GPa. The unsupported migrated K0=500 record was removed.",
+        "superseded_on": "2026-11-16"
       }
     },
     "boron_nitride_datchi_2007_vinet_mgd_2": {
@@ -248,6 +252,14 @@
           "thermal.n": "Equation 3 is the three-mode Debye energy per mole of atoms; n=2 on Peritheos's per-mole-BN volume basis",
           "equation": "Equations 2-4 and Section V: 0 K Vinet cold pressure plus absolute Debye vibrational pressure, with gamma=gamma0(V/V0)^q and theta obtained by integrating gamma=-d ln(theta)/d ln(V)"
         }
+      },
+      "superseded_record_text": {
+        "notes": "This is not the existing 295 K Vinet record with a reference-subtracted thermal increment. Datchi et al. explicitly define Pth(V,T)=0 at 0 K and Table V supplies a distinct 0 K cold Vinet curve. Peritheos therefore uses thermal_pressure_reference=absolute_zero while keeping Tr=295 K only as the public default temperature and for reference-relative diagnostics. At the printed Table IV lattice parameters, the published coefficients give a 0.584 GPa pressure RMSE, reproducing the paper's stated 0.6 GPa. A q-only unweighted pressure-residual refit gives q=7.35(1.89); the discrepancy from 4(1.5) is less than two combined standard deviations and is plausibly affected by rounded P/a rows and the unpublished regression weights. Section IV's gamma_th0=1.04(1) conflicts with final Table V's 1.04(2); this record follows the final parameter table. The source states that parenthetical errors are fit standard deviations, not absolute uncertainties; pressure-scale uncertainty dominates and coefficient covariance is not published.",
+        "validity_notes": [
+          "Marginal envelope of Table IV; 295 K compression reaches 162.5 GPa, whereas heated compression reaches 900 K and 84.2 GPa and the 948 K observation is at ambient pressure.",
+          "The record represents zinc-blende c-BN only; no transition was observed in the 295 K compression range."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

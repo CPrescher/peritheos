@@ -27,7 +27,7 @@
       "experimental_pressure_range_gpa": [0.0, 8.9],
       "experimental_temperature_range_k": [298.0, 298.0],
       "determination_method": "experimental",
-      "notes": "Third-order Birch-Murnaghan fit to 22 single-crystal measurements from ambient pressure to 8.9 GPa at room temperature. The range describes the fitted data, not the alpha-quartz stability field.",
+      "notes": "BM3 fit to 22 single-crystal measurements at room temperature.",
       "reference": {
         "authors": ["Angel", "Allan", "Miletich", "Finger"],
         "year": 1997,
@@ -60,13 +60,14 @@
       "validity": {
         "pressure_gpa": [0.0, 40.0],
         "temperature_k": [300.0, 300.0],
-        "notes": ["QMC plus quasiharmonic phonons; quartz is metastable above its transition."]
+        "notes": ["Quartz is metastable above its transition."]
       },
       "experimental_pressure_range_gpa": [0.0, 40.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
+      "notes": "QMC calculation with quasiharmonic phonons.",
       "reference": {
         "authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"],
         "year": 2010,

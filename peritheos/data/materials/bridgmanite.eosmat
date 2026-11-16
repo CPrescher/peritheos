@@ -31,7 +31,7 @@
       "experimental_pressure_range_gpa": [28.0, 108.0],
       "experimental_temperature_range_k": [300.0, 2430.0],
       "determination_method": "experimental",
-      "notes": "Preferred default for mantle work. The fit combines multi-anvil data at 28-63 GPa and 300-1500 K with laser-heated DAC data at 52-108 GPa and 300 or 1500-2430 K; the study reports measurements up to 110 GPa and 2500 K. V0=162.373 A^3 was fixed to an independent ambient measurement; theta0=950(150) K, gamma0=1.54(9), and q=1.5(3). The paper calls the exponent b; with its fixed a=1, the published Gruneisen expression reduces exactly to gamma=gamma0(V/V0)^b used here.",
+      "notes": "Fit to multi-anvil data (28-63 GPa, 300-1500 K) and laser-heated DAC data (52-108 GPa, 300 or 1500-2430 K), with V0 fixed to an independent ambient measurement. Thermal errors, not stored as fields: theta0 = 950(150) K, gamma0 = 1.54(9), q = 1.5(3). The paper's Grüneisen exponent b is q here, because its parameter a is fixed to 1.",
       "reference": {
         "authors": ["Tange", "Kuwayama", "Irifune", "Funakoshi", "Ohishi"],
         "year": 2012,
@@ -67,7 +67,7 @@
       "experimental_pressure_range_gpa": [28.0, 108.0],
       "experimental_temperature_range_k": [300.0, 2430.0],
       "determination_method": "experimental",
-      "notes": "Alternative Vinet fit to the same multi-anvil and laser-heated DAC dataset, measured up to 110 GPa and 2500 K. V0=162.373 A^3 was fixed to an independent ambient measurement; theta0=940(140) K, gamma0=1.55(9), and q=1.1(3). The paper calls the exponent b; with a fixed to 1, it is the q parameter of the conventional MGD volume dependence stored here.",
+      "notes": "Alternative Vinet fit to the same multi-anvil and laser-heated DAC data, with V0 fixed to an independent ambient measurement. Thermal errors, not stored as fields: theta0 = 940(140) K, gamma0 = 1.55(9), q = 1.1(3). The paper's Grüneisen exponent b is q here, because its parameter a is fixed to 1.",
       "reference": {
         "authors": ["Tange", "Kuwayama", "Irifune", "Funakoshi", "Ohishi"],
         "year": 2012,
@@ -98,7 +98,7 @@
       "experimental_pressure_range_gpa": [0.0, 10.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
-      "notes": "Single-crystal P-V data to 10 GPa. Retained as a low-pressure structural reference, not as the default mantle-range EoS. The normalized-stress plot supported a second-order Birch-Murnaghan fit, so K0_prime=4 is implicit in BM2 rather than stored as a fitted parameter.",
+      "notes": "Single-crystal P-V data; a low-pressure structural reference, not the mantle-range EOS. The normalized-stress plot supported BM2, so K0' = 4 is implied by the model, not fitted.",
       "reference": {
         "authors": ["Vanpeteghem", "Zhao", "Angel", "Ross", "Bolfan-Casanova"],
         "year": 2006,
@@ -135,16 +135,14 @@
         "pressure_gpa": [0.0, 82.5],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "The upper pressure bound is the highest 300 K observation in the authors' Table 1; the complete new P-V-T table extends to 109.1 GPa and 1485 K.",
-          "The lower bound includes the published zero-pressure reference state. It is not a phase-stability boundary.",
-          "Do not use this static slice as either of the source's high-temperature Model 1 or Model 2 curves."
+          "The upper bound is the highest 300 K observation in Table 1; the full P-V-T table extends to 109.1 GPa and 1485 K."
         ]
       },
       "experimental_pressure_range_gpa": [0.0, 82.5],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Published 300 K isotherm of the two high-temperature Birch-Murnaghan models, which coincide at 300 K. The full Model 1 and Model 2 parameterizations are intentionally not represented: they require the article's quadratic temperature laws for thermal expansivity and compressibility together with its temperature-dependent K'_T convention, which the current Peritheos thermal reference-state model cannot encode exactly. The executable record is therefore restricted to 300 K and is not the default bridgmanite EOS. The natural-enstatite starting material contained less than 1% Al and Fe; the authors identify the transformed phase and reported volumes as MgSiO3 perovskite. No EOS-parameter errors, confidence convention, covariance, residual statistic, or fit weights are published.",
+      "notes": "The 300 K isotherm shared by the paper's two high-temperature BM models (Model 1 and Model 2); use it at 300 K only, not as either model. Their quadratic temperature laws for thermal expansivity and compressibility and their temperature-dependent K'_T cannot be encoded exactly in Peritheos. The starting material was natural enstatite with less than 1% Al and Fe.",
       "fit_datasets": ["bridgmanite_saxena_1999_table1_pvt"],
       "reference": {
         "authors": ["Saxena", "Dubrovinsky", "Tutti", "Le Bihan"],
@@ -182,9 +180,8 @@
         "pressure_gpa": [0.0, 48.2],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "The executable record is the source's 300 K reference isotherm; the highest near-ambient-temperature observation is 48.2 GPa.",
-          "The zero-pressure reference is measured but lies outside bridgmanite's stability field and is not a phase-stability assertion.",
-          "Do not use this static slice as the article's complete P-V-T Mie-Gruneisen-Debye model."
+          "The upper bound is the highest near-room-temperature observation.",
+          "The 0 GPa reference volume is measured, outside bridgmanite's stability field."
         ]
       },
       "experimental_pressure_range_gpa": [18.9, 52.6],
@@ -192,7 +189,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Preferred source-reported room-temperature BM3 for pure MgSiO3 bridgmanite. The formal corrigendum corrects Table 1 but states that no EOS parameters change. The static record is separate from the article's MGD and high-temperature-BM formulations and is not made the material default.",
+      "notes": "The authors' preferred room-temperature BM3 for pure MgSiO3 bridgmanite; not the article's complete Mie-Grüneisen-Debye or high-temperature BM P-V-T model.",
       "fit_datasets": ["bridgmanite_katsura_2009_corrected_table1_pvt"],
       "reference": {
         "authors": [
@@ -247,17 +244,14 @@
       "validity": {
         "pressure_gpa": [0.0, 48.2],
         "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Same-data sensitivity parameterization with K0 fixed to 253 GPa; it is not an independent experiment or the preferred source fit.",
-          "The zero-pressure reference is measured but lies outside bridgmanite's stability field and is not a phase-stability assertion."
-        ]
+        "notes": ["The 0 GPa reference volume is measured, outside bridgmanite's stability field."]
       },
       "experimental_pressure_range_gpa": [18.9, 52.6],
       "experimental_temperature_range_k": [300.0, 2500.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Source-generated K0-fixed sensitivity fit to the same corrected data as the preferred companion record. It is retained because LitCurate independently proposed this exact parameterization and the primary paper explicitly reports it.",
+      "notes": "The authors' sensitivity fit with K0 fixed to 253 GPa, to the same corrected data as their preferred BM3; not their preferred fit and not an independent experiment.",
       "fit_datasets": ["bridgmanite_katsura_2009_corrected_table1_pvt"],
       "reference": {
         "authors": [
@@ -332,18 +326,14 @@
       "validity": {
         "pressure_gpa": [27.96, 108.51],
         "temperature_k": [300.0, 2430.0],
-        "volume_ratio": [0.79015544, 0.92684431],
-        "notes": [
-          "Marginal envelope of the 42 reanalyzed observations; the sampled P-T paths are not a rectangular phase-stability guarantee.",
-          "This is Wolf et al.'s reanalysis of Tange et al. (2012), not the original Tange BM3-MGD or Vinet-MGD parameterization."
-        ]
+        "volume_ratio": [0.79015544, 0.92684431]
       },
       "experimental_pressure_range_gpa": [27.96, 108.51],
       "experimental_temperature_range_k": [300.0, 2430.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Published Fe-free comparison record from Wolf et al.'s homogeneous reanalysis, deliberately separate from the original Tange et al. BM3-MGD and Vinet-MGD records. V0, K0, K0', gamma0, and q were fitted; Tr=300 K, theta0=1000 K, and the 20-atom conventional-cell count were fixed. The complete five-parameter covariance is reconstructed from Tables 3-4 rather than treating strongly correlated errors as independent. Table 5 provides an independent source-output check: at 108.7 GPa and 2429 K the implementation gives density 5.17 g/cm3, gamma=1.22, and Cv/(3Nk)=0.9839 at printed precision, and KS=603.81 GPa versus the printed 603.7 GPa (a 0.11 GPa difference attributable to rounded coefficients).",
+      "notes": "Wolf et al.'s homogeneous reanalysis of the Fe-free data of Tange et al. (2012), not the original Tange BM3-MGD or Vinet-MGD fits. The stored five-parameter covariance is reconstructed from Tables 3-4, because the errors are strongly correlated.",
       "fit_datasets": ["bridgmanite_wolf_2015_table2_pvt"],
       "reference": {
         "authors": ["Wolf", "Jackson", "Dera", "Prakapenka"],
@@ -386,17 +376,14 @@
       "validity": {
         "pressure_gpa": [0.0, 78.8],
         "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Bounded by the source's highest simultaneous Brillouin and single-crystal XRD pressure point.",
-          "This is the source's absolute pressure scale derived by integrating isothermal Reuss bulk modulus; it is not one of the adiabatic elastic-modulus truncations in Table 2."
-        ]
+        "notes": ["The upper bound is the highest pressure with simultaneous Brillouin and single-crystal XRD data."]
       },
       "experimental_pressure_range_gpa": [0.0, 78.8],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "The source calls K_TR0 and K'_TR0 a primary pressure scale. The reference cell volume is recovered transparently from the source's ambient density rather than copied from LitCurate. No covariance is published.",
+      "notes": "The source's primary (absolute) pressure scale, from integrating the isothermal Reuss bulk modulus. V0 is computed from the source's ambient density.",
       "validation_datasets": ["bridgmanite_criniti_2021_table1_density"],
       "reference": {
         "authors": ["Criniti", "Kurnosov", "Boffa Ballaran", "Frost"],
@@ -431,18 +418,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [29.5, 90.57],
-        "temperature_k": [298.0, 298.0],
-        "notes": [
-          "Applicable to pure orthorhombic Pbnm MgSiO3 bridgmanite at room temperature after stress-relieving laser heating.",
-          "This record is the source's room-temperature BM3, not either composite thermal inversion in Table 3."
-        ]
+        "temperature_k": [298.0, 298.0]
       },
       "experimental_pressure_range_gpa": [29.5, 90.57],
       "experimental_temperature_range_k": [298.0, 298.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "All three coefficients were fitted by the authors; none is marked fixed. Parenthetical uncertainties are preserved, while the confidence convention and covariance are not reported for this room-temperature fit.",
+      "notes": "Room-temperature BM3 for pure orthorhombic Pbnm MgSiO3 after stress-relieving laser heating; not either composite thermal inversion of Table 3.",
       "fit_datasets": ["bridgmanite_fiquet_2000_table1_298k_pv"],
       "reference": {
         "authors": ["Fiquet", "Dewaele", "Andrault", "Kunz", "Le Bihan"],
@@ -485,17 +468,13 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": [
-          "Static 0 K control used by the source to quantify the effect of 6.25 mol.% Fe2+.",
-          "This source-specific control is not made the catalog default and does not replace experimental bridgmanite records."
-        ]
+        "temperature_k": [0.0, 0.0]
       },
       "experimental_pressure_range_gpa": [0.0, 150.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "notes": "A source-generated static comparison record. It is distinct by method and reference state from previously cataloged experimental MgSiO3 EOS records.",
+      "notes": "Static 0 K calculation for pure MgSiO3: the control the source uses to quantify the effect of 6.25 mol.% Fe2+.",
       "reference": {
         "authors": ["Metsue", "Tsuchiya"],
         "year": 2012,
@@ -533,14 +512,12 @@
       "validity": {
         "pressure_gpa": [-10.440117, 230.833063],
         "temperature_k": [0, 0],
-        "volume_ratio": [0.65, 1.05],
-        "notes": ["Static 0 K GGA calculation envelope; not an experimental stability field."]
+        "volume_ratio": [0.65, 1.05]
       },
       "experimental_pressure_range_gpa": [-10.440117, 230.833063],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "notes": "Source-specific theoretical comparison; it does not replace the experimental catalog default.",
       "reference": {
         "authors": ["Akber-Knutson", "Steinle-Neumann", "Asimow"],
         "year": 2005,
@@ -575,14 +552,14 @@
       },
       "validity": {
         "pressure_gpa": [0.0, 160.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Anharmonic phonon-quasiparticle LDA reference isotherm; this is not an experimental stability field."]
+        "temperature_k": [300.0, 300.0]
       },
       "experimental_pressure_range_gpa": [0.0, 160.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
+      "notes": "300 K isotherm from anharmonic phonon-quasiparticle (PHQ) LDA calculations.",
       "reference": {
         "authors": ["Zhang", "Wentzcovitch"],
         "year": 2022,
@@ -616,14 +593,14 @@
       },
       "validity": {
         "pressure_gpa": [0.0, 160.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Anharmonic phonon-quasiparticle PBE reference isotherm; this is not an experimental stability field."]
+        "temperature_k": [300.0, 300.0]
       },
       "experimental_pressure_range_gpa": [0.0, 160.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
+      "notes": "300 K isotherm from anharmonic phonon-quasiparticle (PHQ) PBE calculations.",
       "reference": {
         "authors": ["Zhang", "Wentzcovitch"],
         "year": 2022,
@@ -662,7 +639,7 @@
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "BM2 is represented as BM3 with V0 and K0_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.",
+      "notes": "The published BM2 is stored as BM3 with K0' fixed to 4, which is algebraically identical. K0 was fitted to the Fe10 data only, and the authors apply the same compression curve to all three compositions with their own ambient volumes.",
       "fit_datasets": ["mao_1991_tables2_3_bridgmanite_pv"],
       "reference": {
         "authors": ["Mao", "Hemley", "Fei", "Shu", "Chen", "Jephcoat", "Wu", "Bassett"],
@@ -698,14 +675,14 @@
       },
       "validity": {
         "pressure_gpa": [0.0001, 30.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": ["298 K reference isotherm of the tc-ds62 thermodynamic endmember; not an individual experimental fit."]
+        "temperature_k": [298.15, 298.15]
       },
       "experimental_pressure_range_gpa": [0.0001, 30.0],
       "experimental_temperature_range_k": [298.15, 298.15],
       "pressure_range_status": "reference_parameterization",
       "determination_method": "unknown",
       "record_kind": "published",
+      "notes": "298 K reference isotherm of the mpv endmember of the tc-ds62 thermodynamic dataset; not an individual experimental fit.",
       "reference": {
         "authors": ["Holland", "Hudson", "Powell", "Harte"],
         "year": 2013,
@@ -843,8 +820,7 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 136.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Static GGA calculation spanning the lower-mantle pressure range discussed by the source."]
+        "temperature_k": [0.0, 0.0]
       },
       "experimental_pressure_range_gpa": [0.0, 136.0],
       "experimental_temperature_range_k": [0.0, 0.0],
@@ -887,16 +863,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 120.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": [
-          "Third-order branch b of the static calculation. K0'=4 is fixed by the second-order-in-energy/third-order-pressure Birch truncation used by the paper."
-        ]
+        "temperature_k": [0.0, 0.0]
       },
       "experimental_pressure_range_gpa": [0.0, 120.0],
       "experimental_temperature_range_k": [0.0, 0.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
+      "notes": "Third-order branch b of the static calculation. K0' = 4 is fixed by the paper's Birch truncation (second order in energy, third order in pressure).",
       "reference": {
         "authors": ["Deng", "Zhao", "Ji", "Gong", "Wei"],
         "year": 2006,
@@ -933,14 +907,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 140.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Static PBE-GGA branch used as the Mg endmember for the paper's quasiharmonic comparison."]
+        "temperature_k": [0.0, 0.0]
       },
       "experimental_pressure_range_gpa": [0.0, 140.0],
       "experimental_temperature_range_k": [0.0, 0.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
+      "notes": "Static PBE-GGA calculation; the Mg endmember of the paper's quasiharmonic comparison.",
       "reference": {
         "authors": ["Wu", "Zhao", "Tian"],
         "year": 2013,
@@ -977,14 +951,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Static orthorhombic Pbnm GGA branch used to construct the source EOS."]
+        "temperature_k": [0.0, 0.0]
       },
       "experimental_pressure_range_gpa": [0.0, 150.0],
       "experimental_temperature_range_k": [0.0, 0.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
+      "notes": "Static GGA branch for orthorhombic Pbnm MgSiO3, from which the source builds its EOS.",
       "reference": {
         "authors": ["Liu", "Sun", "Zhang", "Hu", "Song", "Qi"],
         "year": 2011,
@@ -1021,17 +995,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 130.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": [
-          "Reference isotherm of the source's larger Helmholtz model; the omitted thermal terms are not implied by this isothermal record."
-        ]
+        "temperature_k": [298.15, 298.15]
       },
       "experimental_pressure_range_gpa": [0.0, 130.0],
       "experimental_temperature_range_k": [298.15, 298.15],
       "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Accepted corrected mapping for LitCurate source row 867 (litcurate_7828334f1795f436). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.",
+      "notes": "Reference isotherm of the source's larger Helmholtz free-energy model; its thermal terms are not included in this record.",
       "diagnostic_datasets": ["dorogokupets_2015_bridgmanite_298k_reconstruction"],
       "reference": {
         "authors": ["Dorogokupets", "Dymshits", "Sokolova", "Danilov", "Litasov"],
@@ -1070,16 +1041,14 @@
       "validity": {
         "pressure_gpa": [0.0, 140.0],
         "temperature_k": [300.0, 300.0],
-        "notes": [
-          "The source extrapolates its fitted 300 K MD compression curve over the simulated 0-140 GPa grid; this is not an experimental EOS."
-        ]
+        "notes": ["The source extrapolates its fitted 300 K MD curve over the 0-140 GPa grid."]
       },
       "experimental_pressure_range_gpa": [0.0, 140.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "theoretical",
       "determination_method": "hybrid",
       "record_kind": "published",
-      "notes": "Accepted LitCurate source row 314 (litcurate_d6b5cf68e4b9f829) after recovering V0 transparently from the primary source's rho0. Row 315 is a Funamori et al. citation and is not duplicated.",
+      "notes": "BM3 fit to 300 K molecular-dynamics volumes. V0 is computed from the published rho0.",
       "reference": {
         "authors": ["Hamahata", "Ohtani", "Kawamura"],
         "year": 2000,

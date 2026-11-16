@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1080/08957950212807
 - **Reported pressure coverage (GPa):** \[0.0, 40.0\]
 
-Dubrovinsky et al. report molar V0 = 36.58(2) cm^3/mol, K0 = 220(1) GPa, and K0' = 4.1(1). V0 and its uncertainty were converted to the Z=4 cell.
+Published V0 = 36.58(2) cm³/mol; stored with its error per conventional cell (Z = 4).
 
 <details markdown="1">
 <summary>Source review</summary>

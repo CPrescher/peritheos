@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_qualitatively
 - **Reported error confidence level:** 0.95
 
-Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+V0 was fixed from a fit to the low-pressure (0-5 GPa) data. Run-2 Ag/Mo rows with revised pressure above 100 GPa are excluded, as stated in Section III. The input pressures are not on the paper's new 2008 ruby scale, which is an output of its later cross-calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -175,7 +175,7 @@ Published pressure-scale alternative of [nickel\_dewaele\_2019\_mao\_vinet](#rec
 - **Reported pressure coverage (GPa):** \[0.0, 157.0\]
 - **Reported error confidence level:** 0.95
 
-Compatibility lookup: this identifier historically attributed later 2019 Mao-scale coefficients to the 2008 paper and compared them with revised-scale observations. Its numerical coefficients and uncertainties are preserved exactly. Table IV of the 2008 paper is represented separately by the \*\_dewaele\_2008\_table4\_\* records. The source attribution, calibration and audit are corrected to the matching 2019 Table 1 Mao row; this is not an additional experiment.
+Compatibility identifier for the Dewaele (2019) Mao-scale Vinet fit of Table 1, with the same coefficients; not an additional experiment. The 2008 paper's own Table IV fits are separate records.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -265,10 +265,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 157.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static DAC X-ray compression data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -355,10 +354,9 @@ Published pressure-scale alternative of [nickel\_dewaele\_2019\_mao\_vinet](#rec
 - **Validity:**
     - **Pressure gpa:** \[0.0, 157.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static DAC X-ray compression data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -454,7 +452,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/nic
 
 </details>
 
-Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0\*(V/V0)^q and theta=theta0\*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. All 101 source rows are bundled. Nine quenched DAC states are retained but excluded from the main 92-row refit because Section 2.2 warns of residual stresses; an all-row sensitivity fit is reported.
+295 K BM3 + Mie-Grüneisen-Debye from Equation (5) and Table 1, with gamma = gamma0\*(V/V0)^q and theta = theta0\*(V/V0)^(-gamma(V)), and no electronic or anharmonic pressure term. The published molar V0 is converted to the Z = 4 conventional cell. Tabulated temperatures are the source's temperature-corrected values.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -563,7 +561,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Reported error confidence level:** 0.95
 
-Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+V0 was fixed from a fit to the low-pressure (0-5 GPa) data, and K0 is adopted from ultrasonic measurements, not fitted. Run-2 Ag/Mo rows with revised pressure above 100 GPa are excluded, as stated in Section III. The input pressures are not on the paper's new 2008 ruby scale, which is an output of its later cross-calibration.
 
 <details markdown="1">
 <summary>Source review</summary>

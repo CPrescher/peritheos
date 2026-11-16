@@ -86,7 +86,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 49.4\]
 - **Coverage provenance:** reported\_exactly
 
-Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. It is distinct from the paper's later global linear-composition model. V0 and its error are propagated from the primary a0=4.2805(4) A measurement; K0=149+/-4 GPa and K0'=4 fixed. Table 2 spans 0-49.4 GPa. No covariance or confidence convention for the K0 error is reported.
+Fit-specific room-temperature BM2 for MW60 (60 mol% FeO), distinct from the paper's global linear-composition model. V0 and its error are propagated from the measured a0 = 4.2805(4) Å. No covariance or confidence convention for the K0 error is reported.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -165,11 +165,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0, 140\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 59.228
+
+High-spin reference branch of a coupled spin-crossover fit to the Lin data (MINUTI program); not the mixed-spin curve through the transition.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -243,11 +244,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0, 140\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 59.228
+
+Low-spin reference branch of a coupled spin-crossover fit to the Lin data (MINUTI program); not the mixed-spin curve through the transition.
 
 <details markdown="1">
 <summary>Source review</summary>

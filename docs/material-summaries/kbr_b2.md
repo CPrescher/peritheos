@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[2.3, 165.0\]
 - **Reported temperature coverage (K):** \[298.0, 298.0\]
 
-Table III experimental B2 fit in helium. V0 is a fictive zero-pressure value fixed from the lowest-pressure 2-6 GPa measurements; no coefficient standard errors are tabulated.
+Table III fit to B2 data in helium. V0 is a fictive zero-pressure value fixed from the lowest-pressure (2-6 GPa) measurements.
 
 <details markdown="1">
 <summary>Source review</summary>

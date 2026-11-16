@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.2138/am-2002-2-316
 - **Reported pressure coverage (GPa):** \[0.0, 7.6\]
 
-Hydrous phase A, Mg7Si2O8(OH)6. Crichton and Ross report V0 = 512.56(3) A^3, K0 = 97.5(4) GPa, and K0' = 5.97(14). The formula is stored in parser-compatible expanded form.
+Hydrous phase A, Mg7Si2O8(OH)6.
 
 <details markdown="1">
 <summary>Source review</summary>

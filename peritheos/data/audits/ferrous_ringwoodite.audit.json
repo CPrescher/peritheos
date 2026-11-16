@@ -114,6 +114,12 @@
       },
       "superseded_record_text": {
         "label": "Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction",
+        "notes": "Derived ambient-cell reconstruction, not an independently refitted record and not a claim to have recovered the original fit intercept. Static default; the separate 2011 thermal candidate remains staged outside the executable catalog. PublishedK0 unchanged;Kprime=4 fixed. ReferenceT296.15K; no300K or thermal behavior claimed.",
+        "validity_notes": [
+          "Three measured Fe2SiO4 states only, at room temperature; no thermal correction or equilibrium phase-stability claim.",
+          "Source BM2 coefficients reconstructed with the measured ambient volume; original fit covariance/weights and precise reference-intercept treatment are not recovered.",
+          "Zero-pressure gauge approximation to the1bar measured ambient state is explicit and negligible at the source precision."
+        ],
         "superseded_on": "2026-11-16"
       }
     }

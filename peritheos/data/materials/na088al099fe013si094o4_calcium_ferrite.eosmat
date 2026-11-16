@@ -31,18 +31,14 @@
       "validity": {
         "pressure_gpa": [0.0001, 44.0],
         "temperature_k": [293.0, 293.0],
-        "volume_ratio": [0.846027846, 0.9991809992],
-        "notes": [
-          "The pressure and volume-ratio bounds are the Table S4 observation envelope, not a broader phase-stability guarantee.",
-          "All measurements are described as room temperature; 293 K is the explicit temperature of the companion official CIF measurement, and no row-wise temperatures are published."
-        ]
+        "volume_ratio": [0.846027846, 0.9991809992]
       },
       "experimental_pressure_range_gpa": [0.0001, 44.0],
       "experimental_temperature_range_k": [293.0, 293.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0_prime were all fitted with EosFit7c; none was fixed. Parenthesized coefficient errors are retained as generic published uncertainties because the source gives neither confidence level nor covariance. The observed range is not a phase-stability guarantee. See docs/qin-2023-naalsio4-eos.md.",
+      "notes": "Fitted with the EosFit7c program. The source gives only room temperature; 293 K is the temperature of its companion CIF measurement, and no row-wise temperatures are published.",
       "fit_datasets": ["na088al099fe013si094o4_qin_2023_table_s4_pv"],
       "reference": {
         "authors": ["Qin", "Wu", "Xue", "Zhang", "Wu", "Jacobsen"],

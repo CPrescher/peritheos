@@ -46,7 +46,7 @@
         "notes": "Marginal source coverage, not a rectangular phase-stability field. Thermal observations span 29.5964-149.9481 GPa and 1220-2590 K; 300 K denotes the separately fitted literature reference isotherm. The paper describes a 40-150 GPa model range. All supplied rows are retained; neither FeS-VI stability nor common-model applicability below 40 GPa is asserted."
       },
       "determination_method": "experimental",
-      "notes": "One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. Accepted on staged parameter agreement within reported uncertainties. The residual-envelope discrepancy is informational; exact author workflow is unverified. Use the common EOS within the paper's 40-150 GPa scope and observed thermal coverage; this is not a phase-stability guarantee.",
+      "notes": "One published volume relation fitted jointly across FeS-VI, FeS-IV and FeS-IX. V0 is an extrapolated EOS parameter, distinct from the structural cell measured at 56 GPa and 300 K. Use within the paper's 40-150 GPa model range and the observed thermal coverage.",
       "fit_datasets": ["fes_morard_2026_table_s1_pvt"],
       "reference": {
         "authors": ["Morard", "Antonangeli", "Miozzi", "Baron", "Edmund", "Cerantola", "Mezouar"],

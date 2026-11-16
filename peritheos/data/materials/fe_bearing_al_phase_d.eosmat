@@ -34,8 +34,8 @@
         "temperature_k": [291.0, 295.0],
         "volume_ratio": [0.85207935, 1.0],
         "notes": [
-          "Empirical room-temperature pre-crossover fit only; it does not represent the changed compression behavior above 38 GPa.",
-          "The paper places the broad Fe3+ spin crossover at approximately 30-65 GPa, so the fitted 0-38 GPa interval is not a rectangular high-spin phase-stability field."
+          "Room-temperature pre-crossover fit only; it does not represent the changed compression behavior above 38 GPa.",
+          "The paper places the broad Fe3+ spin crossover at about 30-65 GPa, so the 0-38 GPa interval is not a high-spin stability field."
         ]
       },
       "experimental_pressure_range_gpa": [0.35, 37.92],
@@ -43,7 +43,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Canonical room-temperature record. The first BM3 row of Table 2 freely fits V0, K0, and K0'; neither of the two ambient-volume-fixed alternatives is stored as another executable record. The BM3 choice is justified by the abstract's reported coefficients, Figure 3's exclusive display of BM3 curves, and Table 3's BM comparison across phase-D studies. Parenthetical errors are retained as generic published uncertainties because the source does not state a confidence convention.",
+      "notes": "Room-temperature fit of the first BM3 row of Table 2, with V0, K0 and K0' all free. The two ambient-volume-fixed variants in Table 2 are not stored as records.",
       "fit_datasets": ["fe_bearing_al_phase_d_criniti_2023_table1_compression"],
       "reference": {
         "authors": ["Criniti", "Ishii", "Kurnosov", "Glazyrin", "Husband", "Boffa Ballaran"],
@@ -88,17 +88,14 @@
         "pressure_gpa": [0.0, 38.0],
         "temperature_k": [291.0, 295.0],
         "volume_ratio": [0.85207935, 1.0],
-        "notes": [
-          "Published alternative to the canonical BM3 fit over the same room-temperature pre-crossover observations.",
-          "Do not extrapolate through the changed compression behavior above 38 GPa."
-        ]
+        "notes": ["Do not extrapolate through the changed compression behavior above 38 GPa."]
       },
       "experimental_pressure_range_gpa": [0.35, 37.92],
       "experimental_temperature_range_k": [291.0, 295.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Published non-default alternative. The first Vinet row of Table 2 freely fits V0, K0, and K0'; the two ambient-volume-fixed variants are documented but not multiplied into additional executable records. Parenthetical errors are retained as generic published uncertainties because their confidence convention is not stated.",
+      "notes": "Published alternative to the BM3 record over the same room-temperature pre-crossover observations: the first Vinet row of Table 2, with V0, K0 and K0' all free. The two ambient-volume-fixed variants are not stored as records.",
       "fit_datasets": ["fe_bearing_al_phase_d_criniti_2023_table1_compression"],
       "reference": {
         "authors": ["Criniti", "Ishii", "Kurnosov", "Glazyrin", "Husband", "Boffa Ballaran"],

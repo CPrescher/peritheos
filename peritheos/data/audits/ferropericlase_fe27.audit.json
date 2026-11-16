@@ -152,6 +152,15 @@
           "fit_selection": "Paragraphs 24-25 and Table 5: all 10 Fe27 rows, including the zero-pressure in-cell observation.",
           "weighting": "Paragraph 25: error-weighted three-parameter fit with EoSFIT; the table supplies row-wise sample-lattice and pressure standard deviations."
         }
+      },
+      "superseded_record_text": {
+        "notes": "The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.",
+        "validity_notes": [
+          "The bounds are the complete Table 5 measurement envelope, not a phase-stability guarantee.",
+          "The 4:1 methanol-ethanol medium and single-crystal experiment define the stress environment.",
+          "The numeric temperature is operational because the source states only room/ambient temperature."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

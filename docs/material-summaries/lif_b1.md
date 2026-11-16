@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Reported error confidence level:** 0.95
 
-Table 1 Mao-ruby-scale fit, selected because that column reports parameter uncertainties. Published V0=16.371(30) A^3 per formula unit is multiplied by Z=4 for the conventional B1 cell. The paper states that parenthesized values are 95% confidence intervals.
+Table 1 fit on the Mao ruby scale. Published V0 = 16.371(30) Å³ per formula unit; stored per conventional B1 cell (×4).
 
 <details markdown="1">
 <summary>Source review</summary>

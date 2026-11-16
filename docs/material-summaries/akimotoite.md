@@ -105,14 +105,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[-11.0, 33.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static-lattice parameterization; the pressure bounds are the paper's stated calculation regime, not a phase-stability field.; The source reports volume per MgSiO3 formula unit; values are multiplied by Z=6 for this conventional hexagonal-cell document.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Non-default theoretical record; the catalog's experimental Siersch et al. record remains the equilibrium default.
+Static 0 K LDA calculation. Published volume per MgSiO3 formula unit; stored per conventional hexagonal cell (×6).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -194,14 +193,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[-11.0, 33.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Quasiharmonic isotherm within the paper's stated calculation pressure regime; this is not an experimental fit or a phase-stability field.; The source reports volume per formula unit; the stored V0 is converted to the Z=6 conventional-cell basis.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Non-default theoretical 300 K isotherm; do not substitute it for the catalog's experimental equilibrium default.
+Quasiharmonic LDA 300 K isotherm, not an experimental fit; do not substitute it for the experimental equilibrium default. Published volume per formula unit; stored per conventional cell (×6).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -283,14 +281,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[-11.0, 33.0\]
     - **Temperature k:** \[1000.0, 1000.0\]
-    - **Notes:** Quasiharmonic isotherm within the stated calculation regime; it is not an experimental fit or a stability-field claim.; The source's per-formula volume is multiplied by six for this material document.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Non-default temperature-specific theoretical isotherm.
+Quasiharmonic LDA 1000 K isotherm, not an experimental fit. Published volume per formula unit; stored per conventional cell (×6).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -372,14 +369,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[-11.0, 33.0\]
     - **Temperature k:** \[2000.0, 2000.0\]
-    - **Notes:** High-temperature QHA isotherm; the authors explicitly warn that quasiharmonic accuracy generally degrades at high temperature and zero pressure.; The pressure bounds report the calculation regime and are not a phase-stability field.
+    - **Notes:** The authors warn that quasiharmonic accuracy generally degrades at high temperature and zero pressure; take care when extrapolating toward zero pressure.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Non-default high-temperature theoretical isotherm; extrapolation toward zero pressure should respect the paper's QHA warning.
+Theoretical 2000 K quasiharmonic LDA isotherm.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -458,7 +455,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported temperature coverage (K):** \[298.0, 298.0\]
 - **Reported error confidence level:** Not specified
 
-This is the ruby-pressure assignment of the same 16-row compression/decompression experiment represented by the companion ice-VII-scale record. It is a distinct fit, not a duplicate parameter transcription. The paper reports that V0 was varied and stayed within 0.01% of the measured in-cell value, while K0 was fixed at the adopted 212 GPa Brillouin value. Ruby-line broadening above 15 GPa showed increasing nonhydrostatic stress; the authors therefore regarded K0'=7.5 as less realistic than the ice-VII-scale result. The source gives neither parameter covariance nor a confidence convention for parenthesized fit errors, and it does not specify an exact ruby calibration equation. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.
+Ruby-pressure fit to the same 16-row compression/decompression experiment as the ice-VII-scale record, with K0 fixed at the adopted Brillouin value; V0 stayed within 0.01% of the measured in-cell value. Ruby-line broadening above 15 GPa showed increasing nonhydrostatic stress, so the authors regard K0' = 7.5 as less realistic than the ice-VII result. The ruby calibration equation is not specified.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -545,7 +542,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported temperature coverage (K):** \[298.0, 298.0\]
 - **Reported error confidence level:** Not specified
 
-This is the authors' preferred pressure assignment of the same experiment represented by the companion ruby-scale record. It is a distinct fit, not a duplicate parameter transcription. Ice-VII (110) diffraction and MgSiO3 ilmenite were measured on the same 50 micrometer X-ray spot; Table 1 prints 12 finite-pressure Pi values, and Figure 3f additionally plots the two ambient measurements as zero-pressure anchors, giving 14 usable rows. The paper reports that V0 was varied and K0 was fixed at the adopted 212 GPa Brillouin value. Above 15 GPa the pressure medium developed nonhydrostatic stress and pressure gradients; the bracketed ice-pressure quantities are maximum gradient estimates, not stated one-sigma errors. The source gives neither parameter covariance nor a confidence convention for fitted-parameter errors. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.
+Fit to ice-VII (110) pressures measured on the same 50 micrometer X-ray spot as the sample, in the experiment also used by the ruby-scale record; K0 is fixed at the adopted Brillouin value. Above 15 GPa the medium developed nonhydrostatic stress and pressure gradients. The bracketed ice pressures in Table 1 are maximum gradient estimates, not stated one-sigma errors.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -715,14 +712,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[0.0, 130.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** Reference isotherm of the source's larger Helmholtz model; this range is the study's calculation envelope, not an akimotoite stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Accepted corrected mapping for LitCurate source row 869 (litcurate\_8acd9ecf5854a501). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.
+298 K reference isotherm of the source's larger Helmholtz model.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -804,14 +800,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0, 16.2\]
     - **Temperature k:** \[298, 298\]
-    - **Notes:** Bounds describe fitted observations, not a phase-stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 6
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.
+Secondary Au-scale fit, not the authors' preferred NaCl result. K0 is fixed at the adopted Brillouin value, and only the 13 room-temperature observations are fitted.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -898,14 +893,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[-0.05, 17.044\]
     - **Temperature k:** \[298, 298\]
-    - **Notes:** Bounds describe fitted observations, not a phase-stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 6
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here. Unweighted pressure residuals reproduce the free coefficients within printed errors, with conditional reconstructed standard errors and covariance; numerical parameter parity uses the printed-error-width criterion. The source does not supply a complete optimizer/weighting protocol, confidence convention or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.
+The authors' preferred static fit, using NaCl pressures, from an experiment separate from the T0133 Au run. All ten 298 K observations are fitted, including the printed -0.05 GPa recovered point. The authors' thermal fits, which also use external zero-pressure expansion data, are not included.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -991,14 +985,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0, 25.02\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Bounds describe fitted observations, not a phase-stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 6
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.
+K0 is the static isothermal value, not the acoustic K0S = 219.4(7) GPa; K0' is fixed by the acoustic derivative approximation stated in the paper. Volumes are converted from the 17 printed 300 K densities with Z = 6 and M = 100.387 g/mol; rounding of the densities limits recovery of the diffraction volumes.
 
 <details markdown="1">
 <summary>Source review</summary>

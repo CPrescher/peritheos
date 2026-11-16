@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from peritheos import list_eos_record_documents
+from peritheos import get_eos_record, get_material_document, list_eos_record_documents
 from scripts.validate_primary_eos_refits import (
     check_ledger_values,
     shen_cu_pressure_gpa,
@@ -258,7 +258,12 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         "same 16-row compression/decompression experiment"
         in reynard_ruby["source_notes"]
     )
-    assert "distinct fit" in reynard_ice["source_notes"]
+    assert (
+        "experiment also used by the ruby-scale record" in (reynard_ice["source_notes"])
+    )
+    # "Distinct fit, not a duplicate" is curation wording kept as the original.
+    ice_record = get_eos_record("akimotoite_reynard_1996_bm3_ice_vii_3")
+    assert "distinct fit" in (dict(ice_record.audit)["superseded_record_text"]["notes"])
 
     assert by_identifier["aragonite_martinez_1996_bm2_2"]["status"] == "parity"
     chen = by_identifier["ca_perovskite_tetragonal_chen_2018_vinet"]
@@ -686,7 +691,10 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         pytest.approx([1.975447794, 4.436419298, 0.633380963, 3.635154586])
     )
     assert tradeoff["published_pair_delta_chi_square"] == pytest.approx(3.561705438)
-    assert "properly balanced" in coo["source_notes"]
+    assert (
+        "insensitive to their individual values when the pair is balanced"
+        in (coo["source_notes"])
+    )
     goethite = by_identifier["goethite_gleason_2008_bm3_1"]
     assert goethite["status"] == "parity_not_achieved"
     assert goethite["fit_kind"] == "joint_pvt"
@@ -712,7 +720,16 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     ]
     assert clean_goethite["rt_eos.K0"] == pytest.approx(177.642304461)
     assert clean_goethite["rt_eos.K0_prime"] == pytest.approx(1.541879108)
-    assert "not recommended for quantitative" in goethite["source_notes"]
+    # The usage restriction is the record's coded warning, not note text.
+    goethite_record = next(
+        record
+        for record in get_material_document("goethite", format_version=5)["eos_records"]
+        if record["identifier"] == "goethite_gleason_2008_bm3_1"
+    )
+    assert (
+        goethite_record["check"]["warning"] == "Not recommended for quantitative use."
+    )
+    assert goethite["source_notes"] == goethite_record["notes"]
     ice_vi = by_identifier["ice_vi_bezacier_2014_bm2_1"]
     assert ice_vi["status"] == "parity"
     assert ice_vi["observations"] == 30

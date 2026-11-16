@@ -34,8 +34,7 @@
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.767993, 1.002622],
         "notes": [
-          "The range is the measured room-temperature envelope, including decompression to ambient pressure; it is not a thermodynamic stability field.",
-          "The 3.65 A phase is expected to form from the 10 A phase near 9-10 GPa but was retained metastably below that pressure."
+          "The 3.65 Å phase is expected to form from the 10 Å phase near 9-10 GPa; below that pressure it was retained metastably."
         ]
       },
       "experimental_pressure_range_gpa": [0.0, 41.0],
@@ -43,7 +42,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Preferred source fit. Table 2's K0' uncertainty (0.2) is stored instead of the abstract's inconsistent 0.1.",
+      "notes": "The authors' preferred fit. The K0' error is from Table 2; the abstract gives 0.1.",
       "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
       "reference": {
         "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
@@ -93,17 +92,14 @@
         "pressure_gpa": [0.0, 41.0],
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.767993, 1.002622],
-        "notes": [
-          "Higher-order sensitivity parameterization of the same experimental observations, not the paper's preferred EOS.",
-          "Do not extrapolate K0'' outside the measured compression envelope."
-        ]
+        "notes": ["Do not extrapolate K0'' outside the measured compression range."]
       },
       "experimental_pressure_range_gpa": [0.0, 41.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Sensitivity record only; intentionally has no default_for. Its K0, K0', and K0'' are strongly covariant and the source does not publish covariance.",
+      "notes": "BM4 sensitivity fit to the same data as the preferred BM3 record; not the paper's preferred EOS. K0, K0' and K0'' are strongly correlated; the source gives no covariance.",
       "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
       "reference": {
         "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
@@ -145,15 +141,14 @@
         "temperature_k": [0.0, 0.0],
         "volume_ratio": [0.594001, 1.138501],
         "notes": [
-          "Static PAW-GGA model-crystal curve; it is not an experimental ambient-temperature fit.",
-          "The numerical energy-volume grid is not tabulated; the bounds conservatively follow the green Figure 3a calculation markers."
+          "The energy-volume grid is not tabulated; the bounds conservatively follow the calculation markers of Figure 3a."
         ]
       },
       "experimental_pressure_range_gpa": [-8.0, 115.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "notes": "Clearly distinct theoretical record. No default_for is assigned; the preferred catalog equilibrium record is the experimental BM3.",
+      "notes": "Static PAW-GGA model-crystal curve, not an experimental ambient-temperature fit.",
       "reference": {
         "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
         "year": 2015,

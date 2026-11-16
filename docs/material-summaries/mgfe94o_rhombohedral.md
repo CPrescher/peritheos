@@ -87,10 +87,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[34.5, 88.7\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.721794, 0.869343\]
-    - **Notes:** V0 is a zero-pressure extrapolation for the high-pressure phase; it is not evidence that rhombohedral Mw94 is stable at ambient pressure.; The observed branch begins at 34.5 GPa after the B1-to-rhombohedral transition bracket of 30.1-34.5 GPa.; This is a structural branch, not a pure-spin phase-stability field.
+    - **Notes:** V0 is a zero-pressure extrapolation for the high-pressure phase, not evidence that rhombohedral Mw94 is stable at ambient pressure.; The observed branch begins at 34.5 GPa, after the B1-to-rhombohedral transition bracket of 30.1-34.5 GPa.
 - **Reported error confidence level:** Not specified
 
-Published rhombohedral parameterization on the Dewaele-2008 ruby scale. V0 is stored on a two-atom, one-formula-unit primitive EOS basis because the source does not publish a complete conventional-cell metric. All three coefficients were free; no numerical covariance matrix is available.
+Published rhombohedral parameterization on the Dewaele-2008 ruby scale. V0 is stored on a two-atom, one-formula-unit primitive basis because the source does not publish a complete conventional-cell metric. It is a structural branch, not a pure-spin phase-stability field.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -333,7 +333,11 @@
           "sensitivity": "Evidence includes multistart, pressure-sigma-only weights, three pressure-block holdouts, V0=6.435, and explicitly analyst-selected theta0 and K0-prime stress tests. These are not alternative accepted fits or confidence intervals."
         }
       },
-      "superseded_record_text": {"label": "Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data",
+        "notes": "Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.",
+        "superseded_on": "2026-11-16"
+      }
     },
     "fesi_b2_fischer_2014_vinet_refit": {
       "pressure_calibration": {
@@ -665,7 +669,11 @@
           "sensitivity": "Evidence includes multistart, pressure-sigma-only weights, three pressure-block holdouts, V0=6.435, and explicitly analyst-selected theta0 and K0-prime stress tests. These are not alternative accepted fits or confidence intervals."
         }
       },
-      "superseded_record_text": {"label": "Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data",
+        "notes": "Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.",
+        "superseded_on": "2026-11-16"
+      }
     }
   }
 }

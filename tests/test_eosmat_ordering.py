@@ -49,6 +49,9 @@ def test_native_practical_information_precedes_long_citations_and_evidence(tmp_p
     # Extensions keep their place after the named fields, ahead of the audit.
     assert keys.index("reference") < keys.index("source_specific_limit")
     assert keys.index("source_specific_limit") < keys.index("evidence")
+    # A replaced-text block, when the record has one, is the very last key.
+    if "superseded_record_text" in keys:
+        assert keys.pop() == "superseded_record_text"
     assert keys[-1] == "evidence"
     extension = result["eos_records"][0]["extension"]
     assert list(extension["thermal"]) == ["parameters", "model"]

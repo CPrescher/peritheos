@@ -89,14 +89,14 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0001, 8.553\]
     - **Temperature k:** \[298.0, 298.0\]
     - **Volume ratio:** \[0.961678531, 0.999970943\]
-    - **Notes:** The numerical range is the exact Table 1 measurement envelope, not a phase-stability guarantee.; No phase transition was detected through 8.553 GPa; the source discusses possible transformation only above the measured interval.; The 4:1 methanol-ethanol medium and single-crystal measurements define the experimental stress environment; extrapolation beyond the measured range is unvalidated.
+    - **Notes:** No phase transition was detected to 8.553 GPa. The source discusses a possible transformation only above the measured interval.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 160.705
 - **Reported error confidence level:** Not specified
 
-Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention. V0, K0, and K0\_prime were all fitted; none was fixed. V0 is one conventional orthorhombic Pbnm cell containing four CaGeO3 formula units. The paper reports no parameter covariance and does not state a confidence convention for the printed coefficient errors. The ambient pressure row has no printed pressure uncertainty; no zero uncertainty is invented in the dataset.
+BM3 fit with all three parameters free. V0 is one conventional orthorhombic Pbnm cell of four CaGeO3 formula units.
 
 <details markdown="1">
 <summary>Source review</summary>

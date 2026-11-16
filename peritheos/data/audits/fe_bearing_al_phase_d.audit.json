@@ -178,6 +178,14 @@
             "sha256": "8448888b776c5c786f33b68a1735613921330a90bdf25aafe33a2f3fb0fa677e"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Canonical room-temperature record. The first BM3 row of Table 2 freely fits V0, K0, and K0'; neither of the two ambient-volume-fixed alternatives is stored as another executable record. The BM3 choice is justified by the abstract's reported coefficients, Figure 3's exclusive display of BM3 curves, and Table 3's BM comparison across phase-D studies. Parenthetical errors are retained as generic published uncertainties because the source does not state a confidence convention.",
+        "validity_notes": [
+          "Empirical room-temperature pre-crossover fit only; it does not represent the changed compression behavior above 38 GPa.",
+          "The paper places the broad Fe3+ spin crossover at approximately 30-65 GPa, so the fitted 0-38 GPa interval is not a rectangular high-spin phase-stability field."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "fe_bearing_al_phase_d_criniti_2023_vinet_2": {
@@ -354,6 +362,14 @@
             "sha256": "8448888b776c5c786f33b68a1735613921330a90bdf25aafe33a2f3fb0fa677e"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Published non-default alternative. The first Vinet row of Table 2 freely fits V0, K0, and K0'; the two ambient-volume-fixed variants are documented but not multiplied into additional executable records. Parenthetical errors are retained as generic published uncertainties because their confidence convention is not stated.",
+        "validity_notes": [
+          "Published alternative to the canonical BM3 fit over the same room-temperature pre-crossover observations.",
+          "Do not extrapolate through the changed compression behavior above 38 GPa."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

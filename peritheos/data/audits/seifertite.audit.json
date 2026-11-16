@@ -125,6 +125,10 @@
             "primary_reference": {"doi": "10.1029/2019JB017853", "location": "thermal EOS formulation and Table 1"}
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.",
+        "superseded_on": "2026-11-16"
       }
     },
     "seifertite_driver_2010_qmc_300k_vinet": {
@@ -182,6 +186,11 @@
           "parameters": "Table 1, alpha-PbO2 QMC column.",
           "volume_conversion": "154.8(1) bohr3 per SiO2 converted to A3 and multiplied by Z=4."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": ["QMC plus quasiharmonic phonons; the low-pressure part is a metastable extrapolation of alpha-PbO2-type SiO2."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

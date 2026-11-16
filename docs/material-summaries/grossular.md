@@ -87,7 +87,7 @@ Automatic selection for equilibrium calculations.
 - **Reported error confidence level:** Not specified
 - **Parameter covariance:** supplied in the EOSMAT source
 
-Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered source tables are available through the dataset API, including all 52 Gwanmesia rows. The separately documented full-inventory diagnostic uses 219 non-anchor channels with explicit estimated errors for 26 observations. These are not the recovered original joint fit input; normalization, selected-row processing, assigned errors and covariance remain incomplete. See docs/literature-reproductions/grossular-angel-2022.md.
+Published q-compromise approximation: theta0 and gamma/V are constant and there is no q parameter. V0 is adopted and fixed from Holland and Powell (2011), not refitted or measured; the other coefficients carry more digits than Table 1, as in the source files. The model gives P-V-T and pressure derivatives, not a caloric potential or mixing model.
 
 <details markdown="1">
 <summary>Source review</summary>

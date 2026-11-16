@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 8.3\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-Hanna et al. report V0 = 23.85(6) A^3 per ZnO and K0 = 139(8) GPa with K0' fixed at 4; V0 and its uncertainty are doubled here for the conventional Z=2 cell. The B4-to-B1 transition begins near 8.3 GPa.
+Published V0 = 23.85(6) Å³ per ZnO; value and error are doubled for the conventional Z = 2 cell. The B4-to-B1 transition begins near 8.3 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

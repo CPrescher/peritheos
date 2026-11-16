@@ -43,12 +43,18 @@ def test_native_validity_retains_marginal_coverage_qualifications_on_export():
     assert record.validity.pressure_gpa == (0.0, 117.9)
     assert record.validity.temperature_k == (298.0, 2330.0)
     notes = " ".join(record.validity.notes)
-    assert "not a validated rectangular P-T domain" in notes
-    assert "original author selection is not recovered" in notes
-    assert "298 K" in notes and "300 K" in notes
-    assert "pressure gap" in notes
-    assert "calculated Figure 1 vertices" in notes
-    assert "no explicit recommended numerical extrapolation range" in notes
+    # The sparse hot coverage a user needs stays in the record.
+    assert "37 revised-ruby rows at 298 K, 0-93.6 GPa" in notes
+    assert "8.64-25.56 GPa at 1273-2173 K, then only two points" in notes
+    assert record.reference_temperature == 300.0
+    # The coverage audit wording is kept as the stored original.
+    original = " ".join(dict(record.audit)["superseded_record_text"]["validity_notes"])
+    assert "not a validated rectangular P-T domain" in original
+    assert "original author selection is not recovered" in original
+    assert "298 K" in original and "300 K" in original
+    assert "pressure gap" in original
+    assert "calculated Figure 1 vertices" in original
+    assert "no explicit recommended numerical extrapolation range" in original
     exported = material.to_eosmat()["eos_records"][0]
     assert exported["experimental_pressure_range_gpa"] == [0.0, 117.9]
     assert exported["experimental_temperature_range_k"] == [298.0, 2330.0]

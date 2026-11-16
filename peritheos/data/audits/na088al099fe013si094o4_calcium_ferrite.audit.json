@@ -177,6 +177,14 @@
             "locations": ["AM-23-128432, 8432qin.cif, data_p1_caicium_ferrite_phase"]
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0_prime were all fitted with EosFit7c; none was fixed. Parenthesized coefficient errors are retained as generic published uncertainties because the source gives neither confidence level nor covariance. The observed range is not a phase-stability guarantee. See docs/qin-2023-naalsio4-eos.md.",
+        "validity_notes": [
+          "The pressure and volume-ratio bounds are the Table S4 observation envelope, not a broader phase-stability guarantee.",
+          "All measurements are described as room temperature; 293 K is the explicit temperature of the companion official CIF measurement, and no row-wise temperatures are published."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

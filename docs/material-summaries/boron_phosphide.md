@@ -80,7 +80,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 55.0\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-Single-crystal XRD in neon. The Vinet fit fixed the conventional zinc-blende V0 to 93.2061 A^3; no uncertainty was reported for that fixed value. No phase transition or amorphization was observed to 55 GPa.
+Single-crystal XRD in neon, with V0 of the conventional zinc-blende cell fixed. No phase transition or amorphization was observed to 55 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

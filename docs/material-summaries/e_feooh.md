@@ -90,9 +90,8 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[3.81, 21.01\]
     - **Temperature k:** \[473.15, 673.15\]
     - **Volume ratio:** \[0.9102564102564102, 0.9808446455505279\]
-    - **Notes:** Bounds are the extrema of the 49 deposited epsilon-FeOOH observations, not a rectangular phase-stability field.; The executable BM2 is the recovered 300 K reference curve. It is not a temperature-dependent epsilon-FeOOH EOS; hot states require the documented fit-time volume reduction and must not be evaluated as 300 K observations.; The represented source phase is the hydrogen-off-center InOOH-type structure in the source's P21mn axis setting, equivalent by axis permutation to this material's P21nm setting.
 
-Published 300 K BM2 reference curve recovered from 49 elevated-temperature observations. The source explicitly reports the pooled fit, fixed K0-prime, G-versus-g V0 extrapolation, and absence of a resolvable epsilon thermal-expansion trend, but it does not print an epsilon temperature-correction equation or fit weights. A forensic reconstruction using the paper's alpha0 reproduces K0 to rounding; that correction is retained as fit provenance, not promoted to a general temperature-dependent epsilon-FeOOH model.
+300 K BM2 reference curve from a pooled fit to 49 elevated-temperature observations, with K0' = 4 assumed and V0 from a separate G-versus-g extrapolation. It is not a temperature-dependent EOS: hot states require the documented fit-time volume reduction and must not be evaluated as 300 K observations; the paper prints no correction equation. Phase: InOOH-type with off-center hydrogen, P21mn setting in the source (P21nm here).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -218,7 +217,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0001, 11.07\]
     - **Temperature k:** \[300.0, 700.0\]
     - **Volume ratio:** \[0.93832, 1.0\]
-    - **Notes:** Bounds are the extrema of the 33 Table 1 observations, not a rectangular phase-stability field.; The represented InOOH-type epsilon-FeOOH lies far below the approximately 53 GPa spin transition discussed by Gleason et al. (2013); it is not the hydrogen-centered low-spin Pnnm material.; The article notes a possible change in compression slope between 3 and 7 GPa that may reflect deviatoric stress or hydrogen-bond symmetrization; the single smooth fit is retained exactly as published.
+    - **Notes:** The authors note a possible change in compression slope at 3-7 GPa (possibly deviatoric stress or hydrogen-bond symmetrization); the fit is one smooth curve.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -229,7 +228,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published high-temperature BM3 parameterization. The source reports no EosFit7c version, numerical weights, full covariance, or scalar fit statistic. The Table 1 transcription is retained at printed precision; its source page states copyright 2016 Japan Association of Mineralogical Sciences and exposes no open data license.
+High-temperature BM3 for InOOH-type epsilon-FeOOH, far below the spin transition near 53 GPa discussed by Gleason et al. (2013); not the hydrogen-centered low-spin Pnnm phase.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -93,7 +93,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Reported error confidence level:** Not specified
 
-Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.
+Published experimental fit to nominally pure Mg superhydrous phase B. Fitted to the 300 K subset (17 in-situ and three ambient observations). Three of the nine heating cycles in the data lie outside the stability field.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -176,7 +176,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Reported error confidence level:** Not specified
 
-Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Table 4 RT values 134.7(1.8),6.0(0.3) supersede prose 132.7(1.5),6.2(0.6), which conflates RT and HTBM fits.
+Published experimental fit to nominally pure Mg superhydrous phase B. Fitted to the 300 K subset (17 in-situ and three ambient observations); three of the nine heating cycles in the data lie outside the stability field. The stored values are those of Table 4; the 132.7(1.5) GPa and 6.2(0.6) in the text conflate the room-temperature and HTBM fits.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -273,7 +273,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.
+Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Three of the nine heating cycles in the data lie outside the stability field.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -369,7 +369,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.
+Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Three of the nine heating cycles in the data lie outside the stability field.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -454,7 +454,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported temperature coverage (K):** \[300.0, 1373.0\]
 - **Reported error confidence level:** Not specified
 
-Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Equation (6) final five-parameter model omits the unresolved quadratic term.
+Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Three of the nine heating cycles in the data lie outside the stability field. The final five-parameter model of Equation (6) omits the unresolved quadratic term.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -551,10 +551,11 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 - **Thermal pressure reference:** reference\_temperature
 - **Debye temperature law:** integrated\_gruneisen
+- **Notes:** Equation (9) is used with its printed sign reversed, theta = theta0 exp\[(gamma0 - gamma)/q\], as required by gamma = -d ln(theta)/d ln(V); this is an inferred correction, not an author erratum. n = 35 atoms per formula unit, including hydrogen.
 
 </details>
 
-Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Eq. (9) printed sign reversed explicitly: theta=theta0 exp\[(gamma0-gamma)/q\], required by gamma=-dln(theta)/dln(V). This is an inferred correction, not an author erratum. Published coefficients unchanged. n=35 atoms/formula unit includes hydrogen.
+Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Three of the nine heating cycles in the data lie outside the stability field.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -647,10 +648,11 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 - **Thermal pressure reference:** reference\_temperature
 - **Debye temperature law:** integrated\_gruneisen
+- **Notes:** Equation (9) is used with its printed sign reversed, theta = theta0 exp\[(gamma0 - gamma)/q\], as required by gamma = -d ln(theta)/d ln(V); this is an inferred correction, not an author erratum. n = 35 atoms per formula unit, including hydrogen.
 
 </details>
 
-Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Eq. (9) printed sign reversed explicitly: theta=theta0 exp\[(gamma0-gamma)/q\], required by gamma=-dln(theta)/dln(V). This is an inferred correction, not an author erratum. Published coefficients unchanged. n=35 atoms/formula unit includes hydrogen.
+Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Three of the nine heating cycles in the data lie outside the stability field.
 
 <details markdown="1">
 <summary>Source review</summary>

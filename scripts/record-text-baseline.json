@@ -1,233 +1,78 @@
 {
   "description": "Bundled records and materials whose text exceeded the limits of docs/record-text-standard.md when the check was introduced. scripts/check_record_text.py fails on any case not listed here and on a listed case that no longer occurs (remove it with --prune). Never add a case; fix the text instead.",
   "cases": {
-    "akimotoite/akimotoite_reynard_1996_bm3_ice_vii_3": [
-      "notes_length"
-    ],
-    "akimotoite/akimotoite_reynard_1996_bm3_ruby_2": [
-      "notes_length"
-    ],
-    "akimotoite/akimotoite_wang_2004_t0133_bm3": [
-      "notes_length"
-    ],
     "akimotoite/akimotoite_wang_2004_t0150_bm3": [
-      "notes_length",
       "source_note_length"
     ],
     "akimotoite/akimotoite_zhou_2014_300k_bm3": [
-      "notes_length",
       "source_note_length"
     ],
     "al_bearing_phase_d": [
       "material_notes_length"
     ],
-    "al_bearing_phase_d/al_bearing_phase_d_xu_2020_bm3_300k": [
-      "notes_length"
-    ],
     "alpha_quartz": [
       "material_notes_length"
     ],
-    "alumina/alumina_shi_2022_bm3_mgd_2": [
-      "notes_length"
-    ],
     "alumina_rh2o3_ii": [
       "material_notes_length"
-    ],
-    "alumina_rh2o3_ii/alumina_rh2o3_ii_shi_2022_bm3_mgd_1": [
-      "notes_length"
-    ],
-    "aluminum/aluminum_sokolova_2013_holzapfel_2": [
-      "notes_length"
     ],
     "aragonite": [
       "material_notes_length"
     ],
     "aragonite/aragonite_martinez_1996_bm2_2": [
-      "notes_length",
       "source_note_length"
-    ],
-    "argon_fcc/argon_fcc_anderson_swenson_1975_20p0k": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_anderson_swenson_1975_40p0k": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_anderson_swenson_1975_4p2k": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_anderson_swenson_1975_60p0k": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_anderson_swenson_1975_77p0k": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_chen_2010_bm3_digitized_refit": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_chen_2010_bm3_reported_constants": [
-      "notes_length",
-      "validity_length"
-    ],
-    "argon_fcc/argon_fcc_dewaele_2021_vinet_mgd": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_errandonea_2006_bm3": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_finger_1981_murnaghan2_debye": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_grimsditch_1986_density_polynomial": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_maltby_2024_published": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_ono_2020_vinet": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_ross_1986_errandonea_2006_bm3_refit": [
-      "notes_length"
-    ],
-    "argon_fcc/argon_fcc_xiao_2025_helmholtz": [
-      "notes_length"
-    ],
-    "argon_hcp/argon_hcp_wittlinger_1997_bm2_1": [
-      "notes_length"
     ],
     "b4c": [
       "material_notes_length"
     ],
     "b4c/b4c_somayazulu_2023_berman_2": [
-      "notes_length",
       "source_note_length"
     ],
-    "b4c/b4c_somayazulu_2023_berman_refit": [
-      "notes_length"
-    ],
     "b4c/b4c_somayazulu_2023_bm3_1": [
-      "notes_length",
       "source_note_length"
     ],
     "boron_nitride": [
       "material_notes_length"
     ],
-    "boron_nitride/boron_nitride_datchi_2007_vinet_mgd_2": [
-      "notes_length",
-      "validity_length"
-    ],
     "bridgmanite": [
       "material_notes_length"
     ],
-    "bridgmanite/bridgmanite_criniti_2021_absolute_bm3": [
-      "validity_length"
-    ],
-    "bridgmanite/bridgmanite_katsura_2009_bm3": [
-      "validity_length"
-    ],
     "bridgmanite/bridgmanite_saxena_1999_bm3_4": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
-    ],
-    "bridgmanite/bridgmanite_tange_2012_bm3_1": [
-      "notes_length"
-    ],
-    "bridgmanite/bridgmanite_wolf_2015_vinet_mgd_4": [
-      "notes_length"
     ],
     "brucite": [
       "material_notes_length"
     ],
-    "brucite/brucite_fukui_2003_300k_bm3": [
-      "notes_length",
-      "validity_length"
-    ],
-    "brucite/brucite_fukui_2003_473k_bm3": [
-      "notes_length",
-      "validity_length"
-    ],
-    "brucite/brucite_fukui_2003_673k_bm3": [
-      "notes_length",
-      "validity_length"
-    ],
     "ca0988mg0918fe0078mn0016c2o6_dolomite_iii": [
       "material_notes_length"
-    ],
-    "ca0988mg0918fe0078mn0016c2o6_dolomite_iii/ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1": [
-      "validity_length"
-    ],
-    "ca0988mg0918fe0078mn0016c2o6_dolomite_iii/ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2": [
-      "validity_length"
     ],
     "ca_perovskite": [
       "material_notes_length"
     ],
-    "ca_perovskite/ca_perovskite_caracas_2005_bm3_3": [
-      "notes_length"
-    ],
     "ca_perovskite/ca_perovskite_fu_2023_bm3_mgd_refit": [
-      "validity_length",
       "source_note_length"
-    ],
-    "ca_perovskite/ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit": [
-      "notes_length",
-      "validity_length"
     ],
     "ca_perovskite/ca_perovskite_kawai_2014_vinet_mgd_3": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
-    ],
-    "ca_perovskite/ca_perovskite_noguchi_2013_bm2_mgd_1": [
-      "notes_length",
-      "validity_length"
-    ],
-    "ca_perovskite/ca_perovskite_shim_2000_dac_only_bm3_mgd_4": [
-      "notes_length",
-      "validity_length"
     ],
     "ca_perovskite/ca_perovskite_sun_2016_bm3_3": [
       "notes_length",
-      "validity_length",
       "source_note_length"
     ],
     "ca_perovskite/ca_perovskite_wang_1996_preferred_bm3": [
       "validity_length"
     ],
-    "ca_perovskite/ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit": [
-      "notes_length"
-    ],
     "ca_perovskite/ca_perovskite_wang_weidner_1994_bm2": [
-      "validity_length",
       "source_note_length"
     ],
-    "ca_perovskite_tetragonal/ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet": [
-      "validity_length"
-    ],
-    "ca_perovskite_tetragonal/ca_perovskite_tetragonal_sagatova_2021_lda_300k_vinet": [
-      "validity_length"
-    ],
     "ca_perovskite_tetragonal/ca_perovskite_tetragonal_sun_2022_bm3_1": [
-      "notes_length",
       "source_note_length"
     ],
     "cairo3_perovskite": [
       "material_notes_length"
     ],
-    "cairo3_perovskite/cairo3_perovskite_boffa_ballaran_2007_bm3_1": [
-      "notes_length",
-      "validity_length"
-    ],
     "cairo3_post_perovskite": [
       "material_notes_length"
-    ],
-    "cairo3_post_perovskite/cairo3_post_perovskite_boffa_ballaran_2007_bm3_1": [
-      "notes_length",
-      "validity_length"
-    ],
-    "cairo3_post_perovskite/cairo3_post_perovskite_martin_2007_bm2": [
-      "validity_length"
     ],
     "calcite": [
       "material_notes_length"
@@ -235,64 +80,32 @@
     "calcium_germanate_perovskite": [
       "material_notes_length"
     ],
-    "calcium_germanate_perovskite/calcium_germanate_perovskite_ross_1999_bm3_1": [
-      "notes_length",
-      "validity_length"
-    ],
     "calcium_titanate_perovskite": [
       "material_notes_length"
     ],
-    "calcium_titanate_perovskite/calcium_titanate_perovskite_ross_1999_bm3_1": [
-      "notes_length",
-      "validity_length"
-    ],
-    "casio3_perovskite_tetragonal/casio3_perovskite_tetragonal_shim_2002_bm3_1": [
-      "validity_length"
-    ],
-    "cementite/cementite_li_2002_bm3": [
-      "notes_length"
-    ],
     "cementite/cementite_ono_mibe_2010_bm3": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
     ],
-    "cementite/cementite_prescher_2012_full_range_bm3": [
-      "notes_length"
-    ],
     "cementite/cementite_scott_2001_bm3_1": [
-      "notes_length",
       "source_note_length"
     ],
     "cementite_nonmagnetic": [
       "material_notes_length"
     ],
     "cementite_nonmagnetic/cementite_nonmagnetic_hu_2019_linear_hugoniot": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
     ],
     "cementite_nonmagnetic/cementite_nonmagnetic_sata_2010_bm3": [
       "notes_length",
-      "validity_length",
       "source_note_length"
     ],
-    "cementite_nonmagnetic/cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd": [
-      "notes_length"
-    ],
-    "cementite_nonmagnetic/cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd": [
-      "notes_length"
-    ],
     "cobalt_hcp/cobalt_hcp_dewaele_2008_table4_us_k0_184_vinet": [
-      "notes_length",
       "source_note_length"
     ],
     "cobalt_hcp/cobalt_hcp_dewaele_2008_table4_us_k0_190_vinet": [
-      "notes_length",
       "source_note_length"
     ],
     "cobalt_hcp/cobalt_hcp_dewaele_2008_table4_vinet": [
-      "notes_length",
       "source_note_length"
     ],
     "coesite/coesite_i_iii_bykova_2018_300k_bm3": [
@@ -301,84 +114,30 @@
     "coesite_iv": [
       "material_notes_length"
     ],
-    "coesite_iv/coesite_iv_bykova_2018_am05_static_bm3_refit": [
-      "notes_length",
-      "validity_length"
-    ],
-    "coesite_iv/coesite_iv_v_bykova_2018_experimental_bm2_reference": [
-      "notes_length",
-      "validity_length"
-    ],
     "coesite_v": [
       "material_notes_length"
     ],
     "coo/coo_clendenen_1966_murnaghan_1": [
-      "notes_length",
       "source_note_length"
-    ],
-    "copper/copper_fratanduono_2020_vinet3_298k": [
-      "notes_length",
-      "validity_length"
-    ],
-    "copper/copper_sakai_2025_rydberg_stacey_1": [
-      "notes_length"
-    ],
-    "copper/copper_sokolova_2013_holzapfel_2": [
-      "notes_length"
-    ],
-    "cscl/cscl_campbell_1994_bm3_1": [
-      "notes_length"
-    ],
-    "diamond/diamond_benedict_2014_dewaele_anchored": [
-      "notes_length"
-    ],
-    "diamond/diamond_benedict_2014_double_debye_4": [
-      "notes_length"
-    ],
-    "diamond/diamond_correa_2008_dewaele_anchored": [
-      "notes_length"
-    ],
-    "diamond/diamond_correa_2008_double_debye_log_moment_5": [
-      "notes_length"
-    ],
-    "diamond/diamond_datchi_2007_vinet_1": [
-      "notes_length"
-    ],
-    "diamond/diamond_sokolova_2013_holzapfel_3": [
-      "notes_length"
     ],
     "diopside": [
       "material_notes_length"
-    ],
-    "diopside/diopside_thompson_2008_bm3": [
-      "notes_length"
-    ],
-    "diopside/diopside_zhao_1998_thermal_bm3": [
-      "notes_length",
-      "validity_length"
     ],
     "e_feooh": [
       "material_notes_length"
     ],
     "e_feooh/e_feooh_gleason_2008_bm2_1": [
       "notes_length",
-      "validity_length",
       "source_note_length"
-    ],
-    "e_feooh/e_feooh_suzuki_2016_bm3_thermal_2": [
-      "validity_length"
     ],
     "e_feooh_hc_low_spin/e_feooh_hc_low_spin_thompson_2017_bm3_1": [
       "notes_length",
-      "validity_length",
       "source_note_length"
     ],
     "fe/fe_dewaele_2008_table4_us_k0_165_vinet": [
-      "notes_length",
       "source_note_length"
     ],
     "fe/fe_dewaele_2008_table4_vinet": [
-      "notes_length",
       "source_note_length"
     ],
     "fe/fe_shen_2026_vinet_1": [
@@ -388,107 +147,31 @@
       "material_notes_length"
     ],
     "fe073si027_d03/fe073si027_d03_fischer_2014_vinet_1": [
-      "notes_length",
       "source_note_length"
     ],
     "fe084si016_d03": [
       "material_notes_length"
     ],
     "fe084si016_d03/fe084si016_d03_fischer_2014_bm3_1": [
-      "notes_length",
       "source_note_length"
     ],
     "fe084si016_d03/fe084si016_d03_fischer_2014_vinet_2": [
-      "notes_length",
       "source_note_length"
     ],
     "fe084si016_hcp": [
       "material_notes_length"
     ],
     "fe084si016_hcp/fe084si016_hcp_fischer_2014_bm3_1": [
-      "notes_length",
       "source_note_length"
     ],
     "fe084si016_hcp/fe084si016_hcp_fischer_2014_vinet_2": [
-      "notes_length",
       "source_note_length"
-    ],
-    "fe088sio3_bridgmanite/fe088sio3_bridgmanite_ismailova_2016_300k_bm2": [
-      "notes_length",
-      "validity_length"
     ],
     "fe093o_rhombohedral": [
       "material_notes_length"
     ],
-    "fe093o_rhombohedral/fe093o_rhombohedral_jacobsen_2005_bm3_1": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p1_bm3": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p1_vinet": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p2_bm3": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p2_vinet": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p3_bm3": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p3_vinet": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p4_bm3": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p4_vinet": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p5_bm3": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p5_vinet": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p6_bm3": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_p6_vinet": [
-      "notes_length"
-    ],
     "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_type1_thermal": [
-      "notes_length",
       "source_note_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_type2_thermal": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_type4_1_thermal": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_type4_2_thermal": [
-      "notes_length"
-    ],
-    "fe09ni01_hcp/fe09ni01_hcp_sakai_2014_type4_3_thermal": [
-      "notes_length"
-    ],
-    "fe3o4/fe3o4_mao_1974_bm3_1": [
-      "notes_length"
     ],
     "fe3s": [
       "material_notes_length"
@@ -497,11 +180,7 @@
       "material_notes_length"
     ],
     "fe_bearing_al_phase_d/fe_bearing_al_phase_d_criniti_2023_bm3_1": [
-      "notes_length",
       "source_note_length"
-    ],
-    "fe_fcc/fe_fcc_campbell_2009_bm3_mgd": [
-      "notes_length"
     ],
     "feh2": [
       "material_notes_length"
@@ -509,29 +188,14 @@
     "feo": [
       "material_notes_length"
     ],
-    "feo/fe093o_b1_jacobsen_2005_bm3_1": [
-      "notes_length"
-    ],
-    "feo/feo_campbell_2009_bm3_mgd": [
-      "notes_length"
-    ],
     "feo/feo_fischer_2011_bm3_2": [
-      "notes_length",
       "source_note_length"
     ],
     "feo_b8_2/feo_b8_2_fischer_2011_bm3_1": [
-      "notes_length",
       "source_note_length"
     ],
     "ferropericlase_fe27": [
       "material_notes_length"
-    ],
-    "ferropericlase_fe27/ferropericlase_fe27_jacobsen_2002_bm3_1": [
-      "validity_length"
-    ],
-    "ferrous_ringwoodite/ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction": [
-      "notes_length",
-      "validity_length"
     ],
     "fes": [
       "material_notes_length"
@@ -540,102 +204,40 @@
       "material_notes_length"
     ],
     "fes_vi/fes_vi_morard_2026_bm3_mgd": [
-      "notes_length",
       "source_note_length"
     ],
     "fesi_b2": [
       "material_notes_length"
     ],
-    "fesi_b2/fesi_b2_fischer_2014_bm3_refit": [
-      "notes_length"
-    ],
-    "fesi_b2/fesi_b2_fischer_2014_vinet_refit": [
-      "notes_length"
-    ],
     "fesi_b20/fesi_b20_fischer_2014_bm3_1": [
-      "notes_length",
       "source_note_length"
     ],
     "fesi_b20/fesi_b20_fischer_2014_vinet_2": [
-      "notes_length",
       "source_note_length"
     ],
     "fesio3_liquid/fesio3_liquid_sun_2019_2500k_bm4_1": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
-    ],
-    "fesio3_post_perovskite_ii/fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1": [
-      "validity_length"
     ],
     "forsterite": [
       "material_notes_length"
     ],
-    "forsterite/forsterite_katsura_2022_author_script_bm3_mgd": [
-      "notes_length"
-    ],
-    "forsterite/forsterite_katsura_2022_bm3_mgd": [
-      "notes_length"
-    ],
     "goethite/goethite_gleason_2008_bm3_1": [
-      "notes_length",
       "source_note_length"
     ],
     "gold/gold_anderson_1989_bm3_1": [
-      "notes_length",
       "source_note_length"
-    ],
-    "gold/gold_fei_2004_bm3_mgd": [
-      "notes_length"
-    ],
-    "gold/gold_fei_2007_vinet_2": [
-      "notes_length",
-      "validity_length"
-    ],
-    "gold/gold_hirose_2008_bm3_300k": [
-      "validity_length"
-    ],
-    "gold/gold_hirose_2008_bm3_fit1": [
-      "validity_length"
-    ],
-    "gold/gold_hirose_2008_bm3_fit2": [
-      "notes_length",
-      "validity_length"
     ],
     "gold/gold_hirose_2008_fei_2004_speziale_2001_bm3_refit": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
-    ],
-    "gold/gold_sakai_2025_rydberg_stacey_1": [
-      "notes_length"
     ],
     "gold/gold_shen_2026_vinet_3": [
       "source_note_length"
     ],
-    "gold/gold_sokolova_2013_holzapfel_4": [
-      "notes_length"
-    ],
-    "gold/gold_yokoo_2009_bm3_300k": [
-      "notes_length",
-      "validity_length"
-    ],
     "gold/gold_yokoo_2009_pvt_reconstruction": [
-      "notes_length",
-      "validity_length"
-    ],
-    "gold/gold_yokoo_2009_vinet_300k": [
-      "notes_length",
-      "validity_length"
-    ],
-    "gold/gold_zhu_2025_pvt": [
-      "validity_length"
+      "notes_length"
     ],
     "grossular": [
       "material_notes_length"
-    ],
-    "grossular/grossular_angel_2022_bm3_q_compromise_debye": [
-      "notes_length"
     ],
     "hydrous_silica_cacl2_nisr_2017": [
       "material_notes_length"
@@ -646,66 +248,31 @@
     "hydrous_stishovite_nisr_2017": [
       "material_notes_length"
     ],
-    "hydrous_stishovite_nisr_2017/hydrous_stishovite_nisr_2017_bm3": [
-      "notes_length"
-    ],
     "ice_vi": [
       "material_notes_length"
-    ],
-    "ice_vi/ice_vi_bezacier_2014_bm2_1": [
-      "notes_length"
     ],
     "ice_vii": [
       "material_notes_length"
     ],
-    "ice_vii/ice_vii_bezacier_2014_bm2_1": [
-      "notes_length"
-    ],
     "iceviii": [
       "material_notes_length"
     ],
-    "indium_nitride/indium_nitride_munoz_1993_murnaghan_1": [
-      "notes_length"
-    ],
     "iridium/iridium_anzellini_2025_bm3_1": [
-      "notes_length",
       "source_note_length"
     ],
     "iron/iron_brown_2000_linear_hugoniot": [
-      "notes_length",
       "source_note_length"
     ],
-    "iron/iron_dewaele_2006_bm3": [
-      "notes_length"
-    ],
-    "iron/iron_dewaele_2006_vinet_thermal": [
-      "validity_length"
-    ],
-    "iron/iron_dubrovinsky_2000_bm3_thermal": [
-      "notes_length"
-    ],
-    "iron/iron_fei_2016_bm3": [
-      "notes_length",
-      "validity_length"
-    ],
     "iron/iron_fei_2016_bm3_debye_quadratic": [
-      "label_length",
-      "notes_length",
-      "validity_length"
-    ],
-    "iron/iron_fei_2016_free_density_bm3": [
-      "notes_length",
-      "validity_length"
+      "label_length"
     ],
     "iron/iron_mao_1990_bm3_1": [
       "source_note_length"
     ],
     "iron/iron_miozzi_2020_bm3": [
-      "notes_length",
       "source_note_length"
     ],
     "iron/iron_miozzi_2020_bm3_mgd": [
-      "notes_length",
       "source_note_length"
     ],
     "iron/iron_miozzi_2020_speziale_2001_bm3_mgd_refit": [
@@ -715,226 +282,73 @@
       "notes_length"
     ],
     "iron/iron_miozzi_2020_vinet": [
-      "notes_length",
       "source_note_length"
-    ],
-    "iron/iron_sakai_2014_p1_bm3": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p1_v0_dewaele_bm3": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p1_v0_dewaele_vinet": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p1_v0_mao_bm3": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p1_v0_mao_vinet": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p1_vinet": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p2_bm3": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p2_vinet": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p3_bm3": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p3_vinet": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p4_bm3": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p4_vinet": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p5_bm3": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p5_vinet": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p6_bm3": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2014_p6_vinet": [
-      "notes_length"
-    ],
-    "iron/iron_sakai_2025_rydberg_stacey_1": [
-      "notes_length"
     ],
     "iron/iron_shen_2026_vinet_2": [
       "source_note_length"
     ],
-    "iron/iron_zhang_2025_fit1_birch_murnaghan_3_mgd": [
-      "notes_length",
-      "validity_length"
-    ],
-    "iron/iron_zhang_2025_fit2_birch_murnaghan_3_mgd": [
-      "notes_length",
-      "validity_length"
-    ],
-    "iron/iron_zhang_2025_fit5_vinet_mgd": [
-      "notes_length",
-      "validity_length"
-    ],
-    "iron_carbide_fe7c3/iron_carbide_fe7c3_prescher_2015_bm3_1": [
-      "notes_length"
-    ],
     "kcl/kcl_b2_chidester_2021_bm3_5": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
     ],
     "kcl/kcl_b2_chidester_2021_vinet_mgd": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
     ],
-    "kcl/kcl_b2_dewaele_2012_vinet_3": [
-      "notes_length",
-      "validity_length"
-    ],
     "kcl/kcl_b2_ma_2024_bm3_mgd": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
     ],
     "kcl/kcl_b2_tateno_2019_holmes_vinet_linear_thermal": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
     ],
     "kcl/kcl_b2_tateno_2019_holmes_vinet_mgd": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
     ],
-    "kcl/kcl_b2_tateno_2019_vinet_4": [
-      "notes_length"
-    ],
     "kcl/kcl_campbell_1991_bm2_1": [
-      "notes_length",
       "source_note_length"
     ],
     "kcl/kcl_walker_2002_bm3_2": [
-      "notes_length",
       "source_note_length"
     ],
     "kcl_b1/kcl_b1_walker_2002_bm3_linear_thermal": [
-      "notes_length",
       "source_note_length"
-    ],
-    "lead_fcc/lead_fcc_fortes_2019_bm4_1": [
-      "notes_length"
-    ],
-    "lead_fcc/lead_fcc_kuznetsov_2002_bm3_2": [
-      "validity_length"
-    ],
-    "li_bcc/li_hanfland_1999_vinet_1": [
-      "notes_length"
     ],
     "magnesiowustite_fe56": [
       "material_notes_length"
     ],
-    "magnesiowustite_fe56/magnesiowustite_fe56_jacobsen_2002_bm3_1": [
-      "validity_length"
-    ],
     "magnesiowustite_fe75": [
       "material_notes_length"
     ],
-    "magnesiowustite_fe75/magnesiowustite_fe75_jacobsen_2002_bm3_1": [
-      "validity_length"
-    ],
     "magnesite/magnesite_vocadlo_1999_bm3_2": [
-      "notes_length",
       "source_note_length"
     ],
     "magnesite/magnesite_yu_2024_bm3_mgd_3": [
-      "notes_length",
       "source_note_length"
     ],
     "majorite": [
       "material_notes_length"
     ],
-    "majorite/majorite_yagi_1992_bm3_1": [
-      "notes_length"
-    ],
     "mg0215fe0762vac0023o_b1": [
       "material_notes_length"
-    ],
-    "mg0215fe0762vac0023o_b1/mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1": [
-      "notes_length",
-      "validity_length"
-    ],
-    "mg0215fe0762vac0023o_b1/mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2": [
-      "notes_length",
-      "validity_length"
-    ],
-    "mg042fe058o/mg042fe058o_fei_2007_hs_b1_bm3": [
-      "validity_length"
     ],
     "mg05fe05al05si05o3_bridgmanite": [
       "material_notes_length"
     ],
-    "mg05fe05al05si05o3_bridgmanite/mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4": [
-      "validity_length"
-    ],
-    "mg05fe05al05si05o3_bridgmanite/mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3": [
-      "validity_length"
-    ],
-    "mg05fe05al05si05o3_bridgmanite/mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2": [
-      "validity_length"
-    ],
     "mg05fe05al05si05o3_bridgmanite/mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1": [
-      "validity_length",
       "source_note_length"
     ],
     "mg075fe025o": [
       "material_notes_length"
     ],
-    "mg075fe025o/mg075fe025o_mao_2011_high_spin_bm3_1": [
-      "validity_length"
-    ],
-    "mg075fe025o/mg075fe025o_mao_2011_low_spin_bm3_1": [
-      "validity_length"
-    ],
-    "mg075fe025sio3_bridgmanite/mg075fe025sio3_bridgmanite_wu_2013_gga_bm3": [
-      "validity_length"
-    ],
     "mg080fe020o": [
       "material_notes_length"
-    ],
-    "mg080fe020o/mg080fe020o_fei_2007_ls_b1_bm3_refit": [
-      "notes_length",
-      "validity_length"
     ],
     "mg087fe013sio3_bridgmanite": [
       "material_notes_length"
     ],
-    "mg087fe013sio3_bridgmanite/mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1": [
-      "notes_length"
-    ],
     "mg088fe010al014si090o3_bridgmanite": [
       "material_notes_length"
     ],
-    "mg088fe010al014si090o3_bridgmanite/mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1": [
-      "validity_length"
-    ],
-    "mg088fe010al014si090o3_bridgmanite/mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2": [
-      "validity_length"
-    ],
     "mg090fe009al0005ca0005sio3_bridgmanite": [
       "material_notes_length"
-    ],
-    "mg090fe009al0005ca0005sio3_bridgmanite/mg090fe009al0005ca0005sio3_bridgmanite_shieh_2006_bm3_1": [
-      "validity_length"
     ],
     "mg090fe009al0005ca0005sio3_post_perovskite": [
       "material_notes_length"
@@ -942,36 +356,19 @@
     "mg092fe008sio3_bridgmanite": [
       "material_notes_length"
     ],
-    "mg092fe008sio3_bridgmanite/mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3": [
-      "validity_length"
-    ],
     "mg09375fe00625sio3_bridgmanite": [
       "material_notes_length"
     ],
     "mg095al010si095o3_bridgmanite": [
       "material_notes_length"
     ],
-    "mg095al010si095o3_bridgmanite/mg095al010si095o3_bridgmanite_daniel_2004_bm2_1": [
-      "validity_length"
-    ],
-    "mg095al010si095o3_bridgmanite/mg095al010si095o3_bridgmanite_daniel_2004_bm3_2": [
-      "validity_length"
-    ],
     "mg09al02si09o3_bridgmanite": [
       "material_notes_length"
-    ],
-    "mg09al02si09o3_bridgmanite/mg09al02si09o3_bridgmanite_kubo_2000_bm3_1": [
-      "validity_length"
-    ],
-    "mg09al02si09o3_bridgmanite/mg09al02si09o3_bridgmanite_kubo_2000_bm3_2": [
-      "validity_length"
     ],
     "mg09fe01sio3_bridgmanite": [
       "material_notes_length"
     ],
     "mg09fe01sio3_bridgmanite/mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
     ],
     "mg7si2o8": [
@@ -980,55 +377,23 @@
     "mgal2o4_cafe2o4": [
       "material_notes_length"
     ],
-    "mgal2o4_cafe2o4/mgal2o4_cafe2o4_funamori_1998_bm2_1": [
-      "validity_length"
-    ],
-    "mgal2o4_cafe2o4/mgal2o4_cafe2o4_sueda_2009_htbm_2": [
-      "validity_length"
-    ],
-    "mgal2o4_cafe2o4/mgal2o4_cafe2o4_sueda_2009_mgd_3": [
-      "validity_length"
-    ],
     "mgal2o4_cati2o4": [
       "material_notes_length"
     ],
     "mgal2o4_cati2o4/mgal2o4_cati2o4_funamori_1998_bm2_1": [
-      "validity_length",
       "source_note_length"
-    ],
-    "mgal2o4_cati2o4/mgal2o4_cati2o4_ono_2006_bm2_2": [
-      "validity_length"
     ],
     "mgfe60o": [
       "material_notes_length"
     ],
-    "mgfe60o/mgfe60o_richet_1989_bm2_1": [
-      "notes_length"
-    ],
     "mgfe94o_b1": [
       "material_notes_length"
-    ],
-    "mgfe94o_b1/mgfe94o_b1_dobrosavljevic_2019_bm3_1": [
-      "notes_length",
-      "validity_length"
     ],
     "mgfe94o_rhombohedral": [
       "material_notes_length"
     ],
-    "mgfe94o_rhombohedral/mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1": [
-      "validity_length"
-    ],
     "mggeo3_post_perovskite": [
       "material_notes_length"
-    ],
-    "mggeo3_post_perovskite/mggeo3_post_perovskite_hirose_2005_bm3_free_2": [
-      "notes_length"
-    ],
-    "mggeo3_post_perovskite/mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2": [
-      "validity_length"
-    ],
-    "mggeo3_post_perovskite/mggeo3_post_perovskite_kubo_2006_bm3_1": [
-      "validity_length"
     ],
     "mgo": [
       "material_notes_length"
@@ -1037,30 +402,14 @@
       "source_note_length"
     ],
     "mgo/mgo_b1_luo_2023_vinet_thermal_5": [
-      "notes_length",
       "validity_length",
       "source_note_length"
-    ],
-    "mgo/mgo_belmonte_2017_b3lyp_static_bm3": [
-      "validity_length"
     ],
     "mgo/mgo_dewaele_2000_bm3_mgd_5": [
       "source_note_length"
     ],
-    "mgo/mgo_hama_suito_1996_qsm_static_vinet": [
-      "validity_length"
-    ],
-    "mgo/mgo_jacobsen_2008_bm3_kcl_mao1978": [
-      "notes_length"
-    ],
-    "mgo/mgo_lee_wan_2008_gga_static_bm3": [
-      "validity_length"
-    ],
     "mgo/mgo_oganov_2003_pressure_corrected_0k_bm3": [
       "label_length"
-    ],
-    "mgo/mgo_sakai_2025_rydberg_stacey_1": [
-      "notes_length"
     ],
     "mgo/mgo_shen_2026_vinet_3": [
       "source_note_length"
@@ -1069,76 +418,37 @@
       "notes_length"
     ],
     "mgo/mgo_speziale_2001_bm3_2": [
-      "notes_length",
-      "validity_length",
       "thermal_length"
     ],
     "mgsio3_liquid/mgsio3_liquid_akins_2004_adiabatic_bm3": [
-      "notes_length",
       "source_note_length"
     ],
     "mgsio3_post_perovskite": [
       "material_notes_length"
     ],
     "mgsio3_post_perovskite/mgsio3_post_perovskite_komabayashi_2008_thermal_bm3": [
-      "notes_length",
       "source_note_length"
-    ],
-    "mgsio3_post_perovskite/mgsio3_post_perovskite_mosenfelder_2009_bm3_1": [
-      "notes_length"
-    ],
-    "mgsio3_post_perovskite/mgsio3_post_perovskite_ono_2006_anderson_bm2_3": [
-      "validity_length"
-    ],
-    "mgsio3_post_perovskite/mgsio3_post_perovskite_ono_2006_jamieson_bm2_4": [
-      "validity_length"
-    ],
-    "mgsio3_post_perovskite/mgsio3_post_perovskite_sakai_2016_bm3_2": [
-      "notes_length"
     ],
     "mgsioh6_365a_phase": [
       "material_notes_length"
     ],
     "molybdenum/molybdenum_dewaele_2008_table4_us_k0_261_vinet": [
-      "notes_length",
       "source_note_length"
     ],
     "molybdenum/molybdenum_dewaele_2008_table4_vinet": [
-      "notes_length",
       "source_note_length"
-    ],
-    "molybdenum/molybdenum_sakai_2025_rydberg_stacey_1": [
-      "notes_length"
     ],
     "molybdenum/molybdenum_shen_2026_vinet_1": [
       "source_note_length"
-    ],
-    "molybdenum/molybdenum_sokolova_2013_holzapfel_2": [
-      "notes_length"
-    ],
-    "molybenum_carbide_mo2c/molybenum_carbide_mo2c_haines_2001_bm3_1": [
-      "notes_length"
-    ],
-    "molybenum_carbide_mo2c/molybenum_carbide_mo2c_haines_2001_bm3_refit": [
-      "notes_length"
     ],
     "na088al099fe013si094o4_calcium_ferrite": [
       "material_notes_length"
     ],
     "na088al099fe013si094o4_calcium_ferrite/na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
     ],
     "na093al102si100o4_calcium_ferrite": [
       "material_notes_length"
-    ],
-    "na093al102si100o4_calcium_ferrite/na093al102si100o4_calcium_ferrite_qin_2023_bm3_1": [
-      "notes_length",
-      "validity_length"
-    ],
-    "naalsi2o6/naalsi2o6_zhao_1997_bm3_1": [
-      "notes_length"
     ],
     "naalsio4_calcium_ferrite": [
       "material_notes_length"
@@ -1146,61 +456,14 @@
     "nacl_b1/nacl_b1_shen_2026_vinet_1": [
       "source_note_length"
     ],
-    "nacl_b2/nacl_b2_fei_2007": [
-      "notes_length"
-    ],
-    "nacl_b2/nacl_b2_fei_2007_staged_thermal_refit": [
-      "notes_length",
-      "validity_length"
-    ],
-    "nacl_b2/nacl_b2_sakai_2011_do_pt_bm3": [
-      "notes_length",
-      "validity_length"
-    ],
-    "nacl_b2/nacl_b2_sakai_2011_do_pt_vinet": [
-      "notes_length",
-      "validity_length"
-    ],
-    "nacl_b2/nacl_b2_sakai_2011_fei_pt_bm3": [
-      "notes_length",
-      "validity_length"
-    ],
-    "nacl_b2/nacl_b2_sakai_2011_fei_pt_vinet": [
-      "notes_length",
-      "validity_length"
-    ],
-    "nacl_b2/nacl_b2_sakai_2011_holmes_pt_bm3": [
-      "notes_length",
-      "validity_length"
-    ],
-    "nacl_b2/nacl_b2_sakai_2011_holmes_pt_vinet": [
-      "notes_length",
-      "validity_length"
-    ],
-    "nacl_b2/nacl_b2_sakai_2011_matsui_pt_bm3": [
-      "notes_length",
-      "validity_length"
-    ],
-    "nacl_b2/nacl_b2_sakai_2011_matsui_pt_vinet": [
-      "notes_length",
-      "validity_length"
-    ],
     "nacl_b2/nacl_b2_sakai_2014_yokoo_pt_bm3": [
-      "notes_length",
       "source_note_length"
     ],
-    "nacl_b2/nacl_b2_sakai_2025_rydberg_stacey_1": [
-      "notes_length"
-    ],
     "nacl_b2/nacl_b2_shen_2026_vinet_2": [
-      "notes_length",
       "source_note_length"
     ],
     "namg2al5sio12_cf": [
       "material_notes_length"
-    ],
-    "namg2al5sio12_cf/namg2al5sio12_cf_kawai_2012_bm3_1": [
-      "notes_length"
     ],
     "namg2al5sio12_nal": [
       "material_notes_length"
@@ -1213,45 +476,20 @@
       "notes_length",
       "source_note_length"
     ],
-    "neon_fcc/neon_fcc_hemley_1989_bm3_refit": [
-      "notes_length"
-    ],
-    "nickel/nickel_campbell_2009_bm3_mgd": [
-      "notes_length"
-    ],
     "nickel/nickel_dewaele_2008_table4_us_k0_183_vinet": [
-      "notes_length",
       "source_note_length"
     ],
     "nickel/nickel_dewaele_2008_table4_vinet": [
-      "notes_length",
       "source_note_length"
-    ],
-    "nickel/nickel_dewaele_2008_vinet_1": [
-      "notes_length"
     ],
     "nickel_oxide": [
       "material_notes_length"
     ],
     "nickel_oxide/nickel_oxide_noguchi_1999_bm3_1": [
-      "notes_length",
       "source_note_length"
-    ],
-    "nickel_oxide/nickel_oxide_noguchi_1999_linear_hugoniot_2": [
-      "notes_length",
-      "validity_length"
     ],
     "nickel_oxide_b1": [
       "material_notes_length"
-    ],
-    "nickel_oxide_b1/nickel_oxide_b1_campbell_2009_bm3_mgd": [
-      "notes_length"
-    ],
-    "niobium/niobium_sokolova_2013_holzapfel_2": [
-      "notes_length"
-    ],
-    "nis/nis_campbell_1993_bm3_1": [
-      "notes_length"
     ],
     "perovskite_orthorhombic": [
       "material_notes_length"
@@ -1259,110 +497,23 @@
     "phase_d": [
       "material_notes_length"
     ],
-    "phase_d/phase_d_ant_a_shieh_2000_bm2_1": [
-      "notes_length"
-    ],
-    "phase_d/phase_d_ant_b_shieh_2000_bm2_1": [
-      "notes_length"
-    ],
     "phase_e_fe0072": [
       "material_notes_length"
-    ],
-    "phase_e_fe0072/phase_e_fe0072_crichton_ross_2000_bm3": [
-      "notes_length"
     ],
     "phase_egg": [
       "material_notes_length"
     ],
     "phase_egg/phase_egg_mookherjee_2019_bm3_lp_1": [
-      "notes_length",
-      "validity_length",
       "source_note_length"
-    ],
-    "phase_egg/phase_egg_schulze_2018_bm3_1": [
-      "notes_length"
-    ],
-    "platinum/platinum_dorogokupets_oganov_2007_vinet_4": [
-      "validity_length"
-    ],
-    "platinum/platinum_fei_2004_bm3_300k": [
-      "notes_length"
-    ],
-    "platinum/platinum_fei_2004_bm3_mgd": [
-      "notes_length"
-    ],
-    "platinum/platinum_fei_2007_vinet_300k": [
-      "notes_length",
-      "validity_length"
-    ],
-    "platinum/platinum_fei_2007_vinet_mgd": [
-      "notes_length",
-      "validity_length"
     ],
     "platinum/platinum_holmes_1989_vinet_1": [
-      "notes_length",
       "source_note_length"
-    ],
-    "platinum/platinum_matsui_2009_vinet_300k": [
-      "validity_length"
-    ],
-    "platinum/platinum_matsui_2009_vinet_mgd_electronic": [
-      "notes_length",
-      "validity_length"
-    ],
-    "platinum/platinum_sakai_2025_rydberg_stacey_1": [
-      "notes_length"
     ],
     "platinum/platinum_shen_2026_vinet_2": [
       "source_note_length"
     ],
-    "platinum/platinum_sokolova_2013_holzapfel_3": [
-      "notes_length"
-    ],
     "platinum/platinum_yokoo_2009_pvt_reconstruction": [
-      "notes_length",
-      "validity_length"
-    ],
-    "platinum/platinum_yokoo_2009_vinet_300k": [
-      "notes_length",
-      "validity_length"
-    ],
-    "platinum/platinum_zhu_2025_pvt": [
-      "validity_length"
-    ],
-    "pyrope/pyrope_angel_2022_bm3_q_compromise_debye": [
-      "notes_length"
-    ],
-    "qandilite/qandilite_lv_2016_bm2": [
-      "notes_length"
-    ],
-    "qandilite/qandilite_lv_2016_bm3": [
-      "notes_length"
-    ],
-    "rbbr/rbbr_b2_farla_2025_bm3_mgd_cscl": [
-      "notes_length",
-      "validity_length"
-    ],
-    "rbcl/rbcl_b2_campbell_1994_bm3_1": [
-      "notes_length"
-    ],
-    "rbcl/rbcl_b2_farla_2025_bm3_mgd_cscl": [
-      "notes_length",
-      "validity_length"
-    ],
-    "rbi/rbi_b2_farla_2025_bm3_mgd_cscl": [
-      "notes_length",
-      "validity_length"
-    ],
-    "rhenium/rhenium_sakai_2018_yokoo_pt_vinet": [
-      "notes_length",
-      "validity_length"
-    ],
-    "rhenium/rhenium_sakai_2025_rydberg_stacey_1": [
-      "notes_length"
-    ],
-    "rhenium/rhenium_zha_2004_bm3_log_thermal": [
-      "notes_length"
+      "thermal_length"
     ],
     "ringwoodite": [
       "material_notes_length"
@@ -1371,118 +522,63 @@
       "material_notes_length"
     ],
     "siderite_fe095mn005/siderite_fe095mn005_litasov_2013_bm3": [
-      "notes_length",
       "source_note_length"
     ],
-    "siderite_fe095mn005/siderite_fe095mn005_litasov_2013_joint_thermal_refit": [
-      "notes_length"
-    ],
     "silver/silver_dewaele_2008_table4_us_k0_101_vinet": [
-      "notes_length",
       "source_note_length"
     ],
     "silver/silver_dewaele_2008_table4_vinet": [
-      "notes_length",
       "source_note_length"
-    ],
-    "silver/silver_dewaele_2008_vinet_1": [
-      "notes_length"
-    ],
-    "silver/silver_sokolova_2013_holzapfel_2": [
-      "notes_length"
-    ],
-    "sio2_stv_andr/sio2_stv_andr_wang_2012_vinet_mgd_2": [
-      "notes_length"
-    ],
-    "sio2_stv_andr/stishovite_nisr_2017_dry_bm3": [
-      "notes_length"
     ],
     "sno2_cubic_27gpa": [
       "material_notes_length"
     ],
-    "sno2_cubic_27gpa/sno2_cubic_27gpa_ono_2000_bm3_1": [
-      "notes_length"
-    ],
     "sno2_pa_3_at_48gpa": [
       "material_notes_length"
-    ],
-    "sno2_pa_3_at_48gpa/sno2_pa_3_at_48gpa_ono_2000_bm3_1": [
-      "notes_length"
-    ],
-    "sro/sro_liu_1973_bm3_1": [
-      "notes_length"
-    ],
-    "sro_b2/sro_b2_sato_1981_bm2_1": [
-      "notes_length"
     ],
     "superhydrous_phase_b_lt": [
       "material_notes_length"
     ],
     "superhydrous_phase_b_lt/superhydrous_phase_b_lt_litasov_2007_bm3_a89": [
-      "notes_length",
       "source_note_length"
     ],
     "superhydrous_phase_b_lt/superhydrous_phase_b_lt_litasov_2007_bm3_t03": [
-      "notes_length",
       "source_note_length"
     ],
     "superhydrous_phase_b_lt/superhydrous_phase_b_lt_litasov_2007_htbm_a89": [
-      "notes_length",
       "source_note_length"
     ],
     "superhydrous_phase_b_lt/superhydrous_phase_b_lt_litasov_2007_htbm_t03": [
-      "notes_length",
       "source_note_length"
     ],
     "superhydrous_phase_b_lt/superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89": [
-      "notes_length",
       "source_note_length"
     ],
     "superhydrous_phase_b_lt/superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89": [
-      "notes_length",
       "source_note_length"
     ],
     "superhydrous_phase_b_lt/superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89": [
-      "notes_length",
       "source_note_length"
     ],
     "tantalum/tantalum_shen_2026_vinet_2": [
       "source_note_length"
     ],
-    "tantalum/tantalum_sokolova_2013_holzapfel_3": [
-      "notes_length"
-    ],
-    "tho2_cotunnite/tho2_cotunnite_chidester_2018_bm3_linear_thermal": [
-      "notes_length"
-    ],
-    "thorianite/thorianite_chidester_2018_bm3_linear_thermal": [
-      "notes_length"
-    ],
     "tungsten": [
       "material_notes_length"
     ],
-    "tungsten/tungsten_sakai_2025_rydberg_stacey_1": [
-      "notes_length"
-    ],
     "tungsten/tungsten_shen_2026_vinet_3": [
       "source_note_length"
-    ],
-    "tungsten/tungsten_sokolova_2013_holzapfel_4": [
-      "notes_length"
     ],
     "vanadium_bcc": [
       "material_notes_length"
     ],
     "vanadium_bcc/vanadium_bcc_crichton_2016_bm3_thermal": [
-      "notes_length",
       "source_note_length"
     ],
     "zinc_hcp/zinc_hcp_dewaele_2008_table4_us_k0_60_vinet": [
-      "notes_length",
       "source_note_length"
     ],
     "zinc_hcp/zinc_hcp_dewaele_2008_table4_vinet": [
-      "notes_length",
       "source_note_length"
     ]
   }

@@ -92,7 +92,6 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[30.0, 112.0\]
     - **Temperature k:** \[300.0, 2569.0\]
-    - **Notes:** High-spin reference branch used for the smooth high-temperature pyrolitic ferropericlase EOS.; No record-level molar mass is encoded because the coexisting phase composition evolves and the source gives only an approximate Mg0.80Fe0.20O description.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -102,6 +101,8 @@ Automatic selection for equilibrium calculations.
 - **Reference volume law:** integrated\_expansivity
 
 </details>
+
+High-spin reference branch used for the smooth high-temperature EOS of pyrolitic ferropericlase. No molar mass is encoded because the coexisting phase composition evolves and the source describes it only approximately as Mg0.80Fe0.20O.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -187,8 +188,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[50.0, 112.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Room-temperature low-spin branch above the observed volume contraction near 50 GPa.; No record-level molar mass is encoded because the exact coexisting phase composition is not fixed by the source.
 - **Reported error confidence level:** Not specified
+
+Room-temperature low-spin branch above the volume contraction observed near 50 GPa. No molar mass is encoded because the source does not fix the exact composition of the coexisting phase.
 
 <details markdown="1">
 <summary>Source review</summary>

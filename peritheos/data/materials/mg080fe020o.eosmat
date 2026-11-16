@@ -34,8 +34,8 @@
         "pressure_gpa": [0.0, 40.0],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "Valid only for the high-spin cubic B1 branch below the source's 40 GPa spin-transition onset.",
-          "It is not a continuous-spin-crossover EOS and must not be extrapolated through the 40-80 GPa mixed-spin interval."
+          "High-spin cubic B1 branch only, below the source's 40 GPa spin-transition onset.",
+          "Not a spin-crossover EOS; do not extrapolate through the 40-80 GPa mixed-spin interval."
         ]
       },
       "experimental_pressure_range_gpa": [0.0, 40.0],
@@ -43,7 +43,6 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "All three EOS coefficients were fitted. Parenthetical errors are preserved exactly; their confidence convention and covariance are not reported.",
       "fit_datasets": ["mg080fe020o_speziale_2007_table1_pv"],
       "reference": {
         "authors": ["Speziale", "Lee", "Clark", "Lin", "Pasternak", "Jeanloz"],
@@ -88,14 +87,13 @@
         "pressure_gpa": [0, 35],
         "temperature_k": [300, 300],
         "notes": [
-          "Published high-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+          "The bounds are the paper's approximate fitting domain for the high-spin branch, not a sharp spin-state boundary.",
+          "Do not use one branch across the spin crossover; outside its spin regime it is an extrapolated reference curve."
         ]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
       "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
@@ -136,14 +134,13 @@
         "pressure_gpa": [40, 95],
         "temperature_k": [300, 300],
         "notes": [
-          "Published low-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+          "The bounds are the paper's approximate fitting domain for the low-spin branch, not a sharp spin-state boundary.",
+          "Do not use one branch across the spin crossover; outside its spin regime it is an extrapolated reference curve."
         ]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
       "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
@@ -188,17 +185,13 @@
       "validity": {
         "pressure_gpa": [40.95, 95.48],
         "temperature_k": [300, 300],
-        "notes": [
-          "Empirical LS-labelled compression refit over the reported interval; does not establish complete spin conversion for every included row.",
-          "V0 is an extrapolated zero-pressure reference parameter; the fit is qualified for the observed 40.95-95.48 GPa interval.",
-          "Unweighted residual improvement does not establish general physical superiority over the published EOS."
-        ]
+        "notes": ["V0 is an extrapolated zero-pressure parameter; extrapolation outside 40.95-95.48 GPa is not recommended."]
       },
       "experimental_pressure_range_gpa": [40.95, 95.48],
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "refit",
-      "notes": "Independent Peritheos refit of Fei's original Table S1 observations, not published Fei EOS coefficients. Uses the full reported approximate 40-95 GPa LS interval, including its 95.48 GPa endpoint, without selecting a higher cutoff for coefficient agreement. The lower pressure residual is an in-sample fit improvement, not proof of a more accurate pure-LS EOS or a recalibrated pressure scale. Near-transition points may retain mixed-spin character; V0 and K0 are strongly correlated and extrapolation outside the observed interval is not recommended. Formal errors exclude calibration systematics and uncertainty in row selection. The original source-owned record remains unchanged.",
+      "notes": "Peritheos refit of Fei's Table S1 over the full approximate 40-95 GPa low-spin interval, not Fei's published coefficients. Points near the transition may retain mixed-spin character, and smaller residuals are not proof of a more accurate low-spin EOS than the published fit. V0 and K0 are strongly correlated, and formal errors exclude calibration systematics and row-selection uncertainty.",
       "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],

@@ -84,9 +84,8 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[16.09, 28.85\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** This executable record is only the published 300 K reference isotherm.; The paper also reports a separate 25 GPa thermal-expansion coefficient, which is not a complete thermal EOS and is not composed here.
 
-The 300 K reference isotherm for cubic Pa-3 SnO2. V0=130.6(3) A^3 means 130.6+/-0.3 A^3; the migrated +/-3.0 value was a decimal-place error. K0=252(28) GPa and K0'=3.5(2.2). V0 is a fitted extrapolation because the cubic phase transforms on decompression. Table 2 spans 16.09-28.85 GPa and 300-1400 K, but this record intentionally implements only the 300 K curve. No fitted-parameter covariance is published.
+300 K reference isotherm for cubic Pa-3 SnO2 only, although the Table 2 data span 300-1400 K. V0 is a fitted extrapolation because the cubic phase transforms on decompression.
 
 <details markdown="1">
 <summary>Source review</summary>

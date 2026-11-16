@@ -94,10 +94,9 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0, 22.56\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.; Measured pressure span at this temperature; no temperature interpolation by an isothermal record.
 - **Reported error confidence level:** Not specified
 
-Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.
+Empirical lattice-average volume EOS of layered brucite, including the H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui et al. describe a higher-order H change, and Sun (2025) XRD supports the layered average lattice beyond this range.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -200,10 +199,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[5.95, 16.52\]
     - **Temperature k:** \[473, 473\]
-    - **Notes:** Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.; Measured pressure span at this temperature; no temperature interpolation by an isothermal record.
 - **Reported error confidence level:** Not specified
 
-Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.
+Empirical lattice-average volume EOS of layered brucite, including the H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui et al. describe a higher-order H change, and Sun (2025) XRD supports the layered average lattice beyond this range.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -306,10 +304,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[5.62, 16.09\]
     - **Temperature k:** \[673, 673\]
-    - **Notes:** Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.; Measured pressure span at this temperature; no temperature interpolation by an isothermal record.
 - **Reported error confidence level:** Not specified
 
-Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.
+Empirical lattice-average volume EOS of layered brucite, including the H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui et al. describe a higher-order H change, and Sun (2025) XRD supports the layered average lattice beyond this range.
 
 <details markdown="1">
 <summary>Source review</summary>

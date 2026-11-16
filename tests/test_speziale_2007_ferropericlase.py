@@ -104,5 +104,7 @@ def test_speziale_record_is_executable_only_on_high_spin_branch():
         loaded.volume(42.0, 300.0, check_validity=True)
 
     notes = " ".join(source["validity"]["notes"])
-    assert "continuous-spin-crossover" in notes
+    assert "High-spin cubic B1 branch only" in notes
+    assert "Not a spin-crossover EOS" in notes
+    assert "40-80 GPa mixed-spin interval" in notes
     assert source["pressure_calibration"]["status"] == "unresolved"

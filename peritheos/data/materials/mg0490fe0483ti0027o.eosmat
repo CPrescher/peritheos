@@ -30,17 +30,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 68.8 GPa; reported 20-80% crossover width 18.4 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_pressure_range_gpa": [0, 82.9],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "fit_datasets": ["mg0490fe0483ti0027o_solomatova_2016_table1_pv"],
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
@@ -84,17 +81,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 68.8 GPa; reported 20-80% crossover width 18.4 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_pressure_range_gpa": [0, 82.9],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "fit_datasets": ["mg0490fe0483ti0027o_solomatova_2016_table1_pv"],
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],

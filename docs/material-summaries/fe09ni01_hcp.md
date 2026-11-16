@@ -124,14 +124,13 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[27.1, 271.5\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -215,14 +214,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[27.1, 271.5\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -306,14 +304,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[27.1, 271.5\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -397,14 +394,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[27.1, 271.5\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -488,14 +484,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[27.1, 271.5\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -579,14 +574,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[27.1, 271.5\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -672,14 +666,14 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
 - **Validity:**
     - **Pressure gpa:** \[27.1, 295.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -765,14 +759,14 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
 - **Validity:**
     - **Pressure gpa:** \[27.1, 295.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -858,14 +852,14 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
 - **Validity:**
     - **Pressure gpa:** \[27.1, 295.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -951,14 +945,14 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
 - **Validity:**
     - **Pressure gpa:** \[27.1, 295.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1044,14 +1038,13 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
 - **Validity:**
     - **Pressure gpa:** \[27.1, 290.7\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1137,14 +1130,13 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
 - **Validity:**
     - **Pressure gpa:** \[27.1, 290.7\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1230,14 +1222,14 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
 - **Validity:**
     - **Pressure gpa:** \[27.1, 295.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1323,14 +1315,14 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
 - **Validity:**
     - **Pressure gpa:** \[27.1, 295.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1416,14 +1408,13 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
 - **Validity:**
     - **Pressure gpa:** \[27.1, 295.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1509,14 +1500,13 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
 - **Validity:**
     - **Pressure gpa:** \[27.1, 295.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
 - **Reported error confidence level:** Not specified
 
-Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1613,7 +1603,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[27.1, 290.7\]
     - **Temperature k:** \[300, 2300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; Thermal observations cover 92.7–148.9 GPa; broader cold curve does not imply high-temperature data at those pressures.
+    - **Notes:** Thermal observations cover 92.7–148.9 GPa only; the wider pressure range is that of the cold curve.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -1627,7 +1617,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 </details>
 
-Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma\_inf tied to gamma0 and theta=theta0\*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference isotherm, whose parameters are fixed in the thermal regression. Anharmonic and electronic constants are adopted from pure Fe. Type 1 has constant gamma: gamma\_inf is tied to gamma0 and theta = theta0 (V/V0)^(-gamma0), the limiting case of the Type 4 definition in Section 3.5.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1739,7 +1729,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[27.1, 290.7\]
     - **Temperature k:** \[300, 2300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; Thermal observations cover 92.7–148.9 GPa; broader cold curve does not imply high-temperature data at those pressures.
+    - **Notes:** Thermal observations cover 92.7–148.9 GPa only; the wider pressure range is that of the cold curve.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -1753,7 +1743,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 </details>
 
-Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference isotherm, whose parameters are fixed in the thermal regression. Anharmonic and electronic constants are adopted from pure Fe.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1865,7 +1855,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[27.1, 290.7\]
     - **Temperature k:** \[300, 2300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; Thermal observations cover 92.7–148.9 GPa; broader cold curve does not imply high-temperature data at those pressures.
+    - **Notes:** Thermal observations cover 92.7–148.9 GPa only; the wider pressure range is that of the cold curve.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -1879,7 +1869,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 </details>
 
-Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference isotherm, whose parameters are fixed in the thermal regression. Anharmonic and electronic constants are adopted from pure Fe.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1991,7 +1981,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[27.1, 290.7\]
     - **Temperature k:** \[300, 2300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; Thermal observations cover 92.7–148.9 GPa; broader cold curve does not imply high-temperature data at those pressures.
+    - **Notes:** Thermal observations cover 92.7–148.9 GPa only; the wider pressure range is that of the cold curve.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -2005,7 +1995,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 </details>
 
-Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference isotherm, whose parameters are fixed in the thermal regression. Anharmonic and electronic constants are adopted from pure Fe.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2117,7 +2107,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[27.1, 290.7\]
     - **Temperature k:** \[300, 2300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; Thermal observations cover 92.7–148.9 GPa; broader cold curve does not imply high-temperature data at those pressures.
+    - **Notes:** Thermal observations cover 92.7–148.9 GPa only; the wider pressure range is that of the cold curve.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -2131,7 +2121,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 </details>
 
-Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference isotherm, whose parameters are fixed in the thermal regression. Anharmonic and electronic constants are adopted from pure Fe.
 
 <details markdown="1">
 <summary>Source review</summary>

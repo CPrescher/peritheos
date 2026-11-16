@@ -87,7 +87,6 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 8.16\]
     - **Temperature k:** \[300.0, 1280.0\]
-    - **Notes:** Experimental P-T bounds are an observed envelope, not a rectangular extrapolation guarantee.; The source states that the pressure range is too small to resolve K0' confidently; K0'=5 is the preferred constrained alternative.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -98,7 +97,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Complete preferred high-temperature BM3 parameterization from Zhao et al. (1997), fitted to the 31 hydrostatic Table 1 P-V-T states. The authors fixed V0=403 A^3 and K0'=5, and varied K0, dK/dT, a, and b. Their alternate K0'=4, K0'=6, and unconstrained-K0' tradeoff solutions remain documented in the source audit rather than being silently combined. The source does not report the regression objective, row weights, parameter covariance, or confidence convention.
+The authors' preferred high-temperature BM3 parameterization, fitted to the 31 hydrostatic P-V-T states of Table 1. The paper states that the pressure range is too small to resolve K0' confidently, and K0' = 5 is its preferred constrained choice. Its K0' = 4, K0' = 6 and free-K0' solutions are not stored.
 
 <details markdown="1">
 <summary>Source review</summary>

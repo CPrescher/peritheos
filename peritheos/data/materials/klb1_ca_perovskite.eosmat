@@ -41,14 +41,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [30.0, 111.0],
-        "temperature_k": [300.0, 2569.0],
-        "notes": ["Effective coexisting-phase EOS; high-temperature diffraction is cubic."]
+        "temperature_k": [300.0, 2569.0]
       },
       "experimental_pressure_range_gpa": [30.0, 111.0],
       "experimental_temperature_range_k": [300.0, 2569.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Effective EOS of the Ca-perovskite coexisting in KLB-1 pyrolite. Its high-temperature diffraction is cubic.",
       "fit_datasets": ["klb1_ricolleau_2009_table_s1_ca_perovskite_pvt"],
       "reference": {
         "authors": [

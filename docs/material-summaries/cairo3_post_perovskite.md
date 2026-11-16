@@ -93,10 +93,10 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 7.79\]
-    - **Notes:** The interval is the marginal range of the included room-temperature compression observations, not a phase-stability claim.; The source gives only 'room temperature', without a numerical temperature in kelvin; this is an isothermal record with no thermal correction.; The authors caution that extrapolation beyond 15-20 GPa reverses the relative compressibilities of the two low-pressure fits.
+    - **Notes:** The authors caution that extrapolation beyond 15-20 GPa reverses the relative compressibilities of the two low-pressure fits.
 - **Reported error confidence level:** Not specified
 
-This record is limited to the Cmcm CaIrO3 post-perovskite polymorph and must not be used for the Pbnm perovskite. V0 is the four-formula-unit conventional-cell volume. The source describes V0, K0, and K' together as refined parameters and marks none fixed, so fixed\_parameters is empty. The printed standard deviations are retained without conversion to a confidence interval, and numerical covariance is absent rather than assumed zero.
+Limited to the Cmcm CaIrO3 post-perovskite polymorph; do not use it for the Pbnm perovskite. V0 is the four-formula-unit conventional-cell volume. The printed errors are standard deviations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -211,14 +211,12 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.3, 29.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** 298.15 K is the conventional numeric normalization of the source's room-temperature isotherm.; The high-pressure NaCl-series observations were laser annealed and contain diffraction features from dissociation products, as explicitly cautioned by the source.
+    - **Notes:** The high-pressure NaCl-series observations were laser annealed and show diffraction features of dissociation products, as the source cautions.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 280.292
 - **Reported error confidence level:** 0.6827
-
-Accepted LitCurate source record litcurate\_5e62ecacf2340445.
 
 <details markdown="1">
 <summary>Source review</summary>

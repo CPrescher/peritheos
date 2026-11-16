@@ -195,6 +195,10 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Main text; Figure 1 caption and EOS fit."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Single-crystal X-ray compression fit for orthorhombic Fe7C3 from 4 to 158 GPa. The structure was additionally observed after high-pressure, high-temperature synthesis to 205 GPa, outside the fitted EoS interval. Parameter parity uses the recovered 28-row author fit input, not Table S4. Table S4 should not be used for scientific calculations, EOS fitting or pressure calibration. Retained for provenance only: its CIF-derived cell values differ from the recovered author EOS fit inputs, and matching CrysAlis logs and exports contain inconsistent cell representations. See docs/literature-reproductions/iron-carbide-fe7c3-prescher-2015.md.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

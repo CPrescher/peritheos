@@ -85,11 +85,13 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.0\]
     - **Temperature k:** \[3000.0, 3000.0\]
-    - **Notes:** Reference isotherm for pure MgO liquid in the authors' broader composition-temperature equation.; Do not apply to crystalline B1 or B2 MgO.
+    - **Notes:** Do not apply to crystalline B1 or B2 MgO.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 40.304
+
+Reference isotherm for pure MgO liquid in the authors' broader composition-temperature equation.
 
 <details markdown="1">
 <summary>Source review</summary>

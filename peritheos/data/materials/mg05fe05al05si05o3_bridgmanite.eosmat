@@ -31,19 +31,14 @@
       "validity": {
         "pressure_gpa": [26.8, 102.2],
         "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.7660564497, 0.9056263335],
-        "notes": [
-          "Bounds are the 23-observation fitted envelope, not a broader phase-stability field.",
-          "V0 is extrapolated because FA50 bridgmanite is not retained at ambient pressure.",
-          "The curve averages before- and after-current-step-anneal states and must not be interpreted as a pure low-spin branch."
-        ]
+        "volume_ratio": [0.7660564497, 0.9056263335]
       },
       "experimental_pressure_range_gpa": [26.8, 102.2],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Authors' preferred room-temperature BM2, chosen for denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. This mixed-spin curve is the equilibrium default, but not a pure low-spin branch.",
+      "notes": "The authors' preferred room-temperature BM2, chosen for its denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. It averages states before and after each current-step anneal and describes a mixed-spin sample, not a pure low-spin branch. V0 is extrapolated because this bridgmanite is not retained at ambient pressure.",
       "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"],
       "reference": {
         "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
@@ -89,19 +84,14 @@
       "validity": {
         "pressure_gpa": [29.0, 102.2],
         "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.7665018314, 0.9019469477],
-        "notes": [
-          "Bounds are the 11 selected-observation envelope.",
-          "V0 is a high-pressure bridgmanite extrapolation.",
-          "This comparison subset is not an independent spin-state branch."
-        ]
+        "volume_ratio": [0.7665018314, 0.9019469477]
       },
       "experimental_pressure_range_gpa": [29.0, 102.2],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Non-default fit retained because the authors explicitly report it. It tests the effect of selecting observations collected after each current pressure-step anneal; it is not a separate thermodynamic or fully low-spin branch.",
+      "notes": "Comparison fit by the authors to the 11 observations collected after each current pressure-step anneal. It is a subset of the same sample-1 data, not a separate thermodynamic or fully low-spin branch. V0 is a high-pressure bridgmanite extrapolation.",
       "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"],
       "reference": {
         "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
@@ -145,19 +135,14 @@
       "validity": {
         "pressure_gpa": [27.5, 103.6],
         "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.7724757411, 0.9077366315],
-        "notes": [
-          "Bounds are the 21-observation fitted envelope.",
-          "V0 is a high-pressure bridgmanite extrapolation.",
-          "The record preserves a kinetically retained cation-ordering history and is not the equilibrium default."
-        ]
+        "volume_ratio": [0.7724757411, 0.9077366315]
       },
       "experimental_pressure_range_gpa": [27.5, 103.6],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Non-default, metastable cold-compression comparison retained because both its complete observations and explicitly reported BM2 are available. It is the authors' high-spin original-ordering reference, not a license to infer a separate equilibrium branch outside its measured envelope.",
+      "notes": "Metastable comparison fit to cold-compressed sample 2, which keeps a kinetically retained cation ordering. The authors use it as the high-spin original-ordering reference; it does not define an equilibrium branch outside its measured range. V0 is a high-pressure bridgmanite extrapolation.",
       "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"],
       "reference": {
         "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
@@ -203,9 +188,7 @@
         "temperature_k": [293.0, 293.0],
         "volume_ratio": [0.8306074766, 0.9571845794],
         "notes": [
-          "Bounds are the selected Pnma observation envelope, not a broader phase-stability field.",
-          "V0 is extrapolated because the Pnma perovskite is not retained at ambient pressure.",
-          "The 7.5 and 8.6 GPa measurements fall in the reported structural-transition interval and are outside this fit."
+          "The 7.5 and 8.6 GPa measurements lie in the reported structural-transition interval and are outside this fit."
         ]
       },
       "experimental_pressure_range_gpa": [10.8, 60.0],
@@ -213,7 +196,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Accepted LitCurate record litcurate_1a8c16a1075ca2d2. Pnma is an alternative setting of the material card's Pbnm space group 62. The low-pressure R3c and FeMg0.5Si0.5O3 P21/n candidates require distinct phase cards and were not added in this batch.",
+      "notes": "Single-crystal BM2 fit to the Pnma perovskite only (Pnma is an alternative setting of this material's Pbnm, space group 62); the low-pressure R3c and the FeMg0.5Si0.5O3 P21/n candidates are not included. V0 is extrapolated because the Pnma perovskite is not retained at ambient pressure.",
       "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_koemets_2023_table_s3_pv"],
       "reference": {
         "authors": [

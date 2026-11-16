@@ -181,7 +181,11 @@
           "fit_scope": "Equation-of-state section and Figure 2: present B1 observations plus Campbell et al. (2009), Ozawa et al. (2010), and Seagle et al. (2008)."
         }
       },
-      "superseded_record_text": {"label": "B1 iron-saturated FeO, Fischer et al. (2011)", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "B1 iron-saturated FeO, Fischer et al. (2011)",
+        "notes": "Fischer et al. report a thermal EOS for iron-saturated FeO, not a standalone 300 K BM3. The Fe0.94O starting powder was mixed with Fe and the authors treat the equilibrated high-P-T oxide as approximately stoichiometric FeO. Reported sample temperatures already include the source's 3% downward axial-gradient correction and must be evaluated at their tabulated values. All four row-level sources for the global B1 fit are now bundled: Fischer Table S1, Seagle supplementary Table 1, Ozawa printed Table 2, and Campbell supplementary Table S2. Seagle contains 65 hcp-Fe rows, 14 fcc-Fe rows, and two rows without Fe volume that retain the source's 50 +/- 4 GPa isobar assignment; Campbell contains 10 hcp-Fe and 15 fcc-Fe rows. The exact regression weights/objective and Fischer's final combined row selection are not published. The marginal pressure range includes those comparison/fit-input studies and is not a phase-stability boundary.",
+        "superseded_on": "2026-11-16"
+      }
     },
     "fe093o_b1_jacobsen_2005_bm3_1": {
       "pressure_calibration": {
@@ -319,6 +323,14 @@
           "volume_basis": "Table 1 reports cubic lattice parameter a; V=a^3 is the conventional B1 cell containing four Fe0.93O formula units.",
           "temperature_ref": "The source identifies the ambient lattice measurements as 300 K and reports a room-temperature static compression experiment."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published cubic-phase fit to the seven Table 1 observations from 0 to 22.8 GPa. The source calls the fitted equation third-order Birch-Murnaghan even though fixing K0'=4 reduces it numerically to BM2; BM3 is retained to preserve the source model declaration and fixed parameter. Parenthesized parameter errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
+        "validity_notes": [
+          "Composition-specific to non-stoichiometric Fe0.93O in the cubic B1 phase.",
+          "The last cubic observation is at 22.8 GPa; the rhombohedral phase is observed from 27.7 GPa onward."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "feo_leonov_2017_hs_bm3_1": {
@@ -380,6 +392,14 @@
           "K0_prime": "Fixed to 4.1.",
           "fit_selection": "High-spin volume region. Numerical energy-volume grid not deposited."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": [
+          "High-spin paramagnetic B1 branch; upper bound is the source transition midpoint.",
+          "Static-ion DFT+DMFT EOS at electronic temperature 1160 K."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "feo_holland_2013_fper_modified_tait": {
@@ -445,6 +465,11 @@
           "parameters": "Article Table 1 and official tc-ds62 fper block.",
           "unit_conversion": "V0=1.206 J/bar/mol, K0=1520 kbar, K0''=-0.00320 kbar^-1; converted to executable units and Z=4."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": ["Ideal FeO B1 thermodynamic endmember; not a stoichiometry claim for natural wustite."],
+        "superseded_on": "2026-11-16"
       }
     },
     "feo_campbell_2009_bm3_mgd": {
@@ -622,6 +647,11 @@
             "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. The published fit also includes Seagle et al. (2008). Its 81 V-T rows are linked, but exact row-wise pressures and Campbell recalibration are not published. Independent refits therefore report a current-study subset and a nominal-isobar sensitivity reconstruction. The starting Fe1-xO powder equilibrates with metallic Fe; Sections 2.1, 3 and 5 explicitly identify the selected oxide as stoichiometric Fe1.00O in B1, not Fe0.94O, rhombohedral wustite or B8. Stoichiometry follows the Stolen-Grønvold model-B field (above 5 GPa at 900 K, boundary slope below -120 K/GPa), not a direct per-row chemical assay. ",
+        "thermal_notes": null,
+        "superseded_on": "2026-11-16"
       }
     }
   }

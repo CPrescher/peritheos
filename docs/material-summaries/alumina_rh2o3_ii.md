@@ -93,10 +93,11 @@ Automatic selection for equilibrium calculations.
 <summary>Thermal equation choices</summary>
 
 - **Debye temperature law:** integrated\_gruneisen
+- **Notes:** Thermal pressure is taken relative to 300 K: Delta Pth = gamma/V \[E\_D(V,T) - E\_D(V,300 K)\] (Equations 3-6).
 
 </details>
 
-Published model 2 selected in main Table 1 and reused in Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V \[E\_D(V,T)-E\_D(V,300 K)\], gamma=gamma0(V/V0)^q, and theta=theta0 exp\[-(gamma-gamma0)/q\], with n=5 atoms per formula unit. V0=165.2(7) A^3 is the conventional four-formula-unit Pbcn cell, fitted by extrapolation from high-pressure data rather than measured at ambient conditions. K0, V0, theta0, and gamma0 were fitted; K0'=4 and q=1 were fixed. Parenthetical errors are retained as generic published uncertainties because no confidence convention or covariance matrix is given. Table 3 also reports four q-sensitivity fits (q=0.6, 1.4, 1.8, and 2.2); they are documented alternatives, not separate preferred EOS records. The article states a 153 GPa, 3400 K EOS scope. Table S2 nevertheless prints two identical 156.7(4.0) GPa, 3670(370) K Rh2O3(II) volumes at the reported onset of CaIrO3-type Al2O3; they remain in the source dataset with an explicit phase-context flag but do not extend this record's declared validity. At the Table S2 state V=129.8 A^3 and T=300 K, the stored model gives 100.1123 GPa versus 100.0(1.0) GPa. Across all 75 printed rows it gives a 1.1434 GPa pressure RMSE. The independent errors-in-variables refit is reported in docs/literature-reproductions.md and the primary-EOS refit ledger.
+Model 2 (Tables 1 and S3): BM3 300 K isotherm plus Mie-Grüneisen-Debye thermal pressure; the prose says Murnaghan, but Equation 2 is BM3, equal to BM2 with K0' = 4 fixed. V0 is per Pbcn cell (four formula units), extrapolated from high-pressure data, not measured at ambient conditions. Two Table S2 Rh2O3(II) points at 156.7 GPa and 3670 K, at the onset of CaIrO3-type Al2O3, lie outside the range.
 
 <details markdown="1">
 <summary>Source review</summary>

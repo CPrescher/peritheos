@@ -98,7 +98,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Source-owned unconstrained 62-point unweighted fit, measured to 11.5 GPa and 1000 K. Initial first-cycle stressed-foil observations were anomalous; recovered ambient point is explicitly excluded. No statistical confidence/covariance is specified. Nominal-temperature digitized symbols only support a qualified proxy refit, not the original regression. The source Conclusion quotes 2.7% ambient and 1.2% at 10 GPa expansion from 300 to 1000 K; stored coefficients give 2.294% and 1.026%. Figure 2 supports the stored expansion convention; no coefficient is changed to force the prose values. Two fixed-K0-prime alternatives are withheld for missing V0 and thermal parameters.
+The authors' unconstrained, unweighted 62-point thermal fit; the anomalous first-cycle stressed-foil observations and the recovered ambient point are excluded, and no confidence or covariance is specified. The Conclusion quotes 2.7% thermal expansion at ambient pressure and 1.2% at 10 GPa from 300 to 1000 K; the stored coefficients give 2.294% and 1.026%, consistent with Figure 2.
 
 <details markdown="1">
 <summary>Source review</summary>

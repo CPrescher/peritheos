@@ -28,7 +28,7 @@
       "experimental_pressure_range_gpa": [0.0, 49.4],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. It is distinct from the paper's later global linear-composition model. V0 and its error are propagated from the primary a0=4.2805(4) A measurement; K0=149+/-4 GPa and K0'=4 fixed. Table 2 spans 0-49.4 GPa. No covariance or confidence convention for the K0 error is reported.",
+      "notes": "Fit-specific room-temperature BM2 for MW60 (60 mol% FeO), distinct from the paper's global linear-composition model. V0 and its error are propagated from the measured a0 = 4.2805(4) Å. No covariance or confidence convention for the K0 error is reported.",
       "reference": {
         "authors": ["Richet", "Mao", "Bell"],
         "year": 1989,
@@ -60,11 +60,11 @@
       },
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": ["HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+        "temperature_k": [300, 300]
       },
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin reference branch of a coupled spin-crossover fit to the Lin data (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -104,11 +104,11 @@
       },
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": ["LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+        "temperature_k": [300, 300]
       },
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Low-spin reference branch of a coupled spin-crossover fit to the Lin data (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,

@@ -163,7 +163,12 @@ def test_record_text_fields_round_trip():
 
 
 def _catalog_copy(tmp_path, materials):
-    """A minimal repository root with some materials and their receipt bindings."""
+    """A minimal repository root with some materials and their receipt bindings.
+
+    Text already revised in the bundled catalog is first rewritten back to its
+    stored original with the tool itself, so the copy starts from records
+    without a ``superseded_record_text`` block whatever the catalog holds.
+    """
     receipt = json.loads(RECEIPT.read_bytes())
     receipt["materials"] = {m: receipt["materials"][m] for m in materials}
     receipt.pop("superseded", None)
@@ -179,7 +184,33 @@ def _catalog_copy(tmp_path, materials):
     target = tmp_path / RECEIPT.relative_to(ROOT)
     target.parent.mkdir(parents=True)
     target.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+    _restore_originals(tmp_path, materials)
     return tmp_path
+
+
+def _restore_originals(root, materials):
+    plan = tool.Plan()
+    for material in materials:
+        sidecar = json.loads(
+            (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
+        )
+        changes = {
+            identifier: {
+                name: block[name] for name in SUPERSEDED_TEXT_FIELDS if name in block
+            }
+            for identifier, entry in sidecar["records"].items()
+            if (block := entry.get("superseded_record_text"))
+        }
+        if changes:
+            plan.changes[material] = changes
+    tool.apply_plan(plan, "2026-11-16", root)
+    for material in materials:
+        sidecar = json.loads(
+            (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
+        )
+        assert not any(
+            "superseded_record_text" in entry for entry in sidecar["records"].values()
+        )
 
 
 def _record(root, material, identifier):
@@ -313,6 +344,13 @@ def test_apply_round_trip_on_two_materials(tmp_path):
 def test_second_rewrite_keeps_the_first_original_and_a_revert_drops_it(tmp_path):
     root = _catalog_copy(tmp_path, ["akimotoite"])
     original = _record(root, "akimotoite", AKIMOTOITE)
+    copied = {
+        path: (root / path).read_bytes()
+        for path in (
+            "peritheos/data/materials/akimotoite.eosmat",
+            "peritheos/data/audits/akimotoite.audit.json",
+        )
+    }
     for text, date in (
         ("First rewrite.", "2026-11-16"),
         ("Second rewrite.", "2026-11-20"),
@@ -330,12 +368,8 @@ def test_second_rewrite_keeps_the_first_original_and_a_revert_drops_it(tmp_path)
     )
     tool.apply_plan(plan, "2026-11-21", root)
     assert "superseded_record_text" not in _entry(root, "akimotoite", AKIMOTOITE)
-    assert (root / "peritheos/data/materials/akimotoite.eosmat").read_bytes() == (
-        MATERIALS / "akimotoite.eosmat"
-    ).read_bytes()
-    assert (root / "peritheos/data/audits/akimotoite.audit.json").read_bytes() == (
-        AUDITS / "akimotoite.audit.json"
-    ).read_bytes()
+    for path, content in copied.items():
+        assert (root / path).read_bytes() == content
     receipt = json.loads((root / RECEIPT.relative_to(ROOT)).read_bytes())
     assert "superseded_record_text" not in receipt["materials"]["akimotoite"]
 
@@ -409,6 +443,30 @@ def test_thermal_label_and_consistency_refusals(tmp_path):
     batches["akimotoite"][AKIMOTOITE]["before"]["notes"] = "Different text."
     refusals, _ = _refusals(root, batches)
     assert refusals == {(AKIMOTOITE, "before_mismatch")}
+
+
+def test_a_validity_note_may_not_create_or_remove_the_validity_object(tmp_path):
+    # A validity object replaces the experimental ranges as the envelope that
+    # check_validity enforces, so text alone must not add or remove one.
+    root = _catalog_copy(tmp_path, ["akimotoite"])
+    bare = "akimotoite_siersch_2021_bm3_1"
+    assert "validity" not in _record(root, "akimotoite", bare)
+    batches = _change(root, "akimotoite", bare, validity_notes=["Range note."])
+    refusals, plan = _refusals(root, batches)
+    assert refusals == {(bare, "validity_scope")} and not plan.changes
+    # A record whose validity holds only notes keeps it.
+    document = json.loads(
+        (root / "peritheos/data/materials/akimotoite.eosmat").read_bytes()
+    )
+    record = next(r for r in document["eos_records"] if r["identifier"] == bare)
+    record["validity"] = {"notes": ["Only a note."]}
+    (root / "peritheos/data/materials/akimotoite.eosmat").write_text(
+        format_eosmat(document)
+    )
+    refusals, _ = _refusals(
+        root, _change(root, "akimotoite", bare, validity_notes=None)
+    )
+    assert refusals == {(bare, "validity_scope")}
 
 
 def test_reverse_procedure_recovers_every_revised_pre_split_file():

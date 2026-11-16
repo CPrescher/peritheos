@@ -37,7 +37,7 @@
       "experimental_pressure_range_gpa": [2.55, 10.11],
       "experimental_temperature_range_k": [300.5, 451.2],
       "determination_method": "experimental",
-      "notes": "Joint PVT fit for pure H2O ice VII. Published molar V0=12.49(1) cm^3/mol is converted to the Z=2 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VII measurements tabulated in the paper.",
+      "notes": "Joint P-V-T fit for pure H2O ice VII. Published molar V0 = 12.49(1) cm³/mol; stored per unit cell (Z = 2). dK/dT was fixed to zero because no temperature dependence was detectable.",
       "reference": {
         "authors": ["Bezacier", "Journaux", "Perrillat", "Cardon", "Hanfland", "Daniel"],
         "year": 2014,
@@ -70,7 +70,7 @@
       "experimental_pressure_range_gpa": [6.57, 60.52],
       "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
-      "notes": "Independent 300 K compression fit. Published molar V0=12.4(1) cm^3/mol is converted to the Z=2 cubic cell. The fit used all three BM3 variables simultaneously; the numeric pressure domain is the range of the authors' 300 K compression data.",
+      "notes": "Independent 300 K compression fit. Published molar V0 = 12.4(1) cm³/mol; stored per cubic cell (Z = 2).",
       "reference": {
         "authors": ["Frank", "Fei", "Hu"],
         "year": 2004,

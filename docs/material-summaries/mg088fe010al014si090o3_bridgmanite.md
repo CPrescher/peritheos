@@ -94,10 +94,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[4.2, 64.6\]
     - **Temperature k:** \[293.0, 293.0\]
     - **Volume ratio:** \[0.83179737564845, 0.98687824229479\]
-    - **Notes:** Bounds are the 22-row Table S1/CIF observation envelope, not a broader phase-stability guarantee.; Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa but does not establish a rectangular thermodynamic stability field.
+    - **Notes:** Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa.
 - **Reported error confidence level:** Not specified
 
-Standard second-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. K0\_prime=4 is fixed by the BM2 model; V0 and K0 were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM2 is co-reported with BM3 and is not designated preferred.
+Eulerian BM2 fit at 293 K, co-reported with the BM3 fit; neither is designated preferred.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -227,10 +227,10 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[4.2, 64.6\]
     - **Temperature k:** \[293.0, 293.0\]
     - **Volume ratio:** \[0.82780612244897, 0.98214285714287\]
-    - **Notes:** Bounds are the 22-row Table S1/CIF observation envelope, not a broader phase-stability guarantee.; Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa but does not establish a rectangular thermodynamic stability field.
+    - **Notes:** Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa.
 - **Reported error confidence level:** Not specified
 
-Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. V0, K0, and K0\_prime were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM3 is co-reported with BM2 and is not designated preferred.
+Eulerian BM3 fit at 293 K, co-reported with the BM2 fit; neither is designated preferred.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -361,14 +361,13 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg0
     - **Pressure gpa:** \[0.0, 72.6\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.82308396946565, 1.0\]
-    - **Notes:** Bounds are the complete Table S2 room-temperature compression envelope.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 104.024
 - **Reported error confidence level:** Not specified
 
-The parenthetical error on V0 is not treated as a fitted parameter uncertainty because Text S1 explicitly fixes V0; the 0.01 A^3 value in Table S2 is the ambient observation uncertainty.
+V0 is fixed at the measured ambient cell volume (Text S1). The 0.01 Å³ printed with it in Table S2 is the uncertainty of that ambient observation, not a fitted parameter error.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -446,7 +445,6 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg0
     - **Pressure gpa:** \[0.0, 72.6\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.82308396946565, 1.0\]
-    - **Notes:** Bounds are the complete Table S2 room-temperature compression envelope.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0

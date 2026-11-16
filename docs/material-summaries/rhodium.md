@@ -77,7 +77,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 55.0\]
 
-Experimental helium-medium Vinet fit over 0-55 GPa; fcc Rh remains stable throughout the measured range.
+Vinet fit to data in a helium pressure medium; fcc Rh is stable throughout the measured range.
 
 <details markdown="1">
 <summary>Source review</summary>

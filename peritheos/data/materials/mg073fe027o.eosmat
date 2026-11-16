@@ -31,16 +31,12 @@
       "validity": {
         "pressure_gpa": [0.0, 51.1],
         "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Composition-specific to Mg0.73Fe0.27O in the cubic B1 phase.",
-          "The source reports no phase transition or rhombohedral distortion over the experimental range."
-        ]
+        "notes": ["The source reports no phase transition or rhombohedral distortion over the experimental range."]
       },
       "experimental_pressure_range_gpa": [0.0, 51.1],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Published fit to all 16 Table 1 Fe27 observations from 0 to 51.1 GPa. V0, K0, and K0' are free parameters; none was fixed. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
       "fit_datasets": ["jacobsen_2005_table1_compression"],
       "reference": {
         "authors": ["Jacobsen", "Lin", "Angel", "Shen", "Prakapenka", "Dera", "Mao", "Hemley"],

@@ -85,7 +85,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 101.0\]
 - **Reported temperature coverage (K):** \[300.0, 5600.0\]
 
-Combined BM3 plus Holland-Powell thermal-pressure fit. The 300 K reference data are from Monteseguro et al. (2019), while the thermal contribution is constrained by the present resistive- and laser-heating experiments. Equation 2 uses a fixed 298 K Einstein temperature and the arithmetic mean of upstream/downstream pyrometry. The 122-row supplement contains the exact laser-heating observations but not numerical tables for the Monteseguro 300 K or present 830 K resistive-heating series. Figure 4 does expose 91 and 16 corresponding marker centers as vector paths; these are bundled as explicitly plot-derived coordinates with graphical uncertainty. A source-conditioned fit holds the published BM3 coefficients fixed and tests alpha0 on all exact hot rows. A separate four-parameter reconstruction combines the digitized series with exact hot rows in the stated plus-or-minus 100 K isotherm bands; it is not exact source parity because the original rows, averaging algorithm, weights, and covariance remain unpublished. fcc Ir remained stable to 101 GPa and 5600 K in the present experiments.
+BM3 300 K reference isotherm plus Holland-Powell thermal pressure. The 300 K data are from Monteseguro et al. (2019); the thermal part rests on the present resistive- and laser-heating experiments, with temperatures the arithmetic mean of upstream and downstream pyrometry. fcc Ir remained stable to 101 GPa and 5600 K in these experiments.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -33,8 +33,7 @@
         "temperature_k": [293.0, 293.0],
         "volume_ratio": [0.83179737564845, 0.98687824229479],
         "notes": [
-          "Bounds are the 22-row Table S1/CIF observation envelope, not a broader phase-stability guarantee.",
-          "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa but does not establish a rectangular thermodynamic stability field."
+          "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa."
         ]
       },
       "experimental_pressure_range_gpa": [4.2, 64.6],
@@ -42,7 +41,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Standard second-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. K0_prime=4 is fixed by the BM2 model; V0 and K0 were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM2 is co-reported with BM3 and is not designated preferred.",
+      "notes": "Eulerian BM2 fit at 293 K, co-reported with the BM3 fit; neither is designated preferred.",
       "fit_datasets": ["mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"],
       "reference": {
         "authors": ["Fu", "Chariton", "Zhang", "Okuchi", "Prakapenka", "Lin"],
@@ -90,8 +89,7 @@
         "temperature_k": [293.0, 293.0],
         "volume_ratio": [0.82780612244897, 0.98214285714287],
         "notes": [
-          "Bounds are the 22-row Table S1/CIF observation envelope, not a broader phase-stability guarantee.",
-          "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa but does not establish a rectangular thermodynamic stability field."
+          "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa."
         ]
       },
       "experimental_pressure_range_gpa": [4.2, 64.6],
@@ -99,7 +97,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. V0, K0, and K0_prime were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM3 is co-reported with BM2 and is not designated preferred.",
+      "notes": "Eulerian BM3 fit at 293 K, co-reported with the BM2 fit; neither is designated preferred.",
       "fit_datasets": ["mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"],
       "reference": {
         "authors": ["Fu", "Chariton", "Zhang", "Okuchi", "Prakapenka", "Lin"],
@@ -144,15 +142,14 @@
       "validity": {
         "pressure_gpa": [0.0, 72.6],
         "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.82308396946565, 1.0],
-        "notes": ["Bounds are the complete Table S2 room-temperature compression envelope."]
+        "volume_ratio": [0.82308396946565, 1.0]
       },
       "experimental_pressure_range_gpa": [0.0, 72.6],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "The parenthetical error on V0 is not treated as a fitted parameter uncertainty because Text S1 explicitly fixes V0; the 0.01 A^3 value in Table S2 is the ambient observation uncertainty.",
+      "notes": "V0 is fixed at the measured ambient cell volume (Text S1). The 0.01 Å³ printed with it in Table S2 is the uncertainty of that ambient observation, not a fitted parameter error.",
       "fit_datasets": ["mg088fe010al014si090o3_bridgmanite_fu_2023_table_s2_pv"],
       "reference": {
         "authors": ["Fu", "Zhang", "Okuchi", "Lin"],
@@ -193,8 +190,7 @@
       "validity": {
         "pressure_gpa": [0.0, 72.6],
         "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.82308396946565, 1.0],
-        "notes": ["Bounds are the complete Table S2 room-temperature compression envelope."]
+        "volume_ratio": [0.82308396946565, 1.0]
       },
       "experimental_pressure_range_gpa": [0.0, 72.6],
       "experimental_temperature_range_k": [300.0, 300.0],

@@ -82,7 +82,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 21.1\]
 - **Coverage provenance:** reported\_exactly
 
-Empirical 298 K Vinet fit jointly spanning bcc and fcc lithium, exactly as defined by the primary paper. It is not a phase-specific bcc EOS: the bcc-fcc transition occurs near 7.5 GPa with a 0.16(3)% volume discontinuity. Public volumes use twice the paper's atomic volume so they remain compatible with this file's two-atom bcc conventional-cell convention, including for fcc observations. V0 was fixed; no V0 error or parameter covariance is published.
+Empirical 298 K Vinet fit spanning both bcc and fcc lithium, as defined by the paper; not a phase-specific bcc EOS. The bcc-fcc transition near 7.5 GPa has a 0.16(3)% volume discontinuity. Volumes are twice the paper's atomic volume (two-atom bcc cell), also for fcc observations.
 
 <details markdown="1">
 <summary>Source review</summary>

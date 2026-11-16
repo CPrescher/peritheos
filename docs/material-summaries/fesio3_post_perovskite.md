@@ -88,14 +88,12 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[-10.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.700886, 1.063137\]
-    - **Notes:** Static 0 K GGA+U curve, not an experimental stability field.; The source energy grid corresponds to -10 through 150 GPa at eight specified pressures.
+    - **Notes:** The range is the source's energy grid: eight pressures from -10 to 150 GPa.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 131.928
 - **Reported error confidence level:** Not specified
-
-Retain as a directly published Vinet parameterization. Keep not\_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.
 
 <details markdown="1">
 <summary>Source review</summary>

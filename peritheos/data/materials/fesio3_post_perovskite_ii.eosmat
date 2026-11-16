@@ -34,16 +34,14 @@
         "temperature_k": [0.0, 0.0],
         "volume_ratio": [0.703885, 1.060675],
         "notes": [
-          "Static 0 K GGA+U fit interval, not a Cmmm phase-stability field.",
-          "The source reports a displacive Cmmm-to-C2/m distortion at low pressure; use the Cmmm structure specifically near the 100 GPa tabulated state.",
-          "The eight energy calculations correspond to -10 through 150 GPa."
+          "The source reports a displacive Cmmm-to-C2/m distortion at low pressure; use the Cmmm structure specifically near the 100 GPa tabulated state."
         ]
       },
       "experimental_pressure_range_gpa": [-10.0, 150.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "notes": "Retain as a directly published Vinet parameterization, without implying Cmmm stability across the whole mathematical interval. Keep not_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.",
+      "notes": "Static 0 K GGA+U Vinet fit to eight energy calculations covering -10 to 150 GPa; no numerical E(V) grid was deposited.",
       "reference": {
         "authors": ["Cohen", "Lin"],
         "year": 2014,

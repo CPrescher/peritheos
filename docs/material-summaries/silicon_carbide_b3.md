@@ -77,7 +77,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 65.0\]
 
-Table 1 room-temperature Birch-Murnaghan fit; V0 was fixed to 82.80 A^3 for the conventional four-formula-unit cell.
+Table 1 room-temperature BM3 fit, with V0 fixed for the conventional four-formula-unit cell.
 
 <details markdown="1">
 <summary>Source review</summary>

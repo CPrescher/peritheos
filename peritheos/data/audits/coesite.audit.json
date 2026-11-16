@@ -106,7 +106,11 @@
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 7, P-V data; page 328, Elasticity section, Birch-Murnaghan fit."
         }
       },
-      "superseded_record_text": {"label": "data from JCPDS and Levien and Prewitt, 1981", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "data from JCPDS and Levien and Prewitt, 1981",
+        "notes": "Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.",
+        "superseded_on": "2026-11-16"
+      }
     },
     "coesite_i_iii_bykova_2018_300k_bm3": {
       "pressure_calibration": {

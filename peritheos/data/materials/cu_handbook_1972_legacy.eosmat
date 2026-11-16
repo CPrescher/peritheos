@@ -31,16 +31,13 @@
       "validity": {
         "pressure_gpa": [0.0, 34.0],
         "temperature_k": [298.15, 298.15],
-        "notes": [
-          "The fitted observations span 1.5-34 GPa; V0 fixes the exact normalized zero-pressure reference point.",
-          "This phase-unresolved derived isotherm is not a phase-stability or extrapolation guarantee."
-        ]
+        "notes": ["The data span 1.5-34 GPa; the range starts at 0 GPa because V0 fixes the zero-pressure point."]
       },
       "experimental_pressure_range_gpa": [1.5, 34.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "refit",
-      "notes": "Independent Peritheos refit of the manually verified Cu column in AIP Handbook Table 4d-12. It is intentionally separate from the Sun et al. source-author Vinet record. The handbook values are rounded derived-isotherm points rather than experiment-level raw observations.",
+      "notes": "Peritheos Vinet refit of the Cu column in AIP Handbook Table 4d-12, separate from the Sun et al. Vinet record. The handbook values are rounded points of a derived isotherm, not raw observations.",
       "reference": {
         "authors": ["Kennedy", "Keeler"],
         "year": 1972,

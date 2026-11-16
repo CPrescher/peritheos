@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 2.3\]
 - **Reported temperature coverage (K):** \[298.0, 298.0\]
 
-Table III experimental B1 fit in helium. Published V0=71.89 A^3 per formula unit is multiplied by Z=4. K0\_prime was fixed to the ultrasonic value; no coefficient standard errors are tabulated.
+Table III fit to B1 data in helium, with K0' fixed at the ultrasonic value. Published V0 = 71.89 Å³ per formula unit; stored per conventional cell (×4).
 
 <details markdown="1">
 <summary>Source review</summary>

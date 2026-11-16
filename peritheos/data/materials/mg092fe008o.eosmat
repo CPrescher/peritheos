@@ -31,14 +31,12 @@
       "validity": {
         "pressure_gpa": [0, 40],
         "temperature_k": [300, 300],
-        "notes": [
-          "Pure high-spin reference branch; it is not the measured mixed-spin curve between 40 and 60 GPa.",
-          "The source reports the spin transition as a 40-60 GPa interval rather than a fitted midpoint uncertainty."
-        ]
+        "notes": ["The source gives the spin transition as a 40-60 GPa interval, not a fitted midpoint with an uncertainty."]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Pure high-spin reference branch; not the measured mixed-spin curve between 40 and 60 GPa.",
       "reference": {
         "authors": ["Yang", "Tong", "Lin", "Okuchi", "Tomioka"],
         "year": 2015,

@@ -31,7 +31,7 @@
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "notes": "V0 was fixed from a fit to the low-pressure (0-5 GPa) data. Run-2 Ag/Mo rows with revised pressure above 100 GPa are excluded, as stated in Section III. The input pressures are not on the paper's new 2008 ruby scale, which is an output of its later cross-calibration.",
       "fit_datasets": ["nickel_dewaele_2008_source_table"],
       "reference": {
         "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
@@ -66,7 +66,7 @@
       "parameter_error_confidence": 0.95,
       "experimental_pressure_range_gpa": [0.0, 157.0],
       "determination_method": "experimental",
-      "notes": "Compatibility lookup: this identifier historically attributed later 2019 Mao-scale coefficients to the 2008 paper and compared them with revised-scale observations. Its numerical coefficients and uncertainties are preserved exactly. Table IV of the 2008 paper is represented separately by the *_dewaele_2008_table4_* records. The source attribution, calibration and audit are corrected to the matching 2019 Table 1 Mao row; this is not an additional experiment.",
+      "notes": "Compatibility identifier for the Dewaele (2019) Mao-scale Vinet fit of Table 1, with the same coefficients; not an additional experiment. The 2008 paper's own Table IV fits are separate records.",
       "fit_datasets": ["nickel_dewaele_2008_table2_compression"],
       "reference": {
         "authors": ["Dewaele"],
@@ -100,14 +100,13 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 157.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [300.0, 300.0]
       },
       "experimental_pressure_range_gpa": [0.0, 157.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "notes": "Vinet fit to static DAC X-ray compression data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.",
       "fit_datasets": ["nickel_dewaele_2008_table2_compression"],
       "reference": {
         "authors": ["Dewaele"],
@@ -141,14 +140,13 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 157.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [300.0, 300.0]
       },
       "experimental_pressure_range_gpa": [0.0, 157.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "notes": "Vinet fit to static DAC X-ray compression data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.",
       "fit_datasets": ["nickel_dewaele_2008_table2_compression"],
       "reference": {
         "authors": ["Dewaele"],
@@ -199,7 +197,7 @@
         "notes": "Marginal experimental coverage, not a rectangular phase-stability field. Fe/FeO upper bounds include earlier Seagle approximate isobars; new-study-only bounds and selected-row extrema are in the reproduction JSON. fcc Fe and stoichiometric B1 FeO must remain within their source phase/composition fields. The 295 K reference is an extrapolation. NiO is a source cubic-average B1 model across unresolved magnetic distortion."
       },
       "determination_method": "experimental",
-      "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. All 101 source rows are bundled. Nine quenched DAC states are retained but excluded from the main 92-row refit because Section 2.2 warns of residual stresses; an all-row sensitivity fit is reported. ",
+      "notes": "295 K BM3 + Mie-Grüneisen-Debye from Equation (5) and Table 1, with gamma = gamma0*(V/V0)^q and theta = theta0*(V/V0)^(-gamma(V)), and no electronic or anharmonic pressure term. The published molar V0 is converted to the Z = 4 conventional cell. Tabulated temperatures are the source's temperature-corrected values.",
       "fit_datasets": ["ni_nio_campbell_2009_table_s3_pvt"],
       "reference": {
         "authors": ["Campbell", "Danielson", "Righter", "Seagle", "Wang", "Prakapenka"],
@@ -236,7 +234,7 @@
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "notes": "V0 was fixed from a fit to the low-pressure (0-5 GPa) data, and K0 is adopted from ultrasonic measurements, not fitted. Run-2 Ag/Mo rows with revised pressure above 100 GPa are excluded, as stated in Section III. The input pressures are not on the paper's new 2008 ruby scale, which is an output of its later cross-calibration.",
       "fit_datasets": ["nickel_dewaele_2008_source_table"],
       "reference": {
         "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],

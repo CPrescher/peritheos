@@ -90,11 +90,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.37, 39.97\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.8815994217, 0.9986154845\]
-    - **Notes:** The pressure and volume-ratio bounds are the complete auxiliary Table 1 observation envelope, not a broader phase-stability guarantee.; The record follows the authors' mixed pressure coordinate: Mao-1986 ruby below 25 GPa and Hemley-1989 neon above 25 GPa.; The BM2 family enforces K0\_prime=4 by definition; V0 and K0 are the two free coefficients.
 - **Reported error confidence level:** 0.6826894921370859
 - **Parameter covariance:** supplied in the EOSMAT source
 
-Preferred second-order Birch-Murnaghan fit. K0\_prime=4 is intrinsic to BM2, so V0 and K0 are the only free EOS parameters and fixed\_parameters is empty. The one-sigma covariance is reconstructed transparently from the published marginal errors and correlation.
+The authors' preferred fit. Pressures follow their mixed coordinate: Mao-1986 ruby below 25 GPa, Hemley-1989 neon above. The stored one-standard-deviation covariance is built from the published marginal errors and correlation.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -221,10 +220,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.37, 39.97\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.8816210255, 0.9986399559\]
-    - **Notes:** The pressure and volume-ratio bounds are the complete auxiliary Table 1 observation envelope, not a broader phase-stability guarantee.; The record follows the authors' mixed pressure coordinate: Mao-1986 ruby below 25 GPa and Hemley-1989 neon above 25 GPa.; V0, K0, and K0\_prime were all free; the source finds no significant departure of K0\_prime from 4.
 - **Reported error confidence level:** 0.6826894921370859
 
-Third-order Birch-Murnaghan alternative with V0, K0, and K0\_prime all fitted. Its derivative is statistically indistinguishable from 4 and the paper therefore favors the BM2 representation.
+Alternative BM3 fit; K0' is statistically indistinguishable from 4, so the paper favors the BM2 record. Pressures follow the authors' mixed coordinate: Mao-1986 ruby below 25 GPa, Hemley-1989 neon above.
 
 <details markdown="1">
 <summary>Source review</summary>

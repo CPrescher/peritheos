@@ -33,7 +33,7 @@
       "range_provenance": "Extrema of all 27 Table 2 rows at 300 K. The full P-V-T experiment reaches 1673 K, but this record represents only the 300 K isotherm.",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Source-reported 300 K isotherm, preserved without substituting refit coefficients. Natural high-spin R-3c Fe0.95Mn0.05CO3, not pure FeCO3. Pressure is retained on the printed Au scale; its exact realization is unresolved. The high-temperature candidate is withheld because Table 1 and the abstract disagree on a0. All printed cold rows give pressure RMSE 0.230 GPa with published coefficients; the manuscript 0.11-0.17 GPa RMS range is not recovered. Source objective, weights, parameter covariance and confidence convention are not specified. No extension across the cited spin transition near 45 GPa or a numerical decomposition boundary is claimed.",
+      "notes": "Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeCO3), on the printed Au pressure scale, whose exact realization is unresolved. The published thermal parameters are not used because Table 1 and the abstract disagree on a0. No extension across the cited spin transition near 45 GPa or a decomposition boundary is claimed.",
       "fit_datasets": ["siderite_fe095mn005_litasov_2013_table2_pvt"],
       "reference": {
         "authors": ["Litasov", "Shatskiy", "Gavryushkin", "Sharygin", "Dorogokupets", "Dymshits", "Ohtani", "Higo", "Funakoshi"],
@@ -121,7 +121,7 @@
       "range_provenance": "Marginal extrema of the 111 fitted Table 2 observations, not a rectangular phase-stability or independent predictive-validation domain.",
       "determination_method": "experimental",
       "record_kind": "refit",
-      "notes": "Explicit opt-in Peritheos joint thermal refit, not either parameter set published by Litasov et al. All five coefficients were fitted together; V0=293.4 A^3 and Tr=300 K remain fixed. alpha0 is the absolute-temperature intercept. The observed pressure RMSE is 0.22121 GPa. The full conditional covariance is supplied; standard errors omit fixed-reference-volume uncertainty and pressure-scale systematics. The original 300 K EOS remains the default. Use within the measured paths; extrema do not guarantee phase stability throughout a rectangle. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa outside these measurements. Both conflicting published thermal sets are non-executable under source.thermal_parameterizations.",
+      "notes": "Peritheos joint thermal refit of the Litasov et al. (2013) data, not either published parameter set, with alpha0 as the absolute-temperature intercept. The errors omit the uncertainty of the fixed V0 and pressure-scale systematics. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa, outside these data.",
       "fit_datasets": ["siderite_fe095mn005_litasov_2013_table2_pvt"],
       "reference": {
         "authors": ["Litasov", "Shatskiy", "Gavryushkin", "Sharygin", "Dorogokupets", "Dymshits", "Ohtani", "Higo", "Funakoshi"],

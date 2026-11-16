@@ -89,10 +89,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 23.3\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.888134, 1.0\]
-    - **Notes:** The EOS was fitted through 23.3 GPa; it is not extended across the anomalous 26.7 and 30.1 GPa pre-transition observations.; The B1-to-rhombohedral transition is bracketed between 30.1 and 34.5 GPa and is not represented by this single-phase curve.; This is a structural branch, not a pure-spin phase-stability field.
+    - **Notes:** The EOS was fitted through 23.3 GPa; it is not extended across the anomalous 26.7 and 30.1 GPa pre-transition observations.; The B1-to-rhombohedral transition is bracketed between 30.1 and 34.5 GPa and is not represented by this single-phase curve.
 - **Reported error confidence level:** Not specified
 
-Published B1 parameterization on the Dewaele-2008 ruby scale. V0 is stored on the conventional eight-atom cell basis. K0-prime was constrained by a finite prior and is therefore listed as free, not fixed. No numerical covariance matrix is available.
+B1 fit on the Dewaele (2008) ruby pressure scale, with V0 per conventional eight-atom cell. K0' was constrained by a finite prior and is therefore stored as free, not fixed. This is a structural branch, not a pure-spin phase-stability field.
 
 <details markdown="1">
 <summary>Source review</summary>

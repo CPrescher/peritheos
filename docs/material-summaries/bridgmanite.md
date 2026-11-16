@@ -130,7 +130,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[28.0, 108.0\]
 - **Reported temperature coverage (K):** \[300.0, 2430.0\]
 
-Preferred default for mantle work. The fit combines multi-anvil data at 28-63 GPa and 300-1500 K with laser-heated DAC data at 52-108 GPa and 300 or 1500-2430 K; the study reports measurements up to 110 GPa and 2500 K. V0=162.373 A^3 was fixed to an independent ambient measurement; theta0=950(150) K, gamma0=1.54(9), and q=1.5(3). The paper calls the exponent b; with its fixed a=1, the published Gruneisen expression reduces exactly to gamma=gamma0(V/V0)^b used here.
+Fit to multi-anvil data (28-63 GPa, 300-1500 K) and laser-heated DAC data (52-108 GPa, 300 or 1500-2430 K), with V0 fixed to an independent ambient measurement. Thermal errors, not stored as fields: theta0 = 950(150) K, gamma0 = 1.54(9), q = 1.5(3). The paper's Grüneisen exponent b is q here, because its parameter a is fixed to 1.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -214,7 +214,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[28.0, 108.0\]
 - **Reported temperature coverage (K):** \[300.0, 2430.0\]
 
-Alternative Vinet fit to the same multi-anvil and laser-heated DAC dataset, measured up to 110 GPa and 2500 K. V0=162.373 A^3 was fixed to an independent ambient measurement; theta0=940(140) K, gamma0=1.55(9), and q=1.1(3). The paper calls the exponent b; with a fixed to 1, it is the q parameter of the conventional MGD volume dependence stored here.
+Alternative Vinet fit to the same multi-anvil and laser-heated DAC data, with V0 fixed to an independent ambient measurement. Thermal errors, not stored as fields: theta0 = 940(140) K, gamma0 = 1.55(9), q = 1.1(3). The paper's Grüneisen exponent b is q here, because its parameter a is fixed to 1.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -292,7 +292,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0, 10.0\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-Single-crystal P-V data to 10 GPa. Retained as a low-pressure structural reference, not as the default mantle-range EoS. The normalized-stress plot supported a second-order Birch-Murnaghan fit, so K0\_prime=4 is implicit in BM2 rather than stored as a fitted parameter.
+Single-crystal P-V data; a low-pressure structural reference, not the mantle-range EOS. The normalized-stress plot supported BM2, so K0' = 4 is implied by the model, not fitted.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -369,10 +369,10 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/bri
 - **Validity:**
     - **Pressure gpa:** \[0.0, 82.5\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The upper pressure bound is the highest 300 K observation in the authors' Table 1; the complete new P-V-T table extends to 109.1 GPa and 1485 K.; The lower bound includes the published zero-pressure reference state. It is not a phase-stability boundary.; Do not use this static slice as either of the source's high-temperature Model 1 or Model 2 curves.
+    - **Notes:** The upper bound is the highest 300 K observation in Table 1; the full P-V-T table extends to 109.1 GPa and 1485 K.
 - **Reported error confidence level:** Not specified
 
-Published 300 K isotherm of the two high-temperature Birch-Murnaghan models, which coincide at 300 K. The full Model 1 and Model 2 parameterizations are intentionally not represented: they require the article's quadratic temperature laws for thermal expansivity and compressibility together with its temperature-dependent K'\_T convention, which the current Peritheos thermal reference-state model cannot encode exactly. The executable record is therefore restricted to 300 K and is not the default bridgmanite EOS. The natural-enstatite starting material contained less than 1% Al and Fe; the authors identify the transformed phase and reported volumes as MgSiO3 perovskite. No EOS-parameter errors, confidence convention, covariance, residual statistic, or fit weights are published.
+The 300 K isotherm shared by the paper's two high-temperature BM models (Model 1 and Model 2); use it at 300 K only, not as either model. Their quadratic temperature laws for thermal expansivity and compressibility and their temperature-dependent K'\_T cannot be encoded exactly in Peritheos. The starting material was natural enstatite with less than 1% Al and Fe.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -499,10 +499,10 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/bri
 - **Validity:**
     - **Pressure gpa:** \[0.0, 48.2\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The executable record is the source's 300 K reference isotherm; the highest near-ambient-temperature observation is 48.2 GPa.; The zero-pressure reference is measured but lies outside bridgmanite's stability field and is not a phase-stability assertion.; Do not use this static slice as the article's complete P-V-T Mie-Gruneisen-Debye model.
+    - **Notes:** The upper bound is the highest near-room-temperature observation.; The 0 GPa reference volume is measured, outside bridgmanite's stability field.
 - **Reported error confidence level:** Not specified
 
-Preferred source-reported room-temperature BM3 for pure MgSiO3 bridgmanite. The formal corrigendum corrects Table 1 but states that no EOS parameters change. The static record is separate from the article's MGD and high-temperature-BM formulations and is not made the material default.
+The authors' preferred room-temperature BM3 for pure MgSiO3 bridgmanite; not the article's complete Mie-Grüneisen-Debye or high-temperature BM P-V-T model.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -637,10 +637,10 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 48.2\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Same-data sensitivity parameterization with K0 fixed to 253 GPa; it is not an independent experiment or the preferred source fit.; The zero-pressure reference is measured but lies outside bridgmanite's stability field and is not a phase-stability assertion.
+    - **Notes:** The 0 GPa reference volume is measured, outside bridgmanite's stability field.
 - **Reported error confidence level:** Not specified
 
-Source-generated K0-fixed sensitivity fit to the same corrected data as the preferred companion record. It is retained because LitCurate independently proposed this exact parameterization and the primary paper explicitly reports it.
+The authors' sensitivity fit with K0 fixed to 253 GPa, to the same corrected data as their preferred BM3; not their preferred fit and not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -734,7 +734,6 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[27.96, 108.51\]
     - **Temperature k:** \[300.0, 2430.0\]
     - **Volume ratio:** \[0.79015544, 0.92684431\]
-    - **Notes:** Marginal envelope of the 42 reanalyzed observations; the sampled P-T paths are not a rectangular phase-stability guarantee.; This is Wolf et al.'s reanalysis of Tange et al. (2012), not the original Tange BM3-MGD or Vinet-MGD parameterization.
 - **Reported error confidence level:** 0.68
 - **Parameter covariance:** supplied in the EOSMAT source
 
@@ -745,7 +744,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published Fe-free comparison record from Wolf et al.'s homogeneous reanalysis, deliberately separate from the original Tange et al. BM3-MGD and Vinet-MGD records. V0, K0, K0', gamma0, and q were fitted; Tr=300 K, theta0=1000 K, and the 20-atom conventional-cell count were fixed. The complete five-parameter covariance is reconstructed from Tables 3-4 rather than treating strongly correlated errors as independent. Table 5 provides an independent source-output check: at 108.7 GPa and 2429 K the implementation gives density 5.17 g/cm3, gamma=1.22, and Cv/(3Nk)=0.9839 at printed precision, and KS=603.81 GPa versus the printed 603.7 GPa (a 0.11 GPa difference attributable to rounded coefficients).
+Wolf et al.'s homogeneous reanalysis of the Fe-free data of Tange et al. (2012), not the original Tange BM3-MGD or Vinet-MGD fits. The stored five-parameter covariance is reconstructed from Tables 3-4, because the errors are strongly correlated.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -856,10 +855,10 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 78.8\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Bounded by the source's highest simultaneous Brillouin and single-crystal XRD pressure point.; This is the source's absolute pressure scale derived by integrating isothermal Reuss bulk modulus; it is not one of the adiabatic elastic-modulus truncations in Table 2.
+    - **Notes:** The upper bound is the highest pressure with simultaneous Brillouin and single-crystal XRD data.
 - **Reported error confidence level:** 0.6826894921370859
 
-The source calls K\_TR0 and K'\_TR0 a primary pressure scale. The reference cell volume is recovered transparently from the source's ambient density rather than copied from LitCurate. No covariance is published.
+The source's primary (absolute) pressure scale, from integrating the isothermal Reuss bulk modulus. V0 is computed from the source's ambient density.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -948,14 +947,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[29.5, 90.57\]
     - **Temperature k:** \[298.0, 298.0\]
-    - **Notes:** Applicable to pure orthorhombic Pbnm MgSiO3 bridgmanite at room temperature after stress-relieving laser heating.; This record is the source's room-temperature BM3, not either composite thermal inversion in Table 3.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.3875
 - **Reported error confidence level:** Not specified
 
-All three coefficients were fitted by the authors; none is marked fixed. Parenthetical uncertainties are preserved, while the confidence convention and covariance are not reported for this room-temperature fit.
+Room-temperature BM3 for pure orthorhombic Pbnm MgSiO3 after stress-relieving laser heating; not either composite thermal inversion of Table 3.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1053,14 +1051,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static 0 K control used by the source to quantify the effect of 6.25 mol.% Fe2+.; This source-specific control is not made the catalog default and does not replace experimental bridgmanite records.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.3875
 - **Reported error confidence level:** Not specified
 
-A source-generated static comparison record. It is distinct by method and reference state from previously cataloged experimental MgSiO3 EOS records.
+Static 0 K calculation for pure MgSiO3: the control the source uses to quantify the effect of 6.25 mol.% Fe2+.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1145,14 +1142,11 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Pressure gpa:** \[-10.440117, 230.833063\]
     - **Temperature k:** \[0, 0\]
     - **Volume ratio:** \[0.65, 1.05\]
-    - **Notes:** Static 0 K GGA calculation envelope; not an experimental stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
-
-Source-specific theoretical comparison; it does not replace the experimental catalog default.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1238,11 +1232,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 160.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Anharmonic phonon-quasiparticle LDA reference isotherm; this is not an experimental stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
+
+300 K isotherm from anharmonic phonon-quasiparticle (PHQ) LDA calculations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1319,11 +1314,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 160.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Anharmonic phonon-quasiparticle PBE reference isotherm; this is not an experimental stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
+
+300 K isotherm from anharmonic phonon-quasiparticle (PHQ) PBE calculations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1403,7 +1399,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-BM2 is represented as BM3 with V0 and K0\_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.
+The published BM2 is stored as BM3 with K0' fixed to 4, which is algebraically identical. K0 was fitted to the Fe10 data only, and the authors apply the same compression curve to all three compositions with their own ambient volumes.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1515,11 +1511,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 30.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** 298 K reference isotherm of the tc-ds62 thermodynamic endmember; not an individual experimental fit.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
+
+298 K reference isotherm of the mpv endmember of the tc-ds62 thermodynamic dataset; not an individual experimental fit.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1821,7 +1818,6 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 136.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static GGA calculation spanning the lower-mantle pressure range discussed by the source.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
@@ -1902,12 +1898,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 120.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Third-order branch b of the static calculation. K0'=4 is fixed by the second-order-in-energy/third-order-pressure Birch truncation used by the paper.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
+
+Third-order branch b of the static calculation. K0' = 4 is fixed by the paper's Birch truncation (second order in energy, third order in pressure).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1984,12 +1981,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static PBE-GGA branch used as the Mg endmember for the paper's quasiharmonic comparison.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
+
+Static PBE-GGA calculation; the Mg endmember of the paper's quasiharmonic comparison.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2066,12 +2064,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static orthorhombic Pbnm GGA branch used to construct the source EOS.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.389
 - **Reported error confidence level:** Not specified
+
+Static GGA branch for orthorhombic Pbnm MgSiO3, from which the source builds its EOS.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2155,14 +2154,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[0.0, 130.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** Reference isotherm of the source's larger Helmholtz model; the omitted thermal terms are not implied by this isothermal record.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Accepted corrected mapping for LitCurate source row 867 (litcurate\_7828334f1795f436). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.
+Reference isotherm of the source's larger Helmholtz free-energy model; its thermal terms are not included in this record.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2244,14 +2242,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The source extrapolates its fitted 300 K MD compression curve over the simulated 0-140 GPa grid; this is not an experimental EOS.
+    - **Notes:** The source extrapolates its fitted 300 K MD curve over the 0-140 GPa grid.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Accepted LitCurate source row 314 (litcurate\_d6b5cf68e4b9f829) after recovering V0 transparently from the primary source's rho0. Row 315 is a Funamori et al. citation and is not duplicated.
+BM3 fit to 300 K molecular-dynamics volumes. V0 is computed from the published rho0.
 
 <details markdown="1">
 <summary>Source review</summary>

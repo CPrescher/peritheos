@@ -101,7 +101,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Fischer et al. report a thermal EOS for iron-saturated FeO, not a standalone 300 K BM3. The Fe0.94O starting powder was mixed with Fe and the authors treat the equilibrated high-P-T oxide as approximately stoichiometric FeO. Reported sample temperatures already include the source's 3% downward axial-gradient correction and must be evaluated at their tabulated values. All four row-level sources for the global B1 fit are now bundled: Fischer Table S1, Seagle supplementary Table 1, Ozawa printed Table 2, and Campbell supplementary Table S2. Seagle contains 65 hcp-Fe rows, 14 fcc-Fe rows, and two rows without Fe volume that retain the source's 50 +/- 4 GPa isobar assignment; Campbell contains 10 hcp-Fe and 15 fcc-Fe rows. The exact regression weights/objective and Fischer's final combined row selection are not published. The marginal pressure range includes those comparison/fit-input studies and is not a phase-stability boundary.
+Thermal EOS for iron-saturated FeO, not a standalone 300 K BM3; the pressure range spans all studies in the global B1 fit (Fischer, Seagle, Ozawa and Campbell data). The Fe0.94O starting powder was mixed with Fe; the authors treat the equilibrated oxide as approximately stoichiometric FeO. Sample temperatures include the source's 3% downward axial-gradient correction; use them as tabulated.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -212,10 +212,10 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 22.8\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Composition-specific to non-stoichiometric Fe0.93O in the cubic B1 phase.; The last cubic observation is at 22.8 GPa; the rhombohedral phase is observed from 27.7 GPa onward.
+    - **Notes:** The last cubic observation is at 22.8 GPa; the rhombohedral phase is observed from 27.7 GPa onward.
 - **Reported error confidence level:** Not specified
 
-Published cubic-phase fit to the seven Table 1 observations from 0 to 22.8 GPa. The source calls the fitted equation third-order Birch-Murnaghan even though fixing K0'=4 reduces it numerically to BM2; BM3 is retained to preserve the source model declaration and fixed parameter. Parenthesized parameter errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.
+Fit for non-stoichiometric Fe0.93O in the cubic B1 phase, to the seven Table 1 observations. The source calls it third-order Birch-Murnaghan although fixing K0' = 4 reduces it numerically to BM2.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -317,12 +317,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0, 73\]
     - **Temperature k:** \[1160, 1160\]
-    - **Notes:** High-spin paramagnetic B1 branch; upper bound is the source transition midpoint.; Static-ion DFT+DMFT EOS at electronic temperature 1160 K.
+    - **Notes:** The upper bound is the source's transition midpoint.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 71.844
 - **Reported error confidence level:** Not specified
+
+Static-ion DFT+DMFT EOS for the high-spin paramagnetic B1 branch, at electronic temperature 1160 K.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -404,11 +406,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 30.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** Ideal FeO B1 thermodynamic endmember; not a stoichiometry claim for natural wustite.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 71.844
+
+Ideal FeO B1 (fper) thermodynamic endmember; not a stoichiometry claim for natural wustite.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -493,10 +496,11 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 <summary>Thermal equation choices</summary>
 
 - **Debye temperature law:** variable\_exponent
+- **Notes:** theta = theta0\*(V/V0)^(-gamma(V)) with gamma = gamma0\*(V/V0)^q. No explicit electronic or anharmonic pressure.
 
 </details>
 
-Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0\*(V/V0)^q and theta=theta0\*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. The published fit also includes Seagle et al. (2008). Its 81 V-T rows are linked, but exact row-wise pressures and Campbell recalibration are not published. Independent refits therefore report a current-study subset and a nominal-isobar sensitivity reconstruction. The starting Fe1-xO powder equilibrates with metallic Fe; Sections 2.1, 3 and 5 explicitly identify the selected oxide as stoichiometric Fe1.00O in B1, not Fe0.94O, rhombohedral wustite or B8. Stoichiometry follows the Stolen-Grønvold model-B field (above 5 GPa at 900 K, boundary slope below -120 K/GPa), not a direct per-row chemical assay.
+Equation (5) and Table 1: 295 K BM3-MGD fitted to this study's and Seagle et al. (2008) data; molar V0 stored per Z = 4 cell. The source identifies the oxide as stoichiometric B1 Fe1.00O with metallic Fe (not Fe0.94O, rhombohedral wustite or B8), per the Stolen-Grønvold model-B field (above 5 GPa at 900 K, boundary slope below -120 K/GPa), not a per-row assay.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 48.0\]
 
-Fit to single-crystal compression data through 48 GPa in helium. The measured V0=290.1(1) A^3 was fixed while K0 and K0\_prime were refined.
+Fit to single-crystal compression data in helium, with V0 fixed to its measured value.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -176,7 +176,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Recommended thermal option, following the full-precision coefficient vector actually embedded in the deposited author geotherm code. The final Table 2 variant is preserved separately as forsterite\_katsura\_2022\_bm3\_mgd; the Finkelstein static default remains unchanged. Script-specific parameter uncertainties are unavailable; the rounded Table 2 bootstrap errors are not silently assigned to this vector. Mg2SiO4 olivine, Pbnm, Z=4; n=7 per formula unit. Peritheos evaluates the same MGD equations with exact Debye quadrature and current constants; author polynomial approximation differences are audited. Missing bootstrap inputs and the outlying datum remain unresolved. See docs/literature-reproductions/forsterite-katsura-2009-2022.md.
+Recommended thermal option: the full-precision coefficient vector in the author's deposited geotherm code; the rounded final Table 2 version is a separate record. This vector has no published uncertainties, and the Table 2 bootstrap errors are not assigned to it. Peritheos uses exact Debye quadrature where the author code uses a polynomial approximation.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -293,7 +293,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Mg2SiO4 olivine, Pbnm, Z=4; reuses the existing composition/phase structure. Its ambient diffraction cell is from a different sample and differs from the EOS V0. Final Table 2 coefficients preserved; no independent refit is installed. The negative lower pressure is the saved near-ambient noise, not a tensile stability claim. Marginal data envelopes are not phase-stability rectangles. No 2022 geotherm or olivine Cp reproduction is claimed: the paper uses a separate empirical ambient Cp in Equation (12). See docs/literature-reproductions/forsterite-katsura-2009-2022.md.
+Final Table 2 coefficients; no 2022 geotherm or olivine Cp reproduction is claimed: the paper uses a separate empirical ambient Cp in Equation (12). The material's ambient diffraction cell is from a different sample and differs from this V0. The negative lower pressure bound is near-ambient noise in the data, not a tensile stability claim.
 
 <details markdown="1">
 <summary>Source review</summary>

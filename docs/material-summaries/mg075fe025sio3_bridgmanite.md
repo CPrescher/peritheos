@@ -170,7 +170,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** The source finds the Fe2+ high-spin state stable over the studied mantle pressure range; this is the static branch, not the separate quasiharmonic temperature correction.
+    - **Notes:** The source finds high-spin Fe2+ stable over the studied mantle pressures; this is the static branch, without the separate quasiharmonic temperature correction.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0

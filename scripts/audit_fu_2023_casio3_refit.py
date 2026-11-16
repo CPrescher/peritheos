@@ -414,13 +414,9 @@ def update_refit_record(document: dict, result: dict) -> None:
             "residual_variance_gpa2": fit["residual_variance"],
         }
     )
-    record["notes"] = (
-        "Opt-in unweighted Peritheos refit. " + EQUAL_WEIGHTING + " "
-        "Errors are residual-scaled standard errors from the full seven-parameter "
-        "joint fit; the pressure-volume covariance retains its marginal block. "
-        "Fixed parameters have no estimated errors. The published Fu record "
-        "remains the authoritative literature parameterization."
-    )
+    # The record's free text is curated separately (docs/record-text-standard.md,
+    # scripts/apply_record_text.py); the weighting and covariance scaling written
+    # above are the structured statement of this fit.
 
 
 def load_bundled_observations() -> tuple[

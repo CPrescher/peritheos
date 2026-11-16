@@ -90,7 +90,9 @@ def test_sokolova_records_classify_reconstruction_separately_from_refitting():
         assert reconstruction["status"] == "coupled_cross_calibration_reconstructed"
         assert reconstruction["observations"] == 392
         assert reconstruction["independent_eos_refit"] is False
-        assert "not an independent refit" in record["notes"]
+        # Reconstruction scope is audit material: kept in the stored original.
+        superseded = record["superseded_record_text"]["notes"]
+        assert "not an independent refit" in superseded
         outcome = outcomes[marker["record_identifier"]]
         assert outcome["status"] == "source_reconstruction"
         assert outcome["dataset_identifiers"] == [marker["dataset_identifier"]]

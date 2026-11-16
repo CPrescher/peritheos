@@ -161,7 +161,7 @@ Automatic selection for equilibrium calculations.
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
+Table 2 parameterization. The authors adopt most ambient V0 and K0 values from cited primary measurements and fit K0' to their internally consistent compression network. K\_infinity\_prime is fixed at 5/3 for every material except Cu.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -239,7 +239,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/iro
     - **DOI:** 10.1029/JB095iB13p21737
 - **Reported pressure coverage (GPa):** \[19.2, 300.0\]
 
-Mao et al. report V0 = 22.35(3) A^3, K0 = 165(4) GPa, and K0' = 5.33(9) for the two-atom hcp cell. The legacy volume was also corrected for the hexagonal sin(120 degree) factor.
+Coefficients as published for the two-atom hcp cell. The legacy volume was corrected for the hexagonal sin(120°) factor.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -320,7 +320,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[16.0, 140.0\]
 
-Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.6 GPa and K0' +/- 0.03. The hcp phase data are above 16 GPa.
+Table II fit combining the DAC-1 and DAC-2 data, with pressures from the Cu volumes measured in the same runs. The hcp-phase data lie above 16 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -404,10 +404,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[17.0, 204.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Mao (1986) ruby scale. The Dorogokupets (2007) ruby-scale record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -488,10 +487,9 @@ Published pressure-scale alternative of [iron\_dewaele\_2019\_mao\_vinet](#recor
 - **Validity:**
     - **Pressure gpa:** \[17.0, 204.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Dorogokupets (2007) ruby scale. The Mao (1986) ruby-scale record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -577,7 +575,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[10.7, 1374.0\]
     - **Temperature k:** \[298.0, 12000.0\]
-    - **Notes:** Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.; Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted.
+    - **Notes:** Static Table S1 rows reach 4695 K, although Methods Section 2.1 says 3400 K. The deposited rows and residuals show that these rows were fitted.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -593,7 +591,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published mixed-input thermal EOS Fit #1; Supplementary Table S6 reports RMSE=4.504302 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. This is the authors' preferred relaxed-V0 solution.
+Mixed-input thermal EOS (Fit #1 in the paper), the authors' preferred solution with V0 free. Fitted to 1,078 static experimental, 132 dynamic P-V and 103 ab-initio rows; the dynamic temperatures are calculated or model-assigned, not measured.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -706,7 +704,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[10.7, 1374.0\]
     - **Temperature k:** \[298.0, 12000.0\]
-    - **Notes:** Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.; Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted.
+    - **Notes:** Static Table S1 rows reach 4695 K, although Methods Section 2.1 says 3400 K. The deposited rows and residuals show that these rows were fitted.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -722,7 +720,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published mixed-input thermal EOS Fit #2; Supplementary Table S6 reports RMSE=4.504408 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.
+Mixed-input thermal EOS (Fit #2 in the paper); not the authors' preferred fit, which is Fit #1 with V0 free. Fitted to 1,078 static experimental, 132 dynamic P-V and 103 ab-initio rows; the dynamic temperatures are calculated or model-assigned, not measured.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -835,7 +833,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[10.7, 1374.0\]
     - **Temperature k:** \[298.0, 12000.0\]
-    - **Notes:** Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.; Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted.
+    - **Notes:** Static Table S1 rows reach 4695 K, although Methods Section 2.1 says 3400 K. The deposited rows and residuals show that these rows were fitted.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -851,7 +849,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published mixed-input thermal EOS Fit #5; Supplementary Table S6 reports RMSE=5.084659 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.
+Mixed-input thermal EOS (Fit #5 in the paper); not the authors' preferred fit, which is Fit #1 with V0 free. Fitted to 1,078 static experimental, 132 dynamic P-V and 103 ab-initio rows; the dynamic temperatures are calculated or model-assigned, not measured.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -970,7 +968,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 364.0\]
     - **Temperature k:** \[300.0, 7000.0\]
-    - **Notes:** The 17-197 GPa static compression observations are near room temperature; the high-temperature extension is constrained by shock-wave data to 200 GPa and ab-initio anharmonic and electronic pressures.; The authors plot 298, 5000, 6000, and 7000 K isotherms through the Earth's core pressure range; this is a proposed pressure-scale domain, not a direct static P-V-T data envelope.
+    - **Notes:** Static data (17-197 GPa) are near room temperature; the high-temperature part rests on shock data to 200 GPa and ab-initio anharmonic and electronic pressures.; The range is the authors' proposed pressure-scale domain (298-7000 K isotherms through core pressures), not a static P-V-T data envelope.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -984,7 +982,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 </details>
 
-Source-specific implementation of Equations (1)-(2): a 300 K Vinet reference isotherm plus reference-subtracted single-Debye, intrinsic-anharmonic, and electronic thermal pressures. The published atomic V0 and uncertainty are doubled for the two-atom conventional hcp cell used by this material document.
+Equations (1)-(2) of the paper: a 300 K Vinet reference isotherm plus single-Debye, intrinsic-anharmonic and electronic thermal pressures, each subtracted at 300 K. Published atomic V0 and its error are stored per two-atom hcp cell (×2).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1092,14 +1090,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[18.72, 204.6\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation.
+    - **Notes:** The range covers this study's rows only. The 300 K fit uses data to 280 GPa; the thermal fit also uses shock data near 200 GPa and 5000 K.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.
+Published combined fit to this study's 74 Table S1 rows and intercalibrated earlier literature data; Mao (1990) data were excluded.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1192,14 +1190,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[18.72, 204.6\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation.
+    - **Notes:** The range covers this study's rows only. The 300 K fit uses data to 280 GPa; the thermal fit also uses shock data near 200 GPa and 5000 K.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.
+Published combined fit to this study's 74 Table S1 rows and intercalibrated earlier literature data; Mao (1990) data were excluded.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1299,14 +1297,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[53.96, 99.69\]
     - **Temperature k:** \[1208, 1795\]
-    - **Notes:** Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation.
+    - **Notes:** The range covers this study's rows only. The 300 K fit uses data to 280 GPa; the thermal fit also uses shock data near 200 GPa and 5000 K.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved. Thermal pressure adds MGD with integrated gamma(V) plus A\*(V/V0)^m\*(T^2-300^2). No thermal fit errors are reported. Independent gamma\_e=2 and k=1.34 define an empirical pressure surface, not a thermodynamically consistent caloric potential. Do not infer caloric observables. Table S2 is only the static subset of the thermal fit.
+Combined fit with intercalibrated earlier literature data, excluding Mao (1990). Thermal pressure is MGD with integrated gamma(V) plus A\*(V/V0)^m\*(T^2-300^2), and Table S2 holds only the static subset of the thermal data. With independent gamma\_e = 2 and k = 1.34 this is an empirical pressure surface, not a thermodynamically consistent caloric potential, so do not infer caloric observables.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1404,14 +1402,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[24.2, 279.2\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1495,14 +1492,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[24.2, 279.2\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1586,14 +1582,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[24.2, 279.2\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value instead of the preliminary g-G plot value. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1677,14 +1672,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[24.2, 279.2\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value instead of the preliminary g-G plot value. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1768,14 +1762,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[24.2, 279.2\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value instead of the preliminary g-G plot value. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1859,14 +1852,13 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[24.2, 279.2\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value instead of the preliminary g-G plot value. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1952,14 +1944,14 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iro
 - **Validity:**
     - **Pressure gpa:** \[24.2, 304.7\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema are tabulated for this scale; the bounds are the envelope of the published P1, P4 and P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2045,14 +2037,14 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-i
 - **Validity:**
     - **Pressure gpa:** \[24.2, 304.7\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema are tabulated for this scale; the bounds are the envelope of the published P1, P4 and P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2138,14 +2130,14 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iro
 - **Validity:**
     - **Pressure gpa:** \[24.2, 304.7\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema are tabulated for this scale; the bounds are the envelope of the published P1, P4 and P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2231,14 +2223,14 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-i
 - **Validity:**
     - **Pressure gpa:** \[24.2, 304.7\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema are tabulated for this scale; the bounds are the envelope of the published P1, P4 and P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2324,14 +2316,13 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iro
 - **Validity:**
     - **Pressure gpa:** \[24.2, 299.0\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2417,14 +2408,13 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-i
 - **Validity:**
     - **Pressure gpa:** \[24.2, 299.0\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2510,14 +2500,14 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iro
 - **Validity:**
     - **Pressure gpa:** \[24.2, 304.7\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema are tabulated for this scale; the bounds are the envelope of the published P1, P4 and P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2603,14 +2593,14 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-i
 - **Validity:**
     - **Pressure gpa:** \[24.2, 304.7\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements.
+    - **Notes:** No exact pressure extrema are tabulated for this scale; the bounds are the envelope of the published P1, P4 and P6 measurements.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2696,14 +2686,13 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iro
 - **Validity:**
     - **Pressure gpa:** \[24.2, 304.7\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2789,14 +2778,13 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-i
 - **Validity:**
     - **Pressure gpa:** \[24.2, 304.7\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2890,7 +2878,6 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[19.8, 82.9\]
     - **Temperature k:** \[300, 1900\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -2904,7 +2891,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 </details>
 
-Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma\_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).
+Debye, anharmonic and electronic thermal pressures, subtracted at 300 K. The paper's power-law gamma is represented exactly by gamma\_inf = 0 and beta = q. The thermal correction constants are adopted from Alfè et al. (2001).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3010,7 +2997,6 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[19.8, 82.9\]
     - **Temperature k:** \[300, 1900\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -3024,7 +3010,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 </details>
 
-Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma\_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).
+Debye, anharmonic and electronic thermal pressures, subtracted at 300 K. The paper's power-law gamma is represented exactly by gamma\_inf = 0 and beta = q. The thermal correction constants are adopted from Alfè et al. (2001).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3126,7 +3112,6 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[18, 305\]
     - **Temperature k:** \[300, 1700\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
@@ -3141,7 +3126,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 </details>
 
-K0 derived exactly from 1/(b1+b2\*300+b3\*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated.
+K0 is computed from the published compressibility coefficients as 1/(b1 + b2\*300 + b3\*300²); it has no stored error because no covariance is available. Table II gives a single thermal expansivity, so a constant alpha = 6.93e-5/K is used.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3233,14 +3218,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[17, 197\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** 0.95
 
-Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.
+Table I BM3 alternative to the separate Vinet thermal record. The published atomic-volume error is doubled for the two-atom hcp cell.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3328,7 +3312,7 @@ Automatic selection for hugoniot calculations.
 - **Validity:**
     - **Pressure gpa:** \[39.6, 191.8\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Observation envelope; extensions to inner-core conditions are extrapolations.; Temperature bounds describe only the normalized initial state, not a constant-temperature shock path. The sample is steel, not pure Fe.
+    - **Notes:** No shock temperatures are reported. The temperature bounds describe the normalized initial state, not a constant-temperature shock path.
 - **Loading path:** principal
 - **Branch kind:** transformed
 - **Initial state:**
@@ -3349,7 +3333,7 @@ Automatic selection for hugoniot calculations.
     - **Molar mass g mol:** 55.845
 - **Reported error confidence level:** Not specified
 
-Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS.
+Published full-range linear Us-up fit, used only for the solid-iron subset below 200 GPa that Fei (2016) used; the high-pressure mixed-phase path is not represented. Samples are about 99% low-carbon steel (up to 0.7% Mn), not pure iron, so the density 7.850 g/cm³ must not be replaced by the pure-Fe density.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3440,7 +3424,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reported temperature coverage (K):** \[298, 300\]
 - **Reported error confidence level:** Not specified
 
-Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
+The published fit does not reproduce the authors' supplied observations under the standard equation mapping, and the cause is unresolved. Do not use for pressure calibration or core-condition prediction until this is resolved.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3545,7 +3529,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reported temperature coverage (K):** \[298, 300\]
 - **Reported error confidence level:** Not specified
 
-Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
+The published fit does not reproduce the authors' supplied observations under the standard equation mapping, and the cause is unresolved. Do not use for pressure calibration or core-condition prediction until this is resolved.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3662,7 +3646,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 </details>
 
-Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved.
+Published coefficients with full MGD, n = 2, applied at the per-mole-Fe volume (about 6.87 cm³/mol), as the authors used it according to a personal communication. This differs from the physical per-Fe normalization (n = 1). The authors' exact inputs and weights, and a full reproduction of the published fit, remain unresolved.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3793,7 +3777,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[10.7, 129.3071497589813\]
     - **Temperature k:** \[298.0, 3399.0\]
-    - **Notes:** Marginal observation ranges only; zero-pressure coefficients extrapolated from compressed hcp Fe.; No independent experimental validation or validated core extrapolation.
+    - **Notes:** Zero-pressure coefficients are extrapolated from compressed hcp Fe.
 - **Reported error confidence level:** Not specified
 - **Parameter covariance:** supplied in the EOSMAT source
 
@@ -3804,7 +3788,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0\_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation.
+Independent Peritheos refit with equal pressure weights, not Miozzi's published EOS or a reproduction or correction of it. The 116 MgO-series pressures are recalculated from paired MgO V and T with the Tange (2009) Fit3-Vinet EOS; the 15 He pressures are unchanged. Errors and covariance are conditional local standard errors for independent equal-variance residuals, excluding calibrant systematics, run correlations, predictor errors, fixed-theta0 uncertainty and model discrepancy.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3928,7 +3912,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Independent Peritheos refit, not Miozzi's published coefficients. All 116 MgO-series pressures are recalculated with the Speziale (2001) variable-q Debye model; the 15 He pressures remain unchanged. Equal pressure-residual weights; 36 RT rows first, all rows with cold coefficients fixed second, then V0,K0,K0\_prime,gamma0,q free. theta0=420 K, Tr=300 K, n=1 per mole Fe fixed. Local errors/covariance are conditional on this calibration, objective and fixed parameters, excluding calibrant systematics, predictor and inter-row covariance and fixed-theta uncertainty. Original author weights and exact pressure reduction remain unavailable; numerical reproducibility does not establish independent physical accuracy.
+Independent Peritheos refit with equal pressure weights, not Miozzi's published EOS. All 116 MgO-series pressures are recalculated with the Speziale (2001) variable-q Debye MgO model; the 15 He pressures are unchanged. Errors and covariance are local, conditional on this calibration, the objective and the fixed parameters, and exclude calibrant systematics, predictor and inter-row covariance and fixed-theta0 uncertainty.
 
 <details markdown="1">
 <summary>Source review</summary>

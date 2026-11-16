@@ -31,15 +31,12 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 63.7 GPa; reported 20-80% crossover width 13.3 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -82,15 +79,12 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 63.7 GPa; reported 20-80% crossover width 13.3 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,

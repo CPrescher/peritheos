@@ -146,6 +146,10 @@
           "weight_notes": "Equal weights in independent audit; source numerical weights are unreported.",
           "statistics": {"observations": 18, "free_parameters": 2, "pressure_rmse_gpa": 0.128360254517702}
         }
+      },
+      "superseded_record_text": {
+        "notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.",
+        "superseded_on": "2026-11-16"
       }
     },
     "qandilite_lv_2016_bm3": {
@@ -302,6 +306,10 @@
           "weight_notes": "Equal weights in independent audit; source numerical weights are unreported.",
           "statistics": {"observations": 18, "free_parameters": 3, "pressure_rmse_gpa": 0.12639854464684092}
         }
+      },
+      "superseded_record_text": {
+        "notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

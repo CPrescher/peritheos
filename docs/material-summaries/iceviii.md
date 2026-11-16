@@ -80,7 +80,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 10.0\]
 
-Besson et al. give the 300 K D2O ice-VIII molar V0=12.45 cm^3/mol, converted here to the Z=8 tetragonal cell. Their BM3 fit gives K0=20.4 GPa and K0'=4.7 for 0-10 GPa. They state that no pressure/volume error can be quoted because the result depends on the adopted 300 K EOS, and that it must not be used above 10 GPa.
+300 K BM3 for D2O ice VIII. Published V0 = 12.45 cm³/mol; stored per Z = 8 tetragonal cell. The authors state that it must not be used above 10 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

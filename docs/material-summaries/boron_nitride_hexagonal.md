@@ -77,7 +77,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 9.5\]
 
-Hydrostatic helium-medium powder-XRD fit over 0-9.5 GPa. This replaces older strongly discrepant non-hydrostatic compressibility estimates for h-BN.
+Hydrostatic powder-XRD fit with helium as pressure medium. It supersedes older, strongly discrepant non-hydrostatic compressibility estimates for h-BN.
 
 <details markdown="1">
 <summary>Source review</summary>

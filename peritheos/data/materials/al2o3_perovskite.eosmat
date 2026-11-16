@@ -32,16 +32,12 @@
         "pressure_gpa": [-9.06596104, 211.30790612],
         "temperature_k": [0, 0],
         "volume_ratio": [0.65, 1.05],
-        "notes": [
-          "Static 0 K GGA model-crystal fit; not an experimental stability field.",
-          "The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa."
-        ]
+        "notes": ["The bounds come from the source's energy grid, about 65-105% of V0, which reaches just above 200 GPa."]
       },
       "experimental_pressure_range_gpa": [-9.06596104, 211.30790612],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "notes": "No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.",
       "reference": {
         "authors": ["Akber-Knutson", "Steinle-Neumann", "Asimow"],
         "year": 2005,
@@ -77,14 +73,14 @@
       },
       "validity": {
         "pressure_gpa": [0.0001, 30.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": ["AlAlO3 perovskite thermodynamic endmember."]
+        "temperature_k": [298.15, 298.15]
       },
       "experimental_pressure_range_gpa": [0.0001, 30.0],
       "experimental_temperature_range_k": [298.15, 298.15],
       "pressure_range_status": "reference_parameterization",
       "determination_method": "unknown",
       "record_kind": "published",
+      "notes": "Reference isotherm of the AlAlO3 perovskite (apv) thermodynamic endmember.",
       "reference": {
         "authors": ["Holland", "Hudson", "Powell", "Harte"],
         "year": 2013,

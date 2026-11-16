@@ -53,7 +53,8 @@ def test_saxena_1999_registers_only_the_published_300_k_bm3_slice():
     assert record["temperature_ref"] == 300.0
     assert record["validity"]["temperature_k"] == [300.0, 300.0]
     assert "thermal" not in record
-    assert "cannot encode exactly" in record["notes"]
+    assert "use it at 300 K only" in record["notes"]
+    assert "cannot be encoded exactly" in record["notes"]
     assert get_eos_record_document(RECORD_ID)["identifier"] == RECORD_ID
     assert loaded.reference_temperature == 300.0
 

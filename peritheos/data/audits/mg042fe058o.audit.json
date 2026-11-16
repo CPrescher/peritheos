@@ -154,7 +154,16 @@
           "pressure_range": "Figure 3 caption: up to 42 GPa. Interpreted, by explicit user-approved assumption, to include the 42.75 GPa Table S3 B1 observation; the structural transition is reported near 44 GPa."
         }
       },
-      "superseded_record_text": {"label": "Fei et al. (2007), GRL, mg042fe058o high-spin B1 compression BM3", "superseded_on": "2026-11-16"}
+      "superseded_record_text": {
+        "label": "Fei et al. (2007), GRL, mg042fe058o high-spin B1 compression BM3",
+        "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+        "validity_notes": [
+          "Published high-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
+          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve.",
+          "The printed upper limit is approximately 42 GPa; the catalog assumes it includes the Table S3 B1 point at 42.75 GPa. This endpoint interpretation is explicit and does not extend the EOS into the rhombohedral phase."
+        ],
+        "superseded_on": "2026-11-16"
+      }
     }
   }
 }

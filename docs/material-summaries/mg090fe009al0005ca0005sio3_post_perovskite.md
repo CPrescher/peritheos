@@ -90,8 +90,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[12.0, 106.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.755039, 0.950539\]
-    - **Notes:** The range is the measured metastable decompression envelope, not a thermodynamic phase-stability field.; The long extrapolation from the measured range to zero pressure makes V0 and K0 strongly correlated; the authors therefore fixed K0'=4.
+    - **Notes:** The range is the measured metastable decompression envelope.
 - **Reported error confidence level:** 0.6826894921370859
+
+The authors fixed K0' = 4 because the long extrapolation from the measured range to zero pressure makes V0 and K0 strongly correlated.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -211,10 +213,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[12.0, 106.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.749133, 0.943057\]
-    - **Notes:** Nonpreferred parameter-tradeoff sensitivity fit; use the BM2 record by default.
 - **Reported error confidence level:** 0.6826894921370859
 
-This record corrects LitCurate's suggested BM2 mapping: a fixed K0'=4.4 requires BM3. It is retained only as an author-reported sensitivity fit.
+Nonpreferred parameter-trade-off sensitivity fit reported by the authors; the preferred fit is the BM2 record.
 
 <details markdown="1">
 <summary>Source review</summary>

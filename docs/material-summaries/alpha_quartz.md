@@ -80,7 +80,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 8.9\]
 - **Reported temperature coverage (K):** \[298.0, 298.0\]
 
-Third-order Birch-Murnaghan fit to 22 single-crystal measurements from ambient pressure to 8.9 GPa at room temperature. The range describes the fitted data, not the alpha-quartz stability field.
+BM3 fit to 22 single-crystal measurements at room temperature.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -159,11 +159,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 40.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** QMC plus quasiharmonic phonons; quartz is metastable above its transition.
+    - **Notes:** Quartz is metastable above its transition.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 3.0
     - **Molar mass g mol:** 60.083
+
+QMC calculation with quasiharmonic phonons.
 
 <details markdown="1">
 <summary>Source review</summary>

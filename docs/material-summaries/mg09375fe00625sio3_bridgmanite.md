@@ -96,14 +96,14 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static 0 K LSDA+U fit to calculations at 0, 30, 60, 90, 120, and 150 GPa.; Model 1 is the source-selected representative configuration for subsequent thermodynamic work.
+    - **Notes:** Fitted to static calculations at 0, 30, 60, 90, 120 and 150 GPa.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
 - **Reported error confidence level:** Not specified
 
-Preferred static configuration among the six Table 1 Fe-bearing fits.
+Static 0 K LSDA+U calculation. The authors prefer this configuration among the six Fe-bearing fits of Table 1 and use it for their thermodynamic calculations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -183,14 +183,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static 0 K model-configuration sensitivity fit; no default role.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
 - **Reported error confidence level:** Not specified
 
-Configuration sensitivity, not an independent composition.
+Static 0 K calculation for an alternative supercell configuration (model 2). It shows configuration sensitivity and is not an independent composition.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -268,14 +267,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static 0 K model-configuration sensitivity fit; no default role.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
 - **Reported error confidence level:** Not specified
 
-Configuration sensitivity, not an independent composition.
+Static 0 K calculation for an alternative supercell configuration (model 3). It shows configuration sensitivity and is not an independent composition.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -353,14 +351,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Metastable low-spin comparison: the source finds LS Fe thermodynamically unstable through lower-mantle pressures and dynamically unstable at 0 GPa.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
 - **Reported error confidence level:** Not specified
 
-Do not use as the equilibrium spin branch.
+Metastable low-spin comparison branch; do not use it as the equilibrium spin branch. The authors find low-spin Fe thermodynamically unstable through lower-mantle pressures and dynamically unstable at 0 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -438,14 +435,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Metastable low-spin model-configuration sensitivity fit; no default role.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
 - **Reported error confidence level:** Not specified
 
-Do not use as the equilibrium spin branch.
+Metastable low-spin branch for an alternative supercell configuration (model 2), showing configuration sensitivity. Do not use it as the equilibrium spin branch.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -523,14 +519,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Metastable low-spin model-configuration sensitivity fit; no default role.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
 - **Reported error confidence level:** Not specified
 
-Do not use as the equilibrium spin branch.
+Metastable low-spin branch for an alternative supercell configuration (model 3), showing configuration sensitivity. Do not use it as the equilibrium spin branch.
 
 <details markdown="1">
 <summary>Source review</summary>

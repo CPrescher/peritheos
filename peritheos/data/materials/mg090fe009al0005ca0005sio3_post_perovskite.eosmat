@@ -32,16 +32,14 @@
         "pressure_gpa": [12.0, 106.0],
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.755039, 0.950539],
-        "notes": [
-          "The range is the measured metastable decompression envelope, not a thermodynamic phase-stability field.",
-          "The long extrapolation from the measured range to zero pressure makes V0 and K0 strongly correlated; the authors therefore fixed K0'=4."
-        ]
+        "notes": ["The range is the measured metastable decompression envelope."]
       },
       "experimental_pressure_range_gpa": [12.0, 106.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "The authors fixed K0' = 4 because the long extrapolation from the measured range to zero pressure makes V0 and K0 strongly correlated.",
       "fit_datasets": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"],
       "reference": {
         "authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"],
@@ -88,15 +86,14 @@
       "validity": {
         "pressure_gpa": [12.0, 106.0],
         "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.749133, 0.943057],
-        "notes": ["Nonpreferred parameter-tradeoff sensitivity fit; use the BM2 record by default."]
+        "volume_ratio": [0.749133, 0.943057]
       },
       "experimental_pressure_range_gpa": [12.0, 106.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "This record corrects LitCurate's suggested BM2 mapping: a fixed K0'=4.4 requires BM3. It is retained only as an author-reported sensitivity fit.",
+      "notes": "Nonpreferred parameter-trade-off sensitivity fit reported by the authors; the preferred fit is the BM2 record.",
       "fit_datasets": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"],
       "reference": {
         "authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"],

@@ -30,16 +30,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 100.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": [
-          "Ordered P2/m model-1 branch. The source separately plots a metastable symmetric-hydrogen-bond extension; it is not an independent fitted EOS."
-        ]
+        "temperature_k": [0.0, 0.0]
       },
       "experimental_pressure_range_gpa": [0.0, 100.0],
       "experimental_temperature_range_k": [0.0, 0.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
+      "notes": "Ordered P2/m model-1 branch. The metastable symmetric-hydrogen-bond extension plotted in the source is not an independently fitted EOS.",
       "fit_datasets": ["phase_h_tsuchiya_mookherjee_2015_table1_pv"],
       "reference": {
         "authors": ["Tsuchiya", "Mookherjee"],

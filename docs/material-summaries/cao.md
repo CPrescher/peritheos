@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 60.0\]
 
-Room-temperature B1-CaO BM3 fit: molar V0=16.76 cm^3/mol (converted to the four-formula-unit cell), K0=1.112 Mbar, and K0'=4.2+/-0.2. The abstract gives K0=1.11+/-0.01 Mbar; the stored 1 GPa error reflects that precision. V0 is fixed and no independent V0 error is reported.
+Room-temperature BM3 fit for B1 CaO. Published V0 = 16.76 cm³/mol (fixed, no error); stored per four-formula-unit cell. The fit gives K0 = 1.112 Mbar; the stored 1 GPa error reflects the abstract's 1.11 Mbar, error 0.01 Mbar.
 
 <details markdown="1">
 <summary>Source review</summary>

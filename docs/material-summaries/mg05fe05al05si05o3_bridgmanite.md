@@ -93,10 +93,9 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[26.8, 102.2\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.7660564497, 0.9056263335\]
-    - **Notes:** Bounds are the 23-observation fitted envelope, not a broader phase-stability field.; V0 is extrapolated because FA50 bridgmanite is not retained at ambient pressure.; The curve averages before- and after-current-step-anneal states and must not be interpreted as a pure low-spin branch.
 - **Reported error confidence level:** Not specified
 
-Authors' preferred room-temperature BM2, chosen for denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. This mixed-spin curve is the equilibrium default, but not a pure low-spin branch.
+The authors' preferred room-temperature BM2, chosen for its denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. It averages states before and after each current-step anneal and describes a mixed-spin sample, not a pure low-spin branch. V0 is extrapolated because this bridgmanite is not retained at ambient pressure.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -201,10 +200,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[29.0, 102.2\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.7665018314, 0.9019469477\]
-    - **Notes:** Bounds are the 11 selected-observation envelope.; V0 is a high-pressure bridgmanite extrapolation.; This comparison subset is not an independent spin-state branch.
 - **Reported error confidence level:** Not specified
 
-Non-default fit retained because the authors explicitly report it. It tests the effect of selecting observations collected after each current pressure-step anneal; it is not a separate thermodynamic or fully low-spin branch.
+Comparison fit by the authors to the 11 observations collected after each current pressure-step anneal. It is a subset of the same sample-1 data, not a separate thermodynamic or fully low-spin branch. V0 is a high-pressure bridgmanite extrapolation.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -309,10 +307,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[27.5, 103.6\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.7724757411, 0.9077366315\]
-    - **Notes:** Bounds are the 21-observation fitted envelope.; V0 is a high-pressure bridgmanite extrapolation.; The record preserves a kinetically retained cation-ordering history and is not the equilibrium default.
 - **Reported error confidence level:** Not specified
 
-Non-default, metastable cold-compression comparison retained because both its complete observations and explicitly reported BM2 are available. It is the authors' high-spin original-ordering reference, not a license to infer a separate equilibrium branch outside its measured envelope.
+Metastable comparison fit to cold-compressed sample 2, which keeps a kinetically retained cation ordering. The authors use it as the high-spin original-ordering reference; it does not define an equilibrium branch outside its measured range. V0 is a high-pressure bridgmanite extrapolation.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -417,10 +414,10 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[10.8, 60.0\]
     - **Temperature k:** \[293.0, 293.0\]
     - **Volume ratio:** \[0.8306074766, 0.9571845794\]
-    - **Notes:** Bounds are the selected Pnma observation envelope, not a broader phase-stability field.; V0 is extrapolated because the Pnma perovskite is not retained at ambient pressure.; The 7.5 and 8.6 GPa measurements fall in the reported structural-transition interval and are outside this fit.
+    - **Notes:** The 7.5 and 8.6 GPa measurements lie in the reported structural-transition interval and are outside this fit.
 - **Reported error confidence level:** Not specified
 
-Accepted LitCurate record litcurate\_1a8c16a1075ca2d2. Pnma is an alternative setting of the material card's Pbnm space group 62. The low-pressure R3c and FeMg0.5Si0.5O3 P21/n candidates require distinct phase cards and were not added in this batch.
+Single-crystal BM2 fit to the Pnma perovskite only (Pnma is an alternative setting of this material's Pbnm, space group 62); the low-pressure R3c and the FeMg0.5Si0.5O3 P21/n candidates are not included. V0 is extrapolated because the Pnma perovskite is not retained at ambient pressure.
 
 <details markdown="1">
 <summary>Source review</summary>

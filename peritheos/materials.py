@@ -2262,7 +2262,11 @@ def _record_to_eosmat(
     validity = (
         _plain_data(stored_validity) if isinstance(stored_validity, Mapping) else {}
     )
-    validity["notes"] = list(record.validity.notes)
+    # A record without validity notes round-trips without an empty list.
+    if record.validity.notes:
+        validity["notes"] = list(record.validity.notes)
+    else:
+        validity.pop("notes", None)
     if np.all(np.isfinite(record.validity.pressure_gpa)):
         pressure_range = list(record.validity.pressure_gpa)
         result.setdefault("experimental_pressure_range_gpa", pressure_range)
@@ -2273,7 +2277,7 @@ def _record_to_eosmat(
         validity["temperature_k"] = temperature_range
     if record.validity.volume_ratio is not None:
         validity["volume_ratio"] = list(record.validity.volume_ratio)
-    if len(validity) > 1 or validity["notes"]:
+    if validity:
         result["validity"] = validity
     if thermal_eos is not None:
         thermal = _merge_eosmat_component(

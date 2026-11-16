@@ -88,7 +88,7 @@ Automatic selection for equilibrium calculations.
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Reported error confidence level:** Not specified
 
-Scott et al. report a weighted third-order Birch-Murnaghan fit to 300 K compression data: V0=155.26+/-0.14 A^3 is the separately measured ambient unit-cell volume, K0T=175.4+/-3.5 GPa, and K0T'=5.1+/-0.3. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum. The paper reports no parameter covariance or confidence convention for the printed +/- values. The 73 GPa envelope is not a thermal validity claim and should not be extrapolated to core pressures.
+Weighted BM3 fit to 300 K compression data, with V0 fixed at the separately measured ambient unit-cell volume. The highest diffraction pattern is at 73.2 GPa (Figure 1); the title and abstract round this to 73 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -164,7 +164,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported temperature coverage (K):** \[293, 293\]
 - **Reported error confidence level:** Not specified
 
-Conditional coefficient parity compares K0 and K0\_prime at the published printed precision, with adopted V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) held fixed. Published K0=161 +/-2 GPa and K0\_prime=5.9 +/-0.2 are retained unchanged. V0 is adopted from the published calculated full-range curve, not a printed source coefficient or the ambient measurement. Its uncertainty and the original fixed/free V0 convention are unrecovered. Numerical coefficient agreement does not establish uncertainty agreement, author-workflow reproduction or physical validation. The primary experimental dataset is all 19 numbered p1-p19 points from final Table S1, with published ruby pressures and reported widths, spanning 1.8-47.4 GPa at nominal 293 K. The recorded comparison uses equal pressure weights with V0 fixed and K0/K0\_prime free. It gives K0=160.994011 +/-2.532193 GPa and K0\_prime=5.919478 +/-0.240867, displayed as 161 +/-3 and 5.9 +/-0.2 at the paper precision. The K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, not the published 2 GPa. Covariance is inverse(J^T J)\*SSE/(19-2), conditional on exact V0 and exact input volumes. Source coordinate widths are preserved but are not the weights in this comparison; source confidence and calibration covariance are unknown. The 22 digitized Figure 1 markers remain separate supplementary evidence, not the primary dataset. No ambient or p20-p22 point is added. For p16, the final source volume is 133.25 A^3, not the alternate SHELX cell 133.58 A^3. Published split fits remain audit-only. The main text rounds the upper limit to 47 GPa; Table S1 reaches 47.4 GPa. The nominal split ranges do not establish separate structural phases or a phase-stability envelope.
+Full-range BM3 fit; the primary dataset is the 19 Table S1 points with ruby pressures (1.8-47.4 GPa); the main text rounds the upper limit to 47 GPa. V0 is not printed in the paper: it is adopted from the published calculated full-range curve, not from the ambient measurement, and held fixed. Its error and whether the authors fixed V0 are unknown.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -258,7 +258,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported temperature coverage (K):** \[299, 301\]
 - **Reported error confidence level:** Not specified
 
-Conditional parameter parity compares K0 and K0\_prime within the printed source error widths using all 12 nonambient Table 1 observations. Measured V0=155.28(11) A^3 per conventional Pnma Fe3C cell (Z=4) is fixed as in the source, not independently recovered by the fit. Published errors have unspecified confidence. The diagnostic effective-variance objective treats printed pressure and volume widths as if independent standard errors; its unscaled inverse-JtJ covariance is conditional. Original residual direction, weights, covariance, confidence convention and fit project are unavailable. Fixed-V0 uncertainty and shared calibration errors are not propagated. Original ruby wavelengths and separate ruby/neon pressure arrays are missing, so the pressure averaging cannot be replayed. Original-scale published coefficients and observations are preserved; Litasov (2013) recalibrated comparison coefficients are not substituted. This is not author-workflow reproduction, magnetic-phase validation or a recommendation for extrapolation. Eq. (2) approximates the 1-bar reference by zero pressure. The source is a 300 K isotherm; the 299-301 K range records reported room-temperature variation, not a thermal model. No crystallographic transition was observed to 30.5 GPa; the magnetic state was not measured. The material's structural reference cell is independent of this EOS V0.
+300 K BM3 fit with V0 fixed, as in the source, at the measured ambient volume of the conventional Pnma cell (Z = 4). Coefficients are on the original pressure scale, not the Litasov (2013) recalibration. No crystallographic transition was observed to 30.5 GPa; the magnetic state was not measured.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -361,10 +361,10 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0, 34.3\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Source Table 3 says &lt;=35 GPa; actual last fit-domain measurement is 34.3 GPa. All 14 measurements extend to 66.5 GPa but do not validate this branch there.; Source-assigned low-pressure ferromagnetic branch; no magnetic stability boundary is implemented. Annealing at 1500-2000 K precedes room-temperature XRD and is not thermal EOS coverage.
+    - **Notes:** Measurements reach 66.5 GPa, but this fit uses only those to 34.3 GPa (Table 3: ≤ 35 GPa).; Low-pressure ferromagnetic branch as assigned by the source; no magnetic transition is modelled.
 - **Reported error confidence level:** Not specified
 
-Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0\_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted.
+Original experimental 300 K BM3 fit below 35 GPa (Table 3), on the original pressure scale, not the Litasov recalibration. V0 is the measured ambient cell of Table 1; the paper does not explicitly state its V0 fitting constraint.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -43,8 +43,8 @@ stays in EOSMAT and the ledger.
 | [Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3](#record-mgo_jacobsen_2008_bm3_kcl_mao1978) | **reproduced** |  |
 | [Jacobsen et al. (2008), helium medium, Mao-1986-scale BM3](#record-mgo_jacobsen_2008_bm3_helium_mao1986) | **reproduced** |  |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-mgo_shen_2026_vinet_3) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
-| [Luo et al. (2023), cold Vinet plus second-order thermal pressure](#record-mgo_b1_luo_2023_vinet_thermal_5) | **untested** (not refittable) |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-mgo_sokolova_2013_holzapfel_4) | **untested** (source calculation reconstructed) |  |
+| [Luo et al. (2023), 0 K Vinet + Taylor thermal pressure](#record-mgo_b1_luo_2023_vinet_thermal_5) | **untested** (not refittable) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-mgo_sokolova_2013_holzapfel_4) | **untested** (source calculation reconstructed) |  |
 | [Dewaele et al. (2000), BM3-MGD](#record-mgo_dewaele_2000_bm3_mgd_5) | **reproduced** |  |
 | [Dewaele et al. (2000), constrained BM2 sensitivity](#record-mgo_dewaele_2000_bm2_sensitivity_1) | **reproduced** |  |
 | [Dewaele et al. (2000), Murnaghan sensitivity](#record-mgo_dewaele_2000_murnaghan_sensitivity_2) | **reproduced** |  |
@@ -551,7 +551,7 @@ Both fits use the same 194 recovered audit input rows. **Volume coordinate:** un
 
 <a id="record-mgo_b1_luo_2023_vinet_thermal_5"></a>
 
-## Luo et al. (2023), cold Vinet plus second-order thermal pressure
+## Luo et al. (2023), 0 K Vinet + Taylor thermal pressure
 
 **untested** (not refittable) · `mgo_b1_luo_2023_vinet_thermal_5` · `Vinet` · [Coefficients and source](../material-summaries/mgo.md#record-mgo_b1_luo_2023_vinet_thermal_5)
 
@@ -611,7 +611,7 @@ Replay of the existing bounded sensitivity diagnostic: five pressures, four temp
 
 <a id="record-mgo_sokolova_2013_holzapfel_4"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `mgo_sokolova_2013_holzapfel_4` · `Holzapfel` · [Coefficients and source](../material-summaries/mgo.md#record-mgo_sokolova_2013_holzapfel_4)
 

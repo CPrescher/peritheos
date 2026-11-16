@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 11.0\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-The authors constrained V0 to 23.315 A^3/atom and K0' to 1; the conventional two-atom volume is stored here.
+Published V0 = 23.315 Å³/atom (fixed); stored per conventional two-atom cell (×2). The authors also fixed K0' = 1.
 
 <details markdown="1">
 <summary>Source review</summary>

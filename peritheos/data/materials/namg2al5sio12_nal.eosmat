@@ -34,17 +34,14 @@
         "pressure_gpa": [0.0, 50.0],
         "temperature_k": [0.0, 0.0],
         "volume_ratio": [0.8485974231, 1.0],
-        "notes": [
-          "Bounded to the Figure 2c and Figure 5 NAL calculation interval; this is not a phase-stability guarantee.",
-          "Static LDA record; no thermal correction is included."
-        ]
+        "notes": ["Bounded to the NAL calculation interval of Figures 2c and 5."]
       },
       "experimental_pressure_range_gpa": [0.0, 50.0],
       "experimental_temperature_range_k": [0.0, 0.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "notes": "Published static-theory parameterization. All three printed coefficients are treated as fitted; no statistical errors are reported. There is no pressure calibration.",
+      "notes": "Static LDA calculation; no thermal correction is included.",
       "fit_datasets": ["namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized"],
       "reference": {
         "authors": ["Kawai", "Tsuchiya"],

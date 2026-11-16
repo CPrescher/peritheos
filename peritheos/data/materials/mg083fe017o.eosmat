@@ -45,17 +45,13 @@
       "validity": {
         "pressure_gpa": [0.0, 47.0],
         "temperature_k": [300.0, 1100.0],
-        "notes": [
-          "Valid only for the high-spin B1 branch; the paper deliberately excludes observations at and above the approximately 47 GPa cutoff from fitting.",
-          "The dataset retains all measurements through 55.47 GPa to expose the onset and growth of the spin-crossover volume anomaly."
-        ]
+        "notes": ["High-spin B1 branch only; the paper excludes observations at and above about 47 GPa from the fit."]
       },
       "experimental_pressure_range_gpa": [0.0, 47.0],
       "experimental_temperature_range_k": [300.0, 1100.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.",
       "fit_datasets": ["mg083fe017o_matsui_2012_table1_pvt"],
       "reference": {
         "authors": ["Matsui", "Ito", "Yamazaki", "Yoshino", "Guo", "Shan", "Higo", "Funakoshi"],
@@ -97,11 +93,11 @@
       },
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": ["HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+        "temperature_k": [300, 300]
       },
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -141,11 +137,11 @@
       },
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": ["LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+        "temperature_k": [300, 300]
       },
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,

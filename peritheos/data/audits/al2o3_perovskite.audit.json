@@ -73,6 +73,14 @@
           "uncertainties": "The source reports no coefficient uncertainties or covariance.",
           "method": "Static VASP GGA calculations; fixed-volume cell-shape, atomic-position, and electronic-wavefunction optimization; 1000 eV cutoff."
         }
+      },
+      "superseded_record_text": {
+        "notes": "No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.",
+        "validity_notes": [
+          "Static 0 K GGA model-crystal fit; not an experimental stability field.",
+          "The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "al2o3_perovskite_holland_2013_apv_modified_tait": {
@@ -138,6 +146,11 @@
           "parameters": "Article Table 1 and official tc-ds62 apv block.",
           "unit_conversion": "V0=2.540 J/bar/mol, K0=2030 kbar, K0''=-0.00200 kbar^-1; converted to executable units and Z=4."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": ["AlAlO3 perovskite thermodynamic endmember."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

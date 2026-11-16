@@ -68,6 +68,14 @@
           "K0_prime": "Table 3: dKT/dP=4.57 at zero pressure.",
           "K0_double_prime": "Table 3: d2KT/dP2=-0.041 GPa^-1 at zero pressure."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Non-default theoretical record; the catalog's experimental Siersch et al. record remains the equilibrium default.",
+        "validity_notes": [
+          "Static-lattice parameterization; the pressure bounds are the paper's stated calculation regime, not a phase-stability field.",
+          "The source reports volume per MgSiO3 formula unit; values are multiplied by Z=6 for this conventional hexagonal-cell document."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "akimotoite_karki_2002_300k_bm4_2": {
@@ -122,6 +130,14 @@
           "K0_prime": "Table 3: dKT/dP=4.64.",
           "K0_double_prime": "Table 3: d2KT/dP2=-0.042 GPa^-1."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Non-default theoretical 300 K isotherm; do not substitute it for the catalog's experimental equilibrium default.",
+        "validity_notes": [
+          "Quasiharmonic isotherm within the paper's stated calculation pressure regime; this is not an experimental fit or a phase-stability field.",
+          "The source reports volume per formula unit; the stored V0 is converted to the Z=6 conventional-cell basis."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "akimotoite_karki_2002_1000k_bm4_3": {
@@ -176,6 +192,14 @@
           "K0_prime": "Table 3: dKT/dP=4.86.",
           "K0_double_prime": "Table 3: d2KT/dP2=-0.051 GPa^-1."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Non-default temperature-specific theoretical isotherm.",
+        "validity_notes": [
+          "Quasiharmonic isotherm within the stated calculation regime; it is not an experimental fit or a stability-field claim.",
+          "The source's per-formula volume is multiplied by six for this material document."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "akimotoite_karki_2002_2000k_bm4_4": {
@@ -230,6 +254,14 @@
           "K0_prime": "Table 3: dKT/dP=5.20.",
           "K0_double_prime": "Table 3: d2KT/dP2=-0.067 GPa^-1."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Non-default high-temperature theoretical isotherm; extrapolation toward zero pressure should respect the paper's QHA warning.",
+        "validity_notes": [
+          "High-temperature QHA isotherm; the authors explicitly warn that quasiharmonic accuracy generally degrades at high temperature and zero pressure.",
+          "The pressure bounds report the calculation regime and are not a phase-stability field."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "akimotoite_reynard_1996_bm3_ruby_2": {
@@ -358,6 +390,10 @@
           "volume_basis": "Table 1 conventional hexagonal unit-cell volume V=(sqrt(3)/2)*a^2*c; the MgSiO3 ilmenite cell has Z=6.",
           "temperature_ref": "The experiment and EOS are reported at ambient temperature; 298 K is the operational ambient-temperature reference used by this record."
         }
+      },
+      "superseded_record_text": {
+        "notes": "This is the ruby-pressure assignment of the same 16-row compression/decompression experiment represented by the companion ice-VII-scale record. It is a distinct fit, not a duplicate parameter transcription. The paper reports that V0 was varied and stayed within 0.01% of the measured in-cell value, while K0 was fixed at the adopted 212 GPa Brillouin value. Ruby-line broadening above 15 GPa showed increasing nonhydrostatic stress; the authors therefore regarded K0'=7.5 as less realistic than the ice-VII-scale result. The source gives neither parameter covariance nor a confidence convention for parenthesized fit errors, and it does not specify an exact ruby calibration equation. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.",
+        "superseded_on": "2026-11-16"
       }
     },
     "akimotoite_reynard_1996_bm3_ice_vii_3": {
@@ -495,6 +531,10 @@
           "volume_basis": "Table 1 conventional hexagonal unit-cell volume V=(sqrt(3)/2)*a^2*c; the MgSiO3 ilmenite cell has Z=6.",
           "temperature_ref": "The experiment and EOS are reported at ambient temperature; 298 K is the operational ambient-temperature reference used by this record."
         }
+      },
+      "superseded_record_text": {
+        "notes": "This is the authors' preferred pressure assignment of the same experiment represented by the companion ruby-scale record. It is a distinct fit, not a duplicate parameter transcription. Ice-VII (110) diffraction and MgSiO3 ilmenite were measured on the same 50 micrometer X-ray spot; Table 1 prints 12 finite-pressure Pi values, and Figure 3f additionally plots the two ambient measurements as zero-pressure anchors, giving 14 usable rows. The paper reports that V0 was varied and K0 was fixed at the adopted 212 GPa Brillouin value. Above 15 GPa the pressure medium developed nonhydrostatic stress and pressure gradients; the bracketed ice-pressure quantities are maximum gradient estimates, not stated one-sigma errors. The source gives neither parameter covariance nor a confidence convention for fitted-parameter errors. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.",
+        "superseded_on": "2026-11-16"
       }
     },
     "akimotoite_siersch_2021_bm3_1": {
@@ -713,6 +753,13 @@
           "K0_prime": "Table 1: 4.91.",
           "K_infinity_prime": "Table 1 fixes k=5; therefore K_infinity_prime=5/3."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Accepted corrected mapping for LitCurate source row 869 (litcurate_8acd9ecf5854a501). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.",
+        "validity_notes": [
+          "Reference isotherm of the source's larger Helmholtz model; this range is the study's calculation envelope, not an akimotoite stability field."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "akimotoite_wang_2004_t0133_bm3": {
@@ -873,6 +920,11 @@
           "fixed_parameters": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset.",
           "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+        "validity_notes": ["Bounds describe fitted observations, not a phase-stability field."],
+        "superseded_on": "2026-11-16"
       }
     },
     "akimotoite_wang_2004_t0150_bm3": {
@@ -1034,6 +1086,11 @@
           "fixed_parameters": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here.",
           "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here. Unweighted pressure residuals reproduce the free coefficients within printed errors, with conditional reconstructed standard errors and covariance; numerical parameter parity uses the printed-error-width criterion. The source does not supply a complete optimizer/weighting protocol, confidence convention or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+        "validity_notes": ["Bounds describe fitted observations, not a phase-stability field."],
+        "superseded_on": "2026-11-16"
       }
     },
     "akimotoite_zhou_2014_300k_bm3": {
@@ -1193,6 +1250,11 @@
           "fixed_parameters": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations.",
           "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+        "validity_notes": ["Bounds describe fitted observations, not a phase-stability field."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

@@ -133,7 +133,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 134.0\]
 
-Room-temperature third-order Birch-Murnaghan fit to 47 P-V measurements through 134 GPa: V0=45.37+/-0.08 A^3, K0=281+/-4 GPa, and K0'=4 assumed.
+Room-temperature BM3 fit to 47 P-V measurements.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -207,7 +207,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reported pressure coverage (GPa):** \[0.0, 160.0\]
 - **Coverage provenance:** theoretical
 
-Static-lattice 0 K DFT parameterization of the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 perovskite branch. The paper finds this branch dynamically unstable at all investigated pressures, so this is a theoretical reference curve and not a stable ambient phase. Table 2 reports V0/Z; Pm-3m has Z=1, so 44.579 A^3 is also the conventional cubic-cell volume (a0=3.54577 A). All three BM3 coefficients were fitted; no parameter uncertainties, covariance, fit weights, or underlying E(V) rows are published. The Table 2 footnote estimates calculation uncertainty as about 20 meV per molecule, an energy-scale estimate rather than an EOS-coefficient error. The distinct Pm-3m BM4 fit and all eight phase-specific low-symmetry BM3/BM4 pairs are now represented as executable sibling records on the appropriate material cards.
+Static-lattice 0 K DFT fit for the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 perovskite branch. The paper finds this branch dynamically unstable at all investigated pressures, so the curve is a theoretical reference, not a stable ambient phase. Table 2 reports V0/Z; with Z = 1 the stored V0 is also the conventional cubic-cell volume.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -409,7 +409,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[1000.0, 4000.0\]
     - **Volume ratio:** \[0.7, 1.0\]
-    - **Notes:** The stated FPMD sampling spans approximately 0-150 GPa; Table 1 publishes fitted isochors from 1000 to 4000 K and V/V0=0.70-1.00.; Section 2 prints a computational temperature range of 300-1500 K, but Figure 2 explicitly labels calculated FPMD points at 1000, 2000, 3000, and 4000 K. Because the raw state table is unavailable, that source inconsistency cannot be resolved; the executable temperature range is conservatively tied to the unambiguous plotted and tabulated 1000-4000 K EOS output.; The paper warns that the very-low-pressure, high-temperature corner lies outside cubic CaSiO3 stability or near melting, so this rectangular numerical envelope is not a phase-stability guarantee.
+    - **Notes:** Section 2 prints 300-1500 K, but Figure 2 shows calculated points at 1000-4000 K. The temperature range follows the plotted and tabulated output.; The paper warns that the very-low-pressure, high-temperature corner lies outside cubic CaSiO3 stability or near melting.
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -418,7 +418,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 </details>
 
-Preferred Vinet reference isotherm plus a constant-q Mie-Gruneisen-Debye thermal pressure relative to 1000 K. The integrated Debye-temperature law follows equations 4-10 of Tange et al. (2009), which Kawai and Tsuchiya explicitly adopt; n=5 for one CaSiO3 formula unit. V0 is already one cubic Pm-3m conventional cell because Z=1. The input stresses came from LDA-PWSCF NVT FPMD on an 80-atom 2x2x1 tetragonal-supercell representation constrained to cubic metrics, with 50 Ry cutoff, a 2x2x2 k-point grid, 1 fs steps, 1 ps equilibration, and 5 ps production averages. Figure 1 reports a convergence benchmark near 15 GPa and 2000 K: the 2x2x2 sampling gives diagonal stresses 15.3, 15.5, and 15.2 GPa, compared with 16.0, 16.1, and 14.6 GPa at Gamma only; no volume is printed, so this is not an EOS-fit row. No parameter uncertainties or covariance are reported, so missing errors are null rather than zero. The alternate BM3 column is intentionally not added because this contribution is limited to one literature EOS record and the article plots and abstracts the Vinet result. The abstract's K0=203.95 GPa reproduces Table 1 (for example 184.42 GPa rounds to 184.5 GPa at V/V0=0.70 and 4000 K), whereas the PDF-extracted Table 2 value 203.5 GPa predicts 184.06 GPa; the benchmark-consistent abstract value is retained. Section 2's printed 300-1500 K simulation range conflicts with calculated 1000-4000 K points in Figure 2 and cannot be resolved without the raw state table.
+Preferred Vinet reference isotherm plus constant-q Mie-Grüneisen-Debye thermal pressure relative to 1000 K, from LDA first-principles molecular dynamics. The Debye-temperature law follows Equations 4-10 of Tange et al. (2009), which the authors adopt. V0 and n = 5 refer to one formula unit, which is the cubic Pm-3m cell (Z = 1).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -513,7 +513,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ca_
     - **Pressure gpa:** \[20.6, 68.5\]
     - **Temperature k:** \[1272.0, 2380.0\]
     - **Volume ratio:** \[0.8349385539, 0.9578823674\]
-    - **Notes:** This domain is the rectangular envelope of the 34 Table 1 DAC observations used for the published DAC-only fit.; The two measurements above 90 GPa shown only in Figures 7-8 were excluded by the authors because Pt-Ar peak overlap made their pressures highly uncertain; they are not reconstructed as numerical rows.; This non-default record is not the authors' preferred combined DAC+LVP model.
+    - **Notes:** Two measurements above 90 GPa (Figures 7-8 only) were excluded by the authors because Pt-Ar peak overlap made their pressures highly uncertain.
 - **Reported error confidence level:** 0.68
 
 <details markdown="1">
@@ -523,7 +523,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ca_
 
 </details>
 
-Published non-default DAC-only alternative. The authors' selected result is the separate combined DAC+Wang et al. LVP fit (gamma0=1.92(5), q=0.6(3)); it is explicitly excluded because this article does not publish the numerical Wang observations. This record instead preserves the article's independently reported fit to the complete 34-row Table 1 DAC subset: gamma0=2.00(8) and q=0.9(4). The BM3 reference parameters and theta0 were fixed, while gamma0 and q were free. Parenthetical errors are 1 sigma. V0=27.45(2) cm3/mol is converted to 45.5817973939 A3 for the Z=1 cubic Pm-3m cell.
+The authors' separate fit to their 34 Table 1 DAC observations alone, with the BM3 reference and theta0 fixed. Their preferred result is the combined DAC + Wang et al. LVP fit (gamma0 = 1.92(5), q = 0.6(3)), not stored because this article does not publish the Wang observations. Published V0 = 27.45(2) cm³/mol; stored per Z = 1 cubic Pm-3m cell.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -641,7 +641,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 108.0\]
 
-Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite: V0=45.58+/-0.05 A^3 (fixed in the Table 2 fit), K0=236+/-4 GPa, and K0'=3.9+/-0.2. Uncertainties are one standard deviation; the published V0 uncertainty is retained despite its fixed fit status. Data extend to 108 GPa.
+Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite, with V0 fixed in the Table 2 fit. Errors are one standard deviation.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -731,7 +731,6 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[51.3, 127.2\]
     - **Temperature k:** \[700.0, 2300.0\]
-    - **Notes:** The bounds follow the reported experimental scope and Table 1 pressure extrema; they are an observed marginal envelope, not a claim that every pressure-temperature combination was measured.; The source assigns all fitted observations to cubic Ca-perovskite. The 700 K isotherm is intentionally retained as the model reference and is not converted to or combined with a 300 K tetragonal or metastable-cubic record.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -741,7 +740,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). The source data license is unspecified; scoped CC0 covers only contributors’ transcription rights. No fit covariance, weighting rule, or parameter-error confidence convention is published.
+Preferred model 1: a BM2 reference isotherm at 700 K plus constant-q Mie-Grüneisen-Debye thermal pressure for cubic CaSiO3. The authors chose 700 K to stay above the cubic transition and avoid mixing tetragonal and cubic data; the 700 K isotherm is not converted to a 300 K state. Printed temperatures span 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -873,9 +872,8 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[21.2, 156.0\]
     - **Temperature k:** \[1200.0, 2600.0\]
-    - **Notes:** The marginal experimental envelope is not a claim that every pressure-temperature combination was measured.; Cubic Pm-3m CaSiO3 was observed at high temperature; the 300 K reference isotherm is an extrapolated, metastable model reference and is outside this executable validity envelope.
 
-Joint BM3-Mie-Gruneisen-Debye fit for pure cubic Pm-3m CaSiO3 using model 1 in Table 2. The 144 printed fit rows span 21.2-151.8 GPa and 1200-2600 K; 156 GPa is the paper's overall experimental diffraction envelope, not a printed Table 1 pressure. The 300 K V0, K0, and K0' define an extrapolated reference isotherm: cubic CaSiO3 is not quenchable and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces the published parameters and uncertainties after rounding.
+Joint BM3 + Mie-Grüneisen-Debye fit (model 1 in Table 2) for cubic Pm-3m CaSiO3. Printed fit rows span 21.2-151.8 GPa; 156 GPa is the paper's overall diffraction range, not a printed Table 1 pressure. The 300 K reference isotherm is an extrapolated, metastable model reference: cubic CaSiO3 is not quenchable, and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1108,12 +1106,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[1.2, 134.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** A source-reported sensitivity reanalysis of a cited primary dataset, not Wang et al.'s preferred new-data fit.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** 0.68
+
+Wang et al.'s equal-weight sensitivity reanalysis of the Mao et al. data, not their preferred fit to their own new data.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1216,12 +1215,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 134.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Diagnostic sensitivity fit intentionally includes points the authors argue are contaminated by amorphization; it is not preferred for physical use.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** 0.68
+
+Diagnostic sensitivity fit that includes the points the authors consider contaminated by amorphization. Not preferred for physical use.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1309,12 +1309,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[1.2, 134.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Sensitivity fit demonstrating the bias from amorphized sub-1-GPa data; not the paper's preferred combined interpretation.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** 0.68
+
+Sensitivity fit showing the bias from the amorphized sub-1-GPa data. Not the paper's preferred combined interpretation.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1416,12 +1417,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Ideal cubic static-lattice branch; the source also finds rotational instability of the cubic structure.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** Not specified
+
+Static-lattice LAPW fit for ideal cubic CaSiO3. The source also finds the cubic structure rotationally unstable.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1502,11 +1504,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Ideal cubic static-lattice convergence branch.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
+
+Static-lattice LAPW convergence fit for ideal cubic CaSiO3.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1586,11 +1589,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Final nine-point ideal-cubic static-lattice branch before thermal correction.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
+
+Final nine-point static-lattice LAPW fit for ideal cubic CaSiO3, before the thermal correction.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1670,11 +1674,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Thermally corrected ideal-cubic model; constrained K0'=4 sensitivity fit.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
+
+Thermally corrected ideal-cubic model; a sensitivity fit with K0' = 4 constrained.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1754,11 +1759,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Preferred thermally corrected ideal-cubic model; cubic CaSiO3 is dynamically unstable to octahedral rotations in the source calculation.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
+
+The source's preferred thermally corrected ideal-cubic model. In the source calculation cubic CaSiO3 is dynamically unstable to octahedral rotations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1840,11 +1846,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 30.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** Cubic CaSiO3-perovskite thermodynamic endmember; the low-pressure reference is extrapolated.
+    - **Notes:** The low-pressure reference is extrapolated.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.161
+
+Cubic CaSiO3-perovskite (cpv) thermodynamic endmember.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1924,12 +1932,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Orthorhombic Pnma VIBC branch including zero-point and 300 K vibrational contributions.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** Not specified
+
+Orthorhombic Pnma VIBC branch, including zero-point and 300 K vibrational contributions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2006,12 +2015,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Cubic Pm3m VIBC branch including zero-point and 300 K vibrational contributions.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** Not specified
+
+Cubic Pm3m VIBC branch, including zero-point and 300 K vibrational contributions.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2088,12 +2098,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Cubic Pm3m VIB branch without the empirical Si-O covalent correction.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** Not specified
+
+Cubic Pm3m VIB branch, without the empirical Si-O covalent correction.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2170,12 +2181,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 106.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Cubic perovskite result from the moderately extended basis set B; the 106 GPa bound is the explicitly tested structural-stability range.
+    - **Notes:** The 106 GPa bound is the explicitly tested structural-stability range.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** Not specified
+
+Cubic perovskite result from the moderately extended basis set B.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2250,7 +2263,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[2.0, 9.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The source describes the fitted room-temperature interval as above 2.0 GPa and approximately 2-9 GPa; the 11.7 GPa value elsewhere in the paper is a thermal-expansion isobar and is not part of this four-point fit.; Lower-pressure decompression points were excluded because amorphization changes the volume; the solid 1-bar Kanzaki et al. comparison point in Figure 3 was not measured or fitted by Wang and Weidner.
+    - **Notes:** The source gives the fitted interval as above 2.0 GPa, about 2-9 GPa; its 11.7 GPa value is a thermal-expansion isobar, not part of this fit.; Lower-pressure decompression points were excluded because amorphization changes the volume. The 1-bar Kanzaki et al. point in Figure 3 is not fitted.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
@@ -2345,14 +2358,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0, 160\]
     - **Temperature k:** \[0, 0\]
-    - **Notes:** Static-lattice DFT branch; not an ambient-stability claim.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 116.161
 - **Reported error confidence level:** Not specified
 
-Static 0 K Pm-3m (a0a0a0) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.
+Static-lattice 0 K DFT fit for the cubic Pm-3m (a0a0a0) octahedral-tilt branch; not an ambient-stability claim. The source fits BM3 and BM4 to the same calculation series.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2436,12 +2448,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 200.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static cubic CaSiO3 perovskite LDA branch.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
 - **Reported error confidence level:** Not specified
+
+Static-lattice LDA fit for cubic CaSiO3 perovskite.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2532,7 +2545,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[300.0, 2200.0\]
-    - **Notes:** Joint fit to Sun et al. (2016) and Gréaux et al. (2019) experimental data; the published coefficients are from Fu et al. (2023). Fu Figure S3 shows Gréaux et al. (2019) measurements and Sun et al. (2016) P-V-T rows as observations, Kawai and Tsuchiya (2015) and Li et al. (2006) as analytical comparison curves, and Thomson et al. (2019) as explicitly excluded open symbols.; An independent audit recovered 34 cubic Gréaux rows and 144 Sun Table 1 rows; the 140 Sun rows at 1200-2200 K match the Figure S3 legend. The inferred 174-row selection is not source-declared, and Fu et al. do not publish the regression objective, weights, covariance, or code.; Cubic CaSiO3 is not quenchable at ambient conditions; the 300 K zero-pressure state is a model reference rather than an ambient-stability claim.
+    - **Notes:** Cubic CaSiO3 is not quenchable at ambient conditions. The 300 K zero-pressure state is a model reference, not an ambient-stability claim.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
@@ -2546,6 +2559,8 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Debye temperature law:** integrated\_gruneisen
 
 </details>
+
+Coefficients published by Fu et al. (2023) for a joint fit to Sun et al. (2016) and Gréaux et al. (2019) experimental data.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2643,14 +2658,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static-lattice LDA plane-wave pseudopotential result for the ideal cubic Pm-3m branch.; The 0-140 GPa range is the calculation range, not an experimental stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.161
 - **Reported error confidence level:** Not specified
 
-LitCurate row 186 is retained as the source-owned fit. Rows 187-191 are literature comparisons and are represented, where independently audited, under their own primary publications rather than under this DOI.
+Static-lattice LDA plane-wave pseudopotential result for the ideal cubic Pm-3m branch.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2732,14 +2746,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[15.0, 175.0\]
     - **Temperature k:** \[2000.0, 4000.0\]
-    - **Notes:** The rectangular envelope covers the stated 27 AIMD pressure-temperature conditions; it is not a phase-boundary model.; The static 300 K BM3 coefficients are adopted from Shim et al. (2000); the source-owned contribution is the fitted thermal-pressure term.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.161
 - **Reported error confidence level:** Not specified
 
-This is not a duplicate of the existing Shim 2000 room-temperature BM3: it is Ono's executable high-temperature extension. The source's velocity equations are outside the pressure-volume EOS and are not encoded here.
+Ono's high-temperature extension of the 300 K BM3 of Shim et al. (2000), whose coefficients are adopted. The thermal-pressure term is Ono's own fit, and the range covers the 27 AIMD pressure-temperature conditions stated in the source. The source's velocity equations are not encoded.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2835,7 +2848,6 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[12.05, 151.8\]
     - **Temperature k:** \[700.0, 2200.0\]
-    - **Notes:** Opt-in Peritheos refit over the inferred observation envelope; it is not Fu et al.'s published regression.; The joint objective also refines mu0, mu0\_prime, and eta\_s0 against Gréaux elastic data, but the pressure-volume API stores only the BM3-MGD pressure parameters.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
@@ -2851,7 +2863,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Opt-in unweighted Peritheos refit. Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa has unit weight; measurement uncertainties are not used as weights. Each Sun row contributes one residual and each Greaux row contributes three. Errors are residual-scaled standard errors from the full seven-parameter joint fit; the pressure-volume covariance retains its marginal block. Fixed parameters have no estimated errors. The published Fu record remains the authoritative literature parameterization.
+Peritheos refit to the inferred Fu et al. data selection, with unit weight on every pressure, bulk-modulus and shear-modulus residual. Errors are residual-scaled standard errors from the full seven-parameter joint fit, which also refines mu0, mu0' and eta\_s0 against Gréaux elastic data. Not Fu et al.'s published regression, which remains the authoritative literature parameterization.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2940,7 +2952,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[2.66, 12.25\]
     - **Temperature k:** \[301.0, 1594.0\]
-    - **Notes:** Observed range envelope only; uneven P–T coverage. P=0 at fitted V0 and 300 K is an extrapolated reference, not an ambient stable-phase observation.
+    - **Notes:** P-T coverage is uneven. P = 0 at the fitted V0 and 300 K is an extrapolated reference, not an observed ambient stable phase.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
@@ -2948,7 +2960,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported error confidence level:** Not specified
 - **Parameter covariance:** supplied in the EOSMAT source
 
-Independent Peritheos BM3 + linear thermal-pressure refit to 64 experimental Table 1 states. The two source-flagged sub-2-GPa amorphizing states are excluded. Equal pressure weights are an analyst choice, not recovered Wang weights. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. This is not a reproduction of the published thermal fit or validation as a pressure standard.
+Peritheos BM3 + linear thermal-pressure refit with equal pressure weights to 64 Table 1 states, without the two sub-2-GPa states the source flags as amorphizing. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. Not a reproduction of the published thermal fit or a validated pressure standard.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -33,18 +33,13 @@
         "pressure_gpa": [0.001, 9.7],
         "temperature_k": [298.0, 298.0],
         "volume_ratio": [0.952820827, 1.000022345],
-        "notes": [
-          "The numerical range is the exact Table 1 measurement envelope, not a phase-stability guarantee.",
-          "No phase transition or significant distortion change was detected through 9.700 GPa.",
-          "The 4:1 methanol-ethanol medium and single-crystal measurements define the experimental stress environment; extrapolation beyond the measured range is unvalidated."
-        ]
+        "notes": ["No phase transition or significant change in distortion was detected to 9.7 GPa."]
       },
       "experimental_pressure_range_gpa": [0.001, 9.7],
       "experimental_temperature_range_k": [298.0, 298.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention. V0, K0, and K0_prime were all fitted; none was fixed. V0 is one conventional orthorhombic Pbnm cell containing four CaTiO3 formula units. The paper reports no parameter covariance and does not state a confidence convention for the printed coefficient errors. The ambient pressure row has no printed pressure uncertainty; no zero uncertainty is invented in the dataset.",
       "fit_datasets": ["calcium_titanate_perovskite_ross_1999_table1_compression"],
       "reference": {
         "authors": ["Ross", "Angel"],

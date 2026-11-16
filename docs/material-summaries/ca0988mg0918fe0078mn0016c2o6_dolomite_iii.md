@@ -89,14 +89,12 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[26.0, 50.2\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.825913, 0.881329\]
-    - **Notes:** Empirical larger-volume spin branch around and below the approximately 47 GPa transition; the endpoints are bounded by the separable Figure 3 markers, not a thermodynamic spin boundary.; V0 is a long metastable extrapolation because dolomite-III was observed only at high pressure.
+    - **Notes:** Larger-volume (high-spin) branch around and below the transition near 47 GPa; the bounds are the separable Figure 3 points, not a spin boundary.; V0 is a long metastable extrapolation: dolomite-III was observed only at high pressure.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 3.0
     - **Molar mass g mol:** 187.159972
 - **Reported error confidence level:** Not specified
-
-No default\_for is assigned because this is a bounded, metastable high-spin reference branch of a high-pressure phase.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -201,14 +199,12 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ca0
     - **Pressure gpa:** \[46.2, 84.2\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.773522, 0.838734\]
-    - **Notes:** Empirical lower-volume spin branch around and above the approximately 47 GPa transition; the endpoints are the digitized Figure 3 audit envelope, not a thermodynamic spin boundary.; V0 is a long extrapolation outside the observed stability range and is strongly correlated with K0.
+    - **Notes:** Lower-volume (low-spin) branch around and above the transition near 47 GPa; the bounds are the digitized Figure 3 points, not a spin boundary.; V0 is a long extrapolation outside the observed stability range and is strongly correlated with K0.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 3.0
     - **Molar mass g mol:** 187.159972
 - **Reported error confidence level:** Not specified
-
-No default\_for is assigned because this is a bounded, metastable low-spin reference branch of a high-pressure phase.
 
 <details markdown="1">
 <summary>Source review</summary>

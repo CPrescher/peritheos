@@ -30,14 +30,13 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 95.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [300.0, 300.0]
       },
       "experimental_pressure_range_gpa": [0.0, 95.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Mao et al. (1986) ruby scale. The Dorogokupets (2007) ruby-scale record is an alternative reduction of the same data, not an independent experiment.",
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -70,14 +69,13 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 95.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [300.0, 300.0]
       },
       "experimental_pressure_range_gpa": [0.0, 95.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Dorogokupets (2007) ruby scale. The Mao et al. (1986) ruby-scale record is an alternative reduction of the same data, not an independent experiment.",
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,

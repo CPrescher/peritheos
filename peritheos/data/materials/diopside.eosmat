@@ -31,17 +31,13 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0001, 10.16],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.",
-          "Static source room temperature is nominally 300 K."
-        ]
+        "temperature_k": [300.0, 300.0]
       },
       "experimental_pressure_range_gpa": [0.0001, 10.16],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Independent static diffraction EOS, not combined with Zhao thermal coefficients. The source also reports a fixed-Kprime=4 alternative (K0=117.1(2) GPa, V0=438.66(2) A^3), retained in the audit rather than conflated with this free-Kprime record. Source P is Mao (1978) ruby scale. Room temperature is represented nominally as 300 K.",
+      "notes": "Static room-temperature diffraction EOS with pressures on the Mao (1978) ruby scale, independent of the Zhao thermal coefficients. The source also reports an alternative fit with K0' fixed at 4, not stored here.",
       "fit_datasets": ["diopside_thompson_2008_table1"],
       "reference": {
         "authors": ["Thompson", "Downs"],
@@ -94,18 +90,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 8.18],
-        "temperature_k": [300.0, 1280.0],
-        "notes": [
-          "Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.",
-          "Published-model and parameter parity established with the documented table-error treatment; source inconsistencies remain recorded as provenance. Published coefficients and original observations are preserved."
-        ]
+        "temperature_k": [300.0, 1280.0]
       },
       "experimental_pressure_range_gpa": [0.0, 8.18],
       "experimental_temperature_range_k": [300.0, 1280.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Published-model and parameter parity established within graphical precision and reported parameter errors using the independently digitized Figure 2 pressure for source row 15 in the audit calculation. The original 32-row table, duplicate ambient entries, printed errors and published EOS coefficients are preserved. Source-table pressure and lattice inconsistencies are documented provenance, not an EOS acceptance blocker. V0 is the source ambient-volume anchor. Exact original fit inputs and regression workflow are not recovered. The independent Thompson static record remains the room-temperature default; use this thermal record for elevated-temperature evaluation. The separately bundled corrected P-V-T dataset is recommended for refitting; its row-15 pressure is 4.58 GPa with a separate graphical reading bound.",
+      "notes": "Thermal EOS for elevated-temperature use, independent of the Thompson static record. V0 is the source's ambient-volume anchor.",
       "fit_datasets": ["diopside_zhao_1998_table1"],
       "analysis_datasets": ["diopside_zhao_1998_table1_corrected_pvt"],
       "reference": {

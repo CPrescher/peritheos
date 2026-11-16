@@ -39,7 +39,7 @@ document = load_eosmat("my_material.eosmat")
 material = Material.from_eosmat(document, require_primary_validation=False)
 record = material.eos_records[0]
 print(record.pressure(70.0))  # GPa at V = 70 Å³ per conventional cell
-print(record.volume(10.0))    # Å³ per conventional cell at 10 GPa
+print(record.volume(10.0))  # Å³ per conventional cell at 10 GPa
 ```
 
 `Material.from_eosmat` accepts only records whose source check is `verified`

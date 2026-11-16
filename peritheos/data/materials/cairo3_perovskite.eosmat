@@ -32,8 +32,6 @@
       "validity": {
         "pressure_gpa": [0.0001, 7.79],
         "notes": [
-          "The interval is the marginal range of the included room-temperature compression observations, not a phase-stability claim.",
-          "The source gives only 'room temperature', without a numerical temperature in kelvin; this is an isothermal record with no thermal correction.",
           "The authors caution that extrapolation beyond 15-20 GPa reverses the relative compressibilities of the two low-pressure fits."
         ]
       },
@@ -41,7 +39,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "This record is limited to the Pbnm CaIrO3 perovskite polymorph and must not be used for the Cmcm post-perovskite. V0 is the four-formula-unit conventional-cell volume. The source describes V0, K0, and K' together as refined parameters and marks none fixed, so fixed_parameters is empty. The printed standard deviations are retained without conversion to a confidence interval, and numerical covariance is absent rather than assumed zero.",
+      "notes": "Pbnm CaIrO3 perovskite only; do not use it for the Cmcm post-perovskite. V0 is per four-formula-unit conventional cell. The errors are the printed standard deviations.",
       "fit_datasets": ["cairo3_perovskite_boffa_ballaran_2007_table1_compression"],
       "reference": {
         "authors": ["Boffa Ballaran", "Trønnes", "Frost"],

@@ -85,7 +85,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1018, 2553\]
 
-All 59 high-temperature observations. No reliable room-temperature lattice parameters or volumes: the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.
+Fit to high-temperature data only: there are no reliable room-temperature volumes, so the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Phase coexistence and kinetic inhibition occur. For thorianite, the fixed V0 keeps its measurement error.
 
 <details markdown="1">
 <summary>Source review</summary>

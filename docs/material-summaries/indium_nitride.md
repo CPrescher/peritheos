@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1088/0953-8984/5/33/010
 - **Coverage provenance:** theoretical
 
-Ab initio 0 K static Murnaghan energy-volume fit for wurtzite InN. The theoretical conventional-cell V0=59.92519880888224 A^3 is calculated from Table 1 a0=3.483 A and c0=5.7039 A; K0=166 GPa and K0'=3.8 are from the same pseudopotential row. These are not experimental EOS parameters. The paper estimates finite-cutoff sensitivity from 40/70-Ryd calculations, but does not publish statistical coefficient errors or covariance, so none are inferred.
+Ab initio 0 K static Murnaghan fit to calculated E(V) points for wurtzite InN; K0 and K0' are from the same pseudopotential row as V0. V0 is calculated from the theoretical a0 = 3.483 Å and c0 = 5.7039 Å of Table 1.
 
 <details markdown="1">
 <summary>Source review</summary>

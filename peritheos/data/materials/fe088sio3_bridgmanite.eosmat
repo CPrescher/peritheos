@@ -31,7 +31,7 @@
         "pressure_gpa": [14.0, 132.0],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "Composition-specific vacancy-rich iron bridgmanite. The source synthesizes it between approximately 45 and 110 GPa, while Figure 3 plots compression/decompression observations from about 14 to 132 GPa; V0 is the fitted ambient extrapolation, not an observation."
+          "Synthesized at about 45-110 GPa; Figure 3 shows compression and decompression data from about 14 to 132 GPa. V0 is a fitted extrapolation."
         ]
       },
       "experimental_pressure_range_gpa": [14.0, 132.0],
@@ -39,7 +39,6 @@
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Published 300 K BM2 for vacancy-rich Fe0.88SiO3 bridgmanite. Figure 3A contains about fifteen compression/decompression markers, whereas supplementary Table S2 explicitly lists only four selected crystallographic states. The four rows are bundled as exact checkpoints, not asserted as the complete fit input. No source exclusion rule, residual objective, numerical weighting convention, covariance, or parameter-error confidence convention is reported.",
       "fit_datasets": ["fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography"],
       "reference": {
         "authors": [

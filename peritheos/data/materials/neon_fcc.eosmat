@@ -43,7 +43,7 @@
       "experimental_temperature_range_k": [300.0, 1000.0],
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
-      "notes": "Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal parameters and Eq. 3 printed variable-exponent theta law, relative to 300 K. V0=88.967 A^3 is the fixed four-atom conventional fcc-cell volume for both branches; K0 and K0-prime remain specific to the cold equation. V0, theta0 and gamma0 are adopted source parameters; q=0.6(3) is retained with unspecified confidence/covariance. The room-temperature fit combined Finger (1981), Hemley (1989, recalculated to Dewaele 2004 ruby) and new Fei Pt/Au observations. All 14 Finger and 21 Hemley table rows, 13 separable new 300 K markers and six new 1000 K Pt-scale markers are bundled. Complete new rows, paired calibrant volumes and original weights are unrecovered. The 2000 K curve is a calculated extrapolation. See docs/literature-reproductions/fei-2007-neon.md; diagnostics do not replace published coefficients. Reported overall range is about 4.7-115 GPa; digitized/table recalculated endpoints carry their own rounding and can extend slightly above 115 GPa.",
+      "notes": "Cold BM3 branch with the single Table 1 Mie-Grüneisen-Debye parameter set that the paper gives for both cold equations, relative to 300 K. The 300 K fit combined Finger (1981), Hemley (1989, recalculated to the Dewaele 2004 ruby scale) and new Fei Pt- and Au-scale data. The 2000 K curve is a calculated extrapolation, and recalculated data endpoints can lie slightly above the reported maximum of about 115 GPa.",
       "fit_datasets": [
         "neon_fei_2007_figure5_digitized",
         "neon_hemley_1989_table1_fei_recalculated",
@@ -125,7 +125,7 @@
       "experimental_temperature_range_k": [300.0, 1000.0],
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
-      "notes": "Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal parameters and Eq. 3 printed variable-exponent theta law, relative to 300 K. V0=88.967 A^3 is the fixed four-atom conventional fcc-cell volume for both branches; K0 and K0-prime remain specific to the cold equation. V0, theta0 and gamma0 are adopted source parameters; q=0.6(3) is retained with unspecified confidence/covariance. The room-temperature fit combined Finger (1981), Hemley (1989, recalculated to Dewaele 2004 ruby) and new Fei Pt/Au observations. All 14 Finger and 21 Hemley table rows, 13 separable new 300 K markers and six new 1000 K Pt-scale markers are bundled. Complete new rows, paired calibrant volumes and original weights are unrecovered. The 2000 K curve is a calculated extrapolation. See docs/literature-reproductions/fei-2007-neon.md; diagnostics do not replace published coefficients. Reported overall range is about 4.7-115 GPa; digitized/table recalculated endpoints carry their own rounding and can extend slightly above 115 GPa.",
+      "notes": "Cold Vinet branch with the single Table 1 Mie-Grüneisen-Debye parameter set that the paper gives for both cold equations, relative to 300 K. The 300 K fit combined Finger (1981), Hemley (1989, recalculated to the Dewaele 2004 ruby scale) and new Fei Pt- and Au-scale data. The 2000 K curve is a calculated extrapolation, and recalculated data endpoints can lie slightly above the reported maximum of about 115 GPa.",
       "fit_datasets": [
         "neon_fei_2007_figure5_digitized",
         "neon_hemley_1989_table1_fei_recalculated",
@@ -193,7 +193,7 @@
       "experimental_pressure_range_gpa": [10.0, 110.4],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Hemley et al. Table I, using the tabulated Mao-ruby pressures and lattice-parameter uncertainties. V0 is fixed to the paper's low-temperature 13.394 cm^3/mol value converted to the four-atom fcc cell. This direct table-only reference is intentionally distinct from Hemley et al.'s published thermally reduced 0 K fit, which also included the earlier Finger et al. low-pressure data and reported K0=1.097 GPa and K0'=9.23(3).",
+      "notes": "Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Table I, with the tabulated Mao ruby pressures and lattice-parameter uncertainties. V0 is fixed to the paper's low-temperature 13.394 cm³/mol, converted to the four-atom fcc cell. Not the paper's thermally reduced 0 K fit, which also used the Finger et al. low-pressure data and gave K0 = 1.097 GPa and K0' = 9.23(3).",
       "reference": {
         "authors": ["Hemley", "Zha", "Jephcoat", "Mao", "Finger", "Cox"],
         "year": 1989,

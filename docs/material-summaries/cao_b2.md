@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[52.7, 135.0\]
 
-Room-temperature B2-CaO BM3 fit: molar V0=14.8+/-0.2 cm^3/mol (converted to the one-formula-unit cell), K0=1.3+/-0.2 Mbar, and K0'=3.5+/-0.5. B2 observations span 52.7-135 GPa.
+Room-temperature BM3 fit for B2 CaO. Published V0 = 14.8 ± 0.2 cm³/mol; stored per one-formula-unit cell.
 
 <details markdown="1">
 <summary>Source review</summary>

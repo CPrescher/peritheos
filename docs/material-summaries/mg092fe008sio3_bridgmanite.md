@@ -88,14 +88,14 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[47.75, 140.64\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** The coefficients define a zero-pressure reference isentrope reduced from high-temperature shock observations; 298.15 K is only the conventional numeric anchor for the reference state.; The first 47.75 GPa point is below the source's conservative &gt;57.13 GPa perovskite assignment, and the source cautions that observations below 80 GPa may retain a small low-pressure-phase contribution.
+    - **Notes:** 298.15 K is only the conventional numeric anchor for the reference state.; The 47.75 GPa point is below the source's &gt;57.13 GPa perovskite assignment; it cautions data below 80 GPa may retain a small low-pressure-phase contribution.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 102.9102
 - **Reported error confidence level:** Not specified
 
-Accepted LitCurate source row 447. This equilibrium BM3 is the source's shock-reduced reference isentrope, not the directly measured principal Hugoniot and not an independently fitted 298 K isotherm. The AIP proceedings DOI 10.1063/1.1780510 repeats this same data set and is not represented as a second record.
+The source's shock-reduced reference isentrope; not the directly measured principal Hugoniot and not an independently fitted 298 K isotherm.
 
 <details markdown="1">
 <summary>Source review</summary>

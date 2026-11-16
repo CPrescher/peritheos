@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[35.0, 240.0\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-The beta-phase fit used the selected constrained value V0 = 22.6 A^3/atom. The paper cautions that this far-extrapolated reference volume has no direct physical significance; it is doubled here for the conventional bcc cell.
+The beta-phase fit uses the constrained value V0 = 22.6 Å³/atom, stored per conventional bcc cell (×2). The paper cautions that this far-extrapolated reference volume has no direct physical significance.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -180,6 +180,14 @@
           "fit_selection": "Final article, Section 3.1: room-temperature observations through 20.5 GPa; EarthChem workbook Table 3 exposes eight 300 K rows ending at 20.53 GPa",
           "volume_basis": "The final article and EarthChem workbook report a, c, and V for the conventional trigonal phase-D cell. The P-31m phase-D cell has Z=1, so the tabulated cell volume is also volume per approximate O6 formula unit."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published room-temperature BM3. V0 was fixed to the in situ 300 K zero-pressure observation; K0 and K0' were fitted. Parenthetical parameter errors have no stated confidence convention, and no covariance matrix or scalar fit statistic is published. The broader experiment used Au and NaCl pressure standards, while the article's Table 1 explicitly labels this represented BM3 as the Tsuchiya (2003) gold-scale fit. The article also publishes high-temperature BM3 and pressure-scale-free elastic parameterizations, but the narrative and Table 1 disagree on their fit interval, fixed/free choices, alpha(T) form, and coefficients; none is silently approximated as a Peritheos thermal EOS.",
+        "validity_notes": [
+          "Empirical 300 K isotherm over the measured range only; it is not the paper's high-temperature or acoustic finite-strain model.",
+          "The lower volume-ratio bound is the smallest 300 K observation, 78.01/86.71."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

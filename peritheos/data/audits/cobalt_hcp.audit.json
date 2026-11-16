@@ -105,6 +105,10 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 6, hcp-volume paragraph; Figure 3."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Room-temperature hcp-cobalt Vinet fit to 79 GPa: K0=199+/-6 GPa and K0'=3.6+/-0.2. Volumes were normalized to the ambient hcp volume, retained here as the fixed conventional-cell V0.",
+        "superseded_on": "2026-11-16"
       }
     },
     "cobalt_hcp_dewaele_2019_mao_vinet": {
@@ -278,6 +282,11 @@
             "doi": "10.3390/min9110684"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+        "validity_notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."],
+        "superseded_on": "2026-11-16"
       }
     },
     "cobalt_hcp_dewaele_2019_dor_vinet": {
@@ -451,6 +460,11 @@
             "doi": "10.3390/min9110684"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+        "validity_notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."],
+        "superseded_on": "2026-11-16"
       }
     },
     "cobalt_hcp_dewaele_2008_table4_vinet": {
@@ -559,6 +573,10 @@
             "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+        "superseded_on": "2026-11-16"
       }
     },
     "cobalt_hcp_dewaele_2008_table4_us_k0_184_vinet": {
@@ -655,6 +673,10 @@
             "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+        "superseded_on": "2026-11-16"
       }
     },
     "cobalt_hcp_dewaele_2008_table4_us_k0_190_vinet": {
@@ -751,6 +773,10 @@
             "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

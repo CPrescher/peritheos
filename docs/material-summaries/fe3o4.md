@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 32.0\]
 - **Coverage provenance:** reported\_exactly
 
-Room-temperature (23+/-3 degC) magnetite BM3. V0 and its propagated error come from the paper's a0=8.394(3) A sample, not the independent structural lattice in this file. K0'=4+/-0.4 was assumed, and the authors formed the +/-10 GPa K0 uncertainty by adding fit, NaCl pressure-scale, and assumed-K0' contributions; it is not a covariance-derived one-sigma error. The low-pressure spinel reflections persist to 32 GPa, but a high-pressure phase begins to coexist above about 25 GPa.
+BM3 at 23 ± 3 °C with K0' = 4 assumed; V0 and its error come from the paper's a0 = 8.394(3) Å, not from the structural lattice in this file. The 10 GPa K0 error sums fit, NaCl pressure-scale and assumed-K0' contributions; it is not a covariance-derived one-sigma error. A high-pressure phase coexists above about 25 GPa, although the spinel reflections persist to 32 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

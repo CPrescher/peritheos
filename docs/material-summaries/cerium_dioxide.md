@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 20.0\]
 
-Room-temperature powder XRD fit of the cubic fluorite phase. The equation fits K0 and K0\_prime using measured a0=5.411(1) A; V0=a0^3 and its error is propagated as 3\*a0^2\*sigma\_a.
+Room-temperature powder XRD fit of the cubic fluorite phase. V0 = a0³ from the measured a0 = 5.411(1) Å, with its error propagated as 3\*a0²\*sigma\_a.
 
 <details markdown="1">
 <summary>Source review</summary>

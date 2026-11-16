@@ -85,14 +85,13 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 206.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** This executable BM3 is the source's zero-pressure reference isentrope for its candidate high-pressure melt EOS, not an ambient liquid isotherm.; The source's Gruneisen, heat-capacity, and transition-energy terms are not implied by this cold/reference-curve record.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Accepted LitCurate source row 458 (litcurate\_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text. Retain in production as a published candidate reference isentrope with explicit qualification: it is not a direct P-rho fit, not a complete executable thermal Hugoniot, and not independently identifiable from the three melt states.
+The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS; not an ambient liquid isotherm, a direct P-rho fit or a complete thermal Hugoniot. V0 is computed from the source's rho0. The source's Grüneisen, heat-capacity and transition-energy terms are not included.
 
 <details markdown="1">
 <summary>Source review</summary>

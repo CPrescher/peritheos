@@ -43,7 +43,8 @@ def test_noguchi_reduction_metadata_preserves_all_source_conventions():
         "s": 1.19,
         "rho0_g_cm3": 6.781,
     }
-    assert "must never be fitted directly as an isotherm" in source["notes"]
+    assert "do not fit the shock table directly as an isotherm" in source["notes"]
+    assert "300 K Mie-Grüneisen-Debye correction" in source["notes"]
 
 
 def test_noguchi_conference_reduction_reproduces_both_published_checks():

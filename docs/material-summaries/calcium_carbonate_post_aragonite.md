@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[49.0, 75.0\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-Room-temperature BM3 fit with V0 fixed at 97.76 A^3.
+Room-temperature BM3 fit.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -166,7 +166,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/cal
 - **Reported pressure coverage (GPa):** \[49.0, 75.0\]
 - **Reported temperature coverage (K):** \[300.0, 2200.0\]
 
-Joint high-pressure/high-temperature BM3-MGD fit. V0 and the Debye temperature were fixed; n is the five-atom formula-unit count used by the thermal model.
+Joint high-pressure, high-temperature BM3-MGD fit, with n = 5 atoms per formula unit.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -35,8 +35,7 @@
         "volume_ratio": [0.888134, 1.0],
         "notes": [
           "The EOS was fitted through 23.3 GPa; it is not extended across the anomalous 26.7 and 30.1 GPa pre-transition observations.",
-          "The B1-to-rhombohedral transition is bracketed between 30.1 and 34.5 GPa and is not represented by this single-phase curve.",
-          "This is a structural branch, not a pure-spin phase-stability field."
+          "The B1-to-rhombohedral transition is bracketed between 30.1 and 34.5 GPa and is not represented by this single-phase curve."
         ]
       },
       "experimental_pressure_range_gpa": [1.5, 23.3],
@@ -44,7 +43,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Published B1 parameterization on the Dewaele-2008 ruby scale. V0 is stored on the conventional eight-atom cell basis. K0-prime was constrained by a finite prior and is therefore listed as free, not fixed. No numerical covariance matrix is available.",
+      "notes": "B1 fit on the Dewaele (2008) ruby pressure scale, with V0 per conventional eight-atom cell. K0' was constrained by a finite prior and is therefore stored as free, not fixed. This is a structural branch, not a pure-spin phase-stability field.",
       "fit_datasets": ["mgfe94o_dobrosavljevic_2019_table_s1_compression"],
       "reference": {
         "authors": ["Dobrosavljevic", "Sturhahn", "Jackson"],

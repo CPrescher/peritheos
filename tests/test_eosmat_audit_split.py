@@ -43,6 +43,7 @@ from scripts.split_eosmat_audits import (
     pre_split_bytes,
     record_text,
     restore_record_text,
+    set_record_text,
     split_added_materials,
     split_material,
     verify_catalog,
@@ -469,8 +470,15 @@ def test_bundled_records_evaluate_identical_pressures_before_and_after():
             assert old.is_default == new.is_default
             assert old.equation_kind == new.equation_kind
             assert old.reproduction == new.reproduction
-            for key in ("record_kind", "fixed_parameters", "thermal"):
+            for key in ("record_kind", "fixed_parameters"):
                 assert old.eosmat_metadata.get(key) == new.eosmat_metadata.get(key)
+            # Thermal notes are text and may have been revised; the stored
+            # original restores them, and every other thermal field is equal.
+            thermal = {"thermal": copy.deepcopy(new.eosmat_metadata.get("thermal"))}
+            stored = dict(new.audit).get("superseded_record_text", {})
+            if "thermal_notes" in stored:
+                set_record_text(thermal, "thermal_notes", stored["thermal_notes"])
+            assert old.eosmat_metadata.get("thermal") == thermal["thermal"]
             assert old.scientific_validation_status == new.scientific_validation_status
             assert old.parameter_provenance == new.parameter_provenance
             assert old.pressure_calibration == new.pressure_calibration
@@ -638,7 +646,11 @@ def test_added_inline_file_is_split_deterministically_and_recovers(tmp_path):
         assert (
             tmp_path / f"peritheos/data/audits/{material}.audit.json"
         ).read_bytes() == audit_bytes
-        # The same input gives the same files as the bundled catalog.
+        # The same input gives the same files as the bundled catalog, once the
+        # catalog's bound text revision is replayed.
+        record_bytes, audit_bytes = _replay_text_revision(
+            material, record_bytes, audit_bytes
+        )
         assert record_bytes == (MATERIALS / f"{material}.eosmat").read_bytes()
         assert audit_bytes == (AUDITS / f"{material}.audit.json").read_bytes()
     receipt = json.loads(receipt_path.read_bytes())

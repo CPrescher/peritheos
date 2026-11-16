@@ -78,8 +78,6 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 5.0\]
 - **Reported temperature coverage (K):** \[302.0, 302.0\]
 
-The room-temperature fit fixed K0'=5.3.
-
 <details markdown="1">
 <summary>Source review</summary>
 

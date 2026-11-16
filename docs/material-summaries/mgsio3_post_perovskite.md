@@ -121,7 +121,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Global errors-in-variables inversion of 48 Guignot et al. static P-V-T observations and six PPv shock P-density states. V0=162.2 A^3 was fixed. Table 4 reports K0S=225(2) GPa, K0S'=4.21(7), theta0=990(146) K, gamma0=2.61(67), q=2.1(8), and Cvm=1.035(50) J g^-1 K^-1; Cvmax is the exact molar conversion using 100.3875 g mol^-1. The BM3 term is a 300 K reference isentrope, so thermal pressure subtracts energy at T\_S(V)=Tr\*theta(V)/theta0. The three source-reported shock temperatures are retained as measured diagnostics but are not constraints in the solid PPv inversion; section 3 explicitly identifies shock-temperature fitting only for MgSiO3 liquid.
+Joint errors-in-variables inversion of 48 static P-V-T observations of Guignot et al. and six post-perovskite shock P-density states. K0 and K0' are adiabatic (K0S, K0S') of a 300 K reference isentrope, so thermal pressure subtracts the energy at T\_S(V) = Tr\*theta(V)/theta0. Published Cvm = 1.035(50) J g^-1 K^-1 is stored as molar Cvmax using 100.3875 g/mol.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -198,7 +198,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[100.0, 265.0\]
 
-Experimental BM3 fit 1 to laser-heated DAC data from this study plus Guignot et al., reaching 265 GPa. Stored as a room-temperature cold curve only because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. Sakai et al. prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range rather than extrapolated.
+BM3 (fit 1 in the paper) to laser-heated DAC data from this study and Guignot et al. Only the 300 K curve is stored, because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. The authors prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range, not extrapolated.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -283,10 +283,10 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[116.1, 144.4\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The pressure interval is the marginal range of the six Anderson-et-al.-gold-scale observations, not an extrapolation range for the zero-pressure reference parameters.; The source reports that the CaIrO3-type phase remained stable over its 116-144 GPa experimental range and was difficult to measure below 110 GPa because it is metastable there.
+    - **Notes:** The source reports the phase stable over 116-144 GPa and metastable, and hard to measure, below 110 GPa.
 - **Reported error confidence level:** Not specified
 
-Pure MgSiO3 CaIrO3-type post-perovskite, not CaIrO3 composition or bridgmanite. The conventional Cmcm volume contains four MgSiO3 formula units. This pressure-scale-specific record is distinct from the later Mosenfelder and Sakai parameterizations.
+Pure MgSiO3 with the CaIrO3-type structure, not CaIrO3 composition or bridgmanite; the conventional Cmcm cell holds four formula units. Pressures are on the Anderson et al. gold scale.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -402,10 +402,9 @@ Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_an
 - **Validity:**
     - **Pressure gpa:** \[111.5, 137.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The pressure interval is the marginal range of the same six observations reduced with the Jamieson et al. gold scale; it is not a separate experiment or phase-stability boundary.
 - **Reported error confidence level:** Not specified
 
-Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.
+The same six observations as the Anderson-scale record, with pressures on the Jamieson et al. gold scale; not a separate sample. The conventional Cmcm cell has Z = 4.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -521,7 +520,7 @@ Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_an
     - **Notes:** The paper title's 144 GPa upper bound uses the Anderson scale; the same highest-pressure observation is 151.1 GPa on the Dewaele scale.
 - **Reported error confidence level:** Not specified
 
-Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.
+The same six observations as the Anderson-scale record, with pressures on the Dewaele et al. gold scale; not a separate sample. The conventional Cmcm cell has Z = 4.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -638,14 +637,11 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Pressure gpa:** \[-8.98923166, 218.08849812\]
     - **Temperature k:** \[0, 0\]
     - **Volume ratio:** \[0.65, 1.05\]
-    - **Notes:** Static 0 K GGA calculation envelope; not an experimental stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
-
-Source-specific theoretical comparison; it does not replace experimental records.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -731,11 +727,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 160.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Anharmonic phonon-quasiparticle LDA reference isotherm; not an experimental ambient stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
+
+300 K isotherm from anharmonic phonon-quasiparticle (PHQ) LDA calculations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -812,11 +809,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 160.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Anharmonic phonon-quasiparticle PBE reference isotherm; not an experimental ambient stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
+
+300 K isotherm from anharmonic phonon-quasiparticle (PHQ) PBE calculations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1115,14 +1113,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static LDA reference branch. The article's separate quasi-harmonic Debye outputs extend to 2000 K but are not represented by this isothermal BM3 record.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Accepted LitCurate source record litcurate\_cf1303ecf47a5001. The six remaining same-DOI rows are literature comparisons and are not duplicated.
+Static LDA calculation. The article's separate quasi-harmonic Debye results, which extend to 2000 K, are not represented by this record.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1200,14 +1197,14 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[0.0, 130.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** Reference isotherm of the source's larger Helmholtz model; the zero-pressure state is an extrapolated thermodynamic reference, not a stable ambient phase.
+    - **Notes:** The 0 GPa state is an extrapolated thermodynamic reference, not a stable ambient phase.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
 - **Reported error confidence level:** Not specified
 
-Accepted corrected mapping for LitCurate source row 868 (litcurate\_ef9e7ca080ec8309). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.
+Reference isotherm of the source's larger Helmholtz free-energy model.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1293,7 +1290,6 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[114.5, 129.7\]
     - **Temperature k:** \[300, 2330\]
-    - **Notes:** Bounds describe fitted observations, not a phase-stability field.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
@@ -1310,7 +1306,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1\*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300\*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.
+V0 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0 was first fitted to three 300 K points, then held fixed in the thermal fit to all 21 observations on the original Speziale MgO pressure scale.
 
 <details markdown="1">
 <summary>Source review</summary>

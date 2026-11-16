@@ -78,8 +78,6 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.2138/am-2000-11-1229
 - **Reported pressure coverage (GPa):** \[0.0, 40.0\]
 
-Fei et al. report V0 = 377.0(2) A^3 and K0 = 150 +/- 2 GPa with K0' fixed at 4.0.
-
 <details markdown="1">
 <summary>Source review</summary>
 
