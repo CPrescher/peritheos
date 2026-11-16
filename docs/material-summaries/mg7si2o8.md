@@ -33,13 +33,13 @@ Historical material/card import retained as provenance; the inherited hkl/d/inte
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [(OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht](#record-mg7si2o8_crichton_2002_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
+| [Crichton and Ross (2002), BM3](#record-mg7si2o8_crichton_2002_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [(OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht](#record-mg7si2o8_crichton_2002_bm3_1) | 512.56 ± 0.03 | 97.5 ± 0.4 | 5.97 ± 0.14 |
+| [Crichton and Ross (2002), BM3](#record-mg7si2o8_crichton_2002_bm3_1) | 512.56 ± 0.03 | 97.5 ± 0.4 | 5.97 ± 0.14 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -51,7 +51,7 @@ extrapolation.
 
 <a id="record-mg7si2o8_crichton_2002_bm3_1"></a>
 
-## (OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht
+## Crichton and Ross (2002), BM3
 
 `mg7si2o8_crichton_2002_bm3_1` · Executable
 

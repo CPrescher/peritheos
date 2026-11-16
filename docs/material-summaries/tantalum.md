@@ -33,9 +33,9 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/curr
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Cynn and Yoo (1999)](#record-tantalum_cynn_1999_bm3_1) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Cynn and Yoo (1999), BM3](#record-tantalum_cynn_1999_bm3_1) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-tantalum_shen_2026_vinet_2) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-tantalum_sokolova_2013_holzapfel_3) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-tantalum_sokolova_2013_holzapfel_3) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Dewaele (2019), Ta MAO-scale Vinet](#record-tantalum_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Ta DOR-scale Vinet](#record-tantalum_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2004), Ta mao ruby Vinet](#record-tantalum_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
@@ -45,9 +45,9 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/curr
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Cynn and Yoo (1999)](#record-tantalum_cynn_1999_bm3_1) | 36.0835 (fixed) | 194.7 ± 4.8 | 3.4 ± 0.1 |
+| [Cynn and Yoo (1999), BM3](#record-tantalum_cynn_1999_bm3_1) | 36.0835 (fixed) | 194.7 ± 4.8 | 3.4 ± 0.1 |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-tantalum_shen_2026_vinet_2) | 36.14 (fixed) | 195.2 ± 0.4 | 3.62 ± 0.02 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-tantalum_sokolova_2013_holzapfel_3) | 36.07022518484496 | 191.0 | 3.83 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-tantalum_sokolova_2013_holzapfel_3) | 36.07022518484496 | 191.0 | 3.83 |
 | [Dewaele (2019), Ta MAO-scale Vinet](#record-tantalum_dewaele_2019_mao_vinet) | 36.04 ± 0.036 | 197.9 ± 3.7 | 3.17 ± 0.1 |
 | [Dewaele (2019), Ta DOR-scale Vinet](#record-tantalum_dewaele_2019_dor_vinet) | 36.038 ± 0.036 | 196.1 ± 3.7 | 3.64 ± 0.1 |
 | [Dewaele et al. (2004), Ta mao ruby Vinet](#record-tantalum_dewaele_2004_mao_ruby_vinet) | 36.07 (fixed) | 198.2 ± 3.1 | 3.07 ± 0.14 |
@@ -63,7 +63,7 @@ extrapolation.
 
 <a id="record-tantalum_cynn_1999_bm3_1"></a>
 
-## Cynn and Yoo (1999)
+## Cynn and Yoo (1999), BM3
 
 `tantalum_cynn_1999_bm3_1` · Executable
 
@@ -236,7 +236,7 @@ Table II Cu-referenced fit using DAC-1 data; DAC-2 was excluded and V0 was fixed
 
 <a id="record-tantalum_sokolova_2013_holzapfel_3"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `tantalum_sokolova_2013_holzapfel_3` · Executable
 

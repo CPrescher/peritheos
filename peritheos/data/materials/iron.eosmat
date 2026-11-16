@@ -57,7 +57,7 @@
     },
     {
       "identifier": "iron_mao_1990_bm3_1",
-      "label": "(hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90",
+      "label": "Mao et al. (1990), BM3",
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
@@ -1322,7 +1322,7 @@
     },
     {
       "identifier": "iron_yamazaki_2012_bm3_thermal",
-      "label": "Yamazaki et al. (2012), bm3_thermal",
+      "label": "Yamazaki et al. (2012), BM3 + thermal",
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
@@ -1393,7 +1393,7 @@
     },
     {
       "identifier": "iron_yamazaki_2012_vinet_thermal",
-      "label": "Yamazaki et al. (2012), vinet_thermal",
+      "label": "Yamazaki et al. (2012), Vinet + thermal",
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
@@ -1464,7 +1464,7 @@
     },
     {
       "identifier": "iron_dubrovinsky_2000_bm3_thermal",
-      "label": "Dubrovinsky et al. (2000), bm3_thermal",
+      "label": "Dubrovinsky et al. (2000), BM3 + thermal",
       "check": {
         "reproduction": "untested",
         "compared": "none",
@@ -1724,7 +1724,7 @@
     },
     {
       "identifier": "iron_miozzi_2020_bm3_mgd",
-      "label": "Miozzi et al. (2020), published BM3–MGD — author-reported n=2",
+      "label": "Miozzi et al. (2020), BM3-MGD, author-reported n=2",
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
@@ -1779,7 +1779,7 @@
     },
     {
       "identifier": "iron_miozzi_2020_tange_2009_bm3_mgd_refit",
-      "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights",
+      "label": "Peritheos refit of Miozzi et al. (2020), Tange MgO scale",
       "check": {
         "reproduction": "reproduced",
         "compared": "peritheos_refit",
@@ -1860,7 +1860,7 @@
     },
     {
       "identifier": "iron_miozzi_2020_speziale_2001_bm3_mgd_refit",
-      "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1",
+      "label": "Peritheos refit of Miozzi et al. (2020), Speziale MgO scale",
       "check": {
         "reproduction": "reproduced",
         "compared": "peritheos_refit",

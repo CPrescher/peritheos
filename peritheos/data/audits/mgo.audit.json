@@ -231,6 +231,11 @@
         "parameter_provenance": {
           "determination_method": "Tange (2009), Fit3: joint experimental acoustic, thermal and shock constraints determine the pressure-scale-free EOS. The thermodynamic model form is not an independent calculated input dataset."
         }
+      },
+      "superseded_record_text": {
+        "label": "Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD",
+        "notes": "Fit3-Vinet is one of the two retained pressure-scale-free MgO models. K0 and theta0 are dependent quantities recalculated from the fixed 300 K KS0, alpha0, and CP0 anchors at every trial gamma0; only K0_prime, gamma0, a, and b are independent Fit3 variables. The redistributable 102-row subset validates the coupled thermal, elastic, and shock implementation but is not the complete eight-source global fit. The 2010 correction changes Figure 11 only and does not change these parameters.",
+        "superseded_on": "2026-11-16"
       }
     },
     "mgo_duffy_1995_bm3_1": {
@@ -324,6 +329,11 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figure 2; page 1372, third-order Birch-Murnaghan fit."
         }
+      },
+      "superseded_record_text": {
+        "label": "JCPDS 4-0829, EOS from Duffy et al, 95",
+        "notes": "Static nonhydrostatic BM3 fit to 227 GPa: K0 = 177 +/- 4 GPa and K0' = 4.0 +/- 0.1. The fixed molar V0 = 11.253 cm^3/mol was converted to the conventional Z=4 B1 cell.",
+        "superseded_on": "2026-11-16"
       }
     },
     "mgo_speziale_2001_bm3_2": {
@@ -689,6 +699,14 @@
           "temperature_ref": "The abstract, Sections 2-5, and Figures 3 and 6 identify the represented isotherm as 300 K. High-pressure measurements were collected after the annealed sample had cooled and stabilized at room temperature.",
           "volume_basis": "Table 1 reports the MgO unit-cell reference volume, and Section 3 derives specific volume from the 111, 200, 220, 311, and 222 reflections of the cubic B1 lattice. The represented Fm-3m conventional cell contains four MgO formula units."
         }
+      },
+      "superseded_record_text": {
+        "notes": "This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. It is directly reproducible through the source's actual measurement-to-coefficient chain: measured acoustic velocities and density are fitted with third-order finite-strain equations to obtain adiabatic moduli, Equation 4 converts the preferred decompression fit to isothermal K0T and K0T', and BM3 Equation 3 then calculates pressure from volume. Table 1 pressures are therefore downstream EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.",
+        "validity_notes": [
+          "The upper bound is the largest calculated sample pressure printed in Table 1; the title rounds this to 11 GPa.",
+          "The range is experimental coverage of stable B1 MgO, not a phase boundary or an endorsement of higher-pressure extrapolation."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgo_jacobsen_2008_bm3_kcl_mao1978": {
@@ -1068,6 +1086,14 @@
           "volume_basis": "Table 1 and the cell-refinement discussion report cubic single-crystal MgO unit-cell volumes. The represented B1 Fm-3m conventional cell has Z=4.",
           "temperature_ref": "The article describes static room-temperature compression and explicitly discusses the experiment at 300 K; 300 K is a nominal reference, not a row-wise measured sample temperature."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published three-parameter BM3 fit to all three helium-medium runs using Mao et al. (1986) quasi-hydrostatic ruby pressures through 85 GPa and six Sun et al. (2005) diamond-Raman pressures calibrated against that ruby scale at higher compression. The 111.0 GPa upper bound is the maximum pressure actually used by this BM3; the paper's 118.1 GPa headline value is the same final volume recalculated from the Zha et al. (2000) MgO scale. The Zha-derived pressure column is preserved as provenance but is not a separate Jacobsen MgO EOS because it is calculated from the already-defined Zha pressure scale. The paper reports no parameter covariance, no confidence level for the parenthesized parameter errors, and no exact fitting software or residual objective.",
+        "validity_notes": [
+          "The pressure bound is the actual Mao-1986/Sun pressure coordinate used by this fit, not the 118.1 GPa Zha-scale recalculation of the last row.",
+          "The authors interpret the low K0' either as a possible MgO compression change above 40 GPa or as evidence that the Mao-1986 ruby gauge requires adjustment in helium; this record preserves the reported fit without endorsing either interpretation."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgo_shen_2026_vinet_3": {
@@ -1221,6 +1247,10 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.",
+        "superseded_on": "2026-11-16"
       }
     },
     "mgo_b1_luo_2023_vinet_thermal_5": {
@@ -1702,6 +1732,14 @@
           "q": "0.8 +/- 0.5, constrained from the compression dependence of thermal pressure in Section 4.2.",
           "n": "Fixed to two atoms per MgO formula unit in the Debye energy expression."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Preferred complete P-V-T parameterization from Table 5 and the conclusion: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. The implemented theta(V) relation follows exactly from d ln(theta)/d ln(V)=-gamma with gamma=gamma0(V/V0)^q, i.e. the integrated-Gruneisen law. Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 fits are preserved separately as nonpreferred room-temperature model-sensitivity records; they are not thermal parameterizations. The static coefficients were obtained from a staged combined-data analysis that included earlier published room-temperature measurements; the bundled Table 2 contains all 61 new observations from this study. The K0' uncertainty is internally inconsistent: formal +/-0.06 in the text (0.05 after Table 3 rounding), pressure-propagated +/-0.2 in the text and abstract, and unexplained +/-0.3 in the conclusion; the stored +/-0.2 follows the explicit error analysis. No official supplement or machine-readable data deposit accompanies the article.",
+        "validity_notes": [
+          "Validated only for B1 periclase over the measured P-T envelope; the article does not claim a phase transition in this range.",
+          "The highest tabulated temperature is 2474 K; the abstract rounds the experimental limit to 2500 K."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgo_dewaele_2000_bm2_sensitivity_1": {
@@ -2184,6 +2222,10 @@
             "qualification": "The source states only least squares and does not identify the residual variable or publish covariance. Vertical WLS using only printed Us errors independently gives c0=6.87030(9962) km/s and s=1.23804(4069), the same source rounding. The diagnostic refit covariance is not represented as source-reported covariance."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Constrained principal Hugoniot for the untransformed B1 phase only. This is not the separately plotted equilibrium 300 K isotherm/hydrostat or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty.",
+        "superseded_on": "2026-11-16"
       }
     },
     "mgo_oganov_2003_ecp_large_core_static_bm3": {

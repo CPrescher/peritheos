@@ -35,7 +35,7 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Andrault et al. (2003)](#record-sio2_stv_andr_andrault_2003_bm3_1) | **reproduced** |  |
+| [Andrault et al. (2003), BM3](#record-sio2_stv_andr_andrault_2003_bm3_1) | **reproduced** |  |
 | [Wang et al. (2012), principal Vinet-MGD presentation](#record-sio2_stv_andr_wang_2012_vinet_mgd_2) | **reproduced** |  |
 | [Driver et al. (2010), QMC 300 K Vinet](#record-sio2_stv_andr_driver_2010_qmc_300k_vinet) | **untested** (not refittable) |  |
 | [Holland et al. (2013), stv modified Tait](#record-sio2_stv_andr_holland_2013_stv_modified_tait) | **untested** (not refittable) |  |
@@ -45,7 +45,7 @@ stays in EOSMAT and the ledger.
 
 <a id="record-sio2_stv_andr_andrault_2003_bm3_1"></a>
 
-## Andrault et al. (2003)
+## Andrault et al. (2003), BM3
 
 **reproduced** · `sio2_stv_andr_andrault_2003_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/sio2_stv_andr.md#record-sio2_stv_andr_andrault_2003_bm3_1)
 

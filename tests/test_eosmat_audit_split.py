@@ -3,6 +3,7 @@
 import copy
 import json
 import shutil
+from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
@@ -23,6 +24,7 @@ from peritheos._eosmat_audit import (
     AUDIT_RECORD_KEYS,
     GENERIC_QUALIFICATIONS,
     GENERIC_VALIDATION_NOTES,
+    SUPERSEDED_TEXT_FIELDS,
     check_block,
     merge_audit,
     remove_generic_statements,
@@ -30,13 +32,17 @@ from peritheos._eosmat_audit import (
     split_document,
     usage_warning,
 )
+from peritheos._eosmat_format import format_audit, format_eosmat
 from peritheos.eosmat import list_material_documents
 from peritheos.errors import EosmatError
 from peritheos.materials import _material_from_eosmat
+from scripts.apply_record_text import revise_record
 from scripts.split_eosmat_audits import (
     RECEIPT,
     merged_document,
     pre_split_bytes,
+    record_text,
+    restore_record_text,
     split_added_materials,
     split_material,
     verify_catalog,
@@ -182,20 +188,66 @@ def test_catalog_checks_equal_their_derivation_from_the_sidecar():
     }
 
 
+def _revised_indices(material):
+    """Records whose text was revised after the split (receipt binding)."""
+    binding = json.loads(RECEIPT.read_bytes())["materials"].get(material, {})
+    return binding.get("superseded_record_text", [])
+
+
+def _without_text_revision(document, material):
+    """A merged document with the post-split text revision undone."""
+    result = copy.deepcopy(document)
+    for index in _revised_indices(material):
+        restore_record_text(result["eos_records"][index])
+    return result
+
+
+def _replay_text_revision(material, record_bytes, audit_bytes):
+    """Apply the bound text revision to freshly split files.
+
+    The revised text is taken from the committed record file; the stored
+    originals are recomputed from the split output, so the result equals the
+    committed files only if every stored original is the pre-split text.
+    """
+    indices = _revised_indices(material)
+    if not indices:
+        return record_bytes, audit_bytes
+    current = merged_document(material)
+    document, sidecar = json.loads(record_bytes), json.loads(audit_bytes)
+    for index in indices:
+        revised = current["eos_records"][index]
+        block = revised["superseded_record_text"]
+        record = document["eos_records"][index]
+        new = {f: record_text(revised, f) for f in SUPERSEDED_TEXT_FIELDS if f in block}
+        entry = sidecar["records"].setdefault(record["identifier"], {})
+        revise_record(record, entry, new, block["superseded_on"])
+    order = [r["identifier"] for r in document["eos_records"]]
+    entries = sidecar["records"]
+    sidecar["records"] = {i: entries[i] for i in order if i in entries}
+    return format_eosmat(document).encode(), format_audit(sidecar).encode()
+
+
 def test_every_material_has_exactly_one_sidecar_and_the_split_is_lossless():
     # Each pre-split file is recovered byte for byte from record file, sidecar
-    # and the receipt; re-splitting it reproduces the committed files exactly.
+    # and the receipt; re-splitting it and replaying the bound text revision
+    # (superseded_record_text) reproduces the committed files exactly.
     assert verify_catalog() == len(list_material_documents())
+    revised = 0
     for material in list_material_documents():
         record_bytes, audit_bytes, _ = split_material(pre_split_bytes(material))
+        record_bytes, audit_bytes = _replay_text_revision(
+            material, record_bytes, audit_bytes
+        )
+        revised += bool(_revised_indices(material))
         assert record_bytes == (MATERIALS / f"{material}.eosmat").read_bytes()
         assert audit_bytes == (AUDITS / f"{material}.audit.json").read_bytes()
+    assert revised
 
 
 def test_only_documented_statements_are_removed_and_numbers_are_bit_identical():
     for material in list_material_documents():
         before = json.loads(pre_split_bytes(material))
-        merged = merged_document(material)
+        merged = _without_text_revision(merged_document(material), material)
         defaults = {}
         for old, new in zip(before["eos_records"], merged["eos_records"]):
             new = {k: v for k, v in new.items() if k != "check"}
@@ -326,7 +378,9 @@ def _default_flags_as_selection(document):
 
 def test_compatibility_exports_contain_the_full_evidence():
     for material in list_material_documents():
-        full = get_material_document(material, format_version=5)
+        full = _without_text_revision(
+            get_material_document(material, format_version=5), material
+        )
         before = json.loads(pre_split_bytes(material))
         before["eos_records"] = [
             remove_generic_statements(r) for r in before["eos_records"]
@@ -347,7 +401,7 @@ def test_compatibility_exports_contain_the_full_evidence():
                         if r["identifier"] == identifier
                     )
                     assert record["default_for"] == category
-        dioptas = get_material_document(material)
+        dioptas = _without_text_revision(get_material_document(material), material)
         assert _default_flags_as_selection(dioptas) == _default_flags_as_selection(
             convert_eosmat(before, version=3, legacy_uncertainty_units=False)
         )
@@ -405,7 +459,13 @@ def test_bundled_records_evaluate_identical_pressures_before_and_after():
             assert old.parameter_error_confidence == new.parameter_error_confidence
             assert old.parameter_covariance == new.parameter_covariance
             assert old.covariance_parameters == new.covariance_parameters
-            assert old.validity == new.validity
+            if "superseded_record_text" in new.audit:
+                # Only the validity notes text may have been revised.
+                stored = new.audit["superseded_record_text"]
+                notes = stored.get("validity_notes", list(new.validity.notes)) or ()
+                assert old.validity == replace(new.validity, notes=tuple(notes))
+            else:
+                assert old.validity == new.validity
             assert old.is_default == new.is_default
             assert old.equation_kind == new.equation_kind
             assert old.reproduction == new.reproduction

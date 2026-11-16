@@ -34,13 +34,13 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/curr
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [B8 Fe0.94O, Fischer et al. (2011)](#record-feo_b8_2_fischer_2011_bm3_1) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Fischer et al. (2011), BM3](#record-feo_b8_2_fischer_2011_bm3_1) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [B8 Fe0.94O, Fischer et al. (2011)](#record-feo_b8_2_fischer_2011_bm3_1) | 39.843 ± 0.0598 | 137.8 ± 0.9 | 4.0 (fixed) |
+| [Fischer et al. (2011), BM3](#record-feo_b8_2_fischer_2011_bm3_1) | 39.843 ± 0.0598 | 137.8 ± 0.9 | 4.0 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -52,7 +52,7 @@ extrapolation.
 
 <a id="record-feo_b8_2_fischer_2011_bm3_1"></a>
 
-## B8 Fe0.94O, Fischer et al. (2011)
+## Fischer et al. (2011), BM3
 
 `feo_b8_2_fischer_2011_bm3_1` · Executable
 

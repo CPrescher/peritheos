@@ -41,6 +41,16 @@ All notable changes to Peritheos are documented here. The project follows
   write an explicit `default` flag on every record.
 - Remove three generic statements repeated in every record; they are stated
   once in the EOS label guide.
+- Add the audit block `superseded_record_text`: the verbatim original of each
+  replaced `label`, `notes`, `validity.notes` and `thermal.notes`, with
+  `superseded_on`. Python and Rust validate it, expose it through the record
+  audit and carry it in v3/v4 exports. Add the
+  [record text standard](docs/record-text-standard.md) and the repository
+  tools `scripts/apply_record_text.py` and `scripts/check_record_text.py`.
+- Shorten bundled record labels and the notes of the reviewed palladium, MgO
+  and (Mg0.9Fe0.1)O sample under that standard; every replaced original is
+  kept in the sidecars. Coefficients, ranges and classifications are
+  unchanged.
 - Add `EOSRecord.reproduction`, `compared`, `why`, `warning`, `source_check`,
   `source_note` and `audit`.
 - Add `Material.summary()` and more forgiving material and record lookup.

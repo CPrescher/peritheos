@@ -37,8 +37,8 @@ The diffraction structure is the source's 87.8 GPa Rietveld refinement, not an a
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Kubo et al. (2006), MgGeO3 post-perovskite preferred BM3](#record-mggeo3_post_perovskite_kubo_2006_bm3_1) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit](#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)](#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1) | BM3 | 300 | reproduced |  | primary source validated | Executable |
+| [Kubo et al. (2006), BM2 with K0'=4, sensitivity fit](#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Hirose et al. (2005), BM3 with fixed K0'](#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1) | BM3 | 300 | reproduced |  | primary source validated | Executable |
 | [Hirose et al. (2005), MgGeO3 post-perovskite BM3 (free)](#record-mggeo3_post_perovskite_hirose_2005_bm3_free_2) | BM3 | 300 | close |  | primary source validated | Executable |
 
 ### Reference coefficients
@@ -46,8 +46,8 @@ The diffraction structure is the source's 87.8 GPa Rietveld refinement, not an a
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Kubo et al. (2006), MgGeO3 post-perovskite preferred BM3](#record-mggeo3_post_perovskite_kubo_2006_bm3_1) | 179.2 ± 0.7 | 207.0 ± 5.0 | 4.4 (fixed) |
-| [Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit](#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2) | 175.9 ± 0.6 | 245.0 ± 5.0 | — |
-| [Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)](#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1) | 183.1 ± 0.8 | 192 ± 5 | 4 (fixed) |
+| [Kubo et al. (2006), BM2 with K0'=4, sensitivity fit](#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2) | 175.9 ± 0.6 | 245.0 ± 5.0 | — |
+| [Hirose et al. (2005), BM3 with fixed K0'](#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1) | 183.1 ± 0.8 | 192 ± 5 | 4 (fixed) |
 | [Hirose et al. (2005), MgGeO3 post-perovskite BM3 (free)](#record-mggeo3_post_perovskite_hirose_2005_bm3_free_2) | 182.2 ± 1.1 | 210 ± 20 | 3.5 ± 0.5 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
@@ -160,7 +160,7 @@ Preferred source-selected 300 K experimental fit. V0 is the four-formula-unit co
 
 <a id="record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2"></a>
 
-## Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit
+## Kubo et al. (2006), BM2 with K0'=4, sensitivity fit
 
 `mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2` · Executable
 
@@ -254,7 +254,7 @@ Executable but deliberately non-default. It is the article's fixed-K0'=4 sensiti
 
 <a id="record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1"></a>
 
-## Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)
+## Hirose et al. (2005), BM3 with fixed K0'
 
 `mggeo3_post_perovskite_hirose_2005_bm3_fixed_1` · Executable
 

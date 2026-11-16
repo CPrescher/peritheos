@@ -35,12 +35,12 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [data from JCPDS and Levien and Prewitt, 1981](#record-coesite_levien_1981_bm3_1) | **close** |  |
+| [Levien and Prewitt (1981), BM3](#record-coesite_levien_1981_bm3_1) | **close** |  |
 | [Bykova et al. (2018), combined coesite-I/II/III 300 K BM3](#record-coesite_i_iii_bykova_2018_300k_bm3) | **reproduced** |  |
 
 <a id="record-coesite_levien_1981_bm3_1"></a>
 
-## data from JCPDS and Levien and Prewitt, 1981
+## Levien and Prewitt (1981), BM3
 
 **close** · `coesite_levien_1981_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/coesite.md#record-coesite_levien_1981_bm3_1)
 

@@ -45,7 +45,7 @@ The lattice parameter is calculated from the fitted 300 K atomic reference volum
 | [Baty et al. (2024), 0 K DFT BM3](#record-palladium_baty_2024_bm3_dft_2) | BM3 | 0.0 | untested |  | primary source validated | Executable |
 | [Guigue et al. (2020), Vinet](#record-palladium_guigue_2020_vinet_1) | Vinet | 300.0 | untested |  | primary source validated | Executable |
 | [Fedotenko et al. (2020), BM3](#record-palladium_fedotenko_2020_bm3_1) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)](#record-palladium_fedotenko_2020_bm2_2) | BM2 | 300.0 | reproduced | **Yes** | primary source validated | Explicit diagnostic selection; not recommended |
+| [Fedotenko et al. (2020), constrained BM2](#record-palladium_fedotenko_2020_bm2_2) | BM2 | 300.0 | reproduced | **Yes** | primary source validated | Explicit diagnostic selection; not recommended |
 | [Frost et al. (2023), Vinet](#record-palladium_frost_2023_vinet_1) | Vinet | 300.0 | close | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
 | [Frost et al. (2023), BM3](#record-palladium_frost_2023_bm3_2) | BM3 | 300.0 | close | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
 | [Baty et al. (2024), BM3](#record-palladium_baty_2024_bm3_1) | BM3 | 300.0 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
@@ -57,7 +57,7 @@ The lattice parameter is calculated from the fitted 300 K atomic reference volum
 | [Baty et al. (2024), 0 K DFT BM3](#record-palladium_baty_2024_bm3_dft_2) | 58.4668 | 195.0 ± 2.5 | 5.1 ± 0.1 |
 | [Guigue et al. (2020), Vinet](#record-palladium_guigue_2020_vinet_1) | 59.0 ± 0.16 | 162.0 ± 2.0 | 6.2 ± 0.9 |
 | [Fedotenko et al. (2020), BM3](#record-palladium_fedotenko_2020_bm3_1) | 58.868 ± 0.002 | 157.0 ± 3.0 | 9.9 ± 0.4 |
-| [Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)](#record-palladium_fedotenko_2020_bm2_2) | 58.868 ± 0.002 (fixed) | 203.0 ± 3.0 | — |
+| [Fedotenko et al. (2020), constrained BM2](#record-palladium_fedotenko_2020_bm2_2) | 58.868 ± 0.002 (fixed) | 203.0 ± 3.0 | — |
 | [Frost et al. (2023), Vinet](#record-palladium_frost_2023_vinet_1) | 58.678 ± 0.073 | 189.3 ± 3.0 | 5.473 ± 0.063 |
 | [Frost et al. (2023), BM3](#record-palladium_frost_2023_bm3_2) | 58.588 ± 0.076 | 197.5 ± 3.3 | 4.996 ± 0.066 |
 | [Baty et al. (2024), BM3](#record-palladium_baty_2024_bm3_1) | 58.88 ± 0.16 | 190.0 ± 3.0 | 5.3 ± 0.2 |
@@ -98,7 +98,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reference temperature (K):** 0.0
 - **Coverage provenance:** theoretical
 
-Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values and reported as V0=14.6167 A^3/atom, K0=195.0(2.5) GPa, and K0'=5.1(1). The stored conventional-cell volume is four times the atomic value. This is the green curve in Figure 3 and the 'This work' column in supplementary Table S3; it is distinct from the authors' experimental 300 K BM3 fit.
+Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values; not the authors' experimental 300 K BM3 fit. Published V0 = 14.6167 Å³/atom; stored per conventional cell (×4).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -173,7 +173,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reported pressure coverage (GPa):** \[5.0, 65.0\]
 - **Coverage provenance:** reported\_qualitatively
 
-Room-temperature Vinet fit to pure Pd compressed in neon during the Pd-hydride study. The paper reports V0=14.75(4) A^3/atom, K0=162(2) GPa, and K0'=6.2(9); the stored conventional-cell V0 is multiplied by four. Frost et al. identify 65 GPa as the maximum pressure of the Guigue pure-Pd study; the article title's 100 GPa refers to the broader hydride study, not the pure-Pd EOS range.
+Room-temperature Vinet fit to pure Pd compressed in neon, from a Pd-hydride study. Published V0 = 14.75(4) Å³/atom; stored per conventional cell (×4). The pure-Pd data reach 65 GPa (as identified by Frost et al.); the 100 GPa in the article title refers to the hydride study.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -256,7 +256,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0, 31.2\]
 - **Coverage provenance:** reported\_exactly
 
-Room-temperature BM3 fit to the 15 pure-Pd Table 1 observations measured with neon as pressure medium and marker. All three BM3 parameters remain free because the source does not state that V0 was fixed. Table 2 prints 58.863(2) A^3, but Table 1, the fit paragraph, and the Figure 1 caption independently agree on 58.868(2) A^3; the repeated value is used here and the source inconsistency is documented.
+Room-temperature BM3 fit to the 15 pure-Pd observations of Table 1, with neon as pressure medium and pressure marker.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -305,7 +305,7 @@ Room-temperature BM3 fit to the 15 pure-Pd Table 1 observations measured with ne
 
 <a id="record-palladium_fedotenko_2020_bm2_2"></a>
 
-## Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)
+## Fedotenko et al. (2020), constrained BM2
 
 `palladium_fedotenko_2020_bm2_2` · Explicit diagnostic selection; not recommended
 
@@ -336,7 +336,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0, 31.2\]
 - **Coverage provenance:** reported\_exactly
 
-Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency. Audit 2026-10-23: poor data agreement despite coefficient parity (0.934246 GPa pressure RMS, maximum residual 1.438559 GPa). Not recommended for quantitative predictions or pressure calibration. The published coefficients and errors are preserved. Fixed V0 is a diagnostic reconstruction constraint, not an established author choice.
+Second-order Birch-Murnaghan fit with K0' = 4 imposed, to the same 15 Table 1 observations as the BM3 record. The published curve fits these data poorly although its coefficients are reproduced. V0 is fixed here for the reconstruction; the paper does not say the authors fixed it.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -422,7 +422,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/pal
 - **Reported pressure coverage (GPa):** \[0.0, 182.0\]
 - **Coverage provenance:** reported\_exactly
 
-Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3. Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.
+Room-temperature Vinet fit to three hydrogen-free fcc-Pd loadings compressed in neon in a DAC. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -515,7 +515,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/pal
 - **Reported pressure coverage (GPa):** \[0.0, 182.0\]
 - **Coverage provenance:** reported\_exactly
 
-Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.
+Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd loadings in neon as the preferred Vinet record. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -606,7 +606,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 80.0\]
 
-Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.
+Experimental 300 K BM3 fit. Published V0 = 14.72(4) Å³/atom; stored per conventional cell (×4).
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -35,24 +35,24 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Sakai et al. (2025), NaCl-B2 generalized Rydberg-Stacey scale](#record-nacl_b2_sakai_2025_rydberg_stacey_1) | **untested** (not refittable) |  |
+| [Sakai et al. (2025), generalized Rydberg-Stacey scale](#record-nacl_b2_sakai_2025_rydberg_stacey_1) | **untested** (not refittable) |  |
 | [Heinz and Jeanloz (1984), NaCl-B2 BM2](#record-nacl_b2_heinz_1984_bm2_1) | **reproduced** |  |
 | [Shen and Smith (2026), NaCl-B2 Cu-referenced Vinet](#record-nacl_b2_shen_2026_vinet_2) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
-| [Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale](#record-nacl_b2_sakai_2014_yokoo_pt_bm3) | **untested** (not refittable) |  |
-| [Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_bm3) | **reproduced** |  |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_vinet) | **reproduced** |  |
+| [Sakai et al. (2014), BM3, Yokoo et al. (2009) Pt scale](#record-nacl_b2_sakai_2014_yokoo_pt_bm3) | **untested** (not refittable) |  |
+| [Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_bm3) | **reproduced** |  |
+| [Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_vinet) | **reproduced** |  |
 | [Sakai et al. (2011), NaCl-B2 BM3, Fei et al. (2007) Pt scale](#record-nacl_b2_sakai_2011_fei_pt_bm3) | **reproduced** |  |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale](#record-nacl_b2_sakai_2011_fei_pt_vinet) | **reproduced** |  |
-| [Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_bm3) | **reproduced** |  |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_vinet) | **reproduced** |  |
-| [Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_bm3) | **reproduced** |  |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_vinet) | **reproduced** |  |
+| [Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale](#record-nacl_b2_sakai_2011_fei_pt_vinet) | **reproduced** |  |
+| [Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_bm3) | **reproduced** |  |
+| [Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_vinet) | **reproduced** |  |
+| [Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_bm3) | **reproduced** |  |
+| [Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_vinet) | **reproduced** |  |
 | [Fei et al. (2007), NaCl-B2 Vinet-MGD pressure scale](#record-nacl_b2_fei_2007) | **disagrees** |  |
-| [Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data](#record-nacl_b2_fei_2007_staged_thermal_refit) | **reproduced** |  |
+| [Peritheos refit of Fei et al. (2007), digitized Vinet thermal](#record-nacl_b2_fei_2007_staged_thermal_refit) | **reproduced** |  |
 
 <a id="record-nacl_b2_sakai_2025_rydberg_stacey_1"></a>
 
-## Sakai et al. (2025), NaCl-B2 generalized Rydberg-Stacey scale
+## Sakai et al. (2025), generalized Rydberg-Stacey scale
 
 **untested** (not refittable) · `nacl_b2_sakai_2025_rydberg_stacey_1` · `RydbergStacey` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_sakai_2025_rydberg_stacey_1)
 
@@ -216,7 +216,7 @@ Both fits use the same 125 recovered audit input rows. **Volume coordinate:** un
 
 <a id="record-nacl_b2_sakai_2014_yokoo_pt_bm3"></a>
 
-## Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale
+## Sakai et al. (2014), BM3, Yokoo et al. (2009) Pt scale
 
 **untested** (not refittable) · `nacl_b2_sakai_2014_yokoo_pt_bm3` · `BM3` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_sakai_2014_yokoo_pt_bm3)
 
@@ -228,7 +228,7 @@ Both fits use the same 125 recovered audit input rows. **Volume coordinate:** un
 
 <a id="record-nacl_b2_sakai_2011_matsui_pt_bm3"></a>
 
-## Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale
+## Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale
 
 **reproduced** · `nacl_b2_sakai_2011_matsui_pt_bm3` · `BM3` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_sakai_2011_matsui_pt_bm3)
 
@@ -282,7 +282,7 @@ Both fits use the same 54 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-nacl_b2_sakai_2011_matsui_pt_vinet"></a>
 
-## Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale
+## Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale
 
 **reproduced** · `nacl_b2_sakai_2011_matsui_pt_vinet` · `Vinet` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_sakai_2011_matsui_pt_vinet)
 
@@ -390,7 +390,7 @@ Both fits use the same 54 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-nacl_b2_sakai_2011_fei_pt_vinet"></a>
 
-## Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale
+## Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale
 
 **reproduced** · `nacl_b2_sakai_2011_fei_pt_vinet` · `Vinet` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_sakai_2011_fei_pt_vinet)
 
@@ -444,7 +444,7 @@ Both fits use the same 54 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-nacl_b2_sakai_2011_do_pt_bm3"></a>
 
-## Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale
+## Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale
 
 **reproduced** · `nacl_b2_sakai_2011_do_pt_bm3` · `BM3` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_sakai_2011_do_pt_bm3)
 
@@ -498,7 +498,7 @@ Both fits use the same 54 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-nacl_b2_sakai_2011_do_pt_vinet"></a>
 
-## Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale
+## Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale
 
 **reproduced** · `nacl_b2_sakai_2011_do_pt_vinet` · `Vinet` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_sakai_2011_do_pt_vinet)
 
@@ -552,7 +552,7 @@ Both fits use the same 54 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-nacl_b2_sakai_2011_holmes_pt_bm3"></a>
 
-## Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale
+## Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale
 
 **reproduced** · `nacl_b2_sakai_2011_holmes_pt_bm3` · `BM3` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_sakai_2011_holmes_pt_bm3)
 
@@ -606,7 +606,7 @@ Both fits use the same 54 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-nacl_b2_sakai_2011_holmes_pt_vinet"></a>
 
-## Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale
+## Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale
 
 **reproduced** · `nacl_b2_sakai_2011_holmes_pt_vinet` · `Vinet` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_sakai_2011_holmes_pt_vinet)
 
@@ -711,7 +711,7 @@ Both fits use the same 24 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-nacl_b2_fei_2007_staged_thermal_refit"></a>
 
-## Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data
+## Peritheos refit of Fei et al. (2007), digitized Vinet thermal
 
 **reproduced** · `nacl_b2_fei_2007_staged_thermal_refit` · `Vinet` · [Coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_fei_2007_staged_thermal_refit)
 

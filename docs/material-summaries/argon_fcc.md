@@ -38,17 +38,17 @@ Reference diffraction cell is measured at 1.28 GPa and 293 K, not ambient pressu
 | [Ono (2020), 300 K Vinet](#record-argon_fcc_ono_2020_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Xiao et al. (2025), Debye-anharmonic Helmholtz](#record-argon_fcc_xiao_2025_helmholtz) | NaturalStrain4 + DebyeAnharmonicHelmholtz | 70.0 | untested |  | primary source validated | Executable |
 | [Errandonea et al. (2006), laser-annealed fcc BM3](#record-argon_fcc_errandonea_2006_bm3) | BM3 | 300.0 | untested |  | primary source validated | Executable |
-| [Grimsditch et al. (1986), published refit of earlier X-ray density data](#record-argon_fcc_grimsditch_1986_density_polynomial) | DensityPolynomial3 | 298.0 | untested |  | primary source validated | Executable |
+| [Grimsditch et al. (1986), X-ray density polynomial](#record-argon_fcc_grimsditch_1986_density_polynomial) | DensityPolynomial3 | 298.0 | untested |  | primary source validated | Executable |
 | [Finger et al. (1981), second-order Murnaghan + zero-point/Debye](#record-argon_fcc_finger_1981_murnaghan2_debye) | SecondOrderMurnaghan + Dewaele2006 | 293.0 | reproduced |  | primary source validated | Executable |
 | [Anderson and Swenson (1975), 4.2 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_4p2k) | OddInversePower | 4.2 | untested |  | primary source validated | Executable |
 | [Anderson and Swenson (1975), 20 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_20p0k) | OddInversePower | 20.0 | untested |  | primary source validated | Executable |
 | [Anderson and Swenson (1975), 40 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_40p0k) | OddInversePower | 40.0 | untested |  | primary source validated | Executable |
 | [Anderson and Swenson (1975), 60 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_60p0k) | OddInversePower | 60.0 | untested |  | primary source validated | Executable |
 | [Anderson and Swenson (1975), 77 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_77p0k) | OddInversePower | 77.0 | untested |  | primary source validated | Executable |
-| [Chen (2010) — original-constant BM3 reconstruction — DO NOT USE](#record-argon_fcc_chen_2010_bm3_reported_constants) | BM3 | 290.0 | untested | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities](#record-argon_fcc_chen_2010_bm3_digitized_refit) | BM3 | 290.0 | reproduced |  | primary source validated | Executable; see usage qualifications |
-| [Maltby et al. (2024) — unvalidated published EOS](#record-argon_fcc_maltby_2024_published) | Maltby2024 | 300.0 | untested | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Provisional Peritheos BM3 refit: Ross (1986) + Errandonea (2006)](#record-argon_fcc_ross_1986_errandonea_2006_bm3_refit) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Chen et al. (2010), BM3 rebuilt from rounded constants](#record-argon_fcc_chen_2010_bm3_reported_constants) | BM3 | 290.0 | untested | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Peritheos refit of Chen et al. (2010), digitized-data BM3](#record-argon_fcc_chen_2010_bm3_digitized_refit) | BM3 | 290.0 | reproduced |  | primary source validated | Executable; see usage qualifications |
+| [Maltby et al. (2024), published EOS](#record-argon_fcc_maltby_2024_published) | Maltby2024 | 300.0 | untested | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Peritheos refit of Ross (1986) + Errandonea et al. (2006), BM3](#record-argon_fcc_ross_1986_errandonea_2006_bm3_refit) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
@@ -58,17 +58,17 @@ Reference diffraction cell is measured at 1.28 GPa and 293 K, not ambient pressu
 | [Ono (2020), 300 K Vinet](#record-argon_fcc_ono_2020_vinet) | 184.5 ± 38.5 | 1.07 ± 1.33 | 8.02 ± 0.95 |
 | [Xiao et al. (2025), Debye-anharmonic Helmholtz](#record-argon_fcc_xiao_2025_helmholtz) | 149.81383464042446 (fixed) | 2.6565 | 7.494447581404104 |
 | [Errandonea et al. (2006), laser-annealed fcc BM3](#record-argon_fcc_errandonea_2006_bm3) | 143.0 ± 11.0 | 6.5 ± 0.5 | 5.1 ± 0.3 |
-| [Grimsditch et al. (1986), published refit of earlier X-ray density data](#record-argon_fcc_grimsditch_1986_density_polynomial) | 132.67042931092166 (fixed) | — | — |
+| [Grimsditch et al. (1986), X-ray density polynomial](#record-argon_fcc_grimsditch_1986_density_polynomial) | 132.67042931092166 (fixed) | — | — |
 | [Finger et al. (1981), second-order Murnaghan + zero-point/Debye](#record-argon_fcc_finger_1981_murnaghan2_debye) | 149.82711895296183 (fixed) | 2.3701 (fixed) | 6.97 ± 0.11 |
 | [Anderson and Swenson (1975), 4.2 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_4p2k) | 149.82761293818365 (fixed) | — | — |
 | [Anderson and Swenson (1975), 20 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_20p0k) | 150.39019201630825 (fixed) | — | — |
 | [Anderson and Swenson (1975), 40 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_40p0k) | 153.00153863191386 (fixed) | — | — |
 | [Anderson and Swenson (1975), 60 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_60p0k) | 156.93622047853083 (fixed) | — | — |
 | [Anderson and Swenson (1975), 77 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_77p0k) | 161.29649642869728 (fixed) | — | — |
-| [Chen (2010) — original-constant BM3 reconstruction — DO NOT USE](#record-argon_fcc_chen_2010_bm3_reported_constants) | 158.4458086182256 (fixed) | 2.579673179843727 (fixed) | 9.081604622279848 (fixed) |
-| [Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities](#record-argon_fcc_chen_2010_bm3_digitized_refit) | 157.05439912614554 | 4.398863938924779 | 4.621762004158216 |
-| [Maltby et al. (2024) — unvalidated published EOS](#record-argon_fcc_maltby_2024_published) | — | — | — |
-| [Provisional Peritheos BM3 refit: Ross (1986) + Errandonea (2006)](#record-argon_fcc_ross_1986_errandonea_2006_bm3_refit) | 138.83326594378107 | 7.3276753422964385 | 5.018612278319878 |
+| [Chen et al. (2010), BM3 rebuilt from rounded constants](#record-argon_fcc_chen_2010_bm3_reported_constants) | 158.4458086182256 (fixed) | 2.579673179843727 (fixed) | 9.081604622279848 (fixed) |
+| [Peritheos refit of Chen et al. (2010), digitized-data BM3](#record-argon_fcc_chen_2010_bm3_digitized_refit) | 157.05439912614554 | 4.398863938924779 | 4.621762004158216 |
+| [Maltby et al. (2024), published EOS](#record-argon_fcc_maltby_2024_published) | — | — | — |
+| [Peritheos refit of Ross (1986) + Errandonea et al. (2006), BM3](#record-argon_fcc_ross_1986_errandonea_2006_bm3_refit) | 138.83326594378107 | 7.3276753422964385 | 5.018612278319878 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -445,7 +445,7 @@ Fcc-specific BM3 fit, including fcc reflections in fcc+hcp coexistence from 49.6
 
 <a id="record-argon_fcc_grimsditch_1986_density_polynomial"></a>
 
-## Grimsditch et al. (1986), published refit of earlier X-ray density data
+## Grimsditch et al. (1986), X-ray density polynomial
 
 `argon_fcc_grimsditch_1986_density_polynomial` · Executable
 
@@ -1065,7 +1065,7 @@ Isothermal series, not a continuous thermal EOS. Do not interpolate temperature 
 
 <a id="record-argon_fcc_chen_2010_bm3_reported_constants"></a>
 
-## Chen (2010) — original-constant BM3 reconstruction — DO NOT USE
+## Chen et al. (2010), BM3 rebuilt from rounded constants
 
 `argon_fcc_chen_2010_bm3_reported_constants` · Explicit diagnostic selection; not recommended
 
@@ -1157,7 +1157,7 @@ DO NOT USE for scientific predictions or pressure calibration. This is a diagnos
 
 <a id="record-argon_fcc_chen_2010_bm3_digitized_refit"></a>
 
-## Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities
+## Peritheos refit of Chen et al. (2010), digitized-data BM3
 
 `argon_fcc_chen_2010_bm3_digitized_refit` · Executable; see usage qualifications
 
@@ -1244,7 +1244,7 @@ Independent Peritheos refit; source publication EOS remains not\_reproduced. Nom
 
 <a id="record-argon_fcc_maltby_2024_published"></a>
 
-## Maltby et al. (2024) — unvalidated published EOS
+## Maltby et al. (2024), published EOS
 
 `argon_fcc_maltby_2024_published` · Explicit diagnostic selection; not recommended
 
@@ -1323,7 +1323,7 @@ Unvalidated: our implementation of the published equations has not reproduced th
 
 <a id="record-argon_fcc_ross_1986_errandonea_2006_bm3_refit"></a>
 
-## Provisional Peritheos BM3 refit: Ross (1986) + Errandonea (2006)
+## Peritheos refit of Ross (1986) + Errandonea et al. (2006), BM3
 
 `argon_fcc_ross_1986_errandonea_2006_bm3_refit` · Executable
 

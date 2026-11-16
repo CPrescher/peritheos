@@ -33,7 +33,7 @@ High-pressure CsCl-type B2 KCl, stored separately from the rock-salt B1 phase. T
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite](#record-kcl_campbell_1991_bm2_1) | BM2 | 298.0 | reproduced |  | primary source validated | Executable |
+| [Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2](#record-kcl_campbell_1991_bm2_1) | BM2 | 298.0 | reproduced |  | primary source validated | Executable |
 | [Walker et al. (2002), B2 thermal Birch](#record-kcl_walker_2002_bm3_2) | BM3 + LinearThermalPressure | 296.15 | close |  | primary source validated | Executable |
 | [Dewaele et al. (2012), B2 P-V-T pressure calibration](#record-kcl_b2_dewaele_2012_vinet_3) | Vinet + LinearThermalPressure | 300.0 | close |  | primary source validated | Executable |
 | [Tateno et al. (2019), B2 Vinet + MGD on Sokolova Pt](#record-kcl_b2_tateno_2019_vinet_4) | Vinet + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
@@ -48,7 +48,7 @@ High-pressure CsCl-type B2 KCl, stored separately from the rock-salt B1 phase. T
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite](#record-kcl_campbell_1991_bm2_1) | 52.899988 ± 0.355452 (fixed) | 28.7 ± 0.6 | — |
+| [Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2](#record-kcl_campbell_1991_bm2_1) | 52.899988 ± 0.355452 (fixed) | 28.7 ± 0.6 | — |
 | [Walker et al. (2002), B2 thermal Birch](#record-kcl_walker_2002_bm3_2) | 53.53 (fixed) | 23.7 | 4.4 |
 | [Dewaele et al. (2012), B2 P-V-T pressure calibration](#record-kcl_b2_dewaele_2012_vinet_3) | 54.5 (fixed) | 17.2 | 5.89 |
 | [Tateno et al. (2019), B2 Vinet + MGD on Sokolova Pt](#record-kcl_b2_tateno_2019_vinet_4) | 54.5 (fixed) | 18.3 ± 0.3 | 5.6 ± 0.03 |
@@ -69,7 +69,7 @@ extrapolation.
 
 <a id="record-kcl_campbell_1991_bm2_1"></a>
 
-## Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite
+## Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2
 
 `kcl_campbell_1991_bm2_1` · Executable
 

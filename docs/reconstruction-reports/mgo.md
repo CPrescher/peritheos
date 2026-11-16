@@ -36,8 +36,8 @@ stays in EOSMAT and the ledger.
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
 | [Sakai et al. (2025), MgO generalized Rydberg-Stacey scale](#record-mgo_sakai_2025_rydberg_stacey_1) | **untested** (not refittable) |  |
-| [Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD](#record-mgo_b1_tange_2009_vinet) | **close** |  |
-| [JCPDS 4-0829, EOS from Duffy et al, 95](#record-mgo_duffy_1995_bm3_1) | **reproduced** |  |
+| [Tange et al. (2009), pressure-scale-free Vinet-MGD](#record-mgo_b1_tange_2009_vinet) | **close** |  |
+| [Duffy et al. (1995), nonhydrostatic BM3](#record-mgo_duffy_1995_bm3_1) | **reproduced** |  |
 | [Speziale et al. (2001), BM3 + variable-q Debye](#record-mgo_speziale_2001_bm3_2) | **reproduced** |  |
 | [Li et al. (2006), acoustic absolute-pressure BM3](#record-mgo_li_2006_bm3_absolute_acoustic) | **close** |  |
 | [Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3](#record-mgo_jacobsen_2008_bm3_kcl_mao1978) | **reproduced** |  |
@@ -92,7 +92,7 @@ stays in EOSMAT and the ledger.
 
 <a id="record-mgo_b1_tange_2009_vinet"></a>
 
-## Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD
+## Tange et al. (2009), pressure-scale-free Vinet-MGD
 
 **close** · `mgo_b1_tange_2009_vinet` · `Vinet` · [Coefficients and source](../material-summaries/mgo.md#record-mgo_b1_tange_2009_vinet)
 
@@ -150,7 +150,7 @@ PARTIAL REPLAY: these panels evaluate both stored coefficient sets only on the p
 
 <a id="record-mgo_duffy_1995_bm3_1"></a>
 
-## JCPDS 4-0829, EOS from Duffy et al, 95
+## Duffy et al. (1995), nonhydrostatic BM3
 
 **reproduced** · `mgo_duffy_1995_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/mgo.md#record-mgo_duffy_1995_bm3_1)
 

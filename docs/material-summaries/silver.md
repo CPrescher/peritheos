@@ -35,7 +35,7 @@ The lattice parameter is calculated from the fitted 300 K atomic reference volum
 | --- | --- | --- | --- | --- | --- | --- |
 | [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-silver_dewaele_2008_table4_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Mao-scale Vinet; historical 2008 identifier](#record-silver_dewaele_2008_vinet_1) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Dewaele (2019), Ag MAO-scale Vinet](#record-silver_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Ag DOR-scale Vinet](#record-silver_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2008), Table IV Vinet, US K0=101 GPa fixed](#record-silver_dewaele_2008_table4_us_k0_101_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
@@ -46,7 +46,7 @@ The lattice parameter is calculated from the fitted 300 K atomic reference volum
 | --- | --- | --- | --- |
 | [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-silver_dewaele_2008_table4_vinet) | 68.084 (fixed) | 103.9 ± 1.4 | 5.78 ± 0.09 |
 | [Dewaele (2019), Mao-scale Vinet; historical 2008 identifier](#record-silver_dewaele_2008_vinet_1) | 68.28 ± 0.064 | 100.2 ± 1.6 | 5.7 ± 0.09 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | 68.0820933882075 | 100.0 | 6.15 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | 68.0820933882075 | 100.0 | 6.15 |
 | [Dewaele (2019), Ag MAO-scale Vinet](#record-silver_dewaele_2019_mao_vinet) | 68.28 ± 0.064 | 100.2 ± 1.6 | 5.7 ± 0.09 |
 | [Dewaele (2019), Ag DOR-scale Vinet](#record-silver_dewaele_2019_dor_vinet) | 68.352 ± 0.064 | 96.6 ± 1.6 | 6.22 ± 0.09 |
 | [Dewaele et al. (2008), Table IV Vinet, US K0=101 GPa fixed](#record-silver_dewaele_2008_table4_us_k0_101_vinet) | 68.084 (fixed) | 101.0 (fixed) | 5.97 ± 0.02 |
@@ -228,7 +228,7 @@ Compatibility lookup: this identifier historically attributed later 2019 Mao-sca
 
 <a id="record-silver_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `silver_sokolova_2013_holzapfel_2` · Executable
 

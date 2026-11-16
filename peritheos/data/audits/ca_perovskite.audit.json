@@ -2583,7 +2583,8 @@
             "unsupported_shear_terms": "Table S3 mu0, mu0_prime, and etaS0 describe the separate shear model and are not encoded in this pressure-volume EOS record."
           }
         }
-      }
+      },
+      "superseded_record_text": {"label": "Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)", "superseded_on": "2026-11-16"}
     },
     "ca_perovskite_karki_crain_1998_static_bm3": {
       "pressure_calibration": {
@@ -2721,7 +2722,8 @@
             "doi": "10.1016/S0031-9201(00)00154-0"
           }
         ]
-      }
+      },
+      "superseded_record_text": {"label": "Ono (2013), cubic CaSiO3 BM3 plus logarithmic-volume thermal pressure", "superseded_on": "2026-11-16"}
     },
     "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit": {
       "pressure_calibration": {
@@ -2878,6 +2880,10 @@
           },
           "weighting_description": "Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa has unit weight; measurement uncertainties are not used as weights. Each Sun row contributes one residual and each Greaux row contributes three."
         }
+      },
+      "superseded_record_text": {
+        "label": "Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data",
+        "superseded_on": "2026-11-16"
       }
     },
     "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit": {
@@ -3104,6 +3110,10 @@
             "gtol": 1e-11
           }
         }
+      },
+      "superseded_record_text": {
+        "label": "Peritheos refit of Wang (1996), BM3 + linear thermal pressure (64 points)",
+        "superseded_on": "2026-11-16"
       }
     }
   }

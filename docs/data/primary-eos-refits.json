@@ -2105,7 +2105,7 @@
       "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
       "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
       "independent_eos_refit": false,
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
       "marker_count": 11,
       "material_identifier": "aluminum",
       "model": "Holzapfel",
@@ -2451,7 +2451,7 @@
         290
       ],
       "fixed_parameters": [],
-      "label": "Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities",
+      "label": "Peritheos refit of Chen et al. (2010), digitized-data BM3",
       "material_identifier": "argon_fcc",
       "model": "BM3",
       "observations": 80,
@@ -2694,7 +2694,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Chen (2010) — original-constant BM3 reconstruction — DO NOT USE",
+      "label": "Chen et al. (2010), BM3 rebuilt from rounded constants",
       "material_identifier": "argon_fcc",
       "model": "BM3",
       "observations": 80,
@@ -3292,7 +3292,7 @@
         "V0",
         "rho0"
       ],
-      "label": "Grimsditch et al. (1986), published refit of earlier X-ray density data",
+      "label": "Grimsditch et al. (1986), X-ray density polynomial",
       "material_identifier": "argon_fcc",
       "model": "DensityPolynomial3",
       "observations": 98,
@@ -3591,7 +3591,7 @@
       "fixed_parameters": [
         "shell_cutoff_squared"
       ],
-      "label": "Maltby et al. (2024) — unvalidated published EOS",
+      "label": "Maltby et al. (2024), published EOS",
       "material_identifier": "argon_fcc",
       "model": "Maltby2024",
       "primary_data_finding": "Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.",
@@ -3836,7 +3836,7 @@
       ],
       "fit_kind": "selected_multi_source_bm3",
       "fixed_parameters": [],
-      "label": "Provisional Peritheos BM3 refit: Ross (1986) + Errandonea (2006)",
+      "label": "Peritheos refit of Ross (1986) + Errandonea et al. (2006), BM3",
       "material_identifier": "argon_fcc",
       "model": "BM3",
       "objective": "equal pressure weights",
@@ -4233,7 +4233,7 @@
         "alpha0",
         "dK_dT"
       ],
-      "label": "Somayazulu et al. (2023), BM3 + Berman public-data refit",
+      "label": "Peritheos refit of Somayazulu et al. (2023), BM3 + Berman",
       "material_identifier": "b4c",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -6660,7 +6660,7 @@
         "q",
         "eta_s0"
       ],
-      "label": "Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)",
+      "label": "Fu et al. (2023), BM3-MGD, Sun (2016) + Gréaux (2019) data",
       "material_identifier": "ca_perovskite",
       "model": "BM3",
       "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
@@ -7219,7 +7219,7 @@
         "q",
         "eta_s0"
       ],
-      "label": "Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data",
+      "label": "Peritheos refit of Sun (2016) + Gréaux (2019), unweighted BM3",
       "material_identifier": "ca_perovskite",
       "model": "BM3",
       "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
@@ -7751,7 +7751,7 @@
         "K0_prime",
         "Tr"
       ],
-      "label": "Ono (2013), cubic CaSiO3 BM3 plus logarithmic-volume thermal pressure",
+      "label": "Ono (2013), BM3 + logarithmic-volume thermal pressure",
       "material_identifier": "ca_perovskite",
       "model": "BM3",
       "primary_data_finding": "The article states that 27 high-temperature AIMD states were fitted but does not tabulate their P-V-T values, fit weights, residual statistic, or covariance.",
@@ -8417,7 +8417,7 @@
         "K0_prime",
         "Tr"
       ],
-      "label": "Peritheos refit of Wang (1996), BM3 + linear thermal pressure (64 points)",
+      "label": "Peritheos refit of Wang et al. (1996), BM3 + linear thermal",
       "material_identifier": "ca_perovskite",
       "model": "BM3",
       "objective": "equal pressure weights",
@@ -10143,7 +10143,7 @@
         "gamma0",
         "q"
       ],
-      "label": "Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD",
+      "label": "Takahashi et al. (2019), KBr pressure scale, BM3 + MGD",
       "material_identifier": "cementite_nonmagnetic",
       "model": "BM3",
       "objective": "iteratively_reweighted_pressure_residuals",
@@ -10504,7 +10504,7 @@
         "gamma0",
         "q"
       ],
-      "label": "Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD",
+      "label": "Takahashi et al. (2019), MgO pressure scale, BM3 + MGD",
       "material_identifier": "cementite_nonmagnetic",
       "model": "BM3",
       "objective": "iteratively_reweighted_pressure_residuals",
@@ -10856,7 +10856,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3",
+      "label": "Sata et al. (2010), original-scale 300 K BM3",
       "material_identifier": "cementite_nonmagnetic",
       "model": "BM3",
       "objective": "equal pressure residuals at measured volumes",
@@ -11906,7 +11906,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "data from JCPDS and Levien and Prewitt, 1981",
+      "label": "Levien and Prewitt (1981), BM3",
       "material_identifier": "coesite",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -12170,7 +12170,7 @@
       "free_parameters": [
         "V0"
       ],
-      "label": "Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states",
+      "label": "Peritheos refit of Bykova et al. (2018), calculated BM3",
       "material_identifier": "coesite_iv",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -13169,7 +13169,7 @@
       "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
       "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
       "independent_eos_refit": false,
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
       "marker_count": 11,
       "material_identifier": "copper",
       "model": "Holzapfel",
@@ -13560,7 +13560,7 @@
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
       "fixed_parameters": [],
-      "label": "Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)",
+      "label": "Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal",
       "material_identifier": "diamond",
       "model": "Vinet",
       "observations": 119,
@@ -13876,7 +13876,7 @@
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
       "fixed_parameters": [],
-      "label": "Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)",
+      "label": "Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal",
       "material_identifier": "diamond",
       "model": "Vinet",
       "observations": 80,
@@ -14318,7 +14318,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Occelli data on the H2005 scale (Datchi et al. 2007)",
+      "label": "Datchi et al. (2007), Vinet, Occelli data on H2005 scale",
       "material_identifier": "diamond",
       "model": "Vinet",
       "objective": "equal volume residuals; equivalent point estimates from the published constant 0.003 cm^3/mol volume uncertainty",
@@ -14495,7 +14495,7 @@
       "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
       "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
       "independent_eos_refit": false,
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
       "marker_count": 11,
       "material_identifier": "diamond",
       "model": "Holzapfel",
@@ -17333,7 +17333,7 @@
         "gamma0",
         "theta0"
       ],
-      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)",
+      "label": "Sakai et al. (2014), BM3 + constant-gamma thermal",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -18065,7 +18065,7 @@
         "V0",
         "K0"
       ],
-      "label": "Fei et al Am. Mineral. 85, 1830, 2000",
+      "label": "Fei et al. (2000), BM3",
       "material_identifier": "fe3s",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -18781,7 +18781,7 @@
         "rt_eos.K0_prime",
         "gamma0"
       ],
-      "label": "B1 iron-saturated FeO, Fischer et al. (2011)",
+      "label": "Fischer et al. (2011), BM3, iron-saturated FeO",
       "material_identifier": "feo",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -18918,7 +18918,7 @@
         "rt_eos.K0",
         "gamma0"
       ],
-      "label": "B8 Fe0.94O, Fischer et al. (2011)",
+      "label": "Fischer et al. (2011), BM3",
       "material_identifier": "feo_b8_2",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -19098,7 +19098,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction",
+      "label": "Finger et al. (1979), 23 °C BM2 on measured ambient cell",
       "material_identifier": "ferrous_ringwoodite",
       "model": "BM2",
       "objective": "equal pressure residuals",
@@ -19954,7 +19954,7 @@
         "gamma0",
         "q"
       ],
-      "label": "Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data",
+      "label": "Peritheos refit of Fischer et al. (2014), BM3 + MGD",
       "material_identifier": "fesi_b2",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -20052,7 +20052,7 @@
         "gamma0",
         "q"
       ],
-      "label": "Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data",
+      "label": "Peritheos refit of Fischer et al. (2014), Vinet + MGD",
       "material_identifier": "fesi_b2",
       "model": "Vinet",
       "objective": "pressure_residuals",
@@ -20591,7 +20591,7 @@
         "gamma0",
         "q"
       ],
-      "label": "Katsura (2022), author script full-precision BM3-MGD (recommended thermal option)",
+      "label": "Katsura (2022), author-script BM3-MGD, recommended option",
       "material_identifier": "forsterite",
       "model": "BM3",
       "objective": "unweighted_pressure_residuals",
@@ -20854,7 +20854,7 @@
         "rt_eos.K0",
         "rt_eos.K0_prime"
       ],
-      "label": "Gleason et al. (2008)",
+      "label": "Gleason et al. (2008), BM3",
       "material_identifier": "goethite",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -21719,7 +21719,7 @@
         "K0_prime",
         "q"
       ],
-      "label": "04-0784, Fei et al PNAS, 2007 [Vinet]",
+      "label": "Fei et al. (2007), Vinet-MGD",
       "material_identifier": "gold",
       "model": "Vinet",
       "objective": "equal_pressure_residuals",
@@ -22424,7 +22424,7 @@
         "alpha1",
         "dK_dT"
       ],
-      "label": "Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO",
+      "label": "Peritheos refit of Hirose et al. (2008) + Fei (2004), BM3",
       "material_identifier": "gold",
       "model": "BM3",
       "objective": "sum of squared pressure residuals with equal weights at each stage",
@@ -22841,7 +22841,7 @@
       "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
       "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
       "independent_eos_refit": false,
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
       "marker_count": 11,
       "material_identifier": "gold",
       "model": "Holzapfel",
@@ -23032,7 +23032,7 @@
         "theta0",
         "n"
       ],
-      "label": "Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction",
+      "label": "Yokoo et al. (2009), Table III P-V-T reconstruction",
       "material_identifier": "gold",
       "model": "BM3",
       "observations": 0,
@@ -24568,7 +24568,7 @@
         "dK_dT",
         "beta3"
       ],
-      "label": "Dubrovinsky et al. (2000), bm3_thermal",
+      "label": "Dubrovinsky et al. (2000), BM3 + thermal",
       "material_identifier": "iron",
       "model": "BM3",
       "primary_data_finding": "The 188 input P-V-T points are not tabulated in the attached publication.",
@@ -24713,7 +24713,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "(hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90",
+      "label": "Mao et al. (1990), BM3",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -24863,7 +24863,7 @@
         "theta0",
         "n"
       ],
-      "label": "Miozzi et al. (2020), published BM3–MGD — author-reported n=2",
+      "label": "Miozzi et al. (2020), BM3-MGD, author-reported n=2",
       "material_identifier": "iron",
       "model": "BM3",
       "observations": 131,
@@ -24956,7 +24956,7 @@
         "gamma0",
         "q"
       ],
-      "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1",
+      "label": "Peritheos refit of Miozzi et al. (2020), Speziale MgO scale",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "equal_weight_pressure_residuals",
@@ -25064,7 +25064,7 @@
         "gamma0",
         "q"
       ],
-      "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights",
+      "label": "Peritheos refit of Miozzi et al. (2020), Tange MgO scale",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "equal_weight_pressure_residuals",
@@ -27089,7 +27089,7 @@
         "beta",
         "theta0"
       ],
-      "label": "Yamazaki et al. (2012), bm3_thermal",
+      "label": "Yamazaki et al. (2012), BM3 + thermal",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -27287,7 +27287,7 @@
         "beta",
         "theta0"
       ],
-      "label": "Yamazaki et al. (2012), vinet_thermal",
+      "label": "Yamazaki et al. (2012), Vinet + thermal",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -29627,7 +29627,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite",
+      "label": "Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2",
       "material_identifier": "kcl",
       "model": "BM2",
       "objective": "errors_in_variables",
@@ -30938,7 +30938,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Ross (1997)",
+      "label": "Ross (1997), BM3",
       "material_identifier": "magnesite",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -31513,7 +31513,7 @@
       "fixed_parameters": [
         "K0_prime"
       ],
-      "label": "(Mg0.125Fe0.875)O B1 magnesiowustite, Leonov et al. (2017) high-spin BM3",
+      "label": "Leonov et al. (2017), high-spin DFT+DMFT BM3",
       "material_identifier": "mg0125fe0875o",
       "model": "BM3",
       "primary_data_finding": "Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.",
@@ -31703,7 +31703,7 @@
       "fixed_parameters": [
         "K0_prime"
       ],
-      "label": "(Mg0.25Fe0.75)O B1 magnesiowustite, Leonov et al. (2017) high-spin BM3",
+      "label": "Leonov et al. (2017), high-spin DFT+DMFT BM3",
       "material_identifier": "mg025fe075o",
       "model": "BM3",
       "primary_data_finding": "Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.",
@@ -31721,7 +31721,7 @@
       "fixed_parameters": [
         "K0_prime"
       ],
-      "label": "(Mg0.375Fe0.625)O B1 magnesiowustite, Leonov et al. (2017) high-spin BM3",
+      "label": "Leonov et al. (2017), high-spin DFT+DMFT BM3",
       "material_identifier": "mg0375fe0625o",
       "model": "BM3",
       "primary_data_finding": "Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.",
@@ -31755,7 +31755,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Fei et al. (2007), GRL, mg042fe058o high-spin B1 compression BM3",
+      "label": "Fei et al. (2007), high-spin B1 BM3",
       "material_identifier": "mg042fe058o",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -32008,7 +32008,7 @@
         "V0",
         "K0"
       ],
-      "label": "Koemets et al. (2023) single-crystal Pnma perovskite BM2",
+      "label": "Koemets et al. (2023), single-crystal Pnma perovskite BM2",
       "material_identifier": "mg05fe05al05si05o3_bridgmanite",
       "model": "BM2",
       "objective": "errors_in_variables",
@@ -32297,7 +32297,7 @@
       "fixed_parameters": [
         "K0_prime"
       ],
-      "label": "(Mg0.5Fe0.5)O B1 ferropericlase, Leonov et al. (2017) high-spin BM3",
+      "label": "Leonov et al. (2017), high-spin DFT+DMFT BM3",
       "material_identifier": "mg05fe05o",
       "model": "BM3",
       "primary_data_finding": "Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.",
@@ -32331,7 +32331,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Fei et al. (2007), GRL, mg061fe039o high-spin B1 compression BM3",
+      "label": "Fei et al. (2007), high-spin B1 BM3",
       "material_identifier": "mg061fe039o",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -32401,7 +32401,7 @@
         "V0",
         "K0"
       ],
-      "label": "Fei et al. (2007), GRL, mg061fe039o low-spin B1 compression BM3",
+      "label": "Fei et al. (2007), low-spin B1 BM3",
       "material_identifier": "mg061fe039o",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -32861,7 +32861,7 @@
       "fixed_parameters": [
         "K0_prime"
       ],
-      "label": "(Mg0.625Fe0.375)O B1 ferropericlase, Leonov et al. (2017) high-spin BM3",
+      "label": "Leonov et al. (2017), high-spin DFT+DMFT BM3",
       "material_identifier": "mg0625fe0375o",
       "model": "BM3",
       "primary_data_finding": "Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.",
@@ -33415,7 +33415,7 @@
         "K0_LS",
         "omega0"
       ],
-      "label": "Solomatova et al. (2016), Mao-data high-spin BM3 reference branch",
+      "label": "Solomatova et al. (2016), Mao-data HS BM3 reference branch",
       "material_identifier": "mg075fe025o",
       "model": "BM3",
       "objective": "equal-weight approximate volume residuals plus Table 2 priors",
@@ -33487,7 +33487,7 @@
         "K0_LS",
         "omega0"
       ],
-      "label": "Solomatova et al. (2016), Mao-data low-spin BM3 reference branch",
+      "label": "Solomatova et al. (2016), Mao-data LS BM3 reference branch",
       "material_identifier": "mg075fe025o",
       "model": "BM3",
       "objective": "equal-weight approximate volume residuals plus Table 2 priors",
@@ -33608,7 +33608,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Fei et al. (2007), GRL, mg080fe020o high-spin B1 compression BM3",
+      "label": "Fei et al. (2007), high-spin B1 BM3",
       "material_identifier": "mg080fe020o",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -33678,7 +33678,7 @@
         "V0",
         "K0"
       ],
-      "label": "Fei et al. (2007), GRL, mg080fe020o low-spin B1 compression BM3",
+      "label": "Fei et al. (2007), low-spin B1 BM3",
       "material_identifier": "mg080fe020o",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -33761,7 +33761,7 @@
         "V0",
         "K0"
       ],
-      "label": "Peritheos refit (2026), fp20 low-spin B1, Fei (2007) Table S1, 40-95 GPa",
+      "label": "Peritheos refit of Fei et al. (2007), low-spin BM3, 40-95 GPa",
       "material_identifier": "mg080fe020o",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -34098,7 +34098,7 @@
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
       "fixed_parameters": [],
-      "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
+      "label": "Solomatova et al. (2016), Lin-data HS BM3 reference branch",
       "material_identifier": "mg083fe017o",
       "model": "BM3",
       "observations": 43,
@@ -34136,7 +34136,7 @@
       "fixed_parameters": [
         "K0_prime"
       ],
-      "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
+      "label": "Solomatova et al. (2016), Lin-data LS BM3 reference branch",
       "material_identifier": "mg083fe017o",
       "model": "BM3",
       "observations": 43,
@@ -34155,7 +34155,7 @@
       "fixed_parameters": [
         "K0_prime"
       ],
-      "label": "(Mg0.875Fe0.125)O B1 ferropericlase, Leonov et al. (2017) high-spin BM3",
+      "label": "Leonov et al. (2017), high-spin DFT+DMFT BM3",
       "material_identifier": "mg0875fe0125o",
       "model": "BM3",
       "primary_data_finding": "Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.",
@@ -34701,7 +34701,7 @@
         "V0",
         "K0"
       ],
-      "label": "Shieh et al. (2006), preferred second-order Eulerian finite-strain fit",
+      "label": "Shieh et al. (2006), preferred BM2",
       "material_identifier": "mg090fe009al0005ca0005sio3_post_perovskite",
       "model": "BM2",
       "objective": "pressure_residuals",
@@ -34845,7 +34845,7 @@
       "fixed_parameters": [
         "V0"
       ],
-      "label": "Marquardt et al. (2009), EPSL high-spin BM3",
+      "label": "Marquardt et al. (2009), high-spin BM3",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "primary_data_finding": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
@@ -34853,7 +34853,7 @@
       "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
       "reason": "EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective.",
       "record_identifier": "mg090fe010o_marquardt_2009b_hs_bm3",
-      "source_notes": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+      "source_notes": "High-spin isothermal BM3 fit to XRD data below 45 GPa, with K0 constrained by room-pressure Brillouin data.",
       "status": "not_refittable"
     },
     {
@@ -34884,7 +34884,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 1",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.99",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -34923,7 +34923,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "parity"
     },
     {
@@ -34954,7 +34954,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 2",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.98",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -34993,7 +34993,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "parity"
     },
     {
@@ -35024,7 +35024,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 3",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.97",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -35063,7 +35063,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "parity"
     },
     {
@@ -35093,7 +35093,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 4",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.96",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -35131,7 +35131,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "similar"
     },
     {
@@ -35161,7 +35161,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 5",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.99",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -35199,7 +35199,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "similar"
     },
     {
@@ -35230,7 +35230,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 6",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.98",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -35269,7 +35269,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "parity"
     },
     {
@@ -35299,7 +35299,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 7",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.97",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -35337,7 +35337,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "similar"
     },
     {
@@ -35368,7 +35368,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 8",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.96",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -35407,7 +35407,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "parity"
     },
     {
@@ -35438,7 +35438,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 9",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.99",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -35477,7 +35477,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "parity"
     },
     {
@@ -35508,7 +35508,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 10",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.98",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -35547,7 +35547,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "parity"
     },
     {
@@ -35578,7 +35578,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 11",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.97",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -35617,7 +35617,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "parity"
     },
     {
@@ -35648,7 +35648,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 12",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.96",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -35687,7 +35687,7 @@
       "selection": "spin_region=low_spin",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "source_notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "status": "parity"
     },
     {
@@ -35709,7 +35709,7 @@
         "K0_LS",
         "omega0"
       ],
-      "label": "Solomatova et al. (2016), hs BM3 reference branch",
+      "label": "Solomatova et al. (2016), high-spin BM3 reference branch",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "equal-weight approximate volume residuals plus Table 2 priors",
@@ -35758,7 +35758,7 @@
       "selection": "used_in_solomatova_2016_fit=1",
       "solver_message": "dedicated Solomatova coupled reconstruction completed",
       "solver_success": true,
-      "source_notes": null,
+      "source_notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "status": "similar",
       "transition_pressure_50_percent_ls_gpa": 53.82057307636599,
       "transition_width_20_80_gpa": 10.663407697121059
@@ -35784,7 +35784,7 @@
         "K0_LS",
         "omega0"
       ],
-      "label": "Solomatova et al. (2016), ls BM3 reference branch",
+      "label": "Solomatova et al. (2016), low-spin BM3 reference branch",
       "material_identifier": "mg090fe010o",
       "model": "BM3",
       "objective": "equal-weight approximate volume residuals plus Table 2 priors",
@@ -35833,7 +35833,7 @@
       "selection": "used_in_solomatova_2016_fit=1",
       "solver_message": "dedicated Solomatova coupled reconstruction completed",
       "solver_success": true,
-      "source_notes": null,
+      "source_notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "status": "similar",
       "transition_pressure_50_percent_ls_gpa": 53.82057307636599,
       "transition_width_20_80_gpa": 10.663407697121059
@@ -36810,7 +36810,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "(OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht",
+      "label": "Crichton and Ross (2002), BM3",
       "material_identifier": "mg7si2o8",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -37403,7 +37403,7 @@
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
       "fixed_parameters": [],
-      "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
+      "label": "Solomatova et al. (2016), Lin-data HS BM3 reference branch",
       "material_identifier": "mgfe60o",
       "model": "BM3",
       "primary_data_finding": "Lin et al. report only an 84-102 GPa spectroscopic crossover interval and an approximately 1.6% volume drop near 95 GPa for Mg0.40Fe0.60O, not a row-level pressure-volume series. Those transition constraints are not substituted for observations.",
@@ -37421,7 +37421,7 @@
       "fixed_parameters": [
         "K0_prime"
       ],
-      "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
+      "label": "Solomatova et al. (2016), Lin-data LS BM3 reference branch",
       "material_identifier": "mgfe60o",
       "model": "BM3",
       "primary_data_finding": "Lin et al. report only an 84-102 GPa spectroscopic crossover interval and an approximately 1.6% volume drop near 95 GPa for Mg0.40Fe0.60O, not a row-level pressure-volume series. Those transition constraints are not substituted for observations.",
@@ -37643,7 +37643,7 @@
         "V0",
         "K0"
       ],
-      "label": "Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)",
+      "label": "Hirose et al. (2005), BM3 with fixed K0'",
       "material_identifier": "mggeo3_post_perovskite",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -37804,7 +37804,7 @@
         "V0",
         "K0"
       ],
-      "label": "Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit",
+      "label": "Kubo et al. (2006), BM2 with K0'=4, sensitivity fit",
       "material_identifier": "mggeo3_post_perovskite",
       "model": "BM2",
       "objective": "errors_in_variables",
@@ -38006,7 +38006,7 @@
       "selection": "finite particle_velocity_km_s and shock_velocity_km_s; used_in_published_hugoniot_fit=1; 4 rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Constrained principal Hugoniot for the untransformed B1 phase only. This is not the separately plotted equilibrium 300 K isotherm/hydrostat or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty.",
+      "source_notes": "Principal Hugoniot of untransformed B1 MgO only; not the equilibrium 300 K isotherm or a general P(V,T) surface. The c0, s and rho0 errors are one standard deviation. V0 is computed from rho0 and has no separate error.",
       "status": "parity"
     },
     {
@@ -38245,7 +38245,7 @@
         "b",
         "gamma0"
       ],
-      "label": "Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD",
+      "label": "Tange et al. (2009), pressure-scale-free Vinet-MGD",
       "material_identifier": "mgo",
       "model": "Vinet",
       "objective": "source-weighted thermal, elastic, and shock residuals",
@@ -38432,7 +38432,7 @@
       "record_identifier": "mgo_b1_tange_2009_vinet",
       "solver_message": "`xtol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Fit3-Vinet is one of the two retained pressure-scale-free MgO models. K0 and theta0 are dependent quantities recalculated from the fixed 300 K KS0, alpha0, and CP0 anchors at every trial gamma0; only K0_prime, gamma0, a, and b are independent Fit3 variables. The redistributable 102-row subset validates the coupled thermal, elastic, and shock implementation but is not the complete eight-source global fit. The 2010 correction changes Figure 11 only and does not change these parameters.",
+      "source_notes": "Pressure-scale-free Vinet + Mie-Grüneisen-Debye EOS (Fit3 in the paper), fitted jointly to acoustic, thermal-expansion and shock data. The 2010 correction changes Figure 11 only, not these parameters.",
       "status": "similar",
       "weighted_sum_of_squares": 122.77164565418755
     },
@@ -38691,7 +38691,7 @@
       "selection": "41 heated Table 2 rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Preferred complete P-V-T parameterization from Table 5 and the conclusion: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. The implemented theta(V) relation follows exactly from d ln(theta)/d ln(V)=-gamma with gamma=gamma0(V/V0)^q, i.e. the integrated-Gruneisen law. Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 fits are preserved separately as nonpreferred room-temperature model-sensitivity records; they are not thermal parameterizations. The static coefficients were obtained from a staged combined-data analysis that included earlier published room-temperature measurements; the bundled Table 2 contains all 61 new observations from this study. The K0' uncertainty is internally inconsistent: formal +/-0.06 in the text (0.05 after Table 3 rounding), pressure-propagated +/-0.2 in the text and abstract, and unexplained +/-0.3 in the conclusion; the stored +/-0.2 follows the explicit error analysis. No official supplement or machine-readable data deposit accompanies the article.",
+      "source_notes": "The authors' preferred P-V-T EOS (Table 5): 300 K BM3 reference isotherm + quasi-harmonic Mie-Grüneisen-Debye thermal pressure. The paper gives three K0' errors (0.06, 0.2 and 0.3); the stored 0.2 is the pressure-propagated value.",
       "status": "parity"
     },
     {
@@ -38928,7 +38928,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "JCPDS 4-0829, EOS from Duffy et al, 95",
+      "label": "Duffy et al. (1995), nonhydrostatic BM3",
       "material_identifier": "mgo",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -38976,7 +38976,7 @@
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Static nonhydrostatic BM3 fit to 227 GPa: K0 = 177 +/- 4 GPa and K0' = 4.0 +/- 0.1. The fixed molar V0 = 11.253 cm^3/mol was converted to the conventional Z=4 B1 cell.",
+      "source_notes": "Static BM3 fit to nonhydrostatic compression data. Published V0 = 11.253 cm³/mol (fixed); stored per conventional B1 cell (Z = 4).",
       "status": "parity"
     },
     {
@@ -39108,7 +39108,7 @@
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Published three-parameter BM3 fit to all three helium-medium runs using Mao et al. (1986) quasi-hydrostatic ruby pressures through 85 GPa and six Sun et al. (2005) diamond-Raman pressures calibrated against that ruby scale at higher compression. The 111.0 GPa upper bound is the maximum pressure actually used by this BM3; the paper's 118.1 GPa headline value is the same final volume recalculated from the Zha et al. (2000) MgO scale. The Zha-derived pressure column is preserved as provenance but is not a separate Jacobsen MgO EOS because it is calculated from the already-defined Zha pressure scale. The paper reports no parameter covariance, no confidence level for the parenthesized parameter errors, and no exact fitting software or residual objective.",
+      "source_notes": "BM3 fit to all three helium-medium runs. Pressures from the Mao et al. (1986) ruby scale to 85 GPa and, above that, from six Sun et al. (2005) diamond-Raman points calibrated to the same ruby scale. The authors attribute the low K0' either to a change in MgO compression above 40 GPa or to the Mao-1986 ruby gauge in helium; this record takes no position.",
       "status": "parity"
     },
     {
@@ -39410,7 +39410,7 @@
       "selection": "Section 2 ambient density/VP/VS anchor plus all ten Table 1 decompression-after-annealing density/VP/VS rows",
       "solver_message": "`xtol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. It is directly reproducible through the source's actual measurement-to-coefficient chain: measured acoustic velocities and density are fitted with third-order finite-strain equations to obtain adiabatic moduli, Equation 4 converts the preferred decompression fit to isothermal K0T and K0T', and BM3 Equation 3 then calculates pressure from volume. Table 1 pressures are therefore downstream EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.",
+      "source_notes": "The paper's 300 K absolute-pressure scale, not a direct BM3 fit to independent P-V observations. Table 1 pressures are outputs of this EOS, not independent observations for a P-V refit. The V0 error is one standard deviation; K0 and K0' have no error because the source does not propagate one.",
       "status": "similar"
     },
     {
@@ -39920,7 +39920,7 @@
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
       "source_fit_input_completeness": "unconfirmed",
-      "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.",
+      "source_notes": "Table II fit to the DAC-2 data, with pressures from the simultaneously measured Cu volumes.",
       "source_phase_observations": 194,
       "status": "parity_not_achieved",
       "usage_recommendation": "not_recommended_for_quantitative_use"
@@ -40309,7 +40309,7 @@
       ],
       "experimental_temperature_range_k": null,
       "fixed_parameters": [],
-      "label": "Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3",
+      "label": "Akber-Knutson et al. (2005), static GGA BM3",
       "material_identifier": "mgsio3_post_perovskite",
       "model": "BM3",
       "primary_data_finding": "The E(V) rows, weights, residuals, and covariance are not tabulated.",
@@ -42322,7 +42322,7 @@
       "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
       "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
       "independent_eos_refit": false,
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
       "marker_count": 11,
       "material_identifier": "molybdenum",
       "model": "Holzapfel",
@@ -42371,7 +42371,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "EOS from Haines et al. 2001",
+      "label": "Haines et al. (2001), BM3",
       "material_identifier": "molybenum_carbide_mo2c",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -42447,7 +42447,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Haines et al. (2001) Figure 2 direct BM3 refit",
+      "label": "Peritheos refit of Haines et al. (2001), digitized-data BM3",
       "material_identifier": "molybenum_carbide_mo2c",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -42808,7 +42808,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Dubrovinsky et al. (2002)",
+      "label": "Dubrovinsky et al. (2002), BM3",
       "material_identifier": "naalsio4_calcium_ferrite",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -43429,7 +43429,7 @@
         "K0_prime",
         "q"
       ],
-      "label": "Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data",
+      "label": "Peritheos refit of Fei et al. (2007), digitized Vinet thermal",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
       "objective": "At each stage minimize sum((P_model(V,T)-P_digitized)^2) in GPa^2 with equal pressure-residual weights; cold K0/K0_prime first, then hot q with the cold fit frozen.",
@@ -43937,7 +43937,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "BM3",
       "objective": "unweighted_pressure_residuals",
@@ -44001,7 +44001,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
       "objective": "unweighted_pressure_residuals",
@@ -44129,7 +44129,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
       "objective": "unweighted_pressure_residuals",
@@ -44193,7 +44193,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "BM3",
       "objective": "unweighted_pressure_residuals",
@@ -44257,7 +44257,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
       "objective": "unweighted_pressure_residuals",
@@ -44321,7 +44321,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "BM3",
       "objective": "unweighted_pressure_residuals",
@@ -44385,7 +44385,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
       "objective": "unweighted_pressure_residuals",
@@ -44438,7 +44438,7 @@
       "fixed_parameters": [
         "V0"
       ],
-      "label": "Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale",
+      "label": "Sakai et al. (2014), BM3, Yokoo et al. (2009) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "BM3",
       "primary_data_finding": "Original Sakai (2011a) paired NaCl/Pt calibration observations are not attached to this 2014 paper. Table 2 NaCl values are downstream measurements, not independent P5 calibration constraints.",
@@ -44456,7 +44456,7 @@
       "fixed_parameters": [
         "K_infinity_prime"
       ],
-      "label": "Sakai et al. (2025), NaCl-B2 generalized Rydberg-Stacey scale",
+      "label": "Sakai et al. (2025), generalized Rydberg-Stacey scale",
       "material_identifier": "nacl_b2",
       "model": "RydbergStacey",
       "original_author_workflow_parity": false,
@@ -44782,7 +44782,7 @@
         "K0_prime",
         "q"
       ],
-      "label": "Fei et al PNAS 2007 [BM3]",
+      "label": "Fei et al. (2007), BM3-MGD",
       "material_identifier": "neon_fcc",
       "model": "BM3",
       "observations": 54,
@@ -45276,7 +45276,7 @@
         "K0_prime",
         "q"
       ],
-      "label": "Fei et al PNAS 2007 [Vinet]",
+      "label": "Fei et al. (2007), Vinet-MGD",
       "material_identifier": "neon_fcc",
       "model": "Vinet",
       "observations": 54,
@@ -45768,7 +45768,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Hemley et al. (1989) Table I direct 300 K BM3 refit",
+      "label": "Peritheos refit of Hemley et al. (1989), 300 K BM3",
       "material_identifier": "neon_fcc",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -46911,7 +46911,7 @@
       "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
       "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
       "independent_eos_refit": false,
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
       "marker_count": 11,
       "material_identifier": "niobium",
       "model": "Holzapfel",
@@ -47436,7 +47436,7 @@
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.",
+      "source_notes": "Experimental 300 K BM3 fit. Published V0 = 14.72(4) Å³/atom; stored per conventional cell (×4).",
       "status": "parity_not_achieved",
       "usage_recommendation": "not_recommended_for_quantitative_use"
     },
@@ -47453,7 +47453,7 @@
       "primary_source": "https://doi.org/10.1063/5.0179469",
       "reason": "The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes.",
       "record_identifier": "palladium_baty_2024_bm3_dft_2",
-      "source_notes": "Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values and reported as V0=14.6167 A^3/atom, K0=195.0(2.5) GPa, and K0'=5.1(1). The stored conventional-cell volume is four times the atomic value. This is the green curve in Figure 3 and the 'This work' column in supplementary Table S3; it is distinct from the authors' experimental 300 K BM3 fit.",
+      "source_notes": "Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values; not the authors' experimental 300 K BM3 fit. Published V0 = 14.6167 Å³/atom; stored per conventional cell (×4).",
       "status": "not_refittable"
     },
     {
@@ -47488,7 +47488,7 @@
       "free_parameters": [
         "K0"
       ],
-      "label": "Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)",
+      "label": "Fedotenko et al. (2020), constrained BM2",
       "material_identifier": "palladium",
       "model": "BM2",
       "objective": "errors_in_variables_with_separate_ambient_datum",
@@ -47540,7 +47540,7 @@
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_equation_status": "reproduced",
-      "source_notes": "Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency. Audit 2026-10-23: poor data agreement despite coefficient parity (0.934246 GPa pressure RMS, maximum residual 1.438559 GPa). Not recommended for quantitative predictions or pressure calibration. The published coefficients and errors are preserved. Fixed V0 is a diagnostic reconstruction constraint, not an established author choice.",
+      "source_notes": "Second-order Birch-Murnaghan fit with K0' = 4 imposed, to the same 15 Table 1 observations as the BM3 record. The published curve fits these data poorly although its coefficients are reproduced. V0 is fixed here for the reconstruction; the paper does not say the authors fixed it.",
       "status": "parity",
       "usage_recommendation": "not_recommended_for_quantitative_use",
       "weighted_sum_squares": 325.0712843547631,
@@ -47661,7 +47661,7 @@
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_equation_status": "reproduced",
-      "source_notes": "Room-temperature BM3 fit to the 15 pure-Pd Table 1 observations measured with neon as pressure medium and marker. All three BM3 parameters remain free because the source does not state that V0 was fixed. Table 2 prints 58.863(2) A^3, but Table 1, the fit paragraph, and the Figure 1 caption independently agree on 58.868(2) A^3; the repeated value is used here and the source inconsistency is documented.",
+      "source_notes": "Room-temperature BM3 fit to the 15 pure-Pd observations of Table 1, with neon as pressure medium and pressure marker.",
       "status": "parity",
       "weighted_sum_squares": 2.1345033620562193,
       "weighting": {
@@ -47763,7 +47763,7 @@
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
       "source_equation_status": "reproduced",
-      "source_notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.",
+      "source_notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd loadings in neon as the preferred Vinet record. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.",
       "status": "similar",
       "usage_recommendation": "not_recommended_for_quantitative_use"
     },
@@ -47858,7 +47858,7 @@
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
       "source_equation_status": "reproduced",
-      "source_notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3. Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.",
+      "source_notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd loadings compressed in neon in a DAC. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.",
       "status": "similar",
       "usage_recommendation": "not_recommended_for_quantitative_use"
     },
@@ -47878,7 +47878,7 @@
       "primary_source": "https://doi.org/10.1063/1.5138697",
       "reason": "The underlying pure-Pd observations are plotted but not tabulated in the accessible primary article; no numerical refit is claimed.",
       "record_identifier": "palladium_guigue_2020_vinet_1",
-      "source_notes": "Room-temperature Vinet fit to pure Pd compressed in neon during the Pd-hydride study. The paper reports V0=14.75(4) A^3/atom, K0=162(2) GPa, and K0'=6.2(9); the stored conventional-cell V0 is multiplied by four. Frost et al. identify 65 GPa as the maximum pressure of the Guigue pure-Pd study; the article title's 100 GPa refers to the broader hydride study, not the pure-Pd EOS range.",
+      "source_notes": "Room-temperature Vinet fit to pure Pd compressed in neon, from a Pd-hydride study. Published V0 = 14.75(4) Å³/atom; stored per conventional cell (×4). The pure-Pd data reach 65 GPa (as identified by Frost et al.); the 100 GPa in the article title refers to the hydride study.",
       "status": "not_refittable"
     },
     {
@@ -51072,7 +51072,7 @@
         "theta0",
         "n"
       ],
-      "label": "Matsui et al. (2009), Pt Vinet-Debye plus tabulated electronic pressure",
+      "label": "Matsui et al. (2009), Vinet-Debye + tabulated electronic pressure",
       "material_identifier": "platinum",
       "model": "Vinet",
       "observations": 35,
@@ -52057,7 +52057,7 @@
       "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
       "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
       "independent_eos_refit": false,
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
       "marker_count": 11,
       "material_identifier": "platinum",
       "model": "Holzapfel",
@@ -52158,7 +52158,7 @@
         "gamma0",
         "n"
       ],
-      "label": "Yokoo et al. (2009), Platinum PVT — diagnostic Table V reconstruction",
+      "label": "Yokoo et al. (2009), Table V P-V-T reconstruction",
       "material_identifier": "platinum",
       "model": "BM3",
       "observations": 0,
@@ -52734,7 +52734,7 @@
         "theta0",
         "n"
       ],
-      "label": "Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)",
+      "label": "Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)",
       "material_identifier": "rbbr",
       "model": "BM3",
       "objective": "iterated frozen diagonal effective P/V/T variance",
@@ -53007,7 +53007,7 @@
         "theta0",
         "n"
       ],
-      "label": "Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)",
+      "label": "Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)",
       "material_identifier": "rbcl",
       "model": "BM3",
       "objective": "iterated frozen diagonal effective P/V/T variance",
@@ -53945,7 +53945,7 @@
         "alpha_KT_ref",
         "dK_dT_V"
       ],
-      "label": "Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure",
+      "label": "Zha et al. (2004), Table III BM3 + logarithmic thermal pressure",
       "material_identifier": "rhenium",
       "model": "BM3",
       "objective": "unweighted residuals of (P-P300)/(T-300), the staged isochore construction in Section III",
@@ -54530,7 +54530,7 @@
         "alpha1",
         "dK_dT"
       ],
-      "label": "Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3",
+      "label": "Peritheos refit of Litasov et al. (2013), joint thermal BM3",
       "material_identifier": "siderite_fe095mn005",
       "model": "BM3",
       "objective": "unweighted_pressure_residuals",
@@ -56037,7 +56037,7 @@
       "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
       "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
       "independent_eos_refit": false,
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
       "marker_count": 11,
       "material_identifier": "silver",
       "model": "Holzapfel",
@@ -56085,7 +56085,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Andrault et al. (2003)",
+      "label": "Andrault et al. (2003), BM3",
       "material_identifier": "sio2_stv_andr",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -57933,7 +57933,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Cynn and Yoo (1999)",
+      "label": "Cynn and Yoo (1999), BM3",
       "material_identifier": "tantalum",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -58599,7 +58599,7 @@
       "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
       "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
       "independent_eos_refit": false,
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
       "marker_count": 11,
       "material_identifier": "tantalum",
       "model": "Holzapfel",
@@ -58728,7 +58728,7 @@
         "K0",
         "alpha_KT"
       ],
-      "label": "Chidester et al. (2018), cotunnite-type ThO2 experimental thermal EOS",
+      "label": "Chidester et al. (2018), experimental thermal BM3",
       "material_identifier": "tho2_cotunnite",
       "model": "BM3",
       "objective": "joint pressure residuals divided by fixed propagated coordinate errors including Ar 3% accuracy",
@@ -59887,7 +59887,7 @@
       "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
       "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
       "independent_eos_refit": false,
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
       "marker_count": 11,
       "material_identifier": "tungsten",
       "model": "Holzapfel",
@@ -61237,7 +61237,7 @@
         "c0",
         "s"
       ],
-      "label": "Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa",
+      "label": "Hu et al. (2019), porous-precursor Hugoniot, 85.6-245 GPa",
       "material_identifier": "cementite_nonmagnetic",
       "model": "LinearUsUpHugoniot",
       "objective": "equal_shock_velocity_residuals",

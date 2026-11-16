@@ -35,11 +35,11 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbbr_b2_farla_2025_bm3_mgd_cscl) | **reproduced** |  |
+| [Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)](#record-rbbr_b2_farla_2025_bm3_mgd_cscl) | **reproduced** |  |
 
 <a id="record-rbbr_b2_farla_2025_bm3_mgd_cscl"></a>
 
-## Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)
+## Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)
 
 **reproduced** · `rbbr_b2_farla_2025_bm3_mgd_cscl` · `BM3` · [Coefficients and source](../material-summaries/rbbr.md#record-rbbr_b2_farla_2025_bm3_mgd_cscl)
 

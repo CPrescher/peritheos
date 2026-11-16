@@ -39,17 +39,17 @@ stays in EOSMAT and the ledger.
 | [Ono (2020), 300 K Vinet](#record-argon_fcc_ono_2020_vinet) | **reproduced** |  |
 | [Xiao et al. (2025), Debye-anharmonic Helmholtz](#record-argon_fcc_xiao_2025_helmholtz) | **untested** (not refittable) |  |
 | [Errandonea et al. (2006), laser-annealed fcc BM3](#record-argon_fcc_errandonea_2006_bm3) | **untested** (not refittable) |  |
-| [Grimsditch et al. (1986), published refit of earlier X-ray density data](#record-argon_fcc_grimsditch_1986_density_polynomial) | **untested** (not refittable) |  |
+| [Grimsditch et al. (1986), X-ray density polynomial](#record-argon_fcc_grimsditch_1986_density_polynomial) | **untested** (not refittable) |  |
 | [Finger et al. (1981), second-order Murnaghan + zero-point/Debye](#record-argon_fcc_finger_1981_murnaghan2_debye) | **reproduced** |  |
 | [Anderson and Swenson (1975), 4.2 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_4p2k) | **untested** (not refittable) |  |
 | [Anderson and Swenson (1975), 20 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_20p0k) | **untested** (not refittable) |  |
 | [Anderson and Swenson (1975), 40 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_40p0k) | **untested** (not refittable) |  |
 | [Anderson and Swenson (1975), 60 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_60p0k) | **untested** (not refittable) |  |
 | [Anderson and Swenson (1975), 77 K inverse-volume series](#record-argon_fcc_anderson_swenson_1975_77p0k) | **untested** (not refittable) |  |
-| [Chen (2010) — original-constant BM3 reconstruction — DO NOT USE](#record-argon_fcc_chen_2010_bm3_reported_constants) | **untested** (not refittable) | Do not use. Never chosen automatically; select it explicitly. |
-| [Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities](#record-argon_fcc_chen_2010_bm3_digitized_refit) | **reproduced** |  |
-| [Maltby et al. (2024) — unvalidated published EOS](#record-argon_fcc_maltby_2024_published) | **untested** (not refittable) | Never chosen automatically; select it explicitly. |
-| [Provisional Peritheos BM3 refit: Ross (1986) + Errandonea (2006)](#record-argon_fcc_ross_1986_errandonea_2006_bm3_refit) | **reproduced** |  |
+| [Chen et al. (2010), BM3 rebuilt from rounded constants](#record-argon_fcc_chen_2010_bm3_reported_constants) | **untested** (not refittable) | Do not use. Never chosen automatically; select it explicitly. |
+| [Peritheos refit of Chen et al. (2010), digitized-data BM3](#record-argon_fcc_chen_2010_bm3_digitized_refit) | **reproduced** |  |
+| [Maltby et al. (2024), published EOS](#record-argon_fcc_maltby_2024_published) | **untested** (not refittable) | Never chosen automatically; select it explicitly. |
+| [Peritheos refit of Ross (1986) + Errandonea et al. (2006), BM3](#record-argon_fcc_ross_1986_errandonea_2006_bm3_refit) | **reproduced** |  |
 
 <a id="record-argon_fcc_dewaele_2021_vinet_mgd"></a>
 
@@ -227,7 +227,7 @@ Both fits use the same 19 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-argon_fcc_grimsditch_1986_density_polynomial"></a>
 
-## Grimsditch et al. (1986), published refit of earlier X-ray density data
+## Grimsditch et al. (1986), X-ray density polynomial
 
 **untested** (not refittable) · `argon_fcc_grimsditch_1986_density_polynomial` · `DensityPolynomial3` · [Coefficients and source](../material-summaries/argon_fcc.md#record-argon_fcc_grimsditch_1986_density_polynomial)
 
@@ -394,7 +394,7 @@ Both fits use the same 19 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-argon_fcc_chen_2010_bm3_reported_constants"></a>
 
-## Chen (2010) — original-constant BM3 reconstruction — DO NOT USE
+## Chen et al. (2010), BM3 rebuilt from rounded constants
 
 **untested** (not refittable) · `argon_fcc_chen_2010_bm3_reported_constants` · `BM3` · [Coefficients and source](../material-summaries/argon_fcc.md#record-argon_fcc_chen_2010_bm3_reported_constants)
 
@@ -421,7 +421,7 @@ Both fits use the same 19 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-argon_fcc_chen_2010_bm3_digitized_refit"></a>
 
-## Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities
+## Peritheos refit of Chen et al. (2010), digitized-data BM3
 
 **reproduced** · `argon_fcc_chen_2010_bm3_digitized_refit` · `BM3` · [Coefficients and source](../material-summaries/argon_fcc.md#record-argon_fcc_chen_2010_bm3_digitized_refit)
 
@@ -479,7 +479,7 @@ Both fits use the same 80 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-argon_fcc_maltby_2024_published"></a>
 
-## Maltby et al. (2024) — unvalidated published EOS
+## Maltby et al. (2024), published EOS
 
 **untested** (not refittable) · `argon_fcc_maltby_2024_published` · `Maltby2024` · [Coefficients and source](../material-summaries/argon_fcc.md#record-argon_fcc_maltby_2024_published)
 
@@ -497,7 +497,7 @@ Both fits use the same 80 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-argon_fcc_ross_1986_errandonea_2006_bm3_refit"></a>
 
-## Provisional Peritheos BM3 refit: Ross (1986) + Errandonea (2006)
+## Peritheos refit of Ross (1986) + Errandonea et al. (2006), BM3
 
 **reproduced** · `argon_fcc_ross_1986_errandonea_2006_bm3_refit` · `BM3` · [Coefficients and source](../material-summaries/argon_fcc.md#record-argon_fcc_ross_1986_errandonea_2006_bm3_refit)
 

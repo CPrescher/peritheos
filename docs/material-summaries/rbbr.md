@@ -35,13 +35,13 @@ B2 solid is not stable at ambient pressure. The reference cell is a hypothetical
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbbr_b2_farla_2025_bm3_mgd_cscl) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)](#record-rbbr_b2_farla_2025_bm3_mgd_cscl) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbbr_b2_farla_2025_bm3_mgd_cscl) | 69.31090066383636 ± 0.06642156268695387 (fixed) | 16.28 ± 0.04 | 5.28 ± 0.02 |
+| [Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)](#record-rbbr_b2_farla_2025_bm3_mgd_cscl) | 69.31090066383636 ± 0.06642156268695387 (fixed) | 16.28 ± 0.04 | 5.28 ± 0.02 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -53,7 +53,7 @@ extrapolation.
 
 <a id="record-rbbr_b2_farla_2025_bm3_mgd_cscl"></a>
 
-## Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)
+## Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)
 
 `rbbr_b2_farla_2025_bm3_mgd_cscl` · Executable
 

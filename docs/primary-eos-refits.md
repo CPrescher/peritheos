@@ -2742,7 +2742,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
 
-**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+**Registered source-fit note.** One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
@@ -2762,7 +2762,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
 
-**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+**Registered source-fit note.** One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
@@ -2782,7 +2782,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
 
-**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+**Registered source-fit note.** One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
@@ -2804,6 +2804,8 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** All 29 pressure-volume rows printed in the earlier EPSL article are bundled with the source HS/mixed/LS assignments preserved. A coupled reconstruction is similar to Table 7. Solomatova's Brillouin K0S prior is retained as a fit constraint, never as an observation.
 
+**Registered source-fit note.** High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.
+
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
 
@@ -2822,6 +2824,8 @@ the missing source fit detail is recovered.
 **Fit diagnostics.** Observed pressure range: not reported; source-declared range: not reported; fit kind: `coupled_bm3_three_level_spin_crossover`; objective: `equal-weight approximate volume residuals plus Table 2 priors`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: `V0_HS, K0_HS, K0_prime_HS, V0_LS, K0_LS, omega0`; source-fixed parameters: `K0_prime`.
 
 **Source/data scope.** All 29 pressure-volume rows printed in the earlier EPSL article are bundled with the source HS/mixed/LS assignments preserved. A coupled reconstruction is similar to Table 7. Solomatova's Brillouin K0S prior is retained as a fit constraint, never as an observation.
+
+**Registered source-fit note.** Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
@@ -2904,7 +2908,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** A redistributable 102-row subset of the unified objective is bundled: 61 of the 62 thermal-expansion rows stated by Tange, all 17 Li elasticity rows, and all 24 LASL shock rows. At the published coefficients it reproduces the reported Li and LASL group RMS residuals (1.50 and 1.37 GPa versus 1.5 and 1.4 GPa). This is partial validation, not a full global refit: the COD has 36 rather than the stated 37 Fiquet MgO rows; copyrighted Isaak, Sinogeikin, and Duffy rows are not redistributed; and Zha et al. publish polynomial summaries and figures but not the 27 V-KS rows used by Tange.
 
-**Registered source-fit note.** Fit3-Vinet is one of the two retained pressure-scale-free MgO models. K0 and theta0 are dependent quantities recalculated from the fixed 300 K KS0, alpha0, and CP0 anchors at every trial gamma0; only K0_prime, gamma0, a, and b are independent Fit3 variables. The redistributable 102-row subset validates the coupled thermal, elastic, and shock implementation but is not the complete eight-source global fit. The 2010 correction changes Figure 11 only and does not change these parameters.
+**Registered source-fit note.** Pressure-scale-free Vinet + Mie-Grüneisen-Debye EOS (Fit3 in the paper), fitted jointly to acoustic, thermal-expansion and shock data. The 2010 correction changes Figure 11 only, not these parameters.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0_prime`, `gamma0`, `a`, `b`. The point estimates nevertheless meet the numerical criterion.
@@ -2953,7 +2957,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** All 17 reported compression and decompression states are transcribed from the official publisher Table 1 file with volume ratio, density, P- and S-wave velocities, elastic moduli, calculated absolute pressure, and every printed one-standard-deviation uncertainty. The independently reported ambient density and velocities from Section 2 are retained as the acoustic-fit anchor. The density and velocity columns are the direct source-fit observations; the elastic moduli and calculated pressures are derived outputs and are excluded from coefficient refitting. The official Table 2 file was also checked; it contains the same current-study adiabatic coefficients plus earlier literature comparisons, not additional primary observations.
 
-**Registered source-fit note.** This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. It is directly reproducible through the source's actual measurement-to-coefficient chain: measured acoustic velocities and density are fitted with third-order finite-strain equations to obtain adiabatic moduli, Equation 4 converts the preferred decompression fit to isothermal K0T and K0T', and BM3 Equation 3 then calculates pressure from volume. Table 1 pressures are therefore downstream EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.
+**Registered source-fit note.** The paper's 300 K absolute-pressure scale, not a direct BM3 fit to independent P-V observations. Table 1 pressures are outputs of this EOS, not independent observations for a P-V refit. The V0 error is one standard deviation; K0 and K0' have no error because the source does not propagate one.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
@@ -3013,7 +3017,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Published Table S1 transcription is bundled with simultaneous Cu readings and volume errors: all 194 MgO and 131 NaCl-B2 measurements are in DAC-2. This accounts for the available published volume table, not necessarily every author-held fit input. The previous workbook-to-CSV audit is preserved; a new workbook download on 2026-10-17 required authentication.
 
-**Registered source-fit note.** Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.
+**Registered source-fit note.** Table II fit to the DAC-2 data, with pressures from the simultaneously measured Cu volumes.
 
 **Assessment and likely origin.**
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
@@ -3306,7 +3310,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** All 78 pressure and atomic-volume observations from supplementary Table S1 are bundled. Conventional-cell volumes are four times the published fcc atomic volumes.
 
-**Registered source-fit note.** Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.
+**Registered source-fit note.** Experimental 300 K BM3 fit. Published V0 = 14.72(4) Å³/atom; stored per conventional cell (×4).
 
 **Assessment and likely origin.**
 - The official supplementary LaTeX source confirms every bundled Table S1 value, and Equation (1) is the same standard BM3 used by Peritheos. The published curve has a 1.273 GPa pressure RMSE, versus 0.704 GPa for the all-row pressure refit. Baty et al.'s Figure 3 Frost Vinet curve also lies below 77 of the 78 Table S1 observations, with a 2.039 GPa pressure-equivalent RMSE; this confirms that the visible cross-study offset is real rather than a plotting impression. Changing to volume residuals or a deliberately generous errors-in-variables diagnostic moves K0 toward 190 GPa but does not recover all three published coefficients. Fixing the measured V0 and using only rows at or above 40 GPa gives K0=193.66 GPa and K0'=5.02, but the paper states a 0-80 GPa fit and supplies no basis for that selection. The discrepancy is therefore most consistent with undocumented weighting, constraints, row selection, or a source-side reduction inconsistency, not transcription, unit conversion, rounding, or EOS formalism. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024).
@@ -3327,7 +3331,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters.
 
-**Registered source-fit note.** Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.
+**Registered source-fit note.** Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd loadings in neon as the preferred Vinet record. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.
 
 **Assessment and likely origin.**
 - The magnitude is similar for `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
@@ -3348,7 +3352,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters.
 
-**Registered source-fit note.** Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3. Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.
+**Registered source-fit note.** Room-temperature Vinet fit to three hydrogen-free fcc-Pd loadings compressed in neon in a DAC. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.
 
 **Assessment and likely origin.**
 - The magnitude is similar for `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.

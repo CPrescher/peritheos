@@ -35,12 +35,12 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [EOS from Haines et al. 2001](#record-molybenum_carbide_mo2c_haines_2001_bm3_1) | **close** |  |
-| [Haines et al. (2001) Figure 2 direct BM3 refit](#record-molybenum_carbide_mo2c_haines_2001_bm3_refit) | **reproduced** |  |
+| [Haines et al. (2001), BM3](#record-molybenum_carbide_mo2c_haines_2001_bm3_1) | **close** |  |
+| [Peritheos refit of Haines et al. (2001), digitized-data BM3](#record-molybenum_carbide_mo2c_haines_2001_bm3_refit) | **reproduced** |  |
 
 <a id="record-molybenum_carbide_mo2c_haines_2001_bm3_1"></a>
 
-## EOS from Haines et al. 2001
+## Haines et al. (2001), BM3
 
 **close** · `molybenum_carbide_mo2c_haines_2001_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/molybenum_carbide_mo2c.md#record-molybenum_carbide_mo2c_haines_2001_bm3_1)
 
@@ -106,7 +106,7 @@ Both fits use the same 16 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-molybenum_carbide_mo2c_haines_2001_bm3_refit"></a>
 
-## Haines et al. (2001) Figure 2 direct BM3 refit
+## Peritheos refit of Haines et al. (2001), digitized-data BM3
 
 **reproduced** · `molybenum_carbide_mo2c_haines_2001_bm3_refit` · `BM3` · [Coefficients and source](../material-summaries/molybenum_carbide_mo2c.md#record-molybenum_carbide_mo2c_haines_2001_bm3_refit)
 

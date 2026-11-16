@@ -38,7 +38,7 @@ Phase reference: JCPDS 5-0702. The reference cell is constrained to the fitted 3
 | [Dewaele (2019), Re MAO-scale Vinet](#record-rhenium_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Re DOR-scale Vinet](#record-rhenium_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Sakai et al. (2018), Re Vinet on the Yokoo Pt scale](#record-rhenium_sakai_2018_yokoo_pt_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
-| [Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | BM3 + LogVolumeThermalPressure | 300.0 | reproduced |  | primary source validated | Executable |
+| [Zha et al. (2004), Table III BM3 + logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | BM3 + LogVolumeThermalPressure | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
@@ -49,7 +49,7 @@ Phase reference: JCPDS 5-0702. The reference cell is constrained to the fitted 3
 | [Dewaele (2019), Re MAO-scale Vinet](#record-rhenium_dewaele_2019_mao_vinet) | 29.474 ± 0.04 | 350.5 ± 8.0 | 3.98 ± 0.17 |
 | [Dewaele (2019), Re DOR-scale Vinet](#record-rhenium_dewaele_2019_dor_vinet) | 29.468 ± 0.04 | 350.5 ± 8.0 | 4.62 ± 0.17 |
 | [Sakai et al. (2018), Re Vinet on the Yokoo Pt scale](#record-rhenium_sakai_2018_yokoo_pt_vinet) | 29.47 (fixed) | 358.0 ± 10.0 | 4.8 ± 0.2 |
-| [Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | 29.4087 (fixed) | 360.0 (fixed) | 4.5 (fixed) |
+| [Zha et al. (2004), Table III BM3 + logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | 29.4087 (fixed) | 360.0 (fixed) | 4.5 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -520,7 +520,7 @@ Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure s
 
 <a id="record-rhenium_zha_2004_bm3_log_thermal"></a>
 
-## Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure
+## Zha et al. (2004), Table III BM3 + logarithmic thermal pressure
 
 `rhenium_zha_2004_bm3_log_thermal` · Executable
 

@@ -33,7 +33,7 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Andrault et al. (2003)](#record-sio2_stv_andr_andrault_2003_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
+| [Andrault et al. (2003), BM3](#record-sio2_stv_andr_andrault_2003_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
 | [Wang et al. (2012), principal Vinet-MGD presentation](#record-sio2_stv_andr_wang_2012_vinet_mgd_2) | Vinet + AsymptoticPowerLawMieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 | [Driver et al. (2010), QMC 300 K Vinet](#record-sio2_stv_andr_driver_2010_qmc_300k_vinet) | Vinet | 300.0 | untested |  | primary source validated | Executable |
 | [Holland et al. (2013), stv modified Tait](#record-sio2_stv_andr_holland_2013_stv_modified_tait) | ModifiedTait | 298.15 | untested |  | primary source validated | Executable |
@@ -45,7 +45,7 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Andrault et al. (2003)](#record-sio2_stv_andr_andrault_2003_bm3_1) | 46.5025 ± 0.61 | 309.9 ± 1.1 | 4.59 ± 0.23 |
+| [Andrault et al. (2003), BM3](#record-sio2_stv_andr_andrault_2003_bm3_1) | 46.5025 ± 0.61 | 309.9 ± 1.1 | 4.59 ± 0.23 |
 | [Wang et al. (2012), principal Vinet-MGD presentation](#record-sio2_stv_andr_wang_2012_vinet_mgd_2) | 46.55 (fixed) | 292.0 ± 2.0 | 5.01 ± 0.12 |
 | [Driver et al. (2010), QMC 300 K Vinet](#record-sio2_stv_andr_driver_2010_qmc_300k_vinet) | 47.12273825 ± 0.11854777 | 305.0 ± 20.0 | 3.7 ± 0.6 |
 | [Holland et al. (2013), stv modified Tait](#record-sio2_stv_andr_holland_2013_stv_modified_tait) | 46.52830466 | 309.0 | 4.6 |
@@ -63,7 +63,7 @@ extrapolation.
 
 <a id="record-sio2_stv_andr_andrault_2003_bm3_1"></a>
 
-## Andrault et al. (2003)
+## Andrault et al. (2003), BM3
 
 `sio2_stv_andr_andrault_2003_bm3_1` · Executable
 

@@ -33,15 +33,15 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [EOS from Haines et al. 2001](#record-molybenum_carbide_mo2c_haines_2001_bm3_1) | BM3 | 300.0 | close |  | primary source validated | Executable |
-| [Haines et al. (2001) Figure 2 direct BM3 refit](#record-molybenum_carbide_mo2c_haines_2001_bm3_refit) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Haines et al. (2001), BM3](#record-molybenum_carbide_mo2c_haines_2001_bm3_1) | BM3 | 300.0 | close |  | primary source validated | Executable |
+| [Peritheos refit of Haines et al. (2001), digitized-data BM3](#record-molybenum_carbide_mo2c_haines_2001_bm3_refit) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [EOS from Haines et al. 2001](#record-molybenum_carbide_mo2c_haines_2001_bm3_1) | 148.9071 ± 0.049 (fixed) | 307.0 ± 5.0 | 6.2 ± 0.3 |
-| [Haines et al. (2001) Figure 2 direct BM3 refit](#record-molybenum_carbide_mo2c_haines_2001_bm3_refit) | 148.9071 (fixed) | 325.87419826054304 ± 9.50029103042738 | 4.9092021387052664 ± 0.6513930636044009 |
+| [Haines et al. (2001), BM3](#record-molybenum_carbide_mo2c_haines_2001_bm3_1) | 148.9071 ± 0.049 (fixed) | 307.0 ± 5.0 | 6.2 ± 0.3 |
+| [Peritheos refit of Haines et al. (2001), digitized-data BM3](#record-molybenum_carbide_mo2c_haines_2001_bm3_refit) | 148.9071 (fixed) | 325.87419826054304 ± 9.50029103042738 | 4.9092021387052664 ± 0.6513930636044009 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -53,7 +53,7 @@ extrapolation.
 
 <a id="record-molybenum_carbide_mo2c_haines_2001_bm3_1"></a>
 
-## EOS from Haines et al. 2001
+## Haines et al. (2001), BM3
 
 `molybenum_carbide_mo2c_haines_2001_bm3_1` · Executable
 
@@ -128,7 +128,7 @@ Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GP
 
 <a id="record-molybenum_carbide_mo2c_haines_2001_bm3_refit"></a>
 
-## Haines et al. (2001) Figure 2 direct BM3 refit
+## Peritheos refit of Haines et al. (2001), digitized-data BM3
 
 `molybenum_carbide_mo2c_haines_2001_bm3_refit` · Executable
 

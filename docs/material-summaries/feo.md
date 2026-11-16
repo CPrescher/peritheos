@@ -34,7 +34,7 @@ B1 FeO conventional cubic structural card. Campbell (2009) and Fischer (2011) th
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [B1 iron-saturated FeO, Fischer et al. (2011)](#record-feo_fischer_2011_bm3_2) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Fischer et al. (2011), BM3, iron-saturated FeO](#record-feo_fischer_2011_bm3_2) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 | [Jacobsen et al. (2005), cubic Fe0.93O constrained BM3](#record-fe093o_b1_jacobsen_2005_bm3_1) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Leonov et al. (2017), FeO high-spin DFT+DMFT BM3](#record-feo_leonov_2017_hs_bm3_1) | BM3 | 1160 | untested |  | primary source validated | Executable |
 | [Holland et al. (2013), fper modified Tait](#record-feo_holland_2013_fper_modified_tait) | ModifiedTait | 298.15 | untested |  | primary source validated | Executable |
@@ -44,7 +44,7 @@ B1 FeO conventional cubic structural card. Campbell (2009) and Fischer (2011) th
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [B1 iron-saturated FeO, Fischer et al. (2011)](#record-feo_fischer_2011_bm3_2) | 81.4063 (fixed) | 149.4 ± 1.0 | 3.6 ± 0.04 |
+| [Fischer et al. (2011), BM3, iron-saturated FeO](#record-feo_fischer_2011_bm3_2) | 81.4063 (fixed) | 149.4 ± 1.0 | 3.6 ± 0.04 |
 | [Jacobsen et al. (2005), cubic Fe0.93O constrained BM3](#record-fe093o_b1_jacobsen_2005_bm3_1) | 79.41 ± 0.04 | 146.0 ± 2.0 | 4.0 (fixed) |
 | [Leonov et al. (2017), FeO high-spin DFT+DMFT BM3](#record-feo_leonov_2017_hs_bm3_1) | 85.4136676926 | 142 | 4.1 (fixed) |
 | [Holland et al. (2013), fper modified Tait](#record-feo_holland_2013_fper_modified_tait) | 80.1044046 | 152.0 | 4.9 |
@@ -60,7 +60,7 @@ extrapolation.
 
 <a id="record-feo_fischer_2011_bm3_2"></a>
 
-## B1 iron-saturated FeO, Fischer et al. (2011)
+## Fischer et al. (2011), BM3, iron-saturated FeO
 
 `feo_fischer_2011_bm3_2` · Executable
 

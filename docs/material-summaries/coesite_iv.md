@@ -35,14 +35,14 @@ Metastable high-pressure silica polymorph containing tetra-, penta-, and hexa-co
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | BM3 | 0.0 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Bykova et al. (2018), calculated BM3](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | BM3 | 0.0 | reproduced |  | primary source validated | Executable |
 | [Bykova et al. (2018), combined coesite-IV/V experimental BM2 at 32.7 GPa](#record-coesite_iv_v_bykova_2018_experimental_bm2_reference) | BM2Reference | 298.0 | untested | **Yes** | primary source validated | Executable; see usage qualifications |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | 438.6702 | 168.52 (fixed) | 3.34 (fixed) |
+| [Peritheos refit of Bykova et al. (2018), calculated BM3](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | 438.6702 | 168.52 (fixed) | 3.34 (fixed) |
 | [Bykova et al. (2018), combined coesite-IV/V experimental BM2 at 32.7 GPa](#record-coesite_iv_v_bykova_2018_experimental_bm2_reference) | 375.04 ± 0.48 | 254.0 ± 9.0 | — |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
@@ -55,7 +55,7 @@ extrapolation.
 
 <a id="record-coesite_iv_bykova_2018_am05_static_bm3_refit"></a>
 
-## Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states
+## Peritheos refit of Bykova et al. (2018), calculated BM3
 
 `coesite_iv_bykova_2018_am05_static_bm3_refit` · Executable
 

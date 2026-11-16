@@ -35,7 +35,7 @@ FCC phase reference: JCPDS 04-0836. The reference cell is calculated from the fi
 | --- | --- | --- | --- | --- | --- | --- |
 | [Sakai et al. (2025), Cu generalized Rydberg-Stacey scale](#record-copper_sakai_2025_rydberg_stacey_1) | RydbergStacey | 300 | untested |  | primary source validated | Executable |
 | [Dewaele et al. (2004), revised-ruby-scale Vinet](#record-copper_dewaele_2004_vinet_1) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-copper_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-copper_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Dewaele (2019), Cu MAO-scale Vinet](#record-copper_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Cu DOR-scale Vinet](#record-copper_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2004), Cu mao ruby Vinet](#record-copper_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
@@ -47,7 +47,7 @@ FCC phase reference: JCPDS 04-0836. The reference cell is calculated from the fi
 | --- | --- | --- | --- |
 | [Sakai et al. (2025), Cu generalized Rydberg-Stacey scale](#record-copper_sakai_2025_rydberg_stacey_1) | 47.218 (fixed) | 133.6 (fixed) | 5.2035 ± 0.0006 |
 | [Dewaele et al. (2004), revised-ruby-scale Vinet](#record-copper_dewaele_2004_vinet_1) | 47.24 (fixed) | 132.4 ± 1.4 | 5.32 ± 0.06 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-copper_sokolova_2013_holzapfel_2) | 47.239009578237244 | 133.5 | 5.32 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-copper_sokolova_2013_holzapfel_2) | 47.239009578237244 | 133.5 | 5.32 |
 | [Dewaele (2019), Cu MAO-scale Vinet](#record-copper_dewaele_2019_mao_vinet) | 47.24 ± 0.06 | 135.3 ± 1.5 | 4.91 ± 0.06 |
 | [Dewaele (2019), Cu DOR-scale Vinet](#record-copper_dewaele_2019_dor_vinet) | 47.24 ± 0.06 | 133.1 ± 1.5 | 5.38 ± 0.06 |
 | [Dewaele et al. (2004), Cu mao ruby Vinet](#record-copper_dewaele_2004_mao_ruby_vinet) | 47.24 (fixed) | 135.1 ± 1.1 | 4.91 ± 0.05 |
@@ -234,7 +234,7 @@ Static 298 K Vinet fit to all available Table I observations for this metal on t
 
 <a id="record-copper_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `copper_sokolova_2013_holzapfel_2` · Executable
 

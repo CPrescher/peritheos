@@ -35,13 +35,13 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Ross (1997)](#record-magnesite_ross_1997_bm3_1) | **reproduced** |  |
+| [Ross (1997), BM3](#record-magnesite_ross_1997_bm3_1) | **reproduced** |  |
 | [Vocadlo (1999), static GGA BM3](#record-magnesite_vocadlo_1999_bm3_2) | **reproduced** |  |
 | [Yu et al. (2024), BM3-MGD](#record-magnesite_yu_2024_bm3_mgd_3) | **close** |  |
 
 <a id="record-magnesite_ross_1997_bm3_1"></a>
 
-## Ross (1997)
+## Ross (1997), BM3
 
 **reproduced** · `magnesite_ross_1997_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/magnesite.md#record-magnesite_ross_1997_bm3_1)
 

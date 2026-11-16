@@ -35,7 +35,7 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/curr
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Ross (1997)](#record-magnesite_ross_1997_bm3_1) | BM3 | 298.0 | reproduced |  | primary source validated | Executable |
+| [Ross (1997), BM3](#record-magnesite_ross_1997_bm3_1) | BM3 | 298.0 | reproduced |  | primary source validated | Executable |
 | [Vocadlo (1999), static GGA BM3](#record-magnesite_vocadlo_1999_bm3_2) | BM3 | 0.0 | reproduced |  | primary source validated | Executable |
 | [Yu et al. (2024), BM3-MGD](#record-magnesite_yu_2024_bm3_mgd_3) | BM3 + MieGruneisenDebye | 300.0 | close |  | primary source validated | Executable |
 
@@ -43,7 +43,7 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/curr
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Ross (1997)](#record-magnesite_ross_1997_bm3_1) | 279.41 ± 0.08 | 117.0 ± 3.0 | 2.3 ± 0.7 |
+| [Ross (1997), BM3](#record-magnesite_ross_1997_bm3_1) | 279.41 ± 0.08 | 117.0 ± 3.0 | 2.3 ± 0.7 |
 | [Vocadlo (1999), static GGA BM3](#record-magnesite_vocadlo_1999_bm3_2) | 287.49 | 99.0 ± 0.5 | 4.28 ± 0.01 |
 | [Yu et al. (2024), BM3-MGD](#record-magnesite_yu_2024_bm3_mgd_3) | 280.71 (fixed) | 105.0 ± 2.0 | 4.49 ± 0.05 |
 
@@ -57,7 +57,7 @@ extrapolation.
 
 <a id="record-magnesite_ross_1997_bm3_1"></a>
 
-## Ross (1997)
+## Ross (1997), BM3
 
 `magnesite_ross_1997_bm3_1` · Executable
 

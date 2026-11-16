@@ -36,8 +36,8 @@ stays in EOSMAT and the ledger.
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
 | [Richet et al. (1989), (Mg0.4Fe0.6)O BM2](#record-mgfe60o_richet_1989_bm2_1) | **reproduced** |  |
-| [Solomatova et al. (2016), Lin-data high-spin BM3 reference branch](#record-mgfe60o_solomatova_2016_hs_bm3_reference_1) | **untested** (not refittable) |  |
-| [Solomatova et al. (2016), Lin-data low-spin BM3 reference branch](#record-mgfe60o_solomatova_2016_ls_bm3_reference_2) | **untested** (not refittable) |  |
+| [Solomatova et al. (2016), Lin-data HS BM3 reference branch](#record-mgfe60o_solomatova_2016_hs_bm3_reference_1) | **untested** (not refittable) |  |
+| [Solomatova et al. (2016), Lin-data LS BM3 reference branch](#record-mgfe60o_solomatova_2016_ls_bm3_reference_2) | **untested** (not refittable) |  |
 
 <a id="record-mgfe60o_richet_1989_bm2_1"></a>
 
@@ -100,7 +100,7 @@ Both fits use the same 14 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-mgfe60o_solomatova_2016_hs_bm3_reference_1"></a>
 
-## Solomatova et al. (2016), Lin-data high-spin BM3 reference branch
+## Solomatova et al. (2016), Lin-data HS BM3 reference branch
 
 **untested** (not refittable) · `mgfe60o_solomatova_2016_hs_bm3_reference_1` · `BM3` · [Coefficients and source](../material-summaries/mgfe60o.md#record-mgfe60o_solomatova_2016_hs_bm3_reference_1)
 
@@ -108,7 +108,7 @@ Both fits use the same 14 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-mgfe60o_solomatova_2016_ls_bm3_reference_2"></a>
 
-## Solomatova et al. (2016), Lin-data low-spin BM3 reference branch
+## Solomatova et al. (2016), Lin-data LS BM3 reference branch
 
 **untested** (not refittable) · `mgfe60o_solomatova_2016_ls_bm3_reference_2` · `BM3` · [Coefficients and source](../material-summaries/mgfe60o.md#record-mgfe60o_solomatova_2016_ls_bm3_reference_2)
 

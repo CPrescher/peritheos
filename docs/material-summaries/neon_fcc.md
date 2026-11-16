@@ -33,17 +33,17 @@ FCC neon; the Fei et al. (2007) primary Vinet fit is the default, with their BM3
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Fei et al PNAS 2007 \[BM3\]](#record-neon_fcc_fei_2007_bm3_1) | BM3 + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
-| [Fei et al PNAS 2007 \[Vinet\]](#record-neon_fcc_fei_2007_vinet_2) | Vinet + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
-| [Hemley et al. (1989) Table I direct 300 K BM3 refit](#record-neon_fcc_hemley_1989_bm3_refit) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Fei et al. (2007), BM3-MGD](#record-neon_fcc_fei_2007_bm3_1) | BM3 + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
+| [Fei et al. (2007), Vinet-MGD](#record-neon_fcc_fei_2007_vinet_2) | Vinet + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Hemley et al. (1989), 300 K BM3](#record-neon_fcc_hemley_1989_bm3_refit) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Fei et al PNAS 2007 \[BM3\]](#record-neon_fcc_fei_2007_bm3_1) | 88.967 (fixed) | 1.43 ± 0.14 | 8.02 ± 0.31 |
-| [Fei et al PNAS 2007 \[Vinet\]](#record-neon_fcc_fei_2007_vinet_2) | 88.967 (fixed) | 1.16 ± 0.14 | 8.23 ± 0.31 |
-| [Hemley et al. (1989) Table I direct 300 K BM3 refit](#record-neon_fcc_hemley_1989_bm3_refit) | 88.96504106290601 (fixed) | 1.7277462566083195 ± 0.22322191999036312 | 6.972110967032526 ± 0.5439133435530098 |
+| [Fei et al. (2007), BM3-MGD](#record-neon_fcc_fei_2007_bm3_1) | 88.967 (fixed) | 1.43 ± 0.14 | 8.02 ± 0.31 |
+| [Fei et al. (2007), Vinet-MGD](#record-neon_fcc_fei_2007_vinet_2) | 88.967 (fixed) | 1.16 ± 0.14 | 8.23 ± 0.31 |
+| [Peritheos refit of Hemley et al. (1989), 300 K BM3](#record-neon_fcc_hemley_1989_bm3_refit) | 88.96504106290601 (fixed) | 1.7277462566083195 ± 0.22322191999036312 | 6.972110967032526 ± 0.5439133435530098 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -55,7 +55,7 @@ extrapolation.
 
 <a id="record-neon_fcc_fei_2007_bm3_1"></a>
 
-## Fei et al PNAS 2007 \[BM3\]
+## Fei et al. (2007), BM3-MGD
 
 `neon_fcc_fei_2007_bm3_1` · Executable
 
@@ -190,7 +190,7 @@ Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal p
 
 <a id="record-neon_fcc_fei_2007_vinet_2"></a>
 
-## Fei et al PNAS 2007 \[Vinet\]
+## Fei et al. (2007), Vinet-MGD
 
 `neon_fcc_fei_2007_vinet_2` · Executable
 
@@ -327,7 +327,7 @@ Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal p
 
 <a id="record-neon_fcc_hemley_1989_bm3_refit"></a>
 
-## Hemley et al. (1989) Table I direct 300 K BM3 refit
+## Peritheos refit of Hemley et al. (1989), 300 K BM3
 
 `neon_fcc_hemley_1989_bm3_refit` · Executable
 

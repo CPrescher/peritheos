@@ -1215,3 +1215,47 @@ fn superseded_record_text_is_an_audit_block_read_like_the_others() {
         assert!(error.to_string().contains(message), "{error}");
     }
 }
+
+#[test]
+fn bundled_superseded_record_text_matches_the_sidecar() {
+    // Python reads the same sidecars (tests/test_record_text.py); both must
+    // expose each stored block unchanged through the record's audit.
+    let Some(directory) = catalog_directory() else {
+        return;
+    };
+    let mut found = 0;
+    for path in bundled_paths(&directory) {
+        let material = load_eosmat(&path).unwrap();
+        let sidecar_path = directory
+            .join("../audits")
+            .join(format!("{}.audit.json", material.identifier));
+        let sidecar: Value =
+            serde_json::from_str(&fs::read_to_string(sidecar_path).unwrap()).unwrap();
+        for record in &material.eos_records {
+            let stored = sidecar["records"]
+                .get(&record.identifier)
+                .and_then(|entry| entry.get("superseded_record_text"));
+            let audit = record.audit().unwrap();
+            assert_eq!(
+                audit.get("superseded_record_text"),
+                stored,
+                "{}",
+                record.identifier
+            );
+            found += usize::from(stored.is_some());
+        }
+    }
+    assert!(found > 0, "no bundled record keeps superseded text");
+    // The packaged Rust fixture reads its own copy of the Pd sidecar.
+    let fixture = load_eosmat(crate_directory().join("tests/data/palladium.eosmat")).unwrap();
+    let record = fixture
+        .eos_records
+        .iter()
+        .find(|record| record.identifier == "palladium_fedotenko_2020_bm2_2")
+        .unwrap();
+    assert_eq!(
+        record.audit().unwrap()["superseded_record_text"]["label"],
+        "Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)"
+    );
+    assert_eq!(record.label, "Fedotenko et al. (2020), constrained BM2");
+}

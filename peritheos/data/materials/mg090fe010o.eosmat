@@ -9,7 +9,7 @@
   "eos_records": [
     {
       "identifier": "mg090fe010o_solomatova_2016_hs_bm3_reference_1",
-      "label": "Solomatova et al. (2016), hs BM3 reference branch",
+      "label": "Solomatova et al. (2016), high-spin BM3 reference branch",
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
@@ -31,15 +31,12 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 52.1 GPa; reported 20-80% crossover width 2.3 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -61,7 +58,7 @@
     },
     {
       "identifier": "mg090fe010o_solomatova_2016_ls_bm3_reference_2",
-      "label": "Solomatova et al. (2016), ls BM3 reference branch",
+      "label": "Solomatova et al. (2016), low-spin BM3 reference branch",
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
@@ -83,15 +80,12 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 52.1 GPa; reported 20-80% crossover width 2.3 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -113,7 +107,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_hs_bm3",
-      "label": "Marquardt et al. (2009), EPSL high-spin BM3",
+      "label": "Marquardt et al. (2009), high-spin BM3",
       "check": {
         "reproduction": "untested",
         "compared": "none",
@@ -134,18 +128,14 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 43.8],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS interpretation is P < 45 GPa; last measured HS row is 43.8 GPa.",
-          "Room temperature represented as 300 K. No thermal extrapolation or mixed-spin population model."
-        ]
+        "temperature_k": [300, 300]
       },
       "experimental_pressure_range_gpa": [0.0001, 43.8],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+      "notes": "High-spin isothermal BM3 fit to XRD data below 45 GPa, with K0 constrained by room-pressure Brillouin data.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s2_elasticity"],
       "reference": {
@@ -169,7 +159,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 1",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.99",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -191,18 +181,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -233,7 +219,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 2",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.98",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -255,18 +241,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -297,7 +279,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 3",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.97",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -319,18 +301,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -361,7 +339,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 4",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.96",
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
@@ -384,18 +362,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -426,7 +400,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 5",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.99",
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
@@ -449,18 +423,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -491,7 +461,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 6",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.98",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -513,18 +483,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -555,7 +521,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 7",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.97",
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
@@ -578,18 +544,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -620,7 +582,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 8",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.96",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -642,18 +604,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -684,7 +642,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 9",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.99",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -706,18 +664,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -748,7 +702,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 10",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.98",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -770,18 +724,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -812,7 +762,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 11",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.97",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -834,18 +784,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
@@ -876,7 +822,7 @@
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_12",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 12",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.96",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -898,18 +844,14 @@
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
       "experimental_pressure_range_gpa": [63.9, 77.4],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {

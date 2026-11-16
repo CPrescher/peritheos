@@ -34,14 +34,14 @@ Body-centered-cubic niobium. The reference cell is calculated from the published
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Takemura and Singh (2006), helium-medium BM3](#record-niobium_takemura_2006_bm3_1) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-niobium_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-niobium_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Takemura and Singh (2006), helium-medium BM3](#record-niobium_takemura_2006_bm3_1) | 35.9599 ± 0.0098 (fixed) | 168.0 ± 4.0 | 3.4 ± 0.3 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-niobium_sokolova_2013_holzapfel_2) | 35.960629619878574 | 170.5 | 3.65 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-niobium_sokolova_2013_holzapfel_2) | 35.960629619878574 | 170.5 | 3.65 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -135,7 +135,7 @@ Adopted 300 K BM3 fit to the quasihydrostatic helium data through 71.5 GPa: K0=1
 
 <a id="record-niobium_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `niobium_sokolova_2013_holzapfel_2` · Executable
 

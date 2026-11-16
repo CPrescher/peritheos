@@ -59,11 +59,11 @@ stays in EOSMAT and the ledger.
 | [Wang and Weidner (1994), room-temperature BM2](#record-ca_perovskite_wang_weidner_1994_bm2) | **reproduced** |  |
 | [Caracas et al. (2005), static cubic Pm-3m BM4](#record-ca_perovskite_caracas_2005_bm4_4) | **untested** (not refittable) |  |
 | [Liu et al. (2007), cubic CaSiO3 static LDA BM3](#record-ca_perovskite_liu_2007_lda_static_bm3) | **untested** (not refittable) |  |
-| [Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)](#record-ca_perovskite_fu_2023_bm3_mgd_refit) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Fu et al. (2023), BM3-MGD, Sun (2016) + Gréaux (2019) data](#record-ca_perovskite_fu_2023_bm3_mgd_refit) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
 | [Karki and Crain (1998), static cubic CaSiO3 BM3](#record-ca_perovskite_karki_crain_1998_static_bm3) | **untested** (not refittable) |  |
-| [Ono (2013), cubic CaSiO3 BM3 plus logarithmic-volume thermal pressure](#record-ca_perovskite_ono_2013_bm3_log_thermal) | **untested** (not refittable) |  |
-| [Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data](#record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit) | **reproduced** |  |
-| [Peritheos refit of Wang (1996), BM3 + linear thermal pressure (64 points)](#record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit) | **reproduced** |  |
+| [Ono (2013), BM3 + logarithmic-volume thermal pressure](#record-ca_perovskite_ono_2013_bm3_log_thermal) | **untested** (not refittable) |  |
+| [Peritheos refit of Sun (2016) + Gréaux (2019), unweighted BM3](#record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit) | **reproduced** |  |
+| [Peritheos refit of Wang et al. (1996), BM3 + linear thermal](#record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit) | **reproduced** |  |
 
 <a id="record-ca_perovskite_mao_1989_bm3_2"></a>
 
@@ -833,7 +833,7 @@ Both fits use the same 4 recovered audit input rows. **Volume coordinate:** volu
 
 <a id="record-ca_perovskite_fu_2023_bm3_mgd_refit"></a>
 
-## Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)
+## Fu et al. (2023), BM3-MGD, Sun (2016) + Gréaux (2019) data
 
 **disagrees** · `ca_perovskite_fu_2023_bm3_mgd_refit` · `BM3` · [Coefficients and source](../material-summaries/ca_perovskite.md#record-ca_perovskite_fu_2023_bm3_mgd_refit)
 
@@ -912,7 +912,7 @@ Replay of the full unweighted seven-parameter joint audit: 140 Sun P–V–T row
 
 <a id="record-ca_perovskite_ono_2013_bm3_log_thermal"></a>
 
-## Ono (2013), cubic CaSiO3 BM3 plus logarithmic-volume thermal pressure
+## Ono (2013), BM3 + logarithmic-volume thermal pressure
 
 **untested** (not refittable) · `ca_perovskite_ono_2013_bm3_log_thermal` · `BM3` · [Coefficients and source](../material-summaries/ca_perovskite.md#record-ca_perovskite_ono_2013_bm3_log_thermal)
 
@@ -924,7 +924,7 @@ Replay of the full unweighted seven-parameter joint audit: 140 Sun P–V–T row
 
 <a id="record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"></a>
 
-## Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data
+## Peritheos refit of Sun (2016) + Gréaux (2019), unweighted BM3
 
 **reproduced** · `ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit` · `BM3` · [Coefficients and source](../material-summaries/ca_perovskite.md#record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit)
 
@@ -987,7 +987,7 @@ Replay of the full unweighted seven-parameter joint audit: 140 Sun P–V–T row
 
 <a id="record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit"></a>
 
-## Peritheos refit of Wang (1996), BM3 + linear thermal pressure (64 points)
+## Peritheos refit of Wang et al. (1996), BM3 + linear thermal
 
 **reproduced** · `ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit` · `BM3` · [Coefficients and source](../material-summaries/ca_perovskite.md#record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit)
 

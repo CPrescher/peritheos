@@ -50,7 +50,7 @@ Sakai et al. (2014) Fe0.9Ni0.1 hcp alloy. Mixed Fe/Ni occupancy on the hcp 2c si
 | [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Sakai et al. (2014), p6\_bm3](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
 | [Sakai et al. (2014), p6\_vinet](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | Vinet | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Sakai et al. (2014), BM3 + constant-gamma thermal](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type4\_2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
@@ -76,7 +76,7 @@ Sakai et al. (2014) Fe0.9Ni0.1 hcp alloy. Mixed Fe/Ni occupancy on the hcp 2c si
 | [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | 22.1 ± 0.14 (fixed) | 205.4 ± 1.9 | 4.86 ± 0.06 |
 | [Sakai et al. (2014), p6\_bm3](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | 22.17 ± 0.15 (fixed) | 191.2 ± 1.8 | 4.82 ± 0.06 |
 | [Sakai et al. (2014), p6\_vinet](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | 22.17 ± 0.15 (fixed) | 185.1 ± 1.7 | 5.31 ± 0.06 |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
+| [Sakai et al. (2014), BM3 + constant-gamma thermal](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type4\_2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
@@ -1570,7 +1570,7 @@ Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_pri
 
 <a id="record-fe09ni01_hcp_sakai_2014_type1_thermal"></a>
 
-## Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)
+## Sakai et al. (2014), BM3 + constant-gamma thermal
 
 `fe09ni01_hcp_sakai_2014_type1_thermal` · Explicit diagnostic selection; not recommended
 

@@ -36,13 +36,13 @@ Fe endmember distinct from Mg-ringwoodite and fayalite. Derived static ambient-c
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction](#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction) | BM2 | 296.15 | reproduced |  | primary source validated | Executable |
+| [Finger et al. (1979), 23 °C BM2 on measured ambient cell](#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction) | BM2 | 296.15 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction](#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction) | 558.7 ± 0.2 (fixed) | 196.0 ± 6.0 | — |
+| [Finger et al. (1979), 23 °C BM2 on measured ambient cell](#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction) | 558.7 ± 0.2 (fixed) | 196.0 ± 6.0 | — |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -54,7 +54,7 @@ extrapolation.
 
 <a id="record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"></a>
 
-## Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction
+## Finger et al. (1979), 23 °C BM2 on measured ambient cell
 
 `ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction` · Executable
 

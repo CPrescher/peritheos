@@ -38,7 +38,7 @@ stays in EOSMAT and the ledger.
 | [Zhu et al. (2020), sample 1 preferred all-observation BM2](#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1) | **reproduced** |  |
 | [Zhu et al. (2020), sample 1 after-current-step-anneal subset BM2](#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2) | **reproduced** |  |
 | [Zhu et al. (2020), sample 2 cold-compressed BM2](#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3) | **reproduced** |  |
-| [Koemets et al. (2023) single-crystal Pnma perovskite BM2](#record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4) | **reproduced** |  |
+| [Koemets et al. (2023), single-crystal Pnma perovskite BM2](#record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4) | **reproduced** |  |
 
 <a id="record-mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1"></a>
 
@@ -222,7 +222,7 @@ Both fits use the same 44 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4"></a>
 
-## Koemets et al. (2023) single-crystal Pnma perovskite BM2
+## Koemets et al. (2023), single-crystal Pnma perovskite BM2
 
 **reproduced** · `mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4` · `BM2` · [Coefficients and source](../material-summaries/mg05fe05al05si05o3_bridgmanite.md#record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4)
 

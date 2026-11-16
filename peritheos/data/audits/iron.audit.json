@@ -207,6 +207,10 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, journal page 21738; Table 3 and EOS discussion, journal pages 21739-21740."
         }
+      },
+      "superseded_record_text": {
+        "label": "(hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90",
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_shen_2026_vinet_2": {
@@ -3603,7 +3607,8 @@
             "n": "Primary thermal equation and parameter table; fixed/adopted"
           }
         }
-      }
+      },
+      "superseded_record_text": {"label": "Yamazaki et al. (2012), bm3_thermal", "superseded_on": "2026-11-16"}
     },
     "iron_yamazaki_2012_vinet_thermal": {
       "pressure_calibration": {
@@ -3767,7 +3772,8 @@
             "n": "Primary thermal equation and parameter table; fixed/adopted"
           }
         }
-      }
+      },
+      "superseded_record_text": {"label": "Yamazaki et al. (2012), vinet_thermal", "superseded_on": "2026-11-16"}
     },
     "iron_dubrovinsky_2000_bm3_thermal": {
       "pressure_calibration": {
@@ -3840,7 +3846,8 @@
             "beta3": "Primary thermal equation and parameter table; fixed/adopted"
           }
         }
-      }
+      },
+      "superseded_record_text": {"label": "Dubrovinsky et al. (2000), bm3_thermal", "superseded_on": "2026-11-16"}
     },
     "iron_dewaele_2006_bm3": {
       "pressure_calibration": {
@@ -4543,7 +4550,8 @@
             "scope": "Author-reported software settings; not printed n in the article or a recovered original session. Article prose says V0 fixed; final free V0 follows the personal communication."
           }
         }
-      }
+      },
+      "superseded_record_text": {"label": "Miozzi et al. (2020), published BM3–MGD — author-reported n=2", "superseded_on": "2026-11-16"}
     },
     "iron_miozzi_2020_tange_2009_bm3_mgd_refit": {
       "pressure_calibration": {
@@ -4767,6 +4775,10 @@
             "derived_csv_sha256": "5f0e7513c7eb6158748d7c9d9d8c96a0fb25621ba67ff5d22c7da665d5584a5a"
           }
         }
+      },
+      "superseded_record_text": {
+        "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights",
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_miozzi_2020_speziale_2001_bm3_mgd_refit": {
@@ -4992,6 +5004,10 @@
             "derived_csv_sha256": "4059a98c14548f07f9d648f8ba941d8911adf27e12792cfac5fac1e99a63c51a"
           }
         }
+      },
+      "superseded_record_text": {
+        "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1",
+        "superseded_on": "2026-11-16"
       }
     }
   }

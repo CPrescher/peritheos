@@ -34,39 +34,39 @@ CsCl-type B2 phase, cubic Pm-3m. Imported 12.08.2026 from a beamline jcpds colle
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Sakai et al. (2025), NaCl-B2 generalized Rydberg-Stacey scale](#record-nacl_b2_sakai_2025_rydberg_stacey_1) | RydbergStacey | 300 | untested |  | primary source validated | Executable |
+| [Sakai et al. (2025), generalized Rydberg-Stacey scale](#record-nacl_b2_sakai_2025_rydberg_stacey_1) | RydbergStacey | 300 | untested |  | primary source validated | Executable |
 | [Heinz and Jeanloz (1984), NaCl-B2 BM2](#record-nacl_b2_heinz_1984_bm2_1) | BM2 | Not specified | reproduced |  | primary source validated | Executable |
 | [Shen and Smith (2026), NaCl-B2 Cu-referenced Vinet](#record-nacl_b2_shen_2026_vinet_2) | Vinet | 300.0 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale](#record-nacl_b2_sakai_2014_yokoo_pt_bm3) | BM3 | 300 | untested |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_bm3) | BM3 | 300 | reproduced |  | primary source validated | Executable |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_vinet) | Vinet | 300 | reproduced |  | primary source validated | Executable |
+| [Sakai et al. (2014), BM3, Yokoo et al. (2009) Pt scale](#record-nacl_b2_sakai_2014_yokoo_pt_bm3) | BM3 | 300 | untested |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_bm3) | BM3 | 300 | reproduced |  | primary source validated | Executable |
+| [Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_vinet) | Vinet | 300 | reproduced |  | primary source validated | Executable |
 | [Sakai et al. (2011), NaCl-B2 BM3, Fei et al. (2007) Pt scale](#record-nacl_b2_sakai_2011_fei_pt_bm3) | BM3 | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale](#record-nacl_b2_sakai_2011_fei_pt_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_bm3) | BM3 | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_bm3) | BM3 | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale](#record-nacl_b2_sakai_2011_fei_pt_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_bm3) | BM3 | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_bm3) | BM3 | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Fei et al. (2007), NaCl-B2 Vinet-MGD pressure scale](#record-nacl_b2_fei_2007) | Vinet + MieGruneisenDebye | 300.0 | disagrees |  | primary source validated | Executable |
-| [Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data](#record-nacl_b2_fei_2007_staged_thermal_refit) | Vinet + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Fei et al. (2007), digitized Vinet thermal](#record-nacl_b2_fei_2007_staged_thermal_refit) | Vinet + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Sakai et al. (2025), NaCl-B2 generalized Rydberg-Stacey scale](#record-nacl_b2_sakai_2025_rydberg_stacey_1) | 39.57 ± 0.6 | 37.12 ± 3.9 | 4.637 ± 0.13 |
+| [Sakai et al. (2025), generalized Rydberg-Stacey scale](#record-nacl_b2_sakai_2025_rydberg_stacey_1) | 39.57 ± 0.6 | 37.12 ± 3.9 | 4.637 ± 0.13 |
 | [Heinz and Jeanloz (1984), NaCl-B2 BM2](#record-nacl_b2_heinz_1984_bm2_1) | 41.67 ± 3.18 | 36.2 ± 4.2 | — |
 | [Shen and Smith (2026), NaCl-B2 Cu-referenced Vinet](#record-nacl_b2_shen_2026_vinet_2) | 41.35 (fixed) | 24.92 ± 0.11 | 5.63 ± 0.02 |
-| [Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale](#record-nacl_b2_sakai_2014_yokoo_pt_bm3) | 38.34 ± 4.69 (fixed) | 45.18 ± 0.48 | 4.22 ± 0.02 |
-| [Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_bm3) | 37.73 ± 4.05 (fixed) | 47 ± 0.46 | 4.1 ± 0.02 |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_vinet) | 37.73 ± 4.05 (fixed) | 40.4 ± 0.54 | 5.04 ± 0.04 |
+| [Sakai et al. (2014), BM3, Yokoo et al. (2009) Pt scale](#record-nacl_b2_sakai_2014_yokoo_pt_bm3) | 38.34 ± 4.69 (fixed) | 45.18 ± 0.48 | 4.22 ± 0.02 |
+| [Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_bm3) | 37.73 ± 4.05 (fixed) | 47 ± 0.46 | 4.1 ± 0.02 |
+| [Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale](#record-nacl_b2_sakai_2011_matsui_pt_vinet) | 37.73 ± 4.05 (fixed) | 40.4 ± 0.54 | 5.04 ± 0.04 |
 | [Sakai et al. (2011), NaCl-B2 BM3, Fei et al. (2007) Pt scale](#record-nacl_b2_sakai_2011_fei_pt_bm3) | 37.73 ± 3.88 (fixed) | 47.8 ± 0.45 | 4.06 ± 0.02 |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale](#record-nacl_b2_sakai_2011_fei_pt_vinet) | 37.73 ± 3.88 (fixed) | 41.36 ± 0.53 | 4.96 ± 0.04 |
-| [Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_bm3) | 37.76 ± 4.21 (fixed) | 47.24 ± 0.47 | 4.14 ± 0.02 |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_vinet) | 37.76 ± 4.21 (fixed) | 40.37 ± 0.55 | 5.11 ± 0.04 |
-| [Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_bm3) | 38.01 ± 5.26 (fixed) | 43.42 ± 0.5 | 4.36 ± 0.02 |
-| [Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_vinet) | 38.01 ± 5.26 (fixed) | 36.07 ± 0.54 | 5.49 ± 0.04 |
+| [Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale](#record-nacl_b2_sakai_2011_fei_pt_vinet) | 37.73 ± 3.88 (fixed) | 41.36 ± 0.53 | 4.96 ± 0.04 |
+| [Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_bm3) | 37.76 ± 4.21 (fixed) | 47.24 ± 0.47 | 4.14 ± 0.02 |
+| [Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale](#record-nacl_b2_sakai_2011_do_pt_vinet) | 37.76 ± 4.21 (fixed) | 40.37 ± 0.55 | 5.11 ± 0.04 |
+| [Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_bm3) | 38.01 ± 5.26 (fixed) | 43.42 ± 0.5 | 4.36 ± 0.02 |
+| [Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale](#record-nacl_b2_sakai_2011_holmes_pt_vinet) | 38.01 ± 5.26 (fixed) | 36.07 ± 0.54 | 5.49 ± 0.04 |
 | [Fei et al. (2007), NaCl-B2 Vinet-MGD pressure scale](#record-nacl_b2_fei_2007) | 41.35 (fixed) | 26.86 ± 2.9 | 5.25 ± 0.26 |
-| [Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data](#record-nacl_b2_fei_2007_staged_thermal_refit) | 41.35 (fixed) | 26.88910688628862 | 5.246912395711911 |
+| [Peritheos refit of Fei et al. (2007), digitized Vinet thermal](#record-nacl_b2_fei_2007_staged_thermal_refit) | 41.35 (fixed) | 26.88910688628862 | 5.246912395711911 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -78,7 +78,7 @@ extrapolation.
 
 <a id="record-nacl_b2_sakai_2025_rydberg_stacey_1"></a>
 
-## Sakai et al. (2025), NaCl-B2 generalized Rydberg-Stacey scale
+## Sakai et al. (2025), generalized Rydberg-Stacey scale
 
 `nacl_b2_sakai_2025_rydberg_stacey_1` · Executable
 
@@ -325,7 +325,7 @@ Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K
 
 <a id="record-nacl_b2_sakai_2014_yokoo_pt_bm3"></a>
 
-## Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale
+## Sakai et al. (2014), BM3, Yokoo et al. (2009) Pt scale
 
 `nacl_b2_sakai_2014_yokoo_pt_bm3` · Pressure-scale reference variant
 
@@ -417,7 +417,7 @@ New Yokoo-Pt calibration of Sakai (2011a) NaCl-B2 observations. V0=38.34(4.69) A
 
 <a id="record-nacl_b2_sakai_2011_matsui_pt_bm3"></a>
 
-## Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale
+## Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale
 
 `nacl_b2_sakai_2011_matsui_pt_bm3` · Executable
 
@@ -512,7 +512,7 @@ Table II source-owned experimental fit to this study plus Sata et al. (2002), ex
 
 <a id="record-nacl_b2_sakai_2011_matsui_pt_vinet"></a>
 
-## Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale
+## Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale
 
 `nacl_b2_sakai_2011_matsui_pt_vinet` · Executable
 
@@ -704,7 +704,7 @@ Table II source-owned experimental fit to this study plus Sata et al. (2002), ex
 
 <a id="record-nacl_b2_sakai_2011_fei_pt_vinet"></a>
 
-## Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale
+## Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale
 
 `nacl_b2_sakai_2011_fei_pt_vinet` · Pressure-scale reference variant
 
@@ -801,7 +801,7 @@ Table II source-owned experimental fit to this study plus Sata et al. (2002), ex
 
 <a id="record-nacl_b2_sakai_2011_do_pt_bm3"></a>
 
-## Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale
+## Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale
 
 `nacl_b2_sakai_2011_do_pt_bm3` · Pressure-scale reference variant
 
@@ -898,7 +898,7 @@ Table II source-owned experimental fit to this study plus Sata et al. (2002), ex
 
 <a id="record-nacl_b2_sakai_2011_do_pt_vinet"></a>
 
-## Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale
+## Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale
 
 `nacl_b2_sakai_2011_do_pt_vinet` · Pressure-scale reference variant
 
@@ -995,7 +995,7 @@ Table II source-owned experimental fit to this study plus Sata et al. (2002), ex
 
 <a id="record-nacl_b2_sakai_2011_holmes_pt_bm3"></a>
 
-## Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale
+## Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale
 
 `nacl_b2_sakai_2011_holmes_pt_bm3` · Pressure-scale reference variant
 
@@ -1091,7 +1091,7 @@ Table II source-owned experimental fit to this study plus Sata et al. (2002), ex
 
 <a id="record-nacl_b2_sakai_2011_holmes_pt_vinet"></a>
 
-## Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale
+## Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale
 
 `nacl_b2_sakai_2011_holmes_pt_vinet` · Pressure-scale reference variant
 
@@ -1303,7 +1303,7 @@ Published coefficients retained. One NaCl formula unit and two atoms per B2 cell
 
 <a id="record-nacl_b2_fei_2007_staged_thermal_refit"></a>
 
-## Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data
+## Peritheos refit of Fei et al. (2007), digitized Vinet thermal
 
 `nacl_b2_fei_2007_staged_thermal_refit` · Executable
 

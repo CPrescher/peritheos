@@ -36,7 +36,7 @@ stays in EOSMAT and the ledger.
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
 | [Takemura and Singh (2006), helium-medium BM3](#record-niobium_takemura_2006_bm3_1) | **reproduced** |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-niobium_sokolova_2013_holzapfel_2) | **untested** (source calculation reconstructed) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-niobium_sokolova_2013_holzapfel_2) | **untested** (source calculation reconstructed) |  |
 
 <a id="record-niobium_takemura_2006_bm3_1"></a>
 
@@ -100,7 +100,7 @@ Both fits use the same 43 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-niobium_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `niobium_sokolova_2013_holzapfel_2` · `Holzapfel` · [Coefficients and source](../material-summaries/niobium.md#record-niobium_sokolova_2013_holzapfel_2)
 

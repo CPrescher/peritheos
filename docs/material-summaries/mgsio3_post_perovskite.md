@@ -39,7 +39,7 @@ Pure MgSiO3 Cmcm topology reacquired from CC0 COD 9009217 (AMCSD 0015437), Murak
 | [Ono et al. (2006), Anderson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_jamieson_bm2_4) | BM2 | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_dewaele_bm2_5) | BM2 | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3](#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3) | BM3 | 0 | untested |  | primary source validated | Executable |
+| [Akber-Knutson et al. (2005), static GGA BM3](#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3) | BM3 | 0 | untested |  | primary source validated | Executable |
 | [Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3](#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3) | BM3 | 300.0 | untested |  | primary source validated | Executable |
 | [Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3](#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3) | BM3 | 300.0 | untested |  | primary source validated | Executable |
 | [Li and Zeng (2009), GGA BM3](#record-mgsio3_post_perovskite_li_zeng_2009_gga_bm3) | BM3 | 0.0 | untested |  | primary source validated | Executable |
@@ -58,7 +58,7 @@ Pure MgSiO3 Cmcm topology reacquired from CC0 COD 9009217 (AMCSD 0015437), Murak
 | [Ono et al. (2006), Anderson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3) | 162.86 (fixed) | 237.0 ± 1.0 | — |
 | [Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_jamieson_bm2_4) | 162.86 (fixed) | 226.0 ± 1.0 | — |
 | [Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_dewaele_bm2_5) | 162.86 (fixed) | 248.0 ± 1.0 | — |
-| [Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3](#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3) | 167.32 | 204 | 4.18 |
+| [Akber-Knutson et al. (2005), static GGA BM3](#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3) | 167.32 | 204 | 4.18 |
 | [Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3](#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3) | 160.08 | 227.43 | 4.24 |
 | [Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3](#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3) | 170.24 | 194.91 | 4.24 |
 | [Li and Zeng (2009), GGA BM3](#record-mgsio3_post_perovskite_li_zeng_2009_gga_bm3) | 168.29 | 223.73 | 4.152 |
@@ -606,7 +606,7 @@ Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observat
 
 <a id="record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3"></a>
 
-## Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3
+## Akber-Knutson et al. (2005), static GGA BM3
 
 `mgsio3_post_perovskite_akber_knutson_2005_gga_bm3` · Executable
 

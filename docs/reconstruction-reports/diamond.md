@@ -35,17 +35,17 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Occelli data on the H2005 scale (Datchi et al. 2007)](#record-diamond_datchi_2007_vinet_1) | **reproduced** |  |
+| [Datchi et al. (2007), Vinet, Occelli data on H2005 scale](#record-diamond_datchi_2007_vinet_1) | **reproduced** |  |
 | [Dewaele et al. (2008), 298 K neon-medium Vinet](#record-diamond_dewaele_2008_vinet_2) | **reproduced** |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-diamond_sokolova_2013_holzapfel_3) | **untested** (source calculation reconstructed) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-diamond_sokolova_2013_holzapfel_3) | **untested** (source calculation reconstructed) |  |
 | [Correa et al. (2008), logarithmic-moment double-Debye Helmholtz](#record-diamond_correa_2008_double_debye_log_moment_5) | **disagrees** |  |
 | [Benedict et al. (2014), Vinet double-Debye Helmholtz](#record-diamond_benedict_2014_double_debye_4) | **disagrees** |  |
-| [Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)](#record-diamond_correa_2008_dewaele_anchored) | **untested** (source calculation reconstructed) |  |
-| [Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)](#record-diamond_benedict_2014_dewaele_anchored) | **untested** (source calculation reconstructed) |  |
+| [Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal](#record-diamond_correa_2008_dewaele_anchored) | **untested** (source calculation reconstructed) |  |
+| [Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal](#record-diamond_benedict_2014_dewaele_anchored) | **untested** (source calculation reconstructed) |  |
 
 <a id="record-diamond_datchi_2007_vinet_1"></a>
 
-## Occelli data on the H2005 scale (Datchi et al. 2007)
+## Datchi et al. (2007), Vinet, Occelli data on H2005 scale
 
 **reproduced** · `diamond_datchi_2007_vinet_1` · `Vinet` · [Coefficients and source](../material-summaries/diamond.md#record-diamond_datchi_2007_vinet_1)
 
@@ -188,7 +188,7 @@ Both fits use the same 23 recovered audit input rows. **Volume coordinate:** lat
 
 <a id="record-diamond_sokolova_2013_holzapfel_3"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `diamond_sokolova_2013_holzapfel_3` · `Holzapfel` · [Coefficients and source](../material-summaries/diamond.md#record-diamond_sokolova_2013_holzapfel_3)
 
@@ -375,7 +375,7 @@ Both fits use the same 96 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-diamond_correa_2008_dewaele_anchored"></a>
 
-## Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)
+## Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal
 
 **untested** (source calculation reconstructed) · `diamond_correa_2008_dewaele_anchored` · `Vinet` · [Coefficients and source](../material-summaries/diamond.md#record-diamond_correa_2008_dewaele_anchored)
 
@@ -399,7 +399,7 @@ Both fits use the same 96 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-diamond_benedict_2014_dewaele_anchored"></a>
 
-## Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)
+## Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal
 
 **untested** (source calculation reconstructed) · `diamond_benedict_2014_dewaele_anchored` · `Vinet` · [Coefficients and source](../material-summaries/diamond.md#record-diamond_benedict_2014_dewaele_anchored)
 

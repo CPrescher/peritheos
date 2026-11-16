@@ -35,14 +35,14 @@ High-pressure CsCl-type B2 RbCl. The phase is not quenchable to zero pressure. T
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Campbell and Heinz (1994), RbCl-B2 BM3](#record-rbcl_b2_campbell_1994_bm3_1) | BM3 | 298.0 | reproduced |  | primary source validated | Executable |
-| [Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Campbell and Heinz (1994), RbCl-B2 BM3](#record-rbcl_b2_campbell_1994_bm3_1) | 60.7214565241 ± 0.0183626033 (fixed) | 17.9 ± 1.0 | 5.23 ± 0.29 |
-| [Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | 60.19454118505194 ± 0.049816172015215404 (fixed) | 19.89 ± 0.08 | 5.0 ± 0.02 |
+| [Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | 60.19454118505194 ± 0.049816172015215404 (fixed) | 19.89 ± 0.08 | 5.0 ± 0.02 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -138,7 +138,7 @@ Room-temperature third-order Birch-Murnaghan fit to all 24 RbCl-B2 compression o
 
 <a id="record-rbcl_b2_farla_2025_bm3_mgd_cscl"></a>
 
-## Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)
+## Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)
 
 `rbcl_b2_farla_2025_bm3_mgd_cscl` · Executable
 

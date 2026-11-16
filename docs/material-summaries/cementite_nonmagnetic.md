@@ -34,19 +34,19 @@ High-pressure nonmagnetic Pnma Fe3C. The measured structural cell is Prescher (2
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
-| [Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | BM3 | 300 | reproduced | **Yes** | primary source validated | Executable; see usage qualifications |
-| [Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | LinearUsUpHugoniot | 300 | reproduced | **Yes** | primary source validated | Executable; see usage qualifications |
+| [Takahashi et al. (2019), KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Takahashi et al. (2019), MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sata et al. (2010), original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | BM3 | 300 | reproduced | **Yes** | primary source validated | Executable; see usage qualifications |
+| [Hu et al. (2019), porous-precursor Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | LinearUsUpHugoniot | 300 | reproduced | **Yes** | primary source validated | Executable; see usage qualifications |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | 148.8 ± 1 | 311.1 ± 17.1 | 3.4 ± 0.1 |
-| [Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | 147.3 ± 1 | 323 ± 16.6 | 3.43 ± 0.09 |
-| [Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | 149.456 | 290.0 ± 13.0 | 3.76 ± 0.18 |
-| [Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | 158.48140723178494 (fixed) | — | — |
+| [Takahashi et al. (2019), KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | 148.8 ± 1 | 311.1 ± 17.1 | 3.4 ± 0.1 |
+| [Takahashi et al. (2019), MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | 147.3 ± 1 | 323 ± 16.6 | 3.43 ± 0.09 |
+| [Sata et al. (2010), original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | 149.456 | 290.0 ± 13.0 | 3.76 ± 0.18 |
+| [Hu et al. (2019), porous-precursor Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | 158.48140723178494 (fixed) | — | — |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -58,7 +58,7 @@ extrapolation.
 
 <a id="record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd"></a>
 
-## Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD
+## Takahashi et al. (2019), KBr pressure scale, BM3 + MGD
 
 `cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd` · Executable
 
@@ -178,7 +178,7 @@ Published five-parameter fit (author fitting order unconfirmed), with theta0 fix
 
 <a id="record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd"></a>
 
-## Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD
+## Takahashi et al. (2019), MgO pressure scale, BM3 + MGD
 
 `cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd` · Pressure-scale reference variant
 
@@ -297,7 +297,7 @@ Published five-parameter fit (author fitting order unconfirmed), with theta0 fix
 
 <a id="record-cementite_nonmagnetic_sata_2010_bm3"></a>
 
-## Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3
+## Sata et al. (2010), original-scale 300 K BM3
 
 `cementite_nonmagnetic_sata_2010_bm3` · Executable; see usage qualifications
 
@@ -538,7 +538,7 @@ Conditional parameter agreement for the published Sata (2010) 300 K BM3 curve, u
 
 <a id="record-cementite_nonmagnetic_hu_2019_linear_hugoniot"></a>
 
-## Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa
+## Hu et al. (2019), porous-precursor Hugoniot, 85.6-245 GPa
 
 `cementite_nonmagnetic_hu_2019_linear_hugoniot` · Executable; see usage qualifications
 

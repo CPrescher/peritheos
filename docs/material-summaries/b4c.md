@@ -38,7 +38,7 @@ Diffraction-ready average R-3m B4C model in the conventional hexagonal setting. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [Somayazulu et al. (2023), BM3 + MGD](#record-b4c_somayazulu_2023_bm3_1) | BM3 + MieGruneisenDebye | 298.0 | disagrees |  | primary source validated | Executable |
 | [Somayazulu et al. (2023), BM3 + Berman thermal reference state](#record-b4c_somayazulu_2023_berman_2) | BM3 + AlphaKT | 298.0 | close |  | primary source validated | Executable |
-| [Somayazulu et al. (2023), BM3 + Berman public-data refit](#record-b4c_somayazulu_2023_berman_refit) | BM3 + AlphaKT | 298.0 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Somayazulu et al. (2023), BM3 + Berman](#record-b4c_somayazulu_2023_berman_refit) | BM3 + AlphaKT | 298.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
@@ -46,7 +46,7 @@ Diffraction-ready average R-3m B4C model in the conventional hexagonal setting. 
 | --- | --- | --- | --- |
 | [Somayazulu et al. (2023), BM3 + MGD](#record-b4c_somayazulu_2023_bm3_1) | 328.4 (fixed) | 221.0 ± 2.0 (fixed) | 3.3 ± 0.1 (fixed) |
 | [Somayazulu et al. (2023), BM3 + Berman thermal reference state](#record-b4c_somayazulu_2023_berman_2) | 328.4 (fixed) | 221.0 ± 2.0 (fixed) | 3.3 ± 0.1 (fixed) |
-| [Somayazulu et al. (2023), BM3 + Berman public-data refit](#record-b4c_somayazulu_2023_berman_refit) | 328.4 (fixed) | 221.0 (fixed) | 3.3 (fixed) |
+| [Peritheos refit of Somayazulu et al. (2023), BM3 + Berman](#record-b4c_somayazulu_2023_berman_refit) | 328.4 (fixed) | 221.0 (fixed) | 3.3 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -260,7 +260,7 @@ The paper calls this the Berman P-V-T fit. EosFit7 implements the Berman referen
 
 <a id="record-b4c_somayazulu_2023_berman_refit"></a>
 
-## Somayazulu et al. (2023), BM3 + Berman public-data refit
+## Peritheos refit of Somayazulu et al. (2023), BM3 + Berman
 
 `b4c_somayazulu_2023_berman_refit` · Executable
 

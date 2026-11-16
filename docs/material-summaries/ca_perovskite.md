@@ -57,11 +57,11 @@ Consolidated from the equivalent cubic CaSiO3 perovskite cards in the beamline J
 | [Wang and Weidner (1994), room-temperature BM2](#record-ca_perovskite_wang_weidner_1994_bm2) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Caracas et al. (2005), static cubic Pm-3m BM4](#record-ca_perovskite_caracas_2005_bm4_4) | BM4 | 0 | untested |  | primary source validated | Executable |
 | [Liu et al. (2007), cubic CaSiO3 static LDA BM3](#record-ca_perovskite_liu_2007_lda_static_bm3) | BM3 | 0.0 | untested |  | primary source validated | Executable |
-| [Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)](#record-ca_perovskite_fu_2023_bm3_mgd_refit) | BM3 + MieGruneisenDebye | 300.0 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Fu et al. (2023), BM3-MGD, Sun (2016) + Gréaux (2019) data](#record-ca_perovskite_fu_2023_bm3_mgd_refit) | BM3 + MieGruneisenDebye | 300.0 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
 | [Karki and Crain (1998), static cubic CaSiO3 BM3](#record-ca_perovskite_karki_crain_1998_static_bm3) | BM3 | 0.0 | untested |  | primary source validated | Executable |
-| [Ono (2013), cubic CaSiO3 BM3 plus logarithmic-volume thermal pressure](#record-ca_perovskite_ono_2013_bm3_log_thermal) | BM3 + LogVolumeThermalPressure | 300.0 | untested |  | primary source validated | Executable |
-| [Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data](#record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable; see usage qualifications |
-| [Peritheos refit of Wang (1996), BM3 + linear thermal pressure (64 points)](#record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit) | BM3 + LinearThermalPressure | 300.0 | reproduced |  | primary source validated | Executable; see usage qualifications |
+| [Ono (2013), BM3 + logarithmic-volume thermal pressure](#record-ca_perovskite_ono_2013_bm3_log_thermal) | BM3 + LogVolumeThermalPressure | 300.0 | untested |  | primary source validated | Executable |
+| [Peritheos refit of Sun (2016) + Gréaux (2019), unweighted BM3](#record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable; see usage qualifications |
+| [Peritheos refit of Wang et al. (1996), BM3 + linear thermal](#record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit) | BM3 + LinearThermalPressure | 300.0 | reproduced |  | primary source validated | Executable; see usage qualifications |
 
 ### Reference coefficients
 
@@ -91,11 +91,11 @@ Consolidated from the equivalent cubic CaSiO3 perovskite cards in the beamline J
 | [Wang and Weidner (1994), room-temperature BM2](#record-ca_perovskite_wang_weidner_1994_bm2) | 45.83 ± 0.07 | 280.0 ± 23.0 | — |
 | [Caracas et al. (2005), static cubic Pm-3m BM4](#record-ca_perovskite_caracas_2005_bm4_4) | 44.588 | 248 | 4.206 |
 | [Liu et al. (2007), cubic CaSiO3 static LDA BM3](#record-ca_perovskite_liu_2007_lda_static_bm3) | 45.46 | 240.0 | 4.15 |
-| [Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)](#record-ca_perovskite_fu_2023_bm3_mgd_refit) | 45.4 | 248.0 | 4.0 (fixed) |
+| [Fu et al. (2023), BM3-MGD, Sun (2016) + Gréaux (2019) data](#record-ca_perovskite_fu_2023_bm3_mgd_refit) | 45.4 | 248.0 | 4.0 (fixed) |
 | [Karki and Crain (1998), static cubic CaSiO3 BM3](#record-ca_perovskite_karki_crain_1998_static_bm3) | 45.34 | 241.0 | 4.14 |
-| [Ono (2013), cubic CaSiO3 BM3 plus logarithmic-volume thermal pressure](#record-ca_perovskite_ono_2013_bm3_log_thermal) | 45.58 (fixed) | 236.0 (fixed) | 3.9 (fixed) |
-| [Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data](#record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit) | 45.13462466128785 ± 0.057198106520318606 | 258.2712189512558 ± 1.4849868831105266 | 4.0 (fixed) |
-| [Peritheos refit of Wang (1996), BM3 + linear thermal pressure (64 points)](#record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit) | 45.57782732594936 ± 0.04312590406770611 | 232.34947188174428 ± 7.413360745829351 | 4.8 (fixed) |
+| [Ono (2013), BM3 + logarithmic-volume thermal pressure](#record-ca_perovskite_ono_2013_bm3_log_thermal) | 45.58 (fixed) | 236.0 (fixed) | 3.9 (fixed) |
+| [Peritheos refit of Sun (2016) + Gréaux (2019), unweighted BM3](#record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit) | 45.13462466128785 ± 0.057198106520318606 | 258.2712189512558 ± 1.4849868831105266 | 4.0 (fixed) |
+| [Peritheos refit of Wang et al. (1996), BM3 + linear thermal](#record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit) | 45.57782732594936 ± 0.04312590406770611 | 232.34947188174428 ± 7.413360745829351 | 4.8 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -2492,7 +2492,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 <a id="record-ca_perovskite_fu_2023_bm3_mgd_refit"></a>
 
-## Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)
+## Fu et al. (2023), BM3-MGD, Sun (2016) + Gréaux (2019) data
 
 `ca_perovskite_fu_2023_bm3_mgd_refit` · Explicit diagnostic selection; not recommended
 
@@ -2697,7 +2697,7 @@ LitCurate row 186 is retained as the source-owned fit. Rows 187-191 are literatu
 
 <a id="record-ca_perovskite_ono_2013_bm3_log_thermal"></a>
 
-## Ono (2013), cubic CaSiO3 BM3 plus logarithmic-volume thermal pressure
+## Ono (2013), BM3 + logarithmic-volume thermal pressure
 
 `ca_perovskite_ono_2013_bm3_log_thermal` · Executable
 
@@ -2793,7 +2793,7 @@ This is not a duplicate of the existing Shim 2000 room-temperature BM3: it is On
 
 <a id="record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"></a>
 
-## Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data
+## Peritheos refit of Sun (2016) + Gréaux (2019), unweighted BM3
 
 `ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit` · Executable; see usage qualifications
 
@@ -2902,7 +2902,7 @@ Opt-in unweighted Peritheos refit. Every scalar pressure, bulk-modulus, and shea
 
 <a id="record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit"></a>
 
-## Peritheos refit of Wang (1996), BM3 + linear thermal pressure (64 points)
+## Peritheos refit of Wang et al. (1996), BM3 + linear thermal
 
 `ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit` · Executable; see usage qualifications
 

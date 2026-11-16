@@ -36,15 +36,15 @@ Ideal fully occupied CsCl-type B2 FeSi, identified in Fischer (2014), Sections 3
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data](#record-fesi_b2_fischer_2014_bm3_refit) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
-| [Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data](#record-fesi_b2_fischer_2014_vinet_refit) | Vinet + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Fischer et al. (2014), BM3 + MGD](#record-fesi_b2_fischer_2014_bm3_refit) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Fischer et al. (2014), Vinet + MGD](#record-fesi_b2_fischer_2014_vinet_refit) | Vinet + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data](#record-fesi_b2_fischer_2014_bm3_refit) | 21.301395153706103 (fixed) | 230.94775255642202 ± 2.4268584467205403 | 4.17 (fixed) |
-| [Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data](#record-fesi_b2_fischer_2014_vinet_refit) | 21.301395153706103 (fixed) | 236.43671934531218 ± 2.4678083126749724 | 4.17 (fixed) |
+| [Peritheos refit of Fischer et al. (2014), BM3 + MGD](#record-fesi_b2_fischer_2014_bm3_refit) | 21.301395153706103 (fixed) | 230.94775255642202 ± 2.4268584467205403 | 4.17 (fixed) |
+| [Peritheos refit of Fischer et al. (2014), Vinet + MGD](#record-fesi_b2_fischer_2014_vinet_refit) | 21.301395153706103 (fixed) | 236.43671934531218 ± 2.4678083126749724 | 4.17 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -56,7 +56,7 @@ extrapolation.
 
 <a id="record-fesi_b2_fischer_2014_bm3_refit"></a>
 
-## Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data
+## Peritheos refit of Fischer et al. (2014), BM3 + MGD
 
 `fesi_b2_fischer_2014_bm3_refit` · Executable
 
@@ -165,7 +165,7 @@ Independent Peritheos refit of source observations, not Fischer's published B2 c
 
 <a id="record-fesi_b2_fischer_2014_vinet_refit"></a>
 
-## Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data
+## Peritheos refit of Fischer et al. (2014), Vinet + MGD
 
 `fesi_b2_fischer_2014_vinet_refit` · Executable
 

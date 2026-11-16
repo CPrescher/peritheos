@@ -36,14 +36,14 @@ Diffraction model combines the EOS sample first ambient a/c measurement with sep
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3](#record-siderite_fe095mn005_litasov_2013_bm3) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | BM3 + AlphaKT | 300.0 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Litasov et al. (2013), joint thermal BM3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | BM3 + AlphaKT | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3](#record-siderite_fe095mn005_litasov_2013_bm3) | 293.4 ± 0.1 (fixed) | 120.0 ± 1.0 | 3.57 ± 0.09 |
-| [Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | 293.4 (fixed) | 121.90288040577286 ± 0.8855927629328301 | 3.427642322450656 ± 0.08617420289324854 |
+| [Peritheos refit of Litasov et al. (2013), joint thermal BM3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | 293.4 (fixed) | 121.90288040577286 ± 0.8855927629328301 | 3.427642322450656 ± 0.08617420289324854 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -152,7 +152,7 @@ Source-reported 300 K isotherm, preserved without substituting refit coefficient
 
 <a id="record-siderite_fe095mn005_litasov_2013_joint_thermal_refit"></a>
 
-## Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3
+## Peritheos refit of Litasov et al. (2013), joint thermal BM3
 
 `siderite_fe095mn005_litasov_2013_joint_thermal_refit` · Executable
 

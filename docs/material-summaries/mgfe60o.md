@@ -37,16 +37,16 @@ Historical material/card import retained as provenance; the inherited hkl/d/inte
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Richet et al. (1989), (Mg0.4Fe0.6)O BM2](#record-mgfe60o_richet_1989_bm2_1) | BM2 | 298.0 | reproduced |  | primary source validated | Executable |
-| [Solomatova et al. (2016), Lin-data high-spin BM3 reference branch](#record-mgfe60o_solomatova_2016_hs_bm3_reference_1) | BM3 | 300 | untested |  | primary source validated | Executable |
-| [Solomatova et al. (2016), Lin-data low-spin BM3 reference branch](#record-mgfe60o_solomatova_2016_ls_bm3_reference_2) | BM3 | 300 | untested |  | primary source validated | Executable |
+| [Solomatova et al. (2016), Lin-data HS BM3 reference branch](#record-mgfe60o_solomatova_2016_hs_bm3_reference_1) | BM3 | 300 | untested |  | primary source validated | Executable |
+| [Solomatova et al. (2016), Lin-data LS BM3 reference branch](#record-mgfe60o_solomatova_2016_ls_bm3_reference_2) | BM3 | 300 | untested |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Richet et al. (1989), (Mg0.4Fe0.6)O BM2](#record-mgfe60o_richet_1989_bm2_1) | 78.430232810125 ± 0.0219872163 (fixed) | 149.0 ± 4.0 | — |
-| [Solomatova et al. (2016), Lin-data high-spin BM3 reference branch](#record-mgfe60o_solomatova_2016_hs_bm3_reference_1) | 77.9 ± 0.04 | 159 ± 2 | 3.82 ± 0.14 |
-| [Solomatova et al. (2016), Lin-data low-spin BM3 reference branch](#record-mgfe60o_solomatova_2016_ls_bm3_reference_2) | 73.83 ± 0.84 | 169 ± 9 | 4 (fixed) |
+| [Solomatova et al. (2016), Lin-data HS BM3 reference branch](#record-mgfe60o_solomatova_2016_hs_bm3_reference_1) | 77.9 ± 0.04 | 159 ± 2 | 3.82 ± 0.14 |
+| [Solomatova et al. (2016), Lin-data LS BM3 reference branch](#record-mgfe60o_solomatova_2016_ls_bm3_reference_2) | 73.83 ± 0.84 | 169 ± 9 | 4 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -136,7 +136,7 @@ Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. I
 
 <a id="record-mgfe60o_solomatova_2016_hs_bm3_reference_1"></a>
 
-## Solomatova et al. (2016), Lin-data high-spin BM3 reference branch
+## Solomatova et al. (2016), Lin-data HS BM3 reference branch
 
 `mgfe60o_solomatova_2016_hs_bm3_reference_1` · Executable
 
@@ -214,7 +214,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 <a id="record-mgfe60o_solomatova_2016_ls_bm3_reference_2"></a>
 
-## Solomatova et al. (2016), Lin-data low-spin BM3 reference branch
+## Solomatova et al. (2016), Lin-data LS BM3 reference branch
 
 `mgfe60o_solomatova_2016_ls_bm3_reference_2` · Executable
 

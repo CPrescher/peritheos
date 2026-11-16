@@ -35,11 +35,11 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Chidester et al. (2018), cotunnite-type ThO2 experimental thermal EOS](#record-tho2_cotunnite_chidester_2018_bm3_linear_thermal) | **reproduced** |  |
+| [Chidester et al. (2018), experimental thermal BM3](#record-tho2_cotunnite_chidester_2018_bm3_linear_thermal) | **reproduced** |  |
 
 <a id="record-tho2_cotunnite_chidester_2018_bm3_linear_thermal"></a>
 
-## Chidester et al. (2018), cotunnite-type ThO2 experimental thermal EOS
+## Chidester et al. (2018), experimental thermal BM3
 
 **reproduced** · `tho2_cotunnite_chidester_2018_bm3_linear_thermal` · `BM3` · [Coefficients and source](../material-summaries/tho2_cotunnite.md#record-tho2_cotunnite_chidester_2018_bm3_linear_thermal)
 

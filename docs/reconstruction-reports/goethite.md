@@ -35,11 +35,11 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Gleason et al. (2008)](#record-goethite_gleason_2008_bm3_1) | **disagrees** | Not recommended for quantitative use. |
+| [Gleason et al. (2008), BM3](#record-goethite_gleason_2008_bm3_1) | **disagrees** | Not recommended for quantitative use. |
 
 <a id="record-goethite_gleason_2008_bm3_1"></a>
 
-## Gleason et al. (2008)
+## Gleason et al. (2008), BM3
 
 **disagrees** · `goethite_gleason_2008_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/goethite.md#record-goethite_gleason_2008_bm3_1)
 

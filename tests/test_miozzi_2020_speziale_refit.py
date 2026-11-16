@@ -35,6 +35,7 @@ from scripts.refit_miozzi_2020_speziale import (
     ledger_outcome,
     reproduce,
 )
+from scripts.split_eosmat_audits import restore_record_text
 
 
 def test_author_n2_record_preserves_printed_coefficients_and_communication():
@@ -56,7 +57,11 @@ def test_author_n2_record_preserves_printed_coefficients_and_communication():
     native = get_eos_record(AUTHOR_ID)
     assert native.eos.n == 2
     assert native.eos.rt_eos.V0 == pytest.approx(22.81 * NA / 2e25)
-    assert author_record(raw) == raw
+    # The refit script wrote the label later shortened by a text revision;
+    # its original is kept verbatim in superseded_record_text.
+    original = json.loads(json.dumps(raw))
+    restore_record_text(original)
+    assert author_record(original) == original
 
 
 def test_speziale_derived_pressures_preserve_source_columns_and_holes():

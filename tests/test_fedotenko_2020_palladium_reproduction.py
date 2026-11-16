@@ -121,7 +121,7 @@ def test_bm2_remains_available_only_by_explicit_diagnostic_selection():
     assert raw["scientific_validation"]["data_agreement_status"] == "poor"
     assert raw["scientific_validation"]["status"] == "primary_source_validated"
     assert "Do not use" in raw["scientific_validation"]["warning"]
-    assert "poor fit; diagnostic only" in raw["label"]
+    assert "poor fit; diagnostic only" in raw["superseded_record_text"]["label"]
     assert raw["reproduction"]["assessment"]["status"] == "parity"
     assert raw["eos"] == record(rid)["eos"]
     model = get_eos_record(rid)

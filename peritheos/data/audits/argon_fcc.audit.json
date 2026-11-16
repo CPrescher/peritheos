@@ -542,6 +542,10 @@
           "c3": "Equation (6), p.7194 coefficient list. Units GPa/(g/cm^3)^3. No uncertainty/covariance reported.",
           "determination_method": "Published regression of earlier experimental X-ray density measurements. The acoustic table densities are derived from this equation, not independent fit observations."
         }
+      },
+      "superseded_record_text": {
+        "label": "Grimsditch et al. (1986), published refit of earlier X-ray density data",
+        "superseded_on": "2026-11-16"
       }
     },
     "argon_fcc_finger_1981_murnaghan2_debye": {
@@ -1120,7 +1124,8 @@
           "derivation": "P(x)=32.5325*x^3-47.415*x^(7/3)+16.8825*x^(5/3), x=rho/2.18. With D=x*d/dx, impose P=2, DP=15.1, D^2P=15.1*5.4 at x=1. Select mechanically stable zero-pressure branch.",
           "reported_parameter_uncertainties": "Source uncertainties retained in reported-values dataset. Covariance and uncertainty propagation to reconstructed coefficients are unavailable."
         }
-      }
+      },
+      "superseded_record_text": {"label": "Chen (2010) — original-constant BM3 reconstruction — DO NOT USE", "superseded_on": "2026-11-16"}
     },
     "argon_fcc_chen_2010_bm3_digitized_refit": {
       "pressure_calibration": {
@@ -1283,7 +1288,8 @@
             }
           }
         }
-      }
+      },
+      "superseded_record_text": {"label": "Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities", "superseded_on": "2026-11-16"}
     },
     "argon_fcc_maltby_2024_published": {
       "pressure_calibration": {
@@ -1337,7 +1343,8 @@
           "published_coefficients": "Fixed Tables 1 and 3, equations 4 and 7–19; no diagnostic refit coefficients substituted.",
           "determination_method": "Hybrid Helmholtz model: quantum zero-point energy and coefficients fitted to existing experimental literature; no new measured data table."
         }
-      }
+      },
+      "superseded_record_text": {"label": "Maltby et al. (2024) — unvalidated published EOS", "superseded_on": "2026-11-16"}
     },
     "argon_fcc_ross_1986_errandonea_2006_bm3_refit": {
       "pressure_calibration": {
@@ -1506,7 +1513,8 @@
           },
           "uncertainty_note": "No calibrated parameter uncertainties or covariance assigned; equal weights are an analyst choice, and fits depend strongly on the residual objective."
         }
-      }
+      },
+      "superseded_record_text": {"label": "Provisional Peritheos BM3 refit: Ross (1986) + Errandonea (2006)", "superseded_on": "2026-11-16"}
     }
   }
 }

@@ -101,7 +101,13 @@ def test_every_native_thermal_component_has_model_parameters_then_laws():
         assert canonical(document) == before, path.name
         assert format_eosmat(result) == rendered, path.name
         for original, record in zip(document["eos_records"], result["eos_records"]):
-            assert list(record)[-1] == "evidence", path.name
+            # Audit blocks close the record; replaced original text comes last.
+            last = (
+                "superseded_record_text"
+                if "superseded_record_text" in record
+                else "evidence"
+            )
+            assert list(record)[-1] == last, path.name
             if "thermal" not in record:
                 continue
             count += 1

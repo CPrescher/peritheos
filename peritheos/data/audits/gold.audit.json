@@ -697,7 +697,8 @@
           "theta0": "Fei (2007) Table 1 and Equation 3: theta0=170 K; theta(V)=theta0*(V/V0)^(-gamma(V)).",
           "thermal_parameter_errors": "Parenthetical widths in Table 1, no confidence level or covariance supplied."
         }
-      }
+      },
+      "superseded_record_text": {"label": "04-0784, Fei et al PNAS, 2007 [Vinet]", "superseded_on": "2026-11-16"}
     },
     "gold_shen_2026_vinet_3": {
       "pressure_calibration": {
@@ -970,7 +971,8 @@
             "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
           }
         ]
-      }
+      },
+      "superseded_record_text": {"label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)", "superseded_on": "2026-11-16"}
     },
     "gold_fratanduono_2021_vinet_7": {
       "pressure_calibration": {
@@ -2901,7 +2903,8 @@
           "residual_pressure": "Zero; no additional residual correction",
           "determination_method": "Independent Peritheos regression to Yokoo (2009) calculated cold/phonon/electronic table outputs. These are source-derived model checkpoints, not experimental observations or recovery of the original author optimization."
         }
-      }
+      },
+      "superseded_record_text": {"label": "Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction", "superseded_on": "2026-11-16"}
     },
     "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit": {
       "pressure_calibration": {
@@ -3074,6 +3077,10 @@
             "derived_csv_sha256": "0cbe94de992f1563bf638c621a5516a3e283144a74920f4834fa0d9062ba4cd7"
           }
         }
+      },
+      "superseded_record_text": {
+        "label": "Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO",
+        "superseded_on": "2026-11-16"
       }
     }
   }

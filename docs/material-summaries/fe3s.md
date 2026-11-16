@@ -33,13 +33,13 @@ Historical material/card import retained as provenance; the inherited hkl/d/inte
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Fei et al Am. Mineral. 85, 1830, 2000](#record-fe3s_fei_2000_bm3_1) | BM3 | Not specified | close |  | primary source validated | Executable |
+| [Fei et al. (2000), BM3](#record-fe3s_fei_2000_bm3_1) | BM3 | Not specified | close |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Fei et al Am. Mineral. 85, 1830, 2000](#record-fe3s_fei_2000_bm3_1) | 377.0 ± 0.2 | 150.0 ± 2.0 | 4.0 (fixed) |
+| [Fei et al. (2000), BM3](#record-fe3s_fei_2000_bm3_1) | 377.0 ± 0.2 | 150.0 ± 2.0 | 4.0 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -51,7 +51,7 @@ extrapolation.
 
 <a id="record-fe3s_fei_2000_bm3_1"></a>
 
-## Fei et al Am. Mineral. 85, 1830, 2000
+## Fei et al. (2000), BM3
 
 `fe3s_fei_2000_bm3_1` · Executable
 

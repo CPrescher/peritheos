@@ -38,7 +38,7 @@ Zhu et al. synthesized nominal FA50 from two runs whose recovered compositions w
 | [Zhu et al. (2020), sample 1 preferred all-observation BM2](#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Zhu et al. (2020), sample 1 after-current-step-anneal subset BM2](#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Zhu et al. (2020), sample 2 cold-compressed BM2](#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Koemets et al. (2023) single-crystal Pnma perovskite BM2](#record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4) | BM2 | 293.0 | reproduced |  | primary source validated | Executable |
+| [Koemets et al. (2023), single-crystal Pnma perovskite BM2](#record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4) | BM2 | 293.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
@@ -47,7 +47,7 @@ Zhu et al. synthesized nominal FA50 from two runs whose recovered compositions w
 | [Zhu et al. (2020), sample 1 preferred all-observation BM2](#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1) | 172.1 ± 0.4 | 229.0 ± 4.0 | — |
 | [Zhu et al. (2020), sample 1 after-current-step-anneal subset BM2](#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2) | 172.0 ± 0.7 | 230.0 ± 6.0 | — |
 | [Zhu et al. (2020), sample 2 cold-compressed BM2](#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3) | 170.7 ± 0.3 | 240.0 ± 3.0 | — |
-| [Koemets et al. (2023) single-crystal Pnma perovskite BM2](#record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4) | 171.2 ± 0.2 | 221.0 ± 3.0 | — |
+| [Koemets et al. (2023), single-crystal Pnma perovskite BM2](#record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4) | 171.2 ± 0.2 | 221.0 ± 3.0 | — |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -385,7 +385,7 @@ Non-default, metastable cold-compression comparison retained because both its co
 
 <a id="record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4"></a>
 
-## Koemets et al. (2023) single-crystal Pnma perovskite BM2
+## Koemets et al. (2023), single-crystal Pnma perovskite BM2
 
 `mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4` · Executable
 

@@ -35,9 +35,9 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Cynn and Yoo (1999)](#record-tantalum_cynn_1999_bm3_1) | **reproduced** |  |
+| [Cynn and Yoo (1999), BM3](#record-tantalum_cynn_1999_bm3_1) | **reproduced** |  |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-tantalum_shen_2026_vinet_2) | **reproduced** |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-tantalum_sokolova_2013_holzapfel_3) | **untested** (source calculation reconstructed) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-tantalum_sokolova_2013_holzapfel_3) | **untested** (source calculation reconstructed) |  |
 | [Dewaele (2019), Ta MAO-scale Vinet](#record-tantalum_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), Ta DOR-scale Vinet](#record-tantalum_dewaele_2019_dor_vinet) | **reproduced** |  |
 | [Dewaele et al. (2004), Ta mao ruby Vinet](#record-tantalum_dewaele_2004_mao_ruby_vinet) | **reproduced** |  |
@@ -45,7 +45,7 @@ stays in EOSMAT and the ledger.
 
 <a id="record-tantalum_cynn_1999_bm3_1"></a>
 
-## Cynn and Yoo (1999)
+## Cynn and Yoo (1999), BM3
 
 **reproduced** · `tantalum_cynn_1999_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/tantalum.md#record-tantalum_cynn_1999_bm3_1)
 
@@ -181,7 +181,7 @@ Both fits use the same 198 recovered audit input rows. **Volume coordinate:** un
 
 <a id="record-tantalum_sokolova_2013_holzapfel_3"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `tantalum_sokolova_2013_holzapfel_3` · `Holzapfel` · [Coefficients and source](../material-summaries/tantalum.md#record-tantalum_sokolova_2013_holzapfel_3)
 

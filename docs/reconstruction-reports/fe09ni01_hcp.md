@@ -51,7 +51,7 @@ stays in EOSMAT and the ledger.
 | [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | **reproduced** |  |
 | [Sakai et al. (2014), p6\_bm3](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | **disagrees** |  |
 | [Sakai et al. (2014), p6\_vinet](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | **disagrees** |  |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Sakai et al. (2014), BM3 + constant-gamma thermal](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type4\_2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
@@ -876,7 +876,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_type1_thermal"></a>
 
-## Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)
+## Sakai et al. (2014), BM3 + constant-gamma thermal
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type1_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type1_thermal)
 

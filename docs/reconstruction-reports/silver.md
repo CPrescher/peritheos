@@ -37,7 +37,7 @@ stays in EOSMAT and the ledger.
 | --- | --- | --- |
 | [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-silver_dewaele_2008_table4_vinet) | **reproduced** |  |
 | [Dewaele (2019), Mao-scale Vinet; historical 2008 identifier](#record-silver_dewaele_2008_vinet_1) | **reproduced** |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | **untested** (source calculation reconstructed) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | **untested** (source calculation reconstructed) |  |
 | [Dewaele (2019), Ag MAO-scale Vinet](#record-silver_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), Ag DOR-scale Vinet](#record-silver_dewaele_2019_dor_vinet) | **reproduced** |  |
 | [Dewaele et al. (2008), Table IV Vinet, US K0=101 GPa fixed](#record-silver_dewaele_2008_table4_us_k0_101_vinet) | **reproduced** |  |
@@ -196,7 +196,7 @@ Both fits use the same 34 recovered audit input rows. **Volume coordinate:** ato
 
 <a id="record-silver_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `silver_sokolova_2013_holzapfel_2` · `Holzapfel` · [Coefficients and source](../material-summaries/silver.md#record-silver_sokolova_2013_holzapfel_2)
 

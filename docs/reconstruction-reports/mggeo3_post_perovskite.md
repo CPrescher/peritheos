@@ -36,8 +36,8 @@ stays in EOSMAT and the ledger.
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
 | [Kubo et al. (2006), MgGeO3 post-perovskite preferred BM3](#record-mggeo3_post_perovskite_kubo_2006_bm3_1) | **reproduced** |  |
-| [Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit](#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2) | **reproduced** |  |
-| [Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)](#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1) | **reproduced** |  |
+| [Kubo et al. (2006), BM2 with K0'=4, sensitivity fit](#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2) | **reproduced** |  |
+| [Hirose et al. (2005), BM3 with fixed K0'](#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1) | **reproduced** |  |
 | [Hirose et al. (2005), MgGeO3 post-perovskite BM3 (free)](#record-mggeo3_post_perovskite_hirose_2005_bm3_free_2) | **close** |  |
 
 <a id="record-mggeo3_post_perovskite_kubo_2006_bm3_1"></a>
@@ -102,7 +102,7 @@ Both fits use the same 22 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2"></a>
 
-## Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit
+## Kubo et al. (2006), BM2 with K0'=4, sensitivity fit
 
 **reproduced** · `mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2` · `BM2` · [Coefficients and source](../material-summaries/mggeo3_post_perovskite.md#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2)
 
@@ -162,7 +162,7 @@ Both fits use the same 22 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1"></a>
 
-## Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)
+## Hirose et al. (2005), BM3 with fixed K0'
 
 **reproduced** · `mggeo3_post_perovskite_hirose_2005_bm3_fixed_1` · `BM3` · [Coefficients and source](../material-summaries/mggeo3_post_perovskite.md#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1)
 

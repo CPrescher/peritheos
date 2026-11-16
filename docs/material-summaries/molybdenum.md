@@ -35,7 +35,7 @@ Ambient bcc phase reference: JCPDS 42-1120.
 | --- | --- | --- | --- | --- | --- | --- |
 | [Sakai et al. (2025), Mo generalized Rydberg-Stacey scale](#record-molybdenum_sakai_2025_rydberg_stacey_1) | RydbergStacey | 300 | untested |  | primary source validated | Executable |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-molybdenum_shen_2026_vinet_1) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-molybdenum_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-molybdenum_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Dewaele (2019), Mo MAO-scale Vinet](#record-molybdenum_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Mo DOR-scale Vinet](#record-molybdenum_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Dorfman et al. (2012), Mo K0-fixed Vinet](#record-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet) | Vinet | 300.0 | disagrees |  | primary source validated | Executable |
@@ -49,7 +49,7 @@ Ambient bcc phase reference: JCPDS 42-1120.
 | --- | --- | --- | --- |
 | [Sakai et al. (2025), Mo generalized Rydberg-Stacey scale](#record-molybdenum_sakai_2025_rydberg_stacey_1) | 31.12 (fixed) | 261 (fixed) | 4.141 ± 0.009 |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-molybdenum_shen_2026_vinet_1) | 31.14 (fixed) | 260.6 ± 0.5 | 4.06 ± 0.02 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-molybdenum_sokolova_2013_holzapfel_2) | 31.115177217273953 | 260.0 | 4.2 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-molybdenum_sokolova_2013_holzapfel_2) | 31.115177217273953 | 260.0 | 4.2 |
 | [Dewaele (2019), Mo MAO-scale Vinet](#record-molybdenum_dewaele_2019_mao_vinet) | 31.138 ± 0.042 | 270.3 ± 3.9 | 3.34 ± 0.12 |
 | [Dewaele (2019), Mo DOR-scale Vinet](#record-molybdenum_dewaele_2019_dor_vinet) | 31.134 ± 0.042 | 269.3 ± 3.9 | 3.87 ± 0.12 |
 | [Dorfman et al. (2012), Mo K0-fixed Vinet](#record-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet) | 31.17 (fixed) | 261.0 (fixed) | 4.19 ± 0.02 |
@@ -237,7 +237,7 @@ Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncerta
 
 <a id="record-molybdenum_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `molybdenum_sokolova_2013_holzapfel_2` · Executable
 

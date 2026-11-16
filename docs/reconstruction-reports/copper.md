@@ -37,7 +37,7 @@ stays in EOSMAT and the ledger.
 | --- | --- | --- |
 | [Sakai et al. (2025), Cu generalized Rydberg-Stacey scale](#record-copper_sakai_2025_rydberg_stacey_1) | **untested** (not refittable) |  |
 | [Dewaele et al. (2004), revised-ruby-scale Vinet](#record-copper_dewaele_2004_vinet_1) | **reproduced** |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-copper_sokolova_2013_holzapfel_2) | **untested** (source calculation reconstructed) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-copper_sokolova_2013_holzapfel_2) | **untested** (source calculation reconstructed) |  |
 | [Dewaele (2019), Cu MAO-scale Vinet](#record-copper_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), Cu DOR-scale Vinet](#record-copper_dewaele_2019_dor_vinet) | **reproduced** |  |
 | [Dewaele et al. (2004), Cu mao ruby Vinet](#record-copper_dewaele_2004_mao_ruby_vinet) | **reproduced** |  |
@@ -117,7 +117,7 @@ Both fits use the same 42 recovered audit input rows. **Volume coordinate:** ato
 
 <a id="record-copper_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `copper_sokolova_2013_holzapfel_2` · `Holzapfel` · [Coefficients and source](../material-summaries/copper.md#record-copper_sokolova_2013_holzapfel_2)
 

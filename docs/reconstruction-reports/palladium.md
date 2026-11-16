@@ -38,7 +38,7 @@ stays in EOSMAT and the ledger.
 | [Baty et al. (2024), 0 K DFT BM3](#record-palladium_baty_2024_bm3_dft_2) | **untested** (not refittable) |  |
 | [Guigue et al. (2020), Vinet](#record-palladium_guigue_2020_vinet_1) | **untested** (not refittable) |  |
 | [Fedotenko et al. (2020), BM3](#record-palladium_fedotenko_2020_bm3_1) | **reproduced** |  |
-| [Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)](#record-palladium_fedotenko_2020_bm2_2) | **reproduced**, poor data agreement | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Fedotenko et al. (2020), constrained BM2](#record-palladium_fedotenko_2020_bm2_2) | **reproduced**, poor data agreement | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
 | [Frost et al. (2023), Vinet](#record-palladium_frost_2023_vinet_1) | **close** | Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly. |
 | [Frost et al. (2023), BM3](#record-palladium_frost_2023_bm3_2) | **close** | Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly. |
 | [Baty et al. (2024), BM3](#record-palladium_baty_2024_bm3_1) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
@@ -142,7 +142,7 @@ Both fits use the same 15 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-palladium_fedotenko_2020_bm2_2"></a>
 
-## Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)
+## Fedotenko et al. (2020), constrained BM2
 
 **reproduced**, poor data agreement · `palladium_fedotenko_2020_bm2_2` · `BM2` · [Coefficients and source](../material-summaries/palladium.md#record-palladium_fedotenko_2020_bm2_2)
 

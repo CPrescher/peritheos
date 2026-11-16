@@ -37,7 +37,7 @@ Platinum (JCPDS 4-0802, EOS from Holmes)
 | [Holmes et al. (1989), theoretical 300 K Vinet scale](#record-platinum_holmes_1989_vinet_1) | Vinet + LinearThermalPressure | 300.0 | untested |  | primary source validated | Executable |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-platinum_shen_2026_vinet_2) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dorogokupets and Oganov (2007), Vinet four-oscillator thermal scale](#record-platinum_dorogokupets_oganov_2007_vinet_4) | Vinet + DorogokupetsOganov2007 | 298.15 | untested |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-platinum_sokolova_2013_holzapfel_3) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-platinum_sokolova_2013_holzapfel_3) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Dewaele (2019), Pt MAO-scale Vinet](#record-platinum_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Pt DOR-scale Vinet](#record-platinum_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2004), Pt mao ruby Vinet](#record-platinum_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
@@ -49,11 +49,11 @@ Platinum (JCPDS 4-0802, EOS from Holmes)
 | [Fei et al. (2004), platinum BM3-MGD on Speziale MgO scale](#record-platinum_fei_2004_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | disagrees |  | primary source validated | Executable |
 | [Fei et al. (2004), preliminary 300 K Pt BM3](#record-platinum_fei_2004_bm3_300k) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Matsui et al. (2009), Pt Vinet reference isotherm, 300 K](#record-platinum_matsui_2009_vinet_300k) | Vinet | 300.0 | untested |  | primary source validated | Executable |
-| [Matsui et al. (2009), Pt Vinet-Debye plus tabulated electronic pressure](#record-platinum_matsui_2009_vinet_mgd_electronic) | Vinet + DebyeTabulatedThermalPressure | 300.0 | untested |  | primary source validated | Executable |
+| [Matsui et al. (2009), Vinet-Debye + tabulated electronic pressure](#record-platinum_matsui_2009_vinet_mgd_electronic) | Vinet + DebyeTabulatedThermalPressure | 300.0 | untested |  | primary source validated | Executable |
 | [Fei et al. (2007), Pt Vinet reference isotherm, 300 K](#record-platinum_fei_2007_vinet_300k) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Fei et al. (2007), Pt Vinet-MGD thermal pressure scale](#record-platinum_fei_2007_vinet_mgd) | Vinet + MieGruneisenDebye | 300.0 | disagrees |  | primary source validated | Executable |
 | [Yokoo et al. (2009), Pt fitted Vinet isotherm, 300 K](#record-platinum_yokoo_2009_vinet_300k) | Vinet | 300.0 | untested |  | primary source validated | Executable |
-| [Yokoo et al. (2009), Platinum PVT — diagnostic Table V reconstruction](#record-platinum_yokoo_2009_pvt_reconstruction) | BM3 + AsymptoticDebyeTabulatedPressure | Not specified | untested | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Yokoo et al. (2009), Table V P-V-T reconstruction](#record-platinum_yokoo_2009_pvt_reconstruction) | BM3 + AsymptoticDebyeTabulatedPressure | Not specified | untested | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
 
 ### Reference coefficients
 
@@ -63,7 +63,7 @@ Platinum (JCPDS 4-0802, EOS from Holmes)
 | [Holmes et al. (1989), theoretical 300 K Vinet scale](#record-platinum_holmes_1989_vinet_1) | 60.4000884 (fixed) | 266.1033333333333 | 5.807933333333334 |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-platinum_shen_2026_vinet_2) | 60.364 (fixed) | 261.2 ± 0.5 | 5.75 ± 0.02 |
 | [Dorogokupets and Oganov (2007), Vinet four-oscillator thermal scale](#record-platinum_dorogokupets_oganov_2007_vinet_4) | 60.38384263870976 | 276.07 | 5.3 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-platinum_sokolova_2013_holzapfel_3) | 60.383835218750676 | 275.0 | 5.35 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-platinum_sokolova_2013_holzapfel_3) | 60.383835218750676 | 275.0 | 5.35 |
 | [Dewaele (2019), Pt MAO-scale Vinet](#record-platinum_dewaele_2019_mao_vinet) | 60.396 ± 0.1 | 273.4 ± 2.5 | 4.83 ± 0.08 |
 | [Dewaele (2019), Pt DOR-scale Vinet](#record-platinum_dewaele_2019_dor_vinet) | 60.392 ± 0.1 | 270.8 ± 2.5 | 5.5 ± 0.08 |
 | [Dewaele et al. (2004), Pt mao ruby Vinet](#record-platinum_dewaele_2004_mao_ruby_vinet) | 60.38 (fixed) | 275.3 ± 2.0 | 4.78 ± 0.08 |
@@ -75,11 +75,11 @@ Platinum (JCPDS 4-0802, EOS from Holmes)
 | [Fei et al. (2004), platinum BM3-MGD on Speziale MgO scale](#record-platinum_fei_2004_bm3_mgd) | 60.38 ± 0.01 | 273 ± 3.0 | 4.8 ± 0.3 |
 | [Fei et al. (2004), preliminary 300 K Pt BM3](#record-platinum_fei_2004_bm3_300k) | 60.38 ± 0.01 | 290.0 ± 10.0 | 2.7 ± 0.9 |
 | [Matsui et al. (2009), Pt Vinet reference isotherm, 300 K](#record-platinum_matsui_2009_vinet_300k) | 60.38 (fixed) | 273.0 | 5.2 |
-| [Matsui et al. (2009), Pt Vinet-Debye plus tabulated electronic pressure](#record-platinum_matsui_2009_vinet_mgd_electronic) | 60.38 (fixed) | 273.0 | 5.2 |
+| [Matsui et al. (2009), Vinet-Debye + tabulated electronic pressure](#record-platinum_matsui_2009_vinet_mgd_electronic) | 60.38 (fixed) | 273.0 | 5.2 |
 | [Fei et al. (2007), Pt Vinet reference isotherm, 300 K](#record-platinum_fei_2007_vinet_300k) | 60.38 ± 0.01 (fixed) | 277.0 (fixed) | 5.08 ± 0.02 |
 | [Fei et al. (2007), Pt Vinet-MGD thermal pressure scale](#record-platinum_fei_2007_vinet_mgd) | 60.38 ± 0.01 | 277.0 (fixed) | 5.08 ± 0.02 |
 | [Yokoo et al. (2009), Pt fitted Vinet isotherm, 300 K](#record-platinum_yokoo_2009_vinet_300k) | 60.55 (fixed) | 276.4 | 5.48 |
-| [Yokoo et al. (2009), Platinum PVT — diagnostic Table V reconstruction](#record-platinum_yokoo_2009_pvt_reconstruction) | 60.17580150980359 | 288.4 (fixed) | 5.05 (fixed) |
+| [Yokoo et al. (2009), Table V P-V-T reconstruction](#record-platinum_yokoo_2009_pvt_reconstruction) | 60.17580150980359 | 288.4 (fixed) | 5.05 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -483,7 +483,7 @@ Complete equations (6)-(14) Pt pressure scale. The published molar V0=9.091 cm^3
 
 <a id="record-platinum_sokolova_2013_holzapfel_3"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `platinum_sokolova_2013_holzapfel_3` · Executable
 
@@ -1651,7 +1651,7 @@ Exact 300 K reference isotherm only, not the full Matsui thermal EOS. Table II V
 
 <a id="record-platinum_matsui_2009_vinet_mgd_electronic"></a>
 
-## Matsui et al. (2009), Pt Vinet-Debye plus tabulated electronic pressure
+## Matsui et al. (2009), Vinet-Debye + tabulated electronic pressure
 
 `platinum_matsui_2009_vinet_mgd_electronic` · Executable
 
@@ -2075,7 +2075,7 @@ Published Table IV fitted 300 K Vinet branch: K0=276.4 GPa, K0\_prime=5.48. V0=6
 
 <a id="record-platinum_yokoo_2009_pvt_reconstruction"></a>
 
-## Yokoo et al. (2009), Platinum PVT — diagnostic Table V reconstruction
+## Yokoo et al. (2009), Table V P-V-T reconstruction
 
 `platinum_yokoo_2009_pvt_reconstruction` · Explicit diagnostic selection; not recommended
 

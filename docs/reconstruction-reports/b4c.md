@@ -37,7 +37,7 @@ stays in EOSMAT and the ledger.
 | --- | --- | --- |
 | [Somayazulu et al. (2023), BM3 + MGD](#record-b4c_somayazulu_2023_bm3_1) | **disagrees** |  |
 | [Somayazulu et al. (2023), BM3 + Berman thermal reference state](#record-b4c_somayazulu_2023_berman_2) | **close** |  |
-| [Somayazulu et al. (2023), BM3 + Berman public-data refit](#record-b4c_somayazulu_2023_berman_refit) | **reproduced** |  |
+| [Peritheos refit of Somayazulu et al. (2023), BM3 + Berman](#record-b4c_somayazulu_2023_berman_refit) | **reproduced** |  |
 
 <a id="record-b4c_somayazulu_2023_bm3_1"></a>
 
@@ -168,7 +168,7 @@ Both fits use the same 41 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-b4c_somayazulu_2023_berman_refit"></a>
 
-## Somayazulu et al. (2023), BM3 + Berman public-data refit
+## Peritheos refit of Somayazulu et al. (2023), BM3 + Berman
 
 **reproduced** · `b4c_somayazulu_2023_berman_refit` · `BM3` · [Coefficients and source](../material-summaries/b4c.md#record-b4c_somayazulu_2023_berman_refit)
 

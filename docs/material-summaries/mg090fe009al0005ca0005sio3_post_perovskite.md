@@ -36,14 +36,14 @@ Shieh et al. synthesized this phase from natural orthopyroxene (Mg1.80Fe0.18Al0.
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Shieh et al. (2006), preferred second-order Eulerian finite-strain fit](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Shieh et al. (2006), preferred BM2](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Shieh et al. (2006), K0'=4.4 sensitivity BM3](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Shieh et al. (2006), preferred second-order Eulerian finite-strain fit](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1) | 164.9 ± 0.6 | 219.0 ± 5.0 | — |
+| [Shieh et al. (2006), preferred BM2](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1) | 164.9 ± 0.6 | 219.0 ± 5.0 | — |
 | [Shieh et al. (2006), K0'=4.4 sensitivity BM3](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2) | 166.2 ± 0.7 | 198.0 ± 5.0 | 4.4 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
@@ -56,7 +56,7 @@ extrapolation.
 
 <a id="record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1"></a>
 
-## Shieh et al. (2006), preferred second-order Eulerian finite-strain fit
+## Shieh et al. (2006), preferred BM2
 
 `mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1` · Executable
 

@@ -35,7 +35,7 @@ The lattice parameter is calculated from the fitted 298 K atomic reference volum
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Dewaele et al. (2004), revised-ruby Vinet](#record-aluminum_dewaele_2004_vinet_1) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-aluminum_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-aluminum_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Dewaele (2019), Al MAO-scale Vinet](#record-aluminum_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Al DOR-scale Vinet](#record-aluminum_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2004), Al mao ruby Vinet](#record-aluminum_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
@@ -45,7 +45,7 @@ The lattice parameter is calculated from the fitted 298 K atomic reference volum
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Dewaele et al. (2004), revised-ruby Vinet](#record-aluminum_dewaele_2004_vinet_1) | 66.292 (fixed) | 74.3 ± 1.1 | 4.47 ± 0.06 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-aluminum_sokolova_2013_holzapfel_2) | 66.28871141603032 | 72.8 | 4.51 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-aluminum_sokolova_2013_holzapfel_2) | 66.28871141603032 | 72.8 | 4.51 |
 | [Dewaele (2019), Al MAO-scale Vinet](#record-aluminum_dewaele_2019_mao_vinet) | 66.292 ± 0.076 | 76.32 ± 1.5 | 4.16 ± 0.06 |
 | [Dewaele (2019), Al DOR-scale Vinet](#record-aluminum_dewaele_2019_dor_vinet) | 66.336 ± 0.076 | 74.2 ± 1.5 | 4.52 ± 0.06 |
 | [Dewaele et al. (2004), Al mao ruby Vinet](#record-aluminum_dewaele_2004_mao_ruby_vinet) | 66.292 (fixed) | 76.3 ± 1.1 | 4.16 ± 0.05 |
@@ -149,7 +149,7 @@ Static 298 K Vinet fit to all available Table I observations for this metal on t
 
 <a id="record-aluminum_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `aluminum_sokolova_2013_holzapfel_2` · Executable
 

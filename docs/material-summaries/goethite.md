@@ -33,13 +33,13 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Gleason et al. (2008)](#record-goethite_gleason_2008_bm3_1) | BM3 + MieGruneisenDebye | 300.0 | disagrees | **Yes** | primary source validated | Executable; not recommended for quantitative use |
+| [Gleason et al. (2008), BM3](#record-goethite_gleason_2008_bm3_1) | BM3 + MieGruneisenDebye | 300.0 | disagrees | **Yes** | primary source validated | Executable; not recommended for quantitative use |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Gleason et al. (2008)](#record-goethite_gleason_2008_bm3_1) | 138.75 ± 0.02 (fixed) | 140.3 ± 3.7 | 4.6 ± 0.4 |
+| [Gleason et al. (2008), BM3](#record-goethite_gleason_2008_bm3_1) | 138.75 ± 0.02 (fixed) | 140.3 ± 3.7 | 4.6 ± 0.4 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -51,7 +51,7 @@ extrapolation.
 
 <a id="record-goethite_gleason_2008_bm3_1"></a>
 
-## Gleason et al. (2008)
+## Gleason et al. (2008), BM3
 
 `goethite_gleason_2008_bm3_1` · Executable; not recommended for quantitative use
 

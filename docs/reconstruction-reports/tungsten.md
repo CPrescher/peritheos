@@ -38,7 +38,7 @@ stays in EOSMAT and the ledger.
 | [Sakai et al. (2025), W generalized Rydberg-Stacey scale](#record-tungsten_sakai_2025_rydberg_stacey_1) | **untested** (not refittable) |  |
 | [Dewaele et al. (2004), Vinet](#record-tungsten_dewaele_2004_vinet_2) | **reproduced** |  |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-tungsten_shen_2026_vinet_3) | **reproduced** |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-tungsten_sokolova_2013_holzapfel_4) | **untested** (source calculation reconstructed) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-tungsten_sokolova_2013_holzapfel_4) | **untested** (source calculation reconstructed) |  |
 | [Dewaele (2019), W MAO-scale Vinet](#record-tungsten_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), W DOR-scale Vinet](#record-tungsten_dewaele_2019_dor_vinet) | **reproduced** |  |
 | [Dewaele et al. (2004), W mao ruby Vinet](#record-tungsten_dewaele_2004_mao_ruby_vinet) | **reproduced** |  |
@@ -198,7 +198,7 @@ Both fits use the same 335 recovered audit input rows. **Volume coordinate:** un
 
 <a id="record-tungsten_sokolova_2013_holzapfel_4"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `tungsten_sokolova_2013_holzapfel_4` · `Holzapfel` · [Coefficients and source](../material-summaries/tungsten.md#record-tungsten_sokolova_2013_holzapfel_4)
 

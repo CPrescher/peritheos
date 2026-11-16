@@ -34,7 +34,7 @@ iron
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Sakai et al. (2025), Fe-hcp generalized Rydberg-Stacey scale](#record-iron_sakai_2025_rydberg_stacey_1) | RydbergStacey | 300 | untested |  | primary source validated | Executable |
-| [(hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90](#record-iron_mao_1990_bm3_1) | BM3 | Not specified | close |  | primary source validated | Executable |
+| [Mao et al. (1990), BM3](#record-iron_mao_1990_bm3_1) | BM3 | Not specified | close |  | primary source validated | Executable |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-iron_shen_2026_vinet_2) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Fe MAO-scale Vinet](#record-iron_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Fe DOR-scale Vinet](#record-iron_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
@@ -61,23 +61,23 @@ iron
 | [Sakai et al. (2014), p5\_vinet](#record-iron_sakai_2014_p5_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Sakai et al. (2014), p6\_bm3](#record-iron_sakai_2014_p6_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
 | [Sakai et al. (2014), p6\_vinet](#record-iron_sakai_2014_p6_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Yamazaki et al. (2012), bm3\_thermal](#record-iron_yamazaki_2012_bm3_thermal) | BM3 + Dewaele2006 | 300 | disagrees |  | primary source validated | Executable |
-| [Yamazaki et al. (2012), vinet\_thermal](#record-iron_yamazaki_2012_vinet_thermal) | Vinet + Dewaele2006 | 300 | disagrees |  | primary source validated | Executable |
-| [Dubrovinsky et al. (2000), bm3\_thermal](#record-iron_dubrovinsky_2000_bm3_thermal) | BM3 + AlphaKT | 300 | untested |  | primary source validated | Executable |
+| [Yamazaki et al. (2012), BM3 + thermal](#record-iron_yamazaki_2012_bm3_thermal) | BM3 + Dewaele2006 | 300 | disagrees |  | primary source validated | Executable |
+| [Yamazaki et al. (2012), Vinet + thermal](#record-iron_yamazaki_2012_vinet_thermal) | Vinet + Dewaele2006 | 300 | disagrees |  | primary source validated | Executable |
+| [Dubrovinsky et al. (2000), BM3 + thermal](#record-iron_dubrovinsky_2000_bm3_thermal) | BM3 + AlphaKT | 300 | untested |  | primary source validated | Executable |
 | [Dewaele et al. (2006), bm3](#record-iron_dewaele_2006_bm3) | BM3 | 300 | reproduced |  | primary source validated | Executable |
 | [Brown et al. (2000), nominal-iron steel linear Hugoniot, solid subset](#record-iron_brown_2000_linear_hugoniot) | LinearUsUpHugoniot | 300 | reproduced |  | primary source validated | Executable |
 | [Miozzi et al. (2020), 300 K BM3 (not reproduced)](#record-iron_miozzi_2020_bm3) | BM3 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
 | [Miozzi et al. (2020), 300 K Vinet (not reproduced)](#record-iron_miozzi_2020_vinet) | Vinet | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Miozzi et al. (2020), published BM3–MGD — author-reported n=2](#record-iron_miozzi_2020_bm3_mgd) | BM3 + MieGruneisenDebye | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights](#record-iron_miozzi_2020_tange_2009_bm3_mgd_refit) | BM3 + MieGruneisenDebye | 300 | reproduced |  | primary source validated | Executable |
-| [Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1](#record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit) | BM3 + MieGruneisenDebye | 300 | reproduced |  | primary source validated | Executable |
+| [Miozzi et al. (2020), BM3-MGD, author-reported n=2](#record-iron_miozzi_2020_bm3_mgd) | BM3 + MieGruneisenDebye | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Peritheos refit of Miozzi et al. (2020), Tange MgO scale](#record-iron_miozzi_2020_tange_2009_bm3_mgd_refit) | BM3 + MieGruneisenDebye | 300 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Miozzi et al. (2020), Speziale MgO scale](#record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit) | BM3 + MieGruneisenDebye | 300 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Sakai et al. (2025), Fe-hcp generalized Rydberg-Stacey scale](#record-iron_sakai_2025_rydberg_stacey_1) | 22.42 ± 0.06 | 161.9 ± 4.5 | 5.51 ± 0.08 |
-| [(hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90](#record-iron_mao_1990_bm3_1) | 22.35 ± 0.03 | 165.0 ± 4.0 | 5.33 ± 0.09 |
+| [Mao et al. (1990), BM3](#record-iron_mao_1990_bm3_1) | 22.35 ± 0.03 | 165.0 ± 4.0 | 5.33 ± 0.09 |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-iron_shen_2026_vinet_2) | 22.352 (fixed) | 168.55 ± 0.6 | 5.53 ± 0.03 |
 | [Dewaele (2019), Fe MAO-scale Vinet](#record-iron_dewaele_2019_mao_vinet) | 22.418 ± 0.1 | 164.5 ± 7.9 | 4.96 ± 0.16 |
 | [Dewaele (2019), Fe DOR-scale Vinet](#record-iron_dewaele_2019_dor_vinet) | 22.354 ± 0.1 | 168.4 ± 7.9 | 5.33 ± 0.16 |
@@ -104,16 +104,16 @@ iron
 | [Sakai et al. (2014), p5\_vinet](#record-iron_sakai_2014_p5_vinet) | 22.1 ± 0.17 (fixed) | 190.8 ± 2.4 | 5.39 ± 0.13 |
 | [Sakai et al. (2014), p6\_bm3](#record-iron_sakai_2014_p6_bm3) | 22.21 ± 0.23 (fixed) | 171.7 ± 2.4 | 5.49 ± 0.15 |
 | [Sakai et al. (2014), p6\_vinet](#record-iron_sakai_2014_p6_vinet) | 22.21 ± 0.23 (fixed) | 167.2 ± 2.2 | 5.93 ± 0.13 |
-| [Yamazaki et al. (2012), bm3\_thermal](#record-iron_yamazaki_2012_bm3_thermal) | 22.15 ± 0.05 | 202 ± 7 | 4.5 ± 0.2 |
-| [Yamazaki et al. (2012), vinet\_thermal](#record-iron_yamazaki_2012_vinet_thermal) | 22.17 ± 0.06 | 196 ± 8 | 4.8 ± 0.2 |
-| [Dubrovinsky et al. (2000), bm3\_thermal](#record-iron_dubrovinsky_2000_bm3_thermal) | 22.35085584415998 ± 0.033210781343476936 | 155.55970381432394 | 5.81 ± 0.06 |
+| [Yamazaki et al. (2012), BM3 + thermal](#record-iron_yamazaki_2012_bm3_thermal) | 22.15 ± 0.05 | 202 ± 7 | 4.5 ± 0.2 |
+| [Yamazaki et al. (2012), Vinet + thermal](#record-iron_yamazaki_2012_vinet_thermal) | 22.17 ± 0.06 | 196 ± 8 | 4.8 ± 0.2 |
+| [Dubrovinsky et al. (2000), BM3 + thermal](#record-iron_dubrovinsky_2000_bm3_thermal) | 22.35085584415998 ± 0.033210781343476936 | 155.55970381432394 | 5.81 ± 0.06 |
 | [Dewaele et al. (2006), bm3](#record-iron_dewaele_2006_bm3) | 22.468 ± 0.024 | 165.0 (fixed) | 4.97 ± 0.04 |
 | [Brown et al. (2000), nominal-iron steel linear Hugoniot, solid subset](#record-iron_brown_2000_linear_hugoniot) | 23.62619215447732 (fixed) | — | — |
 | [Miozzi et al. (2020), 300 K BM3 (not reproduced)](#record-iron_miozzi_2020_bm3) | 22.8 ± 0.02 | 129 ± 6 | 6.2 ± 0.2 |
 | [Miozzi et al. (2020), 300 K Vinet (not reproduced)](#record-iron_miozzi_2020_vinet) | 22.81 | 125 ± 5 | 6.5 ± 0.2 |
-| [Miozzi et al. (2020), published BM3–MGD — author-reported n=2](#record-iron_miozzi_2020_bm3_mgd) | 22.81 ± 0.06642156268695387 | 129 ± 1 | 6.24 ± 0.04 |
-| [Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights](#record-iron_miozzi_2020_tange_2009_bm3_mgd_refit) | 22.57831922472848 ± 0.09211600958124483 | 150.48486842978744 ± 8.628764287974398 | 5.801500847494674 ± 0.26640528345081493 |
-| [Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1](#record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit) | 22.703126324406085 ± 0.09841980257431894 | 139.41957474644457 ± 8.365236896636842 | 5.86995978066269 ± 0.27378034810130303 |
+| [Miozzi et al. (2020), BM3-MGD, author-reported n=2](#record-iron_miozzi_2020_bm3_mgd) | 22.81 ± 0.06642156268695387 | 129 ± 1 | 6.24 ± 0.04 |
+| [Peritheos refit of Miozzi et al. (2020), Tange MgO scale](#record-iron_miozzi_2020_tange_2009_bm3_mgd_refit) | 22.57831922472848 ± 0.09211600958124483 | 150.48486842978744 ± 8.628764287974398 | 5.801500847494674 ± 0.26640528345081493 |
+| [Peritheos refit of Miozzi et al. (2020), Speziale MgO scale](#record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit) | 22.703126324406085 ± 0.09841980257431894 | 139.41957474644457 ± 8.365236896636842 | 5.86995978066269 ± 0.27378034810130303 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -214,7 +214,7 @@ Table 2 source parameterization. The source fixes most ambient V0 and K0 values 
 
 <a id="record-iron_mao_1990_bm3_1"></a>
 
-## (hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90
+## Mao et al. (1990), BM3
 
 `iron_mao_1990_bm3_1` · Executable
 
@@ -2850,7 +2850,7 @@ Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_pri
 
 <a id="record-iron_yamazaki_2012_bm3_thermal"></a>
 
-## Yamazaki et al. (2012), bm3\_thermal
+## Yamazaki et al. (2012), BM3 + thermal
 
 `iron_yamazaki_2012_bm3_thermal` · Executable
 
@@ -2970,7 +2970,7 @@ Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. T
 
 <a id="record-iron_yamazaki_2012_vinet_thermal"></a>
 
-## Yamazaki et al. (2012), vinet\_thermal
+## Yamazaki et al. (2012), Vinet + thermal
 
 `iron_yamazaki_2012_vinet_thermal` · Executable
 
@@ -3090,7 +3090,7 @@ Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. T
 
 <a id="record-iron_dubrovinsky_2000_bm3_thermal"></a>
 
-## Dubrovinsky et al. (2000), bm3\_thermal
+## Dubrovinsky et al. (2000), BM3 + thermal
 
 `iron_dubrovinsky_2000_bm3_thermal` · Executable
 
@@ -3615,7 +3615,7 @@ Published coefficients are preserved, but the supplied primary observations are 
 
 <a id="record-iron_miozzi_2020_bm3_mgd"></a>
 
-## Miozzi et al. (2020), published BM3–MGD — author-reported n=2
+## Miozzi et al. (2020), BM3-MGD, author-reported n=2
 
 `iron_miozzi_2020_bm3_mgd` · Explicit diagnostic selection; not recommended
 
@@ -3754,7 +3754,7 @@ Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.
 
 <a id="record-iron_miozzi_2020_tange_2009_bm3_mgd_refit"></a>
 
-## Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights
+## Peritheos refit of Miozzi et al. (2020), Tange MgO scale
 
 `iron_miozzi_2020_tange_2009_bm3_mgd_refit` · Executable
 
@@ -3882,7 +3882,7 @@ Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe ob
 
 <a id="record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit"></a>
 
-## Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1
+## Peritheos refit of Miozzi et al. (2020), Speziale MgO scale
 
 `iron_miozzi_2020_speziale_2001_bm3_mgd_refit` · Executable
 

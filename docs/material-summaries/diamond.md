@@ -33,25 +33,25 @@ Phase reference: diamond, JCPDS 6-0675.
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Occelli data on the H2005 scale (Datchi et al. 2007)](#record-diamond_datchi_2007_vinet_1) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
+| [Datchi et al. (2007), Vinet, Occelli data on H2005 scale](#record-diamond_datchi_2007_vinet_1) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele et al. (2008), 298 K neon-medium Vinet](#record-diamond_dewaele_2008_vinet_2) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-diamond_sokolova_2013_holzapfel_3) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-diamond_sokolova_2013_holzapfel_3) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Correa et al. (2008), logarithmic-moment double-Debye Helmholtz](#record-diamond_correa_2008_double_debye_log_moment_5) | Vinet + DoubleDebyeLogMomentHelmholtz | 300.0 | disagrees |  | primary source validated | Executable |
 | [Benedict et al. (2014), Vinet double-Debye Helmholtz](#record-diamond_benedict_2014_double_debye_4) | Vinet + DoubleDebyeHelmholtz | 300.0 | disagrees |  | primary source validated | Executable |
-| [Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)](#record-diamond_correa_2008_dewaele_anchored) | Vinet + DoubleDebyeLogMomentHelmholtz | 298.0 | untested |  | primary source validated | Executable |
-| [Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)](#record-diamond_benedict_2014_dewaele_anchored) | Vinet + DoubleDebyeHelmholtz | 298.0 | untested |  | primary source validated | Executable |
+| [Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal](#record-diamond_correa_2008_dewaele_anchored) | Vinet + DoubleDebyeLogMomentHelmholtz | 298.0 | untested |  | primary source validated | Executable |
+| [Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal](#record-diamond_benedict_2014_dewaele_anchored) | Vinet + DoubleDebyeHelmholtz | 298.0 | untested |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Occelli data on the H2005 scale (Datchi et al. 2007)](#record-diamond_datchi_2007_vinet_1) | 45.3864 (fixed) | 443.0 ± 3.0 | 3.97 ± 0.05 |
+| [Datchi et al. (2007), Vinet, Occelli data on H2005 scale](#record-diamond_datchi_2007_vinet_1) | 45.3864 (fixed) | 443.0 ± 3.0 | 3.97 ± 0.05 |
 | [Dewaele et al. (2008), 298 K neon-medium Vinet](#record-diamond_dewaele_2008_vinet_2) | 45.3544 ± 0.0128 | 444.5 (fixed) | 4.18 ± 0.15 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-diamond_sokolova_2013_holzapfel_3) | 45.35396586081546 | 441.5 | 3.9 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-diamond_sokolova_2013_holzapfel_3) | 45.35396586081546 | 441.5 | 3.9 |
 | [Correa et al. (2008), logarithmic-moment double-Debye Helmholtz](#record-diamond_correa_2008_double_debye_log_moment_5) | 46.28 | 368.2 | 4.038 |
 | [Benedict et al. (2014), Vinet double-Debye Helmholtz](#record-diamond_benedict_2014_double_debye_4) | 45.6272 | 432.4 | 3.793 |
-| [Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)](#record-diamond_correa_2008_dewaele_anchored) | 45.3544 ± 0.006530612244897959 | 444.5 | 4.18 ± 0.07653061224489796 |
-| [Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)](#record-diamond_benedict_2014_dewaele_anchored) | 45.3544 ± 0.006530612244897959 | 444.5 | 4.18 ± 0.07653061224489796 |
+| [Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal](#record-diamond_correa_2008_dewaele_anchored) | 45.3544 ± 0.006530612244897959 | 444.5 | 4.18 ± 0.07653061224489796 |
+| [Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal](#record-diamond_benedict_2014_dewaele_anchored) | 45.3544 ± 0.006530612244897959 | 444.5 | 4.18 ± 0.07653061224489796 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -63,7 +63,7 @@ extrapolation.
 
 <a id="record-diamond_datchi_2007_vinet_1"></a>
 
-## Occelli data on the H2005 scale (Datchi et al. 2007)
+## Datchi et al. (2007), Vinet, Occelli data on H2005 scale
 
 `diamond_datchi_2007_vinet_1` · Executable
 
@@ -238,7 +238,7 @@ Independent single-crystal XRD fit in neon to 80 GPa; K0 was fixed to the isothe
 
 <a id="record-diamond_sokolova_2013_holzapfel_3"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `diamond_sokolova_2013_holzapfel_3` · Executable
 
@@ -529,7 +529,7 @@ Complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generi
 
 <a id="record-diamond_correa_2008_dewaele_anchored"></a>
 
-## Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)
+## Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal
 
 `diamond_correa_2008_dewaele_anchored` · Executable
 
@@ -649,7 +649,7 @@ Derived reference-isotherm composition: P(V,T)=P\_Dewaele(V,298 K)+P\_Correa(V,T
 
 <a id="record-diamond_benedict_2014_dewaele_anchored"></a>
 
-## Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)
+## Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal
 
 `diamond_benedict_2014_dewaele_anchored` · Executable
 

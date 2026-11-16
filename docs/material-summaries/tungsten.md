@@ -36,7 +36,7 @@ Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is t
 | [Sakai et al. (2025), W generalized Rydberg-Stacey scale](#record-tungsten_sakai_2025_rydberg_stacey_1) | RydbergStacey | 300 | untested |  | primary source validated | Executable |
 | [Dewaele et al. (2004), Vinet](#record-tungsten_dewaele_2004_vinet_2) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-tungsten_shen_2026_vinet_3) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-tungsten_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-tungsten_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Dewaele (2019), W MAO-scale Vinet](#record-tungsten_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), W DOR-scale Vinet](#record-tungsten_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2004), W mao ruby Vinet](#record-tungsten_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
@@ -48,7 +48,7 @@ Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is t
 | [Sakai et al. (2025), W generalized Rydberg-Stacey scale](#record-tungsten_sakai_2025_rydberg_stacey_1) | 31.724 (fixed) | 296 (fixed) | 4.415 ± 0.016 |
 | [Dewaele et al. (2004), Vinet](#record-tungsten_dewaele_2004_vinet_2) | 31.724 (fixed) | 295.2 ± 3.9 | 4.32 ± 0.11 |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-tungsten_shen_2026_vinet_3) | 31.704 (fixed) | 307.0 ± 0.8 | 4.02 ± 0.03 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-tungsten_sokolova_2013_holzapfel_4) | 31.72293444117844 | 308.0 | 4.12 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-tungsten_sokolova_2013_holzapfel_4) | 31.72293444117844 | 308.0 | 4.12 |
 | [Dewaele (2019), W MAO-scale Vinet](#record-tungsten_dewaele_2019_mao_vinet) | 31.724 ± 0.032 | 298.3 ± 4.1 | 3.82 ± 0.11 |
 | [Dewaele (2019), W DOR-scale Vinet](#record-tungsten_dewaele_2019_dor_vinet) | 31.716 ± 0.032 | 298.6 ± 4.1 | 4.37 ± 0.11 |
 | [Dewaele et al. (2004), W mao ruby Vinet](#record-tungsten_dewaele_2004_mao_ruby_vinet) | 31.724 (fixed) | 298.3 ± 3.6 | 3.81 ± 0.1 |
@@ -320,7 +320,7 @@ Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncerta
 
 <a id="record-tungsten_sokolova_2013_holzapfel_4"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `tungsten_sokolova_2013_holzapfel_4` · Executable
 

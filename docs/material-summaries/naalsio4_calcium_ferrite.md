@@ -33,13 +33,13 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Dubrovinsky et al. (2002)](#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
+| [Dubrovinsky et al. (2002), BM3](#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Dubrovinsky et al. (2002)](#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1) | 242.9573 ± 0.1328 | 220.0 ± 1.0 | 4.1 ± 0.1 |
+| [Dubrovinsky et al. (2002), BM3](#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1) | 242.9573 ± 0.1328 | 220.0 ± 1.0 | 4.1 ± 0.1 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -51,7 +51,7 @@ extrapolation.
 
 <a id="record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1"></a>
 
-## Dubrovinsky et al. (2002)
+## Dubrovinsky et al. (2002), BM3
 
 `naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1` · Executable
 

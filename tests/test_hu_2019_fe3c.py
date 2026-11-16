@@ -30,6 +30,7 @@ from scripts.hu_2019_fe3c import (
     observations,
     reproduce,
 )
+from scripts.split_eosmat_audits import restore_record_text
 from scripts.standardize_reconstruction_metadata import assessment_for_record
 
 
@@ -97,7 +98,11 @@ def test_saved_record_assessment_matches_ledger_and_existing_default(
     r = next(x for x in d["eos_records"] if x["identifier"] == IDENTIFIER)
     # v4 exports write an explicit default flag beside default_for.
     assert r.pop("default") is True
-    assert_record_replay_close(r, catalog_record())
+    # The integration script wrote the label later shortened by a text
+    # revision; its original is kept verbatim in superseded_record_text.
+    restored = copy.deepcopy(r)
+    restore_record_text(restored)
+    assert_record_replay_close(restored, catalog_record())
     entry = next(
         x
         for x in json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())[

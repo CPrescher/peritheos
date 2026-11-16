@@ -37,9 +37,9 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Dewaele et al. (2004), revised-ruby Vinet](#record-gold_dewaele_2004_vinet_5) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
 | [Takemura and Dewaele (2008), Dorogokupets-ruby Vinet](#record-gold_takemura_2008_vinet_6) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Anderson et al. (1989), Au logarithmic-volume thermal EOS](#record-gold_anderson_1989_bm3_1) | BM3 + LogVolumeThermalPressure | 300.0 | untested |  | primary source validated | Executable |
-| [04-0784, Fei et al PNAS, 2007 \[Vinet\]](#record-gold_fei_2007_vinet_2) | Vinet + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
+| [Fei et al. (2007), Vinet-MGD](#record-gold_fei_2007_vinet_2) | Vinet + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-gold_shen_2026_vinet_3) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Fratanduono et al. (2021), ramp-derived 298 K Vinet](#record-gold_fratanduono_2021_vinet_7) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Au MAO-scale Vinet](#record-gold_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
@@ -54,8 +54,8 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Fei et al. (2004), gold BM3-MGD on Speziale MgO scale](#record-gold_fei_2004_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | untested |  | primary source validated | Executable |
 | [Yokoo et al. (2009), Au fitted BM3 isotherm, 300 K](#record-gold_yokoo_2009_bm3_300k) | BM3 | 300.0 | untested |  | primary source validated | Executable |
 | [Yokoo et al. (2009), Au fitted Vinet isotherm, 300 K](#record-gold_yokoo_2009_vinet_300k) | Vinet | 300.0 | untested |  | primary source validated | Executable |
-| [Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | BM3 + AsymptoticDebyeTabulatedPressure | Not specified | untested | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | BM3 + AlphaKT | 300 | reproduced |  | primary source validated | Executable |
+| [Yokoo et al. (2009), Table III P-V-T reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | BM3 + AsymptoticDebyeTabulatedPressure | Not specified | untested | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Peritheos refit of Hirose et al. (2008) + Fei (2004), BM3](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | BM3 + AlphaKT | 300 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
@@ -65,9 +65,9 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Dewaele et al. (2004), revised-ruby Vinet](#record-gold_dewaele_2004_vinet_5) | 67.848 (fixed) | 167.0 (fixed) | 6.0 ± 0.02 |
 | [Takemura and Dewaele (2008), Dorogokupets-ruby Vinet](#record-gold_takemura_2008_vinet_6) | 67.848 (fixed) | 167.0 (fixed) | 5.9 ± 0.1 |
 | [Anderson et al. (1989), Au logarithmic-volume thermal EOS](#record-gold_anderson_1989_bm3_1) | 67.79 (fixed) | 166.65 (fixed) | 5.4823 (fixed) |
-| [04-0784, Fei et al PNAS, 2007 \[Vinet\]](#record-gold_fei_2007_vinet_2) | 67.85 ± 0.004 | 167.0 (fixed) | 6.0 ± 0.02 |
+| [Fei et al. (2007), Vinet-MGD](#record-gold_fei_2007_vinet_2) | 67.85 ± 0.004 | 167.0 (fixed) | 6.0 ± 0.02 |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-gold_shen_2026_vinet_3) | 67.792 (fixed) | 167.5 ± 0.3 | 5.85 ± 0.01 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | 67.84961794736972 | 167.0 | 5.9 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | 67.84961794736972 | 167.0 | 5.9 |
 | [Fratanduono et al. (2021), ramp-derived 298 K Vinet](#record-gold_fratanduono_2021_vinet_7) | 67.716 (fixed) | 170.9 ± 0.24 | 5.88 ± 0.005 |
 | [Dewaele (2019), Au MAO-scale Vinet](#record-gold_dewaele_2019_mao_vinet) | 67.932 ± 0.08 | 166.4 ± 2.0 | 5.47 ± 0.06 |
 | [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | 67.944 ± 0.08 | 163.4 ± 2.0 | 6.04 ± 0.06 |
@@ -82,8 +82,8 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Fei et al. (2004), gold BM3-MGD on Speziale MgO scale](#record-gold_fei_2004_bm3_mgd) | 67.85 ± 0.004 (fixed) | 167 ± 3.0 (fixed) | 5 ± 0.2 (fixed) |
 | [Yokoo et al. (2009), Au fitted BM3 isotherm, 300 K](#record-gold_yokoo_2009_bm3_300k) | 67.72 (fixed) | 167.5 | 5.79 |
 | [Yokoo et al. (2009), Au fitted Vinet isotherm, 300 K](#record-gold_yokoo_2009_vinet_300k) | 67.72 (fixed) | 167.5 | 5.94 |
-| [Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | 67.05486228267088 | 180.0 (fixed) | 5.610130908250963 |
-| [Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | 67.85 (fixed) | 167 (fixed) | 5.581150323572888 |
+| [Yokoo et al. (2009), Table III P-V-T reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | 67.05486228267088 | 180.0 (fixed) | 5.610130908250963 |
+| [Peritheos refit of Hirose et al. (2008) + Fei (2004), BM3](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | 67.85 (fixed) | 167 (fixed) | 5.581150323572888 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -488,7 +488,7 @@ Anderson et al. Equation (29): the adopted 300 K BM3 curve KT0=166.65 GPa and K0
 
 <a id="record-gold_fei_2007_vinet_2"></a>
 
-## 04-0784, Fei et al PNAS, 2007 \[Vinet\]
+## Fei et al. (2007), Vinet-MGD
 
 `gold_fei_2007_vinet_2` · Executable
 
@@ -695,7 +695,7 @@ Table II Cu-referenced fit using DAC-1 data; V0 fixed. Reported uncertainties: K
 
 <a id="record-gold_sokolova_2013_holzapfel_4"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `gold_sokolova_2013_holzapfel_4` · Executable
 
@@ -2201,7 +2201,7 @@ Published Table II fitted 300 K Vinet branch: K0=167.5 GPa, K0\_prime=5.94. V0=6
 
 <a id="record-gold_yokoo_2009_pvt_reconstruction"></a>
 
-## Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction
+## Yokoo et al. (2009), Table III P-V-T reconstruction
 
 `gold_yokoo_2009_pvt_reconstruction` · Explicit diagnostic selection; not recommended
 
@@ -2313,7 +2313,7 @@ Diagnostic reconstruction of Yokoo (2009) Table III calculated PVT outputs; publ
 
 <a id="record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit"></a>
 
-## Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO
+## Peritheos refit of Hirose et al. (2008) + Fei (2004), BM3
 
 `gold_hirose_2008_fei_2004_speziale_2001_bm3_refit` · Executable
 

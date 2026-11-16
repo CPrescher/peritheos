@@ -37,7 +37,7 @@ def test_integration_preserves_utf8_catalog_and_source_values(
     identifier = "argon_fcc_chen_2010_bm3_digitized_refit"
     source = original_root / f"peritheos/data/materials/{material}.eosmat"
     before_bytes = source.read_bytes()
-    assert "—" in before_bytes.decode("utf-8")
+    assert "–" in before_bytes.decode("utf-8")
     destination = tmp_path / source.relative_to(original_root)
     destination.parent.mkdir(parents=True)
     destination.write_bytes(before_bytes)
@@ -74,7 +74,7 @@ def test_integration_preserves_utf8_catalog_and_source_values(
         for record in document["eos_records"]:
             record["evidence"]["reproduction"].pop("assessment", None)
     assert before == after
-    assert "—" in (
+    assert "–" in (
         destination.read_bytes() + (audits / sidecar.name).read_bytes()
     ).decode("utf-8")
     json.loads(ledger_path.read_bytes().decode("utf-8"))

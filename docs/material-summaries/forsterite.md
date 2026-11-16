@@ -34,7 +34,7 @@ Ambient lattice and BM3 EoS: Finkelstein et al., American Mineralogist 99, 35-43
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Finkelstein et al. (2014), room-temperature BM3](#record-forsterite_finkelstein_2014_bm3_1) | BM3 | 298.0 | reproduced |  | primary source validated | Executable |
-| [Katsura (2022), author script full-precision BM3-MGD (recommended thermal option)](#record-forsterite_katsura_2022_author_script_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Katsura (2022), author-script BM3-MGD, recommended option](#record-forsterite_katsura_2022_author_script_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 | [Katsura (2022), corrected forsterite BM3-MGD, final Table 2](#record-forsterite_katsura_2022_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
@@ -42,7 +42,7 @@ Ambient lattice and BM3 EoS: Finkelstein et al., American Mineralogist 99, 35-43
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Finkelstein et al. (2014), room-temperature BM3](#record-forsterite_finkelstein_2014_bm3_1) | 290.1 ± 0.1 (fixed) | 130.0 ± 0.9 | 4.12 ± 0.07 |
-| [Katsura (2022), author script full-precision BM3-MGD (recommended thermal option)](#record-forsterite_katsura_2022_author_script_bm3_mgd) | 289.58 (fixed) | 127.4 (fixed) | 4.21116896988574 |
+| [Katsura (2022), author-script BM3-MGD, recommended option](#record-forsterite_katsura_2022_author_script_bm3_mgd) | 289.58 (fixed) | 127.4 (fixed) | 4.21116896988574 |
 | [Katsura (2022), corrected forsterite BM3-MGD, final Table 2](#record-forsterite_katsura_2022_bm3_mgd) | 289.58 (fixed) | 127.4 (fixed) | 4.2 ± 0.4 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
@@ -135,7 +135,7 @@ Fit to single-crystal compression data through 48 GPa in helium. The measured V0
 
 <a id="record-forsterite_katsura_2022_author_script_bm3_mgd"></a>
 
-## Katsura (2022), author script full-precision BM3-MGD (recommended thermal option)
+## Katsura (2022), author-script BM3-MGD, recommended option
 
 `forsterite_katsura_2022_author_script_bm3_mgd` · Executable
 

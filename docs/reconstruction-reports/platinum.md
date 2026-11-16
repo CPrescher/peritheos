@@ -39,7 +39,7 @@ stays in EOSMAT and the ledger.
 | [Holmes et al. (1989), theoretical 300 K Vinet scale](#record-platinum_holmes_1989_vinet_1) | **untested** (not refittable) |  |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-platinum_shen_2026_vinet_2) | **reproduced** |  |
 | [Dorogokupets and Oganov (2007), Vinet four-oscillator thermal scale](#record-platinum_dorogokupets_oganov_2007_vinet_4) | **untested** (not refittable) |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-platinum_sokolova_2013_holzapfel_3) | **untested** (source calculation reconstructed) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-platinum_sokolova_2013_holzapfel_3) | **untested** (source calculation reconstructed) |  |
 | [Dewaele (2019), Pt MAO-scale Vinet](#record-platinum_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), Pt DOR-scale Vinet](#record-platinum_dewaele_2019_dor_vinet) | **reproduced** |  |
 | [Dewaele et al. (2004), Pt mao ruby Vinet](#record-platinum_dewaele_2004_mao_ruby_vinet) | **reproduced** |  |
@@ -51,11 +51,11 @@ stays in EOSMAT and the ledger.
 | [Fei et al. (2004), platinum BM3-MGD on Speziale MgO scale](#record-platinum_fei_2004_bm3_mgd) | **disagrees** |  |
 | [Fei et al. (2004), preliminary 300 K Pt BM3](#record-platinum_fei_2004_bm3_300k) | **reproduced** |  |
 | [Matsui et al. (2009), Pt Vinet reference isotherm, 300 K](#record-platinum_matsui_2009_vinet_300k) | **untested** (not refittable) |  |
-| [Matsui et al. (2009), Pt Vinet-Debye plus tabulated electronic pressure](#record-platinum_matsui_2009_vinet_mgd_electronic) | **untested** (source calculation reconstructed) |  |
+| [Matsui et al. (2009), Vinet-Debye + tabulated electronic pressure](#record-platinum_matsui_2009_vinet_mgd_electronic) | **untested** (source calculation reconstructed) |  |
 | [Fei et al. (2007), Pt Vinet reference isotherm, 300 K](#record-platinum_fei_2007_vinet_300k) | **reproduced** |  |
 | [Fei et al. (2007), Pt Vinet-MGD thermal pressure scale](#record-platinum_fei_2007_vinet_mgd) | **disagrees** |  |
 | [Yokoo et al. (2009), Pt fitted Vinet isotherm, 300 K](#record-platinum_yokoo_2009_vinet_300k) | **untested** (not refittable) |  |
-| [Yokoo et al. (2009), Platinum PVT — diagnostic Table V reconstruction](#record-platinum_yokoo_2009_pvt_reconstruction) | **untested** (source calculation reconstructed) | Never chosen automatically; select it explicitly. |
+| [Yokoo et al. (2009), Table V P-V-T reconstruction](#record-platinum_yokoo_2009_pvt_reconstruction) | **untested** (source calculation reconstructed) | Never chosen automatically; select it explicitly. |
 
 <a id="record-platinum_sakai_2025_rydberg_stacey_1"></a>
 
@@ -185,7 +185,7 @@ Both fits use the same 387 recovered audit input rows. **Volume coordinate:** un
 
 <a id="record-platinum_sokolova_2013_holzapfel_3"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `platinum_sokolova_2013_holzapfel_3` · `Holzapfel` · [Coefficients and source](../material-summaries/platinum.md#record-platinum_sokolova_2013_holzapfel_3)
 
@@ -870,7 +870,7 @@ Both fits use the same 7 recovered audit input rows. **Volume coordinate:** volu
 
 <a id="record-platinum_matsui_2009_vinet_mgd_electronic"></a>
 
-## Matsui et al. (2009), Pt Vinet-Debye plus tabulated electronic pressure
+## Matsui et al. (2009), Vinet-Debye + tabulated electronic pressure
 
 **untested** (source calculation reconstructed) · `platinum_matsui_2009_vinet_mgd_electronic` · `Vinet` · [Coefficients and source](../material-summaries/platinum.md#record-platinum_matsui_2009_vinet_mgd_electronic)
 
@@ -1041,7 +1041,7 @@ Both fits use the same 78 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-platinum_yokoo_2009_pvt_reconstruction"></a>
 
-## Yokoo et al. (2009), Platinum PVT — diagnostic Table V reconstruction
+## Yokoo et al. (2009), Table V P-V-T reconstruction
 
 **untested** (source calculation reconstructed) · `platinum_yokoo_2009_pvt_reconstruction` · `BM3` · [Coefficients and source](../material-summaries/platinum.md#record-platinum_yokoo_2009_pvt_reconstruction)
 
