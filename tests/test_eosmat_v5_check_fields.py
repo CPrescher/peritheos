@@ -292,8 +292,10 @@ def test_check_fields_are_derived_without_a_check_block():
     assert (
         "  Check: close (refit vs published fit). K0: refit 263.7 " in plain.summary()
     )
-    assert "  Source check: verified (2026-01-02)" in plain.summary()
-    assert "  Source note: Table 2 values match." in plain.summary()
+    assert (
+        "  Source check: verified (2026-01-02). Table 2 values match."
+        in plain.summary()
+    )
 
 
 def test_check_must_agree_with_evidence_and_old_names_are_rejected():
@@ -453,8 +455,8 @@ def test_bundled_default_maps_and_material_summary():
         f"({iron.default_record().identifier})"
     ) in iron.summary().splitlines()
     palladium = get_material("palladium").summary()
-    assert "  Default: none (selection on hold)" in palladium
     assert (
-        "  Default hold: Frost experimental fit reproduction remains unresolved."
-        in palladium
-    )
+        "  Default: none; selection on hold. Frost experimental fit reproduction "
+        "remains unresolved."
+    ) in palladium
+    assert sum(line.startswith("  Default") for line in palladium.splitlines()) == 1

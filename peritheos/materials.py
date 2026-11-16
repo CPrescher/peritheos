@@ -121,6 +121,17 @@ class LiteratureReference:
     locations: tuple[str, ...]
 
 
+def _closed_interval(values: Any, bounds: tuple[float, float]) -> np.ndarray:
+    lower, upper = bounds
+    lower_tolerance = (
+        16.0 * np.finfo(float).eps * max(1.0, abs(lower)) if np.isfinite(lower) else 0.0
+    )
+    upper_tolerance = (
+        16.0 * np.finfo(float).eps * max(1.0, abs(upper)) if np.isfinite(upper) else 0.0
+    )
+    return (values >= lower - lower_tolerance) & (values <= upper + upper_tolerance)
+
+
 @dataclass(frozen=True)
 class ValidityRange:
     """Published calibration/data envelope, not an extrapolation limit.
@@ -148,28 +159,41 @@ class ValidityRange:
             np.asarray(volume_ratio, dtype=float),
         )
 
-        def closed_interval(values, bounds):
-            lower, upper = bounds
-            lower_tolerance = (
-                16.0 * np.finfo(float).eps * max(1.0, abs(lower))
-                if np.isfinite(lower)
-                else 0.0
-            )
-            upper_tolerance = (
-                16.0 * np.finfo(float).eps * max(1.0, abs(upper))
-                if np.isfinite(upper)
-                else 0.0
-            )
-            return (values >= lower - lower_tolerance) & (
-                values <= upper + upper_tolerance
-            )
-
-        valid = closed_interval(pressure, self.pressure_gpa) & closed_interval(
+        valid = _closed_interval(pressure, self.pressure_gpa) & _closed_interval(
             temperature, self.temperature_k
         )
         if self.volume_ratio is not None:
-            valid &= closed_interval(volume_ratio, self.volume_ratio)
+            valid &= _closed_interval(volume_ratio, self.volume_ratio)
         return valid
+
+    def _violation(
+        self, pressure: Any, temperature: Any, volume_ratio: Any
+    ) -> str | None:
+        """Describe the first bound a state exceeds, or ``None`` if none."""
+        pressure, temperature, volume_ratio = np.broadcast_arrays(
+            np.asarray(pressure, dtype=float),
+            np.asarray(temperature, dtype=float),
+            np.asarray(volume_ratio, dtype=float),
+        )
+        checks = [
+            ("Pressure", pressure, self.pressure_gpa, " GPa"),
+            ("Temperature", temperature, self.temperature_k, " K"),
+        ]
+        if self.volume_ratio is not None:
+            checks.append(("V/V0", volume_ratio, self.volume_ratio, ""))
+        for quantity, values, bounds, unit in checks:
+            outside = ~_closed_interval(values, bounds)
+            if np.any(outside):
+                value = float(values[outside].flat[0])
+                below = value < bounds[0] or not np.isfinite(value)
+                bound = bounds[0] if below else bounds[1]
+                side = "lower" if below else "upper"
+                return (
+                    f"{quantity} {value:.6g}{unit} is "
+                    f"{'below' if below else 'above'} the {side} bound "
+                    f"{bound:.6g}{unit}"
+                )
+        return None
 
 
 @dataclass(frozen=True)
@@ -208,48 +232,9 @@ _HUGONIOT_MASS_BASIS_RTOL = 1.0e-3
 
 # --- Plain-text display helpers -------------------------------------------
 #
-# These read only the executable objects and the record-file metadata. They
-# never load an audit sidecar, so ``repr`` and ``summary`` stay cheap and work
-# when the sidecar of a bundled or standalone file is absent.
-
-_DISPLAY_PARAMETER_UNITS = {
-    "K0": "GPa",
-    "K0_double_prime": "GPa^-1",
-    "Tr": "K",
-    "theta0": "K",
-}
-
-
-def _display_number(value: Any, digits: int = 12) -> str:
-    """Format a stored number; 12 significant digits keep published values."""
-    if value is None:
-        return "n/a"
-    if isinstance(value, bool) or not isinstance(value, (int, float, np.number)):
-        return str(value)
-    number = float(value)
-    if np.isinf(number):
-        return "inf" if number > 0 else "-inf"
-    return f"{number:.{digits}g}"
-
-
-def _display_range(bounds: Any, digits: int = 12) -> str:
-    """Format a closed range; ``-`` when the source states no numerical range."""
-    if bounds is None:
-        return "-"
-    lower, upper = (float(bound) for bound in bounds)
-    # Readers store an unreported range as (-inf | smallest positive, inf).
-    if upper == np.inf:
-        if lower == -np.inf or lower == np.nextafter(0.0, 1.0):
-            return "-"
-        return f">={_display_number(lower, digits)}"
-    if lower == -np.inf:
-        return f"<={_display_number(upper, digits)}"
-    if lower == upper:
-        return _display_number(lower, digits)
-    separator = " to " if lower < 0 else "-"
-    return (
-        f"{_display_number(lower, digits)}{separator}{_display_number(upper, digits)}"
-    )
+# ``repr`` reads only the executable objects and the record-file metadata; it
+# never loads an audit sidecar. Overviews and summaries live in
+# :mod:`peritheos._overview`.
 
 
 def _single_line(text: str, limit: int | None = None) -> str:
@@ -265,118 +250,6 @@ def _record_model_name(record: EOSRecord) -> str:
     if isinstance(eos, ThermalEOS):
         return f"{type(eos.rt_eos).__name__} + {type(eos).__name__}"
     return type(eos).__name__
-
-
-def _short_reference(reference: LiteratureReference) -> str:
-    """First author surname and year, e.g. ``Speziale et al. 2001``."""
-    authors = [
-        part.strip()
-        for part in re.split(r",|\band\b|;|&", reference.authors)
-        if part.strip()
-    ]
-    if not authors:
-        return str(reference.year)
-    surname = authors[0].split()[-1]
-    if len(authors) == 2:
-        return f"{surname} & {authors[1].split()[-1]} {reference.year}"
-    suffix = " et al." if len(authors) > 2 else ""
-    return f"{surname}{suffix} {reference.year}"
-
-
-_COMPARED_WORDS = {
-    "published_fit": "refit vs published fit",
-    "peritheos_refit": "rerun of a Peritheos refit",
-    "source_equation": "source equation rebuilt",
-    "none": "nothing compared",
-}
-
-
-def _check_line(reproduction: str, compared: str, why: str | None) -> str:
-    """``close (refit vs published fit). K0: ...`` for record summaries."""
-    text = f"{reproduction} ({_COMPARED_WORDS.get(compared, compared)})."
-    return text + (f" {_single_line(why)}" if why else "")
-
-
-def _display_parameter_blocks(
-    record: EOSRecord,
-) -> list[tuple[str, list[tuple[str, Any, Any, bool]]]]:
-    """Return ``(title, [(name, value, error, fixed), ...])`` per component.
-
-    Values come from the record file when available (source coefficients in
-    parameter units); otherwise from the executable objects, with the
-    reference volume converted to the public unit.
-    """
-    metadata = record._record_metadata()
-    blocks: list[tuple[str, list[tuple[str, Any, Any, bool]]]] = []
-    component = metadata.get("eos")
-    if isinstance(component, Mapping) and isinstance(
-        component.get("parameters"), Mapping
-    ):
-        errors = dict(metadata.get("parameter_errors") or {})
-        if (
-            errors.get("V0") is not None
-            and metadata.get("parameter_error_volume_basis", "model") != "public"
-            and record.volume_scale != 1.0
-        ):
-            errors["V0"] = float(errors["V0"]) / record.volume_scale
-        fixed = set(metadata.get("fixed_parameters") or ())
-        title = str(component.get("type") or component.get("model") or "EOS")
-        blocks.append(
-            (
-                title,
-                [
-                    (str(name), value, errors.get(name), name in fixed)
-                    for name, value in component["parameters"].items()
-                ],
-            )
-        )
-        thermal = metadata.get("thermal")
-        if isinstance(thermal, Mapping) and isinstance(
-            thermal.get("parameters"), Mapping
-        ):
-            thermal_errors = thermal.get("parameter_errors") or {}
-            thermal_fixed = set(thermal.get("fixed_parameters") or ())
-            blocks.append(
-                (
-                    str(thermal.get("type") or thermal.get("model") or "thermal"),
-                    [
-                        (
-                            str(name),
-                            value,
-                            thermal_errors.get(name),
-                            name in thermal_fixed,
-                        )
-                        for name, value in thermal["parameters"].items()
-                    ],
-                )
-            )
-        return blocks
-    # Records constructed in Python carry no record-file metadata.
-    errors = dict(record.parameter_errors or {})
-    eos = record.eos
-    reference_eos = eos.rt_eos if isinstance(eos, ThermalEOS) else eos
-    prefix = "rt_eos." if isinstance(eos, ThermalEOS) else ""
-    rows = []
-    for name, value in _own_parameter_values(reference_eos).items():
-        error = errors.get(prefix + name)
-        if name == "V0":
-            value = value / record.volume_scale
-            error = None if error is None else error / record.volume_scale
-        rows.append((name, value, error, False))
-    blocks.append((type(reference_eos).__name__, rows))
-    if isinstance(eos, ThermalEOS):
-        blocks.append(
-            (
-                type(eos).__name__,
-                [
-                    (name, value, errors.get(name), False)
-                    for name, value in eos.parameter_values(
-                        include_reference=False
-                    ).items()
-                ],
-            )
-        )
-    return blocks
 
 
 @dataclass(frozen=True)
@@ -709,82 +582,35 @@ class EOSRecord:
         except Exception:
             return f"{cls}({self.__dict__.get('identifier', '?')!r})"
 
+    def overview(self, *, include_audit: bool = False) -> dict[str, Any]:
+        """Return a display-ready, JSON-serialisable description of this record.
+
+        The dictionary holds only stored fields and facts derived in code: the
+        material, citation and DOI, model names, default selection, the
+        ``check`` headline with fixed display phrases, every coefficient with
+        its error, fixed flag and documented unit, the stored and enforced
+        ranges, notes and the report link. Keys have a stable order; see the
+        API reference for the list and ``overview_version``.
+
+        By default no audit sidecar is read and ``pressure_scale`` is
+        ``None``. ``include_audit=True`` adds the pressure scale from the
+        audit trail, loading a bundled record's sidecar on first use.
+        """
+        from peritheos._overview import record_overview
+
+        return record_overview(self, include_audit=include_audit)
+
     def summary(self) -> str:
         """Return a compact multi-line description of this parameterization.
 
-        Shows the model, coefficients with errors, the reference with DOI, the
-        calibration envelope, the check headline with what it compared and
-        why, any warning, and the source check with its note. It reads only
-        the record itself, never the audit trail.
+        Rendered from :meth:`overview`: the model, coefficients with errors,
+        fixed flags and units, the check headline with what it compared and
+        why, any warning, the ranges, the reference with DOI and the source
+        check. It reads only the record itself, never the audit trail.
         """
-        lines = [
-            self.identifier + (" (default)" if self.is_default else ""),
-            f"  {_single_line(self.name)}",
-            f"  Material: {self.material}, {self.phase}",
-            f"  Model: {_record_model_name(self)} ({self.equation_kind}); "
-            f"reference temperature {_display_number(self.reference_temperature)} K",
-            "  Check: " + _check_line(self.reproduction, self.compared, self.why),
-            f"  Warning: {_single_line(self.warning) if self.warning else 'none'}",
-        ]
-        confidence = (
-            "confidence level not stated"
-            if self.parameter_error_confidence is None
-            else f"{self.parameter_error_confidence:.0%} confidence"
-        )
-        lines.append(f"  Parameters (+/- errors, {confidence}):")
-        for title, rows in _display_parameter_blocks(self):
-            lines.append(f"    {title}:")
-            width = max((len(name) for name, *_ in rows), default=0)
-            for name, value, error, fixed in rows:
-                text = f"      {name:<{width}} = {_display_number(value)}"
-                if error is not None:
-                    text += f" +/- {_display_number(error)}"
-                if fixed:
-                    text += " (fixed)"
-                unit = (
-                    self.volume_unit
-                    if name == "V0"
-                    else _DISPLAY_PARAMETER_UNITS.get(name)
-                )
-                if unit:
-                    text += f"  [{unit}]"
-                lines.append(text)
-        lines.append(
-            "    Other coefficients use the model's documented units; P in GPa, T in K."
-        )
-        if self.parameter_covariance is not None:
-            lines.append("    Covariance: available (parameter_covariance)")
-        pressure = _display_range(self.validity.pressure_gpa)
-        temperature = _display_range(self.validity.temperature_k)
-        lines.append(
-            "  Calibration envelope: "
-            f"P {'not stated' if pressure == '-' else pressure + ' GPa'}, "
-            f"T {'not stated' if temperature == '-' else temperature + ' K'}"
-        )
-        experimental = self._record_metadata().get("experimental_pressure_range_gpa")
-        if experimental is not None:
-            lines.append(
-                f"  Experimental pressure range: {_display_range(experimental)} GPa"
-            )
-        if self.is_reference_variant:
-            lines.append(
-                f"  Pressure-scale variant of: {self.pressure_scale_variant_of}"
-            )
-        reference = self.reference
-        lines.append(
-            f"  Reference: {reference.authors} ({reference.year}). "
-            f"{_single_line(reference.title).rstrip('.')}."
-            + (f" doi:{reference.doi}" if reference.doi else "")
-        )
-        if self.source_check is not None:
-            checked = self._headline()["source_checked_on"]
-            lines.append(
-                f"  Source check: {self.source_check}"
-                + (f" ({checked})" if checked else "")
-            )
-        if self.source_note:
-            lines.append(f"  Source note: {_single_line(self.source_note)}")
-        return "\n".join(lines)
+        from peritheos._overview import record_summary
+
+        return record_summary(self.overview())
 
     @property
     def is_reference_variant(self) -> bool:
@@ -872,10 +698,12 @@ class EOSRecord:
     ) -> None:
         ratio = np.asarray(public_volume, dtype=float) / self.reference_volume
         if not np.all(self.validity.contains(pressure, temperature, ratio)):
+            reason = self.validity._violation(pressure, temperature, ratio)
             raise MaterialError(
                 f"State is outside the published calibration/data envelope for "
-                f"{self.identifier}; the EOS can still be evaluated by leaving "
-                "check_validity=False"
+                f"{self.identifier}"
+                + (f": {reason}" if reason else "")
+                + "; the EOS can still be evaluated by leaving check_validity=False"
             )
 
     def pressure(
@@ -1409,10 +1237,20 @@ class HugoniotRecord(EOSRecord):
             )
 
     def _validate_branch_domain(self, particle_velocity: Any) -> None:
-        if not np.all(self.branch_domain.contains(particle_velocity)):
+        inside = self.branch_domain.contains(particle_velocity)
+        if not np.all(inside):
+            values = np.broadcast_to(
+                np.asarray(particle_velocity, dtype=float), np.shape(inside)
+            )
+            value = float(values[~inside].flat[0])
+            lower, upper = self.branch_domain.particle_velocity_km_s
+            below = value < lower or not np.isfinite(value)
             raise MaterialError(
                 f"State is outside the declared Hugoniot branch domain for "
-                f"{self.identifier}; evaluate the raw model to extrapolate deliberately"
+                f"{self.identifier}: particle velocity {value:.6g} km/s is "
+                f"{'below the lower' if below else 'above the upper'} bound "
+                f"{lower if below else upper:.6g} km/s; evaluate the raw model to "
+                "extrapolate deliberately"
             )
 
     def pressure(
@@ -1516,6 +1354,44 @@ class HugoniotRecord(EOSRecord):
             shock_velocity=state.shock_velocity,
             specific_internal_energy_change=state.specific_internal_energy_change,
         )
+
+
+def _not_executable_message(identifier: str, material: str, status: str) -> str:
+    """Why a record stored in a bundled material document cannot be loaded."""
+    from peritheos._eosmat_audit import SOURCE_CHECK_VALUES
+
+    check = SOURCE_CHECK_VALUES.get(status, status)
+    reason = (
+        "is deferred: its source or model mapping is unresolved, so it is kept "
+        "as evidence and not loaded as an executable record"
+        if check == "deferred"
+        else f"is not executable (source check {check!r})"
+    )
+    return (
+        f"EOS record {identifier!r} of material {material!r} {reason}. Read its "
+        f"document with get_material_document({material!r})."
+    )
+
+
+def _unloaded_record_error(
+    material: Material, identifier: str
+) -> MaterialLookupError | None:
+    """Error for a record of a bundled document that was not loaded, if any."""
+    for record in material.eos_records:
+        source = record.__dict__.get("_audit_source")
+        if source is None:
+            continue
+        stored = source._fields.get(identifier)
+        if stored is None:
+            return None
+        status = str(stored["scientific_validation"]["status"])
+        return MaterialLookupError(
+            _not_executable_message(identifier, material.identifier, status),
+            operation="lookup_eos_record",
+            field="identifier",
+            context={"identifier": identifier, "material": material.identifier},
+        )
+    return None
 
 
 @dataclass(frozen=True)
@@ -1684,85 +1560,31 @@ class Material:
         except Exception:
             return f"Material({self.__dict__.get('identifier', '?')!r})"
 
+    def overview(self, *, include_audit: bool = False) -> dict[str, Any]:
+        """Return a display-ready, JSON-serialisable description of the material.
+
+        Contains the material identity, the default record and designated
+        defaults with their labels, the stored hold reason when default
+        selection is on hold, and :meth:`EOSRecord.overview` of every record,
+        the default first. ``include_audit`` is passed to each record.
+        """
+        from peritheos._overview import material_overview
+
+        return material_overview(self, include_audit=include_audit)
+
     def summary(self) -> str:
         """Return a readable overview of the material and all its EOS records.
 
-        States the default record (or that none is designated, or the stored
-        hold reason), then one row per record, default first, with model,
-        calibration envelope, reproduction headline and short reference. ``*``
-        marks a designated default and ``!`` a record with a stored warning.
-        It never loads the audit trail.
+        Rendered from :meth:`overview`: the default record (or that none is
+        designated, or the stored hold reason), then one row per record,
+        default first, with model, the range ``check_validity=True`` enforces,
+        reproduction headline and short reference. ``*`` marks a designated
+        default and ``!`` a record with a warning; identical warnings are
+        listed once. It never loads the audit trail.
         """
-        title = self.name or self.identifier
-        lines = [f"{title} ({self.identifier})" if title != self.identifier else title]
-        lines.append(f"  Formula: {self.formula}    Phase: {_single_line(self.phase)}")
-        lines.append(f"  Cell contents: {_single_line(self.cell_contents)}")
-        lines.append(f"  Volume unit: {self.volume_unit}")
-        if self.aliases:
-            lines.append(f"  Aliases: {', '.join(self.aliases)}")
-        if self.family_id:
-            lines.append(f"  Family: {self.family_id}")
-        default = self.default_record()
-        hold = self.eosmat_metadata.get("recommendation_hold")
-        hold = (
-            hold
-            if isinstance(hold, Mapping) and hold.get("status") == "on_hold"
-            else None
-        )
-        if default is None:
-            lines.append(
-                "  Default: none (selection on hold)" if hold else "  Default: none"
-            )
-        elif default.is_default:
-            lines.append(
-                f"  Default: {_single_line(default.name)} ({default.identifier})"
-            )
-        else:
-            lines.append(
-                "  Default: none designated; the first record is used "
-                f"({default.identifier})"
-            )
-        if hold and hold.get("reason"):
-            lines.append(f"  Default hold: {_single_line(str(hold['reason']))}")
-        count = len(self.eos_records)
-        lines.append(
-            f"  {count} EOS record{'s' if count != 1 else ''} "
-            "(* marked default, ! warning; calibration envelope P in GPa, "
-            "T in K, - not stated):"
-        )
-        header = ("", "identifier", "model", "P (GPa)", "T (K)", "reproduction")
-        rows = [header]
-        references = ["reference"]
-        listed = ([default] if default is not None else []) + [
-            record for record in self.eos_records if record is not default
-        ]
-        for record in listed:
-            markers = ("*" if record.is_default else "") + (
-                "!" if record.warning else ""
-            )
-            rows.append(
-                (
-                    markers,
-                    record.identifier,
-                    _record_model_name(record),
-                    _display_range(record.validity.pressure_gpa, digits=4),
-                    _display_range(record.validity.temperature_k, digits=4),
-                    record.reproduction,
-                )
-            )
-            references.append(_short_reference(record.reference))
-        widths = [max(len(row[column]) for row in rows) for column in range(6)]
-        for row, reference in zip(rows, references):
-            cells = [f"{cell:<{width}}" for cell, width in zip(row, widths)]
-            lines.append(("  " + "  ".join(cells) + "  " + reference).rstrip())
-        warned = [record for record in listed if record.warning]
-        if warned:
-            lines.append("  Warnings:")
-            lines.extend(
-                f"    ! {record.identifier}: {_single_line(str(record.warning))}"
-                for record in warned
-            )
-        return "\n".join(lines)
+        from peritheos._overview import material_summary
+
+        return material_summary(self.overview())
 
     def get_eos_record(self, identifier: str) -> EOSRecord:
         """Return one EOS parameterization by its exact identifier or alias.
@@ -1773,6 +1595,9 @@ class Material:
         for record in self.eos_records:
             if identifier == record.identifier or identifier in record.aliases:
                 return record
+        unloaded = _unloaded_record_error(self, identifier)
+        if unloaded is not None:
+            raise unloaded
         from difflib import get_close_matches
 
         names = {

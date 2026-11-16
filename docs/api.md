@@ -66,14 +66,17 @@ phases (`context["matches"]`), so `get_material("Fe")` never picks a phase. An
 unknown name raises with ranked suggestions.
 
 `print(material.summary())` gives a plain-text overview: identity, cell contents
-and volume unit, the default record (or that none is designated, or the hold
-reason), then one row per record, default first, with model, calibration P/T
-envelope, reproduction headline and short reference; `*` marks a designated
-default and `!` a warning. `record.summary()` shows one record's coefficients
-with errors and units, reference and DOI, ranges, the check with what it
-compared and why, any warning, and the source check with its note. Both read
-only the record file, never the audit sidecar. `repr()` of a `Material` or
-`EOSRecord` is one identifying line; `Material.default_record()` is a method.
+and volume unit, one `Default` line (the designated record, that none is
+designated, or the stored hold reason), then one row per record, default first,
+with model, the P/T range `check_validity=True` enforces, reproduction headline
+and short reference; `*` marks a designated default and `!` a warning, and each
+distinct warning is listed once. `record.summary()` shows one record's
+coefficients with errors, fixed flags and units, the check with what it compared
+and why, any warning, the labelled ranges, reference and DOI, and the source
+check with its note. Both are rendered from the [overview](#material-and-record-overviews)
+dictionaries and read only the record file, never the audit sidecar. `repr()`
+of a `Material` or `EOSRecord` is one identifying line;
+`Material.default_record()` is a method.
 
 `EOSRecord.reproduction` is `"reproduced"`, `"close"`, `"disagrees"` or
 `"untested"`; `EOSRecord.compared` is `"published_fit"`, `"peritheos_refit"`,
@@ -98,6 +101,85 @@ canonical executable material document, preserving the loaded v3, v4 or v5 versi
 fields are preserved but not interpreted. Loading uses a fixed model registry
 and never imports an implementation path. The legacy executable snapshot-v2
 reader and `to_snapshot_dict()` remain compatibility-only APIs.
+
+### Material and record overviews
+
+`EOSRecord.overview(*, include_audit=False)` and
+`Material.overview(*, include_audit=False)` return plain JSON-serialisable
+dictionaries with everything an application, notebook or command-line tool
+needs to present a record, so consumers need not re-implement mappings or parse
+summary text. Values are stored record fields or facts derived in code; nothing
+is inferred, and a missing value is `None`. By default no audit sidecar is read
+and `pressure_scale` is `None`; `include_audit=True` adds it, loading a bundled
+material's sidecar on first use. `material_overviews()` yields the overview of
+every bundled material without reading any sidecar, and
+`write_material_overviews(path)` writes them as one JSON index
+(`{"overview_version", "peritheos_version", "materials"}`).
+
+```python
+import json
+
+from peritheos import get_eos_record, get_material
+
+record = get_eos_record("mgo_speziale_2001_bm3_2")
+overview = record.overview()
+print(overview["check"]["reproduction"], overview["check"]["display"]["compared"])
+for row in overview["parameters"]:
+    print(row["display_name"], row["value"], row["error"], row["fixed"], row["unit"])
+assert overview["ranges"]["effective"]["pressure_gpa"] == [0.0, 203.0]
+
+material = get_material("palladium").overview()
+print(material["default_record"], material["default_hold"])
+json.dumps(material)  # plain data
+```
+
+Record overview keys, in order:
+
+| Key | Content |
+|---|---|
+| `overview_version` | Layout version, currently `1`; keys are only added within a version |
+| `identifier`, `label`, `aliases` | Stored record identity |
+| `material` | `identifier`, `name`, `formula`, `phase` (identifier and name are `None` when unknown) |
+| `citation`, `short_citation`, `title`, `doi` | One-line citation (first author et al., year, journal, volume, locator, DOI), `Speziale et al. 2001`, the stored title and DOI |
+| `model`, `thermal_model` | `identifier` and display `name` from a fixed table (the identifier when no documented name exists); `thermal_model` is `None` for isothermal and Hugoniot records |
+| `category`, `equation_kind` | `equilibrium` or `hugoniot` (the `default_records` key); `isothermal`, `thermal` or `hugoniot` |
+| `record_kind`, `determination_method` | As stored, else `None` |
+| `reference_temperature_k` | Reference temperature in K |
+| `is_default` | The record `default_equilibrium_record()` or `default_hugoniot_record()` returns because it is designated |
+| `selected_when_no_default` | Returned only because the material designates no default in its category (the first record) |
+| `catalog_access`, `pressure_scale_variant_of` | As stored, else `None` |
+| `check` | `reproduction`, `compared`, `why`, `warning`, `source_check`, `source_checked_on`, `source_note` as stored, plus `display`: a short `compared` phrase and a one-sentence `explanation` of the headline from fixed tables consistent with [EOS labels](eos-labels.md) |
+| `parameters` | In model order: `component` (`model` or `thermal_model`), `name`, `display_name` (`K0'`), stored `value` and `error` (parameter units), `fixed` (`None` for records built in Python), `unit` (see below) |
+| `error_confidence`, `covariance_parameters` | Stated error confidence, else `None`; the covariance parameter order, else `None` |
+| `ranges` | `validity` and `experimental` (with its `status`) as stored, and `effective`: what `check_validity=True` enforces (`source` names which stored range that is; open bounds are `None`), plus a Hugoniot's always-enforced `particle_velocity_km_s` branch domain |
+| `pressure_scale` | With `include_audit=True`: the audit's `pressure_calibration` `status` and `methods` (`kind`, `material`, `reference_eos_record`, `reference_calibration_record`, `citation`, `scope`); otherwise `None` |
+| `notes`, `thermal_notes`, `validity_notes` | Stored text, unmodified |
+| `audit` | The stored `check.audit` reference |
+| `report_url` | The reconstruction-report anchor for a bundled record; `None` otherwise |
+
+`unit` is the file's volume unit for `V0`, GPa for `K0`, `P0` and (inverse)
+`K0''`, and otherwise the unit the documentation states for that model's
+coefficient; `"1"` marks a documented dimensionless coefficient and `None` a
+coefficient whose unit no documentation states. Material overviews contain
+`overview_version`, `identifier`, `name`, `formula`, `phase`, `cell_contents`,
+`volume_unit`, `formula_units_per_cell`, `aliases`, `family_id`, `notes`,
+`default_record` (the identifier `default_record()` returns), `default_records`
+(designated `equilibrium` and `hugoniot` defaults with `identifier` and `label`,
+else `None`), `default_hold` (the stored hold reason, else `None`) and
+`records`, the record overviews with the default first. The JSON schema is
+packaged as `peritheos/data/overview-v1.schema.json`.
+
+The installed command shows the same information:
+
+```bash
+python -m peritheos list periclase            # one line per matching material
+python -m peritheos show mgo                  # Material.summary()
+python -m peritheos show mgo mgo_speziale_2001_bm3_2 --json  # EOSRecord.overview()
+```
+
+`show` resolves the material like `get_material` and the record exactly, with
+suggestions on a miss; a record identifier alone is also accepted.
+`--include-audit` adds the pressure scale.
 
 `HugoniotRecord` specializes `EOSRecord` with mandatory loading-path,
 branch-kind, initial-state, operational volume-basis, and branch-domain fields.

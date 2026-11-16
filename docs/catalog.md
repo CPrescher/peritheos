@@ -164,6 +164,17 @@ An unknown identifier raises `MaterialLookupError` and includes close matches
 when useful. Material names and aliases such as `Periclase` are discovery
 metadata; stable identifiers remain the safest choice for saved analyses.
 
+## Overviews for display
+
+`Material.overview()` and `EOSRecord.overview()` return the material, default
+selection, check headline with display phrases, coefficients with units, the
+stored and enforced ranges and the report link as plain JSON data;
+`summary()` prints the same content as text. `write_material_overviews(path)`
+writes the whole catalog as one JSON index without reading any audit sidecar.
+From a shell, `python -m peritheos show mgo` and `python -m peritheos list gold`
+print summaries. See [overviews](api.md#material-and-record-overviews) for the
+key list.
+
 ## Search executable materials
 
 ```python

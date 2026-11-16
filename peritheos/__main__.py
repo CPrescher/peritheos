@@ -1,12 +1,13 @@
-"""Create, convert, validate and format installed EOSMAT material files."""
+"""Show bundled materials and EOS records; create, convert, validate and format EOSMAT files."""
 
 from __future__ import annotations
 
 import argparse
 import json
 import math
+import sys
 from pathlib import Path
-from typing import Sequence
+from typing import Any, Sequence
 
 from peritheos._eosmat_format import format_eosmat
 from peritheos.authoring import create_eosmat
@@ -26,6 +27,83 @@ def _parameters(tokens: Sequence[str]) -> dict[str, float]:
             raise ValueError(f"Parameter {key!r} must be finite")
         result[key] = value
     return result
+
+
+def _show(args: argparse.Namespace) -> str:
+    from peritheos.catalog import get_eos_record, get_material
+    from peritheos.errors import MaterialLookupError
+
+    try:
+        material = get_material(args.material)
+    except MaterialLookupError:
+        if args.record is not None:
+            raise
+        # A bare record identifier is accepted as well.
+        try:
+            record = get_eos_record(args.material)
+        except MaterialLookupError:
+            pass
+        else:
+            return _render(record, args)
+        raise
+    if args.record is None:
+        return _render(material, args)
+    return _render(material.get_eos_record(args.record), args)
+
+
+def _render(item: Any, args: argparse.Namespace) -> str:
+    overview = item.overview(include_audit=args.include_audit)
+    if args.json:
+        return json.dumps(overview, ensure_ascii=False, indent=2, allow_nan=False)
+    return item.summary()
+
+
+def _list(args: argparse.Namespace) -> str:
+    from peritheos.catalog import list_materials, search_materials
+
+    materials = search_materials(args.query) if args.query else list_materials()
+    rows = []
+    for material in materials:
+        default = material.default_record()
+        count = len(material.eos_records)
+        rows.append(
+            (
+                material.identifier,
+                material.formula,
+                material.name or "",
+                " ".join(material.phase.split()),
+                f"{count} record{'s' if count != 1 else ''}",
+                "-"
+                if default is None
+                else " ".join(default.name.split())
+                + ("" if default.is_default else " (first record)"),
+            )
+        )
+    if not rows:
+        return f"No bundled material matches {args.query!r}."
+    header = ("identifier", "formula", "name", "phase", "records", "default")
+    widths = [
+        min(40, max(len(row[column]) for row in (header, *rows))) for column in range(5)
+    ]
+    return "\n".join(
+        "  ".join(
+            [*(f"{cell[:width]:<{width}}" for cell, width in zip(row, widths)), row[5]]
+        ).rstrip()
+        for row in (header, *rows)
+    )
+
+
+def _catalog_command(args: argparse.Namespace, parser: argparse.ArgumentParser) -> int:
+    from peritheos.errors import PeritheosError
+
+    try:
+        text = _show(args) if args.command == "show" else _list(args)
+    except (PeritheosError, KeyError) as error:
+        message = error.args[0] if error.args else str(error)
+        print(f"{parser.prog} {args.command}: error: {message}", file=sys.stderr)
+        return 2
+    print(text)
+    return 0
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -96,7 +174,28 @@ def main(argv: Sequence[str] | None = None) -> int:
     formatter.add_argument(
         "--check", action="store_true", help="Read-only; exit 1 if formatting is needed"
     )
+    show = commands.add_parser(
+        "show", help="Show a bundled material, or one of its EOS records"
+    )
+    show.add_argument(
+        "material", help="Material identifier, alias, name or formula (e.g. MgO)"
+    )
+    show.add_argument("record", nargs="?", help="Optional EOS record identifier")
+    show.add_argument(
+        "--json", action="store_true", help="Print the overview as JSON instead"
+    )
+    show.add_argument(
+        "--include-audit",
+        action="store_true",
+        help="Add the pressure scale from the audit sidecar (JSON and text)",
+    )
+    listing = commands.add_parser(
+        "list", help="List bundled materials, optionally matching a search text"
+    )
+    listing.add_argument("query", nargs="?", help="Search text, e.g. a name or DOI")
     args = parser.parse_args(argv)
+    if args.command in {"show", "list"}:
+        return _catalog_command(args, parser)
     if args.command == "create" and bool(args.thermal_model) != bool(
         args.thermal_parameters
     ):

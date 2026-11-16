@@ -44,6 +44,24 @@ All notable changes to Peritheos are documented here. The project follows
 - Add `EOSRecord.reproduction`, `compared`, `why`, `warning`, `source_check`,
   `source_note` and `audit`.
 - Add `Material.summary()` and more forgiving material and record lookup.
+- Add `EOSRecord.overview()` and `Material.overview()`: plain JSON data with
+  the material, citation, model display names, default selection
+  (`is_default`, `selected_when_no_default`, `default_hold`), the check
+  headline with fixed display phrases, coefficients with errors, fixed flags
+  and documented units, stored and enforced ranges, notes and the report link.
+  `include_audit=True` adds the pressure scale from the sidecar. Add
+  `material_overviews()`, `write_material_overviews(path)` and the schema
+  `peritheos/data/overview-v1.schema.json` (`overview_version` 1), and the
+  commands `python -m peritheos show <material> [record] [--json]` and
+  `python -m peritheos list [query]`.
+- Render both `summary()` methods from the overview: one `Default` line, the
+  check as `<headline> (<compared>). <why>`, each warning once, fixed
+  coefficients as `fixed` with any published error marked as such, long
+  computed numbers rounded for display only, labelled validity and
+  experimental ranges, and a unit note only for coefficients whose unit is not
+  documented.
+- Out-of-range errors name the quantity, value and exceeded bound; looking up a
+  deferred bundled record says it is deferred and how to read its document.
 - Update the Rust EOSMAT reader for the record file and audit sidecar layout,
   the check fields (`EosRecord::compared()`, `why()`, `source_check()`,
   `source_note()`, with `Compared` and `SourceCheck`) and `default_records`.
