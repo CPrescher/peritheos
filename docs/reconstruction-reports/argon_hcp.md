@@ -35,7 +35,7 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Wittlinger et al. (1997), hcp argon](#record-argon_hcp_wittlinger_1997_bm2_1) | **untested** (not refittable) |  |
+| [Wittlinger et al. (1997), hcp argon](#record-argon_hcp_wittlinger_1997_bm2_1) | **untested** (not refittable) | Not recommended for quantitative use. |
 
 <a id="record-argon_hcp_wittlinger_1997_bm2_1"></a>
 
@@ -43,11 +43,12 @@ stays in EOSMAT and the ledger.
 
 **untested** (not refittable) · `argon_hcp_wittlinger_1997_bm2_1` · `BM2` · [Coefficients and source](../material-summaries/argon_hcp.md#record-argon_hcp_wittlinger_1997_bm2_1)
 
+**Warning:** Not recommended for quantitative use. The published fit could not be independently reproduced; the curve has a 0.772 GPa RMS residual on the nine digitized points.
+
 **Scope:** Comparison with the source parameterization. **Basis:** NOT REPRODUCED: the available digitization does not establish a source-faithful reproduction of the published fit. Original observations, regression settings and covariance are unavailable; the shared fitted V0 normalization limits independent coefficient recovery. The numerical fits below are diagnostics only. Broad error-bar overlap is not successful reproduction. Comparison uses atomic volume: hcp cell/2 and fcc cell/4. Different phases are compared, not identified. Nine digitized points have large volume errors and share the fitted 78 A^3 normalization; unknown covariance limits coefficient inference. No replacement EOS is promoted from this diagnostic. Original article could not be reopened without institutional access on 2026-09-24; source transcription relies on the existing primary-source audit.
 
-**Usage:** NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.
-
-- Usage recommendation: NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.
+- NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
 
 ### Method
 

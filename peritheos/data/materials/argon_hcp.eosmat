@@ -13,7 +13,8 @@
       "check": {
         "reproduction": "untested",
         "compared": "none",
-        "warning": null,
+        "warning": "Not recommended for quantitative use.",
+        "warning_reason": "The published fit could not be independently reproduced; the curve has a 0.772 GPa RMS residual on the nine digitized points.",
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
         "audit": "../audits/argon_hcp.audit.json#argon_hcp_wittlinger_1997_bm2_1"

@@ -28,7 +28,8 @@
             "source_status": "not_refittable",
             "basis": "NOT REPRODUCED: the available digitization does not establish a source-faithful reproduction of the published fit. Original observations, regression settings and covariance are unavailable; the shared fitted V0 normalization limits independent coefficient recovery. The numerical fits below are diagnostics only. Broad error-bar overlap is not successful reproduction. Comparison uses atomic volume: hcp cell/2 and fcc cell/4. Different phases are compared, not identified. Nine digitized points have large volume errors and share the fitted 78 A^3 normalization; unknown covariance limits coefficient inference. No replacement EOS is promoted from this diagnostic. Original article could not be reopened without institutional access on 2026-09-24; source transcription relies on the existing primary-source audit.",
             "qualifications": [
-              "Usage recommendation: NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard."
+              "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.",
+              "Usage recommendation: not_recommended_for_quantitative_use"
             ],
             "parameters": [
               {
@@ -90,7 +91,9 @@
             "source_locations": ["Figure 3; Section 3.2; journal pages 747-748"],
             "finding": "The hcp-argon relative-volume observations used for the Birch-Murnaghan fit are published graphically in Figure 3. Nine experimental markers and their asymmetric vertical error bars were digitized. The plotted fitted reference point at P=0 and V/V0=1 was excluded because the paper explicitly states that ambient hcp volume was not measured."
           },
-          "usage_recommendation": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.",
+          "usage_recommendation": "not_recommended_for_quantitative_use",
+          "warning_reason": "The published fit could not be independently reproduced; the curve has a 0.772 GPa RMS residual on the nine digitized points.",
+          "recommendation_reason": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.",
           "independent_numerical_check": {
             "audit_date": "2026-09-24",
             "script": "scripts/reproduce_argon.py",

@@ -172,6 +172,18 @@ def test_wittlinger_diagnostic_compares_original_observation_residuals(reproduce
     assert outcome["reproduction_status"] == "not_reproduced"
     assert "NOT REPRODUCED" in outcome["reason"]
     assert record["eos"]["parameters"] == {"V0": 78.0, "K0": 6.5}
-    assert "8.5 GPa" in record["scientific_validation"]["usage_recommendation"]
+    # The coded recommendation gives the record its warning; the former free
+    # text, including the 8.5 GPa limit, stays in the audit.
+    assert validation["usage_recommendation"] == "not_recommended_for_quantitative_use"
+    assert validation["warning_reason"]
+    reason = validation["recommendation_reason"]
+    assert "Do not extrapolate this BM2 fit beyond 8.5 GPa" in reason
+    assert record["reproduction"]["assessment"]["qualifications"] == [
+        reason,
+        "Usage recommendation: not_recommended_for_quantitative_use",
+    ]
+    loaded = Material.from_eosmat(doc).eos_records[0]
+    assert loaded.warning == "Not recommended for quantitative use."
+    assert loaded.warning_reason == validation["warning_reason"]
     with pytest.raises(MaterialError):
-        Material.from_eosmat(doc).eos_records[0].volume(50, check_validity=True)
+        loaded.volume(50, check_validity=True)

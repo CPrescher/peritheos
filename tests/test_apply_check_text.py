@@ -493,6 +493,24 @@ def usage_root(tmp_path):
     target.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
     shutil.copy2(ROOT / LEDGER, tmp_path / LEDGER)
     shutil.copy2(ROOT / LEDGER_MARKDOWN, tmp_path / LEDGER_MARKDOWN)
+    # Start argon from its original free-text recommendation, whatever code the
+    # bundled record carries now: the tool itself returns the copy to the
+    # stored original, and no usage binding remains.
+    removal = {
+        "argon_hcp": {ARGON: {"usage_recommendation": None, "warning_reason": None}}
+    }
+    if "check_text" in receipt["materials"]["argon_hcp"]:
+        result = plan(removal, tmp_path)
+        assert not result.refusals, [r.line() for r in result.refusals]
+        tool.apply_plan(result, tmp_path)
+    assert tool.verify(tmp_path)[1] == []
+    binding = json.loads(target.read_bytes())["materials"]["argon_hcp"]
+    assert "check_text" not in binding
+    argon = evidence(tmp_path, "argon_hcp", ARGON)
+    prose = argon["usage_recommendation"]
+    assert not prose.islower() and "8.5 GPa" in prose
+    assert "recommendation_reason" not in argon and "warning_reason" not in argon
+    assert checks(tmp_path, "argon_hcp")[ARGON]["warning"] is None
     return tmp_path
 
 

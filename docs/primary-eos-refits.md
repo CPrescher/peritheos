@@ -2003,7 +2003,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified.
 
-**Registered source-fit note.** The published fit does not reproduce the authors' supplied observations under the standard equation mapping, and the cause is unresolved. Do not use for pressure calibration or core-condition prediction until this is resolved.
+**Registered source-fit note.** A refit of the authors' supplied observations gives different coefficients than published, and the cause is unresolved. The published thermal EOS is evaluated with the authors' n = 2 convention in the BM3-MGD record.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -2046,7 +2046,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified.
 
-**Registered source-fit note.** The published fit does not reproduce the authors' supplied observations under the standard equation mapping, and the cause is unresolved. Do not use for pressure calibration or core-condition prediction until this is resolved.
+**Registered source-fit note.** A refit of the authors' supplied observations gives different coefficients than published, and the cause is unresolved. The published thermal EOS is evaluated with the authors' n = 2 convention in the BM3-MGD record.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.

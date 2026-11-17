@@ -34,7 +34,7 @@ The ambient hcp lattice parameters are the fitted values a=3.8(3) A and c=6.2(5)
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Wittlinger et al. (1997), hcp argon](#record-argon_hcp_wittlinger_1997_bm2_1) | BM2 | Not specified | untested |  | primary source validated | Executable; see usage qualifications |
+| [Wittlinger et al. (1997), hcp argon](#record-argon_hcp_wittlinger_1997_bm2_1) | BM2 | Not specified | untested | **Yes** | primary source validated | Executable; not recommended for quantitative use |
 
 ### Reference coefficients
 
@@ -54,13 +54,13 @@ extrapolation.
 
 ## Wittlinger et al. (1997), hcp argon
 
-`argon_hcp_wittlinger_1997_bm2_1` · Executable; see usage qualifications
+`argon_hcp_wittlinger_1997_bm2_1` · Executable; not recommended for quantitative use
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/argon_hcp.md#record-argon_hcp_wittlinger_1997_bm2_1)
 
-Automatic selection for equilibrium calculations.
+**Warning:** Not recommended for quantitative use. The published fit could not be independently reproduced; the curve has a 0.772 GPa RMS residual on the nine digitized points.
 
-**Usage qualification:** NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.
+Automatic selection for equilibrium calculations.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -102,6 +102,7 @@ BM2 fit to hcp argon only; V0 is a fitted reference volume because ambient hcp a
     - **Digitized dataset identifiers:** argon\_hcp\_wittlinger\_1997\_figure3\_digitized
     - **Source locations:** Figure 3; Section 3.2; journal pages 747-748
     - **Finding:** The hcp-argon relative-volume observations used for the Birch-Murnaghan fit are published graphically in Figure 3. Nine experimental markers and their asymmetric vertical error bars were digitized. The plotted fitted reference point at P=0 and V/V0=1 was excluded because the paper explicitly states that ambient hcp volume was not measured.
+- **Recommendation reason:** NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.
 - **Independent numerical check:**
     - **Audit date:** 2026-09-24
     - **Script:** scripts/reproduce\_argon.py
