@@ -44,7 +44,7 @@ stays in EOSMAT and the ledger.
 
 **untested** (not refittable) · `mgal2o4_cati2o4_funamori_1998_bm2_1` · `BM2` · [Coefficients and source](../material-summaries/mgal2o4_cati2o4.md#record-mgal2o4_cati2o4_funamori_1998_bm2_1)
 
-**Warning:** Not recommended for quantitative use.
+**Warning:** Not recommended for quantitative use. A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use.
 
 **Scope:** Comparison with the source parameterization. **Basis:** The source construction is not a regression: recovered V0 is held fixed, K0-prime=4 is assumed, and the only compressed observation determines K0 algebraically. The article has no supplement, and the audit found no associated repository series; the complete reported endpoint evidence is bundled, but it leaves zero independent residual degrees of freedom.
 

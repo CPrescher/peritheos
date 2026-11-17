@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/praseodymium_dioxide.md#record-praseodymium_dioxide_gerward_2005_bm3_1)
 
-**Source finding:** The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.
+**Source check:** Coefficients from the experimental BM3 fit in section 4 (pages 58-59) and Tables 1 and 2 with Equation (1), not the separate SIC-LSD calculations.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,6 +89,7 @@ Room-temperature powder XRD fit of the cubic fluorite phase. K0 and K0' are fitt
 - **Primary source check:**
     - **Access URL:** https://people.iith.ac.in/kanchana/publications/2005/17.pdf
     - **Locations:** Equation (1), pages 57-58; section 4, pages 58-59; Tables 1 and 2; Figure 3
+    - **Finding:** The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.
     - **DOI:** 10.1016/j.jallcom.2005.04.008
 - **Migration source:**
     - **Project:** Dioptas

@@ -71,8 +71,10 @@ designated, or the stored hold reason), then one row per record, default first,
 with model, the P/T range `check_validity=True` enforces, reproduction headline
 and short reference; `*` marks a designated default and `!` a warning, and each
 distinct warning is listed once. `record.summary()` shows one record's
-coefficients with errors, fixed flags and units, the check with what it compared
-and why, any warning, the labelled ranges, reference and DOI, and the source
+coefficients with errors, fixed flags and units, with a line saying how the
+printed errors relate to sigma (from `parameter_error_confidence`; see
+[Parameters](eosmat-reference.md#parameters)), the check with what it compared
+and why, any warning on one line with its reason, the labelled ranges, reference and DOI, and the source
 check with its note. Both are rendered from the [overview](#material-and-record-overviews)
 dictionaries and read only the record file, never the audit sidecar. `repr()`
 of a `Material` or `EOSRecord` is one identifying line;
@@ -82,9 +84,11 @@ of a `Material` or `EOSRecord` is one identifying line;
 `"untested"`; `EOSRecord.compared` is `"published_fit"`, `"peritheos_refit"`,
 `"source_equation"` or `"none"`; `EOSRecord.why` names the failed coefficients
 of a `close` or `disagrees` record, else `None`; `EOSRecord.warning` is the
-stored usage restriction or `None`; `EOSRecord.source_check` is `"verified"`,
+stored usage restriction or `None`, and `EOSRecord.warning_reason` why it
+applies (only with a warning, else `None`); `EOSRecord.source_check` is `"verified"`,
 `"pending"`, `"unresolved"`, `"deferred"` or `None`, and
-`EOSRecord.source_note` its finding. [EOS labels](eos-labels.md) defines the
+`EOSRecord.source_note` what the check found for this record (the curated
+per-record note, else the verbatim finding). [EOS labels](eos-labels.md) defines the
 words. `EOSRecord.audit` loads the record's audit trail on first access.
 `Material.get_eos_record(identifier)` matches exact identifiers or aliases only;
 a miss suggests close identifiers without selecting one.
@@ -148,7 +152,7 @@ Record overview keys, in order:
 | `is_default` | The record `default_equilibrium_record()` or `default_hugoniot_record()` returns because it is designated |
 | `selected_when_no_default` | Returned only because the material designates no default in its category (the first record) |
 | `catalog_access`, `pressure_scale_variant_of` | As stored, else `None` |
-| `check` | `reproduction`, `compared`, `why`, `warning`, `source_check`, `source_checked_on`, `source_note` as stored, plus `display`: a short `compared` phrase and a one-sentence `explanation` of the headline from fixed tables consistent with [EOS labels](eos-labels.md) |
+| `check` | `reproduction`, `compared`, `why`, `warning`, `warning_reason`, `source_check`, `source_checked_on`, `source_note` as stored, plus `display`: a short `compared` phrase and a one-sentence `explanation` of the headline from fixed tables consistent with [EOS labels](eos-labels.md) |
 | `parameters` | In model order: `component` (`model` or `thermal_model`), `name`, `display_name` (`K0'`), stored `value` and `error` (parameter units), `fixed` (`None` for records built in Python), `unit` (see below) |
 | `error_confidence`, `covariance_parameters` | Stated error confidence, else `None`; the covariance parameter order, else `None` |
 | `ranges` | `validity` and `experimental` (with its `status`) as stored, and `effective`: what `check_validity=True` enforces (`source` names which stored range that is; open bounds are `None`), plus a Hugoniot's always-enforced `particle_velocity_km_s` branch domain |

@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/feh2.md#record-feh2_p_pin_2014_vinet_1)
 
-**Source finding:** Molar volumes were converted to the represented conventional cells.
+**Source check:** Coefficients from the Table I experimental FeH2 row and the Vinet discussion; the compression data are shown only in Figure 3.
 
 Automatic selection for equilibrium calculations.
 
@@ -88,6 +88,7 @@ Published molar V0 = 10.221(108) cm³/mol; V0 and its error are stored per tetra
 - **Primary source check:**
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext
     - **Locations:** Vinet discussion; Figure 3; Table I, experimental FeH2 and FeH3 rows
+    - **Finding:** Molar volumes were converted to the represented conventional cells.
     - **DOI:** 10.1103/physrevlett.113.265504
 - **Migration source:**
     - **Project:** Dioptas

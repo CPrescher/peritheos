@@ -113,7 +113,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_mao_1989_bm3_2)
 
-**Source finding:** The authors report V0=45.37(8) A^3 and K0=281(4) GPa with K0'=4 assumed.
+**Source check:** Coefficients from the abstract, with K0' assumed by the authors.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -143,6 +143,7 @@ Room-temperature BM3 fit to 47 P-V measurements.
 - **Primary source check:**
     - **Access URL:** https://okayama.elsevierpure.com/en/publications/stability-and-equation-of-state-of-casiosub3sub-perovskite-to-134/
     - **Locations:** Author/institution record; primary abstract; 47-point BM3 fit
+    - **Finding:** The authors report V0=45.37(8) A^3 and K0=281(4) GPa with K0'=4 assumed.
     - **DOI:** 10.1029/jb094ib12p17889
 - **Migration source:**
     - **Project:** Dioptas
@@ -186,7 +187,7 @@ Room-temperature BM3 fit to 47 P-V measurements.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_caracas_2005_bm3_3)
 
-**Source finding:** Table 2 contains nine phase-specific BM3 fits and nine phase-specific BM4 fits, not duplicate rows. The stored Pm-3m BM3 parameters reproduce the separately stated cubic density at 130 GPa (5.77 g/cm^3) after direct EOS inversion and formula-mass conversion.
+**Source check:** Coefficients from the Table 2 Pm-3m BM3 row, with the strain definition of Equation 1. They agree with the cubic density of 5.77 g/cm³ at 130 GPa that the paper states separately.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -218,6 +219,7 @@ Static-lattice 0 K DFT fit for the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 pero
 - **Primary source check:**
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144
     - **Locations:** section 2, paragraphs 6-7; section 3, Table 1; section 4, equation 1 and paragraphs 11-17; Table 2 and footnote
+    - **Finding:** Table 2 contains nine phase-specific BM3 fits and nine phase-specific BM4 fits, not duplicate rows. The stored Pm-3m BM3 parameters reproduce the separately stated cubic density at 130 GPa (5.77 g/cm^3) after direct EOS inversion and formula-mass conversion.
     - **DOI:** 10.1029/2004gl022144
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
@@ -379,7 +381,7 @@ Static-lattice 0 K DFT fit for the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 pero
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_kawai_2014_vinet_mgd_3)
 
-**Source finding:** The final article selects a 1000 K reference because cubic CaSiO3 is unstable at 300 K, plots the Vinet-MGD compression curves, and reports V0=46.17 A^3/formula unit, K0=203.95 GPa in the abstract, K0'=4.76, fixed theta0=1100 K, gamma0=1.576, and q=0.96. Its Table 1 isochors numerically support the abstract K0 despite the 203.5 GPa value extracted from Table 2. Section 2's printed 300-1500 K simulation range conflicts with Figure 2's calculated 1000-4000 K points.
+**Source check:** Coefficients from the abstract and the Table 2 Vinet column. Table 2, as extracted from the PDF, reads K0 = 203.5 GPa; the abstract value is used because it agrees with the Table 1 isochors.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -429,6 +431,7 @@ Preferred Vinet reference isotherm plus constant-q Mie-Grüneisen-Debye thermal 
 - **Primary source check:**
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/2013JB010905
     - **Locations:** Abstract; Section 2, pages 2802-2803; Section 4, pages 2803-2805; Figure 1; Table 1; Table 2; Figure 2
+    - **Finding:** The final article selects a 1000 K reference because cubic CaSiO3 is unstable at 300 K, plots the Vinet-MGD compression curves, and reports V0=46.17 A^3/formula unit, K0=203.95 GPa in the abstract, K0'=4.76, fixed theta0=1100 K, gamma0=1.576, and q=0.96. Its Table 1 isochors numerically support the abstract K0 despite the 203.5 GPa value extracted from Table 2. Section 2's printed 300-1500 K simulation range conflicts with Figure 2's calculated 1000-4000 K points.
     - **DOI:** 10.1002/2013jb010905
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
@@ -481,7 +484,7 @@ Preferred Vinet reference isotherm plus constant-q Mie-Grüneisen-Debye thermal 
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_shim_2000_dac_only_bm3_mgd_4)
 
-**Source finding:** The article explicitly reports a separate unweighted fit to its DAC data alone: gamma0=2.00+/-0.08 and q=0.9+/-0.4, with V0, KT0, K'T0, and theta0 fixed. This alternative is distinct from the preferred combined-data result.
+**Source check:** gamma0 and q from the text following Figure 7 (p. 25964), an unweighted fit to the DAC data alone. V0, K0 and K0' are fixed from Table 2 (companion 300 K study); theta0 is assumed from MgSiO3 perovskite.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -514,7 +517,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ca_
     - **Temperature k:** \[1272.0, 2380.0\]
     - **Volume ratio:** \[0.8349385539, 0.9578823674\]
     - **Notes:** Two measurements above 90 GPa (Figures 7-8 only) were excluded by the authors because Pt-Ar peak overlap made their pressures highly uncertain.
-- **Reported error confidence level:** 0.68
+- **Printed parameter errors:** 68% half-widths (0.994 sigma)
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -535,6 +538,7 @@ The authors' separate fit to their 34 Table 1 DAC observations alone, with the B
     - **Access URL:** https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim\_jgrb12383\_2000.pdf
     - **DOI:** 10.1029/2000jb900183
     - **Locations:** Section 2, pages 25956-25960; Equations 7-12, page 25962; Table 1 and Table 2, page 25963; Figure 7 and accompanying text, page 25964; Figure 8 and accompanying text, page 25965
+    - **Finding:** The article explicitly reports a separate unweighted fit to its DAC data alone: gamma0=2.00+/-0.08 and q=0.9+/-0.4, with V0, KT0, K'T0, and theta0 fixed. This alternative is distinct from the preferred combined-data result.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -619,7 +623,7 @@ The authors' separate fit to their 34 Table 1 DAC observations alone, with the B
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_shim_2000_bm3_1)
 
-**Source finding:** The adopted unconstrained BM3 fit fixes V0=45.58 A^3 in Table 2, while the abstract explicitly reports V0=45.58+/-0.05 A^3. The reported V0 uncertainty is retained even though V0 was fixed in this fit.
+**Source check:** Coefficients from Table 2 (pp. 334-335), where V0 is fixed; the stored V0 error is the one printed in the abstract.
 
 Automatic selection for equilibrium calculations.
 
@@ -651,6 +655,7 @@ Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite, with V0 fixe
 - **Primary source check:**
     - **Access URL:** https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim\_pepi\_00.pdf
     - **Locations:** section 3; Table 1; Table 2, pages 334-335
+    - **Finding:** The adopted unconstrained BM3 fit fixes V0=45.58 A^3 in Table 2, while the abstract explicitly reports V0=45.58+/-0.05 A^3. The reported V0 uncertainty is retained even though V0 was fixed in this fit.
     - **DOI:** 10.1016/s0031-9201(00)00154-0
 - **Migration source:**
     - **Project:** Dioptas
@@ -701,7 +706,7 @@ Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite, with V0 fixe
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_noguchi_2013_bm2_mgd_1)
 
-**Source finding:** Preferred model 1 is a 700 K BM2 reference isotherm plus constant-q Mie-Gruneisen-Debye thermal pressure for pure, cubic CaSiO3 on the Fei et al. (2004) Pt scale. V is a one-formula-unit cubic-cell volume; Tr=700 K, n=5, and all five fitted coefficients and printed errors were verified directly.
+**Source check:** Coefficients from Table 2, model 1 (p. 87), with Equations (1)-(5); pressures are on the Fei et al. (2004) Pt scale.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -731,7 +736,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[51.3, 127.2\]
     - **Temperature k:** \[700.0, 2300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -751,6 +756,7 @@ Preferred model 1: a BM2 reference isotherm at 700 K plus constant-q Mie-Grünei
 - **Primary source check:**
     - **Access URL:** https://link.springer.com/article/10.1007/s00269-012-0549-1
     - **Locations:** experimental procedures, journal pages 82-83; Table 1 and phase-selection discussion, journal pages 84-85; equations (1)-(5), journal page 86; Tables 2-3, journal page 87
+    - **Finding:** Preferred model 1 is a 700 K BM2 reference isotherm plus constant-q Mie-Gruneisen-Debye thermal pressure for pure, cubic CaSiO3 on the Fei et al. (2004) Pt scale. V is a one-formula-unit cubic-cell volume; Tr=700 K, n=5, and all five fitted coefficients and printed errors were verified directly.
     - **DOI:** 10.1007/s00269-012-0549-1
 - **Primary data check:**
     - **Status:** bundled
@@ -840,7 +846,7 @@ Preferred model 1: a BM2 reference isotherm at 700 K plus constant-q Mie-Grünei
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_sun_2016_bm3_3)
 
-**Source finding:** The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, Pt pressure standard, and experimental P-T envelope were checked directly. All 144 Table 1 observations were transcribed at printed precision and reproduce the rounded model-1 parameters and errors under an inferred unweighted pressure-residual objective; original weights and unavailable unrounded measurements are not independently established. The 300 K cubic isotherm is retained only as the model reference state.
+**Source check:** Coefficients from Table 2, model 1 (p. 4882), with Equations (1)-(6); the fitted observations are the 144 rows of Table 1 (pp. 4880-4881), with Pt pressures.
 
 **Usage qualification:** Retain the published cubic thermal EOS and all 144 printed observations for qualified comparison within the reported high-temperature range. The 300 K cubic branch is an extrapolated reference. Do not replace observations, uncertainties or the Pt pressure scale from the separately supplied workbook without resolved row correspondence and calibration.
 
@@ -884,6 +890,7 @@ Joint BM3 + Mie-Grüneisen-Debye fit (model 1 in Table 2) for cubic Pm-3m CaSiO3
 - **Primary source check:**
     - **Access URL:** https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf
     - **Locations:** experimental phase, Pt pressure standard, and range, pages 4878-4879; equations (1)-(6), pages 4879-4880; Table 1, pages 4880-4881; Table 2 model 1, page 4882
+    - **Finding:** The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, Pt pressure standard, and experimental P-T envelope were checked directly. All 144 Table 1 observations were transcribed at printed precision and reproduce the rounded model-1 parameters and errors under an inferred unweighted pressure-residual objective; original weights and unavailable unrounded measurements are not independently established. The 300 K cubic isotherm is retained only as the model reference state.
     - **DOI:** 10.1002/2016jb013062
 - **Primary data check:**
     - **Status:** bundled
@@ -958,7 +965,7 @@ Joint BM3 + Mie-Grüneisen-Debye fit (model 1 in Table 2) for cubic Pm-3m CaSiO3
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_1996_preferred_bm3)
 
-**Source finding:** The preferred low-pressure fit fixes K0'=4.8 from the authors' Mao-data reanalysis and excludes the two sub-2-GPa amorphizing observations.
+**Source check:** V0 and K0 from the Table 2 isothermal row with Equation (1); K0' is fixed at the value of the authors' equal-weight reanalysis of the Mao et al. (1989) data.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -991,7 +998,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** 0.68
+- **Printed parameter errors:** 68% half-widths (0.994 sigma)
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1003,6 +1010,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Access URL:** https://doi.org/10.1029/95JB03254
     - **DOI:** 10.1029/95jb03254
     - **Locations:** Equation (1); Table 1 Run 13; Room Temperature Compression; Table 2
+    - **Finding:** The preferred low-pressure fit fixes K0'=4.8 from the authors' Mao-data reanalysis and excludes the two sub-2-GPa amorphizing observations.
 - **Primary data check:**
     - **Status:** complete\_fit\_subset
     - **Audit date:** 2026-09-05
@@ -1079,7 +1087,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_1996_mao_equal_weight_bm3)
 
-**Source finding:** The authors explicitly refit Mao et al.'s data equally and report all three BM3 coefficients.
+**Source check:** Coefficients from the Room Temperature Compression section and the dotted curve of Figure 4; the fit omits the anomalous sub-1-GPa Mao et al. points.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1110,7 +1118,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** 0.68
+- **Printed parameter errors:** 68% half-widths (0.994 sigma)
 
 Wang et al.'s equal-weight sensitivity reanalysis of the Mao et al. data, not their preferred fit to their own new data.
 
@@ -1124,6 +1132,7 @@ Wang et al.'s equal-weight sensitivity reanalysis of the Mao et al. data, not th
     - **Access URL:** https://doi.org/10.1029/95JB03254
     - **DOI:** 10.1029/95jb03254
     - **Locations:** Room Temperature Compression; Figure 4
+    - **Finding:** The authors explicitly refit Mao et al.'s data equally and report all three BM3 coefficients.
 - **Primary data check:**
     - **Status:** complete\_external\_primary\_table
     - **Audit date:** 2026-09-05
@@ -1188,7 +1197,7 @@ Wang et al.'s equal-weight sensitivity reanalysis of the Mao et al. data, not th
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_1996_mao_pressure_weighted_all_bm3)
 
-**Source finding:** The paper reports this weighted all-data fit immediately before explaining why the low-pressure rows should be excluded.
+**Source check:** Coefficients from the Room Temperature Compression section: all Mao et al. points weighted by their printed pressure uncertainties, given just before the authors explain why the low-pressure points should be excluded.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1219,7 +1228,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** 0.68
+- **Printed parameter errors:** 68% half-widths (0.994 sigma)
 
 Diagnostic sensitivity fit that includes the points the authors consider contaminated by amorphization. Not preferred for physical use.
 
@@ -1233,6 +1242,7 @@ Diagnostic sensitivity fit that includes the points the authors consider contami
     - **Access URL:** https://doi.org/10.1029/95JB03254
     - **DOI:** 10.1029/95jb03254
     - **Locations:** Room Temperature Compression
+    - **Finding:** The paper reports this weighted all-data fit immediately before explaining why the low-pressure rows should be excluded.
 - **Primary data check:**
     - **Status:** complete\_external\_primary\_table
     - **Audit date:** 2026-09-05
@@ -1282,7 +1292,7 @@ Diagnostic sensitivity fit that includes the points the authors consider contami
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_1996_mao_pressure_weighted_no_sub1gpa_bm3)
 
-**Source finding:** The authors explicitly report the changed three-parameter fit after removing anomalous sub-1-GPa points.
+**Source check:** Coefficients from the Room Temperature Compression section, where the authors report the changed three-parameter fit after removing the anomalous sub-1-GPa points.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1313,7 +1323,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** 0.68
+- **Printed parameter errors:** 68% half-widths (0.994 sigma)
 
 Sensitivity fit showing the bias from the amorphized sub-1-GPa data. Not the paper's preferred combined interpretation.
 
@@ -1327,6 +1337,7 @@ Sensitivity fit showing the bias from the amorphized sub-1-GPa data. Not the pap
     - **Access URL:** https://doi.org/10.1029/95JB03254
     - **DOI:** 10.1029/95jb03254
     - **Locations:** Room Temperature Compression
+    - **Finding:** The authors explicitly report the changed three-parameter fit after removing anomalous sub-1-GPa points.
 - **Primary data check:**
     - **Status:** complete\_external\_primary\_table
     - **Audit date:** 2026-09-05
@@ -1391,7 +1402,7 @@ Sensitivity fit showing the bias from the amorphized sub-1-GPa data. Not the pap
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_chizmeshya_1996_lapw7_static_bm3)
 
-**Source finding:** Independent seven-point LAPW static BM3 fit.
+**Source check:** Coefficients from the Table 1 LAPW(7) row, a BM3 fit to seven computed energy-volume points; the computed points are not printed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1421,7 +1432,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static-lattice LAPW fit for ideal cubic CaSiO3. The source also finds the cubic structure rotationally unstable.
 
@@ -1435,6 +1446,7 @@ Static-lattice LAPW fit for ideal cubic CaSiO3. The source also finds the cubic 
     - **Access URL:** https://doi.org/10.1029/96GL02624
     - **DOI:** 10.1029/96gl02624
     - **Locations:** Table 1; EOS discussion
+    - **Finding:** Independent seven-point LAPW static BM3 fit.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-05
@@ -1478,7 +1490,7 @@ Static-lattice LAPW fit for ideal cubic CaSiO3. The source also finds the cubic 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_chizmeshya_1996_lapw8_static_bm3)
 
-**Source finding:** Independent eight-point LAPW static BM3 convergence fit.
+**Source check:** Coefficients from the Table 1 LAPW(8) row, an eight-point convergence fit.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1521,6 +1533,7 @@ Static-lattice LAPW convergence fit for ideal cubic CaSiO3.
     - **Access URL:** https://doi.org/10.1029/96GL02624
     - **DOI:** 10.1029/96gl02624
     - **Locations:** Table 1
+    - **Finding:** Independent eight-point LAPW static BM3 convergence fit.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-05
@@ -1563,7 +1576,7 @@ Static-lattice LAPW convergence fit for ideal cubic CaSiO3.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_chizmeshya_1996_lapw9_static_bm3)
 
-**Source finding:** Independent nine-point LAPW static BM3 fit used for the thermal correction.
+**Source check:** Coefficients from the Table 1 LAPW(9) row, the final static fit that the paper uses for its thermal correction.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1606,6 +1619,7 @@ Final nine-point static-lattice LAPW fit for ideal cubic CaSiO3, before the ther
     - **Access URL:** https://doi.org/10.1029/96GL02624
     - **DOI:** 10.1029/96gl02624
     - **Locations:** Table 1
+    - **Finding:** Independent nine-point LAPW static BM3 fit used for the thermal correction.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-05
@@ -1648,7 +1662,7 @@ Final nine-point static-lattice LAPW fit for ideal cubic CaSiO3, before the ther
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_chizmeshya_1996_lapw9_300k_kp4_bm3)
 
-**Source finding:** Source-reported constrained thermally corrected fit, separate from the unconstrained preferred row.
+**Source check:** Coefficients from the Table 2 LAPW(9)\* row, where the star marks the fit with K0' constrained.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1691,6 +1705,7 @@ Thermally corrected ideal-cubic model; a sensitivity fit with K0' = 4 constraine
     - **Access URL:** https://doi.org/10.1029/96GL02624
     - **DOI:** 10.1029/96gl02624
     - **Locations:** Table 2
+    - **Finding:** Source-reported constrained thermally corrected fit, separate from the unconstrained preferred row.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-05
@@ -1733,7 +1748,7 @@ Thermally corrected ideal-cubic model; a sensitivity fit with K0' = 4 constraine
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_chizmeshya_1996_lapw9_300k_bm3)
 
-**Source finding:** The source's preferred thermally corrected fit is V0=45.62 A3, K0=227 GPa, K0'=4.29; Akber-Knutson et al. (2002), Table 2, independently repeats the same corrected set.
+**Source check:** Coefficients from the abstract and the unconstrained Table 2 LAPW(9) row; Akber-Knutson et al. (2002), Table 2, lists the same set.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1776,6 +1791,7 @@ The source's preferred thermally corrected ideal-cubic model. In the source calc
     - **Access URL:** https://doi.org/10.1029/96GL02624
     - **DOI:** 10.1029/96gl02624
     - **Locations:** Abstract; Table 2
+    - **Finding:** The source's preferred thermally corrected fit is V0=45.62 A3, K0=227 GPa, K0'=4.29; Akber-Knutson et al. (2002), Table 2, independently repeats the same corrected set.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-05
@@ -1819,7 +1835,7 @@ The source's preferred thermally corrected ideal-cubic model. In the source calc
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_holland_2013_cpv_modified_tait)
 
-**Source finding:** The cpv endmember is a distinct modified-Tait reference isotherm.
+**Source check:** Coefficients from Table 1 and the official tc-ds62 cpv block, printed as V0 = 2.745 J/bar/mol, K0 = 2360 kbar and K0'' = -0.00160 kbar^-1, converted to Å³ (Z = 1) and GPa.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1864,6 +1880,7 @@ Cubic CaSiO3-perovskite (cpv) thermodynamic endmember.
     - **Access URL:** https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf
     - **DOI:** 10.1093/petrology/egt035
     - **Locations:** Table 1; Thermodynamic data section
+    - **Finding:** The cpv endmember is a distinct modified-Tait reference isotherm.
 - **Primary data check:**
     - **Status:** official\_parameter\_artifact
     - **Audit date:** 2026-09-05
@@ -1906,7 +1923,7 @@ Cubic CaSiO3-perovskite (cpv) thermodynamic endmember.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_akber_knutson_2002_vibc_pnma_300k_bm3)
 
-**Source finding:** Complete source-owned VIBC Pnma coefficients at 300 K.
+**Source check:** Coefficients from the Table 2 VIBC Pnma row.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1936,7 +1953,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Orthorhombic Pnma VIBC branch, including zero-point and 300 K vibrational contributions.
 
@@ -1949,6 +1966,7 @@ Orthorhombic Pnma VIBC branch, including zero-point and 300 K vibrational contri
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523
     - **DOI:** 10.1029/2001gl013523
     - **Locations:** Table 2; Methods and discussion
+    - **Finding:** Complete source-owned VIBC Pnma coefficients at 300 K.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05
@@ -1989,7 +2007,7 @@ Orthorhombic Pnma VIBC branch, including zero-point and 300 K vibrational contri
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_akber_knutson_2002_vibc_pm3m_300k_bm3)
 
-**Source finding:** Complete source-owned VIBC cubic coefficients at 300 K.
+**Source check:** Coefficients from the Table 2 VIBC Pm3m row.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2019,7 +2037,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Cubic Pm3m VIBC branch, including zero-point and 300 K vibrational contributions.
 
@@ -2032,6 +2050,7 @@ Cubic Pm3m VIBC branch, including zero-point and 300 K vibrational contributions
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523
     - **DOI:** 10.1029/2001gl013523
     - **Locations:** Table 2; Methods and discussion
+    - **Finding:** Complete source-owned VIBC cubic coefficients at 300 K.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05
@@ -2072,7 +2091,7 @@ Cubic Pm3m VIBC branch, including zero-point and 300 K vibrational contributions
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_akber_knutson_2002_vib_pm3m_300k_bm3)
 
-**Source finding:** Complete source-owned uncorrected VIB cubic coefficients at 300 K.
+**Source check:** Coefficients from the Table 2 VIB Pm3m row.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2102,7 +2121,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Cubic Pm3m VIB branch, without the empirical Si-O covalent correction.
 
@@ -2115,6 +2134,7 @@ Cubic Pm3m VIB branch, without the empirical Si-O covalent correction.
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523
     - **DOI:** 10.1029/2001gl013523
     - **Locations:** Table 2; Methods and discussion
+    - **Finding:** Complete source-owned uncorrected VIB cubic coefficients at 300 K.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05
@@ -2155,7 +2175,7 @@ Cubic Pm3m VIB branch, without the empirical Si-O covalent correction.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_sherman_1993_basis_b_static_bm3)
 
-**Source finding:** Basis-set-B result is an explicit third-order Birch-Murnaghan fit; the distinct finite-strain coefficient set lacks a resolvable executable form and is not represented.
+**Source check:** Coefficients from the EOS results table for basis set B; the abstract rounds K0 to 300 GPa.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2186,7 +2206,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Cubic perovskite result from the moderately extended basis set B.
 
@@ -2199,6 +2219,7 @@ Cubic perovskite result from the moderately extended basis set B.
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JB02175
     - **DOI:** 10.1029/93jb02175
     - **Locations:** Abstract; EOS results table
+    - **Finding:** Basis-set-B result is an explicit third-order Birch-Murnaghan fit; the distinct finite-strain coefficient set lacks a resolvable executable form and is not represented.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05
@@ -2238,7 +2259,7 @@ Cubic perovskite result from the moderately extended basis set B.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_weidner_1994_bm2)
 
-**Source finding:** The source fits exactly four room-temperature decompression points above 2.0 GPa with BM2, fixing K0'=4, and reports V0=45.83(7) A3 and K0=280(23) GPa. Table 1 is a single 11.2 GPa, 1172 K diffraction refinement and is not the room-temperature fit table; 11.7 GPa is a thermal-expansion isobar, not the room-temperature fit limit.
+**Source check:** V0 and K0 from the abstract and the room-temperature compression paragraph (p. 897), a BM2 fit to four decompression points above 2.0 GPa. Table 1 is a single 11.2 GPa, 1172 K refinement, not the fit data.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2268,7 +2289,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2279,6 +2300,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/10.1029/94GL00976
     - **DOI:** 10.1029/94gl00976
     - **Locations:** Experimental section, journal page 895; Figure 3 and caption, journal page 897; Room-temperature compression paragraph, journal page 897; Table 1, journal page 896
+    - **Finding:** The source fits exactly four room-temperature decompression points above 2.0 GPa with BM2, fixing K0'=4, and reports V0=45.83(7) A3 and K0=280(23) GPa. Table 1 is a single 11.2 GPa, 1172 K diffraction refinement and is not the room-temperature fit table; 11.7 GPa is a thermal-expansion isobar, not the room-temperature fit limit.
 - **Primary data check:**
     - **Status:** plot\_only
     - **Audit date:** 2026-09-08
@@ -2331,7 +2353,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_caracas_2005_bm4_4)
 
-**Source finding:** Explicit source BM4 fit for Pm-3m (a0a0a0).
+**Source check:** Coefficients from the Table 2 Pm-3m column, the fourth-order fit of Section 4; Table 2 prints V0 per formula unit, which equals the cell volume for Z = 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2362,7 +2384,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 116.161
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static-lattice 0 K DFT fit for the cubic Pm-3m (a0a0a0) octahedral-tilt branch; not an ambient-stability claim. The source fits BM3 and BM4 to the same calculation series.
 
@@ -2375,6 +2397,7 @@ Static-lattice 0 K DFT fit for the cubic Pm-3m (a0a0a0) octahedral-tilt branch; 
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144
     - **DOI:** 10.1029/2004gl022144
     - **Locations:** Section 2; Table 1; Section 4; Table 2
+    - **Finding:** Explicit source BM4 fit for Pm-3m (a0a0a0).
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-05
@@ -2422,7 +2445,7 @@ Static-lattice 0 K DFT fit for the cubic Pm-3m (a0a0a0) octahedral-tilt branch; 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_liu_2007_lda_static_bm3)
 
-**Source finding:** One source-owned complete static LDA BM3 fit; the remaining Table 1 rows are literature comparisons.
+**Source check:** Coefficients from the Table 1 this-work column; the other Table 1 entries are literature comparisons.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2452,7 +2475,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static-lattice LDA fit for cubic CaSiO3 perovskite.
 
@@ -2465,6 +2488,7 @@ Static-lattice LDA fit for cubic CaSiO3 perovskite.
     - **Access URL:** https://iopscience.iop.org/article/10.1088/0953-8984/19/24/246103
     - **DOI:** 10.1088/0953-8984/19/24/246103
     - **Locations:** Computational method; Table 1; Structural-property section
+    - **Finding:** One source-owned complete static LDA BM3 fit; the remaining Table 1 rows are literature comparisons.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -2511,9 +2535,9 @@ Static-lattice LDA fit for cubic CaSiO3 perovskite.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_fu_2023_bm3_mgd_refit)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The published thermal parameters keep an unresolved high-temperature misfit to the source data; the joint fit is not reproduced.
 
-**Source finding:** The source publishes a complete CaSiO3 BM3-MGD coefficient set, but not its regression objective, weights, covariance, code, or row manifest. The official ZIP contains only the supplement PDF and CIF. A 174-observation candidate selection can be reconstructed from the 140 Sun rows matching the Figure S3 temperature legend and 34 cubic Gréaux rows; multiple explicit weightings do not recover Table S3.
+**Source check:** Coefficients from the Online Materials Table S3 davemaoite row with main-text Equations 23-28. The paper does not give the row selection, objective, weights or covariance of this fit.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2550,7 +2574,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -2572,6 +2596,7 @@ Coefficients published by Fu et al. (2023) for a joint fit to Sun et al. (2016) 
     - **Access URL:** http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023\_data/AM-23-48435.zip
     - **DOI:** 10.2138/am-2022-8435
     - **Locations:** main-text Equations 23-28; Online Materials Text S3; Online Materials Figure S3; Online Materials Table S3
+    - **Finding:** The source publishes a complete CaSiO3 BM3-MGD coefficient set, but not its regression objective, weights, covariance, code, or row manifest. The official ZIP contains only the supplement PDF and CIF. A 174-observation candidate selection can be reconstructed from the 140 Sun rows matching the Figure S3 temperature legend and 34 cubic Gréaux rows; multiple explicit weightings do not recover Table S3.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-23
@@ -2632,7 +2657,7 @@ Coefficients published by Fu et al. (2023) for a joint fit to Sun et al. (2016) 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_karki_crain_1998_static_bm3)
 
-**Source finding:** The paper reports a complete static cubic CaSiO3 third-order EOS through 140 GPa. The coefficients are phase-specific and source-owned; comparison rows in the same article are not copied as new records.
+**Source check:** Coefficients from the article's equation-of-state section, a third-order fit to calculated energy-volume states; the energy-volume table is not printed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2662,7 +2687,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.161
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static-lattice LDA plane-wave pseudopotential result for the ideal cubic Pm-3m branch.
 
@@ -2676,6 +2701,7 @@ Static-lattice LDA plane-wave pseudopotential result for the ideal cubic Pm-3m b
     - **Access URL:** https://repository.lsu.edu/geo\_pubs/1504/
     - **DOI:** 10.1029/98gl51952
     - **Locations:** article equation-of-state section; authors' repository abstract and bibliographic record
+    - **Finding:** The paper reports a complete static cubic CaSiO3 third-order EOS through 140 GPa. The coefficients are phase-specific and source-owned; comparison rows in the same article are not copied as new records.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-06
@@ -2717,7 +2743,7 @@ Static-lattice LDA plane-wave pseudopotential result for the ideal cubic Pm-3m b
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_ono_2013_bm3_log_thermal)
 
-**Source finding:** The article publishes an exact thermal-pressure equation supported by two source-fitted coefficients. The LitCurate row captures only the adopted static BM3 term, so this record preserves both attribution layers.
+**Source check:** Coefficients from Table 1 with Equations (8) and (9); the two thermal coefficients are Ono's least-squares fit to the high-temperature AIMD states.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2750,7 +2776,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.161
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Ono's high-temperature extension of the 300 K BM3 of Shim et al. (2000), whose coefficients are adopted. The thermal-pressure term is Ono's own fit, and the range covers the 27 AIMD pressure-temperature conditions stated in the source. The source's velocity equations are not encoded.
 
@@ -2764,6 +2790,7 @@ Ono's high-temperature extension of the 300 K BM3 of Shim et al. (2000), whose c
     - **Access URL:** https://www.mdpi.com/1099-4300/15/10/4300
     - **DOI:** 10.3390/e15104300
     - **Locations:** Methods, Section 2; Equations (7)-(9), Section 3; Table 1
+    - **Finding:** The article publishes an exact thermal-pressure equation supported by two source-fitted coefficients. The LitCurate row captures only the adopted static BM3 term, so this record preserves both attribution layers.
 - **Primary data check:**
     - **Status:** source\_parameterization\_only
     - **Audit date:** 2026-09-06
@@ -2812,7 +2839,7 @@ Ono's high-temperature extension of the 300 K BM3 of Shim et al. (2000), whose c
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit)
 
-**Source finding:** This is the reproducible unweighted Peritheos solution for the candidate Fu data selection, not a source-published coefficient set or a reconstruction of undisclosed source weights.
+**Source check:** Model checked against Fu et al. Equations 17-18 and 23-28, Text S3 and Figure S3. K0' and theta0 are fixed at the Fu Table S3 values; V0, K0, gamma0 and q are Peritheos fits.
 
 **Usage qualification:** Opt-in independent comparison using unit weight for every scalar pressure, bulk-modulus and shear-modulus residual in GPa. Retain the candidate selection, pressure-scale and measurement-error qualifications. Do not present it as a correction to or reproduction of Fu's original fit; its residual-scaled errors do not establish source measurement covariance.
 
@@ -2852,7 +2879,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
@@ -2875,6 +2902,7 @@ Peritheos refit to the inferred Fu et al. data selection, with unit weight on ev
     - **Access URL:** http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023\_data/AM-23-48435.zip
     - **DOI:** 10.2138/am-2022-8435
     - **Locations:** Main-text Equations 17-18 and 23-28; Online Materials Text S3 and Figure S3
+    - **Finding:** This is the reproducible unweighted Peritheos solution for the candidate Fu data selection, not a source-published coefficient set or a reconstruction of undisclosed source weights.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-23
@@ -2920,7 +2948,7 @@ Peritheos refit to the inferred Fu et al. data selection, with unit weight on ev
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit)
 
-**Source finding:** Published Table 1 observations and BM3 conventions checked; coefficients are an independent equal-weight Peritheos refit with constant thermal-pressure slope.
+**Source check:** Observations from Table 1 with the BM3 form of Equation (1); K0' is fixed at the authors' value from their Mao-data reanalysis. V0, K0 and the thermal slope are Peritheos fits, not values printed in the paper.
 
 **Usage qualification:** Optional comparison within sampled coverage; range bounds describe an observation envelope, not complete P–T coverage. Preserve the source pressure-scale and weighting qualifications. Do not extrapolate to ambient stability or present as Wang's published thermal coefficients.
 
@@ -2957,7 +2985,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 Peritheos BM3 + linear thermal-pressure refit with equal pressure weights to 64 Table 1 states, without the two sub-2-GPa states the source flags as amorphizing. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. Not a reproduction of the published thermal fit or a validated pressure standard.
@@ -2971,6 +2999,7 @@ Peritheos BM3 + linear thermal-pressure refit with equal pressure weights to 64 
     - **Access URL:** https://millenia.cars.aps.anl.gov/gsecars/LVP/publication/Papers/Wang\_et\_al95JB03254.pdf
     - **DOI:** 10.1029/95jb03254
     - **Locations:** Table 1; Equation (1); Thermal Pressure
+    - **Finding:** Published Table 1 observations and BM3 conventions checked; coefficients are an independent equal-weight Peritheos refit with constant thermal-pressure slope.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-08

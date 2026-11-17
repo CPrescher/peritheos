@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/iceviii.md#record-iceviii_besson_1994_bm3_1)
 
-**Source finding:** The EOS and crystallographic data are for D2O ice VIII, not ordinary H2O; the material metadata was corrected accordingly. The authors state that no pressure/volume error can be quoted because it depends on the adopted EOS.
+**Source check:** Coefficients from the Table I 300 K row with Equation (1) (p. 12543); the authors state that no pressure-volume error can be quoted because it depends on the adopted EOS.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,6 +90,7 @@ Automatic selection for equilibrium calculations.
 - **Primary source check:**
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.49.12540/fulltext
     - **Locations:** Equation (1), page 12543; Table I, 300 K row; page 12544, stated 0-10 GPa limit
+    - **Finding:** The EOS and crystallographic data are for D2O ice VIII, not ordinary H2O; the material metadata was corrected accordingly. The authors state that no pressure/volume error can be quoted because it depends on the adopted EOS.
     - **DOI:** 10.1103/physrevb.49.12540
 - **Migration source:**
     - **Project:** Dioptas

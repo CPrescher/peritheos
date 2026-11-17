@@ -38,11 +38,16 @@ from peritheos.errors import EosmatError
 from peritheos.materials import _material_from_eosmat
 from scripts.apply_record_text import revise_record
 from scripts.split_eosmat_audits import (
+    CHECK_TEXT_FIELDS,
     RECEIPT,
+    check_text,
     merged_document,
     pre_split_bytes,
     record_text,
+    refresh_check_text,
+    restore_check_text,
     restore_record_text,
+    set_check_text,
     set_record_text,
     split_added_materials,
     split_material,
@@ -195,11 +200,19 @@ def _revised_indices(material):
     return binding.get("superseded_record_text", [])
 
 
+def _check_text_entries(material):
+    """Curated check texts written after the split (receipt ``check_text``)."""
+    binding = json.loads(RECEIPT.read_bytes())["materials"].get(material, {})
+    return binding.get("check_text", [])
+
+
 def _without_text_revision(document, material):
-    """A merged document with the post-split text revision undone."""
+    """A merged document with the post-split text revisions undone."""
     result = copy.deepcopy(document)
     for index in _revised_indices(material):
         restore_record_text(result["eos_records"][index])
+    for index, originals in _check_text_entries(material):
+        restore_check_text(result["eos_records"][index], originals)
     return result
 
 
@@ -211,7 +224,8 @@ def _replay_text_revision(material, record_bytes, audit_bytes):
     committed files only if every stored original is the pre-split text.
     """
     indices = _revised_indices(material)
-    if not indices:
+    check_texts = _check_text_entries(material)
+    if not indices and not check_texts:
         return record_bytes, audit_bytes
     current = merged_document(material)
     document, sidecar = json.loads(record_bytes), json.loads(audit_bytes)
@@ -222,6 +236,18 @@ def _replay_text_revision(material, record_bytes, audit_bytes):
         new = {f: record_text(revised, f) for f in SUPERSEDED_TEXT_FIELDS if f in block}
         entry = sidecar["records"].setdefault(record["identifier"], {})
         revise_record(record, entry, new, block["superseded_on"])
+    # Curated check texts: the bound originals must be the split output's
+    # values; the current values are written and check is refreshed.
+    for index, originals in check_texts:
+        record = document["eos_records"][index]
+        entry = sidecar["records"][record["identifier"]]
+        for field in CHECK_TEXT_FIELDS:
+            if field in originals:
+                assert check_text(entry, field) == originals[field]
+                set_check_text(
+                    entry, field, check_text(current["eos_records"][index], field)
+                )
+        refresh_check_text({**record, **entry})
     order = [r["identifier"] for r in document["eos_records"]]
     entries = sidecar["records"]
     sidecar["records"] = {i: entries[i] for i in order if i in entries}

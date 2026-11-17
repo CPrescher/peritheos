@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/sno2_pa_3_at_48gpa.md#record-sno2_pa_3_at_48gpa_ono_2000_bm3_1)
 
-**Source finding:** The stored record is only the 300 K reference isotherm. The paper's separate 25 GPa thermal-expansion result is documented but is not silently turned into a full thermal EOS. The notation V0=130.6(3) means an uncertainty of 0.3 A^3, not 3 A^3.
+**Source check:** Coefficients from the 300 K fit on page 621; the printed V0 error (3) means 0.3 Å³, not 3 Å³. The separate 25 GPa thermal-expansion result is not part of this record.
 
 Automatic selection for equilibrium calculations.
 
@@ -95,6 +95,7 @@ Automatic selection for equilibrium calculations.
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1007/s002690000108
     - **Locations:** page 621, Table 2, measured cubic-phase P-V-T data; page 621, third-order Birch-Murnaghan equation and 300 K fit; page 621, Table 3 and thermal-expansion discussion
+    - **Finding:** The stored record is only the 300 K reference isotherm. The paper's separate 25 GPa thermal-expansion result is documented but is not silently turned into a full thermal EOS. The notation V0=130.6(3) means an uncertainty of 0.3 A^3, not 3 A^3.
     - **DOI:** 10.1007/s002690000108
 - **Migration source:**
     - **Project:** Dioptas

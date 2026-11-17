@@ -17,6 +17,7 @@ from urllib.parse import quote
 
 from peritheos import list_materials
 from peritheos._eosmat_audit import check_block
+from peritheos._overview import error_convention_text
 from peritheos.eosmat import convert_eosmat, load_eosmat
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,7 +31,9 @@ _LABELS = {
     "experimental_pressure_range_gpa": "Reported pressure coverage (GPa)",
     "experimental_temperature_range_k": "Reported temperature coverage (K)",
     "pressure_range_status": "Coverage provenance",
+    # A thermal block's own value is kept and not interpreted by the reader.
     "parameter_error_confidence": "Reported error confidence level",
+    "printed_parameter_errors": "Printed parameter errors",
     "determination_method": "Origin of the parameterization",
     "doi": "DOI",
     "source_url": "Source URL",
@@ -116,19 +119,24 @@ def report_link(record: Mapping[str, Any]) -> str | None:
 
 
 def reconstruction(record: Mapping[str, Any], check: Mapping[str, Any]) -> list[str]:
-    """Headline, warning and source finding; the comparison itself is in the report."""
+    """Headline, warning and source note; the comparison itself is in the report."""
     headline = f"**{check['reproduction']}**"
     link = report_link(record)
     if link:
         headline += f" · [Reconstruction report]({link})"
     lines = [f"Reproduction: {headline}", ""]
     if check.get("warning"):
-        lines.extend([f"**Warning:** {text(check['warning'])}", ""])
+        warning = check["warning"]
+        if check.get("warning_reason"):
+            warning += f" {check['warning_reason']}"
+        lines.extend([f"**Warning:** {text(warning)}", ""])
     source_warning = record.get("scientific_validation", {}).get("warning")
     if source_warning:
         lines.extend([f"**Warning (source review):** {text(source_warning)}", ""])
     if check.get("source_note"):
-        lines.extend([f"**Source finding:** {text(check['source_note'])}", ""])
+        # The record's short note, labelled as in ``record.summary()``; the
+        # complete finding is in the collapsed audit view as "Finding".
+        lines.extend([f"**Source check:** {text(check['source_note'])}", ""])
     return lines
 
 
@@ -375,7 +383,17 @@ def render_material(
         lines.extend(
             metadata(
                 {
-                    k: record[k]
+                    # The record's confidence level is printed as its relation
+                    # to sigma, as record.summary() prints it.
+                    (
+                        "printed_parameter_errors"
+                        if k == "parameter_error_confidence"
+                        else k
+                    ): (
+                        error_convention_text(record[k])
+                        if k == "parameter_error_confidence"
+                        else record[k]
+                    )
                     for k in (
                         "record_kind",
                         "determination_method",
@@ -425,15 +443,25 @@ def render_material(
         review = {
             k: v
             for k, v in validation.items()
-            if k not in {"status", "usage_recommendation", "warning", *status_fields}
+            if k
+            not in {
+                "status",
+                "usage_recommendation",
+                "warning",
+                "warning_reason",
+                *status_fields,
+            }
         }
         source_check = review.get("primary_source_check")
-        if isinstance(source_check, Mapping) and source_check.get("finding") == checks[
-            rid
-        ].get("source_note"):
-            review["primary_source_check"] = {
-                k: v for k, v in source_check.items() if k != "finding"
-            }
+        if isinstance(source_check, Mapping):
+            # The note shown above (record_note, else the finding) is not
+            # repeated; a finding replaced by a record_note stays here.
+            shown = checks[rid].get("source_note")
+            shown_key = "record_note" if "record_note" in source_check else "finding"
+            if source_check.get(shown_key) == shown:
+                review["primary_source_check"] = {
+                    k: v for k, v in source_check.items() if k != shown_key
+                }
         if review:
             lines.extend(details("Source review", review))
         if record.get("pressure_calibration"):

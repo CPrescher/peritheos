@@ -98,7 +98,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_bm3)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P1-scale BM3 fit; P1 pressures are from NaCl-B2 calibrated to Matsui (2009) Pt.
 
 Automatic selection for equilibrium calculations.
 
@@ -128,7 +128,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -142,6 +142,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -190,7 +191,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_vinet)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P1-scale Vinet fit; P1 pressures are from NaCl-B2 calibrated to Matsui (2009) Pt.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -218,7 +219,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -232,6 +233,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -280,7 +282,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P1-scale BM3 fit with the Mao V0; P1 pressures are from NaCl-B2 calibrated to Matsui (2009) Pt.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -308,7 +310,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -322,6 +324,7 @@ Alternative Table 4 fit with V0 fixed at the Mao choice instead of the prelimina
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -370,7 +373,7 @@ Alternative Table 4 fit with V0 fixed at the Mao choice instead of the prelimina
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P1-scale Vinet fit with the Mao V0; P1 pressures are from NaCl-B2 calibrated to Matsui (2009) Pt.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -398,7 +401,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -412,6 +415,7 @@ Alternative Table 4 fit with V0 fixed at the Mao choice instead of the prelimina
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -460,7 +464,7 @@ Alternative Table 4 fit with V0 fixed at the Mao choice instead of the prelimina
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P1-scale BM3 fit with the Dewaele V0; P1 pressures are from NaCl-B2 calibrated to Matsui (2009) Pt.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -488,7 +492,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -502,6 +506,7 @@ Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preli
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -550,7 +555,7 @@ Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preli
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P1-scale Vinet fit with the Dewaele V0; P1 pressures are from NaCl-B2 calibrated to Matsui (2009) Pt.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -578,7 +583,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -592,6 +597,7 @@ Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preli
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -640,7 +646,7 @@ Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preli
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p2_bm3)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P2-scale BM3 fit; P2 pressures are from NaCl-B2 calibrated to Fei (2007) Pt.
 
 Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -671,7 +677,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -685,6 +691,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -733,7 +740,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p2_vinet)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P2-scale Vinet fit; P2 pressures are from NaCl-B2 calibrated to Fei (2007) Pt.
 
 Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -764,7 +771,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -778,6 +785,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -826,7 +834,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p3_bm3)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P3-scale BM3 fit; P3 pressures are from NaCl-B2 calibrated to Dorogokupets and Oganov (2007) Pt.
 
 Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -857,7 +865,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -871,6 +879,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -919,7 +928,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p3_vinet)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P3-scale Vinet fit; P3 pressures are from NaCl-B2 calibrated to Dorogokupets and Oganov (2007) Pt.
 
 Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -950,7 +959,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -964,6 +973,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1012,7 +1022,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p4_bm3)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P4-scale BM3 fit; P4 pressures are from NaCl-B2 calibrated to Tange (2009) MgO and Dorfman (2012).
 
 Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -1042,7 +1052,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -1056,6 +1066,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1104,7 +1115,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p4_vinet)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P4-scale Vinet fit; P4 pressures are from NaCl-B2 calibrated to Tange (2009) MgO and Dorfman (2012).
 
 Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -1134,7 +1145,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -1148,6 +1159,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1196,7 +1208,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p5_bm3)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P5-scale BM3 fit; P5 pressures are from NaCl-B2 calibrated to Yokoo (2009) Pt.
 
 Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -1227,7 +1239,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -1241,6 +1253,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1289,7 +1302,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p5_vinet)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P5-scale Vinet fit; P5 pressures are from NaCl-B2 calibrated to Yokoo (2009) Pt.
 
 Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -1320,7 +1333,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -1334,6 +1347,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1382,7 +1396,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p6_bm3)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P6-scale BM3 fit; P6 pressures are from NaCl-B2 calibrated to Holmes (1989) Pt.
 
 Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -1412,7 +1426,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -1426,6 +1440,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1474,7 +1489,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p6_vinet)
 
-**Source finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source check:** Coefficients from Table 4, P6-scale Vinet fit; P6 pressures are from NaCl-B2 calibrated to Holmes (1989) Pt.
 
 Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -1504,7 +1519,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
 
@@ -1518,6 +1533,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1566,9 +1582,9 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type1_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
-**Source finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma\_inf tied to gamma0 and theta=theta0\*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+**Source check:** Type 1 thermal coefficients from Tables 6–8 on the Table 4 P4 BM3 isotherm; P7 thermal pressures are on the Tange (2009) MgO scale. Table 6 does not tabulate q independently for this type.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1608,7 +1624,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -1629,6 +1645,7 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 4, 6–8; Section 3.5
+    - **Finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma\_inf tied to gamma0 and theta=theta0\*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1692,9 +1709,9 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type2_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
-**Source finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+**Source check:** Type 2 thermal coefficients from Tables 6–8 (Section 3.5) on the Table 4 P4 BM3 isotherm; P7 thermal pressures are on the Tange (2009) MgO scale.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1734,7 +1751,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -1755,6 +1772,7 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 4, 6–8; Section 3.5
+    - **Finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1818,9 +1836,9 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_1_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
-**Source finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+**Source check:** Type 4 thermal coefficients from Tables 6–8 (Section 3.5), the variant with beta fixed, on the Table 4 P4 BM3 isotherm; P7 thermal pressures are on the Tange (2009) MgO scale.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1860,7 +1878,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -1881,6 +1899,7 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 4, 6–8; Section 3.5
+    - **Finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1944,9 +1963,9 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_2_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
-**Source finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+**Source check:** Type 4 thermal coefficients from Tables 6–8 (Section 3.5), the variant with theta0 and beta fixed, on the Table 4 P4 BM3 isotherm; P7 thermal pressures are on the Tange (2009) MgO scale.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1986,7 +2005,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -2007,6 +2026,7 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 4, 6–8; Section 3.5
+    - **Finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2070,9 +2090,9 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_3_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
-**Source finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+**Source check:** Type 4 thermal coefficients from Tables 6–8 (Section 3.5), the variant with only beta fitted, on the Table 4 P4 BM3 isotherm; P7 thermal pressures are on the Tange (2009) MgO scale.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2112,7 +2132,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 56.12984
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -2133,6 +2153,7 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 4, 6–8; Section 3.5
+    - **Finding:** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10

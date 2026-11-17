@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "The source publishes 18 pressure-volume rows and reports an all-row reduced Birch least-squares fit with V0=279.4(2) A3, K0=142(9) GPa, and K0'=4.",
+        "source_note": "Coefficients from the Equation-of-State section (p. 2100): a least-squares reduced Birch fit to all 18 Table 1 rows, normalized to the Table 1 ambient V0.",
         "audit": "../audits/mg0991fe0008mn0001co3_magnesite.audit.json#mg0991fe0008mn0001co3_redfern_1993_bm2_1"
       },
       "model": "BM3",
@@ -56,7 +56,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "The source publishes 18 pressure-volume rows and reports a weighted finite-strain regression of the nine rows with fV>0.01, giving K0=151(7) GPa and fitted K0'=2.5.",
+        "source_note": "Coefficients from Equation (2) and the Figure 2 caption (p. 2100): a weighted finite-strain regression of the nine Table 1 rows with fV > 0.01. Yu et al. (2024) list K0' as fixed, but the source fitted it.",
         "audit": "../audits/mg0991fe0008mn0001co3_magnesite.audit.json#mg0991fe0008mn0001co3_redfern_1993_bm3_2"
       },
       "model": "BM3",

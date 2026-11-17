@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fes_vi.md#record-fes_vi_morard_2026_bm3_mgd)
 
-**Source finding:** Published BM3-MGD coefficients accepted unchanged on parameter agreement, following the 2026-10-19 maintainer decision. The confirmed selected author input has 21 literature cold and 146 thermal rows, excluding all 11 unsuitable quenched rows. Weighted and equal-weight cold-then-thermal EosFit fits recover all three cold coefficients within published error widths; equal-weight gamma0 is inside the published width and the weighted gamma0 interval overlaps it. Actual distributed-GUI fits agree closely with the console. Reconstruction remains classified similar: source error confidence and cross-fit covariance are unspecified and thermal errors condition on fixed cold coefficients. The staged weighted GUI thermal replay has RMS 1.63 GPa, maximum 5.29 GPa, and 12/146 rows outside +/-3 GPa. This residual-reporting discrepancy does not block use; exact original author-workflow reproduction is not claimed. See docs/literature-reproductions/fes-gui-replay.md and docs/literature-reproductions/fes-eosfit-direct.md.
+**Source check:** Coefficients from Section III.D (pages 063605-6 to 063605-7); V0 is converted from 15.40 ± 0.45 cm³/mol of FeS to the Z = 4 cell. The author-supplied FeS6.eos file has a different V0, gamma0 and Tref; the printed values are used.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[29.59643816464321, 149.9480701694589\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[300, 2590.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -113,6 +113,7 @@ One published volume relation fitted jointly across FeS-VI, FeS-IV and FeS-IX. V
     - **DOI:** 10.1103/h4pj-rvxx
     - **Access URL:** https://doi.org/10.1103/h4pj-rvxx
     - **Locations:** Section II; Section III.B; Section III.D, pages 063605-6 to 063605-7; Figure 6; Table S1, Sheet1 A3:M148; Author-supplied FeS6.eos; Both FeS6EOSfittot-SataOhfuji input variants; Supplementary\_Materials\_Rev\_140526.docx, Figures S1-S5
+    - **Finding:** Published BM3-MGD coefficients accepted unchanged on parameter agreement, following the 2026-10-19 maintainer decision. The confirmed selected author input has 21 literature cold and 146 thermal rows, excluding all 11 unsuitable quenched rows. Weighted and equal-weight cold-then-thermal EosFit fits recover all three cold coefficients within published error widths; equal-weight gamma0 is inside the published width and the weighted gamma0 interval overlaps it. Actual distributed-GUI fits agree closely with the console. Reconstruction remains classified similar: source error confidence and cross-fit covariance are unspecified and thermal errors condition on fixed cold coefficients. The staged weighted GUI thermal replay has RMS 1.63 GPa, maximum 5.29 GPa, and 12/146 rows outside +/-3 GPa. This residual-reporting discrepancy does not block use; exact original author-workflow reproduction is not claimed. See docs/literature-reproductions/fes-gui-replay.md and docs/literature-reproductions/fes-eosfit-direct.md.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-03

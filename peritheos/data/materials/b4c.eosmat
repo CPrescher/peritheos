@@ -18,7 +18,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-03",
-        "source_note": "The article and supplement define an integrated constant-q MGD model that Peritheos represents exactly. The article's final gamma0=0.8, q=2.1 parameterization gives a 1.39 GPa pressure RMSE on the 41 heated supplementary points. A Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), rather than independently recovering q=2.1. Source contradictions in EOS order, theta0, gamma0/q, and nominal reference temperature are retained explicitly with evidence-based resolutions.",
+        "source_note": "Coefficients from the article and supplement. Source conflicts resolved: BM3, not the BM2 of the Figure 1 caption; theta0 as in the Figure 4 caption and supplement, not 1450 K (Table 1); gamma0 and q from the article, not the supplement; Tr from the supplement, not 300 K.",
         "audit": "../audits/b4c.audit.json#b4c_somayazulu_2023_bm3_1"
       },
       "model": "BM3",
@@ -64,7 +64,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-03",
-        "source_note": "Source inspection shows that EosFit7's Berman implementation uses a truncated quadratic reference-volume law and effective-variance pressure weights. The article displays an exponential-integral formula that instead matches EosFit's Fei-style law. Peritheos stores the actual EosFit Berman curve and documents both fitting objectives.",
+        "source_note": "Coefficients from Table 2 (Equations 3.8-3.9). The article's displayed exponential-integral formula matches the EosFit Fei-style law, not its Berman label; the stored curve is the truncated quadratic law that EosFit7 uses for Berman.",
         "audit": "../audits/b4c.audit.json#b4c_somayazulu_2023_berman_2"
       },
       "model": "BM3",
@@ -109,7 +109,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-03",
-        "source_note": "A direct EosFit7c 7.60 run on the 41 heated public-data rows gives alpha0=1.81120e-5 +/- 0.21554e-5 K^-1, dK0/dT=-0.01311 +/- 0.00419 GPa/K, reduced weighted chi-square 1.0412, and correlation -0.958. Peritheos's matched effective-variance emulation reproduces these values within printed precision.",
+        "source_note": "Observations from supplementary Table 4. V0, K0 and K0' are the published 300 K BM3 values and alpha1 the published Berman-fit value; Tr is the EosFit7 Berman default.",
         "audit": "../audits/b4c.audit.json#b4c_somayazulu_2023_berman_refit"
       },
       "model": "BM3",

@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Both source-owned fits are experimental; older experimental and calculated literature rows in Table 1 are comparisons, not new fits. BM3 with K0_prime fixed 4 plus constant linear thermal pressure.",
+        "source_note": "Coefficients from Table 1 (p. 750) and Equations 1-3 (p. 754), where alpha_KT is a constant alpha*K_T product; the printed V0 = 26.379 cm³/mol is stored per Z = 4 cell. Other Table 1 rows are literature comparisons.",
         "audit": "../audits/thorianite.audit.json#thorianite_chidester_2018_bm3_linear_thermal"
       },
       "model": "BM3",

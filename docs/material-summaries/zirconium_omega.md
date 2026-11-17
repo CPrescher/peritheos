@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zirconium_omega.md#record-zirconium_omega_mchardy_2026_vinet_1)
 
-**Source finding:** The beta-phase V0 is explicitly an extrapolated fixed fit parameter.
+**Source check:** Coefficients from Table II, omega row, with the authors' fixed V0 and its error converted from Å³/atom to the three-atom cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ V0 is fixed at the independently measured decompression value, 23.05(3) Å³/ato
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1103/zp3m-kjpc
     - **Locations:** Vinet formulation; Table I, beta row; Table II, alpha and omega rows
+    - **Finding:** The beta-phase V0 is explicitly an extrapolated fixed fit parameter.
     - **DOI:** 10.1103/zp3m-kjpc
 - **Migration source:**
     - **Project:** Dioptas

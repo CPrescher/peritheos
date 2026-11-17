@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/silicon_vii.md#record-silicon_vii_anzellini_2019_vinet_1)
 
-**Source finding:** Per-atom volumes were converted using each phase's conventional-cell Z.
+**Source check:** Coefficients from Table 8 and the equation-of-state discussion.
 
 Automatic selection for equilibrium calculations.
 
@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1038/s41598-019-51931-1
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[46.0, 94.4\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table 8 room-temperature fit. Published V0 = 14.3 Å³/atom; stored per hcp cell (×2). V0 is extrapolated because Si-VII was observed only at high pressure.
 
@@ -90,6 +90,7 @@ Table 8 room-temperature fit. Published V0 = 14.3 Å³/atom; stored per hcp cell
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1038/s41598-019-51931-1
     - **Locations:** Equation-of-state discussion; Table 8
+    - **Finding:** Per-atom volumes were converted using each phase's conventional-cell Z.
     - **DOI:** 10.1038/s41598-019-51931-1
 - **Migration source:**
     - **Project:** Dioptas

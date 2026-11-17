@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-23",
-        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "source_note": "Coefficients from Table IV, third column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per four-atom cell (Z = 4).",
         "audit": "../audits/silver.audit.json#silver_dewaele_2008_table4_vinet"
       },
       "model": "Vinet",
@@ -53,7 +53,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-22",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from the Mao ruby-scale reduction in Dewaele (2019) Table 1 with Equation (1), stored under an identifier that names the 2008 paper.",
         "audit": "../audits/silver.audit.json#silver_dewaele_2008_vinet_1"
       },
       "model": "Vinet",
@@ -86,7 +86,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "source_note": "Stored coefficients match the Ag columns of Tables 1 and 4.",
         "audit": "../audits/silver.audit.json#silver_sokolova_2013_holzapfel_2"
       },
       "model": "Holzapfel",
@@ -142,7 +142,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/silver.audit.json#silver_dewaele_2019_mao_vinet"
       },
       "model": "Vinet",
@@ -182,7 +182,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Dorogokupets (2007) ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/silver.audit.json#silver_dewaele_2019_dor_vinet"
       },
       "model": "Vinet",
@@ -223,7 +223,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-23",
-        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "source_note": "Coefficients from Table IV, fourth column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per four-atom cell (Z = 4).",
         "audit": "../audits/silver.audit.json#silver_dewaele_2008_table4_us_k0_101_vinet"
       },
       "model": "Vinet",

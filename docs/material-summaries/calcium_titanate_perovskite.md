@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/calcium_titanate_perovskite.md#record-calcium_titanate_perovskite_ross_1999_bm3_1)
 
-**Source finding:** The source defines an 11-observation, room-temperature, conventional-cell, three-free-parameter BM3 fit. Standard BM3 reproduces the source's 0.03 GPa maximum residual and weighted chi-square of 1.4.
+**Source check:** Coefficients from the abstract and Results (page 279), fitted to the 11 Table 1 observations with pressures from quartz volumes (Angel et al. (1997)). The standard Eulerian convention is confirmed by the source's 0.03 GPa maximum residual and weighted chi-square of 1.4.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 135.942
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -105,6 +105,7 @@ Automatic selection for equilibrium calculations.
 - **Primary source check:**
     - **Access URL:** https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html
     - **Locations:** Abstract; Experimental methods, journal page 278; Table 1, journal page 278; Results, journal page 279; Figure 1
+    - **Finding:** The source defines an 11-observation, room-temperature, conventional-cell, three-free-parameter BM3 fit. Standard BM3 reproduces the source's 0.03 GPa maximum residual and weighted chi-square of 1.4.
     - **DOI:** 10.2138/am-1999-0309
 - **Primary data check:**
     - **Status:** bundled

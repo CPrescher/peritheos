@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/fe3s.md#record-fe3s_fei_2000_bm3_1)
 
-**Source finding:** Figure 2 provides 13 readable Fe3S compression markers. They were digitized from the supplied primary paper; the constrained K0'=4 BM3 fit is the EOS variant represented by this record.
+**Source check:** Coefficients from the constrained BM3 fit in the EOS discussion (pp. 1832-1833); the 13 compression markers of Figure 2 are digitized.
 
 Automatic selection for equilibrium calculations.
 
@@ -86,6 +86,7 @@ Automatic selection for equilibrium calculations.
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.2138/am-2000-11-1229
     - **Locations:** Experimental methods, journal pages 1830-1831; Figure 2 and EOS discussion, journal pages 1832-1833
+    - **Finding:** Figure 2 provides 13 readable Fe3S compression markers. They were digitized from the supplied primary paper; the constrained K0'=4 BM3 fit is the EOS variant represented by this record.
     - **DOI:** 10.2138/am-2000-11-1229
 - **Migration source:**
     - **Project:** Dioptas

@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/beryllium_hcp.md#record-beryllium_hcp_dewaele_2019_mao_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source check:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 Automatic selection for equilibrium calculations.
 
@@ -85,7 +85,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 95.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Mao et al. (1986) ruby scale. The Dorogokupets (2007) ruby-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -99,6 +99,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-06
@@ -140,7 +141,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/beryllium_hcp.md#record-beryllium_hcp_dewaele_2019_dor_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source check:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [beryllium\_hcp\_dewaele\_2019\_mao\_vinet](#record-beryllium_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -165,7 +166,7 @@ Published pressure-scale alternative of [beryllium\_hcp\_dewaele\_2019\_mao\_vin
 - **Validity:**
     - **Pressure gpa:** \[0.0, 95.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Dorogokupets (2007) ruby scale. The Mao et al. (1986) ruby-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -179,6 +180,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-06

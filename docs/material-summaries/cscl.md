@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cscl.md#record-cscl_campbell_1994_bm3_1)
 
-**Source finding:** The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations; the CsCl fit also uses nine corrected V/V0 values from Yagi (1978).
+**Source check:** K0 and K0' from p. 11767 and Figure 2, an Eulerian finite-strain fit with linear normalized stress; the new data are the 13-row CsCl block of Table 1.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ Room-temperature BM3 fit to the authors' Table 1 data plus corrected compression
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/94JB00127
     - **Locations:** page 11767, Table 1, separate RbCl and CsCl compression blocks; page 11767, Figures 2-3 and Eulerian finite-strain fits
+    - **Finding:** The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations; the CsCl fit also uses nine corrected V/V0 values from Yagi (1978).
     - **DOI:** 10.1029/94jb00127
 - **Migration source:**
     - **Project:** Dioptas

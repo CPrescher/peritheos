@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/osmium.md#record-osmium_takemura_2004_bm3_1)
 
-**Source finding:** The paper fixes relative V0 to unity; the absolute hcp cell follows its stated ambient lattice parameters.
+**Source check:** Coefficients from the EOS discussion on p. 2; observations in Table I. The paper fixes relative V0 to unity; the absolute hcp cell V0 follows its stated ambient lattice parameters.
 
 Automatic selection for equilibrium calculations.
 
@@ -88,6 +88,7 @@ Automatic selection for equilibrium calculations.
 - **Primary source check:**
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.012101/fulltext
     - **Locations:** Table I; page 2 EOS discussion; Figure 2
+    - **Finding:** The paper fixes relative V0 to unity; the absolute hcp cell follows its stated ambient lattice parameters.
     - **DOI:** 10.1103/physrevb.70.012101
 - **Migration source:**
     - **Project:** Dioptas

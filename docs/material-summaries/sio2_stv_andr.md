@@ -69,7 +69,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-sio2_stv_andr_andrault_2003_bm3_1)
 
-**Source finding:** The combined BM3 fit uses the new single-crystal quartz-calibrated observations in Table 1 and the laser-annealed NaCl-calibrated powder observations in Table 2. Both tables are bundled with lattice parameters, conventional-cell volumes, pressure-standard volumes, and printed uncertainties.
+**Source check:** Coefficients from the EOS discussion (p. 304): a combined fit to the quartz-calibrated single-crystal data of Table 1 and the NaCl-calibrated powder data of Table 2 (pp. 303-304).
 
 Automatic selection for equilibrium calculations.
 
@@ -100,6 +100,7 @@ Published V0 = 46.51(61) Å³; the stored V0 is the more precise product of the 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.2138/am-2003-2-307
     - **Locations:** Tables 1 and 2, journal pages 303-304; EOS discussion and Figure 2, journal page 304
+    - **Finding:** The combined BM3 fit uses the new single-crystal quartz-calibrated observations in Table 1 and the laser-annealed NaCl-calibrated powder observations in Table 2. Both tables are bundled with lattice parameters, conventional-cell volumes, pressure-standard volumes, and printed uncertainties.
     - **DOI:** 10.2138/am-2003-2-307
 - **Migration source:**
     - **Project:** Dioptas
@@ -169,7 +170,7 @@ Published V0 = 46.51(61) Å³; the stored V0 is the more precise product of the 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-sio2_stv_andr_wang_2012_vinet_mgd_2)
 
-**Source finding:** The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.
+**Source check:** Coefficients from the Table 2 Morse-Rydberg (Vinet) column with Equations 1-8; the authors fixed a because the data could not constrain it (paragraph 14).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -217,6 +218,7 @@ Thermal EOS: 300 K Vinet plus a Debye Mie-Grüneisen increment relative to 300 K
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/2011JB009100
     - **Locations:** Equations 1-8 and analytical methods, paragraphs 9 and 13-14; Tables 1-3; Experimental procedures, paragraphs 6-8; Discussion, paragraph 24
+    - **Finding:** The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.
     - **DOI:** 10.1029/2011JB009100
 - **Primary data check:**
     - **Status:** bundled
@@ -272,7 +274,7 @@ Thermal EOS: 300 K Vinet plus a Debye Mie-Grüneisen increment relative to 300 K
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-sio2_stv_andr_driver_2010_qmc_300k_vinet)
 
-**Source finding:** The source reports the QMC 300 K stishovite Vinet row directly.
+**Source check:** Coefficients from the Table 1 stishovite QMC column, Vinet fits to thermal free-energy isotherms; the printed V0 = 159.0(4) bohr³ per SiO2 is stored in Å³ per Z = 2 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -314,6 +316,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://arxiv.org/pdf/1001.2066
     - **DOI:** 10.1073/pnas.0912130107
     - **Locations:** Equations of States section; Figure 1b; Table 1
+    - **Finding:** The source reports the QMC 300 K stishovite Vinet row directly.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -353,7 +356,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-sio2_stv_andr_holland_2013_stv_modified_tait)
 
-**Source finding:** The stv endmember is a distinct modified-Tait reference isotherm.
+**Source check:** Coefficients from Table 1 and the official tc-ds62 stv block, printed as V0 = 1.401 J/bar/mol, K0 = 3090 kbar and K0'' = -0.00150 kbar^-1, converted to Å³ (Z = 2) and GPa.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -397,6 +400,7 @@ Stishovite (stv) thermodynamic endmember reference isotherm.
     - **Access URL:** https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf
     - **DOI:** 10.1093/petrology/egt035
     - **Locations:** Table 1; Thermodynamic data section
+    - **Finding:** The stv endmember is a distinct modified-Tait reference isotherm.
 - **Primary data check:**
     - **Status:** official\_parameter\_artifact
     - **Audit date:** 2026-09-05
@@ -439,7 +443,7 @@ Stishovite (stv) thermodynamic endmember reference isotherm.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-stishovite_akber_knutson_2002_vibc_300k_bm3)
 
-**Source finding:** Complete source-owned 300 K stishovite VIBC coefficients.
+**Source check:** Coefficients from the Table 1 VIBC row.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -469,7 +473,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 60.083
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Rutile-type stishovite benchmark calculated with the same VIBC potential used for the CaSiO3 analysis.
 
@@ -482,6 +486,7 @@ Rutile-type stishovite benchmark calculated with the same VIBC potential used fo
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523
     - **DOI:** 10.1029/2001gl013523
     - **Locations:** Table 1; Methods
+    - **Finding:** Complete source-owned 300 K stishovite VIBC coefficients.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05
@@ -522,7 +527,7 @@ Rutile-type stishovite benchmark calculated with the same VIBC potential used fo
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-stishovite_zhang_bukowinski_1991_mpib_bm3)
 
-**Source finding:** Complete stishovite coefficients.
+**Source check:** Coefficients from Table VI, with the finite-strain EOS of Section III.C and Figure 11. Table VI states no temperature; 300 K is inferred from the paper's Debye EOS convention.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -559,6 +564,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.44.2495/fulltext
     - **DOI:** 10.1103/physrevb.44.2495
     - **Locations:** Section III.C; Figures 9-11; Table VI
+    - **Finding:** Complete stishovite coefficients.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -599,7 +605,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-stishovite_nisr_2017_dry_bm3)
 
-**Source finding:** Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.
+**Source check:** Coefficients from Table 3 with the Birch (1978) form cited in Section 3.3; the erratum (p. 6983) corrects only the dry c and V0 of Table 2.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -620,7 +626,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 62.934\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Dry reference stishovite synthesized at 10 GPa and 1473 K, co-compressed with the hydrous sample in helium; the authors report the onset of the dry post-stishovite distortion near 60 GPa, inside the fitted range. The data and pressure scale are distinct from Andrault (2003), from which only K0' is adopted. Table 3 V0 = 46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612.
 
@@ -633,6 +639,7 @@ Dry reference stishovite synthesized at 10 GPa and 1473 K, co-compressed with th
     - **DOI:** 10.1002/2017JB014055
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055
     - **Locations:** Sections 2, 3.1-3.3 and 4.2; Tables 1-4; Figures 2-5; Erratum, page 6983; Supporting Text S1 and Tables S1-S4
+    - **Finding:** Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.
 - **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; validity; primary\_data; independent\_refit
 - **Primary data check:**
     - **Status:** bundled

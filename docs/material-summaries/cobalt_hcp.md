@@ -67,7 +67,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cobalt_hcp.md#record-cobalt_hcp_fujihisa_1996_vinet_1)
 
-**Source finding:** The primary paper fits hcp cobalt with the Vinet EOS; the migrated BM3 model label was corrected.
+**Source check:** Coefficients from the hcp-volume paragraph on page 6; the paper fits the Vinet form, not BM3 as the earlier migrated entry had it. The observations appear only graphically in Figure 3.
 
 Automatic selection for equilibrium calculations.
 
@@ -99,6 +99,7 @@ Room-temperature hcp-cobalt Vinet fit. Volumes were normalized to the ambient hc
 - **Primary source check:**
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.54.5/fulltext
     - **Locations:** page 6, hcp-volume paragraph; Figure 3
+    - **Finding:** The primary paper fits hcp cobalt with the Vinet EOS; the migrated BM3 model label was corrected.
     - **DOI:** 10.1103/physrevb.54.5
 - **Migration source:**
     - **Project:** Dioptas
@@ -149,7 +150,7 @@ Room-temperature hcp-cobalt Vinet fit. Volumes were normalized to the ambient hc
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cobalt_hcp.md#record-cobalt_hcp_dewaele_2019_mao_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source check:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -172,7 +173,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 66.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Mao et al. (1986) ruby scale. The Dorogokupets (2007) ruby-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -186,6 +187,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -236,7 +238,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cobalt_hcp.md#record-cobalt_hcp_dewaele_2019_dor_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source check:** Coefficients from Table 1 (Dorogokupets (2007) ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [cobalt\_hcp\_dewaele\_2019\_mao\_vinet](#record-cobalt_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -261,7 +263,7 @@ Published pressure-scale alternative of [cobalt\_hcp\_dewaele\_2019\_mao\_vinet]
 - **Validity:**
     - **Pressure gpa:** \[0.0, 66.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Dorogokupets (2007) ruby scale. The Mao et al. (1986) ruby-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -275,6 +277,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -325,7 +328,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cobalt_hcp.md#record-cobalt_hcp_dewaele_2008_table4_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source check:** Coefficients from Table IV, third column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -347,7 +350,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 65.2\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.
 
@@ -362,6 +365,7 @@ Published Table IV fit, distinct from the later 2019 all-free-parameter recalibr
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, third column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** cobalt\_hcp\_dewaele\_2008\_source\_table
@@ -402,7 +406,7 @@ Published Table IV fit, distinct from the later 2019 all-free-parameter recalibr
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cobalt_hcp.md#record-cobalt_hcp_dewaele_2008_table4_us_k0_184_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source check:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -424,7 +428,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 65.2\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data, and K0 is adopted from ultrasonic data; its adopted uncertainty is not a fitted error. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.
 
@@ -479,7 +483,7 @@ Published Table IV fit, distinct from the later 2019 all-free-parameter recalibr
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cobalt_hcp.md#record-cobalt_hcp_dewaele_2008_table4_us_k0_190_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source check:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -501,7 +505,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 65.2\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data, and K0 is adopted from ultrasonic data; its adopted uncertainty is not a fitted error. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.
 

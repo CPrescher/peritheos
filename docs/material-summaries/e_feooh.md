@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/e_feooh.md#record-e_feooh_gleason_2008_bm2_1)
 
-**Source finding:** The source pools every deposited high-temperature P21mn epsilon-FeOOH observation in a BM2 analysis, assumes K0-prime=4, and obtains V0 separately by G-versus-g extrapolation. Its prose reports no resolvable epsilon thermal trend and no explicit correction formula; applying its own alpha0 to reduce the hot volumes to 300 K is the numerical step that recovers K0=158 GPa.
+**Source check:** K0 from manuscript page 7 and Figure 3b, V0 from the page 7 G-versus-g extrapolation; observations from depository Table 2. Reducing the hot volumes to 300 K with the paper's goethite alpha0 = 2.3e-5 K^-1 is a numerically recovered step.
 
 Automatic selection for equilibrium calculations.
 
@@ -103,6 +103,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://www.osti.gov/servlets/purl/950968
     - **Article sha256:** e5f34c3c2e8c3ff48cba8dcca1ff811669acf2bf0d837373c1e5e95bc7408e8f
     - **Locations:** Experimental Procedure, manuscript pages 3-5; Results and epsilon-FeOOH scatter, manuscript pages 5-6; Secondary analyses and epsilon-FeOOH EOS, manuscript page 7; Figure 3b caption and plot, manuscript pages 14 and 20; MSA depository item AM-08-056, Table 2
+    - **Finding:** The source pools every deposited high-temperature P21mn epsilon-FeOOH observation in a BM2 analysis, assumes K0-prime=4, and obtains V0 separately by G-versus-g extrapolation. Its prose reports no resolvable epsilon thermal trend and no explicit correction formula; applying its own alpha0 to reduce the hot volumes to 300 K is the numerical step that recovers K0=158 GPa.
     - **DOI:** 10.2138/am.2008.2942
 - **Migration source:**
     - **Project:** Dioptas
@@ -186,7 +187,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/e_feooh.md#record-e_feooh_suzuki_2016_bm3_thermal_2)
 
-**Source finding:** The source reports a conventional-cell BM3 high-temperature EOS for low-pressure InOOH-type epsilon-FeOOH. It fixes V0,300, fits five elastic/thermal coefficients, and defines alpha0 at T0 through alpha(T)=a0+a1(T-T0).
+**Source check:** Coefficients from Table 2 (page 422) with Equation 1 and alpha(T) = a0 + a1(T - T0) about T0 = 300 K; the Table 2 footnote gives the errors as standard deviations.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -218,7 +219,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Temperature k:** \[300.0, 700.0\]
     - **Volume ratio:** \[0.93832, 1.0\]
     - **Notes:** The authors note a possible change in compression slope at 3-7 GPa (possibly deviatoric stress or hydrogen-bond symmetrization); the fit is one smooth curve.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -240,6 +241,7 @@ High-temperature BM3 for InOOH-type epsilon-FeOOH, far below the spin transition
     - **Access URL:** https://www.jstage.jst.go.jp/article/jmps/111/6/111\_160719c/\_pdf
     - **Article sha256:** 0066dfbd7b3ab45ce7aae866aef24978c63571a433651ae470912cd0cc8b0289
     - **Locations:** Experimental Methods, pages 420-421; Table 1 and Figure 1, page 421; Equation 1, temperature relations, and Table 2, page 422; compression and phase discussion, pages 422-423
+    - **Finding:** The source reports a conventional-cell BM3 high-temperature EOS for low-pressure InOOH-type epsilon-FeOOH. It fixes V0,300, fits five elastic/thermal coefficients, and defines alpha0 at T0 through alpha(T)=a0+a1(T-T0).
     - **DOI:** 10.2465/jmps.160719c
 - **Primary data check:**
     - **Status:** bundled

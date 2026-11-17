@@ -496,6 +496,7 @@
               "Equations 14-20 and Tables 2-3, pages 228-231"
             ],
             "finding": "The article defines two high-temperature BM3 models that share the same 300 K isotherm. Tables 2 and 3 give V0=24.45 cm^3/mol and K0=260.51 GPa at 300 K, while the abstract and Equation 16 prescribe K'_300=4. This yields one non-duplicate static BM3 record on the source's Jamieson-1982 Pt pressure scale.",
+            "record_note": "V0 and K0 from Tables 2 and 3 at 300 K (V0 printed as 24.45 cm³/mol, converted to the Z = 4 cell); K0' is prescribed by the abstract and Equation 16. Pressures are on the Jamieson (1982) Pt scale.",
             "doi": "10.2138/am-1999-0303"
           },
           "reported_parameterizations": [
@@ -690,7 +691,8 @@
               "original article equations 1-8",
               "corrigendum corrected Table 1, doi:10.1029/2009GL039318"
             ],
-            "finding": "The paper reports a preferred free-K0/free-K0-prime BM3 and a same-data K0-fixed sensitivity fit. The formal correction replaces the erroneous original table while explicitly stating that the EOS parameters are unchanged."
+            "finding": "The paper reports a preferred free-K0/free-K0-prime BM3 and a same-data K0-fixed sensitivity fit. The formal correction replaces the erroneous original table while explicitly stating that the EOS parameters are unchanged.",
+            "record_note": "K0 and K0' from section 4.1 and the abstract; V0 is the product of the paragraph 11 ambient lattice parameters. A corrigendum replaces the original Table 1 and states that the EOS parameters are unchanged."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -844,7 +846,8 @@
             "access_url": "https://doi.org/10.1029/2008GL035658",
             "doi": "10.1029/2008GL035658",
             "locations": ["original article section 4.1, paragraph 12", "corrigendum corrected Table 1, doi:10.1029/2009GL039318"],
-            "finding": "The source explicitly reports K'_T0=4.1(2) after refitting its own dataset with K_T0 assumed to be 253 GPa."
+            "finding": "The source explicitly reports K'_T0=4.1(2) after refitting its own dataset with K_T0 assumed to be 253 GPa.",
+            "record_note": "K0' from section 4.1, paragraph 12, where the authors refit their data with K0 assumed as a Brillouin-comparison value; V0 is the paragraph 11 ambient lattice product."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -1023,7 +1026,8 @@
               "corresponding-author data page, Table 2 machine-readable mirror",
               "PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit_Tange2012_lsq_fixdeb.in"
             ],
-            "finding": "The record is the complete Wolf et al. reanalysis of Fe-free MgSiO3 observations: a 300 K Vinet isotherm and integrated constant-q MGD correction. It remains distinct from both original Tange et al. records already bundled."
+            "finding": "The record is the complete Wolf et al. reanalysis of Fe-free MgSiO3 observations: a 300 K Vinet isotherm and integrated constant-q MGD correction. It remains distinct from both original Tange et al. records already bundled.",
+            "record_note": "Coefficients from Table 3, 0% Fe column (Equations 1-6); theta0 was fixed after a preliminary Fe-free fit gave 991 ± 77 K (section 3.3). The author's plain-text Table 2 labels the MgO volumes V_Ne; the article identifies them as MgO."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -1188,7 +1192,8 @@
             "access_url": "https://epub.uni-bayreuth.de/5769/1/2020JB020967.pdf",
             "doi": "10.1029/2020JB020967",
             "locations": ["Section 3.3, Equation 3", "Table 1", "Figshare dataset 10.6084/m9.figshare.14265176.v1"],
-            "finding": "Equation 3 is an executable volumetric BM3 pressure equation. It is distinct from the third-order finite-strain fits to K_S and G in Table 2."
+            "finding": "Equation 3 is an executable volumetric BM3 pressure equation. It is distinct from the third-order finite-strain fits to K_S and G in Table 2.",
+            "record_note": "K0 and K0' from Section 3.3 (Equation 3), not the finite-strain K_S and G fits of Table 2. V0 follows from the Table 1 ambient density of 4.1045(10) g/cm³."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -1335,7 +1340,8 @@
             "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/1999GL008397",
             "doi": "10.1029/1999GL008397",
             "locations": ["Experimental section", "Table 1", "Section 3.3 and Table 3"],
-            "finding": "The source distinguishes a 25-point post-heating 298 K BM3 from global P-V-T inversions combining different datasets."
+            "finding": "The source distinguishes a 25-point post-heating 298 K BM3 from global P-V-T inversions combining different datasets.",
+            "record_note": "Coefficients from Section 3.3, fitted by the authors to the 25 post-heating 298 K points of Table 1 by generalized least squares."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -1413,7 +1419,8 @@
             "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
             "doi": "10.1111/j.1365-246X.2012.05511.x",
             "locations": ["Table 1(c)", "Section 3.2"],
-            "finding": "The study reports its own pure-MgSiO3 control alongside the six Fe-bearing fits and uses it to derive composition trends."
+            "finding": "The study reports its own pure-MgSiO3 control alongside the six Fe-bearing fits and uses it to derive composition trends.",
+            "record_note": "Coefficients from Table 1(c), with K0' fixed per the Table 1 note and Section 3.2; V0 is printed as 24.2717 cm³/mol and converted to the Z = 4 cell."
           },
           "primary_data_check": {
             "status": "parameterization_and_pressure_grid_only",
@@ -1486,7 +1493,8 @@
             "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
             "doi": "10.1029/2005GL023192",
             "locations": ["Section 2", "Table 1"],
-            "finding": "Table 1 reports the pure perovskite static GGA BM3."
+            "finding": "Table 1 reports the pure perovskite static GGA BM3.",
+            "record_note": "Coefficients from the Table 1 pure-perovskite row (energy-volume BM3 fit, Section 2); V0 is printed as 41.75 Å³ per five-atom unit and stored ×4."
           },
           "primary_data_check": {
             "status": "parameterization_only",
@@ -1556,7 +1564,8 @@
             "access_url": "https://arxiv.org/pdf/2204.13159",
             "doi": "10.1103/PhysRevB.106.054103",
             "locations": ["Sections II-III", "Figure 2", "Table I"],
-            "finding": "The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv."
+            "finding": "The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv.",
+            "record_note": "Coefficients from the Table I Pv LDA row at 300 K, a BM3 fit to F(V,T) (Section III); V0 is printed as 40.15 Å³ per MgSiO3 and stored for Z = 4."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -1617,7 +1626,8 @@
             "access_url": "https://arxiv.org/pdf/2204.13159",
             "doi": "10.1103/PhysRevB.106.054103",
             "locations": ["Sections II-III", "Figure 2", "Table I"],
-            "finding": "The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv."
+            "finding": "The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv.",
+            "record_note": "Coefficients from the Table I Pv PBE row at 300 K, a BM3 fit to F(V,T) (Section III); V0 is printed as 42.44 Å³ per MgSiO3 and stored for Z = 4."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -1753,7 +1763,8 @@
               "Final article Tables 1-3",
               "Final article equation-of-state fit paragraph and Figure 4"
             ],
-            "finding": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations."
+            "finding": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations.",
+            "record_note": "V0 from the MgSiO3 entry of Table 1; K0 from the equation-of-state fit paragraph, whose fit uses the nine 300 K Fe10 rows of Table 2."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -1825,7 +1836,8 @@
             "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
             "doi": "10.1093/petrology/egt035",
             "locations": ["Table 1", "Thermodynamic data section"],
-            "finding": "The mpv endmember is a genuine modified-Tait reference isotherm."
+            "finding": "The mpv endmember is a genuine modified-Tait reference isotherm.",
+            "record_note": "Coefficients from Table 1 and the official tc-ds62 mpv block, printed as V0 = 2.445 J/bar/mol (24.45 cm³/mol), K0 = 2510 kbar and K0'' = -0.00160 kbar^-1; stored in Å³ (Z = 4) and GPa."
           },
           "primary_data_check": {
             "status": "official_parameter_artifact",
@@ -1877,7 +1889,8 @@
             "access_url": "https://www.researchgate.net/publication/228511351_First-Principles_Study_of_the_Structural_Electronic_and_Optical_Properties_of_MgSiO3_at_high_pressure",
             "doi": "10.1142/s0129183109014242",
             "locations": ["Section 2", "Figure 1", "Table 1"],
-            "finding": "Table 1 reports three distinct fitted EOS families for the same Pnma energy-volume calculation."
+            "finding": "Table 1 reports three distinct fitted EOS families for the same Pnma energy-volume calculation.",
+            "record_note": "Coefficients from the Table 1 this-study perovskite row, third-order Birch-Murnaghan column; the energy-volume calculation is described in Section 2 and plotted in Figure 1."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -1923,7 +1936,8 @@
             "access_url": "https://www.researchgate.net/publication/228511351_First-Principles_Study_of_the_Structural_Electronic_and_Optical_Properties_of_MgSiO3_at_high_pressure",
             "doi": "10.1142/s0129183109014242",
             "locations": ["Figure 1", "Table 1"],
-            "finding": "The Vinet column is an author-reported alternative fit, not an independent run."
+            "finding": "The Vinet column is an author-reported alternative fit, not an independent run.",
+            "record_note": "Coefficients from the Table 1 this-study perovskite row, Vinet column, an alternative fit by the authors to their Pnma energy-volume calculation (Figure 1)."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -1969,7 +1983,8 @@
             "access_url": "https://www.researchgate.net/publication/228511351_First-Principles_Study_of_the_Structural_Electronic_and_Optical_Properties_of_MgSiO3_at_high_pressure",
             "doi": "10.1142/s0129183109014242",
             "locations": ["Figure 1", "Table 1"],
-            "finding": "The natural-strain column is a distinct author-reported alternative fit."
+            "finding": "The natural-strain column is a distinct author-reported alternative fit.",
+            "record_note": "Coefficients from the Table 1 this-study perovskite row, third-order natural-strain column, an alternative fit by the authors to their Pnma energy-volume calculation (Figure 1)."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -2015,7 +2030,8 @@
             "access_url": "https://discovery.ucl.ac.uk/id/eprint/112632/",
             "doi": "10.1029/2002gl014683",
             "locations": ["Methods", "Table 1 and following paragraph"],
-            "finding": "The x=0 EOS triplet is explicitly distinguished from the elastic-modulus finite-strain fit in Table 1."
+            "finding": "The x=0 EOS triplet is explicitly distinguished from the elastic-modulus finite-strain fit in Table 1.",
+            "record_note": "Coefficients from the text following Table 1 (x = 0), derived from the equation of state; they are distinct from the elastic-modulus finite-strain fit in Table 1."
           },
           "primary_data_check": {
             "status": "theoretical_parameterization_only",
@@ -2065,7 +2081,8 @@
             "access_url": "http://cpl.iphy.ac.cn/en/article/pdf/preview/40292.pdf",
             "doi": "10.1088/0256-307x/23/8/101",
             "locations": ["Methods and EOS equation, page 2335", "Table 1, page 2336"],
-            "finding": "Superscript b is explicitly the third-order fit; superscript a is fourth order but lacks the required K0'' coefficient and is withheld."
+            "finding": "Superscript b is explicitly the third-order fit; superscript a is fourth order but lacks the required K0'' coefficient and is withheld.",
+            "record_note": "Coefficients from the Table 1 theory (0 K) entry marked b (page 2336), the third-order fit; entry a is a fourth-order fit printed without K0''."
           },
           "primary_data_check": {
             "status": "theoretical_parameterization_only",
@@ -2119,7 +2136,8 @@
             "access_url": "https://wulixb.iphy.ac.cn/pdf-content/10.7498/aps.62.049101.pdf",
             "doi": "10.7498/aps.62.049101",
             "locations": ["Section 2", "Equation (10)", "Section 3 and Table 1"],
-            "finding": "Complete source-generated Mg endmember BM3, distinct from Table 1's experimental comparison values."
+            "finding": "Complete source-generated Mg endmember BM3, distinct from Table 1's experimental comparison values.",
+            "record_note": "Coefficients from the Table 1 calculation column (Equation (10)), not Table 1's experimental comparison values; the source prints K0 and K0' as B0 and B0'."
           },
           "primary_data_check": {
             "status": "theoretical_parameterization_only",
@@ -2182,7 +2200,8 @@
             "access_url": "https://cjcp.ustc.edu.cn/hxwlxb/cn/article/pdf/preview/10.1088/1674-0068/24/06/703-710.pdf",
             "doi": "10.1088/1674-0068/24/06/703-710",
             "locations": ["Section II", "Table I", "Section III.A", "Figure 1"],
-            "finding": "One complete source-owned static GGA BM3 fit for Pbnm MgSiO3 perovskite."
+            "finding": "One complete source-owned static GGA BM3 fit for Pbnm MgSiO3 perovskite.",
+            "record_note": "Coefficients from the Table I this-study GGA column, a least-squares fit to the calculated 0-150 GPa volumes (Section III.A, plotted in Figure 1)."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -2288,7 +2307,8 @@
             "access_url": "https://doi.org/10.1016/j.rgg.2015.01.011",
             "doi": "10.1016/j.rgg.2015.01.011",
             "locations": ["Equations (1)-(5)", "Table 1", "Equations of state for Fo, Wds, Rwd, Akm, Prv, and PPrv"],
-            "finding": "The source's k=5 generalized Rydberg reference isotherm is complete; LitCurate's Birch-Murnaghan label is corrected rather than propagated."
+            "finding": "The source's k=5 generalized Rydberg reference isotherm is complete; LitCurate's Birch-Murnaghan label is corrected rather than propagated.",
+            "record_note": "Coefficients from Table 1 (V0 = 24.45 cm³/mol, stored per Z = 4 cell). Equation (2) is a generalized Rydberg form with k = 5, i.e. Rydberg-Stacey with K_infinity_prime = 5/3, not Birch-Murnaghan."
           },
           "primary_data_check": {
             "status": "partial_reconstruction",
@@ -2366,7 +2386,8 @@
             "source_pdf_sha256": "fc5bd5242c1bbb4c9e3e136156e951cace9d77f3fcbd72e8b2f2dad7c92cb3df",
             "doi": "10.2465/jmps.95.236",
             "locations": ["Method", "Compression data of MgSiO3 perovskite", "Equation (2)", "Figure 1"],
-            "finding": "The source explicitly fits the 300 K simulated volumes to BM3 and reports rho0, K_T0, and K'_T0."
+            "finding": "The source explicitly fits the 300 K simulated volumes to BM3 and reports rho0, K_T0, and K'_T0.",
+            "record_note": "K0 and K0' from the compression-data subsection (Equation (2)); V0 is computed from the printed rho0 = 4.030 g/cm³ for Z = 4."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",

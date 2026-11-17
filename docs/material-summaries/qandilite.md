@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/qandilite.md#record-qandilite_lv_2016_bm2)
 
-**Source finding:** Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record.
+**Source check:** V0 and K0 from page 303 and Table 2, with K0' fixed as stated in footnote b; V0 is the fitted value, not the measured ambient 602.58(49) Å³ of Table 1.
 
 Automatic selection for equilibrium calculations.
 
@@ -97,6 +97,7 @@ The observed cubic phase persists kinetically; the pressure range is not an equi
     - **DOI:** 10.1007/s00269-015-0794-1
     - **Access URL:** https://link.springer.com/article/10.1007/s00269-015-0794-1
     - **Locations:** Experimental method, p. 302; Table 1 and unnumbered BM equation, p. 303; Figures 3–5, p. 304; Table 2, p. 305
+    - **Finding:** Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19
@@ -152,7 +153,7 @@ The observed cubic phase persists kinetically; the pressure range is not an equi
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/qandilite.md#record-qandilite_lv_2016_bm3)
 
-**Source finding:** Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record.
+**Source check:** Coefficients from page 303 and Table 2 (K0' free), a least-squares fit with the EoS fit 5.2 program to Table 1; V0 is the fitted value, not the measured ambient 602.58(49) Å³.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -187,6 +188,7 @@ The observed cubic phase persists kinetically; the pressure range is not an equi
     - **DOI:** 10.1007/s00269-015-0794-1
     - **Access URL:** https://link.springer.com/article/10.1007/s00269-015-0794-1
     - **Locations:** Experimental method, p. 302; Table 1 and unnumbered BM equation, p. 303; Figures 3–5, p. 304; Table 2, p. 305
+    - **Finding:** Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19

@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/silicon.md#record-silicon_anzellini_2019_vinet_1)
 
-**Source finding:** Per-atom volumes were converted using each phase's conventional-cell Z.
+**Source check:** Coefficients from Table 8 and the equation-of-state discussion.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,6 +89,7 @@ Constrained Vinet fit of Figure 1, with K0' fixed to the ultrasonic value. Publi
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1038/s41598-019-51931-1
     - **Locations:** Equation-of-state discussion; Table 8
+    - **Finding:** Per-atom volumes were converted using each phase's conventional-cell Z.
     - **DOI:** 10.1038/s41598-019-51931-1
 - **Migration source:**
     - **Project:** Dioptas

@@ -18,7 +18,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.83Fe0.17)O, fitted only below 47 GPa.",
+        "source_note": "Coefficients from Table 3 (pp. 178-179) with Equations (1)-(6); K0 and theta0 are fixed from MgO and ferropericlase literature, and gamma0 and q are fitted to the 700 and 1100 K rows.",
         "audit": "../audits/mg083fe017o.audit.json#mg083fe017o_matsui_2012_bm3_mgd_1"
       },
       "model": "BM3",
@@ -81,7 +81,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "source_note": "Coefficients from the Table 7 high-spin branch; the fitted compression data are those of Lin et al. (2005).",
         "audit": "../audits/mg083fe017o.audit.json#mg083fe017o_solomatova_2016_hs_bm3_reference_1"
       },
       "model": "BM3",
@@ -125,7 +125,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "source_note": "Coefficients from the Table 7 low-spin branch; the fitted compression data are those of Lin et al. (2005).",
         "audit": "../audits/mg083fe017o.audit.json#mg083fe017o_solomatova_2016_ls_bm3_reference_2"
       },
       "model": "BM3",

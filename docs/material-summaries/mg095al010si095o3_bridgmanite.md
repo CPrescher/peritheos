@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg095al010si095o3_bridgmanite.md#record-mg095al010si095o3_bridgmanite_daniel_2004_bm2_1)
 
-**Source finding:** The source defines two conventional-cell room-temperature EOS fits to one Fe-free Al.05-Pv specimen: a preferred two-free-parameter BM2 and a three-free-parameter BM3. Both use the complete 42-row table and the same explicit mixed ruby/neon pressure coordinate.
+**Source check:** V0 and K0 from the abstract and Results paragraph 8, where Results rounds V0 to 163.23(1) Å³; observations are the 42 rows of official auxiliary Table 1.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.37, 39.97\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.8815994217, 0.9986154845\]
-- **Reported error confidence level:** 0.6826894921370859
+- **Printed parameter errors:** 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 The authors' preferred fit. Pressures follow their mixed coordinate: Mao-1986 ruby below 25 GPa, Hemley-1989 neon above. The stored one-standard-deviation covariance is built from the published marginal errors and correlation.
@@ -105,6 +105,7 @@ The authors' preferred fit. Pressures follow their mixed coordinate: Mao-1986 ru
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213
     - **DOI:** 10.1029/2004GL020213
     - **Locations:** article abstract, Methods paragraphs 4-7, and Results paragraphs 8-13; official Wiley grl18465-sup-0001-README.txt; official Wiley grl18465-sup-0002-TABLE1.txt; Jackson et al. (2004), doi:10.1029/2004GL019918, same-batch sample description and Table 1
+    - **Finding:** The source defines two conventional-cell room-temperature EOS fits to one Fe-free Al.05-Pv specimen: a preferred two-free-parameter BM2 and a three-free-parameter BM3. Both use the complete 42-row table and the same explicit mixed ruby/neon pressure coordinate.
     - **Official auxiliary readme sha256:** 816470aa2c394a62ace9406bf2677abeac0ffe0e42ead7009c3421dde8d0c10d
     - **Official auxiliary table sha256:** 492cfcfc883014fba90295a6cfd8c3fad5e3a0f240abee46fa93a86728e739d4
 - **Primary data check:**
@@ -193,7 +194,7 @@ The authors' preferred fit. Pressures follow their mixed coordinate: Mao-1986 ru
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg095al010si095o3_bridgmanite.md#record-mg095al010si095o3_bridgmanite_daniel_2004_bm3_2)
 
-**Source finding:** The source defines two conventional-cell room-temperature EOS fits to one Fe-free Al.05-Pv specimen: a preferred two-free-parameter BM2 and a three-free-parameter BM3. Both use the complete 42-row table and the same explicit mixed ruby/neon pressure coordinate.
+**Source check:** Coefficients from Results paragraph 8; observations are the 42 rows of official auxiliary Table 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -220,7 +221,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.37, 39.97\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.8816210255, 0.9986399559\]
-- **Reported error confidence level:** 0.6826894921370859
+- **Printed parameter errors:** 1 sigma
 
 Alternative BM3 fit; K0' is statistically indistinguishable from 4, so the paper favors the BM2 record. Pressures follow the authors' mixed coordinate: Mao-1986 ruby below 25 GPa, Hemley-1989 neon above.
 
@@ -234,6 +235,7 @@ Alternative BM3 fit; K0' is statistically indistinguishable from 4, so the paper
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213
     - **DOI:** 10.1029/2004GL020213
     - **Locations:** article abstract, Methods paragraphs 4-7, and Results paragraphs 8-13; official Wiley grl18465-sup-0001-README.txt; official Wiley grl18465-sup-0002-TABLE1.txt; Jackson et al. (2004), doi:10.1029/2004GL019918, same-batch sample description and Table 1
+    - **Finding:** The source defines two conventional-cell room-temperature EOS fits to one Fe-free Al.05-Pv specimen: a preferred two-free-parameter BM2 and a three-free-parameter BM3. Both use the complete 42-row table and the same explicit mixed ruby/neon pressure coordinate.
     - **Official auxiliary readme sha256:** 816470aa2c394a62ace9406bf2677abeac0ffe0e42ead7009c3421dde8d0c10d
     - **Official auxiliary table sha256:** 492cfcfc883014fba90295a6cfd8c3fad5e3a0f240abee46fa93a86728e739d4
 - **Primary data check:**

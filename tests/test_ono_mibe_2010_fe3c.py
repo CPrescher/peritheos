@@ -29,7 +29,12 @@ from scripts.ono_mibe_2010_fe3c import (
     pressure,
     reproduce,
 )
-from scripts.split_eosmat_audits import restore_record_text
+from scripts.split_eosmat_audits import (
+    CHECK_TEXT_FIELDS,
+    check_text,
+    restore_record_text,
+    set_check_text,
+)
 from scripts.standardize_reconstruction_metadata import assessment_for_record
 
 
@@ -48,6 +53,12 @@ def test_original_parameters_adopted_anchor_and_strict_scope(
     assert "this fit uses only those to 34.3 GPa" in r["validity"]["notes"][0]
     assert "no magnetic transition is modelled" in r["validity"]["notes"][1]
     restore_record_text(r)
+    # The curated check texts are added to the sidecar after the builder ran;
+    # the builder's verbatim finding is unchanged beside them.
+    assert "Table 3, experimental row e" in check_text(r, "record_note")
+    assert "V0 constraint" in check_text(r, "warning_reason")
+    for field in CHECK_TEXT_FIELDS:
+        set_check_text(r, field, None)
     assert_record_replay_close(r, expected)
     assert r["parameters"] == {
         "V0": {"value": 155.4, "error": 0.2},

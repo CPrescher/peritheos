@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iridium.md#record-iridium_anzellini_2025_bm3_1)
 
-**Source finding:** The source publishes a BM3 300 K reference isotherm plus a volume-independent Holland-Powell Einstein thermal-pressure increment with Tr=300 K, theta=298 K, and alpha0=1.87(8)e-5 K^-1. The fit combines Monteseguro et al. (2019) ambient-temperature data with present resistive- and laser-heating data and averages the two pyrometry temperatures.
+**Source check:** Coefficients from the Table 1 experimental BM3 + HP row with Equations 1-3; the Einstein temperature is fixed in the text following Equation 2.
 
 Automatic selection for equilibrium calculations.
 
@@ -95,6 +95,7 @@ BM3 300 K reference isotherm plus Holland-Powell thermal pressure. The 300 K dat
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1038/s43246-025-00963-4
     - **Locations:** Model description; Equations 1-3; Table 1, combined experimental fit; Methods, temperature averaging; Figure 4; Supplementary Figure 5
+    - **Finding:** The source publishes a BM3 300 K reference isotherm plus a volume-independent Holland-Powell Einstein thermal-pressure increment with Tr=300 K, theta=298 K, and alpha0=1.87(8)e-5 K^-1. The fit combines Monteseguro et al. (2019) ambient-temperature data with present resistive- and laser-heating data and averages the two pyrometry temperatures.
     - **DOI:** 10.1038/s43246-025-00963-4
 - **Migration source:**
     - **Project:** Dioptas

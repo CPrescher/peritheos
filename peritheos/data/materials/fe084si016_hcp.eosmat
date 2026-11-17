@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+        "source_note": "Coefficients from Table 1 and Section 4.1; the printed V0 = 7.203 cm³/mol atoms is stored per two-atom hcp cell. Observations from the official 2014 Table S1.",
         "audit": "../audits/fe084si016_hcp.audit.json#fe084si016_hcp_fischer_2014_bm3_1"
       },
       "model": "BM3",
@@ -73,7 +73,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+        "source_note": "Coefficients from Table S4 and Text S1 (p. 1), where Vinet replaces BM3 in Equations (1)-(2); the printed V0 = 7.283 cm³/mol atoms is stored per two-atom hcp cell.",
         "audit": "../audits/fe084si016_hcp.audit.json#fe084si016_hcp_fischer_2014_vinet_2"
       },
       "model": "Vinet",

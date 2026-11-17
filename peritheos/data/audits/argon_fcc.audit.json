@@ -1142,6 +1142,7 @@
           "reproduction_status": "not_reproduced",
           "note": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
           "usage_recommendation": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
+          "warning_reason": "A rebuild from Chen's rounded constants, not a verified author equation; it misses the digitized densities by about 6.9 GPa RMS.",
           "primary_source_check": {
             "doi": "10.1103/PhysRevB.81.144110",
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
@@ -1393,7 +1394,8 @@
             "status": "parameterization_only",
             "finding": "Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.",
             "dataset_identifiers": []
-          }
+          },
+          "warning_reason": "The implementation does not reproduce the paper's Table 8 sample (23.89 vs 23.97 cm³/mol); the cause is unresolved."
         },
         "parameter_provenance": {
           "shell_cutoff_squared": "Explicit implementation assumption: 64, endpoint of SI.1. The paper does not specify its cutoff; geometric fcc shells replace the inconsistent SI.1 entry at squared distance 14.",
@@ -1505,7 +1507,8 @@
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.092106/fulltext",
             "doi": "10.1103/PhysRevB.73.092106",
             "locations": ["Pages 1, 3-4; Figures 4-5"],
-            "finding": "Input observations traced to Ross Table I and Errandonea Figure 5 through source_lineage; coefficients are the provisional Peritheos refit, not published source coefficients."
+            "finding": "Input observations traced to Ross Table I and Errandonea Figure 5 through source_lineage; coefficients are the provisional Peritheos refit, not published source coefficients.",
+            "record_note": "Observations from Ross et al. (1986) Table I and a partial digitization of Errandonea et al. (2006) Figure 5; no coefficient is taken from either paper."
           },
           "primary_data_check": {
             "status": "bundled",

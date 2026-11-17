@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/coesite_iv.md#record-coesite_iv_bykova_2018_am05_static_bm3_refit)
 
-**Source finding:** Supplementary Table 11 publishes K0=168.52 GPa and K0\_prime=3.34, but no V0. The stored V0 is a conditional Peritheos one-parameter fit, quantitatively checked against Figure 6 without fitting its markers.
+**Source check:** Supplementary Table 11 prints K0 and K0' but no V0, so V0 is the Peritheos fit; the calculated markers of Supplementary Figure 6 were used only as a check.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 16.0
     - **Molar mass g mol:** 60.083
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. V0 is fitted to the three calculated Table 10 states, whose pressures are printed as whole GPa and so are not exact, with K0 and K0' adopted from Supplementary Table 11. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding or systematic error budget.
 
@@ -108,6 +108,7 @@ Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regressi
     - **Access URL:** https://www.nature.com/articles/s41467-018-07265-z
     - **DOI:** 10.1038/s41467-018-07265-z
     - **Locations:** Methods: Ab initio calculations; Supplementary Figure 6; Supplementary Tables 10-11
+    - **Finding:** Supplementary Table 11 publishes K0=168.52 GPa and K0\_prime=3.34, but no V0. The stored V0 is a conditional Peritheos one-parameter fit, quantitatively checked against Figure 6 without fitting its markers.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-23
@@ -153,9 +154,9 @@ Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regressi
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/coesite_iv.md#record-coesite_iv_v_bykova_2018_experimental_bm2_reference)
 
-**Warning:** Not recommended for use.
+**Warning:** Not recommended for use. A joint coesite-IV/V fit, not a pure-phase EOS, with large observation residuals and an unresolved fitting protocol.
 
-**Source finding:** The published coefficients with an explicit 32.7 GPa reference reproduce the drawn red curve; all observation residuals and unresolved author-fit details are separately retained.
+**Source check:** Coefficients from the Figure 1 caption and Supplementary Figure 9, which print the volume per formula unit, 23.44(3) Å³, stored ×16. With P0 as the reference pressure the BM2 matches the red vector curve of Figure 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -184,7 +185,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[29.9, 70.4\]
     - **Notes:** Do not extrapolate to ambient pressure or use as a pressure calibrant.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published joint empirical fit to the Table 2 coesite-IV and coesite-V room-temperature observations, with the reference state at 32.7 GPa; not a pure-phase EOS. The source acknowledges significant between-run scatter.
 
@@ -198,6 +199,7 @@ Published joint empirical fit to the Table 2 coesite-IV and coesite-V room-tempe
     - **Access URL:** https://www.nature.com/articles/s41467-018-07265-z
     - **DOI:** 10.1038/s41467-018-07265-z
     - **Locations:** Figure 1 caption and red vector curve, PDF page 2; Supplementary Table 2, PDF page 13; Supplementary Figure 9
+    - **Finding:** The published coefficients with an explicit 32.7 GPa reference reproduce the drawn red curve; all observation residuals and unresolved author-fit details are separately retained.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** coesite\_iv\_v\_bykova\_2018\_table2\_pv

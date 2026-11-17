@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/feo_b8_2.md#record-feo_b8_2_fischer_2011_bm3_1)
 
-**Source finding:** The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observation rules, 3% temperature correction, Figure 3 fallback volume errors, explicit comparison-point exclusions, and Ozawa-inclusive fit scope were reconstructed. Fischer's current-study rows and Ozawa's printed Table 2 P-V-T rows are bundled; only the exact combined selection and weighting protocol remain unpublished.
+**Source check:** Coefficients from Table 1 and Equation (1) (pp. 12-14); the printed V0 = 11.997 cm³/mol is stored per conventional B8 cell (Z = 2). The fit data combine Supplementary Table S1 with Ozawa's Table 2 P-V-T rows.
 
 Automatic selection for equilibrium calculations.
 
@@ -103,6 +103,7 @@ Thermal EOS for iron-saturated FeO (Fe0.94O starting powder mixed with Fe, treat
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/j.epsl.2011.02.025
     - **Locations:** Experimental Methods, pages 6-8; Equation (1) and equation-of-state section, pages 12-14; Table 1; Figures 2 and 3; Supplementary Table S1 (mmc1.xls)
+    - **Finding:** The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observation rules, 3% temperature correction, Figure 3 fallback volume errors, explicit comparison-point exclusions, and Ozawa-inclusive fit scope were reconstructed. Fischer's current-study rows and Ozawa's printed Table 2 P-V-T rows are bundled; only the exact combined selection and weighting protocol remain unpublished.
     - **DOI:** 10.1016/j.epsl.2011.02.025
 - **Migration source:**
     - **Project:** Dioptas

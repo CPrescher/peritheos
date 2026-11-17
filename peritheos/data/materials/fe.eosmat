@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+        "source_note": "Coefficients from Table II (pages 9-12) with Equation (4); the Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I.",
         "audit": "../audits/fe.audit.json#fe_shen_2026_vinet_1"
       },
       "model": "Vinet",
@@ -47,7 +47,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-23",
-        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "source_note": "Coefficients from Table IV, third column (p. 104102-5), with Equation (1); the printed per-atom V0 is stored per two-atom cell (Z = 2).",
         "audit": "../audits/fe.audit.json#fe_dewaele_2008_table4_vinet"
       },
       "model": "Vinet",
@@ -85,7 +85,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-23",
-        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "source_note": "Coefficients from Table IV, fourth column (p. 104102-5), with Equation (1); the printed per-atom V0 is stored per two-atom cell (Z = 2).",
         "audit": "../audits/fe.audit.json#fe_dewaele_2008_table4_us_k0_165_vinet"
       },
       "model": "Vinet",

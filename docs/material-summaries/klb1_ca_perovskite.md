@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/klb1_ca_perovskite.md#record-klb1_ca_perovskite_ricolleau_2009_bm2_alphakt)
 
-**Source finding:** One independent thermal BM2 fit for KLB-1 Ca-perovskite.
+**Source check:** Coefficients from the Ca-perovskite row of Table 1. Section 3 fits a high-temperature Birch-Murnaghan EOS with K0' = 4 fixed, stored as BM2 with alpha(T) = alpha0 + alpha1\*T.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -115,6 +115,7 @@ Effective EOS of the Ca-perovskite coexisting in KLB-1 pyrolite. Its high-temper
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759
     - **DOI:** 10.1029/2008gl036759
     - **Locations:** Experimental Procedure; Section 3; Table 1; Figure S4; Supporting Information readme and Table S1
+    - **Finding:** One independent thermal BM2 fit for KLB-1 Ca-perovskite.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08

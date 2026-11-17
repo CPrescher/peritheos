@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/hydrous_silica_cacl2_nisr_2017.md#record-hydrous_silica_cacl2_nisr_2017_bm2)
 
-**Source finding:** Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.
+**Source check:** V0 and K0 from Table 4, for the Birch (1978) form of Section 3.3; observations in Tables S1-S4.
 
 Automatic selection for equilibrium calculations.
 
@@ -80,7 +80,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[42.225, 62.934\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Al-free sample; its water content (Table 1 Si0.954O2H0.184, about 2.81 wt% H2O, within the reported 3.2(5) wt% but not at its centre) is inferred from volume calibration, not directly measured, and H retention at high pressure is also inferred. Data in the 28-42 GPa two-phase coexistence interval are excluded. V0 is an extrapolation to zero pressure, distinct from the structural cell measured at 47.57 GPa.
 
@@ -93,6 +93,7 @@ Al-free sample; its water content (Table 1 Si0.954O2H0.184, about 2.81 wt% H2O, 
     - **DOI:** 10.1002/2017JB014055
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055
     - **Locations:** Sections 2, 3.1-3.3 and 4.2; Tables 1-4; Figures 2-5; Erratum, page 6983; Supporting Text S1 and Tables S1-S4
+    - **Finding:** Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.
 - **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; validity; primary\_data; independent\_refit
 - **Primary data check:**
     - **Status:** bundled

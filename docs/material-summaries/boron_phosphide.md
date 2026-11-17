@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/boron_phosphide.md#record-boron_phosphide_le_godec_2014_vinet_1)
 
-**Source finding:** The author manuscript states that V0=93.2061 A^3 was fixed.
+**Source check:** Coefficients from the Vinet row of the EOS comparison table; the author manuscript states that V0 was fixed. The observations appear only in Figure 2.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,6 +90,7 @@ Single-crystal XRD in neon, with V0 of the conventional zinc-blende cell fixed. 
 - **Primary source check:**
     - **Access URL:** https://arxiv.org/abs/1407.1677
     - **Locations:** Vinet formulation; EOS comparison table; Figure 2
+    - **Finding:** The author manuscript states that V0=93.2061 A^3 was fixed.
     - **DOI:** 10.3103/s1063457614010092
 - **Migration source:**
     - **Project:** Dioptas

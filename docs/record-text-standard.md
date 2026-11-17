@@ -33,11 +33,13 @@ specific sidecar key (table in section 2) should also be written there.
 | `validity.notes` | Record-specific facts about the stated range | ≤ 2 entries, ≤ 160 characters each |
 | `thermal.notes` | Conventions of the thermal model not expressed by `thermal` fields | ≤ 250 characters |
 | material `notes` | What the material/phase is; material-wide caveats | ≤ 300 characters |
-| `check.source_note` | The source check's finding for this record (generated copy) | ≤ 300 characters |
+| `check.source_note` | What was checked against the source for this record (copy of the sidecar `record_note`, else of the verbatim `finding`) | ≤ 300 characters |
+| `check.warning_reason` | Why the record's warning applies (copy of the sidecar `warning_reason`) | one clause, ≤ 140 characters |
 
 `scripts/check_record_text.py` reports every record over these limits (with
 the 80-character label limit) and every label that is not unique within its
-material; the test suite fails on a case that is not in its baseline file.
+material; the test suite fails on a case that is not in its baseline file. A
+`record_note` within the limit resolves a record's `source_note_length` case.
 
 **`label`.** Pattern `Author (year), model[, distinguishing condition]`.
 Author from the stored `reference.authors`: one surname; "A and B" for two;
@@ -63,7 +65,7 @@ RMS values, objectives, weights, solver details; row bookkeeping and counts of
 bundled rows; repository paths, dataset or record identifiers; audit dates;
 curation history ("retained", "accepted", "former", "was removed");
 disclaimers of things nobody claimed ("coefficients are preserved"); any
-sentence already in `source_note`, `warning` or `why`. Where such content
+sentence already in `source_note`, `warning`, `warning_reason` or `why`. Where such content
 belongs in the sidecar (keys under `records.<record id>`):
 
 | Content | Sidecar key |
@@ -93,12 +95,25 @@ integration or reference conventions. Never thermal parameters or their errors.
 **Material `notes`.** Never: naming the default (that is `default_records`),
 listing the records, or a record-level finding.
 
-**`check.source_note`.** Edited only in the sidecar
-(`evidence.scientific_validation.primary_source_check.finding`) and
-regenerated. It says where this record's coefficients are in the source and
-any source inconsistency. Never: describe a set of records ("The ten stored
-records are..."), restate coefficients, or describe how to use the record. A
-note shared by a set of records must be rewritten per record by the curator.
+**`check.source_note`.** Written per record in the sidecar field
+`evidence.scientific_validation.primary_source_check.record_note` (at most 300
+characters) with `scripts/apply_check_text.py`, which regenerates the `check`
+block; without a `record_note` it is the verbatim `finding`, which is never
+edited for this purpose and keeps the complete audit statement. It says what
+was checked against the paper for this record and any conversion or
+correction that matters to a user (e.g. "Table 2 V0 and K0 match; V0
+converted from cm³/mol"). Never: a restatement of coefficients, text about
+other records ("The ten stored records are..."), or how to use the record. A
+note shared by a set of records is refused unless the curator overrides it
+deliberately.
+
+**`check.warning_reason`.** One clause stating the cause of the restriction,
+taken from the audit (e.g. the sidecar's `unresolved` or
+`recommendation_reason`), written to
+`evidence.scientific_validation.warning_reason` with
+`scripts/apply_check_text.py` (at most 140 characters). Only for a record with
+a `warning`; the `warning` wording itself is generated and never edited.
+`record.summary()` prints `Warning: <warning> <reason>`.
 
 ## 3. Notation
 
@@ -140,8 +155,8 @@ records:
   phase-stability field or an extrapolation guarantee
   ([Which range the reader uses](eosmat-reference.md#which-range-the-reader-uses)).
 - An absent or `null` `parameter_error_confidence` or `parameter_covariance`
-  means the source did not report it
-  ([Parameters](eosmat-reference.md#parameters)). Retire a record's sentence
+  means the source did not report it; errors without a stated confidence are
+  used as 1 sigma ([Parameters](eosmat-reference.md#parameters)). Retire a record's sentence
   saying so only where both fields are absent or `null`; if either is set, the
   sentence and the field must be reconciled by the curator first.
 - A published record keeps its published values and qualifications
@@ -179,12 +194,26 @@ review it sentence by sentence.
 3. Run it without `--check`, then `--verify`, and regenerate the generated
    pages.
 
+`source_note` and `warning_reason` are written the same way with
+`scripts/apply_check_text.py` from a JSON file
+`{"<material>": {"<record>": {"source_note": ..., "warning_reason": ...}}}`
+(`null` removes a text; for `source_note` the verbatim `finding` is shown
+again). Its guards are the two length limits, `numbers` (every number, sign
+included, must occur in the record's finding, other sidecar evidence, record
+fields or stored originals, or be a correct rounding of one at the precision
+written with at least two significant digits, such as 23.89 for 23.89043),
+`forbidden_text` and `shared_note`; override one guard for one record with
+`--allow RECORD:GUARD` only for a stated false positive. A `warning_reason`
+for a record without a warning is always refused. Use `--check` first, then
+apply and run `--verify`; either tool writes nothing unless the whole run is
+valid.
+
 ## 7. Checklist
 
 1. Label matches the pattern, ≤ 60 characters where possible, unique within the
    material, no status, code or identifier.
 2. Notes ≤ 400 characters; each sentence says something no field,
-   `source_note`, `warning` or `why` says.
+   `source_note`, `warning`, `warning_reason` or `why` says.
 3. Every removed sentence is kept in `superseded_record_text`, and content with
    a sidecar key in section 2 is also written there.
 4. Numbers in the new text all occur in the old text or the structured fields;

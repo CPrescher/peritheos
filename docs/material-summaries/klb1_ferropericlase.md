@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/klb1_ferropericlase.md#record-klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt)
 
-**Source finding:** Independent high-spin reference thermal BM2 fit.
+**Source check:** Coefficients from the Table 1 high-spin row (Section 3), with alpha(T) = alpha0 + alpha1\*T; K0 is fixed to the Fei et al. (2007) value.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[30.0, 112.0\]
     - **Temperature k:** \[300.0, 2569.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -113,6 +113,7 @@ High-spin reference branch used for the smooth high-temperature EOS of pyrolitic
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759
     - **DOI:** 10.1029/2008gl036759
     - **Locations:** Experimental Procedure; Section 3; Table 1; Figure 1; Supporting Information readme and Table S1
+    - **Finding:** Independent high-spin reference thermal BM2 fit.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08
@@ -163,7 +164,7 @@ High-spin reference branch used for the smooth high-temperature EOS of pyrolitic
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/klb1_ferropericlase.md#record-klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2)
 
-**Source finding:** Independent room-temperature low-spin BM2 branch.
+**Source check:** Coefficients from the Table 1 low-spin row (Section 3); K0 is fixed to the Fei et al. (2007) value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -188,7 +189,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[50.0, 112.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Room-temperature low-spin branch above the volume contraction observed near 50 GPa. No molar mass is encoded because the source does not fix the exact composition of the coexisting phase.
 
@@ -201,6 +202,7 @@ Room-temperature low-spin branch above the volume contraction observed near 50 G
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759
     - **DOI:** 10.1029/2008gl036759
     - **Locations:** Experimental Procedure; Section 3; Table 1; Figure 1; Supporting Information readme and Table S1
+    - **Finding:** Independent room-temperature low-spin BM2 branch.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08

@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/neon_fcc.md#record-neon_fcc_fei_2007_bm3_1)
 
-**Source finding:** Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.
+**Source check:** Cold coefficients and the thermal set from Table 1 with the Equation 3 variable-exponent Debye law. Table 1 gives one thermal set for both cold equations and no BM3-specific q, so pairing it with BM3 is a reconstruction.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -87,7 +87,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[4.7, 115.0\]
 - **Coverage provenance:** reported\_qualitatively
 - **Reported temperature coverage (K):** \[300.0, 1000.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -107,6 +107,7 @@ Cold BM3 branch with the single Table 1 Mie-Grüneisen-Debye parameter set that 
 - **Primary source check:**
     - **Access URL:** https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/
     - **Locations:** Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption
+    - **Finding:** Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.
     - **DOI:** 10.1073/pnas.0609013104
 - **Migration source:**
     - **Project:** Dioptas
@@ -196,7 +197,7 @@ Cold BM3 branch with the single Table 1 Mie-Grüneisen-Debye parameter set that 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/neon_fcc.md#record-neon_fcc_fei_2007_vinet_2)
 
-**Source finding:** Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.
+**Source check:** Cold coefficients and the thermal set from Table 1 with the Equation 3 variable-exponent Debye law. theta0 is adopted from Finger et al. (1981), whose Table II gives the same gamma value as gamma1 of a different gamma(V) law; Fei's definition is used.
 
 Automatic selection for equilibrium calculations.
 
@@ -224,7 +225,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[4.7, 115.0\]
 - **Coverage provenance:** reported\_qualitatively
 - **Reported temperature coverage (K):** \[300.0, 1000.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -244,6 +245,7 @@ Cold Vinet branch with the single Table 1 Mie-Grüneisen-Debye parameter set tha
 - **Primary source check:**
     - **Access URL:** https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/
     - **Locations:** Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption
+    - **Finding:** Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.
     - **DOI:** 10.1073/pnas.0609013104
 - **Migration source:**
     - **Project:** Dioptas
@@ -333,7 +335,7 @@ Cold Vinet branch with the single Table 1 Mie-Grüneisen-Debye parameter set tha
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/neon_fcc.md#record-neon_fcc_hemley_1989_bm3_refit)
 
-**Source finding:** Table I provides 21 raw 300 K observations on the Mao ruby scale. The stored coefficients are a Peritheos errors-in-variables fit to that table alone; the paper's published thermally reduced 0 K fit also includes the earlier Finger et al. low-pressure series.
+**Source check:** Observations from Table I (p. 11823); V0 is the paper's fixed low-temperature value (p. 11824).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -365,6 +367,7 @@ Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Tabl
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1103/PhysRevB.39.11820
     - **Locations:** Table I, page 11823; Equation-of-state discussion and Figure 4, pages 11823-11824
+    - **Finding:** Table I provides 21 raw 300 K observations on the Mao ruby scale. The stored coefficients are a Peritheos errors-in-variables fit to that table alone; the paper's published thermally reduced 0 K fit also includes the earlier Finger et al. low-pressure series.
     - **DOI:** 10.1103/physrevb.39.11820
 - **Primary data check:**
     - **Status:** bundled

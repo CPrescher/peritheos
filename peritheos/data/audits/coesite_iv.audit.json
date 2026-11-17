@@ -70,7 +70,8 @@
             "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
             "doi": "10.1038/s41467-018-07265-z",
             "locations": ["Methods: Ab initio calculations", "Supplementary Figure 6", "Supplementary Tables 10-11"],
-            "finding": "Supplementary Table 11 publishes K0=168.52 GPa and K0_prime=3.34, but no V0. The stored V0 is a conditional Peritheos one-parameter fit, quantitatively checked against Figure 6 without fitting its markers."
+            "finding": "Supplementary Table 11 publishes K0=168.52 GPa and K0_prime=3.34, but no V0. The stored V0 is a conditional Peritheos one-parameter fit, quantitatively checked against Figure 6 without fitting its markers.",
+            "record_note": "Supplementary Table 11 prints K0 and K0' but no V0, so V0 is the Peritheos fit; the calculated markers of Supplementary Figure 6 were used only as a check."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -189,6 +190,7 @@
           "audit_date": "2026-10-24",
           "note": "Published joint coesite-IV/V room-temperature empirical fit, not a pure-phase EOS. The explicit 32.7 GPa reference-pressure BM2 reproduces Figure 1's red vector curve within its stroke/calibration bounds. All 16 Table 2 observations are retained: pressure RMS 4.04659 GPa; maximum 11.85457 GPa at the 44.5 GPa coesite-V datum. The source acknowledges significant between-run scatter. Original objective, weights, row mask, fixed/free reference-volume choice and covariance are unspecified. The independent equal-weight diagnostic does not recover the source coefficients and is not adopted. Source-equation validation is not author-fit parity or physical validation. See the dedicated experimental audit.",
           "usage_recommendation": "not_recommended",
+          "warning_reason": "A joint coesite-IV/V fit, not a pure-phase EOS, with large observation residuals and an unresolved fitting protocol.",
           "recommendation_reason": "Retained for reproduction of the published joint empirical curve. Large observation residuals, unresolved fitting protocol, stress sensitivity and joint-phase scope preclude recommendation for quantitative pure-phase predictions or pressure calibration. Explicit selection only.",
           "primary_source_check": {
             "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
@@ -198,7 +200,8 @@
               "Supplementary Table 2, PDF page 13",
               "Supplementary Figure 9"
             ],
-            "finding": "The published coefficients with an explicit 32.7 GPa reference reproduce the drawn red curve; all observation residuals and unresolved author-fit details are separately retained."
+            "finding": "The published coefficients with an explicit 32.7 GPa reference reproduce the drawn red curve; all observation residuals and unresolved author-fit details are separately retained.",
+            "record_note": "Coefficients from the Figure 1 caption and Supplementary Figure 9, which print the volume per formula unit, 23.44(3) Å³, stored ×16. With P0 as the reference pressure the BM2 matches the red vector curve of Figure 1."
           },
           "primary_data_check": {
             "status": "bundled",

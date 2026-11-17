@@ -163,7 +163,7 @@ Each item in `eos_records` describes one source parameterization.
 | `eos` | yes | Primary equation and parameters: an equilibrium reference isotherm or a Hugoniot path model. |
 | `thermal` | no | Thermal-pressure equation, parameters, and fixed equation choices. |
 | `parameter_errors` | yes | Reported primary-equation parameter errors; JSON `null` means unavailable, not zero. |
-| `parameter_error_confidence` | no | Two-sided confidence level when the reported errors are interval half-widths rather than standard errors. |
+| `parameter_error_confidence` | no | Two-sided confidence of the printed error half-widths (`0.95`: 1.96 sigma). Absent or `null`: the source did not state a confidence level, and the errors are used as standard errors (1 sigma). |
 | `parameter_error_volume_basis` | no | `public` makes reference V0 errors use the document's public coefficient-volume unit; `model` uses runtime volume units. Historical default: `model`. Thermal coefficient errors keep their own model units. |
 | `fixed_parameters` | yes | Primary-equation parameters fixed during the reported fit. |
 | `experimental_pressure_range_gpa` | no | Two-element marginal pressure envelope. |

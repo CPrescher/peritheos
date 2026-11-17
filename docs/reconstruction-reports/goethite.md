@@ -43,7 +43,7 @@ stays in EOSMAT and the ledger.
 
 **disagrees** · `goethite_gleason_2008_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/goethite.md#record-goethite_gleason_2008_bm3_1)
 
-**Warning:** Not recommended for quantitative use.
+**Warning:** Not recommended for quantitative use. Neither the 65 deposited P-V-T rows nor the 47 plotted points reproduce the published K0 and K0'.
 
 **Scope:** Comparison with the source parameterization. **Basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
 

@@ -114,6 +114,7 @@
               "Lin et al. (2012), doi:10.2138/am.2012.4000, Experimental methods and Figure 1 caption for same-batch Pbnm lattice and spectroscopy context"
             ],
             "finding": "The source fully defines one executable post-transition isothermal EOS for Pv10: a standard third-order Birch-Murnaghan pressure-volume fit to all observations above 25 GPa, with conventional Pbnm-cell V0=162.6(+/-0.3) A^3, KT0=284(+/-4) GPa, and fixed KT0'=4. The high-spin branch is discussed and was used to model the transition, but its fitted parameters are not printed and it is therefore not added.",
+            "record_note": "Coefficients from Results (p. 4337) and the Table S2 low-spin row; observations in Table S1. The high-spin branch was used to model the transition, but its fitted coefficients are not printed.",
             "article_sha256": "13269b3b921b5c9608812667e8a9a333285ade378e0d22ace9a2bfc6430201cc",
             "official_supporting_information_sha256": "dd35edb13babbd7ff7a5b6f0c2b4106463d04e8e8a49d779bcfb3e093a5b40b5"
           },
@@ -314,7 +315,8 @@
               "Final article Tables 1-3",
               "Final article equation-of-state fit paragraph and Figure 4"
             ],
-            "finding": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations."
+            "finding": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations.",
+            "record_note": "V0 from the Table 1 Fe10 entry; K0 from the equation-of-state fit paragraph, fitted to the Fe10 rows of Table 2 on the gold pressure scale."
           },
           "primary_data_check": {
             "status": "bundled",

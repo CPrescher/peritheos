@@ -117,7 +117,8 @@
               "Tables 2 and 3, page 179",
               "High-spin to low-spin transition, page 180"
             ],
-            "finding": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.75Fe0.25)O, fitted only below 47 GPa."
+            "finding": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.75Fe0.25)O, fitted only below 47 GPa.",
+            "record_note": "Coefficients from Table 3, page 179, with the 300 K BM3 and thermal increment of Equations (1)-(6); K0 is fixed from the MgO literature and theta0 from the ferropericlase literature."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -245,7 +246,8 @@
               "corrected Figure 1",
               "Correction DOI 10.1029/2011GL050814"
             ],
-            "finding": "The corrected source defines a 300 K high-spin BM3 reference curve with V0 fixed at 76.34 A^3, K0=162(1) GPa, and K0'=4 fixed."
+            "finding": "The corrected source defines a 300 K high-spin BM3 reference curve with V0 fixed at 76.34 A^3, K0=162(1) GPa, and K0'=4 fixed.",
+            "record_note": "High-spin coefficients from Results paragraph 7 of the corrected article (correction DOI 10.1029/2011GL050814)."
           },
           "primary_data_check": {
             "status": "bundled_digitized",
@@ -396,7 +398,8 @@
               "corrected Figure 1",
               "Correction DOI 10.1029/2011GL050814"
             ],
-            "finding": "The corrected source defines a 300 K low-spin BM3 reference curve with V0=74.4(6) A^3, K0=166(7) GPa, and K0'=4 fixed."
+            "finding": "The corrected source defines a 300 K low-spin BM3 reference curve with V0=74.4(6) A^3, K0=166(7) GPa, and K0'=4 fixed.",
+            "record_note": "Low-spin coefficients from Results paragraph 7 of the corrected article (correction DOI 10.1029/2011GL050814)."
           },
           "primary_data_check": {
             "status": "bundled_digitized",
@@ -470,7 +473,8 @@
             "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
             "doi": "10.1103/PhysRevB.96.075136",
             "locations": ["Methods", "Table I"],
-            "finding": "Complete HS BM3; LS V0 absent so paired LitCurate row rejected."
+            "finding": "Complete HS BM3; LS V0 absent so paired LitCurate row rejected.",
+            "record_note": "Coefficients from the Table I high-spin entry; V0 = 133.8 bohr³ per formula unit is converted to the Z = 4 cell. The paper gives no low-spin V0."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -564,7 +568,8 @@
             "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
             "doi": "10.2138/am-2016-5510",
             "locations": ["Table 7"],
-            "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
+            "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+            "record_note": "Coefficients from Table 7, high-spin branch."
           },
           "primary_data_check": {
             "status": "digitized_earlier_primary_figure",
@@ -661,7 +666,8 @@
             "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
             "doi": "10.2138/am-2016-5510",
             "locations": ["Table 7"],
-            "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
+            "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+            "record_note": "Coefficients from Table 7, low-spin branch."
           },
           "primary_data_check": {
             "status": "digitized_earlier_primary_figure",

@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fe088sio3_bridgmanite.md#record-fe088sio3_bridgmanite_ismailova_2016_300k_bm2)
 
-**Source finding:** One source-owned 300 K BM2 fit for vacancy-rich Fe2+/Fe3+ bridgmanite, with K0\_prime fixed at 4. The coefficients are complete, but the row-level inputs are not: Figure 3 shows substantially more markers than the four selected crystallographic states printed in Table S2.
+**Source check:** Coefficients from the Figure 3 caption and supplementary Table S3. Table S2 prints only four selected crystallographic states, while Figure 3A plots many more compression and decompression points; the full fit input is not published.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 125.225
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -103,6 +103,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://pmc.ncbi.nlm.nih.gov/articles/PMC4956391/
     - **DOI:** 10.1126/sciadv.1600427
     - **Locations:** Results; Figure 3; Supplementary Table S2; Supplementary Table S3; Materials and Methods
+    - **Finding:** One source-owned 300 K BM2 fit for vacancy-rich Fe2+/Fe3+ bridgmanite, with K0\_prime fixed at 4. The coefficients are complete, but the row-level inputs are not: Figure 3 shows substantially more markers than the four selected crystallographic states printed in Table S2.
 - **Primary data check:**
     - **Status:** partial\_published\_table
     - **Audit date:** 2026-09-08

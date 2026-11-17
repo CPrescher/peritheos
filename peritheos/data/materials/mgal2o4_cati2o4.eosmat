@@ -15,9 +15,10 @@
         "reproduction": "untested",
         "compared": "none",
         "warning": "Not recommended for quantitative use.",
+        "warning_reason": "A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use.",
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure. The authors construct its second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from the one usable compressed run-4 cell; run-2 CaTi2O4-type peaks were too weak and overlapped for a reliable cell volume.",
+        "source_note": "V0 from Section 3.3 and Table 2 (recovered run-4 cell); K0 from Section 3.3, computed from the in-situ run-4 cell at 64.3 GPa. Its error comes from the difference between ruby- and Pt-derived pressures.",
         "audit": "../audits/mgal2o4_cati2o4.audit.json#mgal2o4_cati2o4_funamori_1998_bm2_1"
       },
       "model": "BM2",
@@ -66,7 +67,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves.",
+        "source_note": "Coefficients from Results, p. 203, for the unnumbered Birch-Murnaghan equation with K0' = 4; the body resolves the abstract's V0 error notation as 0.9 Å³.",
         "audit": "../audits/mgal2o4_cati2o4.audit.json#mgal2o4_cati2o4_ono_2006_bm2_2"
       },
       "model": "BM2",

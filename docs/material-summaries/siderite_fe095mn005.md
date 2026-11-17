@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_bm3)
 
-**Source finding:** Natural Fe0.95Mn0.05CO3 from Panasqueira; BM3 with V0 fixed at 293.4 A^3. The highest-pressure 300 K observation (241.54 A^3, 33.01 GPa) is reproduced within the printed 0.1 GPa pressure bound. An independent refit of all 27 printed 300 K rows gives K0=120.2242 GPa and Kprime=3.572214. Thermal expansion conflicts between Table 1 and the abstract remain withheld.
+**Source check:** K0 and K0' from the 300 K abstract (manuscript and publication of record); V0 is the measured ambient mean (Section 3). Table 1 gives the K0 error as 2 GPa for the P-V-T fit; the record follows the abstract.
 
 Automatic selection for equilibrium calculations.
 
@@ -84,7 +84,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 33.01\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeCO3), on the printed Au pressure scale, whose exact realization is unresolved. The published thermal parameters are not used because Table 1 and the abstract disagree on a0. No extension across the cited spin transition near 45 GPa or a decomposition boundary is claimed.
 
@@ -98,6 +98,7 @@ Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeC
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.07.011
     - **DOI:** 10.1016/j.pepi.2013.07.011
     - **Locations:** Publication-of-record abstract; User-supplied Accepted Manuscript: Section 2, pages 3-4; Section 3, pages 4-5; Tables 1 and 2, pages 12-15
+    - **Finding:** Natural Fe0.95Mn0.05CO3 from Panasqueira; BM3 with V0 fixed at 293.4 A^3. The highest-pressure 300 K observation (241.54 A^3, 33.01 GPa) is reproduced within the printed 0.1 GPa pressure bound. An independent refit of all 27 printed 300 K rows gives K0=120.2242 GPa and Kprime=3.572214. Thermal expansion conflicts between Table 1 and the abstract remain withheld.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19
@@ -158,7 +159,7 @@ Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeC
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit)
 
-**Source finding:** All 111 Table 2 observations are fitted with the Section 3 HTBM model, using the integrated-expansivity convention in cited Litasov (2007) Equations (1)-(4). The refit and residuals are independently reproduced; the source alpha0 conflict is retained rather than corrected.
+**Source check:** Observations are all 111 rows of Table 2 (pp. 13-15), fitted with the Section 3 HTBM model and the integrated-expansivity convention of Litasov (2007) Equations (1)-(4). V0 is from the published 300 K record; the other coefficients are Peritheos fits.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -184,7 +185,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 33.01\]
 - **Reported temperature coverage (K):** \[300.0, 1673.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
@@ -207,6 +208,7 @@ Peritheos joint thermal refit of the Litasov et al. (2013) data, not either publ
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.07.011
     - **DOI:** 10.1016/j.pepi.2013.07.011
     - **Locations:** Publication-of-record abstract; User-supplied Accepted Manuscript: Section 2, pages 3-4; Section 3, pages 4-5; Tables 1 and 2, pages 12-15
+    - **Finding:** All 111 Table 2 observations are fitted with the Section 3 HTBM model, using the integrated-expansivity convention in cited Litasov (2007) Equations (1)-(4). The refit and residuals are independently reproduced; the source alpha0 conflict is retained rather than corrected.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19

@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+        "source_note": "Coefficients from Table S5 and Text S1 (p. 2), where Vinet replaces BM3 in Equations (1)-(2); the printed V0 = 6.799 cm³/mol atoms is stored per 16-atom cell. Observations from the official 2012 Table S2.",
         "audit": "../audits/fe073si027_d03.audit.json#fe073si027_d03_fischer_2014_vinet_1"
       },
       "model": "Vinet",

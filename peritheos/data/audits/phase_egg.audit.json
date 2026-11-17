@@ -121,6 +121,7 @@
               "official MSA deposit AM-18-126562, 6562schulze.cif and 6562supp.pdf"
             ],
             "finding": "The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.",
+            "record_note": "Coefficients from the this-study column of Table 2. The abstract and EOS prose print the K0' error as 1.3 instead of the tabulated 1.2; the tabulated error is stored.",
             "doi": "10.2138/am-2018-6562",
             "accepted_manuscript_sha256": "41333eb0e784d90ca0277bdd7ac7c0a7fbd3109691463f04385c0baa199b038a",
             "official_deposit_sha256": "fa91df7ca987165cfeb89d9cb3035afba02794bd10a7423cc4a5cc836ebbdd97"
@@ -283,6 +284,7 @@
               "official MSA deposit AM-19-16694, Supplementary Table 1, low-pressure block"
             ],
             "finding": "The final article identifies DOI 10.2138/am-2019-6694 and reports a static 0 K energy-volume BM3 fit for the ordered LP proton configuration. At V=196 A^3 the published coefficients give 14.72596 GPa, reproducing the supplement's 14.7 GPa after rounding. An unweighted diagnostic fit to all 11 supplementary LP P-V rows gives V0=210.2176 A^3, K0=164.8340 GPa, and K0'=7.08137, with pressure RMSE 0.02339 GPa; the underlying total energies, exact objective, weights, covariance, and error convention are not published.",
+            "record_note": "Coefficients from the equation-of-state section (pp. 132-133) with the BM3 energy form of equations (1)-(2); at V = 196 Å³ they agree with the 14.7 GPa of Supplementary Table 1.",
             "doi": "10.2138/am-2019-6694"
           },
           "identifier_resolution": {
@@ -420,7 +422,8 @@
             "access_url": "https://par.nsf.gov/servlets/purl/10089001",
             "doi": "10.2138/am-2019-6694",
             "locations": ["Methods, pages 131-132", "equations (1)-(2) and EOS discussion, pages 132-133", "Figure 3"],
-            "finding": "Complete static HP BM3 parameterization for the proton-transferred structure."
+            "finding": "Complete static HP BM3 parameterization for the proton-transferred structure.",
+            "record_note": "Coefficients from the EOS discussion (p. 133) with the BM3 energy form of equations (1)-(2); volumes refer to the primitive monoclinic P21/c calculation cell, equivalent to the conventional Z = 4 cell."
           },
           "primary_data_check": {
             "status": "bundled",

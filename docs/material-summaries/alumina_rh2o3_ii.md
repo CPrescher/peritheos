@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/alumina_rh2o3_ii.md#record-alumina_rh2o3_ii_shi_2022_bm3_mgd_1)
 
-**Source finding:** The source reports a BM3 reference isotherm embedded in a full Mie-Gruneisen-Debye thermal EOS, not a stand-alone BM3. Of five Rh2O3(II) q-sensitivity fits, model 2 with q=1 is the selected parameterization used in Table 1 and Table S3. The table volumes are conventional Pbcn-cell volumes with Z=4.
+**Source check:** Coefficients from Table 1 (page 4) and model 2 of the five q-sensitivity fits in Table 3 (page 7), with Equations 1-6 (pages 3-4); pressures are on the Pt scale.
 
 Automatic selection for equilibrium calculations.
 
@@ -107,6 +107,7 @@ Model 2 (Tables 1 and S3): BM3 300 K isotherm plus Mie-Grüneisen-Debye thermal 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/2021JB023805
     - **Locations:** main text, Equations 1-6, pages 3-4; main text, Table 1, page 4, selected Rh2O3(II) coefficients; main text, Table 3, page 7, five q-sensitivity fits; Supporting Information, Table S2, all Rh2O3(II) P-T-V observations; Supporting Information, Table S3, selected model reproduced downstream
+    - **Finding:** The source reports a BM3 reference isotherm embedded in a full Mie-Gruneisen-Debye thermal EOS, not a stand-alone BM3. Of five Rh2O3(II) q-sensitivity fits, model 2 with q=1 is the selected parameterization used in Table 1 and Table S3. The table volumes are conventional Pbcn-cell volumes with Z=4.
     - **DOI:** 10.1029/2021jb023805
 - **Primary data check:**
     - **Status:** bundled

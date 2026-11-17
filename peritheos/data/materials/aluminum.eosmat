@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients.",
+        "source_note": "Coefficients from Table II, revised-ruby reduction (bold values fixed); Equation (1) defines the revised ruby scale.",
         "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2004_vinet_1"
       },
       "model": "Vinet",
@@ -53,7 +53,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "source_note": "Stored coefficients match the Al columns of Tables 1 and 4.",
         "audit": "../audits/aluminum.audit.json#aluminum_sokolova_2013_holzapfel_2"
       },
       "model": "Holzapfel",
@@ -109,7 +109,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2019_mao_vinet"
       },
       "model": "Vinet",
@@ -149,7 +149,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2019_dor_vinet"
       },
       "model": "Vinet",
@@ -190,7 +190,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
+        "source_note": "Coefficients from Tables I and II, classical Mao ruby reduction (bold values fixed), with the Vinet form of the Figure 2 caption.",
         "audit": "../audits/aluminum.audit.json#aluminum_dewaele_2004_mao_ruby_vinet"
       },
       "model": "Vinet",

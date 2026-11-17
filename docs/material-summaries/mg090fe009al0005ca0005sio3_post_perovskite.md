@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg090fe009al0005ca0005sio3_post_perovskite.md#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1)
 
-**Source finding:** The preferred experimental ppv equation is a second-order Eulerian finite-strain fit with V0=164.9(6) A^3, K0=219(5) GPa, and implicit fixed K0'=4.
+**Source check:** Coefficients from the abstract, Results (p. 3040) and Table 1: the second-order Eulerian finite-strain fit of the Figure 2 caption.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.755039, 0.950539\]
     - **Notes:** The range is the measured metastable decompression envelope.
-- **Reported error confidence level:** 0.6826894921370859
+- **Printed parameter errors:** 1 sigma
 
 The authors fixed K0' = 4 because the long extrapolation from the measured range to zero pressure makes V0 and K0 strongly correlated.
 
@@ -105,6 +105,7 @@ The authors fixed K0' = 4 because the long extrapolation from the measured range
     - **Access URL:** https://doi.org/10.1073/pnas.0506811103
     - **DOI:** 10.1073/pnas.0506811103
     - **Locations:** abstract; Results and Discussion, pages 3039-3041; Figure 2 and Table 1; Experimental Methods, pages 3041-3043
+    - **Finding:** The preferred experimental ppv equation is a second-order Eulerian finite-strain fit with V0=164.9(6) A^3, K0=219(5) GPa, and implicit fixed K0'=4.
 - **Primary data check:**
     - **Status:** plot\_only
     - **Audit date:** 2026-09-05
@@ -186,7 +187,7 @@ The authors fixed K0' = 4 because the long extrapolation from the measured range
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg090fe009al0005ca0005sio3_post_perovskite.md#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2)
 
-**Source finding:** The paper explicitly reports this K0'=4.4 constrained alternative to show V0-K0-K0' tradeoff; it is not the preferred curve.
+**Source check:** Coefficients from Results, p. 3040, where the authors give this constrained alternative to show the V0-K0-K0' trade-off; a K0' fixed at a value other than 4 requires the BM3 form.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -213,7 +214,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[12.0, 106.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.749133, 0.943057\]
-- **Reported error confidence level:** 0.6826894921370859
+- **Printed parameter errors:** 1 sigma
 
 Nonpreferred parameter-trade-off sensitivity fit reported by the authors; the preferred fit is the BM2 record.
 
@@ -227,6 +228,7 @@ Nonpreferred parameter-trade-off sensitivity fit reported by the authors; the pr
     - **Access URL:** https://doi.org/10.1073/pnas.0506811103
     - **DOI:** 10.1073/pnas.0506811103
     - **Locations:** Results, page 3040; Figure 2; Table 1
+    - **Finding:** The paper explicitly reports this K0'=4.4 constrained alternative to show V0-K0-K0' tradeoff; it is not the preferred curve.
 - **Primary data check:**
     - **Status:** plot\_only
     - **Audit date:** 2026-09-05

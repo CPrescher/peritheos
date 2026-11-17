@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+        "source_note": "Coefficients from Table 2 with Equation (1); they match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).",
         "audit": "../audits/rhenium.audit.json#rhenium_sakai_2025_rydberg_stacey_1"
       },
       "model": "RydbergStacey",
@@ -96,7 +96,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Mao-1986 ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/rhenium.audit.json#rhenium_dewaele_2019_mao_vinet"
       },
       "model": "Vinet",
@@ -136,7 +136,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/rhenium.audit.json#rhenium_dewaele_2019_dor_vinet"
       },
       "model": "Vinet",
@@ -177,7 +177,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work.",
+        "source_note": "Coefficients from the paragraph below Figure 10 in Section 3 (article p. 10; final p. 116); the Re-Pt co-compression is described in Section 2 (p. 4).",
         "audit": "../audits/rhenium.audit.json#rhenium_sakai_2018_yokoo_pt_vinet"
       },
       "model": "Vinet",
@@ -236,7 +236,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-15",
-        "source_note": "Table III is a complete continuous thermal EOS, distinct from the preferred subsequent fixed-volume isotherms. Its fitted coefficients reproduce from all eight observed isochore slopes.",
+        "source_note": "Coefficients from Table III (p. 2414) with Equation (6) (p. 2410); V0 is the Table III Va, taken from JCPDS 05-0702.",
         "audit": "../audits/rhenium.audit.json#rhenium_zha_2004_bm3_log_thermal"
       },
       "model": "BM3",

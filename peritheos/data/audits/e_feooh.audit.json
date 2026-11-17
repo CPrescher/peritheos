@@ -109,6 +109,7 @@
               "MSA depository item AM-08-056, Table 2"
             ],
             "finding": "The source pools every deposited high-temperature P21mn epsilon-FeOOH observation in a BM2 analysis, assumes K0-prime=4, and obtains V0 separately by G-versus-g extrapolation. Its prose reports no resolvable epsilon thermal trend and no explicit correction formula; applying its own alpha0 to reduce the hot volumes to 300 K is the numerical step that recovers K0=158 GPa.",
+            "record_note": "K0 from manuscript page 7 and Figure 3b, V0 from the page 7 G-versus-g extrapolation; observations from depository Table 2. Reducing the hot volumes to 300 K with the paper's goethite alpha0 = 2.3e-5 K^-1 is a numerically recovered step.",
             "doi": "10.2138/am.2008.2942"
           },
           "migration_source": {
@@ -331,6 +332,7 @@
               "compression and phase discussion, pages 422-423"
             ],
             "finding": "The source reports a conventional-cell BM3 high-temperature EOS for low-pressure InOOH-type epsilon-FeOOH. It fixes V0,300, fits five elastic/thermal coefficients, and defines alpha0 at T0 through alpha(T)=a0+a1(T-T0).",
+            "record_note": "Coefficients from Table 2 (page 422) with Equation 1 and alpha(T) = a0 + a1(T - T0) about T0 = 300 K; the Table 2 footnote gives the errors as standard deviations.",
             "doi": "10.2465/jmps.160719c"
           },
           "primary_data_check": {

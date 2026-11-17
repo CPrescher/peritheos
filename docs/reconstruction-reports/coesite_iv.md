@@ -116,7 +116,7 @@ Both fits use the same 3 recovered audit input rows. **Volume coordinate:** volu
 
 **untested** (source calculation reconstructed) · `coesite_iv_v_bykova_2018_experimental_bm2_reference` · `BM2Reference` · [Coefficients and source](../material-summaries/coesite_iv.md#record-coesite_iv_v_bykova_2018_experimental_bm2_reference)
 
-**Warning:** Not recommended for use.
+**Warning:** Not recommended for use. A joint coesite-IV/V fit, not a pure-phase EOS, with large observation residuals and an unresolved fitting protocol.
 
 **Scope:** Reconstruction of a source equation or calculation. **Basis:** Published joint coesite-IV/V room-temperature empirical fit, not a pure-phase EOS. The explicit 32.7 GPa reference-pressure BM2 reproduces Figure 1's red vector curve within its stroke/calibration bounds. All 16 Table 2 observations are retained: pressure RMS 4.04659 GPa; maximum 11.85457 GPa at the 44.5 GPa coesite-V datum. The source acknowledges significant between-run scatter. Original objective, weights, row mask, fixed/free reference-volume choice and covariance are unspecified. The independent equal-weight diagnostic does not recover the source coefficients and is not adopted. Source-equation validation is not author-fit parity or physical validation. See the dedicated experimental audit. Retained for reproduction of the published joint empirical curve. Large observation residuals, unresolved fitting protocol, stress sensitivity and joint-phase scope preclude recommendation for quantitative pure-phase predictions or pressure calibration. Explicit selection only.
 

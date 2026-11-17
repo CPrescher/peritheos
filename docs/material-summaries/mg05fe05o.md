@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg05fe05o.md#record-mg05fe05o_leonov_2017_hs_bm3_1)
 
-**Source finding:** Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected.
+**Source check:** Coefficients from the Table I high-spin column, a BM3 fit to the DFT+DMFT total energies (Methods); the printed V0 = 138.6 bohr³ per formula unit is converted to the Z = 4 cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 56.074
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static-ion DFT+DMFT EOS at an electronic temperature of 1160 K.
 
@@ -104,6 +104,7 @@ Static-ion DFT+DMFT EOS at an electronic temperature of 1160 K.
     - **Access URL:** https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf
     - **DOI:** 10.1103/PhysRevB.96.075136
     - **Locations:** Methods; Table I; Figures 1-4
+    - **Finding:** Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05

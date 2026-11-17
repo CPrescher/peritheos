@@ -66,6 +66,7 @@
             "access_url": "https://doi.org/10.1038/s43246-025-00792-5",
             "locations": ["Equation (1)", "Table 2", "Supplementary Data 1, Tables S8-S10", "Official R-S EoS workbook"],
             "finding": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+            "record_note": "Coefficients from Table 2 with Equation (1); they match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).",
             "doi": "10.1038/s43246-025-00792-5"
           },
           "primary_data_check": {
@@ -379,7 +380,8 @@
             "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
             "doi": "10.3390/min9110684",
             "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+            "record_note": "Coefficients from Table 1 (Mao-1986 ruby-scale reduction) for the Vinet form of Equation (1)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -553,7 +555,8 @@
             "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
             "doi": "10.3390/min9110684",
             "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+            "record_note": "Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -683,7 +686,8 @@
               "Section 3, Figure 10 and following paragraph (article p. 10)",
               "Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure"
             ],
-            "finding": "One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work."
+            "finding": "One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work.",
+            "record_note": "Coefficients from the paragraph below Figure 10 in Section 3 (article p. 10; final p. 116); the Re-Pt co-compression is described in Section 2 (p. 4)."
           },
           "primary_data_check": {
             "status": "plot_only",
@@ -805,6 +809,7 @@
               "Appendix and Table VII, pp. 2416-2418"
             ],
             "finding": "Table III is a complete continuous thermal EOS, distinct from the preferred subsequent fixed-volume isotherms. Its fitted coefficients reproduce from all eight observed isochore slopes.",
+            "record_note": "Coefficients from Table III (p. 2414) with Equation (6) (p. 2410); V0 is the Table III Va, taken from JCPDS 05-0702.",
             "zotero_item_key": "9BAJ2FCF",
             "zotero_attachment_key": "JABFZJUC"
           },

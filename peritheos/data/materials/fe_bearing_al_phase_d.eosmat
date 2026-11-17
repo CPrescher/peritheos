@@ -18,7 +18,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The article's abstract, plotted curves, and phase-D comparison table privilege the freely fitted BM3 record, while Table 2 also reports a freely fitted Vinet alternative and ambient-volume-fixed variants. The BM3 and Vinet curves are stated to overlap over 0.0001-38 GPa. BM3 is therefore the canonical record and Vinet is retained as a published non-default alternative.",
+        "source_note": "Coefficients from the abstract and Table 2 (first BM3 row), fitted with the EosFit7 program. Table 2 heads the 0-38 GPa group 'Low-spin state EOS', but the text describes compression before the spin crossover, which the record follows.",
         "audit": "../audits/fe_bearing_al_phase_d.audit.json#fe_bearing_al_phase_d_criniti_2023_bm3_1"
       },
       "model": "BM3",
@@ -73,7 +73,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "This freely fitted Vinet parameterization is a genuine published alternative over the same 21 observations as BM3. The source states that the curves overlap over 0.0001-38 GPa but displays and summarizes BM3 preferentially, so Vinet is intentionally non-default.",
+        "source_note": "Coefficients from Table 2, first Vinet row, fitted with the EosFit7 program to the 21 Table 1 rows at or below 38 GPa. The Table 2 heading 'Low-spin state EOS' conflicts with the text's pre-crossover reading, which the record follows.",
         "audit": "../audits/fe_bearing_al_phase_d.audit.json#fe_bearing_al_phase_d_criniti_2023_vinet_2"
       },
       "model": "Vinet",

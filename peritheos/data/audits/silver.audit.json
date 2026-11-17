@@ -101,7 +101,8 @@
             "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
             "locations": ["Equation (1)", "Table IV, third column, p. 104102-5"],
             "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
-            "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+            "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+            "record_note": "Coefficients from Table IV, third column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per four-atom cell (Z = 4)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -254,7 +255,8 @@
             "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
             "doi": "10.3390/min9110684",
             "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+            "record_note": "Coefficients from the Mao ruby-scale reduction in Dewaele (2019) Table 1 with Equation (1), stored under an identifier that names the 2008 paper."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -353,6 +355,7 @@
               "Figures 3-11 cross-calibration tests"
             ],
             "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+            "record_note": "Stored coefficients match the Ag columns of Tables 1 and 4.",
             "doi": "10.1016/j.rgg.2013.01.005"
           },
           "migration_source": {
@@ -575,7 +578,8 @@
             "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
             "doi": "10.3390/min9110684",
             "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+            "record_note": "Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -753,7 +757,8 @@
             "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
             "doi": "10.3390/min9110684",
             "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+            "record_note": "Coefficients from Table 1 (Dorogokupets (2007) ruby-scale reduction) for the Vinet form of Equation (1)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -878,7 +883,8 @@
             "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
             "locations": ["Equation (1)", "Table IV, fourth column, p. 104102-5"],
             "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
-            "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+            "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+            "record_note": "Coefficients from Table IV, fourth column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per four-atom cell (Z = 4)."
           },
           "primary_data_check": {
             "status": "bundled",

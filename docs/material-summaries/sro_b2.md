@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/sro_b2.md#record-sro_b2_sato_1981_bm2_1)
 
-**Source finding:** The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-unit B2 conventional-cell volume; no covariance is published.
+**Source check:** rho0 and K0 from the second-order fit on p. 11776 (Equations (1)-(7)); the density data are the B2 rows of Table 1 (p. 11774).
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ Room-temperature second-order finite-strain EOS for B2 SrO; V0 is converted from
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/JB086iB12p11773
     - **Locations:** page 11774, Table 1, B2-SrO density observations; pages 11775-11776, equations (1)-(7), finite-strain derivation; page 11776, second-order fit and Figure 3
+    - **Finding:** The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-unit B2 conventional-cell volume; no covariance is published.
     - **DOI:** 10.1029/jb086ib12p11773
 - **Migration source:**
     - **Project:** Dioptas

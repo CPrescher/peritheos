@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nis.md#record-nis_campbell_1993_bm3_1)
 
-**Source finding:** The conventional hexagonal-cell V0 and its error are independently propagated from a=3.4395(2) A and c=5.3514(7) A. The paper reports no parameter covariance.
+**Source check:** K0 and K0' from the BM3 fit paragraph on p. 6 (Figure 1); V0 is computed from the ambient a0 = 3.4395(2) Å and c0 = 5.3514(7) Å on the same page.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ Room-temperature BM3 for metastable NiAs-type (B8) NiS. V0 and its error are pro
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/0022-3697(93)90106-2
     - **Locations:** page 6, ambient NiAs-type lattice parameters; page 6, Table 1, measured P-a-c data; page 6, third-order Birch-Murnaghan fit and Figure 1
+    - **Finding:** The conventional hexagonal-cell V0 and its error are independently propagated from a=3.4395(2) A and c=5.3514(7) A. The paper reports no parameter covariance.
     - **DOI:** 10.1016/0022-3697(93)90106-2
 - **Migration source:**
     - **Project:** Dioptas

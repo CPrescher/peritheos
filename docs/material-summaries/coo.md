@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/coo.md#record-coo_clendenen_1966_murnaghan_1)
 
-**Source finding:** The CoO record is the empirical whole-range Murnaghan fit printed in Table VI, not a Birch-Murnaghan fit. V0 is calculated from the Table II ambient cubic lattice parameter. The paper prints no parameter errors or covariance and cautions both that B0 and B0' need not equal the true one-atmosphere derivatives and that calculated pressures are insensitive to their exact individual values when the pair is properly balanced.
+**Source check:** Coefficients from Table VI with the Murnaghan form of Equation (4) (p. 4226), not a Birch-Murnaghan fit; K0 is printed as 1905 kbar. V0 = a0³ from the Table II ambient a0 = 4.258 Å.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,6 +89,7 @@ Room-temperature empirical Murnaghan fit (Equation (4), Table VI) over the whole
 - **Primary source check:**
     - **Access URL:** https://pubs.aip.org/aip/jcp/article/44/11/4223/209674/Lattice-Parameters-of-Nine-Oxides-and-Sulfides-as
     - **Locations:** Equation (4), journal page 4226; Tables II, III, and VI, journal pages 4224-4227
+    - **Finding:** The CoO record is the empirical whole-range Murnaghan fit printed in Table VI, not a Birch-Murnaghan fit. V0 is calculated from the Table II ambient cubic lattice parameter. The paper prints no parameter errors or covariance and cautions both that B0 and B0' need not equal the true one-atmosphere derivatives and that calculated pressures are insensitive to their exact individual values when the pair is properly balanced.
     - **DOI:** 10.1063/1.1726610
 - **Migration source:**
     - **Project:** Dioptas

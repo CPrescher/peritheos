@@ -69,7 +69,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/copper.md#record-copper_sakai_2025_rydberg_stacey_1)
 
-**Source finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
+**Source check:** Equation (1) form; stored parameters match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).
 
 Automatic selection for equilibrium calculations.
 
@@ -97,7 +97,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 63.546
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 are fixed (the source takes most ambient V0 and K0 values from cited primary measurements) and K0' is fitted to the internally consistent compression network; for Cu, unlike the other markers, K∞' is not fixed at 5/3. Parameter covariance and the confidence convention for printed errors are not reported.
 
@@ -109,6 +109,7 @@ Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 a
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1038/s43246-025-00792-5
     - **Locations:** Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook
+    - **Finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
     - **DOI:** 10.1038/s43246-025-00792-5
 - **Primary data check:**
     - **Status:** derived\_output\_only
@@ -153,7 +154,7 @@ Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 a
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/copper.md#record-copper_dewaele_2004_vinet_1)
 
-**Source finding:** This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients.
+**Source check:** Coefficients from Table II (revised ruby-scale reduction), which marks fixed coefficients in bold.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -176,7 +177,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 153.0\]
     - **Temperature k:** \[298.0, 298.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Static 298 K Vinet fit to all Table I observations, with pressures on the revised ruby scale (P'\_R). V0 was fixed by the authors; the published atomic V0 is stored per conventional cell.
 
@@ -189,6 +190,7 @@ Static 298 K Vinet fit to all Table I observations, with pressures on the revise
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext
     - **DOI:** 10.1103/physrevb.70.094112
     - **Locations:** Equation (1); Figure 2 caption; Tables I and II
+    - **Finding:** This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients.
 - **Migration source:**
     - **Project:** Dioptas
     - **Version:** 0.10.0
@@ -239,7 +241,7 @@ Static 298 K Vinet fit to all Table I observations, with pressures on the revise
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/copper.md#record-copper_sokolova_2013_holzapfel_2)
 
-**Source finding:** The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.
+**Source check:** Stored coefficients match the Cu columns of Tables 1 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -284,6 +286,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/j.rgg.2013.01.005
     - **Locations:** Equations 1-15; Table 1 input reference values; Table 4 optimized parameters for all eleven markers; Figures 3-11 cross-calibration tests
+    - **Finding:** The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.
     - **DOI:** 10.1016/j.rgg.2013.01.005
 - **Migration source:**
     - **Project:** Dioptas
@@ -340,7 +343,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/copper.md#record-copper_dewaele_2019_mao_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source check:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -363,7 +366,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 155.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Mao et al. (1986) ruby scale. The Dorogokupets (2007) ruby-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -377,6 +380,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -427,7 +431,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/copper.md#record-copper_dewaele_2019_dor_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source check:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [copper\_dewaele\_2019\_mao\_vinet](#record-copper_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -452,7 +456,7 @@ Published pressure-scale alternative of [copper\_dewaele\_2019\_mao\_vinet](#rec
 - **Validity:**
     - **Pressure gpa:** \[0.0, 155.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Dorogokupets (2007) ruby scale. The Mao et al. (1986) ruby-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -466,6 +470,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -516,7 +521,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/copper.md#record-copper_dewaele_2004_mao_ruby_vinet)
 
-**Source finding:** Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.
+**Source check:** Coefficients from Table II, classical Mao ruby-scale reduction, for the Vinet form defined in the Figure 2 caption.
 
 Published pressure-scale alternative of [copper\_dewaele\_2004\_vinet\_1](#record-copper_dewaele_2004_vinet_1); it is not an independent EOS choice.
 
@@ -541,7 +546,7 @@ Published pressure-scale alternative of [copper\_dewaele\_2004\_vinet\_1](#recor
 - **Validity:**
     - **Pressure gpa:** \[0.0, 144.3\]
     - **Temperature k:** \[298.0, 298.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Static 298 K synchrotron X-ray compression fit to all Table I observations, with pressures on the classical Mao ruby scale. V0 was fixed from the authors' 0-5 GPa determination. The revised-scale record is an alternative reduction of the same observations, not an independent experiment.
 
@@ -554,6 +559,7 @@ Static 298 K synchrotron X-ray compression fit to all Table I observations, with
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext
     - **DOI:** 10.1103/physrevb.70.094112
     - **Locations:** Equation (1); Figure 2 caption; Tables I and II
+    - **Finding:** Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -597,7 +603,7 @@ Static 298 K synchrotron X-ray compression fit to all Table I observations, with
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/copper.md#record-copper_fratanduono_2020_vinet3_298k)
 
-**Source finding:** The exponent is eta\*y+beta\*y^2+psi\*y^3 with y=1-(rho0/rho)^(1/3); rho0=8.939 g/cm3. Table I prints separate central and upper/lower-envelope fits.
+**Source check:** Coefficients from the Table I central 298 K isotherm row (p. 015701-3). The exponent of Supplemental S4 Eq. (2) (p. S2) is eta\*y + beta\*y^2 + psi\*y^3 with y = 1 - (rho0/rho)^(1/3).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -627,7 +633,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 63.546
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Central 298 K isotherm of Table I, in the third-order Vinet form of Equation (2) of Supplement S4; Table I and S4 specify 298 K, the main text says 300 K. V0 is computed from the prescribed rho0 = 8.939 g/cm³ (no uncertainty given) for four atoms per fcc cell. The upper and lower Table I rows are separate envelope fits, not coefficient errors.
 
@@ -641,6 +647,7 @@ Central 298 K isotherm of Table I, in the third-order Vinet form of Equation (2)
     - **Access URL:** https://doi.org/10.1103/PhysRevLett.124.015701
     - **DOI:** 10.1103/PhysRevLett.124.015701
     - **Locations:** Table I, page 015701-3, central 298 K isotherm row and caption; Supplemental Section S4, Eq. (2), page S2; Supplemental Section S5 and Table S1
+    - **Finding:** The exponent is eta\*y+beta\*y^2+psi\*y^3 with y=1-(rho0/rho)^(1/3); rho0=8.939 g/cm3. Table I prints separate central and upper/lower-envelope fits.
     - **Source artifacts:**
         - **Url:** https://doi.org/10.1103/PhysRevLett.124.015701
         - **Sha256:** 18db9d32504e10007a7927c04c5610a5dbf25a4088577d14c0bab0033804a412

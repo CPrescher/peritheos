@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/casio3_perovskite_tetragonal.md#record-casio3_perovskite_tetragonal_shim_2002_bm3_1)
 
-**Source finding:** Six diffraction images at 19.7-45.8 GPa support a source-owned BM3 fit with adopted V0 and K0' and fitted K0=255(5) GPa. Rows 408-409 in LitCurate are incomplete literature comparisons, not additional fits by this paper.
+**Source check:** Coefficients from paragraph 10 and the abstract; V0 is adopted from Wang et al. (1996). The fit uses six diffraction images, whose volumes are plotted in Figure 2a.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.161
-- **Reported error confidence level:** 0.6826894921370859
+- **Printed parameter errors:** 1 sigma
 
 Volumes are per the source's P4/mmm pseudocell (Z = 1); the phase is identified only as tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals. V0 is an adopted zero-pressure extrapolation, since this phase is not recovered at ambient conditions. The 19.7 GPa refinement is cubic.
 
@@ -104,6 +104,7 @@ Volumes are per the source's P4/mmm pseudocell (Z = 1); the phase is identified 
     - **Access URL:** https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim\_et\_al-2002-grl.pdf
     - **DOI:** 10.1029/2002gl016148
     - **Locations:** abstract; paragraphs 4-10; Figure 2
+    - **Finding:** Six diffraction images at 19.7-45.8 GPa support a source-owned BM3 fit with adopted V0 and K0' and fitted K0=255(5) GPa. Rows 408-409 in LitCurate are incomplete literature comparisons, not additional fits by this paper.
 - **Primary data check:**
     - **Status:** plot\_digitized
     - **Audit date:** 2026-10-08

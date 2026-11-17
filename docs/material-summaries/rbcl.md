@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/rbcl.md#record-rbcl_b2_campbell_1994_bm3_1)
 
-**Source finding:** The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations.
+**Source check:** K0 and K0' from pp. 11767-11768 and Figure 3 (third-order Eulerian finite-strain fit); observations in the RbCl block of Table 1, which prints the CsCl observations separately.
 
 Automatic selection for equilibrium calculations.
 
@@ -93,6 +93,7 @@ BM3 fit to all 24 RbCl-B2 observations of Table 1. V0 is converted from the auth
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/94JB00127
     - **Locations:** page 11767, Table 1, separate RbCl and CsCl compression blocks; page 11767, Figures 2-3 and Eulerian finite-strain fits
+    - **Finding:** The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations.
     - **DOI:** 10.1029/94jb00127
 - **Primary data check:**
     - **Status:** bundled
@@ -144,7 +145,7 @@ BM3 fit to all 24 RbCl-B2 observations of Table 1. V0 is converted from the auth
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/rbcl.md#record-rbcl_b2_farla_2025_bm3_mgd_cscl)
 
-**Source finding:** Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit.
+**Source check:** Coefficients from Table I, case 1, with Equations (1) and (6)-(9) of the accepted manuscript; data in supplement Tables S1, S2 and S5. theta0 is from DFT elastic constants of Haddadi et al. (2009), per the supplement; main-text reference 41 cites Kumara Swamy et al. (1996).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -176,7 +177,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.54, 26.05\]
     - **Temperature k:** \[300.0, 1800.0\]
     - **Notes:** B2 solid only; the B1 transition and melting curves are not encoded, so confirm the phase before using it as a marker.; High-temperature data reach only about 21 GPa; higher pressures are 300 K DAC data. The 0 GPa B2 reference is hypothetical.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -198,6 +199,7 @@ The authors' preferred case 1, fitted to combined DAC and large-volume-press dat
     - **Access URL:** https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf
     - **DOI:** 10.1063/5.0248905
     - **Locations:** Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1; Official supplement section 1, Tables S1, S2, S5
+    - **Finding:** Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-15

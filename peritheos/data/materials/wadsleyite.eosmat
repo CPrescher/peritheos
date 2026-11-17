@@ -21,9 +21,10 @@
         "compared": "published_fit",
         "why": "K0' (-5.2%): outside the combined error; gamma0 (-31.4%): outside the combined error and beyond the agreement limit.",
         "warning": "On hold; not recommended pending source mapping review.",
+        "warning_reason": "Pressure calibration and the MGD reference-state and Debye convention mapping remain unresolved.",
         "source_check": "deferred",
         "source_checked_on": "2026-09-01",
-        "source_note": "The paper supplies the BM3 reference isotherm and Mie-Gruneisen-Debye parameters. Theta0=814 K is explicitly fixed; K0=169.2(9) GPa is fixed in the fit but its source uncertainty is retained.",
+        "source_note": "Coefficients from paragraphs 5-9; Table 1 prints all 85 P-T-V/V0 observations.",
         "audit": "../audits/wadsleyite.audit.json#wadsleyite_katsura_2009_bm3_1"
       },
       "model": "BM3",

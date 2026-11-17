@@ -43,7 +43,7 @@ stays in EOSMAT and the ledger.
 
 **disagrees** · `wadsleyite_katsura_2009_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/wadsleyite.md#record-wadsleyite_katsura_2009_bm3_1)
 
-**Warning:** On hold; not recommended pending source mapping review.
+**Warning:** On hold; not recommended pending source mapping review. Pressure calibration and the MGD reference-state and Debye convention mapping remain unresolved.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Current wadsleyite default on hold and not recommended pending source/model mapping review. This does not establish an error in the publication; no replacement default is selected.
 

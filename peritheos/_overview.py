@@ -15,6 +15,7 @@ from __future__ import annotations
 import math
 from collections.abc import Mapping
 from decimal import ROUND_HALF_UP, Decimal, localcontext
+from statistics import NormalDist
 from typing import TYPE_CHECKING, Any
 
 import numpy as np
@@ -751,6 +752,7 @@ def record_overview(
             "compared": compared,
             "why": headline["why"],
             "warning": headline["warning"],
+            "warning_reason": headline["warning_reason"],
             "source_check": headline["source_check"],
             "source_checked_on": headline["source_checked_on"],
             "source_note": headline["source_note"],
@@ -885,6 +887,45 @@ def _ranges_text(ranges: Mapping[str, Any]) -> list[str]:
 
 _CATEGORY_WORDS = {"equilibrium": "equilibrium", "hugoniot": "Hugoniot"}
 
+#: Two-sided normal confidence of one and two standard deviations.
+_ONE_SIGMA = 0.6826894921370859
+_TWO_SIGMA = 0.9544997361036416
+
+
+def error_convention_text(confidence: float | None) -> str:
+    """How the printed parameter errors relate to a standard deviation.
+
+    A stored level equal to the 1-sigma or 2-sigma level to four decimals
+    (0.6827, 0.682689..., 0.9545) reads "1 sigma" or "2 sigma"; any other
+    level is printed with the normal factor computed from the stored value,
+    the factor uncertainty propagation divides by (0.95: 1.96 sigma, 0.68:
+    0.994 sigma). The percentage never rounds to 0% or 100%.
+    """
+    if confidence is None:
+        return "confidence level not stated; used as 1 sigma"
+    if round(confidence, 4) == round(_ONE_SIGMA, 4):
+        return "1 sigma"
+    if round(confidence, 4) == round(_TWO_SIGMA, 4):
+        return "2 sigma"
+    # ndtri(0.5 * (1 + c)); the upper tail keeps it finite for c near 1.
+    factor = (
+        NormalDist().inv_cdf(0.5 * (1.0 + confidence))
+        if confidence < 0.5
+        else -NormalDist().inv_cdf(0.5 * (1.0 - confidence))
+    )
+    percent = confidence * 100
+    for digits in range(4, 18):
+        text = f"{percent:.{digits}g}"
+        if 0.0 < float(text) < 100.0:
+            break
+    else:
+        text = repr(percent)
+    # A level near but not at 1 or 2 sigma never prints the round factor.
+    digits = 3
+    while digits < 17 and float(f"{factor:.{digits}g}") in (1.0, 2.0):
+        digits += 1
+    return f"{text}% half-widths ({factor:.{digits}g} sigma)"
+
 
 def record_summary(overview: Mapping[str, Any]) -> str:
     """Plain text for one record overview."""
@@ -921,16 +962,13 @@ def record_summary(overview: Mapping[str, Any]) -> str:
         check_text += f" {explanation}"
     lines.append(f"  Check: {check_text}")
     if check["warning"]:
-        lines.append(f"  Warning: {_line(check['warning'])}")
-    confidence = overview["error_confidence"]
+        warning = check["warning"]
+        if check["warning_reason"]:
+            warning += f" {check['warning_reason']}"
+        lines.append(f"  Warning: {_line(warning)}")
     lines.append(
-        "  Parameters (errors as published, "
-        + (
-            "confidence level not stated"
-            if confidence is None
-            else f"{confidence:.0%} confidence"
-        )
-        + "):"
+        "  Parameters, errors as published: "
+        + error_convention_text(overview["error_confidence"])
     )
     rows = overview["parameters"]
     width = max((len(row["display_name"]) for row in rows), default=0)

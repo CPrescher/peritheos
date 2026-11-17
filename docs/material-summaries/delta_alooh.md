@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/delta_alooh.md#record-delta_alooh_vanpeteghem_2002_bm2_1)
 
-**Source finding:** The paper publishes both a constrained and an unconstrained fit to the same nine-point dataset.
+**Source check:** K0 from the abstract and Table 2 (constrained fit); V0 is the ambient volume of Table 1. The fit uses all nine P-V rows.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 59.987539
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -103,6 +103,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://doi.org/10.1029/2001GL014224
     - **DOI:** 10.1029/2001GL014224
     - **Locations:** Abstract; Table 1; Table 2
+    - **Finding:** The paper publishes both a constrained and an unconstrained fit to the same nine-point dataset.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -141,7 +142,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/delta_alooh.md#record-delta_alooh_vanpeteghem_2002_bm3_2)
 
-**Source finding:** The unconstrained 228(7)/7(1) row is a genuine published sensitivity fit, not a separate phase.
+**Source check:** K0 and K0' from the present-work alternative row of Table 2, an unconstrained sensitivity fit; V0 is the ambient volume of Table 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -168,7 +169,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 59.987539
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -180,6 +181,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Access URL:** https://doi.org/10.1029/2001GL014224
     - **DOI:** 10.1029/2001GL014224
     - **Locations:** Abstract; Table 1; Table 2
+    - **Finding:** The unconstrained 228(7)/7(1) row is a genuine published sensitivity fit, not a separate phase.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

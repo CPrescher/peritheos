@@ -78,7 +78,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_baty_2024_bm3_dft_2)
 
-**Source finding:** The article identifies a separate 0 K DFT BM3 cold curve. Supplementary Table S3 evaluates that curve alongside five literature EOS parameterizations; it is not a table of observations used in the experimental fit.
+**Source check:** The cold curve is the 'This work' column of Supplementary Table S3 and the green curve in Figure 3; Table S3 lists pressures calculated from this fit, not fit input.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -109,6 +109,7 @@ Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values; not the 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1063/5.0179469
     - **Locations:** Cold-curve calculation; Figure 3; Supplementary Table S3
+    - **Finding:** The article identifies a separate 0 K DFT BM3 cold curve. Supplementary Table S3 evaluates that curve alongside five literature EOS parameterizations; it is not a table of observations used in the experimental fit.
     - **DOI:** 10.1063/5.0179469
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
@@ -152,7 +153,7 @@ Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values; not the 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_guigue_2020_vinet_1)
 
-**Source finding:** The source reports a room-temperature Vinet EOS for pure fcc Pd compressed in neon, separately from the hydride results.
+**Source check:** Coefficients from the pure-Pd compression discussion and EOS figure, reported separately from the hydride results; the pure-Pd observations are plotted, not tabulated.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -184,6 +185,7 @@ Room-temperature Vinet fit to pure Pd compressed in neon, from a Pd-hydride stud
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1063/1.5138697
     - **Locations:** Experimental methods; Pure-Pd compression discussion; Pure-Pd EOS figure
+    - **Finding:** The source reports a room-temperature Vinet EOS for pure fcc Pd compressed in neon, separately from the hydride results.
     - **DOI:** 10.1063/1.5138697
 - **Primary data check:**
     - **Status:** plot\_only
@@ -235,7 +237,7 @@ Room-temperature Vinet fit to pure Pd compressed in neon, from a Pd-hydride stud
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_fedotenko_2020_bm3_1)
 
-**Source finding:** Table 1 supplies 15 pure-Pd P-V observations. Section 3.1 and Figure 1 report the BM3 parameters; the isolated 58.863 value in Table 2 conflicts with three occurrences of 58.868 and is treated as a typographical inconsistency.
+**Source check:** Coefficients from Section 3.1 and Figure 1 (Equation 1). Table 2 prints V0 as 58.863(2) Å³, which conflicts with three other occurrences of the stored value and is treated as a typographical error.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -267,6 +269,7 @@ Room-temperature BM3 fit to the 15 pure-Pd observations of Table 1, with neon as
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/j.jallcom.2020.156179
     - **Locations:** Section 3.1; Table 1; Equation 1; Figure 1; Table 2
+    - **Finding:** Table 1 supplies 15 pure-Pd P-V observations. Section 3.1 and Figure 1 report the BM3 parameters; the isolated 58.863 value in Table 2 conflicts with three occurrences of 58.868 and is treated as a typographical inconsistency.
     - **DOI:** 10.1016/j.jallcom.2020.156179
 - **Primary data check:**
     - **Status:** bundled
@@ -311,11 +314,11 @@ Room-temperature BM3 fit to the 15 pure-Pd observations of Table 1, with neon as
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_fedotenko_2020_bm2_2)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The published curve fits its 15 Table 1 points poorly (up to about 1.4 GPa) although its coefficients are reproduced.
 
 **Warning (source review):** Do not use this fixed-Kprime=4 fit for quantitative predictions or pressure calibration. Coefficient parity reproduces the published poor fit; it does not establish adequate data agreement.
 
-**Source finding:** Table 2 explicitly reports the second-order result K0=203(3) GPa with K0'=4. It uses the same Table 1 observations as the BM3 fit.
+**Source check:** K0 from the second-order result in Table 2. V0 follows Table 1, the BM3 fit paragraph and Figure 1 rather than Table 2's isolated 58.863(2) Å³.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -347,6 +350,7 @@ Second-order Birch-Murnaghan fit with K0' = 4 imposed, to the same 15 Table 1 ob
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/j.jallcom.2020.156179
     - **Locations:** Section 3.1; Table 1; Table 2
+    - **Finding:** Table 2 explicitly reports the second-order result K0=203(3) GPa with K0'=4. It uses the same Table 1 observations as the BM3 fit.
     - **DOI:** 10.1016/j.jallcom.2020.156179
 - **Primary data check:**
     - **Status:** bundled
@@ -397,9 +401,9 @@ Second-order Birch-Murnaghan fit with K0' = 4 imposed, to the same 15 Table 1 ob
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_frost_2023_vinet_1)
 
-**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly. The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.
 
-**Source finding:** The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.
+**Source check:** Vinet coefficients from Table I, fitted with pressure and volume uncertainties. Pressures come from tungsten markers in Runs 1 and 2 and gold in Run 3 (Supplementary Tables I-III).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -433,6 +437,7 @@ Room-temperature Vinet fit to three hydrogen-free fcc-Pd loadings compressed in 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1063/5.0161038
     - **Locations:** Abstract; Methods, page 035901-2; Table I; Figure 1 and caption; Results and discussion; Data availability; Supplementary Section II.A and Tables I-III
+    - **Finding:** The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.
     - **DOI:** 10.1063/5.0161038
 - **Primary data check:**
     - **Status:** bundled
@@ -490,9 +495,9 @@ Room-temperature Vinet fit to three hydrogen-free fcc-Pd loadings compressed in 
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_frost_2023_bm3_2)
 
-**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly. The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.
 
-**Source finding:** Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.
+**Source check:** BM3 coefficients from Table I, fitted by Marquardt-Levenberg least squares with 0.1 GPa pressure and Le Bail volume uncertainties (Methods, page 035901-2); observations from Supplementary Tables I-III.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -526,6 +531,7 @@ Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd load
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1063/5.0161038
     - **Locations:** Methods, page 035901-2; Table I; Figure 1 and caption; Results and discussion; Data availability; Supplementary Section II.A and Tables I-III
+    - **Finding:** Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.
     - **DOI:** 10.1063/5.0161038
 - **Primary data check:**
     - **Status:** bundled
@@ -583,9 +589,9 @@ Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd load
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_baty_2024_bm3_1)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The verified Table S1 observations and source equation do not recover the published experimental BM3 fit.
 
-**Source finding:** The paper reports the BM3 fit in the text and plots its own 300 K P-V observations in Figure 3. The official supplementary Table S1 supplies the complete 78-point compression dataset.
+**Source check:** BM3 coefficients from the text with Equation 1; the 300 K observations plotted in Figure 3 are tabulated in the official Supplementary Table S1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -616,6 +622,7 @@ Experimental 300 K BM3 fit. Published V0 = 14.72(4) Å³/atom; stored per conven
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1063/5.0179469
     - **Locations:** Equation 1; Figure 3, own 300 K P-V data; Supplementary Table S1; Figure 4
+    - **Finding:** The paper reports the BM3 fit in the text and plots its own 300 K P-V observations in Figure 3. The official supplementary Table S1 supplies the complete 78-point compression dataset.
     - **DOI:** 10.1063/5.0179469
 - **Migration source:**
     - **Project:** Dioptas

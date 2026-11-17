@@ -101,6 +101,7 @@
               "phase assignment and temperature discussion, pages 110-113"
             ],
             "finding": "Table 2's fixed-derivative fit is used. Its V0 and error are converted from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 cell. All 23 Table 1 rows were transcribed, with the 14 reanalyzed 2016 and nine new 2022 observations distinguished, and independently reproduce both Table 2 fits.",
+            "record_note": "Coefficients from the fixed-K0' row of Table 2 (p. 112), with the Birch-Murnaghan form and Z normalization of pp. 111-112; the P-V data are in Table 1.",
             "doi": "10.2138/am-2021-7913"
           },
           "primary_data_check": {
@@ -192,7 +193,8 @@
             "access_url": "https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021",
             "doi": "10.1134/s0016702921080073",
             "locations": ["Methods", "Table 2", "Phase relations", "Figure 7"],
-            "finding": "Complete source-owned LDA room-temperature Ca-pv Vinet fit; I4/mcm is the relevant 300 K phase."
+            "finding": "Complete source-owned LDA room-temperature Ca-pv Vinet fit; I4/mcm is the relevant 300 K phase.",
+            "record_note": "Coefficients from the this-work LDA Ca-pv row of Table 2, with the Vinet form given in Methods."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -245,7 +247,8 @@
             "access_url": "https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021",
             "doi": "10.1134/s0016702921080073",
             "locations": ["Methods", "Table 2", "Phase relations", "Figure 7"],
-            "finding": "Complete source-owned GGA room-temperature Ca-pv Vinet fit; I4/mcm is the relevant 300 K phase."
+            "finding": "Complete source-owned GGA room-temperature Ca-pv Vinet fit; I4/mcm is the relevant 300 K phase.",
+            "record_note": "Coefficients from the this-work GGA Ca-pv row of Table 2, with the Vinet form given in Methods."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -310,7 +313,8 @@
             "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
             "doi": "10.1029/2004gl022144",
             "locations": ["Section 2", "Table 1", "Section 4", "Table 2"],
-            "finding": "Explicit source BM3 fit for I4/mcm (a0a0c-)."
+            "finding": "Explicit source BM3 fit for I4/mcm (a0a0c-).",
+            "record_note": "Coefficients from the BM3 fit in the I4/mcm column of Table 2 (Section 4); the source V0 per formula unit is multiplied by Z = 4."
           },
           "primary_data_check": {
             "status": "theoretical_parameterization_only",
@@ -380,7 +384,8 @@
             "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
             "doi": "10.1029/2004gl022144",
             "locations": ["Section 2", "Table 1", "Section 4", "Table 2"],
-            "finding": "Explicit source BM4 fit for I4/mcm (a0a0c-)."
+            "finding": "Explicit source BM4 fit for I4/mcm (a0a0c-).",
+            "record_note": "Coefficients from the BM4 fit in the I4/mcm column of Table 2 (Section 4); the source V0 per formula unit is multiplied by Z = 4."
           },
           "primary_data_check": {
             "status": "theoretical_parameterization_only",
@@ -537,7 +542,8 @@
               "Figure 5, page 466",
               "Tables 1-2, page 467"
             ],
-            "finding": "The paper reports a seven-observation I4/mcm 300 K Vinet fit, K0'=4 fixed, with V0 fitted because the phase is unstable at ambient pressure."
+            "finding": "The paper reports a seven-observation I4/mcm 300 K Vinet fit, K0'=4 fixed, with V0 fitted because the phase is unstable at ambient pressure.",
+            "record_note": "Coefficients from Table 2 (p. 467) and Figure 5 (p. 466); only the I4/mcm refinements of Table 1 enter the fit, not the parallel P4/mmm refinements."
           },
           "primary_data_check": {
             "status": "bundled",

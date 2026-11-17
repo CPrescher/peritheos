@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/majorite.md#record-majorite_yagi_1992_bm3_1)
 
-**Source finding:** The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not a fit error from this EOS and is removed.
+**Source check:** K0 from the Figure 3 fit paragraph on page 4; V0 from the Table 1 footnote and the Table 2 this-study one-bar cell (page 5).
 
 Automatic selection for equilibrium calculations.
 
@@ -92,6 +92,7 @@ Room-temperature MgSiO3 tetragonal-garnet BM3 with V0 fixed at the measured one-
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/0031-9201(92)90063-2
     - **Locations:** page 4, Figure 3 and Birch-Murnaghan fit paragraph; page 4, Table 1 and V0 footnote; page 5, Table 2, this-study 1 bar cell
+    - **Finding:** The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not a fit error from this EOS and is removed.
     - **DOI:** 10.1016/0031-9201(92)90063-2
 - **Migration source:**
     - **Project:** Dioptas

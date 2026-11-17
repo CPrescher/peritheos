@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/lead_hcp.md#record-lead_hcp_dewaele_2019_mao_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source check:** Coefficients from Table 1 (Mao-1986 ruby-scale reduction) for the Vinet form of Equation (1).
 
 Automatic selection for equilibrium calculations.
 
@@ -87,7 +87,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[13.0, 131.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Mao-1986 ruby scale. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -101,6 +101,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** combined\_primary\_data\_partially\_bundled
     - **Audit date:** 2026-09-07
@@ -143,7 +144,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/lead_hcp.md#record-lead_hcp_dewaele_2019_dor_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source check:** Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [lead\_hcp\_dewaele\_2019\_mao\_vinet](#record-lead_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -168,7 +169,7 @@ Published pressure-scale alternative of [lead\_hcp\_dewaele\_2019\_mao\_vinet](#
 - **Validity:**
     - **Pressure gpa:** \[13.0, 131.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Dorogokupets-2007 ruby scale. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -182,6 +183,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** combined\_primary\_data\_partially\_bundled
     - **Audit date:** 2026-09-07
@@ -224,7 +226,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/lead_hcp.md#record-lead_hcp_kuznetsov_2002_bm3_3)
 
-**Source finding:** The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0\_prime=3.61.
+**Source check:** Coefficients from the hcp entries of Table 2 at T0 = 296 K (Equations 1-3); the printed V0 = 29.908 Å³/atom is stored per two-atom hcp cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -264,6 +266,7 @@ Published 296 K isotherm of the source's temperature-dependent hcp BM3 model; th
     - **Access URL:** https://doi.org/10.1016/S0038-1098(02)00112-6
     - **DOI:** 10.1016/S0038-1098(02)00112-6
     - **Locations:** Equations 1-3; Tables 1-2; Figures 2-3
+    - **Finding:** The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0\_prime=3.61.
 - **Primary data check:**
     - **Status:** combined\_primary\_data\_partially\_bundled
     - **Audit date:** 2026-09-08

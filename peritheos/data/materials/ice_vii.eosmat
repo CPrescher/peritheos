@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Molar volumes were converted with Z=10 for ice VI and Z=2 for ice VII.",
+        "source_note": "Coefficients from the abstract and the paper's BM2 P-V-T fit for ice VII.",
         "audit": "../audits/ice_vii.audit.json#ice_vii_bezacier_2014_bm2_1"
       },
       "model": "BM2",
@@ -57,7 +57,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The stored record is the simultaneous three-parameter 300 K BM3 fit; its molar V0 is converted to the two-formula-unit cubic cell.",
+        "source_note": "Coefficients from Section 3.1 (pp. 2782-2783): the simultaneous three-parameter fit of Equation (2) to the 300 K data.",
         "audit": "../audits/ice_vii.audit.json#ice_vii_frank_2004_bm3_2"
       },
       "model": "BM3",

@@ -108,7 +108,7 @@ last.
 | `parameters` | yes | object | Coefficients with errors and fixed flags; see [Parameters](#parameters). |
 | `equation_options` | no | object | Extra settings of the reference component (the v3 `eos` object); may not contain `type`, `model` or `parameters`. |
 | `thermal` | no | object | Thermal-pressure component; see [Thermal component](#thermal-component). |
-| `parameter_error_confidence` | no | number in (0, 1) or `null` | Two-sided confidence of the reported errors when they are interval half-widths. `null` or absent: standard errors, or a convention stated in `notes`. |
+| `parameter_error_confidence` | no | number in (0, 1) or `null` | Two-sided confidence of the printed error half-widths; see [Parameters](#parameters). |
 | `parameter_covariance` | no | object or `null` | `parameter_order` and square `matrix`; see [Covariance](#covariance). |
 | `validity` | no | object | The stated envelope of the record: `pressure_gpa` (GPa), `temperature_k` (K), `volume_ratio` (V/V0), each `[low, high]`, and `notes` (array of text). |
 | `experimental_pressure_range_gpa` | no | `[low, high]` GPa | Pressure span of the data behind the fit. |
@@ -188,10 +188,24 @@ an object with any of these keys:
 | `fixed` | `true` when the parameter was held fixed in the reported fit. Independent of `error`. |
 
 An object with only `error` or `fixed: true` records information about a
-parameter the equation does not store. `parameter_error_confidence` gives the
-confidence level of all errors of the record. In a curated record, an absent or
-`null` `parameter_error_confidence` or `parameter_covariance` means the source
-did not report it; records do not repeat this.
+parameter the equation does not store.
+
+`parameter_error_confidence` is the two-sided confidence of all printed errors
+of the record, read as half-widths of a normal interval. An absent or `null`
+value means the source did not state a confidence level; Peritheos then uses
+the errors as standard errors (1 sigma). A value of `0.95` means 95%
+half-widths, which are 1.96 sigma; `0.9545` is 2 sigma, and the 1-sigma level
+is `0.6826894921370859`. Bundled records use that value or a printed rounding
+of it (`0.682689492137`, `0.6827`, `0.68`). The file keeps the published
+numbers. When Peritheos propagates parameter uncertainty from the errors, it
+divides each error by the normal factor computed from the stored value (1.96
+for `0.95`; 0.9945 for `0.68`), so the calculation works in 1 sigma.
+`record.summary()` prints this factor: "1 sigma" or "2 sigma" only for a value
+equal to that level to four decimals, otherwise the percentage and the factor
+(`0.68`: "68% half-widths (0.994 sigma)"). A stored `parameter_covariance`
+is propagated as given; the confidence is not applied to it. In a curated
+record, an absent or `null` `parameter_covariance` means the source did not
+report one; records do not repeat this.
 
 ### Covariance
 
@@ -255,16 +269,24 @@ any other key is an error. The words are defined in [EOS labels](eos-labels.md).
 | `compared` | `published_fit`, `peritheos_refit`, `source_equation` or `none`; `untested` allows only `none` or `source_equation`, other headlines exclude `none` |
 | `why` | At most 160 characters, only with `close` or `disagrees`: the coefficients that failed |
 | `warning` | `null` or text: an explicit usage restriction |
+| `warning_reason` | At most 140 characters, only with a non-null `warning`: why the restriction applies, copied from `evidence.scientific_validation.warning_reason` |
 | `source_check` | `verified`, `pending`, `unresolved` or `deferred` |
 | `source_checked_on` | Date of the source check (`YYYY-MM-DD` in bundled records) |
-| `source_note` | The source check's finding |
+| `source_note` | What the source check found for this record: `evidence.scientific_validation.primary_source_check.record_note` when present, otherwise its verbatim `finding` |
 | `audit` | `<path relative to this file>#<record identifier>`: the record's sidecar entry |
 
 When evidence is present (inline or merged), `reproduction`, `compared` and
 `source_check` must equal the values derived from it, or loading fails; the
 [label page](eos-labels.md#detailed-outcome-codes) lists the stored codes they
-rename. Without `check`, `EOSRecord.reproduction`, `.compared`, `.why`,
-`.warning`, `.source_check` and `.source_note` are derived from the evidence;
+rename. Likewise a stored `source_note` must equal the evidence's `record_note`,
+else its `finding` (when the evidence has a `primary_source_check`), and a
+stored `warning_reason` must equal `scientific_validation.warning_reason`
+(when the evidence has a `scientific_validation`). A `warning_reason` or
+`source_note` made only of white space (Unicode `White_Space`) is an error,
+in `check` as in the evidence; a standalone file without evidence may write
+its own texts. Without `check`, `EOSRecord.reproduction`, `.compared`, `.why`,
+`.warning`, `.warning_reason`, `.source_check` and `.source_note` are derived
+from the evidence;
 a record without an assessment is `untested`, compared `none`. Without
 evidence and without `check.source_check`, the record is `pending`.
 
@@ -379,6 +401,18 @@ revision under the [record text standard](record-text-standard.md) replaced:
 absent), with the revision date `superseded_on`. A later revision never
 overwrites a stored original, and the block never changes how the record is
 read.
+
+Two optional texts in an entry's `evidence.scientific_validation` are written
+for the reader of the record and copied into its `check` block:
+
+| Field | Limit | Shown as |
+| --- | --- | --- |
+| `primary_source_check.record_note` | 1-300 characters | `check.source_note`, in place of the verbatim `finding` |
+| `warning_reason` | 1-140 characters; only on a record whose `check.warning` is not `null` | `check.warning_reason` |
+
+`finding` itself is never shortened or replaced; without a `record_note`,
+`check.source_note` is the verbatim `finding`. A `warning_reason` on a record
+without a warning is an error, never silently dropped.
 
 The fields inside `evidence.reproduction.assessment` are described in
 [EOSMAT v4](eosmat-v4.md#a-consistent-reconstruction-assessment) and the

@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+        "source_note": "Coefficients from Table 2 and Section 4.2; V0 = 6.803 cm³/mol of atoms is converted to the Z = 4 cell (×8/0.602214076).",
         "audit": "../audits/fesi_b20.audit.json#fesi_b20_fischer_2014_bm3_1"
       },
       "model": "BM3",
@@ -62,7 +62,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+        "source_note": "Coefficients from Table S6 and Text S1, page 2; V0 = 6.803 cm³/mol of atoms is converted to the Z = 4 cell (×8/0.602214076).",
         "audit": "../audits/fesi_b20.audit.json#fesi_b20_fischer_2014_vinet_2"
       },
       "model": "Vinet",

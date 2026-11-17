@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/alumina.md#record-alumina_dewaele_2013_vinet_1)
 
-**Source finding:** All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.
+**Source check:** Coefficients from Section IV (p. 064107-2) and Figure 3; observations in Table I.
 
 Automatic selection for equilibrium calculations.
 
@@ -83,7 +83,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1103/PhysRevB.88.064107
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.56, 165.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Quasihydrostatic 300 K Vinet fit to corundum data, with all three parameters free.
 
@@ -95,6 +95,7 @@ Quasihydrostatic 300 K Vinet fit to corundum data, with all three parameters fre
 - **Primary source check:**
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.88.064107/fulltext
     - **Locations:** section IV, page 064107-2; Table I; Figure 3; section V
+    - **Finding:** All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.
     - **DOI:** 10.1103/physrevb.88.064107
 - **Migration source:**
     - **Project:** Dioptas
@@ -145,7 +146,7 @@ Quasihydrostatic 300 K Vinet fit to corundum data, with all three parameters fre
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/alumina.md#record-alumina_shi_2022_bm3_mgd_2)
 
-**Source finding:** The source reports one selected BM3-MGD corundum parameterization, not three interchangeable BM3 records. Model 3 fixes the conventional-cell V0, K0', and theta0 and fits K0, gamma0, and q. The complete Table S1 reproduces those coefficients under an unweighted pressure-residual refit.
+**Source check:** Coefficients from the selected-model Table 1 (p. 4) with Equations 1-6; observations in Table S1. Table 2 prints the K0 error of the same model as 1 GPa; the Table 1 error is stored.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -190,6 +191,7 @@ Corundum model 3, selected in Table 1 and Table S3. The prose calls the cold ter
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/2021JB023805
     - **Locations:** main text, Equations 1-6, pages 3-4; main text, Table 1, page 4, selected corundum coefficients; main text, Table 2, page 6, three Debye-temperature sensitivity fits; Supporting Information, Figure S1, observations used to constrain the EOS; Supporting Information, Table S1, all corundum P-T-V observations; Supporting Information, Table S3, selected model used downstream
+    - **Finding:** The source reports one selected BM3-MGD corundum parameterization, not three interchangeable BM3 records. Model 3 fixes the conventional-cell V0, K0', and theta0 and fits K0, gamma0, and q. The complete Table S1 reproduces those coefficients under an unweighted pressure-residual refit.
     - **DOI:** 10.1029/2021jb023805
 - **Primary data check:**
     - **Status:** bundled

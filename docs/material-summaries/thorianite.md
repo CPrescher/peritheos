@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/thorianite.md#record-thorianite_chidester_2018_bm3_linear_thermal)
 
-**Source finding:** Both source-owned fits are experimental; older experimental and calculated literature rows in Table 1 are comparisons, not new fits. BM3 with K0\_prime fixed 4 plus constant linear thermal pressure.
+**Source check:** Coefficients from Table 1 (p. 750) and Equations 1-3 (p. 754), where alpha\_KT is a constant alpha\*K\_T product; the printed V0 = 26.379 cm³/mol is stored per Z = 4 cell. Other Table 1 rows are literature comparisons.
 
 Automatic selection for equilibrium calculations.
 
@@ -97,6 +97,7 @@ Fitted to the 300 K data below 15 GPa plus all high-temperature data; the anomal
     - **Access URL:** https://doi.org/10.2138/am-2018-6212
     - **DOI:** 10.2138/am-2018-6212
     - **Locations:** Table 1, p.750; Methods, p.751; Equations 1–3, p.754; Figure 7, p.754; Supplemental Table 1
+    - **Finding:** Both source-owned fits are experimental; older experimental and calculated literature rows in Table 1 are comparisons, not new fits. BM3 with K0\_prime fixed 4 plus constant linear thermal pressure.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19

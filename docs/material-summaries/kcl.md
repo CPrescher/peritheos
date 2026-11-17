@@ -75,7 +75,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_campbell_1991_bm2_1)
 
-**Source finding:** This is an explicit two-primary-source composite. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 fixed. Multiplication by Dewaele et al.'s B1 V0=62.36 A^3/formula unit gives V0(B2)=52.899988 A^3. Because Dewaele et al. publish no V0 error, only the Campbell ratio error is propagated. The full final article identifies the Mao et al. (1978) ruby calibration and five-position mean-pressure reduction. The source fits weighted normalized stress against effective strain; numerical weights and covariance remain unspecified.
+**Source check:** The V0 ratio and K0 are from the Campbell and Heinz abstract (BM2, K0' = 4); the B1 V0 is from Dewaele et al. (2012) Table III. Pressures use the Mao et al. (1978) ruby calibration with a five-position mean.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -104,6 +104,7 @@ Composite B2 isotherm: Campbell and Heinz report V0(B2)/V0(B1) = 0.8483 ± 0.005
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/0022-3697(91)90181-X
     - **Locations:** Campbell and Heinz (1991), final article: Experimental procedure, pages 495-496; Tables 1-2; reference 5, page 499; Dewaele et al. (2012), Table III: experimental B1-KCl V0
+    - **Finding:** This is an explicit two-primary-source composite. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 fixed. Multiplication by Dewaele et al.'s B1 V0=62.36 A^3/formula unit gives V0(B2)=52.899988 A^3. Because Dewaele et al. publish no V0 error, only the Campbell ratio error is propagated. The full final article identifies the Mao et al. (1978) ruby calibration and five-position mean-pressure reduction. The source fits weighted normalized stress against effective strain; numerical weights and covariance remain unspecified.
     - **DOI:** 10.1016/0022-3697(91)90181-x
 - **Migration source:**
     - **Project:** Dioptas
@@ -162,7 +163,7 @@ Composite B2 isotherm: Campbell and Heinz report V0(B2)/V0(B1) = 0.8483 ± 0.005
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_walker_2002_bm3_2)
 
-**Source finding:** The author-uploaded primary article's preferred B2 fit is the bold Table 3 row. Its footnote specifies a staged fit of K0 and K0' to the room-temperature data before alpha0; the italic row is the distinct simultaneous four-parameter fit. The article explicitly declines individual parameter errors because of covariance, but reports alpha0\*K0=0.0275+/-0.0009 kbar/K.
+**Source check:** Coefficients from the bold Table 3 row with Equation BE1 (pages 807-810); alpha\_KT is the printed alpha0\*K0 = 0.0275 ± 0.0009 kbar/K converted to GPa/K.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -195,6 +196,7 @@ Preferred staged B2 result of Table 3 (bold row): K0 and K0' are fitted to the r
 - **Primary source check:**
     - **Access URL:** https://www.researchgate.net/publication/231182054\_Thermal\_equations\_of\_state\_for\_B1\_and\_B2\_KCl
     - **Locations:** Equation BE1; Table 2; Table 3; B2 KCl Thermal EOS, pages 807-810
+    - **Finding:** The author-uploaded primary article's preferred B2 fit is the bold Table 3 row. Its footnote specifies a staged fit of K0 and K0' to the room-temperature data before alpha0; the italic row is the distinct simultaneous four-parameter fit. The article explicitly declines individual parameter errors because of covariance, but reports alpha0\*K0=0.0275+/-0.0009 kbar/K.
     - **DOI:** 10.2138/am-2002-0701
 - **Migration source:**
     - **Project:** Dioptas
@@ -250,7 +252,7 @@ Preferred staged B2 result of Table 3 (bold row): K0 and K0' are fitted to the r
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_dewaele_2012_vinet_3)
 
-**Source finding:** The paper provides the complete B2-KCl P-V-T equation and parameters, explicitly recommends it for pressure calibration, and prints no fitted-parameter errors or covariance.
+**Source check:** Reference isotherm from the experimental B2 Vinet fit of Table III and Table V; alpha\_KT from the molecular-dynamics thermal-pressure fit of Equation (2) and Table V. The paper recommends this equation for pressure calibration.
 
 Automatic selection for equilibrium calculations.
 
@@ -290,6 +292,7 @@ Vinet fit to helium-medium 298 K data, written as a 300 K term in Equation (2), 
 - **Primary source check:**
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.85.214105/fulltext
     - **Locations:** Table I, 298 K measured P-V points; Table III, experimental B2 KCl Vinet fit and 2.6-165 GPa range; Equation (2) and Table V, P-V-T calibration; Section IV, stated 0-200 GPa and 300-7000 K calibration range
+    - **Finding:** The paper provides the complete B2-KCl P-V-T equation and parameters, explicitly recommends it for pressure calibration, and prints no fitted-parameter errors or covariance.
     - **DOI:** 10.1103/physrevb.85.214105
 - **Primary data check:**
     - **Status:** bundled
@@ -342,7 +345,7 @@ Vinet fit to helium-medium 298 K data, written as a 300 K term in Equation (2), 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_vinet_4)
 
-**Source finding:** The final article's preferred Sokolova-Pt fit fixes V0=54.5 A^3 and theta0=235 K and reports K0=18.3(3) GPa, K0'=5.60(3), gamma0=2.3(2), and q=0.8(2). Equation 6 is the integrated-Gruneisen Debye-temperature law. The accepted manuscript's gamma0=0.58(5) and q=0.9(2) are superseded.
+**Source check:** Coefficients from the Table 1 Sokolova-Pt fit of the final article; Equation 6 is the integrated-Grüneisen Debye law. Observations come from the official Supplemental Table S1 workbook; the accepted-manuscript transcription mismatched the Pt and KCl rows for runs 3 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -391,6 +394,7 @@ Preferred final-publication fit on the Sokolova Pt scale. The accepted manuscrip
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.2138/am-2019-6779
     - **Locations:** Equations 1-6; Table 1; pages 721-723 of the final article; MSA deposit AM-19-56779, Supplemental Table S1 workbook
+    - **Finding:** The final article's preferred Sokolova-Pt fit fixes V0=54.5 A^3 and theta0=235 K and reports K0=18.3(3) GPa, K0'=5.60(3), gamma0=2.3(2), and q=0.8(2). Equation 6 is the integrated-Gruneisen Debye-temperature law. The accepted manuscript's gamma0=0.58(5) and q=0.9(2) are superseded.
     - **DOI:** 10.2138/am-2019-6779
 - **Primary data check:**
     - **Status:** bundled
@@ -436,7 +440,7 @@ Preferred final-publication fit on the Sokolova Pt scale. The accepted manuscrip
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_chidester_2021_bm3_5)
 
-**Source finding:** The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K. It simultaneously fits all Dewaele et al. (2012) room-temperature B2 data and the 155 new high-temperature rows. Equations 3-4 leave theta(V) implicit; the thermodynamically integrated constant-q relation reproduces all five coefficients and the reported 1.6 GPa high-temperature RMSE.
+**Source check:** Coefficients from the preferred Table I Birch-Murnaghan row with Equations 1-4. Equations 3-4 leave theta(V) implicit; the stored record uses the integrated constant-q Grüneisen relation.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -485,6 +489,7 @@ The preferred Birch-Murnaghan EOS of Table I, fitted jointly to 155 new high-tem
 - **Primary source check:**
     - **Access URL:** https://link.aps.org/accepted/10.1103/PhysRevB.104.094107
     - **Locations:** Methods, effective KCl temperature and Pt pressure basis; Section III and Equations 1-4; Table I and Figure 3; Supplemental Table A1; author-deposited SuppTable\_KCl.csv; Dewaele et al. (2012), Table I
+    - **Finding:** The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K. It simultaneously fits all Dewaele et al. (2012) room-temperature B2 data and the 155 new high-temperature rows. Equations 3-4 leave theta(V) implicit; the thermodynamically integrated constant-q relation reproduces all five coefficients and the reported 1.6 GPa high-temperature RMSE.
     - **DOI:** 10.1103/physrevb.104.094107
 - **Primary data check:**
     - **Status:** bundled
@@ -531,7 +536,7 @@ The preferred Birch-Murnaghan EOS of Table I, fitted jointly to 155 new high-tem
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_holmes_vinet_mgd)
 
-**Source finding:** Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.
+**Source check:** Coefficients from the Holmes MGD row of final Table 1 (page 721) with Equations 2-6; V0 is fixed from Dewaele (2012). The article does not say whether Holmes Equation 12 or the full thermodynamic form was used.
 
 Published pressure-scale alternative of [kcl\_b2\_tateno\_2019\_vinet\_4](#record-kcl_b2_tateno_2019_vinet_4); it is not an independent EOS choice.
 
@@ -583,6 +588,7 @@ Final-publication Table 1 alternative with pressures on the Holmes (1989) Pt sca
     - **Access URL:** https://doi.org/10.2138/am-2019-6779
     - **DOI:** 10.2138/am-2019-6779
     - **Locations:** Final Table 1, page 721; Equations 1-7; Official MSA AM-19-56779 workbook
+    - **Finding:** Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-08
@@ -639,7 +645,7 @@ Final-publication Table 1 alternative with pressures on the Holmes (1989) Pt sca
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_holmes_vinet_linear_thermal)
 
-**Source finding:** Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.
+**Source check:** Coefficients from the Holmes linear row of final Table 1 (page 721), with the alpha\_KT\*(T-300) term of Equation 7; V0 is fixed from Dewaele (2012). The article does not say whether Holmes Equation 12 or the full thermodynamic form was used.
 
 Published pressure-scale alternative of [kcl\_b2\_tateno\_2019\_sokolova\_vinet\_linear\_thermal](#record-kcl_b2_tateno_2019_sokolova_vinet_linear_thermal); it is not an independent EOS choice.
 
@@ -681,6 +687,7 @@ Final-publication Table 1 alternative with pressures on the Holmes (1989) Pt sca
     - **Access URL:** https://doi.org/10.2138/am-2019-6779
     - **DOI:** 10.2138/am-2019-6779
     - **Locations:** Final Table 1, page 721; Equations 1-7; Official MSA AM-19-56779 workbook
+    - **Finding:** Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-08
@@ -734,7 +741,7 @@ Final-publication Table 1 alternative with pressures on the Holmes (1989) Pt sca
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_sokolova_vinet_linear_thermal)
 
-**Source finding:** Nondefault final-publication Table 1 alternative. The final linear-thermal Sokolova row reports K0 error 0.2 GPa, distinct from the MGD row error 0.3 GPa. All 39 official Sokolova-pressure rows are used in the independent joint diagnostic.
+**Source check:** Coefficients from the Sokolova linear row of final Table 1 (page 721), with the alpha\_KT\*(T-300) term of Equation 7; V0 is fixed from Dewaele (2012).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -774,6 +781,7 @@ Final-publication Table 1 alternative with a linear thermal-pressure term, on th
     - **Access URL:** https://doi.org/10.2138/am-2019-6779
     - **DOI:** 10.2138/am-2019-6779
     - **Locations:** Final Table 1, page 721; Equations 1-7; Official MSA AM-19-56779 workbook
+    - **Finding:** Nondefault final-publication Table 1 alternative. The final linear-thermal Sokolova row reports K0 error 0.2 GPa, distinct from the MGD row error 0.3 GPa. All 39 official Sokolova-pressure rows are used in the independent joint diagnostic.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-08
@@ -825,7 +833,7 @@ Final-publication Table 1 alternative with a linear thermal-pressure term, on th
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_chidester_2021_vinet_mgd)
 
-**Source finding:** Nondefault Rydberg-Vinet alternative from Table I. Published V0=34.3(5) cm^3/mol converts to 56.956490004062935 A^3/B2 conventional cell with Z=1 and exact Avogadro constant. All five listed parameters are fitted; theta0=235 K, Tr=300 K, n=2 are held fixed. Fit includes all 123 Dewaele room-temperature rows and all 155 author-deposited Chidester effective-temperature rows. The integrated-Gruneisen Debye relation reproduces the complete fit. Dewaele and high-temperature Pt-derived pressures retain distinct calibration ancestry. KCl effective temperatures depend on the laser-heating gradient model; they are not directly measured homogeneous temperatures.
+**Source check:** Coefficients from the Table I Rydberg-Vinet row. Equations 3-4 do not define theta(V); the integrated-Grüneisen law used here was identified by fitting the complete data set.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -875,6 +883,7 @@ Vinet alternative of Table I, fitted jointly to the 123 room-temperature rows of
     - **Access URL:** https://doi.org/10.1103/PhysRevB.104.094107
     - **DOI:** 10.1103/PhysRevB.104.094107
     - **Locations:** Table I R-V reference EOS row; Section III and Equations 1-4; Author-deposited SuppTable\_KCl.csv
+    - **Finding:** Nondefault Rydberg-Vinet alternative from Table I. Published V0=34.3(5) cm^3/mol converts to 56.956490004062935 A^3/B2 conventional cell with Z=1 and exact Avogadro constant. All five listed parameters are fitted; theta0=235 K, Tr=300 K, n=2 are held fixed. Fit includes all 123 Dewaele room-temperature rows and all 155 author-deposited Chidester effective-temperature rows. The integrated-Gruneisen Debye relation reproduces the complete fit. Dewaele and high-temperature Pt-derived pressures retain distinct calibration ancestry. KCl effective temperatures depend on the laser-heating gradient model; they are not directly measured homogeneous temperatures.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-08
@@ -927,7 +936,7 @@ Vinet alternative of Table I, fitted jointly to the 123 room-temperature rows of
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_ma_2024_bm3_mgd)
 
-**Source finding:** Final source verifies Table 1 BM3 coefficients and MGD parameters, q=1 fixed, n=2, 300 K subtraction and integrated-Gruneisen Debye law. Weighted joint KT-V/P-V diagnostic recovers all three BM3 coefficients within published error magnitudes. The full source covariance and exact weighting prescription are not deposited. Source grids are matched within the documented rounding tolerance and remain distinct from observations.
+**Source check:** Coefficients from Table 1 with Equations 4-16 and 18-20; V0 is printed as 32.48(9) cm³/mol. Printed Equation 9 differs from the two-atom acoustic Debye convention used for the deposited Table S1 values.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -977,6 +986,7 @@ Table 1 BM3 + Mie-Grüneisen-Debye pressure scale from room-temperature acoustic
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2024JB028819
     - **DOI:** 10.1029/2024JB028819
     - **Locations:** Table 1; Equations 4-16 and 18-20; Section 3, joint acoustic/Walker fit and temperature correction; Final Mendeley deposit 7svmv9hvft.1, Data Tables.xlsx Tables S1-S4; Final publisher supporting DOCX: Text S1, Figures S1-S3 and Tables S1-S4; all ten pages inspected
+    - **Finding:** Final source verifies Table 1 BM3 coefficients and MGD parameters, q=1 fixed, n=2, 300 K subtraction and integrated-Gruneisen Debye law. Weighted joint KT-V/P-V diagnostic recovers all three BM3 coefficients within published error magnitudes. The full source covariance and exact weighting prescription are not deposited. Source grids are matched within the documented rounding tolerance and remain distinct from observations.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-08

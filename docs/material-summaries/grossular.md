@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/grossular.md#record-grossular_angel_2022_bm3_q_compromise_debye)
 
-**Source finding:** Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.
+**Source check:** Coefficients from official supplementary EOS file 1, which carries the full 59x59 covariance; the printed molar V0 = 125.35 cm³/mol is converted to the eight-formula-unit cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -84,7 +84,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 16.9\]
 - **Reported temperature coverage (K):** \[20.0, 1650.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 Published q-compromise approximation: theta0 and gamma/V are constant and there is no q parameter. V0 is adopted and fixed from Holland and Powell (2011), not refitted or measured; the other coefficients carry more digits than Table 1, as in the source files. The model gives P-V-T and pressure derivatives, not a caloric potential or mixing model.
@@ -99,6 +99,7 @@ Published q-compromise approximation: theta0 and gamma/V are constant and there 
     - **DOI:** 10.1007/s00410-022-01918-5
     - **Access URL:** https://doi.org/10.1007/s00410-022-01918-5
     - **Locations:** Methodology: EoS models and EoS refinement; Table 1; Official supplementary EOS file 1; Supplementary Table S1
+    - **Finding:** Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.
 - **Primary data check:**
     - **Status:** not\_available
     - **Audit date:** 2026-11-15

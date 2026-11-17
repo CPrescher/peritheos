@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-07",
-        "source_note": "The stored BM4 record is exactly the 300 K isotherm of the fully specified polynomial P-V-T surface. The report's Table 1 constants are evaluated at Delta T=0 (300 K), not at absolute zero.",
+        "source_note": "Coefficients are the constant terms of Table 1 (report pages 8-9; Equations 1-5), which refer to Delta T = 0, i.e. 300 K, not absolute zero.",
         "audit": "../audits/lead_fcc.audit.json#lead_fcc_fortes_2019_bm4_1"
       },
       "model": "BM4",
@@ -72,7 +72,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.",
+        "source_note": "Coefficients from the fcc entries of Table 2 (Equation 1), with V0 printed as 30.307 Å³/atom and stored per four-atom cell; Equations 2-3 put the reference at T0 = 296 K.",
         "audit": "../audits/lead_fcc.audit.json#lead_fcc_kuznetsov_2002_bm3_2"
       },
       "model": "BM3",

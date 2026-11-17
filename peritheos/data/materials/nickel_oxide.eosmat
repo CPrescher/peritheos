@@ -18,7 +18,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "The official open primary conference paper documents the same team's sample reference lattice and exact shock-to-300 K conventions: Debye theta0=390 K, gamma0=1.38 derived from 2s=gamma+1, gamma/V constant, and Us=5.36+1.19up. The final journal article extends the data and reports K0=191 GPa and K0'=3.9. The stored Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; the journal reports no coefficient errors for K0 or K0'.",
+        "source_note": "K0 and K0' from the Noguchi et al. (1999) abstract (147.6 GPa isotherm). The shock-to-300 K reduction (theta0 = 390 K, gamma0 = 1.38, Us = 5.36 + 1.19up) and a0 = 4.177(1) Å are from Noguchi et al. (1998), pages 832-834.",
         "audit": "../audits/nickel_oxide.audit.json#nickel_oxide_noguchi_1999_bm3_1"
       },
       "model": "BM3",
@@ -51,7 +51,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "All eight final shock states remain on the source's untransformed rocksalt/B1 interpretation. The paper reports pressure and volume errors below about 2% but no row-wise shock- or particle-velocity uncertainties, so the stored coefficient errors are residual-scaled OLS standard errors.",
+        "source_note": "c0 and s are a Peritheos least-squares fit to the eight final-state Us-up pairs of Table 1 (journal page 510); rho0 is the measured bulk density. The paper gives no row-wise velocity errors, so the stored errors are residual-scaled.",
         "audit": "../audits/nickel_oxide.audit.json#nickel_oxide_noguchi_1999_linear_hugoniot_2"
       },
       "model": "LinearUsUpHugoniot",

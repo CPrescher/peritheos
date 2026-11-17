@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The combined BM3 fit uses the new single-crystal quartz-calibrated observations in Table 1 and the laser-annealed NaCl-calibrated powder observations in Table 2. Both tables are bundled with lattice parameters, conventional-cell volumes, pressure-standard volumes, and printed uncertainties.",
+        "source_note": "Coefficients from the EOS discussion (p. 304): a combined fit to the quartz-calibrated single-crystal data of Table 1 and the NaCl-calibrated powder data of Table 2 (pp. 303-304).",
         "audit": "../audits/sio2_stv_andr.audit.json#sio2_stv_andr_andrault_2003_bm3_1"
       },
       "model": "BM3",
@@ -46,7 +46,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
+        "source_note": "Coefficients from the Table 2 Morse-Rydberg (Vinet) column with Equations 1-8; the authors fixed a because the data could not constrain it (paragraph 14).",
         "audit": "../audits/sio2_stv_andr.audit.json#sio2_stv_andr_wang_2012_vinet_mgd_2"
       },
       "model": "Vinet",
@@ -95,7 +95,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source reports the QMC 300 K stishovite Vinet row directly.",
+        "source_note": "Coefficients from the Table 1 stishovite QMC column, Vinet fits to thermal free-energy isotherms; the printed V0 = 159.0(4) bohr³ per SiO2 is stored in Å³ per Z = 2 cell.",
         "audit": "../audits/sio2_stv_andr.audit.json#sio2_stv_andr_driver_2010_qmc_300k_vinet"
       },
       "model": "Vinet",
@@ -136,7 +136,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The stv endmember is a distinct modified-Tait reference isotherm.",
+        "source_note": "Coefficients from Table 1 and the official tc-ds62 stv block, printed as V0 = 1.401 J/bar/mol, K0 = 3090 kbar and K0'' = -0.00150 kbar^-1, converted to Å³ (Z = 2) and GPa.",
         "audit": "../audits/sio2_stv_andr.audit.json#sio2_stv_andr_holland_2013_stv_modified_tait"
       },
       "model": "ModifiedTait",
@@ -178,7 +178,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Complete source-owned 300 K stishovite VIBC coefficients.",
+        "source_note": "Coefficients from the Table 1 VIBC row.",
         "audit": "../audits/sio2_stv_andr.audit.json#stishovite_akber_knutson_2002_vibc_300k_bm3"
       },
       "model": "BM3",
@@ -221,7 +221,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Complete stishovite coefficients.",
+        "source_note": "Coefficients from Table VI, with the finite-strain EOS of Section III.C and Figure 11. Table VI states no temperature; 300 K is inferred from the paper's Debye EOS convention.",
         "audit": "../audits/sio2_stv_andr.audit.json#stishovite_zhang_bukowinski_1991_mpib_bm3"
       },
       "model": "BM3",
@@ -257,7 +257,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.",
+        "source_note": "Coefficients from Table 3 with the Birch (1978) form cited in Section 3.3; the erratum (p. 6983) corrects only the dry c and V0 of Table 2.",
         "audit": "../audits/sio2_stv_andr.audit.json#stishovite_nisr_2017_dry_bm3"
       },
       "model": "BM3",

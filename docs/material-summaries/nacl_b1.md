@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b1.md#record-nacl_b1_shen_2026_vinet_1)
 
-**Source finding:** The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.
+**Source check:** Coefficients from Table II (pp. 9-12) with Equation (4); the Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,6 +90,7 @@ Table II fit to the DAC-2 data, with pressures from the Cu volumes measured in t
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1103/fxgq-96sg
     - **Locations:** Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)
+    - **Finding:** The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.
     - **DOI:** 10.1103/fxgq-96sg
 - **Migration source:**
     - **Project:** Dioptas

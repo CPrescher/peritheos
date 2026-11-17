@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/namg2al5sio12_nal.md#record-namg2al5sio12_nal_kawai_2012_bm3_1)
 
-**Source finding:** The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 NAL. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.
+**Source check:** Coefficients from Table 1 (page 308). V0 is printed as 35.8 cm³/mol on an unstated four-oxygen basis (Figure 2c is three times this scale) and stored ×3 for the Z = 1 12-oxygen cell. The BM3 formula is not printed; the standard Eulerian form matches Figure 2c.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.8485974231, 1.0\]
     - **Notes:** Bounded to the NAL calculation interval of Figures 2c and 5.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static LDA calculation; no thermal correction is included.
 
@@ -104,6 +104,7 @@ Static LDA calculation; no thermal correction is included.
     - **Access URL:** https://web.archive.org/web/20120721021120id\_/http://www.minsocam.org/ProcessIP.lasso?year=2012&amp;filename=Kawai\_p305-314\_12\_LR.pdf
     - **DOI:** 10.2138/am.2012.3915
     - **Locations:** structure-model discussion, pages 305-307; Figure 2c and caption, page 307; first-principles details and Table 1, page 308
+    - **Finding:** The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 NAL. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.
     - **Publisher pdf sha256:** 8273dc07c0ba3dca62724d490e035e945ee6c4123d7c6319f140afc44c7ec089
 - **Primary data check:**
     - **Status:** plot\_only

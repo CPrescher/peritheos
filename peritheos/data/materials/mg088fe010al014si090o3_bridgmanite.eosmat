@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source fully defines a room-temperature standard Eulerian BM2 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; K0_prime is fixed to 4.",
+        "source_note": "Coefficients from Table 1, unit-cell first row (page 874), fitted with the EosFit7-GUI program. The article does not say whether the fit used the merged Table S1/CIF series or the separate platelet volumes of Figure S2.",
         "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"
       },
       "model": "BM2",
@@ -72,7 +72,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source fully defines a room-temperature standard Eulerian BM3 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; V0, K0, and K0_prime were fitted.",
+        "source_note": "Coefficients from Table 1, unit-cell second row (page 874), fitted with the EosFit7-GUI program. Table S1 and the deposited CIF print slightly different lattice values and errors; both versions are kept.",
         "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"
       },
       "model": "BM3",
@@ -128,7 +128,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The source publishes a complete BM2 fit with V0 fixed to the measured ambient cell and a second complete BM3 sensitivity fit.",
+        "source_note": "K0 from main-article Table 3 and Online Materials Text S1 (Equation 1), fitted to the Table S2 pressure-volume series.",
         "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2023_bm2"
       },
       "model": "BM2",
@@ -175,7 +175,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The source explicitly reports this unconstrained-K0_prime BM3 fit in addition to its BM2 fit.",
+        "source_note": "Coefficients from the third-order sensitivity fit in Online Materials Text S1 (Equation 1), with V0 fixed at the Table S2 ambient cell volume.",
         "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2023_bm3"
       },
       "model": "BM3",

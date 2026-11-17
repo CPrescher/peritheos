@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/indium_nitride.md#record-indium_nitride_munoz_1993_murnaghan_1)
 
-**Source finding:** The paper fits theoretical E(V) points with the Murnaghan equation. The conventional wurtzite-cell V0 is calculated from its theoretical a0=3.483 A and c0=5.7039 A. The finite-plane-wave-cutoff sensitivity is a convergence estimate, not a covariance-derived fit error.
+**Source check:** K0 and K0' from the Table 1 wurtzite pseudopotential row (section 3, pages 6016-6018); the paper's 40/70-Ryd cutoff comparison is a convergence estimate, not a fit error.
 
 Automatic selection for equilibrium calculations.
 
@@ -88,6 +88,7 @@ Ab initio 0 K static Murnaghan fit to calculated E(V) points for wurtzite InN; K
 - **Primary source check:**
     - **Access URL:** https://iopscience.iop.org/article/10.1088/0953-8984/5/33/010/pdf
     - **Locations:** section 3, pages 6016-6018; Figure 1 caption; Table 1, wurtzite (PP) row
+    - **Finding:** The paper fits theoretical E(V) points with the Murnaghan equation. The conventional wurtzite-cell V0 is calculated from its theoretical a0=3.483 A and c0=5.7039 A. The finite-plane-wave-cutoff sensitivity is a convergence estimate, not a covariance-derived fit error.
     - **DOI:** 10.1088/0953-8984/5/33/010
 - **Migration source:**
     - **Project:** Dioptas

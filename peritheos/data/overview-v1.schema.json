@@ -454,6 +454,7 @@
         "compared",
         "why",
         "warning",
+        "warning_reason",
         "source_check",
         "source_checked_on",
         "source_note",
@@ -487,6 +488,13 @@
             "string",
             "null"
           ]
+        },
+        "warning_reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Why the warning applies, copied from the audit; null without a warning or when none is written."
         },
         "source_check": {
           "enum": [

@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The CoO record is the empirical whole-range Murnaghan fit printed in Table VI, not a Birch-Murnaghan fit. V0 is calculated from the Table II ambient cubic lattice parameter. The paper prints no parameter errors or covariance and cautions both that B0 and B0' need not equal the true one-atmosphere derivatives and that calculated pressures are insensitive to their exact individual values when the pair is properly balanced.",
+        "source_note": "Coefficients from Table VI with the Murnaghan form of Equation (4) (p. 4226), not a Birch-Murnaghan fit; K0 is printed as 1905 kbar. V0 = a0³ from the Table II ambient a0 = 4.258 Å.",
         "audit": "../audits/coo.audit.json#coo_clendenen_1966_murnaghan_1"
       },
       "model": "Murnaghan",

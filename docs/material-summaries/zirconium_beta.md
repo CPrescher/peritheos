@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zirconium_beta.md#record-zirconium_beta_mchardy_2026_vinet_1)
 
-**Source finding:** The beta-phase V0 is explicitly an extrapolated fixed fit parameter.
+**Source check:** Coefficients from Table I, beta row; the fit data are the 71 beta-Zr observations of supplementary Table S8.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ The beta-phase fit uses the constrained value V0 = 22.6 Å³/atom, stored per co
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1103/zp3m-kjpc
     - **Locations:** Vinet formulation; Table I, beta row; Table II, alpha and omega rows
+    - **Finding:** The beta-phase V0 is explicitly an extrapolated fixed fit parameter.
     - **DOI:** 10.1103/zp3m-kjpc
 - **Migration source:**
     - **Project:** Dioptas

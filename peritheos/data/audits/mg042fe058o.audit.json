@@ -120,6 +120,7 @@
             "doi": "10.1029/2007GL030712",
             "locations": ["Figures 1-3 captions", "paragraphs 6-15", "Tables S1-S3"],
             "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+            "record_note": "V0 and K0 from Figure 3, which prints no uncertainties for them; paragraphs 12 and 14 name the BM3 form and the Figures 1-3 captions give the fixed K0'.",
             "zotero_item_key": "33JIXYGF",
             "zotero_attachment_key": "FKWA95NJ",
             "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
@@ -132,6 +133,7 @@
             "finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context. For mw58, validation assumes the caption's approximate 42 GPa limit includes the tabulated 42.75 GPa B1 row; all seven points below the 44 GPa structural transition enter."
           },
           "usage_recommendation": "consult_source_audit_before_quantitative_use",
+          "warning_reason": "Fei's row selection and weights are not published, so the check is approximate.",
           "reproduction_summary": {
             "report": "docs/literature-reproductions/fei-2007-ferropericlase.md",
             "refit_ledger": "docs/data/primary-eos-refits.json",

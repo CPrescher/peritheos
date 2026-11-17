@@ -92,6 +92,7 @@
             "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009GL038107",
             "locations": ["paragraphs 5-9", "Table 1", "Figures 1 and 2"],
             "finding": "The paper supplies the BM3 reference isotherm and Mie-Gruneisen-Debye parameters. Theta0=814 K is explicitly fixed; K0=169.2(9) GPa is fixed in the fit but its source uncertainty is retained.",
+            "record_note": "Coefficients from paragraphs 5-9; Table 1 prints all 85 P-T-V/V0 observations.",
             "doi": "10.1029/2009gl038107"
           },
           "migration_source": {
@@ -108,6 +109,7 @@
             "finding": "All 85 wadsleyite P-T-V/V0 observations printed in Table 1."
           },
           "usage_recommendation": "on_hold_not_recommended_pending_source_mapping_review",
+          "warning_reason": "Pressure calibration and the MGD reference-state and Debye convention mapping remain unresolved.",
           "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
           "recommendation_date": "2026-10-17",
           "unresolved": [

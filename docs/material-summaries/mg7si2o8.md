@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg7si2o8.md#record-mg7si2o8_crichton_2002_bm3_1)
 
-**Source finding:** Table 1 provides the complete pressure, a, c, and conventional-cell-volume series with estimated standard deviations; Table 2 provides the fitted volume and axial EOS parameters.
+**Source check:** Coefficients from Table 2 and the EOS discussion (page 335); Table 1 gives the complete P, a, c and V series with estimated standard deviations.
 
 Automatic selection for equilibrium calculations.
 
@@ -88,6 +88,7 @@ Hydrous phase A, Mg7Si2O8(OH)6.
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.2138/am-2002-2-316
     - **Locations:** Table 1, journal page 335; Table 2 and EOS discussion, journal page 335
+    - **Finding:** Table 1 provides the complete pressure, a, c, and conventional-cell-volume series with estimated standard deviations; Table 2 provides the fitted volume and axial EOS parameters.
     - **DOI:** 10.2138/am-2002-2-316
 - **Migration source:**
     - **Project:** Dioptas

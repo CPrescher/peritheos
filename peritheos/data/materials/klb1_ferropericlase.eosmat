@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Independent high-spin reference thermal BM2 fit.",
+        "source_note": "Coefficients from the Table 1 high-spin row (Section 3), with alpha(T) = alpha0 + alpha1*T; K0 is fixed to the Fei et al. (2007) value.",
         "audit": "../audits/klb1_ferropericlase.audit.json#klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt"
       },
       "model": "BM2",
@@ -83,7 +83,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Independent room-temperature low-spin BM2 branch.",
+        "source_note": "Coefficients from the Table 1 low-spin row (Section 3); K0 is fixed to the Fei et al. (2007) value.",
         "audit": "../audits/klb1_ferropericlase.audit.json#klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2"
       },
       "model": "BM2",

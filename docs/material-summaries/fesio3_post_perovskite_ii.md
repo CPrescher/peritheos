@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fesio3_post_perovskite_ii.md#record-fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1)
 
-**Source finding:** The final paper introduces Cmmm PPv-II and reports its full 100 GPa structure and a separate Vinet fit. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.
+**Source check:** Coefficients from Table III, which prints V0 as 45.45 Å³ per FeSiO3 (×4 per cell). Its 100 GPa volume, 34.49 Å³/FeSiO3, agrees with the Table I structure (34.4492 Å³).
 
 Automatic selection for equilibrium calculations.
 
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 131.928
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K GGA+U Vinet fit to eight energy calculations covering -10 to 150 GPa; no numerical E(V) grid was deposited.
 
@@ -107,6 +107,7 @@ Static 0 K GGA+U Vinet fit to eight energy calculations covering -10 to 150 GPa;
     - **Access URL:** https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf
     - **DOI:** 10.1103/physrevb.90.140102
     - **Locations:** Table I; Computational methods; Figure 3; Table III; arXiv v1 Table 2; arXiv v2 source archive
+    - **Finding:** The final paper introduces Cmmm PPv-II and reports its full 100 GPa structure and a separate Vinet fit. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.
 - **Primary data check:**
     - **Status:** parameterization\_and\_independent\_table\_checkpoints
     - **Audit date:** 2026-09-08

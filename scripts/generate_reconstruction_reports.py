@@ -373,7 +373,10 @@ def record_section(
     validation = record["evidence"].get("scientific_validation", {})
     fit = assessment.get("fit", {})
     comparison, unavailable = compared
-    warning = headline(record, document)["warning"]
+    check = headline(record, document)
+    warning = check["warning"]
+    if warning and check["warning_reason"]:
+        warning += f" {check['warning_reason']}"
     lines = [
         "",
         f'<a id="record-{rid}"></a>',

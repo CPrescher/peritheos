@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/hydrous_stishovite_nisr_2017.md#record-hydrous_stishovite_nisr_2017_bm3)
 
-**Source finding:** Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.
+**Source check:** K0 from Table 3 for the Birch (1978) BM3 cited in Section 3.3; the fixed K0' is adopted from Andrault et al. (2003).
 
 Automatic selection for equilibrium calculations.
 
@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 22.747\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Al-free sample whose water content (Table 1: Si0.954O2H0.184) is inferred from volume calibration and whose H retention at high pressure is inferred, not measured. The 28-42 GPa two-phase coexistence interval is excluded from both hydrous EOS fits. V0 = 47.191 Å³ is the fixed Table 3 value, not the Table 2 value of 47.198 or the 47.198696 Å³ implied by the cell axes.
 
@@ -94,6 +94,7 @@ Al-free sample whose water content (Table 1: Si0.954O2H0.184) is inferred from v
     - **DOI:** 10.1002/2017JB014055
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055
     - **Locations:** Sections 2, 3.1-3.3 and 4.2; Tables 1-4; Figures 2-5; Erratum, page 6983; Supporting Text S1 and Tables S1-S4
+    - **Finding:** Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.
 - **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; validity; primary\_data; independent\_refit
 - **Primary data check:**
     - **Status:** bundled

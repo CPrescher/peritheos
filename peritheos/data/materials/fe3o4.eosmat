@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "V0 and its error are propagated from the paper's own ambient lattice parameter. The +/-10 GPa K0 error is the authors' sum of independent fit, pressure-scale, and assumed-K0' contributions, not a covariance matrix or a uniform one-sigma statistical error.",
+        "source_note": "Birch-Murnaghan equation and Table 3 data on page 1167; K0, its error budget and the assumed K0' on pages 1167-1168; V0 from the ambient a0 on page 1165.",
         "audit": "../audits/fe3o4.audit.json#fe3o4_mao_1974_bm3_1"
       },
       "model": "BM3",

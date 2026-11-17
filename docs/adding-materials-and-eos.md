@@ -140,7 +140,9 @@ A bundled, executable EOS record must satisfy all of the following:
 4. **Traceable parameters.** Every stored value has a table, equation, page,
    supplement, or documented derivation. Reported errors, their confidence
    convention, fixed parameters, and covariance information are preserved;
-   missing uncertainty is stored as missing, not zero.
+   missing uncertainty is stored as missing, not zero. When the source states
+   the convention, set `parameter_error_confidence` (`0.6826894921370859` for
+   1 sigma, `0.95` for 95%) and keep the printed errors unchanged.
 5. **Numerical reproduction.** At least one independently specified source
    result is reproduced within a tolerance justified by reported uncertainty,
    printed precision, or digitization error. Reference-state identities alone
@@ -405,6 +407,19 @@ qualification. Labels, notes, validity notes and thermal notes follow the
 [record text standard](record-text-standard.md); rewrite existing record text
 only with `scripts/apply_record_text.py`, which keeps every replaced original
 in the sidecar.
+
+Write the source check's complete result in
+`scientific_validation.primary_source_check.finding`. The record shows it as
+`check.source_note`; when it is long, restates coefficients or is shared with
+other records, also write a per-record
+`primary_source_check.record_note` (at most 300 characters: what was checked
+against the paper for this record and any conversion or correction that
+matters to a user), which `check.source_note` shows instead. A record with a
+`warning` may get a one-clause `scientific_validation.warning_reason` (at most
+140 characters) saying why, taken from the audit. In an inline file these are
+ordinary evidence fields; for an already split material use the repository
+tool `scripts/apply_check_text.py` (`--check`, apply, `--verify`; format in
+the [record text standard](record-text-standard.md#6-applying-a-rewrite)).
 
 | | Record `check` | Audit entry |
 |---|---|---|

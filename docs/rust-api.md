@@ -159,8 +159,9 @@ values:
 | `compared()` | `compared` | `Compared::{PublishedFit, PeritheosRefit, SourceEquation, Nothing}` |
 | `why()` | `why` | The generated reason for `close` or `disagrees`, or `None` |
 | `warning()` | `warning` | The stored usage restriction, or `None` |
+| `warning_reason()` | `warning_reason` | Why the restriction applies, or `None`; only with a warning |
 | `source_check()` | `source_check` | `SourceCheck::{Verified, Pending, Unresolved, Deferred}`, or `None` |
-| `source_note()` | `source_note` | The primary-source finding, or `None` |
+| `source_note()` | `source_note` | The curated per-record source note (`primary_source_check.record_note`), else the verbatim finding, or `None` |
 
 `as_str()` gives the EOSMAT spelling and `SourceCheck::status_code()` the
 `scientific_validation.status` code it renames. A stored `check` value wins;
@@ -173,7 +174,10 @@ sidecar link.
 
 When `check` and inline evidence are both present, `check.reproduction`,
 `check.compared` and `check.source_check` must agree with them or validation
-fails. The earlier names `check.finding` and `check.source` are rejected with
+fails. `check.warning_reason` and the evidence's `warning_reason` need a
+warning, and `record_note` and `warning_reason` are limited to
+`RECORD_NOTE_MAX_LENGTH` (300) and `WARNING_REASON_MAX_LENGTH` (140)
+characters. The earlier names `check.finding` and `check.source` are rejected with
 an error naming `source_note` and `source_check`. A record file whose
 audit is not merged is executable and gives the same pressures as the merged
 document. Checks that need audit-only blocks, such as a refit record's

@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The handbook prints 25 populated Cu V/V0 values from 15 to 340 kbar. The 15 kbar cell is a confirmed printing error, 09900, interpreted as 0.9900. Sun et al. define the Vinet model, hold experimental V0 fixed, and state the m=8 pressure-residual objective.",
+        "source_note": "V0 is the Sun et al. (2010) Table 2 Cu volume; K0 and K0' are Peritheos fits to the 25 Cu values of Table 4d-12 (p. 4-100) with the m = 8 objective of Sun equation (20). The 15 kbar entry, printed 09900, is read as 0.9900.",
         "audit": "../audits/cu_handbook_1972_legacy.audit.json#cu_sun_2010_low_vn_refit"
       },
       "model": "Vinet",

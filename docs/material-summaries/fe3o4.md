@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fe3o4.md#record-fe3o4_mao_1974_bm3_1)
 
-**Source finding:** V0 and its error are propagated from the paper's own ambient lattice parameter. The +/-10 GPa K0 error is the authors' sum of independent fit, pressure-scale, and assumed-K0' contributions, not a covariance matrix or a uniform one-sigma statistical error.
+**Source check:** Birch-Murnaghan equation and Table 3 data on page 1167; K0, its error budget and the assumed K0' on pages 1167-1168; V0 from the ambient a0 on page 1165.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ BM3 at 23 ± 3 °C with K0' = 4 assumed; V0 and its error come from the paper's 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/JB079i008p01165
     - **Locations:** page 1165, ambient a=8.394(3) A; page 1167, Table 3 and printed Birch-Murnaghan equation; pages 1167-1168, assumed K0'=4+/-0.4 and K0 error budget
+    - **Finding:** V0 and its error are propagated from the paper's own ambient lattice parameter. The +/-10 GPa K0 error is the authors' sum of independent fit, pressure-scale, and assumed-K0' contributions, not a covariance matrix or a uniform one-sigma statistical error.
     - **DOI:** 10.1029/jb079i008p01165
 - **Migration source:**
     - **Project:** Dioptas

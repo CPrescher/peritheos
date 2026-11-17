@@ -113,6 +113,7 @@
               "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
             ],
             "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+            "record_note": "Coefficients from Table II (pages 9-12) with Equation (4); the Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I.",
             "doi": "10.1103/fxgq-96sg"
           },
           "migration_source": {
@@ -236,7 +237,8 @@
             "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
             "locations": ["Equation (1)", "Table IV, third column, p. 104102-5"],
             "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
-            "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+            "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+            "record_note": "Coefficients from Table IV, third column (p. 104102-5), with Equation (1); the printed per-atom V0 is stored per two-atom cell (Z = 2)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -336,7 +338,8 @@
             "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
             "locations": ["Equation (1)", "Table IV, fourth column, p. 104102-5"],
             "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
-            "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+            "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+            "record_note": "Coefficients from Table IV, fourth column (p. 104102-5), with Equation (1); the printed per-atom V0 is stored per two-atom cell (Z = 2)."
           },
           "primary_data_check": {
             "status": "bundled",

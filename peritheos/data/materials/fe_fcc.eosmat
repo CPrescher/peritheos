@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "deferred",
         "source_checked_on": "2026-09-20",
-        "source_note": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+        "source_note": "Coefficients from Table 1 and Equation (5) (p. 560); V0 = 7.076 cm³/mol is fixed from a JCPDS card the source does not identify, and K0' from Funamori et al. (1996). The exact Seagle et al. (2008) pressure reduction and the authors' regression inputs are unresolved.",
         "audit": "../audits/fe_fcc.audit.json#fe_fcc_campbell_2009_bm3_mgd"
       },
       "model": "BM3",

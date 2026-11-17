@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/molybenum_carbide_mo2c.md#record-molybenum_carbide_mo2c_haines_2001_bm3_1)
 
-**Source finding:** The experimental EOS is fitted to relative volume. The measured ambient hexagonal subcell was converted to the equivalent four-formula-unit orthorhombic conventional-cell volume used by the record.
+**Source check:** K0 and K0' from section 4.1 (pp. 2449-2450) and the Figure 2 Birch-Murnaghan fit through 46 GPa; the ambient lattice constants used for V0 are from section 2.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ Room-temperature BM3 fit to relative-volume (V/V0) X-ray data; the paper does no
 - **Primary source check:**
     - **Access URL:** https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984\_13\_11\_303.pdf
     - **Locations:** section 2, ambient lattice constants and pressure methods; section 4.1, pages 2449-2450; Figure 2, Birch-Murnaghan fit through 46 GPa
+    - **Finding:** The experimental EOS is fitted to relative volume. The measured ambient hexagonal subcell was converted to the equivalent four-formula-unit orthorhombic conventional-cell volume used by the record.
     - **DOI:** 10.1088/0953-8984/13/11/303
 - **Migration source:**
     - **Project:** Dioptas
@@ -134,7 +135,7 @@ Room-temperature BM3 fit to relative-volume (V/V0) X-ray data; the paper does no
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybenum_carbide_mo2c.md#record-molybenum_carbide_mo2c_haines_2001_bm3_refit)
 
-**Source finding:** The source plots 16 relative-volume observations and identifies a BM3 curve with K0=307 GPa and K0'=6.2. This separate record is the reproducible Peritheos errors-in-variables fit to all digitized marker centers with measured V0 fixed; it is not presented as a published coefficient set.
+**Source check:** Observations are the 16 markers digitized from Figure 2 (section 4.1, pp. 2449-2450). K0 and K0' are Peritheos fits, not the paper's own BM3 curve.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -167,6 +168,7 @@ Peritheos BM3 refit of the points digitized from Figure 2 of Haines et al. (2001
 - **Primary source check:**
     - **Access URL:** https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984\_13\_11\_303.pdf
     - **Locations:** section 4.1, pages 2449-2450; Figure 2 and caption; docs/literature-reproductions.md
+    - **Finding:** The source plots 16 relative-volume observations and identifies a BM3 curve with K0=307 GPa and K0'=6.2. This separate record is the reproducible Peritheos errors-in-variables fit to all digitized marker centers with measured V0 fixed; it is not presented as a published coefficient set.
     - **DOI:** 10.1088/0953-8984/13/11/303
 - **Primary data check:**
     - **Status:** plot\_only

@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/wollastonite.md#record-wollastonite_sagatova_2021_gga_300k_vinet)
 
-**Source finding:** Complete source-owned GGA room-temperature Vinet fit.
+**Source check:** Coefficients from the this-work GGA row of Table 2, a PBE-GGA quasi-harmonic free-energy calculation at room temperature.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -103,6 +103,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&amp;j=geokhim&amp;n=8&amp;v=66&amp;y=2021
     - **DOI:** 10.1134/s0016702921080073
     - **Locations:** Methods; Table 2; Conclusions
+    - **Finding:** Complete source-owned GGA room-temperature Vinet fit.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05

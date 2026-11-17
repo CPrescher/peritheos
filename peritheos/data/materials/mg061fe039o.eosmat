@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "source_note": "Coefficients from the Table 7 high-spin column of the coupled fit to the P-V data of Fei et al. (2007).",
         "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1"
       },
       "model": "BM3",
@@ -65,7 +65,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "source_note": "Coefficients from the Table 7 low-spin column of the coupled fit to the P-V data of Fei et al. (2007).",
         "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2"
       },
       "model": "BM3",
@@ -114,7 +114,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "source_note": "Coefficients from the Table 7 high-spin column of the coupled fit to the P-V data of Zhuravlev et al. (2010).",
         "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3"
       },
       "model": "BM3",
@@ -162,7 +162,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "source_note": "Coefficients from the Table 7 low-spin column of the coupled fit to the P-V data of Zhuravlev et al. (2010).",
         "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4"
       },
       "model": "BM3",
@@ -210,7 +210,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "The paper fits 43 compression observations from 15.5 to 70.9 GPa as high spin. Its displayed solid curve and leading reported fit are BM2 with V0=77.4(2) A^3 and K0=161(3) GPa; Table 6's three other rows are equation-form and free-derivative sensitivity fits.",
+        "source_note": "Coefficients from the Table 6 BM2 row, the fit drawn as the Figure 9 solid curve; observations in Table 5. The other Table 6 rows are Vinet and free-K0' sensitivity fits.",
         "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_zhuravlev_2010_high_spin_bm2_5"
       },
       "model": "BM2",
@@ -252,9 +252,10 @@
         "reproduction": "reproduced",
         "compared": "published_fit",
         "warning": "Consult the source audit before quantitative use.",
+        "warning_reason": "Fei's row selection and weights are not published, so the check is approximate.",
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "source_note": "V0 and K0 from Figure 2, K0 error from paragraph 12; V0 is a measured reference volume, printed without error. A compression fit; the paper publishes no separate decompression EOS.",
         "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_fei_2007_hs_b1_bm3"
       },
       "model": "BM3",
@@ -298,9 +299,10 @@
         "reproduction": "reproduced",
         "compared": "published_fit",
         "warning": "Consult the source audit before quantitative use.",
+        "warning_reason": "The published curve gives about 4.0 GPa pressure RMS on the selected rows; Fei's row selection and weights are not published.",
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "source_note": "V0 and K0 from Figure 2, errors from paragraph 14; V0 is an extrapolated zero-pressure volume. A compression fit; no decompression EOS is published.",
         "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_fei_2007_ls_b1_bm3"
       },
       "model": "BM3",

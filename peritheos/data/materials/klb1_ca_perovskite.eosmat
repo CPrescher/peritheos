@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "One independent thermal BM2 fit for KLB-1 Ca-perovskite.",
+        "source_note": "Coefficients from the Ca-perovskite row of Table 1. Section 3 fits a high-temperature Birch-Murnaghan EOS with K0' = 4 fixed, stored as BM2 with alpha(T) = alpha0 + alpha1*T.",
         "audit": "../audits/klb1_ca_perovskite.audit.json#klb1_ca_perovskite_ricolleau_2009_bm2_alphakt"
       },
       "model": "BM2",

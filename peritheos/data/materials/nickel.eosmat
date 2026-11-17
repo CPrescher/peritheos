@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-23",
-        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "source_note": "Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per four-atom cell (Z = 4).",
         "audit": "../audits/nickel.audit.json#nickel_dewaele_2008_table4_vinet"
       },
       "model": "Vinet",
@@ -53,7 +53,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-22",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from the Mao ruby-scale row of Dewaele (2019) Table 1, Equation (1); this identifier formerly attributed them to the 2008 paper.",
         "audit": "../audits/nickel.audit.json#nickel_dewaele_2008_vinet_1"
       },
       "model": "Vinet",
@@ -86,7 +86,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/nickel.audit.json#nickel_dewaele_2019_mao_vinet"
       },
       "model": "Vinet",
@@ -126,7 +126,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/nickel.audit.json#nickel_dewaele_2019_dor_vinet"
       },
       "model": "Vinet",
@@ -168,7 +168,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+        "source_note": "Coefficients from Table 1 (page 560) with Equation (5); italic Table 1 values are held fixed. V0 = 6.587 cm³/mol is the source's JCPDS value (card not identified), and theta0 is from Knacke et al. (1991).",
         "audit": "../audits/nickel.audit.json#nickel_campbell_2009_bm3_mgd"
       },
       "model": "BM3",
@@ -218,7 +218,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-23",
-        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "source_note": "Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per four-atom cell (Z = 4).",
         "audit": "../audits/nickel.audit.json#nickel_dewaele_2008_table4_us_k0_183_vinet"
       },
       "model": "Vinet",

@@ -15,9 +15,10 @@
         "reproduction": "untested",
         "compared": "none",
         "warning": "Not recommended for quantitative use.",
+        "warning_reason": "A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use.",
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The authors identify run 2 as CaFe2O4-type MgAl2O4 and construct a separate second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from one compressed cell. They explicitly state that more points would be needed for a robust modulus and an estimate of K0'.",
+        "source_note": "V0 and K0 from Section 3.3; K0 is calculated from the in-situ run-2 cell at 33.4 GPa, and the authors state that more points would be needed for a robust modulus and an estimate of K0'. The K0 error is calculated from the ruby-Pt pressure difference.",
         "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_funamori_1998_bm2_1"
       },
       "model": "BM2",
@@ -66,7 +67,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Three compressed observations constrain a single modulus with an averaged measured reference volume and fixed pressure derivative. Figure 6 identifies the three open circles as this study, filled symbols as earlier-study comparisons, and T=27 degC.",
+        "source_note": "V0 and K0 from p. 652, where the printed BM3 with dK/dP = 4 is algebraically BM2; V0 is the averaged recovered volume. Figure 6 open circles are this study's states at 27 °C; filled symbols are earlier studies.",
         "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_irifune_2002_bm2_2"
       },
       "model": "BM2",
@@ -111,7 +112,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells.",
+        "source_note": "Coefficients from Table 2 with Equations (1)-(4). The printed a0 is the T = 0 intercept of alpha(T), not alpha(300 K), and 'partial K' in the denominator of Equation (4) is a typographical error for partial T.",
         "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_sueda_2009_htbm_2"
       },
       "model": "BM3",
@@ -170,7 +171,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells.",
+        "source_note": "Coefficients from Table 2 with Equations (1) and (6)-(8). Equation (6) misprints the energy difference in the denominator and the first Equation (7) prints the Debye lower limit as theta; the standard forms are used.",
         "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_sueda_2009_mgd_3"
       },
       "model": "BM3",

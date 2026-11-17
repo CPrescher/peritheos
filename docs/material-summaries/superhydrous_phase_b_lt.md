@@ -69,7 +69,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89)
 
-**Source finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
+**Source check:** Coefficients from Table 4, room-temperature fit on the Anderson Au pressure scale (P1). Equation (1) is used with its second exponent corrected from 7/3 to 5/3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -91,7 +91,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 24.3\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published experimental fit to nominally pure Mg superhydrous phase B. Fitted to the 300 K subset (17 in-situ and three ambient observations). Three of the nine heating cycles in the data lie outside the stability field.
 
@@ -105,6 +105,7 @@ Published experimental fit to nominally pure Mg superhydrous phase B. Fitted to 
     - **Access URL:** https://www.researchgate.net/publication/256823665\_Thermal\_equation\_of\_state\_of\_superhydrous\_phase\_B\_to\_27\_GPa\_and\_1373\_K
     - **DOI:** 10.1016/j.pepi.2007.06.003
     - **Locations:** Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153
+    - **Finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19
@@ -152,7 +153,7 @@ Published experimental fit to nominally pure Mg superhydrous phase B. Fitted to 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03)
 
-**Source finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
+**Source check:** Coefficients from Table 4, room-temperature fit on the Tsuchiya Au pressure scale (P2). Equation (1) is used with its second exponent corrected from 7/3 to 5/3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -174,7 +175,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 25.1\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published experimental fit to nominally pure Mg superhydrous phase B. Fitted to the 300 K subset (17 in-situ and three ambient observations); three of the nine heating cycles in the data lie outside the stability field. The stored values are those of Table 4; the 132.7(1.5) GPa and 6.2(0.6) in the text conflate the room-temperature and HTBM fits.
 
@@ -188,6 +189,7 @@ Published experimental fit to nominally pure Mg superhydrous phase B. Fitted to 
     - **Access URL:** https://www.researchgate.net/publication/256823665\_Thermal\_equation\_of\_state\_of\_superhydrous\_phase\_B\_to\_27\_GPa\_and\_1373\_K
     - **DOI:** 10.1016/j.pepi.2007.06.003
     - **Locations:** Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153
+    - **Finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19
@@ -234,7 +236,7 @@ Published experimental fit to nominally pure Mg superhydrous phase B. Fitted to 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89)
 
-**Source finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
+**Source check:** Cold and thermal coefficients from Table 4, high-temperature fit on the Anderson Au pressure scale (P1). Equation (1) is used with its second exponent corrected from 7/3 to 5/3.
 
 Automatic selection for equilibrium calculations.
 
@@ -262,7 +264,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 26.6\]
 - **Reported temperature coverage (K):** \[300.0, 1373.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -285,6 +287,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
     - **Access URL:** https://www.researchgate.net/publication/256823665\_Thermal\_equation\_of\_state\_of\_superhydrous\_phase\_B\_to\_27\_GPa\_and\_1373\_K
     - **DOI:** 10.1016/j.pepi.2007.06.003
     - **Locations:** Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153
+    - **Finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19
@@ -332,7 +335,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03)
 
-**Source finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
+**Source check:** Cold and thermal coefficients from Table 4, high-temperature fit on the Tsuchiya Au pressure scale (P2). Equation (1) is used with its second exponent corrected from 7/3 to 5/3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -358,7 +361,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 28.1\]
 - **Reported temperature coverage (K):** \[300.0, 1373.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -381,6 +384,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
     - **Access URL:** https://www.researchgate.net/publication/256823665\_Thermal\_equation\_of\_state\_of\_superhydrous\_phase\_B\_to\_27\_GPa\_and\_1373\_K
     - **DOI:** 10.1016/j.pepi.2007.06.003
     - **Locations:** Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153
+    - **Finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19
@@ -427,7 +431,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89)
 
-**Source finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
+**Source check:** Coefficients from Table 5 (Anderson Au scale, P1); alpha\_KT\_ref is the product alpha0\*K0, with the printed alpha0 = 3.78e-5 K^-1 (error 1.9e-6). Equation (1) is used with its second exponent corrected from 7/3 to 5/3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -452,7 +456,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 26.6\]
 - **Reported temperature coverage (K):** \[300.0, 1373.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Three of the nine heating cycles in the data lie outside the stability field. The final five-parameter model of Equation (6) omits the unresolved quadratic term.
 
@@ -466,6 +470,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
     - **Access URL:** https://www.researchgate.net/publication/256823665\_Thermal\_equation\_of\_state\_of\_superhydrous\_phase\_B\_to\_27\_GPa\_and\_1373\_K
     - **DOI:** 10.1016/j.pepi.2007.06.003
     - **Locations:** Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153
+    - **Finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19
@@ -517,7 +522,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89)
 
-**Source finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
+**Source check:** Coefficients from the Table 6 fit with theta0 free, on the Anderson Au scale (P1). Equation (1) is used with its second exponent corrected from 7/3 to 5/3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -544,7 +549,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 26.6\]
 - **Reported temperature coverage (K):** \[300.0, 1373.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -567,6 +572,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
     - **Access URL:** https://www.researchgate.net/publication/256823665\_Thermal\_equation\_of\_state\_of\_superhydrous\_phase\_B\_to\_27\_GPa\_and\_1373\_K
     - **DOI:** 10.1016/j.pepi.2007.06.003
     - **Locations:** Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153
+    - **Finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19
@@ -614,7 +620,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89)
 
-**Source finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
+**Source check:** Coefficients from the Table 6 elastic-Debye fit (theta0 fixed), on the Anderson Au scale (P1). Equation (1) is used with its second exponent corrected from 7/3 to 5/3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -641,7 +647,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 26.6\]
 - **Reported temperature coverage (K):** \[300.0, 1373.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -664,6 +670,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
     - **Access URL:** https://www.researchgate.net/publication/256823665\_Thermal\_equation\_of\_state\_of\_superhydrous\_phase\_B\_to\_27\_GPa\_and\_1373\_K
     - **DOI:** 10.1016/j.pepi.2007.06.003
     - **Locations:** Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153
+    - **Finding:** Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19

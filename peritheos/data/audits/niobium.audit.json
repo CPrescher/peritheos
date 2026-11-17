@@ -86,6 +86,7 @@
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.224119/fulltext",
             "locations": ["Table I", "Table II", "section III.B, pages 224119-5 to -6"],
             "finding": "The adopted BM3 fit is the 0-71.5 GPa quasihydrostatic helium subset; the wider errors span the alternative fit through 134 GPa.",
+            "record_note": "Coefficients from Table II and section III.B (pages 224119-5 to -6); the adopted fit is limited to the quasihydrostatic helium data through 71.5 GPa.",
             "doi": "10.1103/physrevb.73.224119"
           },
           "migration_source": {
@@ -182,6 +183,7 @@
               "Figures 3-11 cross-calibration tests"
             ],
             "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+            "record_note": "Stored coefficients match the niobium columns of Tables 1 and 4.",
             "doi": "10.1016/j.rgg.2013.01.005"
           },
           "migration_source": {

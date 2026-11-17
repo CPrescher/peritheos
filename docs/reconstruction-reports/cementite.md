@@ -266,7 +266,7 @@ Both fits use the same 12 recovered audit input rows. **Volume coordinate:** aud
 
 **untested** (source calculation reconstructed) · `cementite_ono_mibe_2010_bm3` · `BM3` · [Coefficients and source](../material-summaries/cementite.md#record-cementite_ono_mibe_2010_bm3)
 
-**Warning:** Qualified use only; see the audit.
+**Warning:** Qualified use only; see the audit. Fitted only to 34.3 GPa at 300 K; the V0 constraint, fit weights and coefficient errors are not reported.
 
 **Scope:** Reconstruction of a source equation or calculation. **Basis:** Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.
 

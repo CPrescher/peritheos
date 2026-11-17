@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+        "source_note": "Coefficients from Table II (pp. 9-12) with Equation (4); the Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.",
         "audit": "../audits/nacl_b1.audit.json#nacl_b1_shen_2026_vinet_1"
       },
       "model": "Vinet",

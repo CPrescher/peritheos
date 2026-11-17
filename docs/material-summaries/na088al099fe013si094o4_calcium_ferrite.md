@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/na088al099fe013si094o4_calcium_ferrite.md#record-na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1)
 
-**Source finding:** The source fully defines a room-temperature, three-free-parameter standard Eulerian BM3 fit for the Fe-bearing Na0.88Al0.99Fe0.13Si0.94O4 sample. Volumes are Pbnm conventional-cell values with Z=4. The official deposit does not include an exact Fe-bearing positional refinement, so the material's structural proxy is explicitly qualified.
+**Source check:** Coefficients from the abstract, page 2333 and Online Materials Table S5 (this-study Fe-bearing column), fitted to the 10 rows of Table S4. The superscript a on the 1.7 GPa row of Table S4 is not defined in the source.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0001, 44.0\]
     - **Temperature k:** \[293.0, 293.0\]
     - **Volume ratio:** \[0.846027846, 0.9991809992\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Fitted with the EosFit7c program. The source gives only room temperature; 293 K is the temperature of its companion CIF measurement, and no row-wise temperatures are published.
 
@@ -102,6 +102,7 @@ Fitted with the EosFit7c program. The source gives only room temperature; 293 K 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.2138/am-2022-8432
     - **Locations:** article Materials and methods, pages 2332-2333; article EOS discussion, page 2333; official Online Materials Tables S4 and S5; official deposit AM-23-128432
+    - **Finding:** The source fully defines a room-temperature, three-free-parameter standard Eulerian BM3 fit for the Fe-bearing Na0.88Al0.99Fe0.13Si0.94O4 sample. Volumes are Pbnm conventional-cell values with Z=4. The official deposit does not include an exact Fe-bearing positional refinement, so the material's structural proxy is explicitly qualified.
     - **DOI:** 10.2138/am-2022-8432
     - **Official deposit sha256:** 465ff9b139fba3c60539f4bf1e0a86d877a716ab4522cefca682dd1f4fa1f07d
     - **Supplement sha256:** f78e80d89fb11bb070cc3757c554e01adab3d4dcbf1ace93c2fc166aa5f3d1c7

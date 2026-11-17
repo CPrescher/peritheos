@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsioh6_365a_phase.md#record-mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1)
 
-**Source finding:** The paper identifies exact MgSi(OH)6, P21, Z=2 and reports this BM3 as the preferred experimental description.
+**Source check:** Coefficients from Table 2 (Equations 1-3); V0 is fixed to the value Wunder et al. (2012) measured on the same material.
 
 Automatic selection for equilibrium calculations.
 
@@ -98,7 +98,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 154.433
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The authors' preferred fit. The K0' error is from Table 2; the abstract gives 0.1.
 
@@ -112,6 +112,7 @@ The authors' preferred fit. The K0' error is from Table 2; the abstract gives 0.
     - **Access URL:** https://rruff.info/doclib/am/vol100/AM100\_2199.pdf
     - **DOI:** 10.2138/am-2015-5312
     - **Locations:** Abstract; Experimental and computational methods; Equations 1-3; Table 2; Figure 3
+    - **Finding:** The paper identifies exact MgSi(OH)6, P21, Z=2 and reports this BM3 as the preferred experimental description.
 - **Primary data check:**
     - **Status:** complete\_official\_table
     - **Audit date:** 2026-09-05
@@ -173,7 +174,7 @@ The authors' preferred fit. The K0' error is from Table 2; the abstract gives 0.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgsioh6_365a_phase.md#record-mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2)
 
-**Source finding:** The complete BM4 parameters are source-reported; LitCurate omitted K0' and K0''.
+**Source check:** Coefficients from the fourth-order experimental fit in Table 2 (Equations 1-3), shown in Figure 3d.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -206,7 +207,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgs
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 154.433
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 BM4 sensitivity fit to the same data as the preferred BM3 record; not the paper's preferred EOS. K0, K0' and K0'' are strongly correlated; the source gives no covariance.
 
@@ -220,6 +221,7 @@ BM4 sensitivity fit to the same data as the preferred BM3 record; not the paper'
     - **Access URL:** https://rruff.info/doclib/am/vol100/AM100\_2199.pdf
     - **DOI:** 10.2138/am-2015-5312
     - **Locations:** Equations 1-3; Table 2; Figure 3d
+    - **Finding:** The complete BM4 parameters are source-reported; LitCurate omitted K0' and K0''.
 - **Primary data check:**
     - **Status:** complete\_official\_table
     - **Audit date:** 2026-09-05
@@ -270,7 +272,7 @@ BM4 sensitivity fit to the same data as the preferred BM3 record; not the paper'
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsioh6_365a_phase.md#record-mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3)
 
-**Source finding:** This is a separate theoretical BM4 parameterization of the stoichiometric P21 model crystal, not another fit to the experimental P-V table.
+**Source check:** Coefficients from the first-principles entry of Table 2, which labels it fourth-order; Equations 1-3 define the BM4 convention.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -302,7 +304,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 2.0
     - **Molar mass g mol:** 154.433
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static PAW-GGA model-crystal curve, not an experimental ambient-temperature fit.
 
@@ -316,6 +318,7 @@ Static PAW-GGA model-crystal curve, not an experimental ambient-temperature fit.
     - **Access URL:** https://rruff.info/doclib/am/vol100/AM100\_2199.pdf
     - **DOI:** 10.2138/am-2015-5312
     - **Locations:** First-principles simulation; Equations 1-3; Table 2; Figure 3a
+    - **Finding:** This is a separate theoretical BM4 parameterization of the stoichiometric P21 model crystal, not another fit to the experimental P-V table.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05

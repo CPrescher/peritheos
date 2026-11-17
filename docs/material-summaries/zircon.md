@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zircon.md#record-zircon_hazen_1979_bm3_1)
 
-**Source finding:** The reported K0=227(2) GPa fit assumes K0'=6.5; the migrated BM2 representation was corrected to BM3 with K0' fixed.
+**Source check:** V0 and K0 from Table 1 and the zircon compressibility section, p. 198.
 
 Automatic selection for equilibrium calculations.
 
@@ -87,6 +87,7 @@ The paper gives these V0 and K0 for both its Murnaghan and Birch-Murnaghan fits,
 - **Primary source check:**
     - **Access URL:** https://msaweb.org/AmMin/AM64/AM64\_196.pdf
     - **Locations:** Table 1; page 198, Zircon compressibility section
+    - **Finding:** The reported K0=227(2) GPa fit assumes K0'=6.5; the migrated BM2 representation was corrected to BM3 with K0' fixed.
     - **DOI:** Not specified
 - **Migration source:**
     - **Project:** Dioptas

@@ -133,7 +133,7 @@ BM3 fit to 22 single-crystal measurements at room temperature.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/alpha_quartz.md#record-alpha_quartz_driver_2010_qmc_300k_vinet)
 
-**Source finding:** The source reports a distinct QMC 300 K Vinet for quartz in addition to the two high-pressure silica rows found by LitCurate.
+**Source check:** Coefficients from the quartz QMC column of Table 1, Vinet fits to thermal Helmholtz free-energy isotherms; the printed V0 = 254(2) bohr³ per SiO2 is converted to the Z = 3 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -177,6 +177,7 @@ QMC calculation with quasiharmonic phonons.
     - **Access URL:** https://arxiv.org/pdf/1001.2066
     - **DOI:** 10.1073/pnas.0912130107
     - **Locations:** Equations of States section; Figure 1a; Table 1
+    - **Finding:** The source reports a distinct QMC 300 K Vinet for quartz in addition to the two high-pressure silica rows found by LitCurate.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05

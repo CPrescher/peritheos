@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/namg2al5sio12_cf.md#record-namg2al5sio12_cf_kawai_2012_bm3_1)
 
-**Source finding:** The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 calcium-ferrite type Pbnm. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.
+**Source check:** V0 is the Table 1 value of 35.2 cm³/mol on an unstated O4 basis, ×4 per Pbnm cell; K0 and K0' from Table 1 (page 308), where K0 carries a superscript b with no matching footnote.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.7085889564, 1.0\]
     - **Notes:** Bounded by the Figure 2d and Figure 5 calculation interval for the CF phase.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published static-LDA parameterization with no thermal correction and no pressure calibration.
 
@@ -104,6 +104,7 @@ Published static-LDA parameterization with no thermal correction and no pressure
     - **Access URL:** https://web.archive.org/web/20120721021120id\_/http://www.minsocam.org/ProcessIP.lasso?year=2012&amp;filename=Kawai\_p305-314\_12\_LR.pdf
     - **DOI:** 10.2138/am.2012.3915
     - **Locations:** structure-model discussion, pages 305-307; Figure 2d and caption, page 307; first-principles details and Table 1, page 308
+    - **Finding:** The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 calcium-ferrite type Pbnm. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.
     - **Publisher pdf sha256:** 8273dc07c0ba3dca62724d490e035e945ee6c4123d7c6319f140afc44c7ec089
 - **Primary data check:**
     - **Status:** plot\_only

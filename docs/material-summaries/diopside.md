@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/diopside.md#record-diopside_thompson_2008_bm3)
 
-**Source finding:** Thompson (2008), Results and discussion, page 179: third-order Birch-Murnaghan fit to all weighted Table 1 data.
+**Source check:** Coefficients from the Results and discussion (p. 179) and Table 3 (p. 180), a weighted fit to all Table 1 data.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 10.16\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static room-temperature diffraction EOS with pressures on the Mao (1978) ruby scale, independent of the Zhao thermal coefficients. The source also reports an alternative fit with K0' fixed at 4, not stored here.
 
@@ -103,6 +103,7 @@ Static room-temperature diffraction EOS with pressures on the Mao (1978) ruby sc
     - **DOI:** 10.2138/am.2008.2684
     - **Access URL:** https://rruff.net/doclib/am/vol93/AM93\_177.pdf
     - **Locations:** Tables 1-3 and experimental/results text, pages 179-180
+    - **Finding:** Thompson (2008), Results and discussion, page 179: third-order Birch-Murnaghan fit to all weighted Table 1 data.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** diopside\_thompson\_2008\_table1
@@ -168,7 +169,7 @@ Static room-temperature diffraction EOS with pressures on the Mao (1978) ruby sc
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/diopside.md#record-diopside_zhao_1998_thermal_bm3)
 
-**Source finding:** Zhao (1998), Equation (1), page 26: third-order Eulerian finite strain, with VT=V0 exp(integral alpha dT), alpha=a+bT, KT=KT0+dK/dT\*(T-300 K), Kprime independent of T.
+**Source check:** K0 and K0' from the abstract and Figure 2, with errors from the rounded prose values 109(4) GPa and 4.8(6); thermal coefficients from the final paragraph of p. 26, for Equation (1); V0 is the Table 1 ambient volume.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -198,7 +199,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 8.18\]
     - **Temperature k:** \[300.0, 1280.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -220,6 +221,7 @@ Thermal EOS for elevated-temperature use, independent of the Thompson static rec
     - **DOI:** 10.4131/jshpreview.7.25
     - **Access URL:** https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7\_0\_25/\_pdf
     - **Locations:** Equation (1), Table 1 and Figure 2, page 26; discussion page 27
+    - **Finding:** Zhao (1998), Equation (1), page 26: third-order Eulerian finite strain, with VT=V0 exp(integral alpha dT), alpha=a+bT, KT=KT0+dK/dT\*(T-300 K), Kprime independent of T.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** diopside\_zhao\_1998\_table1

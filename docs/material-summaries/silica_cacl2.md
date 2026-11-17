@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/silica_cacl2.md#record-silica_cacl2_sun_2019_bm2_1)
 
-**Source finding:** The stored BM2 records are the 300 K reference isotherms of the MGD fits.
+**Source check:** Coefficients from the Table 1 CaCl2 row; the BM2 isotherm is the 300 K reference of the MGD thermal fit.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,6 +94,7 @@ Thermal EOS from laser-heated diamond-anvil-cell data.
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/2019JB017853
     - **Locations:** Thermal EOS formulation; Table 1, CaCl2 and seifertite rows
+    - **Finding:** The stored BM2 records are the 300 K reference isotherms of the MGD fits.
     - **DOI:** 10.1029/2019jb017853
 - **Migration source:**
     - **Project:** Dioptas

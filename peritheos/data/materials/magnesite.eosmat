@@ -49,7 +49,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The published BM3 parameters reproduce every Table 1 pressure to 0.00011 GPa or better. An independent four-parameter fit of the printed energy-volume rows on their internally required 30-atom-cell basis gives V0=287.492 A^3, K0=98.921 GPa, and K0_prime=4.27911, within the published precision and coefficient errors.",
+        "source_note": "V0 from the Results (p. 1628); K0 and K0' from the Abstract and Table 2 (pp. 1627 and 1629), the unconstrained third-order fit.",
         "audit": "../audits/magnesite.audit.json#magnesite_vocadlo_1999_bm3_2"
       },
       "model": "BM3",
@@ -86,7 +86,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The preferred published model is an executable BM3-MGD EOS for nominal MgCO3 magnesite with V0=280.71 A^3 fixed, a 300 K reference isotherm, and n=5. Its integrated-Gruneisen Debye-temperature relation is fully supported by Peritheos. The separate Pt pressure calibration uses Fei et al.'s distinct variable-exponent relation.",
+        "source_note": "Coefficients from the preferred Mie-Grüneisen fit in Table 1 (p. 5), with V0 from Yang et al. (2014); Equations 7-8 give the integrated-Grüneisen Debye law, whereas the Pt pressure calibration uses Fei et al.'s variable-exponent law.",
         "audit": "../audits/magnesite.audit.json#magnesite_yu_2024_bm3_mgd_3"
       },
       "model": "BM3",

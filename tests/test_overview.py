@@ -21,6 +21,7 @@ from peritheos.__main__ import main
 from peritheos._overview import (
     CHECK_EXPLANATIONS,
     COMPARED_PHRASES,
+    error_convention_text,
     format_range,
     format_value_error,
 )
@@ -304,7 +305,7 @@ mgo_speziale_2001_bm3_2
 reference temperature 300 K
   Check: reproduced (refit vs published fit). A refit of the source data gave \
 the published coefficients.
-  Parameters (errors as published, confidence level not stated):
+  Parameters, errors as published: confidence level not stated; used as 1 sigma
     Birch-Murnaghan, third order (BM3):
       V0     = 74.71 +/- 0.01                     angstrom^3/conventional_unit_cell
       K0     = 160.2 fixed                        GPa
@@ -324,10 +325,9 @@ the published coefficients.
 doi:10.1029/2000JB900318
     Quasi-hydrostatic compression of magnesium oxide to 52 GPa: Implications \
 for the pressure-volume-temperature equation of state
-  Source check: verified (2026-10-09). Published final BM3 + variable-q Debye \
-model: V0=74.71 A^3/cell, K0=160.2 GPa, K0_prime=3.99, gamma0=1.524, q0=1.65, \
-q1=11.8, theta0=773 K and Tr=300 K. Author reply confirms integration of the \
-defining theta relation using Equation 11.
+  Source check: verified (2026-10-09). Reference isotherm from the constrained \
+BM3 fit of Section 4.2; theta0 and gamma0 from Section 5.1, q0 and q1 from \
+Section 5.4 (Equations 10-11).
   Report: https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mgo/\
 #record-mgo_speziale_2001_bm3_2"""
 
@@ -339,8 +339,10 @@ palladium_frost_2023_vinet_1
   Check: close (refit vs published fit). K0': refit 5.6037 vs published 5.473 \
 (+2.4%), outside the combined error.
   Warning: Not recommended for quantitative use. Default selection on hold \
-pending review. Never chosen automatically; select it explicitly.
-  Parameters (errors as published, confidence level not stated):
+pending review. Never chosen automatically; select it explicitly. The authors' \
+fitting objective and covariance convention are unstated, so the published \
+fit is not fully reproduced.
+  Parameters, errors as published: confidence level not stated; used as 1 sigma
     Vinet:
       V0  = 58.678 +/- 0.073  angstrom^3/conventional_unit_cell
       K0  = 189.3 +/- 3       GPa
@@ -356,8 +358,9 @@ mgo_shen_2026_vinet_3
   Check: disagrees (refit vs published fit). K0': refit 3.954 vs published 4.08 \
 (-3.1%), outside the combined error.
   Warning: Not recommended for quantitative use. Never chosen automatically; \
-select it explicitly.
-  Parameters (errors as published, confidence level not stated):
+select it explicitly. The Table II fit is not reproduced from the published \
+data; the published curve leaves residuals up to about +2.8 GPa.
+  Parameters, errors as published: confidence level not stated; used as 1 sigma
     Vinet:
       V0  = 74.636 fixed   angstrom^3/conventional_unit_cell
       K0  = 161.9 +/- 0.7  GPa
@@ -497,3 +500,39 @@ def test_list_prints_one_line_per_material(capsys):
     mgo = next(row for row in rows if row.startswith("mgo "))
     assert "37 records" in mgo and "Speziale et al. (2001)" in mgo
     assert np.all([row.split()[0] for row in rows])
+
+
+@pytest.mark.parametrize(
+    ("confidence", "text"),
+    [
+        (None, "confidence level not stated; used as 1 sigma"),
+        # 0.68 is not 1 sigma: propagation divides by ndtri(0.84) = 0.9945.
+        (0.68, "68% half-widths (0.994 sigma)"),
+        (0.6827, "1 sigma"),
+        (0.682689492137, "1 sigma"),
+        (0.6826894921370859, "1 sigma"),
+        (0.95, "95% half-widths (1.96 sigma)"),
+        (0.9545, "2 sigma"),
+        (0.9544997361036416, "2 sigma"),
+        (0.9, "90% half-widths (1.64 sigma)"),
+        (0.99, "99% half-widths (2.58 sigma)"),
+        (0.6826, "68.26% half-widths (0.9998 sigma)"),
+        # Never 100% or 0%.
+        (0.99999, "99.999% half-widths (4.42 sigma)"),
+        (0.9999999999999999, "99.99999999999999% half-widths (8.29 sigma)"),
+        (1e-7, "1e-05% half-widths (1.25e-07 sigma)"),
+    ],
+)
+def test_summary_states_how_printed_errors_relate_to_sigma(confidence, text):
+    assert error_convention_text(confidence) == text
+
+
+@pytest.mark.parametrize("confidence", [0.68, 0.6827, 0.95, 0.9545, 0.9])
+def test_the_printed_sigma_factor_is_the_propagation_factor(confidence):
+    from scipy.special import ndtri
+
+    text = error_convention_text(confidence)
+    factor = 1.0 if text == "1 sigma" else 2.0 if text == "2 sigma" else None
+    if factor is None:
+        factor = float(text.split("(")[1].split()[0])
+    assert factor == pytest.approx(ndtri(0.5 * (1 + confidence)), rel=3e-3)

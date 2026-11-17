@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_d.md#record-phase_d_ant_a_shieh_2000_bm2_1)
 
-**Source finding:** The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.
+**Source check:** V0 from the AntA-D entry of Table 2 (p. 71); K0 from the joint second-order Birch-Murnaghan fit on pp. 78-79 (Figure 10).
 
 Automatic selection for equilibrium calculations.
 
@@ -92,6 +92,7 @@ Reference-volume variant for run AntA, with V0 from Table 2. The paper fits one 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/S0012-821X(00)00033-9
     - **Locations:** page 71, Table 2, AntA-D and AntB-D P-V data; pages 78-79, second-order Birch-Murnaghan fit and Figure 10
+    - **Finding:** The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.
     - **DOI:** 10.1016/s0012-821x(00)00033-9
 - **Migration source:**
     - **Project:** Dioptas
@@ -137,7 +138,7 @@ Reference-volume variant for run AntA, with V0 from Table 2. The paper fits one 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_d.md#record-phase_d_ant_b_shieh_2000_bm2_1)
 
-**Source finding:** The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.
+**Source check:** V0 from the AntB-D entry of Table 2 (p. 71); K0 from the joint second-order Birch-Murnaghan fit on pp. 78-79 (Figure 10).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -167,6 +168,7 @@ Reference-volume variant for run AntB, with V0 from Table 2. The paper fits one 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/S0012-821X(00)00033-9
     - **Locations:** page 71, Table 2, AntA-D and AntB-D P-V data; pages 78-79, second-order Birch-Murnaghan fit and Figure 10
+    - **Finding:** The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.
     - **DOI:** 10.1016/s0012-821x(00)00033-9
 - **Migration source:**
     - **Project:** Dioptas

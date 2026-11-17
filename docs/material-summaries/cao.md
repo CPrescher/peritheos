@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cao.md#record-cao_richet_1988_bm3_1)
 
-**Source finding:** The author-uploaded primary article reports separate BM3 fits for B1 and B2 CaO; Mbar and molar-volume values are converted explicitly.
+**Source check:** Coefficients from the B1 fit of Table 4 with Equation (5) (pages 15283-15285).
 
 Automatic selection for equilibrium calculations.
 
@@ -89,6 +89,7 @@ Room-temperature BM3 fit for B1 CaO. Published V0 = 16.76 cm³/mol (fixed, no er
 - **Primary source check:**
     - **Access URL:** https://www.researchgate.net/publication/248791203\_Static\_compression\_and\_equation\_of\_state\_of\_CaO\_to\_135\_Mbar
     - **Locations:** Equation (5); Tables 1-4; pages 15283-15285
+    - **Finding:** The author-uploaded primary article reports separate BM3 fits for B1 and B2 CaO; Mbar and molar-volume values are converted explicitly.
     - **DOI:** 10.1029/jb093ib12p15279
 - **Migration source:**
     - **Project:** Dioptas

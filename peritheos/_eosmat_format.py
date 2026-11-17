@@ -215,6 +215,7 @@ _CHECK_KEYS = (
     "compared",
     "why",
     "warning",
+    "warning_reason",
     "source_check",
     "source_checked_on",
     "source_note",

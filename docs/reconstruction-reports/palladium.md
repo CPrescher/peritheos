@@ -146,7 +146,7 @@ Both fits use the same 15 recovered audit input rows. **Volume coordinate:** vol
 
 **reproduced**, poor data agreement · `palladium_fedotenko_2020_bm2_2` · `BM2` · [Coefficients and source](../material-summaries/palladium.md#record-palladium_fedotenko_2020_bm2_2)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The published curve fits its 15 Table 1 points poorly (up to about 1.4 GPa) although its coefficients are reproduced.
 
 **Warning (source review):** Do not use this fixed-Kprime=4 fit for quantitative predictions or pressure calibration. Coefficient parity reproduces the published poor fit; it does not establish adequate data agreement.
 
@@ -235,7 +235,7 @@ Both fits use the same 15 recovered audit input rows. **Volume coordinate:** vol
 
 **close** · `palladium_frost_2023_vinet_1` · `Vinet` · [Coefficients and source](../material-summaries/palladium.md#record-palladium_frost_2023_vinet_1)
 
-**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly. The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
@@ -309,7 +309,7 @@ Both fits use the same 93 recovered audit input rows. **Volume coordinate:** vol
 
 **close** · `palladium_frost_2023_bm3_2` · `BM3` · [Coefficients and source](../material-summaries/palladium.md#record-palladium_frost_2023_bm3_2)
 
-**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly. The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
@@ -383,7 +383,7 @@ Both fits use the same 93 recovered audit input rows. **Volume coordinate:** vol
 
 **disagrees** · `palladium_baty_2024_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/palladium.md#record-palladium_baty_2024_bm3_1)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The verified Table S1 observations and source equation do not recover the published experimental BM3 fit.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Complete-table reproduction with unresolved source-fit discrepancy: all 78 official Table S1 rows and the printed BM3 equation are reproduced, but reasonable pressure-, volume-, and errors-in-variables objectives do not jointly recover the published coefficients. See the \[dedicated palladium reproduction\](literature-reproductions.md#palladium-baty-2024). Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The verified experimental Table S1 observations and source equation do not recover the published experimental BM3 fit under the completed audit checks.
 

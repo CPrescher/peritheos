@@ -80,7 +80,8 @@
             "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
             "doi": "10.2138/am-2016-5510",
             "locations": ["Tables 1-3", "Table 7", "Figures 3 and 6-10"],
-            "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+            "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+            "record_note": "Coefficients from the Table 7 high-spin column; the coupled fit uses the P-V data of Marquardt et al. (2009b)."
           },
           "primary_data_check": {
             "status": "complete_earlier_primary_table",
@@ -187,7 +188,8 @@
             "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
             "doi": "10.2138/am-2016-5510",
             "locations": ["Tables 1-3", "Table 7", "Figures 3 and 6-10"],
-            "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+            "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+            "record_note": "Coefficients from the Table 7 low-spin column; the coupled fit uses the P-V data of Marquardt et al. (2009b)."
           },
           "primary_data_check": {
             "status": "complete_earlier_primary_table",
@@ -272,6 +274,7 @@
             "sha256": "71a9f3dfb633730df7ae6dc0981e505965e103a35dd6d904b001fa420cc8785d",
             "locations": ["Sections 2.2 and 3.1.1-3.1.3", "Table 2, p. 347", "Section 3.2, p. 348"],
             "finding": "Section 3.1.1 prints the HS BM3 coefficients. The subsequently supplied EPSL supplement supplies 12 LS constrained BM3 fits in Table S1 and elastic observations in Table S2; these are distinct from the Science supplement.",
+            "record_note": "Coefficients from Section 3.1.1 (pp. 346-347); V0 is the ambient single-crystal XRD volume of Table 2. K0 is the isothermal KT0, not the Brillouin-only adiabatic KS0 = 161.4 GPa of Section 3.2.",
             "supplement": {
               "source_filenames": ["1-s2.0-S0012821X09004889-mmc1 (1).doc", "1-s2.0-S0012821X09004889-mmc1 (2).doc"],
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
@@ -396,7 +399,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 1 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.99."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -516,7 +520,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 2 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.98."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -636,7 +641,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 3 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.97."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -754,7 +760,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 4 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.96."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -872,7 +879,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 5 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.99."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -992,7 +1000,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 6 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.98."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -1110,7 +1119,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 7 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.97."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -1230,7 +1240,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 8 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.96."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -1350,7 +1361,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 9 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.99."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -1470,7 +1482,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 10 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.98."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -1590,7 +1603,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 11 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.97."
           },
           "primary_data_check": {
             "status": "tabulated",
@@ -1710,7 +1724,8 @@
               "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
               "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
             },
-            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+            "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+            "record_note": "Coefficients from EPSL supplementary Table S1, row 12 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.96."
           },
           "primary_data_check": {
             "status": "tabulated",

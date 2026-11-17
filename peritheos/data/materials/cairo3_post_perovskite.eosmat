@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source defines a standard zero-pressure BM3 fit for the Cmcm conventional-cell volume, reports all three coefficients with standard deviations, excludes decompression data, and identifies the Mao et al. (1986) ruby scale. No separate supplement or machine-readable data attachment was located.",
+        "source_note": "Coefficients from the Abstract and Table 2, fitted with the EosFit52 program to the ten Table 1 compression rows; the decompression row is excluded, as stated in Results on page 1761.",
         "audit": "../audits/cairo3_post_perovskite.audit.json#cairo3_post_perovskite_boffa_ballaran_2007_bm3_1"
       },
       "model": "BM3",
@@ -78,7 +78,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The author's dissertation reproduces the complete in-press American Mineralogist chapter and its exact pressure-volume table.",
+        "source_note": "Coefficients from Table 1b (Table 7.1 in Chapter 7 of the author's dissertation, which contains the in-press American Mineralogist article); the printed second-order Birch-Murnaghan fit is stored as BM3 with K0' fixed.",
         "audit": "../audits/cairo3_post_perovskite.audit.json#cairo3_post_perovskite_martin_2007_bm2"
       },
       "model": "BM3",

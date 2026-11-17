@@ -14,9 +14,10 @@
         "compared": "published_fit",
         "why": "K0 (+30.7%) and K0' (-100.0%): outside the combined error and beyond the agreement limit.",
         "warning": "Not recommended for quantitative use.",
+        "warning_reason": "Neither the 65 deposited P-V-T rows nor the 47 plotted points reproduce the published K0 and K0'.",
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "The source defines a BM3 reference plus Mie-Gruneisen-Debye thermal pressure and says that all 65 deposited P-V-T rows determine K0 and K0'. The deposit's row 32 values are retained verbatim but flagged as an isolated source-data/refinement anomaly. An independent fit of the 47 plotted Figure 3a marker centers also fails badly, and Equation 1 is malformed as printed; the record is retained for provenance but is not recommended for quantitative use.",
+        "source_note": "Coefficients from Table 1 (manuscript p. 15) with the EOS discussion on manuscript pages 6-7; row 32 of the deposited Table 1 (AM-08-056) is an isolated anomaly, kept verbatim.",
         "audit": "../audits/goethite.audit.json#goethite_gleason_2008_bm3_1"
       },
       "model": "BM3",

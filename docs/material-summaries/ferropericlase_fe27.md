@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ferropericlase_fe27.md#record-ferropericlase_fe27_jacobsen_2002_bm3_1)
 
-**Source finding:** The source defines a three-free-parameter, error-weighted BM3 fit to all 10 Fe27 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration.
+**Source check:** Coefficients from paragraph 25 and Table 6: an error-weighted three-parameter fit with the EoSFIT program to all 10 Fe27 rows of Table 5, with pressures from the internal alpha-quartz standard of Angel et al. (1997).
 
 Automatic selection for equilibrium calculations.
 
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 48.586585
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Volume per conventional Fm-3m rocksalt cell of four oxygen-normalized formula units. The printed errors are standard deviations.
 
@@ -107,6 +107,7 @@ Volume per conventional Fm-3m rocksalt cell of four oxygen-normalized formula un
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490
     - **DOI:** 10.1029/2001JB000490
     - **Locations:** Paragraphs 23-26; Tables 1 and 5-6; Figures 5-6
+    - **Finding:** The source defines a three-free-parameter, error-weighted BM3 fit to all 10 Fe27 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

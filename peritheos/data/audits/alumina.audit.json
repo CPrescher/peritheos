@@ -97,6 +97,7 @@
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.88.064107/fulltext",
             "locations": ["section IV, page 064107-2", "Table I", "Figure 3", "section V"],
             "finding": "All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.",
+            "record_note": "Coefficients from Section IV (p. 064107-2) and Figure 3; observations in Table I.",
             "doi": "10.1103/physrevb.88.064107"
           },
           "migration_source": {
@@ -271,6 +272,7 @@
               "Supporting Information, Table S3, selected model used downstream"
             ],
             "finding": "The source reports one selected BM3-MGD corundum parameterization, not three interchangeable BM3 records. Model 3 fixes the conventional-cell V0, K0', and theta0 and fits K0, gamma0, and q. The complete Table S1 reproduces those coefficients under an unweighted pressure-residual refit.",
+            "record_note": "Coefficients from the selected-model Table 1 (p. 4) with Equations 1-6; observations in Table S1. Table 2 prints the K0 error of the same model as 1 GPa; the Table 1 error is stored.",
             "doi": "10.1029/2021jb023805"
           },
           "primary_data_check": {

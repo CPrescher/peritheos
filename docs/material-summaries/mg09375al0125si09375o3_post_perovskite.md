@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375al0125si09375o3_post_perovskite.md#record-mg09375al0125si09375o3_post_perovskite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.
+**Source check:** Coefficients from Table 1, post-perovskite CCM 6.25 mol.% row; the printed V0 = 41.79 Å³ on the normalized, approximately five-atom basis is stored ×4 per conventional cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 100.4853
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -104,6 +104,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://authors.library.caltech.edu/records/ac43h-2q991
     - **DOI:** 10.1029/2005GL023192
     - **Locations:** Section 2, paragraphs 6-8; Table 1
+    - **Finding:** The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05

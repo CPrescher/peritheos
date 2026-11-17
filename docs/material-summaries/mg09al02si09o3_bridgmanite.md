@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg09al02si09o3_bridgmanite.md#record-mg09al02si09o3_bridgmanite_kubo_2000_bm3_1)
 
-**Source finding:** The source reports a preferred fixed-K0\_prime BM3 and a secondary unconstrained BM3 for one Pbnm Mg0.9Al0.2Si0.9O3 specimen. It explicitly rejects precise interpretation of the free derivative, not the underlying fit.
+**Source check:** K0 from the abstract and page 106 (fixed-derivative fit to all ten Table I rows); V0 from the Table I atmospheric row of the ap run. The paper names the third-order Birch-Murnaghan form but does not print the formula.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 8.71\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.9645476773, 1.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The authors' preferred fit. The source calls it BM3, but with K0' = 4 fixed it reduces algebraically to BM2. The two decompression runs (ap and ku) were normalized to their own measured ambient volumes, 163.6 and 163.5 Å³, and this record uses the more precise ap value, 163.6(4) Å³.
 
@@ -104,6 +104,7 @@ The authors' preferred fit. The source calls it BM3, but with K0' = 4 fixed it r
     - **Access URL:** https://www.jstage.jst.go.jp/article/pjab1977/76/8/76\_8\_103/\_article
     - **DOI:** 10.2183/pjab.76.103
     - **Locations:** abstract and Experimental section, pages 103-105; Table I, page 104; EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106
+    - **Finding:** The source reports a preferred fixed-K0\_prime BM3 and a secondary unconstrained BM3 for one Pbnm Mg0.9Al0.2Si0.9O3 specimen. It explicitly rejects precise interpretation of the free derivative, not the underlying fit.
     - **Publisher pdf sha256:** 70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214
 - **Primary data check:**
     - **Status:** bundled
@@ -172,7 +173,7 @@ The authors' preferred fit. The source calls it BM3, but with K0' = 4 fixed it r
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg09al02si09o3_bridgmanite.md#record-mg09al02si09o3_bridgmanite_kubo_2000_bm3_2)
 
-**Source finding:** The unconstrained coefficients are genuinely source-reported, but the paper treats them as a poorly constrained sensitivity result and adopts the fixed-derivative alternative.
+**Source check:** K0 and K0' from the unconstrained fit on page 106 to all ten Table I rows; V0 from the Table I atmospheric row of the ap run. The paper names the third-order Birch-Murnaghan form but does not print the formula.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -199,7 +200,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0, 8.71\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.9645476773, 1.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Not the authors' preferred fit: they state that less than 4% compression cannot determine K0' accurately. V0 comes from the measured run-specific ambient volumes, not from a shared three-parameter fit.
 
@@ -212,6 +213,7 @@ Not the authors' preferred fit: they state that less than 4% compression cannot 
     - **Access URL:** https://www.jstage.jst.go.jp/article/pjab1977/76/8/76\_8\_103/\_article
     - **DOI:** 10.2183/pjab.76.103
     - **Locations:** abstract and Experimental section, pages 103-105; Table I, page 104; EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106
+    - **Finding:** The unconstrained coefficients are genuinely source-reported, but the paper treats them as a poorly constrained sensitivity result and adopts the fixed-derivative alternative.
     - **Publisher pdf sha256:** 70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214
 - **Primary data check:**
     - **Status:** bundled

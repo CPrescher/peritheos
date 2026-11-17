@@ -120,6 +120,7 @@
               "MSA depository item AM-08-056, Table 1"
             ],
             "finding": "The source defines a BM3 reference plus Mie-Gruneisen-Debye thermal pressure and says that all 65 deposited P-V-T rows determine K0 and K0'. The deposit's row 32 values are retained verbatim but flagged as an isolated source-data/refinement anomaly. An independent fit of the 47 plotted Figure 3a marker centers also fails badly, and Equation 1 is malformed as printed; the record is retained for provenance but is not recommended for quantitative use.",
+            "record_note": "Coefficients from Table 1 (manuscript p. 15) with the EOS discussion on manuscript pages 6-7; row 32 of the deposited Table 1 (AM-08-056) is an isolated anomaly, kept verbatim.",
             "doi": "10.2138/am.2008.2942"
           },
           "migration_source": {
@@ -135,7 +136,8 @@
             "source_locations": ["MSA depository item AM-08-056, Table 1"],
             "finding": "All 65 goethite (alpha-FeOOH) P-T lattice-parameter and unit-cell-volume observations published in depository Table 1. Depository row 32 itself reports the isolated 100 degC, 6.66 GPa values a = 4.159 A and V = 122.80 A^3; these are retained verbatim and flagged as a likely source-table or refinement anomaly rather than silently corrected."
           },
-          "usage_recommendation": "not_recommended_for_quantitative_use"
+          "usage_recommendation": "not_recommended_for_quantitative_use",
+          "warning_reason": "Neither the 65 deposited P-V-T rows nor the 47 plotted points reproduce the published K0 and K0'."
         },
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 1 and goethite EOS discussion, manuscript pages 6-7; Goethite thermodynamic parameters, Table 1 on manuscript page 15; MSA depository item AM-08-056, Table 1."

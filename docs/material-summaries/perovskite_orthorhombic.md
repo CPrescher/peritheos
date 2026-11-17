@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/perovskite_orthorhombic.md#record-perovskite_orthorhombic_knittle_1987_bm3_1)
 
-**Source finding:** The primary PDF identifies the sample as (Mg0.88Fe0.12)SiO3 and reports the unconstrained Eulerian finite-strain BM3 fit.
+**Source check:** Unconstrained Eulerian finite-strain BM3 fit of Equations (1)-(3) for (Mg0.88Fe0.12)SiO3; Table 2 prints five new static-compression observations.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,6 +90,7 @@ Unconstrained room-temperature BM3 fit; V0 is from the reported ambient lattice 
 - **Primary source check:**
     - **Access URL:** https://www.science.org/doi/epdf/10.1126/science.235.4789.668
     - **Locations:** Equations (1)-(3); Tables 1 and 2; Figures 1 and 2
+    - **Finding:** The primary PDF identifies the sample as (Mg0.88Fe0.12)SiO3 and reports the unconstrained Eulerian finite-strain BM3 fit.
     - **DOI:** 10.1126/science.235.4789.668
 - **Migration source:**
     - **Project:** Dioptas

@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zirconium_alpha.md#record-zirconium_alpha_mchardy_2026_vinet_1)
 
-**Source finding:** The beta-phase V0 is explicitly an extrapolated fixed fit parameter.
+**Source check:** Coefficients from Table II, alpha row, with the authors' fixed V0 converted from Å³/atom to the two-atom cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ Published V0 = 23.315 Å³/atom (fixed); stored per conventional two-atom cell (
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1103/zp3m-kjpc
     - **Locations:** Vinet formulation; Table I, beta row; Table II, alpha and omega rows
+    - **Finding:** The beta-phase V0 is explicitly an extrapolated fixed fit parameter.
     - **DOI:** 10.1103/zp3m-kjpc
 - **Migration source:**
     - **Project:** Dioptas

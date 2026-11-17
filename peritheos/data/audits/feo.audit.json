@@ -141,6 +141,7 @@
               "Supplementary Table S1 (mmc1.xls)"
             ],
             "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observations, 3% temperature correction, and global multi-study fit scope were reconstructed. All identifiable row-level sources are bundled: Fischer Table S1, Seagle supplementary Table 1, Ozawa printed Table 2, and Campbell supplementary Table S2. The final combined row selection and exact weighting protocol remain unpublished.",
+            "record_note": "Coefficients from Table 1 with Equation (1) (pages 12-13); V0 = 12.256 cm³/mol is fixed from McCammon and Liu (1984) and converted to the Z = 4 cell. The K0' error is the Table 1 value; the abstract prints 0.4.",
             "doi": "10.1016/j.epsl.2011.02.025"
           },
           "migration_source": {
@@ -288,6 +289,7 @@
             "access_url": "https://doi.org/10.1107/S0909049505022326",
             "locations": ["Experiment, pages 577-578", "Results section 3.1 and Table 1, pages 579-580", "Figure 5, page 580"],
             "finding": "The source reports a cubic B1 Fe0.93O BM3 fit to the seven 0-22.8 GPa rows, with V0 and K0 varied and K0'=4 fixed.",
+            "record_note": "V0 and K0 from Results section 3.1, page 579 (EOS-FIT 5.2 program); K0' was fixed because relatively few points lie below 20 GPa.",
             "doi": "10.1107/S0909049505022326"
           },
           "primary_data_check": {
@@ -375,7 +377,8 @@
             "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
             "doi": "10.1103/PhysRevB.96.075136",
             "locations": ["Methods", "Table I", "Figures 1-4"],
-            "finding": "Complete high-spin BM3 after formula-unit volume conversion; low-spin row rejected because low-spin V0 is absent."
+            "finding": "Complete high-spin BM3 after formula-unit volume conversion; low-spin row rejected because low-spin V0 is absent.",
+            "record_note": "Coefficients from the Table I high-spin column; V0 = 144.1 bohr³ per formula unit is converted to the Z = 4 cell. The paper gives no low-spin V0."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -450,7 +453,8 @@
             "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
             "doi": "10.1093/petrology/egt035",
             "locations": ["Table 1", "Thermodynamic data section"],
-            "finding": "The fper endmember is a distinct modified-Tait reference isotherm."
+            "finding": "The fper endmember is a distinct modified-Tait reference isotherm.",
+            "record_note": "Coefficients from Table 1 and the official tc-ds62 fper block, converted from V0 = 1.206 J/bar/mol, K0 = 1520 kbar and K0'' = -0.00320 kbar^-1 to GPa and the Z = 4 cell."
           },
           "primary_data_check": {
             "status": "official_parameter_artifact",
@@ -612,6 +616,7 @@
               "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
             ],
             "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+            "record_note": "Coefficients from Equation (5) and Table 1, page 560; italic Table 1 values are held fixed. The exact Seagle pressure reduction Campbell used and the authors' regression inputs and row selection are unresolved.",
             "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
           },
           "primary_data_check": {

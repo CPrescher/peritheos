@@ -1,9 +1,12 @@
 """Repository check: bundled record text within the record text standard.
 
 Reports every bundled record whose ``label``, ``notes``, ``validity.notes``,
-``thermal.notes`` or ``check.source_note``, and every material whose
-``notes``, exceed the limits of ``docs/record-text-standard.md``, and every
-label that is not unique within its material. Known cases are listed in
+``thermal.notes``, ``check.source_note`` or ``check.warning_reason``, and every
+material whose ``notes``, exceed the limits of ``docs/record-text-standard.md``,
+and every label that is not unique within its material. ``check.source_note``
+is the record's curated ``record_note`` when it has one, so writing a note
+within the limit (``scripts/apply_check_text.py``) resolves a
+``source_note_length`` case. Known cases are listed in
 ``scripts/record-text-baseline.json``; the test suite fails on a case that is
 not listed and on a listed case that no longer occurs, so the baseline only
 shrinks. ``--prune`` removes cases that no longer occur; a new case is fixed in
@@ -28,6 +31,10 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from peritheos._eosmat_audit import (  # noqa: E402
+    RECORD_NOTE_MAX_LENGTH,
+    WARNING_REASON_MAX_LENGTH,
+)
 from scripts.apply_record_text import (  # noqa: E402
     LABEL_MAX_CHARACTERS,
     NOTES_MAX_CHARACTERS,
@@ -40,7 +47,8 @@ from scripts.apply_record_text import (  # noqa: E402
 
 BASELINE = ROOT / "scripts/record-text-baseline.json"
 MATERIAL_NOTES_MAX_CHARACTERS = 300
-SOURCE_NOTE_MAX_CHARACTERS = 300
+SOURCE_NOTE_MAX_CHARACTERS = RECORD_NOTE_MAX_LENGTH
+WARNING_REASON_MAX_CHARACTERS = WARNING_REASON_MAX_LENGTH
 
 
 def record_cases(record: dict) -> list[str]:
@@ -72,6 +80,9 @@ def record_cases(record: dict) -> list[str]:
     source_note = check.get("source_note") if isinstance(check, dict) else None
     if isinstance(source_note, str) and len(source_note) > SOURCE_NOTE_MAX_CHARACTERS:
         cases.append("source_note_length")
+    reason = check.get("warning_reason") if isinstance(check, dict) else None
+    if isinstance(reason, str) and len(reason) > WARNING_REASON_MAX_CHARACTERS:
+        cases.append("warning_reason_length")
     return cases
 
 

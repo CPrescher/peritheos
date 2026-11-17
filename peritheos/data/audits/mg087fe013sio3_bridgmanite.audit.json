@@ -147,7 +147,8 @@
               "corresponding-author data page, Table 1 machine-readable mirror",
               "PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit_Wolf2014_lsq_fixdeb.in"
             ],
-            "finding": "The executable record is the complete published 300 K Vinet plus integrated constant-q MGD model for the measured 13% Fe composition. It is not a room-temperature slice of the thermal fit."
+            "finding": "The executable record is the complete published 300 K Vinet plus integrated constant-q MGD model for the measured 13% Fe composition. It is not a room-temperature slice of the thermal fit.",
+            "record_note": "Coefficients from the Table 3 13% Fe column (Equations 1-6), fitted with priors V0 = 163.2 ± 0.2 Å³ and gamma0, q = 1 ± 1; theta0 is fixed (Section 3.3) after a preliminary Fe-free fit gave 991 ± 77 K."
           },
           "primary_data_check": {
             "status": "bundled",

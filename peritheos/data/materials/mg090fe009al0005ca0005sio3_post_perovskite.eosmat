@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The preferred experimental ppv equation is a second-order Eulerian finite-strain fit with V0=164.9(6) A^3, K0=219(5) GPa, and implicit fixed K0'=4.",
+        "source_note": "Coefficients from the abstract, Results (p. 3040) and Table 1: the second-order Eulerian finite-strain fit of the Figure 2 caption.",
         "audit": "../audits/mg090fe009al0005ca0005sio3_post_perovskite.audit.json#mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1"
       },
       "model": "BM2",
@@ -71,7 +71,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The paper explicitly reports this K0'=4.4 constrained alternative to show V0-K0-K0' tradeoff; it is not the preferred curve.",
+        "source_note": "Coefficients from Results, p. 3040, where the authors give this constrained alternative to show the V0-K0-K0' trade-off; a K0' fixed at a value other than 4 requires the BM3 form.",
         "audit": "../audits/mg090fe009al0005ca0005sio3_post_perovskite.audit.json#mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2"
       },
       "model": "BM3",
