@@ -115,6 +115,15 @@ taken from the audit (e.g. the sidecar's `unresolved` or
 a `warning`; the `warning` wording itself is generated and never edited.
 `record.summary()` prints `Warning: <warning> <reason>`.
 
+**`check.warning`.** Generated, never written. For a bundled record it comes
+from a coded `evidence.scientific_validation.usage_recommendation` (for
+example `qualified_use` or `not_recommended_for_quantitative_use`; the codes
+and their fixed wording are listed in
+[EOSMAT reference](eosmat-reference.md#giving-a-bundled-record-a-warning)),
+set with `scripts/apply_check_text.py` together with its `warning_reason`.
+Free text in `usage_recommendation` never produces a warning; when a code
+replaces it, the text is kept verbatim as `recommendation_reason`.
+
 ## 3. Notation
 
 | Item | Write | Do not write |
@@ -194,11 +203,15 @@ review it sentence by sentence.
 3. Run it without `--check`, then `--verify`, and regenerate the generated
    pages.
 
-`source_note` and `warning_reason` are written the same way with
-`scripts/apply_check_text.py` from a JSON file
-`{"<material>": {"<record>": {"source_note": ..., "warning_reason": ...}}}`
-(`null` removes a text; for `source_note` the verbatim `finding` is shown
-again). Its guards are the two length limits, `numbers` (every number, sign
+`source_note`, `warning_reason` and a coded `usage_recommendation` are
+written the same way with `scripts/apply_check_text.py` from a JSON file
+`{"<material>": {"<record>": {"source_note": ..., "warning_reason": ...,
+"usage_recommendation": ...}}}` (`null` removes a text; for `source_note` the
+verbatim `finding` is shown again; for `usage_recommendation` the stored
+original returns). A `usage_recommendation` must be one of the codes with a
+fixed warning, and a change that gives a record its first warning needs a
+`warning_reason` in the same file; the dry run prints each record's resulting
+`check.warning`. Its guards are the two length limits, `numbers` (every number, sign
 included, must occur in the record's finding, other sidecar evidence, record
 fields or stored originals, or be a correct rounding of one at the precision
 written with at least two significant digits, such as 23.89 for 23.89043),

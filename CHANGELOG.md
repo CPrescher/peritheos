@@ -48,6 +48,10 @@ All notable changes to Peritheos are documented here. The project follows
   still recovered byte for byte.
 - Give bundled records a short per-record source note and every bundled
   warning a one-clause reason.
+- `scripts/apply_check_text.py` also sets a bundled record's coded
+  `usage_recommendation` (the source of `check.warning`), keeping replaced
+  free text as `recommendation_reason` and binding the originals so every
+  historical receipt still verifies.
 - Name a material's default records once in a `default_records` map
   (`equilibrium`, `hugoniot`); bundled files use it. Per-record `default` and
   `default_for` flags remain valid and must agree with the map; v3/v4 exports
