@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/goethite.md#record-goethite_gleason_2008_bm3_1)
 
-**Warning:** Not recommended for quantitative use.
+**Warning:** Not recommended for quantitative use. Neither the 65 deposited P-V-T rows nor the 47 plotted points reproduce the published K0 and K0'.
 
 **Source finding:** The source defines a BM3 reference plus Mie-Gruneisen-Debye thermal pressure and says that all 65 deposited P-V-T rows determine K0 and K0'. The deposit's row 32 values are retained verbatim but flagged as an isolated source-data/refinement anomaly. An independent fit of the 47 plotted Figure 3a marker centers also fails badly, and Equation 1 is malformed as printed; the record is retained for provenance but is not recommended for quantitative use.
 

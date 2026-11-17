@@ -339,7 +339,9 @@ palladium_frost_2023_vinet_1
   Check: close (refit vs published fit). K0': refit 5.6037 vs published 5.473 \
 (+2.4%), outside the combined error.
   Warning: Not recommended for quantitative use. Default selection on hold \
-pending review. Never chosen automatically; select it explicitly.
+pending review. Never chosen automatically; select it explicitly. The authors' \
+fitting objective and covariance convention are unstated, so the published \
+fit is not fully reproduced.
   Parameters (errors as published, confidence level not stated):
     Vinet:
       V0  = 58.678 +/- 0.073  angstrom^3/conventional_unit_cell
@@ -356,7 +358,8 @@ mgo_shen_2026_vinet_3
   Check: disagrees (refit vs published fit). K0': refit 3.954 vs published 4.08 \
 (-3.1%), outside the combined error.
   Warning: Not recommended for quantitative use. Never chosen automatically; \
-select it explicitly.
+select it explicitly. The Table II fit is not reproduced from the published \
+data; the published curve leaves residuals up to about +2.8 GPa.
   Parameters (errors as published, confidence level not stated):
     Vinet:
       V0  = 74.636 fixed   angstrom^3/conventional_unit_cell

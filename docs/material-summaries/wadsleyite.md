@@ -65,7 +65,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/wadsleyite.md#record-wadsleyite_katsura_2009_bm3_1)
 
-**Warning:** On hold; not recommended pending source mapping review.
+**Warning:** On hold; not recommended pending source mapping review. Pressure calibration and the MGD reference-state and Debye convention mapping remain unresolved.
 
 **Source finding:** The paper supplies the BM3 reference isotherm and Mie-Gruneisen-Debye parameters. Theta0=814 K is explicitly fixed; K0=169.2(9) GPa is fixed in the fit but its source uncertainty is retained.
 

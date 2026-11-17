@@ -922,7 +922,7 @@ BM3 fit to all three helium-medium runs. Pressures from the Mao et al. (1986) ru
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_shen_2026_vinet_3)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The Table II fit is not reproduced from the published data; the published curve leaves residuals up to about +2.8 GPa.
 
 **Source finding:** The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.
 

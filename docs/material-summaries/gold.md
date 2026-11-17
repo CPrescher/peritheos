@@ -2202,7 +2202,7 @@ Fitted 300 K Vinet branch of Table II, distinct from the full cold-BM3 + phonon 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/gold.md#record-gold_yokoo_2009_pvt_reconstruction)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. A diagnostic rebuild of calculated Table III outputs; it does not reproduce the published model or replace that pressure standard.
 
 **Source finding:** Equations 1-12 and Table III supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction.
 

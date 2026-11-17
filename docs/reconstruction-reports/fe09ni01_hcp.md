@@ -880,7 +880,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type1_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type1_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
@@ -948,7 +948,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type2_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type2_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
@@ -1015,7 +1015,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type4_1_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_1_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
@@ -1082,7 +1082,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type4_2_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_2_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
@@ -1148,7 +1148,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type4_3_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_3_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 

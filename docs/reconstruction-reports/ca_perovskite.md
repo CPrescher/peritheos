@@ -837,7 +837,7 @@ Both fits use the same 4 recovered audit input rows. **Volume coordinate:** volu
 
 **disagrees** · `ca_perovskite_fu_2023_bm3_mgd_refit` · `BM3` · [Coefficients and source](../material-summaries/ca_perovskite.md#record-ca_perovskite_fu_2023_bm3_mgd_refit)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The published thermal parameters keep an unresolved high-temperature misfit to the source data; the joint fit is not reproduced.
 
 **Scope:** Comparison with the source parameterization. **Basis:** The complete candidate observation rows were recovered from the author-hosted Sun PDF and official Gréaux XLSX and are now bundled as attributed numerical transcriptions. Fu et al. publish neither an objective, row/output weights, covariance, nor code. Four explicit weighting diagnostics, including propagated P-V uncertainty, all converge away from Table S3, especially for gamma0 and q; this is therefore a completed non-parity audit, not an exact reconstruction of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are analytical comparisons, while Thomson is explicitly excluded. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published thermal parameterization retains an unresolved high-temperature discrepancy against the reconstructed source observations; source normalization checks do not reconcile it.
 

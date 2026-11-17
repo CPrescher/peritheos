@@ -95,7 +95,8 @@
             "published_curve_pressure_residual_gpa": -0.12504006,
             "finding": "The analytically reconstructed K0 differs from the published value by 0.40 GPa because the printed axes are rounded. Applying the same calculation to the ruby/Pt pressure bracket gives a 2.89 GPa half-range, reproducing the published +/-3 GPa uncertainty after rounding; there is no independent regression residual test."
           },
-          "usage_recommendation": "not_recommended_for_quantitative_use"
+          "usage_recommendation": "not_recommended_for_quantitative_use",
+          "warning_reason": "A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use."
         },
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental method; Table 1; Sections 3.2-3.3; Table 2; Figure 4.",

@@ -603,6 +603,7 @@
           "report_path": "docs/literature-reproductions/ono-mibe-2010-fe3c.md",
           "note": "Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted.",
           "usage_recommendation": "qualified_use",
+          "warning_reason": "Fitted only to 34.3 GPa at 300 K; the V0 constraint, fit weights and coefficient errors are not reported.",
           "recommendation_reason": "Use original experimental curve within 300 K and 0-34.3 GPa; ambient anchor adoption and unavailable author fit details remain explicit.",
           "primary_source_check": {
             "access_url": "https://doi.org/10.1016/j.pepi.2010.03.008",

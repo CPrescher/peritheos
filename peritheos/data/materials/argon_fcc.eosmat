@@ -463,6 +463,7 @@
         "reproduction": "untested",
         "compared": "none",
         "warning": "Do not use. Never chosen automatically; select it explicitly.",
+        "warning_reason": "A rebuild from Chen's rounded constants, not a verified author equation; it misses the digitized densities by about 6.9 GPa RMS.",
         "source_check": "unresolved",
         "source_checked_on": "2026-09-26",
         "audit": "../audits/argon_fcc.audit.json#argon_fcc_chen_2010_bm3_reported_constants"
@@ -555,6 +556,7 @@
         "reproduction": "untested",
         "compared": "none",
         "warning": "Never chosen automatically; select it explicitly.",
+        "warning_reason": "The implementation does not reproduce the paper's Table 8 sample (23.89 vs 23.97 cm³/mol); the cause is unresolved.",
         "source_check": "unresolved",
         "source_checked_on": "2026-09-26",
         "audit": "../audits/argon_fcc.audit.json#argon_fcc_maltby_2024_published"

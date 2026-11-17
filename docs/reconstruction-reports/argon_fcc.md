@@ -398,7 +398,7 @@ Both fits use the same 19 recovered audit input rows. **Volume coordinate:** aud
 
 **untested** (not refittable) · `argon_fcc_chen_2010_bm3_reported_constants` · `BM3` · [Coefficients and source](../material-summaries/argon_fcc.md#record-argon_fcc_chen_2010_bm3_reported_constants)
 
-**Warning:** Do not use. Never chosen automatically; select it explicitly.
+**Warning:** Do not use. Never chosen automatically; select it explicitly. A rebuild from Chen's rounded constants, not a verified author equation; it misses the digitized densities by about 6.9 GPa RMS.
 
 **Scope:** Comparison with the source parameterization. **Basis:** DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md.
 
@@ -483,7 +483,7 @@ Both fits use the same 80 recovered audit input rows. **Volume coordinate:** vol
 
 **untested** (not refittable) · `argon_fcc_maltby_2024_published` · `Maltby2024` · [Coefficients and source](../material-summaries/argon_fcc.md#record-argon_fcc_maltby_2024_published)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. The implementation does not reproduce the paper's Table 8 sample (23.89 vs 23.97 cm³/mol); the cause is unresolved.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.
 

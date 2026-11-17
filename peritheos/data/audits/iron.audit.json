@@ -4398,6 +4398,7 @@
           "audit_date": "2026-10-02",
           "note": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
           "usage_recommendation": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+          "warning_reason": "The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.",
           "verified_fields": ["phase", "source_parameters", "published_uncertainties", "source_observations"],
           "primary_source_check": {
             "access_url": "https://doi.org/10.3390/min10020100",
@@ -4542,6 +4543,7 @@
           "audit_date": "2026-10-02",
           "note": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
           "usage_recommendation": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+          "warning_reason": "The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.",
           "verified_fields": ["phase", "source_parameters", "published_uncertainties", "source_observations"],
           "primary_source_check": {
             "access_url": "https://doi.org/10.3390/min10020100",
@@ -4698,6 +4700,7 @@
           "audit_date": "2026-10-03",
           "note": "Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved.",
           "usage_recommendation": "Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved.",
+          "warning_reason": "Uses MGD with n = 2 at the per-mole-Fe volume, unlike the physical per-Fe n = 1; full reproduction of the fit is unresolved.",
           "verified_fields": ["phase", "source_parameters", "published_uncertainties", "source_observations"],
           "primary_source_check": {
             "access_url": "https://doi.org/10.3390/min10020100",

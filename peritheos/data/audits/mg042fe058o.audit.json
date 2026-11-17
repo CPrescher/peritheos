@@ -132,6 +132,7 @@
             "finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context. For mw58, validation assumes the caption's approximate 42 GPa limit includes the tabulated 42.75 GPa B1 row; all seven points below the 44 GPa structural transition enter."
           },
           "usage_recommendation": "consult_source_audit_before_quantitative_use",
+          "warning_reason": "Fei's row selection and weights are not published, so the check is approximate; stay within the stated spin regime.",
           "reproduction_summary": {
             "report": "docs/literature-reproductions/fei-2007-ferropericlase.md",
             "refit_ledger": "docs/data/primary-eos-refits.json",

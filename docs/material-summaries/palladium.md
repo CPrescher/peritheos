@@ -311,7 +311,7 @@ Room-temperature BM3 fit to the 15 pure-Pd observations of Table 1, with neon as
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_fedotenko_2020_bm2_2)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The published curve fits its 15 Table 1 points poorly (up to about 1.4 GPa) although its coefficients are reproduced.
 
 **Warning (source review):** Do not use this fixed-Kprime=4 fit for quantitative predictions or pressure calibration. Coefficient parity reproduces the published poor fit; it does not establish adequate data agreement.
 
@@ -397,7 +397,7 @@ Second-order Birch-Murnaghan fit with K0' = 4 imposed, to the same 15 Table 1 ob
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_frost_2023_vinet_1)
 
-**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly. The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.
 
 **Source finding:** The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.
 
@@ -490,7 +490,7 @@ Room-temperature Vinet fit to three hydrogen-free fcc-Pd loadings compressed in 
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_frost_2023_bm3_2)
 
-**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly. The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.
 
 **Source finding:** Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.
 
@@ -583,7 +583,7 @@ Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd load
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_baty_2024_bm3_1)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The verified Table S1 observations and source equation do not recover the published experimental BM3 fit.
 
 **Source finding:** The paper reports the BM3 fit in the text and plots its own 300 K P-V observations in Figure 3. The official supplementary Table S1 supplies the complete 78-point compression dataset.
 

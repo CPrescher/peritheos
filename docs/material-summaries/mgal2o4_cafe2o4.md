@@ -66,7 +66,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_funamori_1998_bm2_1)
 
-**Warning:** Not recommended for quantitative use.
+**Warning:** Not recommended for quantitative use. A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use.
 
 **Source finding:** The authors identify run 2 as CaFe2O4-type MgAl2O4 and construct a separate second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from one compressed cell. They explicitly state that more points would be needed for a robust modulus and an estimate of K0'.
 

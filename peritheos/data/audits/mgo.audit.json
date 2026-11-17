@@ -1257,6 +1257,7 @@
           },
           "reproduction_status": "not_reproduced",
           "usage_recommendation": "not_recommended_for_quantitative_use",
+          "warning_reason": "The Table II fit is not reproduced from the published data; the published curve leaves residuals up to about +2.8 GPa.",
           "recommendation_date": "2026-10-17",
           "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
           "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.",

@@ -1873,7 +1873,7 @@ The fitted quantity is shock velocity, not isothermal pressure. Residual = Us(mo
 
 **disagrees** · `iron_miozzi_2020_bm3` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_miozzi_2020_bm3)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. The thermal source replay now uses n=2 with volume per mole Fe, as confirmed in user-relayed personal communication with Miozzi, recorded 2026-10-03. This diagnostic fixes V0 even though the author clarified that V0 was free in the final stage. See literature-reproductions/miozzi-2020-iron.md.
 
@@ -1932,7 +1932,7 @@ Both fits use the same 35 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `iron_miozzi_2020_vinet` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_miozzi_2020_vinet)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. The thermal source replay now uses n=2 with volume per mole Fe, as confirmed in user-relayed personal communication with Miozzi, recorded 2026-10-03. This diagnostic fixes V0 even though the author clarified that V0 was free in the final stage. See literature-reproductions/miozzi-2020-iron.md.
 
@@ -1991,7 +1991,7 @@ Both fits use the same 35 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `iron_miozzi_2020_bm3_mgd` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_miozzi_2020_bm3_mgd)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. Uses MGD with n = 2 at the per-mole-Fe volume, unlike the physical per-Fe n = 1; full reproduction of the fit is unresolved.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. The thermal source replay now uses n=2 with volume per mole Fe, as confirmed in user-relayed personal communication with Miozzi, recorded 2026-10-03. This diagnostic fixes V0 even though the author clarified that V0 was free in the final stage. See literature-reproductions/miozzi-2020-iron.md.
 

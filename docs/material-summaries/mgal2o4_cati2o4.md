@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgal2o4_cati2o4.md#record-mgal2o4_cati2o4_funamori_1998_bm2_1)
 
-**Warning:** Not recommended for quantitative use.
+**Warning:** Not recommended for quantitative use. A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use.
 
 **Source finding:** Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure. The authors construct its second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from the one usable compressed run-4 cell; run-2 CaTi2O4-type peaks were too weak and overlapped for a reliable cell volume.
 

@@ -327,6 +327,7 @@
         "compared": "published_fit",
         "why": "K0': refit 3.954 vs published 4.08 (-3.1%), outside the combined error.",
         "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
+        "warning_reason": "The Table II fit is not reproduced from the published data; the published curve leaves residuals up to about +2.8 GPa.",
         "source_check": "unresolved",
         "source_checked_on": "2026-10-17",
         "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",

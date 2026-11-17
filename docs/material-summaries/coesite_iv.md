@@ -153,7 +153,7 @@ Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regressi
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/coesite_iv.md#record-coesite_iv_v_bykova_2018_experimental_bm2_reference)
 
-**Warning:** Not recommended for use.
+**Warning:** Not recommended for use. A joint coesite-IV/V fit, not a pure-phase EOS, with large observation residuals and an unresolved fitting protocol.
 
 **Source finding:** The published coefficients with an explicit 32.7 GPa reference reproduce the drawn red curve; all observation residuals and unresolved author-fit details are separately retained.
 

@@ -303,7 +303,7 @@ Published five-parameter fit on the MgO pressure scale, with theta0 fixed to the
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cementite_nonmagnetic.md#record-cementite_nonmagnetic_sata_2010_bm3)
 
-**Warning:** Qualified use only; see the audit.
+**Warning:** Qualified use only; see the audit. Some quoted point errors are smaller than the overall experimental scatter; use within 300 K and 27.2–186.6 GPa.
 
 **Warning (source review):** Some quoted point errors are smaller than the overall experimental scatter. Retain the published EOS within 300 K and 27.2–186.6 GPa; the separate refit is diagnostic.
 
@@ -544,7 +544,7 @@ Published 300 K BM3 based on the nine Table 1 states and three Li (2002) states 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cementite_nonmagnetic.md#record-cementite_nonmagnetic_hu_2019_linear_hugoniot)
 
-**Warning:** Qualified use only; see the audit.
+**Warning:** Qualified use only; see the audit. Possible melting at higher pressures; the density data do not resolve the phase state.
 
 **Warning (source review):** Possible melting at higher pressures; density data do not resolve the phase state.
 

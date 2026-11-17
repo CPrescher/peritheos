@@ -2511,7 +2511,7 @@ Static-lattice LDA fit for cubic CaSiO3 perovskite.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_fu_2023_bm3_mgd_refit)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The published thermal parameters keep an unresolved high-temperature misfit to the source data; the joint fit is not reproduced.
 
 **Source finding:** The source publishes a complete CaSiO3 BM3-MGD coefficient set, but not its regression objective, weights, covariance, code, or row manifest. The official ZIP contains only the supplement PDF and CIF. A 174-observation candidate selection can be reconstructed from the 140 Sun rows matching the Figure S3 temperature legend and 34 cubic Gréaux rows; multiple explicit weightings do not recover Table S3.
 

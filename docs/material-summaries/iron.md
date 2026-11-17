@@ -3395,7 +3395,7 @@ Published full-range linear Us-up fit, used only for the solid-iron subset below
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_bm3)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.
 
 **Source finding:** Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits.
 
@@ -3500,7 +3500,7 @@ The published fit does not reproduce the authors' supplied observations under th
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_vinet)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.
 
 **Source finding:** Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits.
 
@@ -3605,7 +3605,7 @@ The published fit does not reproduce the authors' supplied observations under th
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_bm3_mgd)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. Uses MGD with n = 2 at the per-mole-Fe volume, unlike the physical per-Fe n = 1; full reproduction of the fit is unresolved.
 
 **Source finding:** Printed preferred thermal coefficients and their uncertainties are preserved. Full MGD, n=2 with V0 approximately 6.87 cm3/mol and the final free V0 are attributed to recorded personal communication, rather than inferred from the printed equations. The author-setting replay improves residuals but does not recover the full original fit.
 

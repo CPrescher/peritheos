@@ -334,7 +334,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/cementite.md#record-cementite_ono_mibe_2010_bm3)
 
-**Warning:** Qualified use only; see the audit.
+**Warning:** Qualified use only; see the audit. Fitted only to 34.3 GPa at 300 K; the V0 constraint, fit weights and coefficient errors are not reported.
 
 **Source finding:** Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0\_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted.
 

@@ -2077,7 +2077,7 @@ Fitted 300 K Vinet branch of Table IV, not an exact projection of the full cold-
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/platinum.md#record-platinum_yokoo_2009_pvt_reconstruction)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. A diagnostic rebuild of calculated Table V outputs; it does not reproduce the published model or replace that pressure standard.
 
 **Source finding:** Equations 1-12 and Table V supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction.
 

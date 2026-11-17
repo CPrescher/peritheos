@@ -1248,7 +1248,7 @@ Both fits use the same 26 recovered audit input rows. **Volume coordinate:** vol
 
 **untested** (source calculation reconstructed) · `gold_yokoo_2009_pvt_reconstruction` · `BM3` · [Coefficients and source](../material-summaries/gold.md#record-gold_yokoo_2009_pvt_reconstruction)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. A diagnostic rebuild of calculated Table III outputs; it does not reproduce the published model or replace that pressure standard.
 
 **Scope:** Reconstruction of a source equation or calculation. **Basis:** Numerically checked diagnostic reconstruction of published table outputs. The published analytical PVT parameterization remains unreproduced: Au uses altered phonon coefficients and Pt adds an empirical pressure correction. This source-output status does not validate the published Yokoo pressure standard. The separate pressure-convention audit rules out cold-reference offsets and tests last-digit rounding; no caloric or original-fit inputs are required for PVT evaluation.
 

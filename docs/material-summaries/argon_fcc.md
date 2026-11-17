@@ -1071,7 +1071,7 @@ Single isotherm of an inverse-volume series; do not interpolate in temperature o
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/argon_fcc.md#record-argon_fcc_chen_2010_bm3_reported_constants)
 
-**Warning:** Do not use. Never chosen automatically; select it explicitly.
+**Warning:** Do not use. Never chosen automatically; select it explicitly. A rebuild from Chen's rounded constants, not a verified author equation; it misses the digitized densities by about 6.9 GPa RMS.
 
 **Usage qualification:** DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.
 
@@ -1249,7 +1249,7 @@ Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nomi
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/argon_fcc.md#record-argon_fcc_maltby_2024_published)
 
-**Warning:** Never chosen automatically; select it explicitly.
+**Warning:** Never chosen automatically; select it explicitly. The implementation does not reproduce the paper's Table 8 sample (23.89 vs 23.97 cm³/mol); the cause is unresolved.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

@@ -328,6 +328,7 @@
           },
           "reproduction_status": "not_reproduced",
           "usage_recommendation": "not_recommended_for_quantitative_use",
+          "warning_reason": "All 125 DAC-2 observations above 35 GPa have negative residuals against the published curve; the cause is unresolved.",
           "recommendation_date": "2026-10-17",
           "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
           "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",

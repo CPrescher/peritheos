@@ -1101,6 +1101,7 @@
         "compared": "published_fit",
         "why": "gamma0: refit 2.442 vs published 1.42 (+72.0%), beyond the agreement limit; q: refit 1.839 vs published 2.65 (-30.6%), beyond the agreement limit.",
         "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
+        "warning_reason": "The published thermal parameters keep an unresolved high-temperature misfit to the source data; the joint fit is not reproduced.",
         "source_check": "unresolved",
         "source_checked_on": "2026-09-08",
         "source_note": "The source publishes a complete CaSiO3 BM3-MGD coefficient set, but not its regression objective, weights, covariance, code, or row manifest. The official ZIP contains only the supplement PDF and CIF. A 174-observation candidate selection can be reconstructed from the 140 Sun rows matching the Figure S3 temperature legend and 34 cubic Gréaux rows; multiple explicit weightings do not recover Table S3.",

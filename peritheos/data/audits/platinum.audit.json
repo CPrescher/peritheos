@@ -2695,7 +2695,8 @@
             "dataset_identifiers": ["platinum_yokoo_2009_table5_isochores", "tsuchiya_kawamura_2002_table1_electronic_pressure"],
             "finding": "Derived source outputs, not primary experimental observations. Exact author optimization is not reproduced.",
             "reproduction_resource": "docs/data/yokoo-2009-platinum-thermal-reconstruction.json"
-          }
+          },
+          "warning_reason": "A diagnostic rebuild of calculated Table V outputs; it does not reproduce the published model or replace that pressure standard."
         },
         "parameter_provenance": {
           "V0": "Inferred cold Vc from model outputs, distinct from ambient volume normalization",

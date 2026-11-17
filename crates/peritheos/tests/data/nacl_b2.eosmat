@@ -92,6 +92,7 @@
         "compared": "published_fit",
         "why": "K0: refit 25.447 vs published 24.92 GPa (+2.1%), outside the combined error.",
         "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
+        "warning_reason": "All 125 DAC-2 observations above 35 GPa have negative residuals against the published curve; the cause is unresolved.",
         "source_check": "unresolved",
         "source_checked_on": "2026-10-17",
         "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
