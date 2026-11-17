@@ -1386,3 +1386,115 @@ fn curated_check_texts_are_validated() {
     assert_eq!(record.warning(), Some("Do not use."));
     assert_eq!(record.warning_reason(), Some("Fictional reason."));
 }
+
+/// Mirrors `test_stored_copies_must_equal_the_inline_evidence` in Python.
+#[test]
+fn stored_check_texts_must_equal_the_evidence() {
+    let note = "Table 2 V0 and K0 match; V0 converted from cm3/mol.";
+    let reason = "The fit omits the two highest-pressure points.";
+    let with_check = |document: &Value, key: &str, value: Option<&str>| {
+        let mut document = document.clone();
+        let mut check = derive_eosmat_check(&document["eos_records"][0], Some(&document));
+        if let Some(value) = value {
+            check[key] = json!(value);
+        }
+        document["eos_records"][0]["check"] = check;
+        document
+    };
+    for document in [
+        curated(Some(note), Some(reason), true),
+        curated(None, None, true),
+    ] {
+        material_from_value(with_check(&document, "source_note", None)).unwrap();
+    }
+    for (document, key, value) in [
+        (
+            curated(Some(note), Some(reason), true),
+            "source_note",
+            "Table 2 values match.",
+        ),
+        (curated(None, Some(reason), true), "source_note", note),
+        (
+            curated(Some(note), Some(reason), true),
+            "warning_reason",
+            "Other reason.",
+        ),
+        (curated(Some(note), None, true), "warning_reason", reason),
+    ] {
+        let document = with_check(&document, key, Some(value));
+        let message = invalid_reason(&document);
+        assert!(
+            message.contains(&format!("check.{key} differs from the evidence")),
+            "{message}"
+        );
+    }
+    // A standalone file without evidence keeps its own texts.
+    let mut own = curated(None, None, true);
+    own["eos_records"][0]
+        .as_object_mut()
+        .unwrap()
+        .remove("evidence");
+    own["eos_records"][0]["check"] = json!({
+        "warning": "Do not use.",
+        "warning_reason": "My own reason.",
+        "source_note": "My own note."
+    });
+    let record = material_from_value(own).unwrap().eos_records[0].clone();
+    assert_eq!(record.source_note(), Some("My own note."));
+}
+
+/// Blank means Unicode `White_Space` only, as in Python; limits count characters.
+#[test]
+fn curated_texts_trim_white_space_and_count_characters() {
+    for blank in [" ", "\t\n", "\u{a0}", "\u{2003}\u{3000}"] {
+        let mut plain = curated(None, None, true);
+        plain["eos_records"][0]
+            .as_object_mut()
+            .unwrap()
+            .remove("evidence");
+        for check in [
+            json!({"warning": "Do not use.", "warning_reason": blank}),
+            json!({"source_note": blank}),
+        ] {
+            plain["eos_records"][0]["check"] = check;
+            let message = invalid_reason(&plain);
+            assert!(message.contains("must be a non-empty string"), "{message}");
+        }
+        for document in [
+            curated(Some(blank), None, true),
+            curated(None, Some(blank), true),
+        ] {
+            let message = invalid_reason(&document);
+            assert!(message.contains("must be a non-empty string"), "{message}");
+        }
+    }
+    // U+001F is not White_Space: kept, as by Python.
+    validate_eosmat_document(&curated(Some("\u{1f}"), None, true)).unwrap();
+
+    // Two-byte characters: the limits are characters, not bytes.
+    let note = "é".repeat(RECORD_NOTE_MAX_LENGTH);
+    let reason = "Å".repeat(WARNING_REASON_MAX_LENGTH);
+    assert_eq!(note.len(), 2 * RECORD_NOTE_MAX_LENGTH);
+    let document = curated(Some(&note), Some(&reason), true);
+    validate_eosmat_document(&document).unwrap();
+    let mut stored = document.clone();
+    stored["eos_records"][0]["check"] =
+        derive_eosmat_check(&document["eos_records"][0], Some(&document));
+    let record = material_from_value(stored).unwrap().eos_records[0].clone();
+    assert_eq!(record.warning_reason(), Some(reason.as_str()));
+    let longer = format!("{note}é");
+    assert!(invalid_reason(&curated(Some(&longer), None, true))
+        .contains("record_note must be at most 300 characters"));
+    let longer = format!("{reason}Å");
+    assert!(invalid_reason(&curated(None, Some(&longer), true))
+        .contains("warning_reason must be at most 140 characters"));
+    let mut plain = curated(None, None, true);
+    plain["eos_records"][0]
+        .as_object_mut()
+        .unwrap()
+        .remove("evidence");
+    plain["eos_records"][0]["check"] = json!({"warning": "Do not use.", "warning_reason": reason});
+    validate_eosmat_document(&plain).unwrap();
+    plain["eos_records"][0]["check"]["warning_reason"] = json!(longer);
+    assert!(invalid_reason(&plain).contains("check.warning_reason must be at most 140"));
+}

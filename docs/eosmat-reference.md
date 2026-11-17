@@ -274,7 +274,13 @@ any other key is an error. The words are defined in [EOS labels](eos-labels.md).
 When evidence is present (inline or merged), `reproduction`, `compared` and
 `source_check` must equal the values derived from it, or loading fails; the
 [label page](eos-labels.md#detailed-outcome-codes) lists the stored codes they
-rename. Without `check`, `EOSRecord.reproduction`, `.compared`, `.why`,
+rename. Likewise a stored `source_note` must equal the evidence's `record_note`,
+else its `finding` (when the evidence has a `primary_source_check`), and a
+stored `warning_reason` must equal `scientific_validation.warning_reason`
+(when the evidence has a `scientific_validation`). A `warning_reason` or
+`source_note` made only of white space (Unicode `White_Space`) is an error,
+in `check` as in the evidence; a standalone file without evidence may write
+its own texts. Without `check`, `EOSRecord.reproduction`, `.compared`, `.why`,
 `.warning`, `.warning_reason`, `.source_check` and `.source_note` are derived
 from the evidence;
 a record without an assessment is `untested`, compared `none`. Without

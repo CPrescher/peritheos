@@ -241,3 +241,61 @@ def test_overview_and_summary_show_the_reason():
     plain = record_of(curated())
     assert plain.overview()["check"]["warning_reason"] is None
     assert f"  Warning: {WARNING}" in plain.summary().splitlines()
+
+
+def test_stored_copies_must_equal_the_inline_evidence():
+    """Mirrors ``stored_check_texts_must_equal_the_evidence`` in Rust."""
+    for note, reason in ((NOTE, REASON), (None, None)):
+        document = curated(note, reason)
+        record = document["eos_records"][0]
+        record["check"] = check_block(record, document)
+        record_of(document)
+    cases = [
+        # A stored note must be the record_note, else the verbatim finding.
+        (curated(NOTE, REASON), "source_note", "Table 2 values match.", "source_note"),
+        (curated(None, REASON), "source_note", NOTE, "source_note"),
+        # A stored reason must be the evidence's reason, also when it has none.
+        (curated(NOTE, REASON), "warning_reason", "Other reason.", "warning_reason"),
+        (curated(NOTE, None), "warning_reason", REASON, "warning_reason"),
+    ]
+    for document, key, value, field in cases:
+        record = document["eos_records"][0]
+        record["check"] = check_block(record, document)
+        record["check"][key] = value
+        with pytest.raises(
+            EosmatError, match=f"check.{field} differs from the evidence"
+        ):
+            record_of(document)
+    # A standalone file without evidence keeps its own texts.
+    document = curated()
+    del document["eos_records"][0]["evidence"]
+    document["eos_records"][0]["check"] = {
+        "warning": "Do not use.",
+        "warning_reason": "My own reason.",
+        "source_note": "My own note.",
+    }
+    assert record_of(document).source_note == "My own note."
+
+
+@pytest.mark.parametrize("blank", [" ", "\t\n", " ", " 　"])
+def test_white_space_only_texts_are_rejected_in_check_and_evidence(blank):
+    document = curated()
+    del document["eos_records"][0]["evidence"]
+    for check in (
+        {"warning": "Do not use.", "warning_reason": blank},
+        {"source_note": blank},
+    ):
+        document["eos_records"][0]["check"] = check
+        with pytest.raises(EosmatError, match="must be a non-empty string"):
+            record_of(document)
+    for note, reason in ((blank, None), (None, blank)):
+        with pytest.raises(EosmatError, match="must be a non-empty string"):
+            record_of(curated(note, reason))
+
+
+def test_only_unicode_white_space_is_blank():
+    # U+001F is white space to str.isspace but not Unicode White_Space; like
+    # the Rust reader, the library keeps such a text.
+    assert "\x1f".isspace()
+    record = record_of(curated("\x1f", None))
+    assert record.source_note == "\x1f"

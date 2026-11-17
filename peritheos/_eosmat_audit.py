@@ -122,6 +122,19 @@ WHY_MAX_LENGTH = 160
 #: ``check.warning_reason``).
 RECORD_NOTE_MAX_LENGTH = 300
 WARNING_REASON_MAX_LENGTH = 140
+#: The Unicode ``White_Space`` characters. A curated text (``source_note``,
+#: ``warning_reason`` and their sidecar fields) made only of these is empty;
+#: the Rust reader trims the same set (``str::trim``).
+WHITE_SPACE = (
+    "\t\n\x0b\x0c\r \x85\xa0\u1680\u2000\u2001\u2002\u2003\u2004\u2005"
+    "\u2006\u2007\u2008\u2009\u200a\u2028\u2029\u202f\u205f\u3000"
+)
+
+
+def _blank(value: Any) -> bool:
+    """A value that is not a string or holds only ``WHITE_SPACE``."""
+    return not isinstance(value, str) or not value.strip(WHITE_SPACE)
+
 
 #: Statements that apply to every assessment of their kind. They are defined
 #: once in docs/eos-labels.md and are not repeated in bundled sidecars.
@@ -581,6 +594,9 @@ def validate_check(check: Any, location: str) -> None:
     for key in ("why", "warning_reason", "source_note", "source_checked_on", "audit"):
         if key in check and (not isinstance(check[key], str) or not check[key]):
             raise EosmatError(f"{location}.check.{key} must be a non-empty string")
+    for key in ("warning_reason", "source_note"):
+        if key in check and _blank(check[key]):
+            raise EosmatError(f"{location}.check.{key} must be a non-empty string")
     if "warning_reason" in check:
         if len(check["warning_reason"]) > WARNING_REASON_MAX_LENGTH:
             raise EosmatError(
@@ -671,6 +687,21 @@ def validate_check_consistency(record: Mapping[str, Any], location: str) -> None
                 f"{location}.check.source_check {check['source_check']!r} "
                 f"contradicts scientific_validation.status {validation['status']!r}"
             )
+    # The curated texts are copies: with the evidence inline (or merged from
+    # the sidecar) a stored copy must equal its derivation.
+    if "source_note" in check and _section(validation, "primary_source_check"):
+        if check["source_note"] != source_note(record):
+            raise EosmatError(
+                f"{location}.check.source_note differs from the evidence "
+                "(scientific_validation.primary_source_check.record_note, else "
+                "its finding)"
+            )
+    if "warning_reason" in check and validation:
+        if check["warning_reason"] != warning_reason(record):
+            raise EosmatError(
+                f"{location}.check.warning_reason differs from the evidence "
+                "(scientific_validation.warning_reason)"
+            )
 
 
 def validate_check_text(
@@ -700,7 +731,7 @@ def validate_check_text(
         if key not in container:
             continue
         value = container[key]
-        if not isinstance(value, str) or not value.strip():
+        if _blank(value):
             raise EosmatError(f"{where}.{place}{key} must be a non-empty string")
         if len(value) > limit:
             raise EosmatError(

@@ -941,6 +941,18 @@ pub(super) fn validate_check(check: &Value, location: &str) -> Result<(), Eosmat
             }
         }
     }
+    // Only Unicode White_Space (`str::trim`, the set Python strips) is blank.
+    for key in ["warning_reason", "source_note"] {
+        if check
+            .get(key)
+            .and_then(Value::as_str)
+            .is_some_and(|text| text.trim().is_empty())
+        {
+            return Err(invalid_document(format!(
+                "{location}.check.{key} must be a non-empty string"
+            )));
+        }
+    }
     if let Some(reason) = check.get("warning_reason").and_then(Value::as_str) {
         if reason.chars().count() > WARNING_REASON_MAX_LENGTH {
             return Err(invalid_document(format!(
@@ -1022,6 +1034,29 @@ pub(super) fn validate_check_consistency(
             )));
         }
     }
+    // The curated texts are copies: with the evidence inline (or merged from
+    // the sidecar) a stored copy must equal its derivation.
+    let validation = validation(record);
+    if let Some(stored) = check.get("source_note") {
+        let holds_source_check = validation
+            .and_then(|validation| validation.get("primary_source_check"))
+            .and_then(Value::as_object)
+            .is_some_and(|source| !source.is_empty());
+        if holds_source_check && stored.as_str() != source_note(validation) {
+            return Err(invalid_document(format!(
+                "{location}.check.source_note differs from the evidence (scientific_validation.primary_source_check.record_note, else its finding)"
+            )));
+        }
+    }
+    if let Some(stored) = check.get("warning_reason") {
+        if validation.is_some_and(|validation| !validation.is_empty())
+            && stored.as_str() != warning_reason(validation)
+        {
+            return Err(invalid_document(format!(
+                "{location}.check.warning_reason differs from the evidence (scientific_validation.warning_reason)"
+            )));
+        }
+    }
     Ok(())
 }
 
@@ -1058,6 +1093,7 @@ pub(super) fn validate_check_text(
         let Some(value) = container.and_then(|container| container.get(key)) else {
             continue;
         };
+        // `str::trim` removes Unicode White_Space, the set Python strips.
         let Some(text) = value.as_str().filter(|text| !text.trim().is_empty()) else {
             return Err(invalid_document(format!(
                 "{place}.{prefix}{key} must be a non-empty string"
