@@ -15,6 +15,7 @@ from __future__ import annotations
 import math
 from collections.abc import Mapping
 from decimal import ROUND_HALF_UP, Decimal, localcontext
+from statistics import NormalDist
 from typing import TYPE_CHECKING, Any
 
 import numpy as np
@@ -886,6 +887,29 @@ def _ranges_text(ranges: Mapping[str, Any]) -> list[str]:
 
 _CATEGORY_WORDS = {"equilibrium": "equilibrium", "hugoniot": "Hugoniot"}
 
+#: Two-sided normal confidence of one and two standard deviations.
+_ONE_SIGMA = 0.6826894921370859
+_TWO_SIGMA = 0.9544997361036416
+
+
+def error_convention_text(confidence: float | None) -> str:
+    """How the printed parameter errors relate to a standard deviation.
+
+    The 1-sigma spellings 0.68, 0.6827 and 0.682689... all read "1 sigma";
+    0.95 reads as 1.96 sigma and 0.9545 as 2 sigma. Any other level is printed
+    with the normal factor computed from it.
+    """
+    if confidence is None:
+        return "confidence level not stated; used as 1 sigma"
+    if abs(confidence - _ONE_SIGMA) < 3e-3:
+        return "1 sigma"
+    if abs(confidence - _TWO_SIGMA) < 1e-4:
+        return "2 sigma"
+    if confidence == 0.95:
+        return "95% half-widths (1.96 sigma)"
+    factor = NormalDist().inv_cdf(0.5 * (1.0 + confidence))
+    return f"{confidence * 100:.4g}% half-widths ({factor:.3g} sigma)"
+
 
 def record_summary(overview: Mapping[str, Any]) -> str:
     """Plain text for one record overview."""
@@ -926,15 +950,9 @@ def record_summary(overview: Mapping[str, Any]) -> str:
         if check["warning_reason"]:
             warning += f" {check['warning_reason']}"
         lines.append(f"  Warning: {_line(warning)}")
-    confidence = overview["error_confidence"]
     lines.append(
-        "  Parameters (errors as published, "
-        + (
-            "confidence level not stated"
-            if confidence is None
-            else f"{confidence:.0%} confidence"
-        )
-        + "):"
+        "  Parameters, errors as published: "
+        + error_convention_text(overview["error_confidence"])
     )
     rows = overview["parameters"]
     width = max((len(row["display_name"]) for row in rows), default=0)

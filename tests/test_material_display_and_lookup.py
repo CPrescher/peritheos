@@ -226,7 +226,7 @@ def test_record_summary_converts_molar_volume_errors_to_the_public_unit():
 def test_record_summary_states_the_confidence_level():
     record = get_eos_record("gold_dewaele_2004_vinet_5")
     text = record.summary()
-    assert "95% confidence" in text
+    assert "  Parameters, errors as published: 95% half-widths (1.96 sigma)" in text
     assert any(
         line.split()[:5] == ["K0'", "=", "6", "+/-", "0.02"]
         for line in text.splitlines()

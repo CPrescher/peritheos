@@ -155,8 +155,8 @@ records:
   phase-stability field or an extrapolation guarantee
   ([Which range the reader uses](eosmat-reference.md#which-range-the-reader-uses)).
 - An absent or `null` `parameter_error_confidence` or `parameter_covariance`
-  means the source did not report it
-  ([Parameters](eosmat-reference.md#parameters)). Retire a record's sentence
+  means the source did not report it; errors without a stated confidence are
+  used as 1 sigma ([Parameters](eosmat-reference.md#parameters)). Retire a record's sentence
   saying so only where both fields are absent or `null`; if either is set, the
   sentence and the field must be reconciled by the curator first.
 - A published record keeps its published values and qualifications

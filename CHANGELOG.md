@@ -111,6 +111,9 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- State one rule for `parameter_error_confidence` (null or absent: no stated
+  level, errors used as 1 sigma; 0.95 = 1.96 sigma) and print the sigma
+  relation in `EOSRecord.summary()` instead of a bare confidence percentage.
 - Expose the complete author-processed 194-observation pyrope parameter/error
   replay in catalog evidence and reconstruction plots. Preserve published
   coefficients, source covariance and upstream preprocessing qualifications;

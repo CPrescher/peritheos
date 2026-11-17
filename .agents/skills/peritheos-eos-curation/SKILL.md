@@ -25,7 +25,7 @@ Distinguish a material (composition and phase), a source parameterization, an in
 
 Verify composition, phase, conventional/primitive/formula/atomic/molar volume basis, formula-unit count Z, units, reference pressure/temperature, and determination method. For new materials, supply diffraction-ready structure or an explicitly supported fallback, with structural provenance separate from EOS provenance. Check cell contents and volume consistency.
 
-Map the actual equations, reference-state conventions, fixed/adopted parameters, thermal laws, atom normalization, and pressure-scale version. Record actual experimental coverage and phase limitations; marginal P/T ranges do not establish stability over the entire rectangle. Missing uncertainty is missing, not zero.
+Map the actual equations, reference-state conventions, fixed/adopted parameters, thermal laws, atom normalization, and pressure-scale version. Record actual experimental coverage and phase limitations; marginal P/T ranges do not establish stability over the entire rectangle. Missing uncertainty is missing, not zero. When the source states the error convention, set `parameter_error_confidence` (`0.6826894921370859` for 1 sigma, `0.95` for 95%) and keep the printed errors unchanged.
 
 ## Validate at the level the evidence supports
 

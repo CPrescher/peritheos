@@ -21,6 +21,7 @@ from peritheos.__main__ import main
 from peritheos._overview import (
     CHECK_EXPLANATIONS,
     COMPARED_PHRASES,
+    error_convention_text,
     format_range,
     format_value_error,
 )
@@ -304,7 +305,7 @@ mgo_speziale_2001_bm3_2
 reference temperature 300 K
   Check: reproduced (refit vs published fit). A refit of the source data gave \
 the published coefficients.
-  Parameters (errors as published, confidence level not stated):
+  Parameters, errors as published: confidence level not stated; used as 1 sigma
     Birch-Murnaghan, third order (BM3):
       V0     = 74.71 +/- 0.01                     angstrom^3/conventional_unit_cell
       K0     = 160.2 fixed                        GPa
@@ -341,7 +342,7 @@ palladium_frost_2023_vinet_1
 pending review. Never chosen automatically; select it explicitly. The authors' \
 fitting objective and covariance convention are unstated, so the published \
 fit is not fully reproduced.
-  Parameters (errors as published, confidence level not stated):
+  Parameters, errors as published: confidence level not stated; used as 1 sigma
     Vinet:
       V0  = 58.678 +/- 0.073  angstrom^3/conventional_unit_cell
       K0  = 189.3 +/- 3       GPa
@@ -359,7 +360,7 @@ mgo_shen_2026_vinet_3
   Warning: Not recommended for quantitative use. Never chosen automatically; \
 select it explicitly. The Table II fit is not reproduced from the published \
 data; the published curve leaves residuals up to about +2.8 GPa.
-  Parameters (errors as published, confidence level not stated):
+  Parameters, errors as published: confidence level not stated; used as 1 sigma
     Vinet:
       V0  = 74.636 fixed   angstrom^3/conventional_unit_cell
       K0  = 161.9 +/- 0.7  GPa
@@ -499,3 +500,22 @@ def test_list_prints_one_line_per_material(capsys):
     mgo = next(row for row in rows if row.startswith("mgo "))
     assert "37 records" in mgo and "Speziale et al. (2001)" in mgo
     assert np.all([row.split()[0] for row in rows])
+
+
+@pytest.mark.parametrize(
+    ("confidence", "text"),
+    [
+        (None, "confidence level not stated; used as 1 sigma"),
+        (0.68, "1 sigma"),
+        (0.6827, "1 sigma"),
+        (0.682689492137, "1 sigma"),
+        (0.6826894921370859, "1 sigma"),
+        (0.95, "95% half-widths (1.96 sigma)"),
+        (0.9545, "2 sigma"),
+        (0.9544997361036416, "2 sigma"),
+        (0.9, "90% half-widths (1.64 sigma)"),
+        (0.99, "99% half-widths (2.58 sigma)"),
+    ],
+)
+def test_summary_states_how_printed_errors_relate_to_sigma(confidence, text):
+    assert error_convention_text(confidence) == text

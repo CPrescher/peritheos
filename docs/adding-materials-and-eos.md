@@ -140,7 +140,9 @@ A bundled, executable EOS record must satisfy all of the following:
 4. **Traceable parameters.** Every stored value has a table, equation, page,
    supplement, or documented derivation. Reported errors, their confidence
    convention, fixed parameters, and covariance information are preserved;
-   missing uncertainty is stored as missing, not zero.
+   missing uncertainty is stored as missing, not zero. When the source states
+   the convention, set `parameter_error_confidence` (`0.6826894921370859` for
+   1 sigma, `0.95` for 95%) and keep the printed errors unchanged.
 5. **Numerical reproduction.** At least one independently specified source
    result is reproduced within a tolerance justified by reported uncertainty,
    printed precision, or digitization error. Reference-state identities alone
