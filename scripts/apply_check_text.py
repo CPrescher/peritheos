@@ -1,9 +1,9 @@
 """Repository maintenance: write the curated check texts of bundled records.
 
-Two short texts in a record's audit sidecar entry
-(``peritheos/data/audits/<id>.audit.json``) are copied into the record's
-``check`` block in ``peritheos/data/materials/<id>.eosmat``
-(``docs/record-text-standard.md``):
+Two short texts and a coded usage recommendation in a record's audit sidecar
+entry (``peritheos/data/audits/<id>.audit.json``) are copied into, or
+generate, the record's ``check`` block in
+``peritheos/data/materials/<id>.eosmat`` (``docs/record-text-standard.md``):
 
 ``source_note``
     written to ``evidence.scientific_validation.primary_source_check.record_note``
@@ -14,28 +14,63 @@ Two short texts in a record's audit sidecar entry
     written to ``evidence.scientific_validation.warning_reason`` and copied to
     ``check.warning_reason``; ``null`` removes it. ``check.warning`` wording
     is unchanged.
+``usage_recommendation``
+    one of the coded values of
+    :data:`peritheos._eosmat_audit.USAGE_RECOMMENDATION_WARNINGS`, written to
+    ``evidence.scientific_validation.usage_recommendation``; ``check.warning``
+    is regenerated from it (fixed wording). ``null`` returns the field to its
+    stored original. Free text replaced by a code is kept verbatim as
+    ``scientific_validation.recommendation_reason`` (see below).
 
 Input files (JSON), any number::
 
     {"<material>": {"<record>": {"source_note": str|null,
                                  "warning_reason": str|null,
+                                 "usage_recommendation": str|null,
                                  ...other keys are ignored}}}
 
-Either key may be absent. The record's ``check`` block is regenerated from the
-merged evidence (only ``source_note`` and ``warning_reason`` may change), both
-files are written through the repository formatter and the audit-split
-receipt binds the revision: the value each field had before its first
-post-split change is kept as a ``check_text`` entry, so
-``scripts/split_eosmat_audits.py --verify`` still recovers every pre-split
-file byte for byte.
+Any key may be absent. The record's ``check`` block is regenerated from the
+merged evidence (only ``source_note``, ``warning_reason`` and, with
+``usage_recommendation``, ``warning`` may change), both files are written
+through the repository formatter and the audit-split receipt binds the
+revision: the value each field had before its first post-split change is kept
+as a ``check_text`` entry, so ``scripts/split_eosmat_audits.py --verify``
+still recovers every pre-split file byte for byte.
+
+What a usage recommendation carries with it, in both directions:
+
+- Replacing free text by a code moves the text, verbatim, to
+  ``recommendation_reason`` when that field is absent (an equal
+  ``recommendation_reason`` is left as is). A different, existing
+  ``recommendation_reason`` is refused (``recommendation_reason_present``): the
+  curator merges the two texts by hand first. Nothing is ever shortened.
+- ``evidence.reproduction.assessment.qualifications`` is rebuilt with
+  ``scripts/standardize_reconstruction_metadata.py``'s
+  ``assessment_for_record`` from the record and its row of the registered
+  refit ledger (``docs/data/primary-eos-refits.json``), so the
+  ``Usage recommendation: <text>`` entry becomes the moved text plus
+  ``Usage recommendation: <code>``, exactly as in records that already carry
+  a code. A change that would alter any other part of the assessment is
+  refused (``beyond_fields``).
+- The ledger row's copies (``usage_recommendation``, ``recommendation_reason``
+  and the ``recommendation_reason`` appended to ``qualification``, as
+  ``validate_primary_eos_refits.py`` writes them) are updated and
+  ``docs/primary-eos-refits.md`` is re-rendered from the saved ledger;
+  nothing is recomputed.
+- The receipt keeps the originals of ``usage_recommendation``,
+  ``recommendation_reason`` and ``assessment_qualifications``; ``null``, or
+  setting the original code again, puts all three back.
 
 A record is refused, and reported, when its material or record is unknown,
 its material's files are not in canonical layout (``not_canonical``; the
 dry run reports this too), a value is neither text nor ``null``, the record
-has no ``primary_source_check`` (for ``source_note``), or a
-``warning_reason`` is given for a record whose ``check.warning`` is ``null``
-(the library rejects such a record, so this cannot be overridden). These
-guards refuse it too:
+has no ``primary_source_check`` (for ``source_note``), a
+``usage_recommendation`` is not a coded value (``not_coded``) or the record
+has no ledger row (``no_ledger_row``), the resulting record would keep a
+``warning_reason`` without a warning (``no_warning``), or a change gives the
+record its first warning without a ``warning_reason`` (``reason_required``).
+These cannot be overridden (the library rejects a reason without a warning).
+These guards refuse it too:
 
 ``source_note_length``
     a source note over 300 characters;
@@ -71,11 +106,13 @@ Usage::
     python scripts/apply_check_text.py BATCH.json ...           # apply
     python scripts/apply_check_text.py --verify
 
-``--verify`` confirms that every bundled ``check`` block equals its
-derivation from the merged sidecar (so ``source_note`` and ``warning_reason``
-are current), that every curated text is within its limit and that every
-material holding one still recovers its pre-split file exactly. This is not
-an installed-package tool.
+Every changed record's resulting ``check.warning`` is printed, in the dry run
+too. ``--verify`` confirms that every bundled ``check`` block equals its
+derivation from the merged sidecar (so ``source_note``, ``warning`` and
+``warning_reason`` are current), that every material holding a bound field
+still recovers its pre-split file exactly and that the ledger's
+``usage_recommendation`` and ``recommendation_reason`` copies equal the
+sidecars. This is not an installed-package tool.
 """
 
 from __future__ import annotations
@@ -94,16 +131,20 @@ if str(ROOT) not in sys.path:
 
 from peritheos._eosmat_audit import (  # noqa: E402
     RECORD_NOTE_MAX_LENGTH,
+    USAGE_RECOMMENDATION_WARNINGS,
     WARNING_REASON_MAX_LENGTH,
     check_block,
     merge_audit,
     source_note,
     usage_warning,
+    warning_reason,
 )
 from peritheos._eosmat_format import format_audit, format_eosmat  # noqa: E402
 from peritheos.eosmat import validate_eosmat_document  # noqa: E402
 from scripts.apply_record_text import (  # noqa: E402
     FORBIDDEN_TEXT,
+    LEDGER,
+    LEDGER_MARKDOWN,
     Plan,
     Refusal,
     _receipt,
@@ -114,15 +155,26 @@ from scripts.apply_record_text import (  # noqa: E402
 from scripts.split_eosmat_audits import (  # noqa: E402
     CHECK_TEXT_FIELDS,
     RECEIPT,
+    RECOMMENDATION_FIELDS,
     check_text,
     check_text_receipt,
     pre_split_bytes,
     receipt_text,
     set_check_text,
 )
+from scripts.standardize_reconstruction_metadata import (  # noqa: E402
+    assessment_for_record,
+)
 
-#: Input keys and the sidecar field each one writes.
+#: Text input keys and the sidecar field each one writes.
 INPUT_FIELDS = {"source_note": "record_note", "warning_reason": "warning_reason"}
+#: The input key (and sidecar field) of the coded usage recommendation.
+USAGE_KEY = "usage_recommendation"
+INPUT_KEYS = (*INPUT_FIELDS, USAGE_KEY)
+#: Accepted usage recommendations: the codes with a fixed ``check.warning``.
+CODED_RECOMMENDATIONS = tuple(USAGE_RECOMMENDATION_WARNINGS)
+#: Ledger row fields copied from ``scientific_validation``.
+LEDGER_FIELDS = ("usage_recommendation", "recommendation_reason")
 LIMITS = {
     "source_note": RECORD_NOTE_MAX_LENGTH,
     "warning_reason": WARNING_REASON_MAX_LENGTH,
@@ -135,6 +187,15 @@ GUARDS = (
     "shared_note",
 )
 _ABSENT = object()
+
+
+class _Refused(Exception):
+    """A change the files cannot take; reported as a refusal."""
+
+    def __init__(self, reason: str, detail: str) -> None:
+        super().__init__(f"{reason}: {detail}")
+        self.reason = reason
+        self.detail = detail
 
 
 def read_batches(paths: Iterable[Path], plan: Plan) -> dict[str, dict[str, dict]]:
@@ -151,11 +212,11 @@ def read_batches(paths: Iterable[Path], plan: Plan) -> dict[str, dict[str, dict]
             for record, entry in records.items():
                 if not isinstance(entry, dict):
                     raise ValueError(f"{path}: {material}/{record} must be an object")
-                item = {k: entry[k] for k in INPUT_FIELDS if k in entry}
+                item = {k: entry[k] for k in INPUT_KEYS if k in entry}
                 if not item:
                     plan.notices.append(
-                        f"{material}/{record}: no source_note or warning_reason in "
-                        f"{Path(path).name}"
+                        f"{material}/{record}: no source_note, warning_reason or "
+                        f"usage_recommendation in {Path(path).name}"
                     )
                     continue
                 previous = merged.setdefault(material, {}).get(record)
@@ -189,6 +250,243 @@ def _read(root: Path, material: str) -> tuple[dict, dict]:
     return document, sidecar
 
 
+def _ledger(root: Path) -> dict | None:
+    """The registered refit ledger, or ``None`` when the root has none."""
+    path = root / LEDGER
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+
+
+def _ledger_rows(ledger: Mapping[str, Any] | None) -> dict[str, dict]:
+    if ledger is None:
+        return {}
+    return {row["record_identifier"]: row for row in ledger["records"]}
+
+
+def _originals(binding: Mapping[str, Any]) -> dict[int, dict]:
+    """A material's ``check_text`` originals by record index."""
+    return {index: dict(values) for index, values in binding.get("check_text", [])}
+
+
+def _is_code(value: Any) -> bool:
+    """A coded value as the library reads it: lower_snake_case words."""
+    return (
+        isinstance(value, str) and value.replace("_", "").isalpha() and value.islower()
+    )
+
+
+def _validation(entry: Mapping[str, Any]) -> dict:
+    validation = entry.get("evidence", {}).get("scientific_validation")
+    if not isinstance(validation, dict):
+        raise _Refused("no_source_check", "the record has no scientific_validation")
+    return validation
+
+
+def ledger_row(
+    row: Mapping[str, Any], before: Mapping[str, Any], after: Mapping[str, Any]
+) -> dict:
+    """``row`` with its copies of ``before`` (a ``scientific_validation``) replaced.
+
+    ``usage_recommendation`` and ``recommendation_reason`` are copied from
+    ``after`` (absent: removed). A changed ``recommendation_reason`` is taken off
+    the end of ``qualification`` and the new one appended, as
+    ``scripts/validate_primary_eos_refits.py`` composes the row. A row with
+    sorted keys keeps them sorted.
+    """
+    result = copy.deepcopy(dict(row))
+    for key in LEDGER_FIELDS:
+        if row.get(key) != before.get(key):
+            raise _Refused("ledger_differs", f"{LEDGER} {key} differs from the sidecar")
+        if key in after:
+            result[key] = copy.deepcopy(after[key])
+        else:
+            result.pop(key, None)
+    old = before.get("recommendation_reason")
+    new = after.get("recommendation_reason")
+    if old != new:
+        qualification = result.get("qualification", "")
+        if old:
+            if qualification == old:
+                qualification = ""
+            elif qualification.endswith(" " + old):
+                qualification = qualification[: -len(old) - 1]
+            else:
+                raise _Refused(
+                    "ledger_differs",
+                    f"{LEDGER} qualification does not end with recommendation_reason",
+                )
+        if new:
+            qualification = f"{qualification} {new}".strip()
+        if qualification:
+            result["qualification"] = qualification
+        else:
+            result.pop("qualification", None)
+    if list(row) == sorted(row):
+        result = dict(sorted(result.items()))
+    return result
+
+
+def _revise_recommendation(
+    entry: dict,
+    record: Mapping[str, Any],
+    row: Mapping[str, Any] | None,
+    value: str | None,
+    stored: dict,
+) -> dict:
+    """Set the coded usage recommendation of a sidecar ``entry``; see the module doc.
+
+    ``value`` ``None`` (or the stored original code) puts the stored originals
+    back. Returns the record's new ledger row.
+    """
+    if row is None:
+        raise _Refused("no_ledger_row", f"no row in {LEDGER}")
+    assessment = record.get("evidence", {}).get("reproduction", {}).get("assessment")
+    if not isinstance(assessment, dict) or assessment != assessment_for_record(
+        record, row
+    ):
+        raise _Refused(
+            "assessment_not_derived",
+            "the stored assessment is not derived from the ledger row",
+        )
+    before = copy.deepcopy(_validation(entry))
+    current = before.get(USAGE_KEY)
+    original = stored.get(USAGE_KEY, current)
+    target = original if value is None else value
+    if target == original and USAGE_KEY in stored:
+        # Back to the original: every bound recommendation field returns.
+        for field in RECOMMENDATION_FIELDS:
+            if field in stored:
+                set_check_text(entry, field, stored.pop(field))
+    else:
+        stored.setdefault(USAGE_KEY, current)
+        if isinstance(current, str) and not _is_code(current):
+            # The replaced free text is kept verbatim.
+            reason = before.get("recommendation_reason")
+            if reason is None:
+                stored.setdefault("recommendation_reason", None)
+                set_check_text(entry, "recommendation_reason", current)
+            elif reason != current:
+                raise _Refused(
+                    "recommendation_reason_present",
+                    "the record has a different recommendation_reason; merge the "
+                    "free-text usage_recommendation into it first",
+                )
+        set_check_text(entry, USAGE_KEY, target)
+    after = _validation(entry)
+    new_row = ledger_row(row, before, after)
+    back = ledger_row(new_row, after, before)
+    if list(back.items()) != list(row.items()):
+        raise _Refused("not_reversible", f"the {LEDGER} row would not restore exactly")
+    trial = {**record, "evidence": entry["evidence"]}
+    derived = assessment_for_record(trial, new_row)
+    changed = sorted(
+        key
+        for key in set(derived) | set(assessment)
+        if key != "qualifications" and derived.get(key) != assessment.get(key)
+    )
+    if changed:
+        raise _Refused(
+            "beyond_fields", f"the assessment's {', '.join(changed)} would change"
+        )
+    qualifications = derived.get("qualifications")
+    if USAGE_KEY in stored:
+        stored.setdefault(
+            "assessment_qualifications", check_text(entry, "assessment_qualifications")
+        )
+        set_check_text(entry, "assessment_qualifications", qualifications)
+    elif qualifications != check_text(entry, "assessment_qualifications"):
+        raise _Refused(
+            "not_reversible", "the restored assessment qualifications differ"
+        )
+    for field in RECOMMENDATION_FIELDS:
+        if field in stored and stored[field] == check_text(entry, field):
+            del stored[field]
+    return new_row
+
+
+def revise_entry(
+    entry: dict,
+    record: Mapping[str, Any],
+    row: Mapping[str, Any] | None,
+    new: Mapping[str, Any],
+    stored: dict,
+) -> dict | None:
+    """Apply one record's change to its sidecar ``entry`` in place.
+
+    ``record`` is the merged record before the change, ``row`` its ledger row
+    and ``stored`` its ``check_text`` originals (updated in place). Returns the
+    new ledger row when the usage recommendation changes, else ``None``.
+    Raises :class:`_Refused`.
+    """
+    new_row = None
+    if USAGE_KEY in new:
+        new_row = _revise_recommendation(entry, record, row, new[USAGE_KEY], stored)
+    for key, field in INPUT_FIELDS.items():
+        if key not in new:
+            continue
+        value = new[key]
+        stored.setdefault(field, check_text(entry, field))
+        set_check_text(entry, field, value)
+        if stored[field] == value:
+            del stored[field]
+    return new_row
+
+
+def _revise_material(
+    material: str,
+    document: dict,
+    sidecar: dict,
+    changes: Mapping[str, Mapping[str, Any]],
+    originals: dict[int, dict],
+    rows: Mapping[str, Mapping[str, Any]],
+) -> tuple[dict[str, dict], dict[str, Any]]:
+    """Apply ``changes`` to a material's files and originals, in place.
+
+    Regenerates each changed record's ``check`` block. Returns the new ledger
+    rows and each changed record's resulting ``check.warning``. Raises
+    :class:`_Refused` for a change the files cannot take.
+    """
+    before = {r["identifier"]: r for r in merge_audit(document, sidecar)["eos_records"]}
+    order = [r["identifier"] for r in document["eos_records"]]
+    new_rows: dict[str, dict] = {}
+    for identifier, new in changes.items():
+        entry = sidecar["records"].get(identifier)
+        if entry is None:
+            raise _Refused("no_sidecar_entry", f"{material}/{identifier}")
+        index = order.index(identifier)
+        stored = originals.setdefault(index, {})
+        row = revise_entry(entry, before[identifier], rows.get(identifier), new, stored)
+        if row is not None:
+            new_rows[identifier] = row
+        if not stored:
+            del originals[index]
+    merged = merge_audit(document, sidecar)
+    complete = {r["identifier"]: r for r in merged["eos_records"]}
+    warnings: dict[str, Any] = {}
+    for record in document["eos_records"]:
+        identifier = record["identifier"]
+        if identifier not in changes:
+            continue
+        old = record["check"]
+        derived = check_block(
+            {k: v for k, v in complete[identifier].items() if k != "check"},
+            merged,
+            audit=old.get("audit"),
+        )
+        kept = {"source_note", "warning_reason"}
+        if USAGE_KEY in changes[identifier]:
+            kept.add("warning")
+        if {k: v for k, v in old.items() if k not in kept} != {
+            k: v for k, v in derived.items() if k not in kept
+        }:
+            raise _Refused(
+                "beyond_fields",
+                f"the check block differs from its evidence beyond {sorted(kept)}",
+            )
+        record["check"] = derived
+        warnings[identifier] = derived["warning"]
+    return new_rows, warnings
+
+
 def allowed_numbers(record: Mapping[str, Any]) -> set[float]:
     """Numbers in a merged record: evidence, record fields and stored originals.
 
@@ -206,7 +504,11 @@ def _guards(
 ) -> list[tuple[str, str]]:
     """Failed guards (name, detail) for the new texts, without ``shared_note``."""
     failed: list[tuple[str, str]] = []
-    texts = [(key, value) for key, value in new.items() if value is not None]
+    texts = [
+        (key, value)
+        for key, value in new.items()
+        if key in INPUT_FIELDS and value is not None
+    ]
     for key, value in texts:
         if len(value) > LIMITS[key]:
             failed.append(
@@ -241,6 +543,8 @@ def plan_changes(
     """Check every requested change against the files and the guards."""
     plan = Plan() if plan is None else plan
     overrides = set(allow)
+    bindings = _receipt(root).get("materials", {})
+    rows: dict[str, dict] | None = None
 
     def guard(material: str, identifier: str, name: str, detail: str) -> bool:
         """Record a failed guard; ``True`` when it refuses the record."""
@@ -271,6 +575,7 @@ def plan_changes(
         merged = merge_audit(document, sidecar)
         records = {r["identifier"]: r for r in merged["eos_records"]}
         order = [r["identifier"] for r in merged["eos_records"]]
+        originals = _originals(bindings.get(material, {}))
         proposals: dict[str, dict[str, str | None]] = {}
         for identifier in sorted(requested):
             record = records.get(identifier)
@@ -295,6 +600,24 @@ def plan_changes(
                     continue
                 if value != check_text(record, field):
                     new[key] = value
+            stored = originals.get(order.index(identifier), {})
+            usage = requested[identifier].get(USAGE_KEY, _ABSENT)
+            if usage is not _ABSENT:
+                if usage is not None and usage not in CODED_RECOMMENDATIONS:
+                    reasons.append(
+                        (
+                            "not_coded",
+                            "usage_recommendation must be null or one of "
+                            + ", ".join(CODED_RECOMMENDATIONS),
+                        )
+                    )
+                else:
+                    current = check_text(record, USAGE_KEY)
+                    target = usage if usage is not None else stored.get(USAGE_KEY)
+                    if usage is None and USAGE_KEY not in stored:
+                        target = current
+                    if target != current:
+                        new[USAGE_KEY] = usage
             if new.get("source_note") is not None and not isinstance(
                 record.get("evidence", {})
                 .get("scientific_validation", {})
@@ -302,15 +625,43 @@ def plan_changes(
                 dict,
             ):
                 reasons.append(("no_source_check", "the record has no source check"))
-            if (
-                new.get("warning_reason") is not None
-                and usage_warning(record, merged) is None
-            ):
+            warning = usage_warning(record, merged)
+            warning_after = warning
+            if not reasons and USAGE_KEY in new:
+                if rows is None:
+                    rows = _ledger_rows(_ledger(root))
+                try:
+                    _, warnings = _revise_material(
+                        material,
+                        copy.deepcopy(document),
+                        copy.deepcopy(sidecar),
+                        {identifier: new},
+                        copy.deepcopy(originals),
+                        rows,
+                    )
+                    warning_after = warnings[identifier]
+                except _Refused as error:
+                    reasons.append((error.reason, error.detail))
+            reason_after = new.get("warning_reason", warning_reason(record))
+            if not reasons and reason_after is not None and warning_after is None:
                 reasons.append(
                     (
                         "no_warning",
                         "the record has no warning (check.warning is null); a "
                         "warning_reason is only given with a warning",
+                    )
+                )
+            if (
+                not reasons
+                and warning is None
+                and warning_after is not None
+                and reason_after is None
+            ):
+                reasons.append(
+                    (
+                        "reason_required",
+                        "this gives the record its first warning; give a "
+                        "warning_reason with it",
                     )
                 )
             for reason, detail in reasons:
@@ -364,59 +715,35 @@ def plan_changes(
     return plan
 
 
-def apply_plan(plan: Plan, root: Path = ROOT) -> None:
-    """Write the planned changes, regenerate ``check``, bind and verify.
+def build_changes(
+    plan: Plan, root: Path = ROOT
+) -> tuple[dict[str, tuple[bytes, bytes]], dict | None, dict[Path, str], dict]:
+    """Compute and verify every file a plan writes, without writing.
 
-    Every material's new files and the receipt binding are computed and
-    verified in memory first; files are written only when the whole plan is
-    valid, so a failure leaves the tree untouched.
+    Returns the new record and sidecar bytes per material, the new receipt
+    (``None``: no split material changes), the ledger files by path and each
+    changed record's resulting ``check.warning`` by material and record.
+    Raises ``ValueError`` if anything would not verify, including a pre-split
+    file that would no longer be recovered exactly.
     """
     receipt = _receipt(root)
     bindings = receipt.get("materials", {})
+    ledger = _ledger(root)
+    rows = _ledger_rows(ledger)
     revised: dict[str, list] = {}
     files: dict[str, tuple[bytes, bytes]] = {}
+    new_rows: dict[str, dict] = {}
+    warnings: dict[str, dict[str, Any]] = {}
     for material, changes in plan.changes.items():
         document, sidecar = _read(root, material)
-        order = [r["identifier"] for r in document["eos_records"]]
-        originals = {
-            index: dict(values)
-            for index, values in bindings.get(material, {}).get("check_text", [])
-        }
-        for identifier, new in changes.items():
-            entry = sidecar["records"].get(identifier)
-            if entry is None:
-                raise ValueError(f"{material}/{identifier}: no sidecar entry")
-            index = order.index(identifier)
-            stored = originals.setdefault(index, {})
-            for key, value in new.items():
-                field = INPUT_FIELDS[key]
-                stored.setdefault(field, check_text(entry, field))
-                set_check_text(entry, field, value)
-                if stored[field] == value:
-                    del stored[field]
-            if not stored:
-                del originals[index]
-        merged = merge_audit(document, sidecar)
-        complete = {r["identifier"]: r for r in merged["eos_records"]}
-        for record in document["eos_records"]:
-            identifier = record["identifier"]
-            if identifier not in changes:
-                continue
-            old = record["check"]
-            derived = check_block(
-                {k: v for k, v in complete[identifier].items() if k != "check"},
-                merged,
-                audit=old.get("audit"),
+        originals = _originals(bindings.get(material, {}))
+        try:
+            material_rows, warnings[material] = _revise_material(
+                material, document, sidecar, changes, originals, rows
             )
-            kept = ("source_note", "warning_reason")
-            if {k: v for k, v in old.items() if k not in kept} != {
-                k: v for k, v in derived.items() if k not in kept
-            }:
-                raise ValueError(
-                    f"{material}/{identifier}: the check block differs from its "
-                    "evidence beyond source_note and warning_reason"
-                )
-            record["check"] = derived
+        except _Refused as error:
+            raise ValueError(f"{material}: {error}") from None
+        new_rows.update(material_rows)
         record_text = format_eosmat(document)
         audit_text = format_audit(sidecar)
         validate_eosmat_document(json.loads(record_text))
@@ -427,6 +754,29 @@ def apply_plan(plan: Plan, root: Path = ROOT) -> None:
         revised[material] = [[index, originals[index]] for index in sorted(originals)]
     # Raises before anything is written if a pre-split file would be lost.
     new_receipt = check_text_receipt(receipt, revised, files) if bindings else None
+    ledger_texts: dict[Path, str] = {}
+    if new_rows and ledger is not None:
+        ledger["records"] = [
+            new_rows.get(row["record_identifier"], row) for row in ledger["records"]
+        ]
+        from scripts.validate_primary_eos_refits import render_markdown
+
+        ledger_texts = {
+            root / LEDGER: json.dumps(ledger, indent=2, ensure_ascii=False) + "\n",
+            root / LEDGER_MARKDOWN: render_markdown(ledger),
+        }
+    return files, new_receipt, ledger_texts, warnings
+
+
+def apply_plan(plan: Plan, root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    """Write the planned changes, regenerate ``check``, bind and verify.
+
+    Every material's new files, the receipt binding and the ledger copies are
+    computed and verified in memory first (:func:`build_changes`); files are
+    written only when the whole plan is valid, so a failure leaves the tree
+    untouched. Returns each changed record's resulting ``check.warning``.
+    """
+    files, new_receipt, ledger_texts, warnings = build_changes(plan, root)
     for material, (record_bytes, audit_bytes) in files.items():
         record_path, audit_path = _paths(root, material)
         record_path.write_bytes(record_bytes)
@@ -435,16 +785,22 @@ def apply_plan(plan: Plan, root: Path = ROOT) -> None:
         (root / RECEIPT.relative_to(ROOT)).write_text(
             receipt_text(new_receipt), encoding="utf-8"
         )
+    for path, text in ledger_texts.items():
+        path.write_text(text, encoding="utf-8")
+    return warnings
 
 
 def verify(root: Path = ROOT) -> tuple[int, list[str]]:
     """Every ``check`` equals its derivation; curated texts recover losslessly.
 
-    Returns the number of records holding a curated text and the failures.
+    Also compares the ledger's ``usage_recommendation`` and
+    ``recommendation_reason`` copies with the sidecars. Returns the number of
+    records holding a curated text and the failures.
     """
     failures: list[str] = []
     curated = 0
     bound = _receipt(root).get("materials", {})
+    rows = _ledger_rows(_ledger(root))
     for path in sorted((root / "peritheos/data/materials").glob("*.eosmat")):
         material = path.stem
         document = json.loads(path.read_bytes())
@@ -461,6 +817,16 @@ def verify(root: Path = ROOT) -> tuple[int, list[str]]:
             if any(check_text(complete, f) is not None for f in CHECK_TEXT_FIELDS):
                 curated += 1
                 holds = True
+            row = rows.get(identifier)
+            if row is not None:
+                validation = complete.get("evidence", {}).get(
+                    "scientific_validation", {}
+                )
+                for key in LEDGER_FIELDS:
+                    if row.get(key) != validation.get(key):
+                        failures.append(
+                            f"{material}/{identifier}: {key} differs in {LEDGER}"
+                        )
             check = record.get("check")
             if not isinstance(check, dict):
                 continue
@@ -485,6 +851,12 @@ def verify(root: Path = ROOT) -> tuple[int, list[str]]:
             except ValueError as error:
                 failures.append(f"{material}: {error}")
     return curated, failures
+
+
+def _describe(key: str, value: Any) -> str:
+    if key == USAGE_KEY:
+        return f"{key} {'original' if value is None else value}"
+    return f"{key} {'removed' if value is None else f'{len(value)} characters'}"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -522,15 +894,16 @@ def main(argv: list[str] | None = None) -> int:
     verb, tag = (
         ("Would change", "WOULD-CHANGE") if arguments.check else ("Changed", "CHANGED")
     )
-    if not arguments.check:
-        apply_plan(plan)
+    try:
+        warnings = build_changes(plan)[3] if arguments.check else apply_plan(plan)
+    except ValueError as error:
+        print(f"FAILED {error}; nothing was written.")
+        return 1
     for material, changes in plan.changes.items():
         for identifier, new in changes.items():
-            parts = [
-                f"{key} {'removed' if value is None else f'{len(value)} characters'}"
-                for key, value in new.items()
-            ]
-            print(f"{tag} {material}/{identifier}: {', '.join(parts)}")
+            parts = ", ".join(_describe(key, value) for key, value in new.items())
+            warning = json.dumps(warnings[material][identifier], ensure_ascii=False)
+            print(f"{tag} {material}/{identifier}: {parts}; warning: {warning}")
     for allowed in plan.allowed:
         print(f"ALLOWED {allowed}")
     for refusal in plan.refusals:
@@ -546,6 +919,7 @@ def main(argv: list[str] | None = None) -> int:
             json.dumps(
                 {
                     "changes": plan.changes,
+                    "warnings": warnings,
                     "refusals": [r.__dict__ for r in plan.refusals],
                     "allowed": plan.allowed,
                     "notices": plan.notices,
