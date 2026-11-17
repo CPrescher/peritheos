@@ -46,6 +46,8 @@ All notable changes to Peritheos are documented here. The project follows
   `scripts/apply_check_text.py`; its post-split changes are bound as
   `check_text` entries in the audit-split receipt, so every pre-split file is
   still recovered byte for byte.
+- Give bundled records a short per-record source note and every bundled
+  warning a one-clause reason.
 - Name a material's default records once in a `default_records` map
   (`equilibrium`, `hugoniot`); bundled files use it. Per-record `default` and
   `default_for` flags remain valid and must agree with the map; v3/v4 exports

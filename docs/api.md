@@ -71,7 +71,9 @@ designated, or the stored hold reason), then one row per record, default first,
 with model, the P/T range `check_validity=True` enforces, reproduction headline
 and short reference; `*` marks a designated default and `!` a warning, and each
 distinct warning is listed once. `record.summary()` shows one record's
-coefficients with errors, fixed flags and units, the check with what it compared
+coefficients with errors, fixed flags and units, with a line saying how the
+printed errors relate to sigma (from `parameter_error_confidence`; see
+[Parameters](eosmat-reference.md#parameters)), the check with what it compared
 and why, any warning on one line with its reason, the labelled ranges, reference and DOI, and the source
 check with its note. Both are rendered from the [overview](#material-and-record-overviews)
 dictionaries and read only the record file, never the audit sidecar. `repr()`

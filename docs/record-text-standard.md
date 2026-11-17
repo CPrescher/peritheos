@@ -198,11 +198,15 @@ review it sentence by sentence.
 `scripts/apply_check_text.py` from a JSON file
 `{"<material>": {"<record>": {"source_note": ..., "warning_reason": ...}}}`
 (`null` removes a text; for `source_note` the verbatim `finding` is shown
-again). Its guards are the two length limits, `numbers` (every number must
-occur in the record's finding, other sidecar evidence, record fields or
-stored originals), `forbidden_text` and `shared_note`; a `warning_reason` for
-a record without a warning is always refused. Use `--check` first, then apply
-and run `--verify`.
+again). Its guards are the two length limits, `numbers` (every number, sign
+included, must occur in the record's finding, other sidecar evidence, record
+fields or stored originals, or be a correct rounding of one at the precision
+written with at least two significant digits, such as 23.89 for 23.89043),
+`forbidden_text` and `shared_note`; override one guard for one record with
+`--allow RECORD:GUARD` only for a stated false positive. A `warning_reason`
+for a record without a warning is always refused. Use `--check` first, then
+apply and run `--verify`; either tool writes nothing unless the whole run is
+valid.
 
 ## 7. Checklist
 
