@@ -29,11 +29,15 @@ undoes the split as before.
 
 The two curated ``check`` texts (``scripts/apply_check_text.py``) live in the
 sidecar evidence: ``scientific_validation.primary_source_check.record_note``
-and ``scientific_validation.warning_reason``. Written after the split, their
-binding lists ``check_text`` entries ``[index, {field: original}]`` holding
-each field's value before the first post-split change (``null``: absent).
-Recovery puts those originals back before anything else; ``finding`` itself is
-never changed.
+and ``scientific_validation.warning_reason``. The same tool sets a coded
+``scientific_validation.usage_recommendation`` (the source of
+``check.warning``); with it may change ``scientific_validation.
+recommendation_reason`` (the replaced prose, kept verbatim) and the
+assessment's ``qualifications`` (``assessment_qualifications``). Written after
+the split, their binding lists ``check_text`` entries ``[index, {field:
+original}]`` holding each field's value before the first post-split change
+(``null``: absent). Recovery puts those originals back before anything else;
+``finding`` itself is never changed.
 """
 
 from __future__ import annotations
@@ -60,6 +64,7 @@ from peritheos._eosmat_audit import (  # noqa: E402
     merge_audit,
     source_note,
     split_document,
+    usage_warning,
     warning_reason,
 )
 from peritheos._eosmat_format import (  # noqa: E402
@@ -167,7 +172,28 @@ def restore_record_text(record: dict) -> None:
 #: ``warning_reason`` in ``scientific_validation`` directly after
 #: ``usage_recommendation`` (or last).
 CHECK_TEXT_FIELDS = ("record_note", "warning_reason")
-_CHECK_TEXT_AFTER = {"record_note": "finding", "warning_reason": "usage_recommendation"}
+#: A coded usage recommendation (the source of ``check.warning``) and what is
+#: derived from it, bound the same way: ``usage_recommendation`` and
+#: ``recommendation_reason`` in ``scientific_validation`` (a new
+#: ``usage_recommendation`` last, a new ``recommendation_reason`` directly after
+#: ``warning_reason`` or ``usage_recommendation``), and
+#: ``assessment_qualifications``, the list
+#: ``reproduction.assessment.qualifications`` (new: directly after ``basis``).
+RECOMMENDATION_FIELDS = (
+    "usage_recommendation",
+    "recommendation_reason",
+    "assessment_qualifications",
+)
+#: Every field a ``check_text`` binding entry may hold, in restore order.
+CHECK_TEXT_BINDING_FIELDS = CHECK_TEXT_FIELDS + RECOMMENDATION_FIELDS
+_CHECK_TEXT_AFTER: dict[str, tuple[str, ...]] = {
+    "record_note": ("finding",),
+    "warning_reason": ("usage_recommendation",),
+    "usage_recommendation": (),
+    "recommendation_reason": ("warning_reason", "usage_recommendation"),
+    "assessment_qualifications": ("basis",),
+}
+_CHECK_TEXT_KEY = {"assessment_qualifications": "qualifications"}
 
 
 def _check_text_container(record: dict, field: str, create: bool) -> dict | None:
@@ -175,12 +201,22 @@ def _check_text_container(record: dict, field: str, create: bool) -> dict | None
     evidence = record.get("evidence", record)
     if not isinstance(evidence, dict):
         return None
+    if field == "assessment_qualifications":
+        reproduction = evidence.get("reproduction")
+        assessment = (
+            reproduction.get("assessment") if isinstance(reproduction, dict) else None
+        )
+        if not isinstance(assessment, dict):
+            if not create:
+                return None
+            raise ValueError(f"Record {record.get('identifier')!r} has no assessment")
+        return assessment
     validation = evidence.get("scientific_validation")
     if not isinstance(validation, dict):
         if not create:
             return None
         raise ValueError(f"Record {record.get('identifier')!r} has no source check")
-    if field == "warning_reason":
+    if field != "record_note":
         return validation
     source = validation.get("primary_source_check")
     if not isinstance(source, dict):
@@ -192,53 +228,64 @@ def _check_text_container(record: dict, field: str, create: bool) -> dict | None
     return source
 
 
-def check_text(record: dict, field: str) -> str | None:
-    """Current value of one curated check text (``None`` when absent)."""
-    if field not in CHECK_TEXT_FIELDS:
+def check_text(record: dict, field: str) -> Any:
+    """Current value of one bound check field (``None`` when absent).
+
+    ``field`` is one of :data:`CHECK_TEXT_BINDING_FIELDS`.
+    """
+    if field not in CHECK_TEXT_BINDING_FIELDS:
         raise ValueError(f"Unknown check text field {field!r}")
     container = _check_text_container(record, field, create=False)
-    return None if container is None else container.get(field)
+    if container is None:
+        return None
+    return copy.deepcopy(container.get(_CHECK_TEXT_KEY.get(field, field)))
 
 
-def set_check_text(record: dict, field: str, value: str | None) -> None:
-    """Write one curated check text into a record's evidence; ``None`` removes it.
+def set_check_text(record: dict, field: str, value: Any) -> None:
+    """Write one bound check field into a record's evidence; ``None`` removes it.
 
-    A new value is placed directly after ``finding`` (``record_note``) or
-    ``usage_recommendation`` (``warning_reason``), or last; an existing one
-    keeps its position. ``finding`` is never touched. A stored ``check``
-    block is not changed here (see :func:`refresh_check_text`).
+    A new value is placed directly after ``finding`` (``record_note``),
+    ``usage_recommendation`` (``warning_reason``), ``warning_reason`` or else
+    ``usage_recommendation`` (``recommendation_reason``) or ``basis``
+    (``assessment_qualifications``), or last; an existing one keeps its
+    position. ``finding`` is never touched. A stored ``check`` block is not
+    changed here (see :func:`refresh_check_text`).
     """
-    if field not in CHECK_TEXT_FIELDS:
+    if field not in CHECK_TEXT_BINDING_FIELDS:
         raise ValueError(f"Unknown check text field {field!r}")
     container = _check_text_container(record, field, create=value is not None)
     if container is None:
         return
+    key = _CHECK_TEXT_KEY.get(field, field)
     if value is None:
-        container.pop(field, None)
+        container.pop(key, None)
         return
-    if field in container:
-        container[field] = value
+    value = copy.deepcopy(value)
+    if key in container:
+        container[key] = value
         return
-    after = _CHECK_TEXT_AFTER[field]
     items = list(container.items())
-    position = next(
-        (i + 1 for i, (key, _) in enumerate(items) if key == after), len(items)
-    )
-    items.insert(position, (field, value))
+    keys = [name for name, _ in items]
+    after = next((a for a in _CHECK_TEXT_AFTER[field] if a in keys), None)
+    position = len(items) if after is None else keys.index(after) + 1
+    items.insert(position, (key, value))
     container.clear()
     container.update(items)
 
 
-def refresh_check_text(record: dict) -> None:
+def refresh_check_text(record: dict, material: dict | None = None) -> None:
     """Set a stored ``check`` block's ``source_note`` and ``warning_reason``.
 
     Both are copied from the record's evidence exactly as
-    :func:`peritheos._eosmat_audit.check_block` derives them; a record without
-    a ``check`` block is left alone.
+    :func:`peritheos._eosmat_audit.check_block` derives them; given the
+    ``material`` (for a ``recommendation_hold``), ``warning`` is derived too.
+    A record without a ``check`` block is left alone.
     """
     check = record.get("check")
     if not isinstance(check, dict):
         return
+    if material is not None:
+        check["warning"] = usage_warning(record, material)
     for key, value in (
         ("source_note", source_note(record)),
         ("warning_reason", warning_reason(record)),
@@ -249,12 +296,14 @@ def refresh_check_text(record: dict) -> None:
             check[key] = value
 
 
-def restore_check_text(record: dict, originals: dict) -> None:
-    """Put the pre-revision curated check texts back and refresh ``check``."""
-    for field in CHECK_TEXT_FIELDS:
+def restore_check_text(
+    record: dict, originals: dict, material: dict | None = None
+) -> None:
+    """Put the pre-revision bound check fields back and refresh ``check``."""
+    for field in CHECK_TEXT_BINDING_FIELDS:
         if field in originals:
             set_check_text(record, field, originals[field])
-    refresh_check_text(record)
+    refresh_check_text(record, material)
 
 
 def restore(document: dict, binding: dict) -> dict:
@@ -263,7 +312,9 @@ def restore(document: dict, binding: dict) -> dict:
     ``superseded_record_text`` names records whose free text was revised after
     the split; their stored originals are restored and the block removed
     before anything else. ``check_text`` entries ``[index, {field:
-    original}]`` then restore the curated check texts written after the split.
+    original}]`` then restore the bound check fields written after the split
+    (curated check texts and a coded usage recommendation with its derived
+    ``recommendation_reason`` and assessment qualifications).
     ``added_check`` names records whose ``check`` block was added.
     ``added_default_records`` marks a ``default_records`` map made from the
     per-record flags; ``default_flags`` restores each record's original
@@ -278,7 +329,7 @@ def restore(document: dict, binding: dict) -> dict:
     for index in binding.get("superseded_record_text", []):
         restore_record_text(records[index])
     for index, originals in binding.get("check_text", []):
-        restore_check_text(records[index], originals)
+        restore_check_text(records[index], originals, result)
     for index in binding.get("added_check", []):
         del records[index]["check"]
     if binding.get("added_default_records"):
@@ -687,11 +738,14 @@ CHECK_TEXT_REVISION = (
     "Curated check texts written after the split "
     "(scientific_validation.primary_source_check.record_note and "
     "scientific_validation.warning_reason, copied into check.source_note and "
-    "check.warning_reason) are bound as check_text entries [index, {field: "
-    "original}], original null meaning absent; recovery restores them before "
-    "removing the check blocks. finding is never changed. after_record_sha256 "
-    "and after_audit_sha256 bind the revised files; before_sha256 values are "
-    "unchanged."
+    "check.warning_reason) and coded usage recommendations "
+    "(scientific_validation.usage_recommendation, the source of check.warning, "
+    "with the recommendation_reason and assessment qualifications derived from "
+    "it, field assessment_qualifications) are bound as check_text entries "
+    "[index, {field: original}], original null meaning absent; recovery "
+    "restores them before removing the check blocks. finding is never changed. "
+    "after_record_sha256 and after_audit_sha256 bind the revised files; "
+    "before_sha256 values are unchanged."
 )
 
 
@@ -852,7 +906,9 @@ if __name__ == "__main__":
 
 
 __all__ = [
+    "CHECK_TEXT_BINDING_FIELDS",
     "CHECK_TEXT_FIELDS",
+    "RECOMMENDATION_FIELDS",
     "bind_check_text_revision",
     "bind_record_text_revision",
     "check_text",
