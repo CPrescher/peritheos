@@ -47,8 +47,9 @@ you write yourself is. `V0` and its error are in Å³ per conventional cell.
 ## The `check` block
 
 A curated record may carry a short `check` block: its reproduction headline
-(`reproduction`, `compared`, `why`), any usage `warning`, the source check
-(`source_check`, `source_checked_on`, `source_note`) and an `audit` link to its
+(`reproduction`, `compared`, `why`), any usage `warning` with its
+`warning_reason`, the source check (`source_check`, `source_checked_on`,
+`source_note`) and an `audit` link to its
 sidecar entry. When evidence is present, the headline must agree with it.
 Field values are in the [record reference](eosmat-reference.md#the-check-block);
 the words are defined in [EOS labels](eos-labels.md). Your own files need no

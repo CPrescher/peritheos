@@ -406,6 +406,19 @@ qualification. Labels, notes, validity notes and thermal notes follow the
 only with `scripts/apply_record_text.py`, which keeps every replaced original
 in the sidecar.
 
+Write the source check's complete result in
+`scientific_validation.primary_source_check.finding`. The record shows it as
+`check.source_note`; when it is long, restates coefficients or is shared with
+other records, also write a per-record
+`primary_source_check.record_note` (at most 300 characters: what was checked
+against the paper for this record and any conversion or correction that
+matters to a user), which `check.source_note` shows instead. A record with a
+`warning` may get a one-clause `scientific_validation.warning_reason` (at most
+140 characters) saying why, taken from the audit. In an inline file these are
+ordinary evidence fields; for an already split material use the repository
+tool `scripts/apply_check_text.py` (`--check`, apply, `--verify`; format in
+the [record text standard](record-text-standard.md#6-applying-a-rewrite)).
+
 | | Record `check` | Audit entry |
 |---|---|---|
 | Bad | "Parity achieved. This does not establish experimental accuracy, phase stability or author-workflow reproduction …", repeated in notes, plus refit V0=263.929881998 | The same disclaimer again under basis and qualifications |

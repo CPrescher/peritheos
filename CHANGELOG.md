@@ -31,10 +31,21 @@ All notable changes to Peritheos are documented here. The project follows
   mapping of the stored assessment), `compared` (`published_fit`,
   `peritheos_refit`, `source_equation`, `none`: what the headline refers to),
   `why` (for `close` and `disagrees`, a line generated from the stored
-  coefficient table), `warning`, `source_check` (`verified`, `pending`,
-  `unresolved`, `deferred`, renaming `scientific_validation.status`),
-  `source_checked_on`, `source_note` and `audit`. It must agree with any
-  evidence present.
+  coefficient table), `warning`, `warning_reason` (only with a warning),
+  `source_check` (`verified`, `pending`, `unresolved`, `deferred`, renaming
+  `scientific_validation.status`), `source_checked_on`, `source_note` and
+  `audit`. It must agree with any evidence present.
+- Add two optional curated audit texts copied into `check`:
+  `scientific_validation.primary_source_check.record_note` (at most 300
+  characters; shown as `check.source_note` in place of the verbatim
+  `finding`, which is kept unchanged) and `scientific_validation.warning_reason`
+  (at most 140 characters, one clause; shown as `check.warning_reason`, an
+  error on a record without a warning). Python and Rust validate and derive
+  both; the overview `check` and `record.summary()` (`Warning: <warning>
+  <reason>`) include the reason. Add the repository tool
+  `scripts/apply_check_text.py`; its post-split changes are bound as
+  `check_text` entries in the audit-split receipt, so every pre-split file is
+  still recovered byte for byte.
 - Name a material's default records once in a `default_records` map
   (`equilibrium`, `hugoniot`); bundled files use it. Per-record `default` and
   `default_for` flags remain valid and must agree with the map; v3/v4 exports
@@ -51,8 +62,8 @@ All notable changes to Peritheos are documented here. The project follows
   and (Mg0.9Fe0.1)O sample under that standard; every replaced original is
   kept in the sidecars. Coefficients, ranges and classifications are
   unchanged.
-- Add `EOSRecord.reproduction`, `compared`, `why`, `warning`, `source_check`,
-  `source_note` and `audit`.
+- Add `EOSRecord.reproduction`, `compared`, `why`, `warning`,
+  `warning_reason`, `source_check`, `source_note` and `audit`.
 - Add `Material.summary()` and more forgiving material and record lookup.
 - Add `EOSRecord.overview()` and `Material.overview()`: plain JSON data with
   the material, citation, model display names, default selection
@@ -73,8 +84,9 @@ All notable changes to Peritheos are documented here. The project follows
 - Out-of-range errors name the quantity, value and exceeded bound; looking up a
   deferred bundled record says it is deferred and how to read its document.
 - Update the Rust EOSMAT reader for the record file and audit sidecar layout,
-  the check fields (`EosRecord::compared()`, `why()`, `source_check()`,
-  `source_note()`, with `Compared` and `SourceCheck`) and `default_records`.
+  the check fields (`EosRecord::compared()`, `why()`, `warning_reason()`,
+  `source_check()`, `source_note()`, with `Compared` and `SourceCheck`) and
+  `default_records`.
 - Lead each reconstruction-report section with its headline and warning, show
   only recorded content and state shared conventions once per page; the report
   index counts records by headline. Material summaries show the headline,

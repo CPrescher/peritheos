@@ -35,7 +35,9 @@ the audit's coefficient table and says nothing the table does not.
 ## Warning
 
 `warning` is null for almost every record. When set, it states an explicit usage
-restriction, such as "do not use for pressure calibration". A positive headline
+restriction, such as "do not use for pressure calibration". Its wording is
+fixed by the stored restriction code; `warning_reason`, when written, says in
+one clause why the restriction applies to this record. A positive headline
 never hides a warning. A reproduced fit can still describe its data poorly;
 reproducing a poor fit is still reproduction. Fedotenko (2020) Pd with fixed
 K'=4 is such a case; see its
@@ -127,7 +129,8 @@ Older v4 assessment fields are described in
 
 Source review is a separate axis from reconstruction. A record's
 `check.source_check` renames the `scientific_validation.status` code that the
-audit sidecar keeps, and `check.source_note` copies the check's finding:
+audit sidecar keeps, and `check.source_note` says what the check found for
+this record (a curated per-record note, else the check's verbatim finding):
 
 | `source_check` | Stored status | Meaning |
 |---|---|---|

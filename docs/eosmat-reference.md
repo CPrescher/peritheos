@@ -255,16 +255,18 @@ any other key is an error. The words are defined in [EOS labels](eos-labels.md).
 | `compared` | `published_fit`, `peritheos_refit`, `source_equation` or `none`; `untested` allows only `none` or `source_equation`, other headlines exclude `none` |
 | `why` | At most 160 characters, only with `close` or `disagrees`: the coefficients that failed |
 | `warning` | `null` or text: an explicit usage restriction |
+| `warning_reason` | At most 140 characters, only with a non-null `warning`: why the restriction applies, copied from `evidence.scientific_validation.warning_reason` |
 | `source_check` | `verified`, `pending`, `unresolved` or `deferred` |
 | `source_checked_on` | Date of the source check (`YYYY-MM-DD` in bundled records) |
-| `source_note` | The source check's finding |
+| `source_note` | What the source check found for this record: `evidence.scientific_validation.primary_source_check.record_note` when present, otherwise its verbatim `finding` |
 | `audit` | `<path relative to this file>#<record identifier>`: the record's sidecar entry |
 
 When evidence is present (inline or merged), `reproduction`, `compared` and
 `source_check` must equal the values derived from it, or loading fails; the
 [label page](eos-labels.md#detailed-outcome-codes) lists the stored codes they
 rename. Without `check`, `EOSRecord.reproduction`, `.compared`, `.why`,
-`.warning`, `.source_check` and `.source_note` are derived from the evidence;
+`.warning`, `.warning_reason`, `.source_check` and `.source_note` are derived
+from the evidence;
 a record without an assessment is `untested`, compared `none`. Without
 evidence and without `check.source_check`, the record is `pending`.
 
@@ -379,6 +381,18 @@ revision under the [record text standard](record-text-standard.md) replaced:
 absent), with the revision date `superseded_on`. A later revision never
 overwrites a stored original, and the block never changes how the record is
 read.
+
+Two optional texts in an entry's `evidence.scientific_validation` are written
+for the reader of the record and copied into its `check` block:
+
+| Field | Limit | Shown as |
+| --- | --- | --- |
+| `primary_source_check.record_note` | 1-300 characters | `check.source_note`, in place of the verbatim `finding` |
+| `warning_reason` | 1-140 characters; only on a record whose `check.warning` is not `null` | `check.warning_reason` |
+
+`finding` itself is never shortened or replaced; without a `record_note`,
+`check.source_note` is the verbatim `finding`. A `warning_reason` on a record
+without a warning is an error, never silently dropped.
 
 The fields inside `evidence.reproduction.assessment` are described in
 [EOSMAT v4](eosmat-v4.md#a-consistent-reconstruction-assessment) and the
