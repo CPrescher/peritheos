@@ -9,6 +9,15 @@
     {
       "identifier": "silicon_v_anzellini_2019_vinet_1",
       "label": "Anzellini et al. (2019), 300 K Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Per-atom volumes were converted using each phase's conventional-cell Z.",
+        "audit": "../audits/silicon_v.audit.json#silicon_v_anzellini_2019_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -19,7 +28,7 @@
       "parameter_error_confidence": 0.95,
       "experimental_pressure_range_gpa": [15.8, 40.9],
       "determination_method": "experimental",
-      "notes": "Table 8 room-temperature fit. Si-V was observed from 15.8 to 40.9 GPa; V0 is an extrapolated atomic and one-atom cell volume.",
+      "notes": "Room-temperature fit of Table 8. V0 is an extrapolated volume per atom, equal to the one-atom cell volume.",
       "reference": {
         "authors": ["Anzellini", "Wharmby", "Miozzi", "Kleppe", "Daisenberger", "Wilhelm"],
         "year": 2019,
@@ -28,14 +37,6 @@
         "volume": "9",
         "locator": "15537",
         "doi": "10.1038/s41598-019-51931-1"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Per-atom volumes were converted using each phase's conventional-cell Z.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/silicon_v.audit.json#silicon_v_anzellini_2019_vinet_1"
       }
     }
   ],

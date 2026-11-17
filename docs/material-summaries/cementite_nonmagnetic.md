@@ -34,19 +34,19 @@ High-pressure nonmagnetic Pnma Fe3C. The measured structural cell is Prescher (2
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
-| [Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | BM3 | 300 | reproduced | **Yes** | primary source validated | Executable; see usage qualifications |
-| [Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | LinearUsUpHugoniot | 300 | reproduced | **Yes** | primary source validated | Executable; see usage qualifications |
+| [Takahashi et al. (2019), KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Takahashi et al. (2019), MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sata et al. (2010), original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | BM3 | 300 | reproduced | **Yes** | primary source validated | Executable; see usage qualifications |
+| [Hu et al. (2019), porous-precursor Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | LinearUsUpHugoniot | 300 | reproduced | **Yes** | primary source validated | Executable; see usage qualifications |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | 148.8 ± 1 | 311.1 ± 17.1 | 3.4 ± 0.1 |
-| [Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | 147.3 ± 1 | 323 ± 16.6 | 3.43 ± 0.09 |
-| [Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | 149.456 | 290.0 ± 13.0 | 3.76 ± 0.18 |
-| [Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | 158.48140723178494 (fixed) | — | — |
+| [Takahashi et al. (2019), KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | 148.8 ± 1 | 311.1 ± 17.1 | 3.4 ± 0.1 |
+| [Takahashi et al. (2019), MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | 147.3 ± 1 | 323 ± 16.6 | 3.43 ± 0.09 |
+| [Sata et al. (2010), original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | 149.456 | 290.0 ± 13.0 | 3.76 ± 0.18 |
+| [Hu et al. (2019), porous-precursor Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | 158.48140723178494 (fixed) | — | — |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -58,7 +58,7 @@ extrapolation.
 
 <a id="record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd"></a>
 
-## Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD
+## Takahashi et al. (2019), KBr pressure scale, BM3 + MGD
 
 `cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd` · Executable
 
@@ -102,7 +102,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Published five-parameter fit (author fitting order unconfirmed), with theta0 fixed to Litasov (2013). The workbook includes a 2600 K row despite 2450 K in the article text; both declarations are preserved. High-pressure 300 K SiO2-marker states supplement the KBr/MgO rows. Marginal ranges are not a stability rectangle. No source covariance, confidence convention, exact weights or row mask are given. Source coefficients are preserved even when the conditional equal-weight reconstruction differs. Current conditional P/V/T-coordinate-width replay achieves central-coefficient parity. All five KBr central values and unscaled errors reproduce published rounding. Original author workflow remains unconfirmed; published coefficients, source errors and use recommendation are unchanged.
+Published five-parameter fit on the KBr pressure scale, with theta0 fixed to the Litasov (2013) value. High-pressure 300 K SiO2-marker states supplement the KBr/MgO rows. The data workbook includes a 2600 K row although the article text states 2450 K.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -178,7 +178,7 @@ Published five-parameter fit (author fitting order unconfirmed), with theta0 fix
 
 <a id="record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd"></a>
 
-## Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD
+## Takahashi et al. (2019), MgO pressure scale, BM3 + MGD
 
 `cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd` · Pressure-scale reference variant
 
@@ -222,7 +222,7 @@ Published pressure-scale alternative of [cementite\_nonmagnetic\_takahashi\_2019
 
 </details>
 
-Published five-parameter fit (author fitting order unconfirmed), with theta0 fixed to Litasov (2013). The workbook includes a 2600 K row despite 2450 K in the article text; both declarations are preserved. High-pressure 300 K SiO2-marker states supplement the KBr/MgO rows. Marginal ranges are not a stability rectangle. No source covariance, confidence convention, exact weights or row mask are given. Source coefficients are preserved even when the conditional equal-weight reconstruction differs. Current conditional P/V/T-coordinate-width replay achieves central-coefficient parity. MgO exact printed central values and uncertainties are not reproduced. Original author workflow remains unconfirmed; published coefficients, source errors and use recommendation are unchanged.
+Published five-parameter fit on the MgO pressure scale, with theta0 fixed to the Litasov (2013) value. High-pressure 300 K SiO2-marker states supplement the KBr/MgO rows. The data workbook includes a 2600 K row although the article text states 2450 K.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -297,7 +297,7 @@ Published five-parameter fit (author fitting order unconfirmed), with theta0 fix
 
 <a id="record-cementite_nonmagnetic_sata_2010_bm3"></a>
 
-## Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3
+## Sata et al. (2010), original-scale 300 K BM3
 
 `cementite_nonmagnetic_sata_2010_bm3` · Executable; see usage qualifications
 
@@ -332,10 +332,10 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[27.2, 186.6\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Source-assigned nonmagnetic branch. Combined coverage includes three Li (2002) points above 25 GPa; Sata's nine new states span 49.87–186.60 GPa.; V0 is an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell. No thermal extrapolation or magnetic-phase diagram.; Minor Fe7C3 and Re peaks occur at the highest pressure; Fe3C peaks were refined separately. Existing Prescher Pnma structure is a distinct experiment.
+    - **Notes:** Below 49.87 GPa the range rests only on the three Li (2002) points; Sata's nine new states span 49.87-186.60 GPa.; Minor Fe7C3 and Re peaks occur at the highest pressure; Fe3C peaks were refined separately.
 - **Reported error confidence level:** Not specified
 
-Conditional parameter agreement for the published Sata (2010) 300 K BM3 curve, using all nine Table 1 Fe3C states plus the three Li (2002) measured states above 25 GPa explicitly named in paragraph 15. The catalog retains V0=9.341 A^3/atom (149.456 A^3/cell), K0=290(13) GPa and K0-prime=3.76(18). The common comparison fixes the printed V0 and refines only K0/K0-prime; the separate literal mBM3 replay refines Pr/Kr/Kr-prime at the selected Vr. Original weights, confidence and covariance are unspecified. Diagnostic errors are RSS/dof-scaled and omit fixed-input and calibration uncertainty. Source MgO and Li ruby/neon pressure bases remain distinct; no pressure column is recalibrated. The printed MgO coefficients miss Sata pressures by up to 0.353 GPa, so the exact pressure reducer is unverified. This is neither author-workflow reproduction nor independent pressure-scale validation. Litasov's later 298 K Vinet recalibration is not this EOS. Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic.
+Published 300 K BM3 based on the nine Table 1 states and three Li (2002) states above 25 GPa, on their original MgO and ruby/neon pressure bases (exact MgO reduction unverified). Published V0 = 9.341 Å³/atom, an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell; no thermal extrapolation or magnetic-phase diagram. Scatter exceeds some tabulated coordinate errors, and Litasov's later 298 K Vinet recalibration is a different EOS.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -538,7 +538,7 @@ Conditional parameter agreement for the published Sata (2010) 300 K BM3 curve, u
 
 <a id="record-cementite_nonmagnetic_hu_2019_linear_hugoniot"></a>
 
-## Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa
+## Hu et al. (2019), porous-precursor Hugoniot, 85.6-245 GPa
 
 `cementite_nonmagnetic_hu_2019_linear_hugoniot` · Executable; see usage qualifications
 
@@ -579,7 +579,7 @@ Automatic selection for hugoniot calculations.
 - **Validity:**
     - **Pressure gpa:** \[85.6, 245.0\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Possible melting at higher pressures; density data do not resolve the phase state.; Temperature bounds denote conventional precursor normalization only. Actual shock temperatures vary and are source-calculated, not measured.; Approximately 2% porous precursor. Bulk mass-equivalent volumes must not be used as dense-crystal diffraction lattice volumes.
+    - **Notes:** Possible melting at higher pressures; density data do not resolve the phase state.; The 300 K bounds are the precursor normalization only. Shock temperatures vary and are calculated by the source, not measured.
 - **Loading path:** principal
 - **Branch kind:** transformed
 - **Initial state:**
@@ -603,7 +603,7 @@ Automatic selection for hugoniot calculations.
     - **Notes:** Operational four-formula mass basis including pore volume, not the Pnma crystal lattice. Standard Fe=55.845 and C=12.011 g/mol; exact Avogadro constant.
 - **Reported error confidence level:** Not specified
 
-Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.
+Published linear Us-up fit to all six shots on an approximately 2% porous precursor, normalized to the adopted mean precursor density 7.525(0.010) g/cm³. V0 is a mass-equivalent bulk volume including the porosity, not a diffraction lattice volume or the Sata nonmagnetic V0; do not use it as a dense-crystal lattice volume.
 
 <details markdown="1">
 <summary>Source review</summary>

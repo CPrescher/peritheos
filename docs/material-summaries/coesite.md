@@ -33,14 +33,14 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/sio2
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [data from JCPDS and Levien and Prewitt, 1981](#record-coesite_levien_1981_bm3_1) | BM3 | Not specified | close |  | primary source validated | Executable |
+| [Levien and Prewitt (1981), BM3](#record-coesite_levien_1981_bm3_1) | BM3 | Not specified | close |  | primary source validated | Executable |
 | [Bykova et al. (2018), combined coesite-I/II/III 300 K BM3](#record-coesite_i_iii_bykova_2018_300k_bm3) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [data from JCPDS and Levien and Prewitt, 1981](#record-coesite_levien_1981_bm3_1) | 546.4414 | 96.0 ± 3.0 | 8.4 ± 1.9 |
+| [Levien and Prewitt (1981), BM3](#record-coesite_levien_1981_bm3_1) | 546.4414 | 96.0 ± 3.0 | 8.4 ± 1.9 |
 | [Bykova et al. (2018), combined coesite-I/II/III 300 K BM3](#record-coesite_i_iii_bykova_2018_300k_bm3) | 547.2 ± 0.16 | 103.0 ± 2.0 | 3.02 ± 0.15 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
@@ -53,7 +53,7 @@ extrapolation.
 
 <a id="record-coesite_levien_1981_bm3_1"></a>
 
-## data from JCPDS and Levien and Prewitt, 1981
+## Levien and Prewitt (1981), BM3
 
 `coesite_levien_1981_bm3_1` · Executable
 
@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
     - **Locator:** 324-333
 - **Reported pressure coverage (GPa):** \[0.0, 5.2\]
 
-Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.
+V0 is the volume of the cited ambient structure; no V0 error was reported.
 
 <details markdown="1">
 <summary>Source review</summary>

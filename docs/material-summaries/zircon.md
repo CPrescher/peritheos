@@ -77,7 +77,7 @@ Automatic selection for equilibrium calculations.
     - **Locator:** 196-201
 - **Reported pressure coverage (GPa):** \[0.0, 4.81\]
 
-Hazen and Finger report V0=260.79(4) A^3 and K0=227(2) GPa for Murnaghan and Birch-Murnaghan fits with K0'=6.5 assumed. The paper's fitted range is 0-48.1 kbar.
+The paper gives these V0 and K0 for both its Murnaghan and Birch-Murnaghan fits, with K0' = 6.5 assumed. Its range is printed as 0-48.1 kbar.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -10,6 +10,15 @@
     {
       "identifier": "cscl_campbell_1994_bm3_1",
       "label": "Campbell and Heinz (1994), CsCl BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations; the CsCl fit also uses nine corrected V/V0 values from Yagi (1978).",
+        "audit": "../audits/cscl.audit.json#cscl_campbell_1994_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -20,8 +29,17 @@
       "experimental_pressure_range_gpa": [0.0, 28.7],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Room-temperature third-order Birch-Murnaghan fit to the authors' 13 Table 1 observations and nine corrected Yagi (1978) Table 1 compression ratios. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). Campbell and Heinz do not state the numerical weights used for their normalized-stress regression, so exact central-value reproduction remains fit-protocol limited.",
+      "notes": "Room-temperature BM3 fit to the authors' Table 1 data plus corrected compression ratios of Yagi (1978). V0 is fixed from the paper's a0 = 4.123 Å for the one-formula-unit Pm-3m cell.",
       "fit_datasets": ["cscl_campbell_1994_table1_compression", "cscl_yagi_1978_table1_compression"],
+      "reference": {
+        "authors": ["Campbell", "Heinz"],
+        "year": 1994,
+        "title": "High-pressure acoustic wave velocities and equations of state of the alkali chlorides",
+        "source": "J. Geophys. Res.",
+        "volume": "99",
+        "locator": "11765-11774",
+        "doi": "10.1029/94JB00127"
+      },
       "fit_data_sources": [
         {
           "source": "Campbell and Heinz (1994), this study",
@@ -36,24 +54,7 @@
           "volume_treatment": "Ratios multiplied by (4.118/4.123)^3 as specified by Campbell and Heinz",
           "availability": "bundled_transcribed_and_corrected"
         }
-      ],
-      "reference": {
-        "authors": ["Campbell", "Heinz"],
-        "year": 1994,
-        "title": "High-pressure acoustic wave velocities and equations of state of the alkali chlorides",
-        "source": "J. Geophys. Res.",
-        "volume": "99",
-        "locator": "11765-11774",
-        "doi": "10.1029/94JB00127"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations; the CsCl fit also uses nine corrected V/V0 values from Yagi (1978).",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/cscl.audit.json#cscl_campbell_1994_bm3_1"
-      }
+      ]
     }
   ],
   "symmetry": "CUBIC",

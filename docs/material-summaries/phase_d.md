@@ -82,7 +82,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 24.6\]
 - **Coverage provenance:** reported\_exactly
 
-Reference-volume variant for the AntA antigorite-derived phase-D run. Table 2 reports V0=88.12+/-0.32 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.
+Reference-volume variant for run AntA, with V0 from Table 2. The paper fits one BM2 with one K0 to the combined antigorite-derived data, but AntA and AntB have different ambient volumes, so each record uses its run's measured V0.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -157,7 +157,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0, 22.0\]
 - **Coverage provenance:** reported\_exactly
 
-Reference-volume variant for the AntB antigorite-derived phase-D run. Table 2 reports V0=87.191+/-0.097 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.
+Reference-volume variant for run AntB, with V0 from Table 2. The paper fits one BM2 with one K0 to the combined antigorite-derived data, but AntA and AntB have different ambient volumes, so each record uses its run's measured V0.
 
 <details markdown="1">
 <summary>Source review</summary>

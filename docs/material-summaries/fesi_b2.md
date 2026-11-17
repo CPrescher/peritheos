@@ -36,15 +36,15 @@ Ideal fully occupied CsCl-type B2 FeSi, identified in Fischer (2014), Sections 3
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data](#record-fesi_b2_fischer_2014_bm3_refit) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
-| [Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data](#record-fesi_b2_fischer_2014_vinet_refit) | Vinet + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Fischer et al. (2014), BM3 + MGD](#record-fesi_b2_fischer_2014_bm3_refit) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Fischer et al. (2014), Vinet + MGD](#record-fesi_b2_fischer_2014_vinet_refit) | Vinet + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data](#record-fesi_b2_fischer_2014_bm3_refit) | 21.301395153706103 (fixed) | 230.94775255642202 ± 2.4268584467205403 | 4.17 (fixed) |
-| [Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data](#record-fesi_b2_fischer_2014_vinet_refit) | 21.301395153706103 (fixed) | 236.43671934531218 ± 2.4678083126749724 | 4.17 (fixed) |
+| [Peritheos refit of Fischer et al. (2014), BM3 + MGD](#record-fesi_b2_fischer_2014_bm3_refit) | 21.301395153706103 (fixed) | 230.94775255642202 ± 2.4268584467205403 | 4.17 (fixed) |
+| [Peritheos refit of Fischer et al. (2014), Vinet + MGD](#record-fesi_b2_fischer_2014_vinet_refit) | 21.301395153706103 (fixed) | 236.43671934531218 ± 2.4678083126749724 | 4.17 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -56,7 +56,7 @@ extrapolation.
 
 <a id="record-fesi_b2_fischer_2014_bm3_refit"></a>
 
-## Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data
+## Peritheos refit of Fischer et al. (2014), BM3 + MGD
 
 `fesi_b2_fischer_2014_bm3_refit` · Executable
 
@@ -102,7 +102,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.
+Peritheos refit of the B2 observations of Fischer et al. (2014, Table S2), not their published coefficients or a source correction. Errors are local 1-sigma estimates assuming equal, independent pressure-residual variance. The choice of K0' and reference values strongly affects gamma0, so the formal errors are not the total uncertainty.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -165,7 +165,7 @@ Independent Peritheos refit of source observations, not Fischer's published B2 c
 
 <a id="record-fesi_b2_fischer_2014_vinet_refit"></a>
 
-## Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data
+## Peritheos refit of Fischer et al. (2014), Vinet + MGD
 
 `fesi_b2_fischer_2014_vinet_refit` · Executable
 
@@ -209,7 +209,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.
+Peritheos refit of the B2 observations of Fischer et al. (2014, Table S2), not their published coefficients or a source correction. Errors are local 1-sigma estimates assuming equal, independent pressure-residual variance. The choice of K0' and reference values strongly affects gamma0, so the formal errors are not the total uncertainty.
 
 <details markdown="1">
 <summary>Source review</summary>

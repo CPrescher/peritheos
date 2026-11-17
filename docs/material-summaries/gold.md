@@ -37,9 +37,9 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Dewaele et al. (2004), revised-ruby Vinet](#record-gold_dewaele_2004_vinet_5) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
 | [Takemura and Dewaele (2008), Dorogokupets-ruby Vinet](#record-gold_takemura_2008_vinet_6) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Anderson et al. (1989), Au logarithmic-volume thermal EOS](#record-gold_anderson_1989_bm3_1) | BM3 + LogVolumeThermalPressure | 300.0 | untested |  | primary source validated | Executable |
-| [04-0784, Fei et al PNAS, 2007 \[Vinet\]](#record-gold_fei_2007_vinet_2) | Vinet + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
+| [Fei et al. (2007), Vinet-MGD](#record-gold_fei_2007_vinet_2) | Vinet + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-gold_shen_2026_vinet_3) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Fratanduono et al. (2021), ramp-derived 298 K Vinet](#record-gold_fratanduono_2021_vinet_7) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Au MAO-scale Vinet](#record-gold_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
@@ -54,8 +54,8 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Fei et al. (2004), gold BM3-MGD on Speziale MgO scale](#record-gold_fei_2004_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | untested |  | primary source validated | Executable |
 | [Yokoo et al. (2009), Au fitted BM3 isotherm, 300 K](#record-gold_yokoo_2009_bm3_300k) | BM3 | 300.0 | untested |  | primary source validated | Executable |
 | [Yokoo et al. (2009), Au fitted Vinet isotherm, 300 K](#record-gold_yokoo_2009_vinet_300k) | Vinet | 300.0 | untested |  | primary source validated | Executable |
-| [Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | BM3 + AsymptoticDebyeTabulatedPressure | Not specified | untested | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | BM3 + AlphaKT | 300 | reproduced |  | primary source validated | Executable |
+| [Yokoo et al. (2009), Table III P-V-T reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | BM3 + AsymptoticDebyeTabulatedPressure | Not specified | untested | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Peritheos refit of Hirose et al. (2008) + Fei (2004), BM3](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | BM3 + AlphaKT | 300 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
@@ -65,9 +65,9 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Dewaele et al. (2004), revised-ruby Vinet](#record-gold_dewaele_2004_vinet_5) | 67.848 (fixed) | 167.0 (fixed) | 6.0 ± 0.02 |
 | [Takemura and Dewaele (2008), Dorogokupets-ruby Vinet](#record-gold_takemura_2008_vinet_6) | 67.848 (fixed) | 167.0 (fixed) | 5.9 ± 0.1 |
 | [Anderson et al. (1989), Au logarithmic-volume thermal EOS](#record-gold_anderson_1989_bm3_1) | 67.79 (fixed) | 166.65 (fixed) | 5.4823 (fixed) |
-| [04-0784, Fei et al PNAS, 2007 \[Vinet\]](#record-gold_fei_2007_vinet_2) | 67.85 ± 0.004 | 167.0 (fixed) | 6.0 ± 0.02 |
+| [Fei et al. (2007), Vinet-MGD](#record-gold_fei_2007_vinet_2) | 67.85 ± 0.004 | 167.0 (fixed) | 6.0 ± 0.02 |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-gold_shen_2026_vinet_3) | 67.792 (fixed) | 167.5 ± 0.3 | 5.85 ± 0.01 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | 67.84961794736972 | 167.0 | 5.9 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | 67.84961794736972 | 167.0 | 5.9 |
 | [Fratanduono et al. (2021), ramp-derived 298 K Vinet](#record-gold_fratanduono_2021_vinet_7) | 67.716 (fixed) | 170.9 ± 0.24 | 5.88 ± 0.005 |
 | [Dewaele (2019), Au MAO-scale Vinet](#record-gold_dewaele_2019_mao_vinet) | 67.932 ± 0.08 | 166.4 ± 2.0 | 5.47 ± 0.06 |
 | [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | 67.944 ± 0.08 | 163.4 ± 2.0 | 6.04 ± 0.06 |
@@ -82,8 +82,8 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Fei et al. (2004), gold BM3-MGD on Speziale MgO scale](#record-gold_fei_2004_bm3_mgd) | 67.85 ± 0.004 (fixed) | 167 ± 3.0 (fixed) | 5 ± 0.2 (fixed) |
 | [Yokoo et al. (2009), Au fitted BM3 isotherm, 300 K](#record-gold_yokoo_2009_bm3_300k) | 67.72 (fixed) | 167.5 | 5.79 |
 | [Yokoo et al. (2009), Au fitted Vinet isotherm, 300 K](#record-gold_yokoo_2009_vinet_300k) | 67.72 (fixed) | 167.5 | 5.94 |
-| [Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | 67.05486228267088 | 180.0 (fixed) | 5.610130908250963 |
-| [Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | 67.85 (fixed) | 167 (fixed) | 5.581150323572888 |
+| [Yokoo et al. (2009), Table III P-V-T reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | 67.05486228267088 | 180.0 (fixed) | 5.610130908250963 |
+| [Peritheos refit of Hirose et al. (2008) + Fei (2004), BM3](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | 67.85 (fixed) | 167 (fixed) | 5.581150323572888 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -129,7 +129,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Molar mass g mol:** 196.96657
 - **Reported error confidence level:** Not specified
 
-Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
+Table 2 parameterization. The authors fix most ambient V0 and K0 values from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -237,10 +237,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 93.6\]
     - **Temperature k:** \[298.0, 298.0\]
-    - **Notes:** Published Table I data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'\_R scale. Source-fixed parameters: V0, K0. Published atomic V0 is converted to the material card's conventional-cell basis.
+Static 298 K Vinet fit to all Table I observations, with pressures on the revised ruby scale (P'\_R in the paper). Published atomic V0 is stored per conventional cell (×4).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -316,7 +315,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 130.8\]
 
-Vinet fit for the Dorogokupets-Oganov ruby calibration. The published atomic V0=16.962 A^3 is multiplied by four atoms in the conventional fcc cell.
+Vinet fit with pressures on the Dorogokupets-Oganov ruby calibration. Published V0 = 16.962 Å³/atom; stored per conventional fcc cell (×4).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -400,14 +399,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Pressure gpa:** \[0.0, 222.44\]
     - **Temperature k:** \[300.0, 3000.0\]
     - **Volume ratio:** \[0.66, 1.0\]
-    - **Notes:** Table V calculation grid; a reference parameterization, not an independent experimental envelope.
+    - **Notes:** Bounds are the Table V calculation grid, not an experimental envelope.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 196.967
 - **Reported error confidence level:** Not specified
 
-Anderson et al. Equation (29): the adopted 300 K BM3 curve KT0=166.65 GPa and K0'=5.4823 is combined with \[0.00714-0.0115\*ln(V0/V)\]\*(T-300) GPa. This is a staged literature synthesis, not a global P-V-T regression: Tables I-IV combine heat-capacity, expansivity, and ultrasonic data from distinct sources; low-temperature expansivities were graphically smoothed; several derived curves were fit separately; K0'=5.2-5.5 was selected by a thermodynamic-consistency diagnostic; and the final static K0 and K0' were adopted from Heinz and Jeanloz. V0=67.79 A^3 is converted from the paper's ambient density 19.30 g/cm^3 and atomic mass 196.967 g/mol for the four-atom fcc cell. Table I prints Cp=1.1288 in units of 0.1 J g^-1 K^-1 at 300 K, but Equation (4) and Table IV gamma=2.974 independently imply about 1.288; both the printed and reconstructed values are preserved in the supporting dataset. Table V covers V/V0=0.66-1 and 300-3000 K. The stored 0.001 GPa/K dK\_dT\_V error is the explicit propagated contribution reported for the near-identical K0'=5.5 calculation; the paper notes an additional unquantified contribution from K0' uncertainty. No global objective, complete covariance matrix, row weights, digitized low-temperature smoothing curve, or exact numerical-integration protocol is published.
+Equation (29) of Anderson et al.: a 300 K BM3 isotherm with K0 and K0' adopted from Heinz and Jeanloz, plus a thermal pressure linear in (T-300) and ln(V0/V). The thermal coefficients come from a staged synthesis of heat-capacity, expansivity and ultrasonic data, not a global P-V-T regression. V0 is converted from the ambient density 19.30 g/cm³ and 196.967 g/mol for the four-atom fcc cell.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -488,7 +487,7 @@ Anderson et al. Equation (29): the adopted 300 K BM3 curve KT0=166.65 GPa and K0
 
 <a id="record-gold_fei_2007_vinet_2"></a>
 
-## 04-0784, Fei et al PNAS, 2007 \[Vinet\]
+## Fei et al. (2007), Vinet-MGD
 
 `gold_fei_2007_vinet_2` · Executable
 
@@ -524,7 +523,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 117.9\]
     - **Temperature k:** \[298.0, 2330.0\]
-    - **Notes:** Marginal envelope of the recovered source measurements, not a validated rectangular P-T domain, an extrapolation limit or a guarantee of phase stability. Conditional replay uses 37 cold and 28 hot rows; the original author selection is not recovered.; Cold anchor: Dewaele (2004) Table I, 37 revised-ruby rows at 298 K spanning 0-93.6 GPa. Fei (2007) defines the EOS reference at 300 K; evaluating these rows at that reference does not relabel their measured temperature.; Hot coverage: Fei (2004) Table 1, 26 reported-MgO rows at 8.64-25.56 GPa and 1273-2173 K, plus Hirose (2006) Table 1 Run 2 points at 106.5 GPa/1340 K and 117.9 GPa/2330 K. The marginal bounds do not fill the pressure gap or provide continuous temperature coverage.; Additional cold evidence: Fei (2007) reports new room-temperature measurements to 89 GPa, recovered only as six digitized Figure 1 markers; Hirose (2006) supplies one 102.8 GPa/300 K MgO-referenced row. These enter cold sensitivities only. The 111 calculated Figure 1 vertices are equation comparisons, never measured coverage.; Fei (2007) supplies no explicit recommended numerical extrapolation range for this Au EOS. Its discussion of core pressures and the numerical PVT verification grid do not extend the measured envelope or establish accuracy outside the observed states.
+    - **Notes:** Cold data: Dewaele (2004) Table I, 37 revised-ruby rows at 298 K, 0-93.6 GPa.; Hot data cover 8.64-25.56 GPa at 1273-2173 K, then only two points: 106.5 GPa/1340 K and 117.9 GPa/2330 K.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -534,7 +533,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Published Fei (2007) Table 1 Au Vinet-MGD coefficients, with the printed variable-exponent Debye-temperature law. Staged cold/hot replay achieves conditional numerical parity within printed K0-prime/q error widths under equal pressure weights. Source weights, exact MgO reduction and error confidence/covariance remain unresolved; diagnostic refits do not replace published coefficients. See docs/literature-reproductions/fei-2007-gold.md.
+Vinet + Mie-Grüneisen-Debye EOS of Fei et al. (2007), Table 1, with the printed variable-exponent Debye-temperature law. The cold branch rests on revised-ruby data, the thermal part on MgO-referenced data.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -640,7 +639,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 140.0\]
 
-Table II Cu-referenced fit using DAC-1 data; V0 fixed. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.01. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.
+Table II fit to the DAC-1 data, with pressures from the simultaneously measured Cu volumes. Measurements were made at 298.5 ± 0.5 K.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -695,7 +694,7 @@ Table II Cu-referenced fit using DAC-1 data; V0 fixed. Reported uncertainties: K
 
 <a id="record-gold_sokolova_2013_holzapfel_4"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `gold_sokolova_2013_holzapfel_4` · Executable
 
@@ -736,7 +735,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reference temperature (K):** 298.15
 - **Coverage provenance:** reference\_parameterization
 
-This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
+Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to shock-wave, ultrasonic, X-ray diffraction, dilatometric and thermochemical data: reference volume from Table 1, Holzapfel and thermal coefficients from Table 4. Sokolova et al. (2016) supplies the spreadsheet implementation, reference-temperature convention and corrected equations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -825,9 +824,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0, 1000.0\]
     - **Temperature k:** \[298.0, 298.0\]
     - **Volume ratio:** \[0.45, 1.0\]
-    - **Notes:** Use only within the ramp-compression measurement range; the authors explicitly warn against extrapolating the Vinet fit beyond the data.
+    - **Notes:** Use only within the ramp-compression data range; the authors explicitly warn against extrapolating this Vinet fit beyond the data.
 
-Quasi-absolute 298 K reference isotherm reduced from shockless ramp compression. Table 1 reports atomic V0=16.929 A^3, converted here to the four-atom fcc conventional cell. This is the Au pressure basis used by the Eremets et al. (2023) diamond-edge scale.
+Quasi-absolute 298 K reference isotherm reduced from shockless ramp compression. Published V0 = 16.929 Å³/atom (Table 1); stored per conventional fcc cell (×4). This is the Au pressure basis of the Eremets et al. (2023) diamond-edge scale.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -909,10 +908,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 131.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -999,10 +997,9 @@ Published pressure-scale alternative of [gold\_dewaele\_2019\_mao\_vinet](#recor
 - **Validity:**
     - **Pressure gpa:** \[0.0, 131.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986 record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1087,10 +1084,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 90.0\]
     - **Temperature k:** \[298.0, 298.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.
+Static 298 K synchrotron X-ray fit to all Table I observations, with pressures on the classical Mao ruby scale. V0 is fixed from the authors' 0-5 GPa determination. The revised-ruby record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1167,10 +1163,10 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[0.0, 259.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.; The available auxiliary rows containing Au span 34.4-242.6 GPa in the source's printed derived pressures.
+    - **Notes:** The range is that of the published Table 2 pressure-standard parameterization, not the observation envelope.; The available Au data rows span 34.4-242.6 GPa (printed derived pressures).
 - **Reported error confidence level:** Not specified
 
-Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
+Pressure-standard fit to co-compression data, with pressures from the Tange et al. (2009) MgO Vinet EOS (their Fit 3) as fixed 300 K anchor. This K0-fixed solution and the K0-free record are correlated alternatives from the same data, not independent experiments.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1271,10 +1267,10 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[0.0, 259.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.; The available auxiliary rows containing Au span 34.4-242.6 GPa in the source's printed derived pressures.
+    - **Notes:** The range is that of the published Table 2 pressure-standard parameterization, not the observation envelope.; The available Au data rows span 34.4-242.6 GPa (printed derived pressures).
 - **Reported error confidence level:** Not specified
 
-Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
+Pressure-standard fit to co-compression data, with pressures from the Tange et al. (2009) MgO Vinet EOS (their Fit 3) as fixed 300 K anchor. This K0-free solution and the K0-fixed record are correlated alternatives from the same data, not independent experiments.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1383,12 +1379,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 300.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** This is Ye et al.'s fitted 300 K co-compression isotherm.; Zhu et al. later fixed this static branch inside a separate thermal P-V-T model.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 196.96657
 - **Reported error confidence level:** Not specified
+
+Ye et al.'s fitted 300 K co-compression isotherm. Zhu et al. later fixed this static branch inside a separate thermal P-V-T model.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1483,14 +1480,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0, 197.039\]
     - **Temperature k:** \[293.0, 1324.0\]
     - **Volume ratio:** \[0.6896551215917466, 0.9015563743551953\]
-    - **Notes:** Bounds conservatively report the extrema of the released v3 fit-input tables, not a rectangular phase-stability field.; The record follows the v3 optimizer's theta0=180 K and its downstream rounded gamma coefficients. The separate v3 pressure calculator instead hard-codes theta0=170 K.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 196.96657
 - **Reported error confidence level:** Not specified
 
-This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm.
+Temperature-dependent P-V-T model; the fitted 300 K co-compression isotherm is the separate Ye et al. record. theta0 = 180 K and the rounded gamma coefficients follow the authors' v3 optimizer; their separate v3 pressure calculator instead hard-codes theta0 = 170 K.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1599,7 +1595,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.58\]
     - **Temperature k:** \[300.0, 3000.0\]
-    - **Notes:** Fit #1 is explicitly restricted to &gt;70 GPa; fit #2 is recommended to 140 GPa and 3000 K, beyond the measured maximum 2330 K. Marginal ranges do not guarantee phase stability.
+    - **Notes:** Fit #2 is recommended to 140 GPa and 3000 K, beyond the measured maximum of 2330 K.; The 140 GPa data point has reported peak-overlap problems.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
@@ -1614,7 +1610,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Hirose et al. primary Table 2 parameters; fcc conventional cell contains four Au atoms. The 140 GPa row is retained despite reported peak-overlap problems. Preferred fit #2: alpha1 uncertainty comes from the separately fitted expansivity relation on page 153, although alpha1 was held fixed in the EOS regression. Printed beta0 is preserved in provenance; its tiny intercept adjustment enforces K(300)=167 GPa.
+The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. beta0 is the printed value adjusted slightly so that K(300) = 167 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1713,7 +1709,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[70.0, 140.0\]
     - **Temperature k:** \[300.0, 2330.0\]
-    - **Notes:** Fit #1 is explicitly restricted to &gt;70 GPa; fit #2 is recommended to 140 GPa and 3000 K, beyond the measured maximum 2330 K. Marginal ranges do not guarantee phase stability.
+    - **Notes:** Fit #1 is explicitly restricted to pressures above 70 GPa.; The 140 GPa data point has reported peak-overlap problems.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
@@ -1728,7 +1724,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Hirose et al. primary Table 2 parameters; fcc conventional cell contains four Au atoms. The 140 GPa row is retained despite reported peak-overlap problems.
+Fit #1 of Table 2, from diamond-anvil-cell data only.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1819,14 +1815,14 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 140.58\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Fit #1 is explicitly restricted to &gt;70 GPa; fit #2 is recommended to 140 GPa and 3000 K, beyond the measured maximum 2330 K. Marginal ranges do not guarantee phase stability.
+    - **Notes:** The 140 GPa data point has reported peak-overlap problems.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 196.96657
 - **Reported error confidence level:** Not specified
 
-Hirose et al. primary Table 2 parameters; fcc conventional cell contains four Au atoms. The 140 GPa row is retained despite reported peak-overlap problems.
+300 K BM3 isotherm of Table 2, on the Speziale MgO pressure scale.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1919,7 +1915,6 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 26.0\]
     - **Temperature k:** \[300.0, 2173.0\]
-    - **Notes:** Marginal experimental envelope, not rectangular phase-stability claim. Au also constrained by upstream shock data not deposited here.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
@@ -1933,7 +1928,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 </details>
 
-fcc conventional cell with four atoms; composition/phase match existing material. No covariance or error confidence reported. Published coefficients remain unchanged; diagnostic refits do not replace this record. See docs/literature-reproductions/fei-2004-pressure-scales.md.
+The Au EOS is also constrained by upstream shock data, which are not included here.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2023,14 +2018,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 368.90987378691\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Modeled reference-isotherm compression range V/V0=0.6-1.0 from the source grid; not measured static coverage or a phase-stability guarantee. Full thermal Table III includes first liquid states and reaches 385.26 GPa at 3000 K; it is distinct from this fitted branch.
+    - **Notes:** Bounds come from the source's model grid at V/V0 = 0.6-1.0, not from measured static coverage.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 196.96657
 - **Reported error confidence level:** Not specified
 
-Published Table II fitted 300 K BM3 branch: K0=167.5 GPa, K0\_prime=5.79. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. Full thermal model remains withheld pending exact cold Vc/unrounded phonon normalization and verification of the adopted electronic implementation; electronic energy/heat capacity for the original shock fit remain unavailable. Original joint fit is not independently refittable.
+Fitted 300 K BM3 branch of Table II, distinct from the full cold-BM3 + phonon + electronic model and its Table III outputs. V0 = 67.72 Å³ per four-atom fcc cell is derived from the printed ambient density 19.32 Mg/m³ (196.96657 g/mol), rounded at the density precision. The 0 K BM3 derivative error 0.10 must not be transferred to this fit.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2127,14 +2122,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 352.8492451039456\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Modeled reference-isotherm compression range V/V0=0.6-1.0 from the source grid; not measured static coverage or a phase-stability guarantee. Full thermal Table III includes first liquid states and reaches 385.26 GPa at 3000 K; it is distinct from this fitted branch.
+    - **Notes:** Bounds come from the source's model grid at V/V0 = 0.6-1.0, not from measured static coverage.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 196.96657
 - **Reported error confidence level:** Not specified
 
-Published Table II fitted 300 K Vinet branch: K0=167.5 GPa, K0\_prime=5.94. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. Full thermal model remains withheld pending exact cold Vc/unrounded phonon normalization and verification of the adopted electronic implementation; electronic energy/heat capacity for the original shock fit remain unavailable. Original joint fit is not independently refittable.
+Fitted 300 K Vinet branch of Table II, distinct from the full cold-BM3 + phonon + electronic model and its Table III outputs. V0 = 67.72 Å³ per four-atom fcc cell is derived from the printed ambient density 19.32 Mg/m³ (196.96657 g/mol), rounded at the density precision. The 0 K BM3 derivative error 0.10 must not be transferred to this fit.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2201,13 +2196,13 @@ Published Table II fitted 300 K Vinet branch: K0=167.5 GPa, K0\_prime=5.94. V0=6
 
 <a id="record-gold_yokoo_2009_pvt_reconstruction"></a>
 
-## Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction
+## Yokoo et al. (2009), Table III P-V-T reconstruction
 
 `gold_yokoo_2009_pvt_reconstruction` · Explicit diagnostic selection; not recommended
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/gold.md#record-gold_yokoo_2009_pvt_reconstruction)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Source finding:** Equations 1-12 and Table III supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction.
 
@@ -2238,7 +2233,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Temperature k:** \[0, 3000\]
     - **Volume ratio:** \[0.6, 1.0\]
-    - **Notes:** Bounds of pressure reconstruction, not independently measured or guaranteed solid-phase validity. First-liquid markers excluded from fitting; missing source cells are not fabricated observations.
+    - **Notes:** The domain includes first-liquid states of Table III, excluded from the fit; use the source's phase markers.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -2255,7 +2250,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 </details>
 
-Diagnostic reconstruction of Yokoo (2009) Table III calculated PVT outputs; published analytical PVT remains unreproduced. Not a validated replacement for the source pressure standard. Cold BM3 V0 is Vc at 0 K; ambient normalization is Vc/cold\_volume\_ratio. Phonon and electronic pressures are absolute relative to 0 K. Electronic pressure is assumed volume independent and interpolated linearly; no extrapolation. Source first-liquid annotations are preserved and excluded from the primary fit. Numerical bounds do not guarantee solid Au/Pt throughout the rectangular domain; use the source phase markers. No parameter errors or covariance are inferred from model-output residuals. This pressure model supplies no caloric potential.
+Diagnostic reconstruction of calculated Table III P-V-T outputs; it neither reproduces the published analytical model nor replaces the source pressure standard. Cold BM3 V0 is Vc at 0 K (ambient volume Vc/cold\_volume\_ratio); phonon and electronic pressures are absolute relative to 0 K. Electronic pressure is assumed volume independent and linearly interpolated, not extrapolated; no caloric potential is supplied.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2313,7 +2308,7 @@ Diagnostic reconstruction of Yokoo (2009) Table III calculated PVT outputs; publ
 
 <a id="record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit"></a>
 
-## Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO
+## Peritheos refit of Hirose et al. (2008) + Fei (2004), BM3
 
 `gold_hirose_2008_fei_2004_speziale_2001_bm3_refit` · Executable
 
@@ -2356,7 +2351,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[8.628704299040267, 140.54513210399975\]
     - **Temperature k:** \[300.0, 2330.0\]
-    - **Notes:** Marginal observed coverage only, not a validated P-T rectangle. Hot coverage: \[8.628704299040267, 117.44474550589783\] GPa and \[1273.0, 2330.0\] K. No 3000 K extrapolation recommendation inherited.
+    - **Notes:** Hot data cover 8.628704299040267-117.44474550589783 GPa at 1273-2330 K; no 3000 K extrapolation recommendation is inherited.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
@@ -2371,7 +2366,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.
+Peritheos staged refit, not a Hirose or Fei author fit. Pressures come from the author-confirmed Speziale (2001) variable-q MgO EOS; 300 K Hirose rows fix K0', then Fei and hot Hirose rows fit the thermal coefficients with equal pressure weights. Parameter errors are unset because calibrant, fixed-anchor and inter-stage uncertainties are not propagated.
 
 <details markdown="1">
 <summary>Source review</summary>

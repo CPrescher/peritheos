@@ -89,10 +89,9 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[30.0, 140.0\]
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.7233026270897305, 0.89798703514159\]
-    - **Notes:** The record is a static 0 K first-principles isotherm, not an experimental room-temperature EOS.; The represented branch is the hydrogen-centered Pnnm, low-spin ferromagnetic structure fitted over 30-140 GPa.; The pressure and volume bounds follow the authors' stated fit interval and the rounded Table S1 endpoints; they are not a finite-temperature phase-stability field.
 - **Reported error confidence level:** Not specified
 
-This record represents only the volumetric BM3 fit for the hydrogen-centered low-spin ferromagnetic Pnnm branch. The paper's self-consistent Hubbard U changes with pressure; it is part of the computational protocol, not an EOS coefficient. Table 3 elastic moduli and velocities come from stress-strain elastic tensors and Voigt-Reuss-Hill averaging and are not substituted for the volumetric K0 or K0'. All three BM3 parameters were fitted. Published parameter errors are retained, but their confidence level and covariance are unavailable.
+Volumetric BM3 fit for the hydrogen-centered, low-spin ferromagnetic Pnnm branch from static 0 K first-principles calculations. The self-consistent Hubbard U varies with pressure as part of the computational protocol and is not an EOS coefficient. The Table 3 elastic moduli come from stress-strain elastic tensors and are not substitutes for the volumetric K0 or K0'. The confidence level and covariance of the published errors are unavailable.
 
 <details markdown="1">
 <summary>Source review</summary>

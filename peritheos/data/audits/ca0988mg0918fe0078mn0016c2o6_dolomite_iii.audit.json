@@ -132,6 +132,14 @@
           "K0_prime": "Discussion paragraph 11: fixed at 4.",
           "fit_selection": "Figure 3b larger-volume branch. The text says both compression and decompression results were used for high spin, while the plotted larger-volume markers are open decompression symbols; the exact original row mask is therefore not recoverable and is not silently invented."
         }
+      },
+      "superseded_record_text": {
+        "notes": "No default_for is assigned because this is a bounded, metastable high-spin reference branch of a high-pressure phase.",
+        "validity_notes": [
+          "Empirical larger-volume spin branch around and below the approximately 47 GPa transition; the endpoints are bounded by the separable Figure 3 markers, not a thermodynamic spin boundary.",
+          "V0 is a long metastable extrapolation because dolomite-III was observed only at high pressure."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2": {
@@ -263,6 +271,14 @@
           "K0_prime": "Discussion paragraph 11: fixed at 4.",
           "fit_selection": "Figure 3b lower-volume branch on compression and decompression. The source does not publish row identifiers or regression weights, so the bundled marker mask records the visible branch rather than claiming exact recovery of the private input table."
         }
+      },
+      "superseded_record_text": {
+        "notes": "No default_for is assigned because this is a bounded, metastable low-spin reference branch of a high-pressure phase.",
+        "validity_notes": [
+          "Empirical lower-volume spin branch around and above the approximately 47 GPa transition; the endpoints are the digitized Figure 3 audit envelope, not a thermodynamic spin boundary.",
+          "V0 is a long extrapolation outside the observed stability range and is strongly correlated with K0."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

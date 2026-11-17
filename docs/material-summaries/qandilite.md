@@ -86,7 +86,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.
+The observed cubic phase persists kinetically; the pressure range is not an equilibrium-stability claim.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -176,7 +176,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.
+The observed cubic phase persists kinetically; the pressure range is not an equilibrium-stability claim.
 
 <details markdown="1">
 <summary>Source review</summary>

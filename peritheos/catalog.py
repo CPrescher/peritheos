@@ -9,12 +9,14 @@ indexing, and discovery can evolve independently.
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Iterator, Mapping
 from dataclasses import dataclass
 from difflib import SequenceMatcher, get_close_matches
 from functools import cache
+from os import PathLike
+from pathlib import Path
 from types import MappingProxyType
-from typing import TypeVar
+from typing import Any, TypeVar
 
 from peritheos.catalog_families import (
     MaterialFamily,
@@ -29,7 +31,12 @@ from peritheos.eosmat import (
     list_material_documents,
 )
 from peritheos.errors import MaterialError, MaterialLookupError
-from peritheos.materials import EOSRecord, Material, _material_from_eosmat
+from peritheos.materials import (
+    EOSRecord,
+    Material,
+    _material_from_eosmat,
+    _not_executable_message,
+)
 
 _CatalogObject = TypeVar("_CatalogObject", Material, EOSRecord)
 
@@ -43,6 +50,9 @@ class _CatalogIndex:
     ambiguous_material_aliases: Mapping[str, tuple[str, ...]]
     ambiguous_record_aliases: Mapping[str, tuple[str, ...]]
     material_by_record: Mapping[str, Material]
+    #: Records of bundled documents that are not executable: identifier to
+    #: (material identifier, stored scientific_validation status).
+    document_only_records: Mapping[str, tuple[str, str]]
 
 
 def _index_aliases(
@@ -79,6 +89,7 @@ def _catalog_index() -> _CatalogIndex:
     materials: dict[str, Material] = {}
     records: dict[str, EOSRecord] = {}
     material_by_record: dict[str, Material] = {}
+    document_only_records: dict[str, tuple[str, str]] = {}
     families = {family.identifier for family in list_material_families()}
     for document_identifier in list_material_documents():
         # The record file alone: audit sidecars load lazily per material.
@@ -110,6 +121,14 @@ def _catalog_index() -> _CatalogIndex:
                 and record.get("default_for") is None
             )
         ]
+        document_only_records.update(
+            (
+                str(record["identifier"]),
+                (document_identifier, str(record["scientific_validation"]["status"])),
+            )
+            for record in document["eos_records"]
+            if record["identifier"] not in executable_ids
+        )
         if not executable_ids:
             continue
         material = _material_from_eosmat(
@@ -152,6 +171,7 @@ def _catalog_index() -> _CatalogIndex:
         ambiguous_material_aliases=ambiguous_material_aliases,
         ambiguous_record_aliases=ambiguous_record_aliases,
         material_by_record=MappingProxyType(material_by_record),
+        document_only_records=MappingProxyType(document_only_records),
     )
 
 
@@ -368,6 +388,14 @@ def get_eos_record(identifier: str) -> EOSRecord:
     compatibility = _compatibility_records()
     if identifier in compatibility:
         return compatibility[identifier]
+    if identifier in index.document_only_records:
+        material, status = index.document_only_records[identifier]
+        raise MaterialLookupError(
+            _not_executable_message(identifier, material, status),
+            operation="lookup_eos_record",
+            field="identifier",
+            context={"identifier": identifier, "material": material},
+        )
     choices = (*index.records, *index.record_aliases, *compatibility)
     raise MaterialLookupError(
         f"Unknown EOS record {identifier!r}." + _suggestion(identifier, choices),
@@ -429,6 +457,40 @@ def list_reference_variants(source_eos_record: str) -> tuple[EOSRecord, ...]:
     )
 
 
+def material_overviews() -> Iterator[dict[str, Any]]:
+    """Yield :meth:`Material.overview` of every bundled material, in identifier order.
+
+    No audit sidecar is read, so ``pressure_scale`` is ``None`` in every record.
+    Each dictionary carries ``overview_version``.
+    """
+    for material in list_materials():
+        yield material.overview()
+
+
+def write_material_overviews(path: str | PathLike[str]) -> Path:
+    """Write the overview of the whole bundled catalog as one JSON index.
+
+    The file holds ``{"overview_version": ..., "peritheos_version": ...,
+    "materials": [...]}`` with :func:`material_overviews` in order, valid
+    against ``peritheos/data/overview-v1.schema.json``. An existing file is
+    replaced. Returns the path written.
+    """
+    import json
+
+    from peritheos import __version__
+    from peritheos._overview import OVERVIEW_VERSION
+
+    target = Path(path)
+    index = {
+        "overview_version": OVERVIEW_VERSION,
+        "peritheos_version": __version__,
+        "materials": list(material_overviews()),
+    }
+    text = json.dumps(index, ensure_ascii=False, indent=1, allow_nan=False)
+    target.write_text(text + "\n", encoding="utf-8")
+    return target
+
+
 # Re-export discovery here for users who naturally look for it beside lookup.
 # The import is deliberately last: catalog_search imports the listing functions.
 from peritheos.catalog_search import (  # noqa: E402, I001
@@ -456,6 +518,8 @@ __all__ = [
     "list_reference_variants",
     "list_material_families",
     "list_materials",
+    "material_overviews",
     "search_eos_records",
     "search_materials",
+    "write_material_overviews",
 ]

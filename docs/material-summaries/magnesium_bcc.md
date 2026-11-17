@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[46.0, 211.0\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-Room-temperature bcc fit. The published 23.1394 A^3/atom reference volume is multiplied by two for the conventional bcc cell.
+Room-temperature fit to bcc Mg. Published V0 = 23.1394 Å³/atom; stored per conventional bcc cell (×2).
 
 <details markdown="1">
 <summary>Source review</summary>

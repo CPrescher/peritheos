@@ -35,14 +35,14 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | **reproduced** |  |
-| [Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | **reproduced** |  |
-| [Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | **reproduced**, poor data agreement | Qualified use only; see the audit. |
-| [Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | **reproduced** | Qualified use only; see the audit. |
+| [Takahashi et al. (2019), KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | **reproduced** |  |
+| [Takahashi et al. (2019), MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | **reproduced** |  |
+| [Sata et al. (2010), original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | **reproduced**, poor data agreement | Qualified use only; see the audit. |
+| [Hu et al. (2019), porous-precursor Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | **reproduced** | Qualified use only; see the audit. |
 
 <a id="record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd"></a>
 
-## Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD
+## Takahashi et al. (2019), KBr pressure scale, BM3 + MGD
 
 **reproduced** · `cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd` · `BM3` · [Coefficients and source](../material-summaries/cementite_nonmagnetic.md#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd)
 
@@ -120,7 +120,7 @@ Both fits use the same 60 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd"></a>
 
-## Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD
+## Takahashi et al. (2019), MgO pressure scale, BM3 + MGD
 
 **reproduced** · `cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd` · `BM3` · [Coefficients and source](../material-summaries/cementite_nonmagnetic.md#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd)
 
@@ -198,7 +198,7 @@ Both fits use the same 60 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-cementite_nonmagnetic_sata_2010_bm3"></a>
 
-## Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3
+## Sata et al. (2010), original-scale 300 K BM3
 
 **reproduced**, poor data agreement · `cementite_nonmagnetic_sata_2010_bm3` · `BM3` · [Coefficients and source](../material-summaries/cementite_nonmagnetic.md#record-cementite_nonmagnetic_sata_2010_bm3)
 
@@ -279,7 +279,7 @@ Nine original Sata Fe3C/MgO states and the three source-named Li (2002) rows abo
 
 <a id="record-cementite_nonmagnetic_hu_2019_linear_hugoniot"></a>
 
-## Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa
+## Hu et al. (2019), porous-precursor Hugoniot, 85.6-245 GPa
 
 **reproduced** · `cementite_nonmagnetic_hu_2019_linear_hugoniot` · `LinearUsUpHugoniot` · [Coefficients and source](../material-summaries/cementite_nonmagnetic.md#record-cementite_nonmagnetic_hu_2019_linear_hugoniot)
 

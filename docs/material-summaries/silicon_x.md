@@ -80,7 +80,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[90.8, 105.2\]
 - **Reported error confidence level:** 0.95
 
-Table 8 room-temperature fit. Published V0=13.3 A^3/atom is multiplied by four atoms in the conventional fcc cell; V0 is extrapolated because Si-X appears above about 91 GPa.
+Table 8 room-temperature fit. Published V0 = 13.3 Å³/atom; stored per conventional fcc cell (×4). V0 is extrapolated because Si-X appears only above about 91 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

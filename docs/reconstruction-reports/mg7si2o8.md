@@ -35,11 +35,11 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [(OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht](#record-mg7si2o8_crichton_2002_bm3_1) | **reproduced** |  |
+| [Crichton and Ross (2002), BM3](#record-mg7si2o8_crichton_2002_bm3_1) | **reproduced** |  |
 
 <a id="record-mg7si2o8_crichton_2002_bm3_1"></a>
 
-## (OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht
+## Crichton and Ross (2002), BM3
 
 **reproduced** · `mg7si2o8_crichton_2002_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/mg7si2o8.md#record-mg7si2o8_crichton_2002_bm3_1)
 

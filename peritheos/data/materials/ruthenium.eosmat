@@ -9,6 +9,15 @@
     {
       "identifier": "ruthenium_anzellini_2019_bm3_1",
       "label": "Anzellini et al. (2019), BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0 (+0.1%), K0 (-1.8%) and K0' (+2.3%): outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/ruthenium.audit.json#ruthenium_anzellini_2019_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,7 +27,7 @@
       },
       "experimental_pressure_range_gpa": [0.0, 151.0],
       "determination_method": "experimental",
-      "notes": "Experimental helium-medium BM3 fit to 151 GPa; the paper reports V0=27.122(6) A^3, K0=323.4(1.1) GPa, and K0'=4.150(19).",
+      "notes": "Experimental BM3 fit to data in a helium pressure medium.",
       "reference": {
         "authors": [
           "Anzellini",
@@ -38,13 +47,6 @@
         "volume": "9",
         "locator": "14459",
         "doi": "10.1038/s41598-019-51037-8"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/ruthenium.audit.json#ruthenium_anzellini_2019_bm3_1"
       }
     }
   ],

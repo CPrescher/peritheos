@@ -85,7 +85,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[300, 2135\]
 
-Only T=300 K rows with P&lt;15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.
+Fitted to the 300 K data below 15 GPa plus all high-temperature data; the anomalous room-temperature points at higher pressure are excluded. V0 is fixed at its measured value; published errors have unspecified confidence. Phase coexistence and kinetic inhibition occur in the experiments.
 
 <details markdown="1">
 <summary>Source review</summary>

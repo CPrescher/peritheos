@@ -182,6 +182,14 @@
             "locations": ["article pages 873-875", "article Table 1", "Online Materials Table S1", "8969fu.cif"]
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Standard second-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. K0_prime=4 is fixed by the BM2 model; V0 and K0 were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM2 is co-reported with BM3 and is not designated preferred.",
+        "validity_notes": [
+          "Bounds are the 22-row Table S1/CIF observation envelope, not a broader phase-stability guarantee.",
+          "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa but does not establish a rectangular thermodynamic stability field."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2": {
@@ -375,6 +383,14 @@
             "locations": ["article pages 873-875", "article Table 1", "Online Materials Table S1", "8969fu.cif"]
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. V0, K0, and K0_prime were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM3 is co-reported with BM2 and is not designated preferred.",
+        "validity_notes": [
+          "Bounds are the 22-row Table S1/CIF observation envelope, not a broader phase-stability guarantee.",
+          "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa but does not establish a rectangular thermodynamic stability field."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg088fe010al014si090o3_bridgmanite_fu_2023_bm2": {
@@ -465,6 +481,11 @@
           "K0": "Text S1 and main-article Table 3: 256(2) GPa.",
           "fit_relationship": "Co-reported with an unconstrained-K0_prime BM3 fit to the same Table S2 series; neither fit is designated preferred."
         }
+      },
+      "superseded_record_text": {
+        "notes": "The parenthetical error on V0 is not treated as a fitted parameter uncertainty because Text S1 explicitly fixes V0; the 0.01 A^3 value in Table S2 is the ambient observation uncertainty.",
+        "validity_notes": ["Bounds are the complete Table S2 room-temperature compression envelope."],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg088fe010al014si090o3_bridgmanite_fu_2023_bm3": {
@@ -556,6 +577,10 @@
           "K0_prime": "Text S1: 3.8(2).",
           "fit_relationship": "Co-reported sensitivity fit to the same Table S2 data as the BM2 record; preserved because freeing K0_prime is a genuine source model distinction."
         }
+      },
+      "superseded_record_text": {
+        "validity_notes": ["Bounds are the complete Table S2 room-temperature compression envelope."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

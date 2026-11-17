@@ -117,7 +117,8 @@ from peritheos import get_material, search_eos_records
 mgo = get_material("mgo")  # also "periclase", "MgO"
 print(mgo.summary())  # records with model, P/T range, reproduction, reference
 scale = mgo.get_eos_record("mgo_sokolova_2013_holzapfel_4")
-print(scale.reproduction, scale.warning)  # e.g. "untested", None
+print(scale.reproduction, scale.compared)  # "untested", "source_equation"
+print(scale.source_check, scale.warning)  # "verified", None
 pressure = scale.pressure(volume=60.0, temperature=2000.0)
 recovered_volume = scale.volume(pressure, temperature=2000.0)
 

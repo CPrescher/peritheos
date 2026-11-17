@@ -10,6 +10,16 @@
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p1_bm3",
       "label": "Sakai et al. (2014), p1_bm3",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 200.03 vs published 195.3 GPa (+2.4%), beyond the agreement limit; K0': refit 4.224 vs published 4.37 (-3.3%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -18,19 +28,16 @@
         "K0_prime": {"value": 4.37, "error": 0.05}
       },
       "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [27.1, 271.5],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [27.1, 271.5],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [27.1, 271.5],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -38,18 +45,22 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p1_vinet",
       "label": "Sakai et al. (2014), p1_vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 192.27 vs published 189.6 GPa (+1.4%), beyond the agreement limit; K0': refit 4.707 vs published 4.81 (-2.2%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -58,19 +69,16 @@
         "K0_prime": {"value": 4.81, "error": 0.06}
       },
       "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [27.1, 271.5],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [27.1, 271.5],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [27.1, 271.5],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -78,18 +86,22 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_vinet"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3",
       "label": "Sakai et al. (2014), p1_v0_mao_bm3",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 187.03 vs published 179.8 GPa (+4.0%), beyond the agreement limit; K0': refit 4.354 vs published 4.59 (-5.1%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -98,19 +110,16 @@
         "K0_prime": {"value": 4.59, "error": 0.05}
       },
       "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [27.1, 271.5],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [27.1, 271.5],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [27.1, 271.5],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "notes": "Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -118,18 +127,22 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet",
       "label": "Sakai et al. (2014), p1_v0_mao_vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 178.82 vs published 173.9 GPa (+2.8%), beyond the agreement limit; K0': refit 4.886 vs published 5.07 (-3.6%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -138,19 +151,16 @@
         "K0_prime": {"value": 5.07, "error": 0.06}
       },
       "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [27.1, 271.5],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [27.1, 271.5],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [27.1, 271.5],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "notes": "Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -158,18 +168,22 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3",
       "label": "Sakai et al. (2014), p1_v0_dewaele_bm3",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "V0: refit 22.5909 vs published 22.468 (+0.5%), beyond the agreement limit; K0': refit 4.538 vs published 4.73 (-4.1%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -178,19 +192,16 @@
         "K0_prime": {"value": 4.73, "error": 0.06}
       },
       "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [27.1, 271.5],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [27.1, 271.5],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [27.1, 271.5],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "notes": "Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -198,18 +209,22 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet",
       "label": "Sakai et al. (2014), p1_v0_dewaele_vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "V0: refit 22.5562 vs published 22.468 (+0.4%), beyond the agreement limit; K0': refit 5.079 vs published 5.23 (-2.9%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -218,19 +233,16 @@
         "K0_prime": {"value": 5.23, "error": 0.06}
       },
       "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [27.1, 271.5],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [27.1, 271.5],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [27.1, 271.5],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "notes": "Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -238,18 +250,21 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p2_bm3",
       "label": "Sakai et al. (2014), p2_bm3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p2_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -258,23 +273,19 @@
         "K0_prime": {"value": 4.28, "error": 0.05}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [27.1, 295.8],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [27.1, 295.8],
         "temperature_k": [300, 300],
         "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "experimental_pressure_range_gpa": [27.1, 295.8],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_bm3",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -282,18 +293,22 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p2_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
+      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_bm3"
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p2_vinet",
       "label": "Sakai et al. (2014), p2_vinet",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p2_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -302,23 +317,19 @@
         "K0_prime": {"value": 4.7, "error": 0.06}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [27.1, 295.8],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [27.1, 295.8],
         "temperature_k": [300, 300],
         "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "experimental_pressure_range_gpa": [27.1, 295.8],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_vinet",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -326,18 +337,22 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p2_vinet"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
+      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_vinet"
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p3_bm3",
       "label": "Sakai et al. (2014), p3_bm3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p3_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -346,23 +361,19 @@
         "K0_prime": {"value": 4.42, "error": 0.05}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [27.1, 295.8],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [27.1, 295.8],
         "temperature_k": [300, 300],
         "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "experimental_pressure_range_gpa": [27.1, 295.8],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_bm3",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -370,18 +381,22 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p3_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
+      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_bm3"
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p3_vinet",
       "label": "Sakai et al. (2014), p3_vinet",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p3_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -390,23 +405,19 @@
         "K0_prime": {"value": 4.86, "error": 0.06}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [27.1, 295.8],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [27.1, 295.8],
         "temperature_k": [300, 300],
         "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "experimental_pressure_range_gpa": [27.1, 295.8],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_vinet",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -414,18 +425,23 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p3_vinet"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
+      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_vinet"
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p4_bm3",
       "label": "Sakai et al. (2014), p4_bm3",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 218.4 vs published 213 GPa (+2.5%), beyond the agreement limit; K0': refit 4.255 vs published 4.41 (-3.5%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p4_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -434,20 +450,16 @@
         "K0_prime": {"value": 4.41, "error": 0.05}
       },
       "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [27.1, 290.7],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [27.1, 290.7],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [27.1, 290.7],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_bm3",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -455,18 +467,23 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p4_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
+      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_bm3"
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p4_vinet",
       "label": "Sakai et al. (2014), p4_vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 210 vs published 207 GPa (+1.5%), beyond the agreement limit; K0': refit 4.739 vs published 4.85 (-2.3%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p4_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -475,20 +492,16 @@
         "K0_prime": {"value": 4.85, "error": 0.06}
       },
       "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [27.1, 290.7],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [27.1, 290.7],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [27.1, 290.7],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_vinet",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -496,18 +509,23 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p4_vinet"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
+      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_vinet"
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p5_bm3",
       "label": "Sakai et al. (2014), p5_bm3",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 214.92 vs published 211.5 GPa (+1.6%), beyond the agreement limit; K0': refit 4.314 vs published 4.42 (-2.4%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p5_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -516,23 +534,19 @@
         "K0_prime": {"value": 4.42, "error": 0.05}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [27.1, 295.8],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [27.1, 295.8],
         "temperature_k": [300, 300],
         "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "experimental_pressure_range_gpa": [27.1, 295.8],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_bm3",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -540,18 +554,22 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p5_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
+      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_bm3"
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p5_vinet",
       "label": "Sakai et al. (2014), p5_vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p5_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -560,23 +578,19 @@
         "K0_prime": {"value": 4.86, "error": 0.06}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [27.1, 295.8],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [27.1, 295.8],
         "temperature_k": [300, 300],
         "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "experimental_pressure_range_gpa": [27.1, 295.8],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_vinet",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -584,18 +598,23 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p5_vinet"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
+      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_vinet"
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p6_bm3",
       "label": "Sakai et al. (2014), p6_bm3",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 196.59 vs published 191.2 GPa (+2.8%), beyond the agreement limit; K0': refit 4.638 vs published 4.82 (-3.8%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p6_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -604,20 +623,16 @@
         "K0_prime": {"value": 4.82, "error": 0.06}
       },
       "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [27.1, 295.8],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [27.1, 295.8],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [27.1, 295.8],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_bm3",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -625,18 +640,23 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p6_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
+      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_bm3"
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_p6_vinet",
       "label": "Sakai et al. (2014), p6_vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 187.48 vs published 185.1 GPa (+1.3%), beyond the agreement limit; K0': refit 5.212 vs published 5.31 (-1.8%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p6_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -645,20 +665,16 @@
         "K0_prime": {"value": 5.31, "error": 0.06}
       },
       "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [27.1, 295.8],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [27.1, 295.8],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [27.1, 295.8],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_vinet",
+      "notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -666,18 +682,23 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_p6_vinet"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
+      "pressure_scale_variant_of": "fe09ni01_hcp_sakai_2014_p1_vinet"
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_type1_thermal",
-      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)",
+      "label": "Sakai et al. (2014), BM3 + constant-gamma thermal",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "gamma0: refit 5.2186 vs published 2.169 (+140.6%), beyond the agreement limit; theta0: refit 2214.8 vs published 1162 K (+90.6%), beyond the agreement limit.",
+        "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
+        "source_check": "unresolved",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma_inf tied to gamma0 and theta=theta0*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type1_thermal"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -702,24 +723,17 @@
         "parameter_error_confidence": null
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [92.7, 148.9],
-      "experimental_temperature_range_k": [300, 2300],
-      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [27.1, 290.7],
         "temperature_k": [300, 2300],
-        "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
-          "Thermal observations cover 92.7–148.9 GPa; broader cold curve does not imply high-temperature data at those pressures."
-        ]
+        "notes": ["Thermal observations cover 92.7–148.9 GPa only; the wider pressure range is that of the cold curve."]
       },
+      "experimental_pressure_range_gpa": [92.7, 148.9],
+      "experimental_temperature_range_k": [300, 2300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "default": false,
-      "catalog_access": "explicit_selection",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma_inf tied to gamma0 and theta=theta0*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+      "notes": "Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference isotherm, whose parameters are fixed in the thermal regression. Anharmonic and electronic constants are adopted from pure Fe. Type 1 has constant gamma: gamma_inf is tied to gamma0 and theta = theta0 (V/V0)^(-gamma0), the limiting case of the Type 4 definition in Section 3.5.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -727,18 +741,23 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
-        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma_inf tied to gamma0 and theta=theta0*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
-        "source": "not_reproduced",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type1_thermal"
-      }
+      "equation_kind": "thermal",
+      "catalog_access": "explicit_selection",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_type2_thermal",
       "label": "Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "gamma0 (+206.6%), beta (+68.9%) and theta0 (+172.8%): beyond the agreement limit.",
+        "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
+        "source_check": "unresolved",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type2_thermal"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -763,24 +782,17 @@
         "parameter_error_confidence": null
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [92.7, 148.9],
-      "experimental_temperature_range_k": [300, 2300],
-      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [27.1, 290.7],
         "temperature_k": [300, 2300],
-        "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
-          "Thermal observations cover 92.7–148.9 GPa; broader cold curve does not imply high-temperature data at those pressures."
-        ]
+        "notes": ["Thermal observations cover 92.7–148.9 GPa only; the wider pressure range is that of the cold curve."]
       },
+      "experimental_pressure_range_gpa": [92.7, 148.9],
+      "experimental_temperature_range_k": [300, 2300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "default": false,
-      "catalog_access": "explicit_selection",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+      "notes": "Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference isotherm, whose parameters are fixed in the thermal regression. Anharmonic and electronic constants are adopted from pure Fe.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -788,18 +800,23 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
-        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
-        "source": "not_reproduced",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type2_thermal"
-      }
+      "equation_kind": "thermal",
+      "catalog_access": "explicit_selection",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_type4_1_thermal",
       "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_1 thermal EOS (P4 + P7)",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "gamma0 (+177.6%), gamma_inf (+101.9%) and theta0 (+188.5%): beyond the agreement limit.",
+        "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
+        "source_check": "unresolved",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type4_1_thermal"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -824,24 +841,17 @@
         "parameter_error_confidence": null
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [92.7, 148.9],
-      "experimental_temperature_range_k": [300, 2300],
-      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [27.1, 290.7],
         "temperature_k": [300, 2300],
-        "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
-          "Thermal observations cover 92.7–148.9 GPa; broader cold curve does not imply high-temperature data at those pressures."
-        ]
+        "notes": ["Thermal observations cover 92.7–148.9 GPa only; the wider pressure range is that of the cold curve."]
       },
+      "experimental_pressure_range_gpa": [92.7, 148.9],
+      "experimental_temperature_range_k": [300, 2300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "default": false,
-      "catalog_access": "explicit_selection",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+      "notes": "Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference isotherm, whose parameters are fixed in the thermal regression. Anharmonic and electronic constants are adopted from pure Fe.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -849,18 +859,23 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
-        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
-        "source": "not_reproduced",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type4_1_thermal"
-      }
+      "equation_kind": "thermal",
+      "catalog_access": "explicit_selection",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_type4_2_thermal",
       "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_2 thermal EOS (P4 + P7)",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "gamma0: refit 2.2626 vs published 2.883 (-21.5%), beyond the agreement limit; gamma_inf: refit 0 vs published 0.968 (-100.0%), beyond the agreement limit.",
+        "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
+        "source_check": "unresolved",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type4_2_thermal"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -885,24 +900,17 @@
         "parameter_error_confidence": null
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [92.7, 148.9],
-      "experimental_temperature_range_k": [300, 2300],
-      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [27.1, 290.7],
         "temperature_k": [300, 2300],
-        "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
-          "Thermal observations cover 92.7–148.9 GPa; broader cold curve does not imply high-temperature data at those pressures."
-        ]
+        "notes": ["Thermal observations cover 92.7–148.9 GPa only; the wider pressure range is that of the cold curve."]
       },
+      "experimental_pressure_range_gpa": [92.7, 148.9],
+      "experimental_temperature_range_k": [300, 2300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "default": false,
-      "catalog_access": "explicit_selection",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+      "notes": "Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference isotherm, whose parameters are fixed in the thermal regression. Anharmonic and electronic constants are adopted from pure Fe.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -910,18 +918,23 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
-        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
-        "source": "not_reproduced",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type4_2_thermal"
-      }
+      "equation_kind": "thermal",
+      "catalog_access": "explicit_selection",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     },
     {
       "identifier": "fe09ni01_hcp_sakai_2014_type4_3_thermal",
       "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_3 thermal EOS (P4 + P7)",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "beta: refit 10 vs published 1.161 (+761.3%), beyond the agreement limit.",
+        "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
+        "source_check": "unresolved",
+        "source_checked_on": "2026-09-10",
+        "source_note": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type4_3_thermal"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -946,24 +959,17 @@
         "parameter_error_confidence": null
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [92.7, 148.9],
-      "experimental_temperature_range_k": [300, 2300],
-      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [27.1, 290.7],
         "temperature_k": [300, 2300],
-        "notes": [
-          "Observation envelope; extensions to inner-core conditions are extrapolations.",
-          "Thermal observations cover 92.7–148.9 GPa; broader cold curve does not imply high-temperature data at those pressures."
-        ]
+        "notes": ["Thermal observations cover 92.7–148.9 GPa only; the wider pressure range is that of the cold curve."]
       },
+      "experimental_pressure_range_gpa": [92.7, 148.9],
+      "experimental_temperature_range_k": [300, 2300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "default": false,
-      "catalog_access": "explicit_selection",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984},
-      "notes": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+      "notes": "Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference isotherm, whose parameters are fixed in the thermal regression. Anharmonic and electronic constants are adopted from pure Fe.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -971,14 +977,9 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": "Not recommended for quantitative use. Explicit selection only; not loaded by default.",
-        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
-        "source": "not_reproduced",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/fe09ni01_hcp.audit.json#fe09ni01_hcp_sakai_2014_type4_3_thermal"
-      }
+      "equation_kind": "thermal",
+      "catalog_access": "explicit_selection",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 56.12984}
     }
   ],
   "symmetry": "HEXAGONAL",

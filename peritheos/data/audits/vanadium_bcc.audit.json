@@ -103,6 +103,10 @@
           "Tr": "Experimental p.4 and K0,300 label: 300 K.",
           "equation": "BM3; EOS-FIT5.2 (Angel 2002) with linear alpha(T); Angel et al. 2014 doi:10.1515/zkri-2013-1711 p.410 explicitly documents earlier EosFit exponential integral of alpha0+alpha1*T, p.412 linear K0(T)."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Source-owned unconstrained 62-point unweighted fit, measured to 11.5 GPa and 1000 K. Initial first-cycle stressed-foil observations were anomalous; recovered ambient point is explicitly excluded. No statistical confidence/covariance is specified. Nominal-temperature digitized symbols only support a qualified proxy refit, not the original regression. The source Conclusion quotes 2.7% ambient and 1.2% at 10 GPa expansion from 300 to 1000 K; stored coefficients give 2.294% and 1.026%. Figure 2 supports the stored expansion convention; no coefficient is changed to force the prose values. Two fixed-K0-prime alternatives are withheld for missing V0 and thermal parameters.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

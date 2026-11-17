@@ -84,7 +84,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[2.55, 10.11\]
 - **Reported temperature coverage (K):** \[300.5, 451.2\]
 
-Joint PVT fit for pure H2O ice VII. Published molar V0=12.49(1) cm^3/mol is converted to the Z=2 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VII measurements tabulated in the paper.
+Joint P-V-T fit for pure H2O ice VII. Published molar V0 = 12.49(1) cm³/mol; stored per unit cell (Z = 2). dK/dT was fixed to zero because no temperature dependence was detectable.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -158,7 +158,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[6.57, 60.52\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-Independent 300 K compression fit. Published molar V0=12.4(1) cm^3/mol is converted to the Z=2 cubic cell. The fit used all three BM3 variables simultaneously; the numeric pressure domain is the range of the authors' 300 K compression data.
+Independent 300 K compression fit. Published molar V0 = 12.4(1) cm³/mol; stored per cubic cell (Z = 2).
 
 <details markdown="1">
 <summary>Source review</summary>

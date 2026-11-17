@@ -10,6 +10,16 @@
     {
       "identifier": "klb1_ca_perovskite_ricolleau_2009_bm2_alphakt",
       "label": "Ricolleau et al. (2009), KLB-1 Ca-perovskite thermal BM2",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "alpha1: refit 5.61e-09 vs published 8.7e-09 (-35.5%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "One independent thermal BM2 fit for KLB-1 Ca-perovskite.",
+        "audit": "../audits/klb1_ca_perovskite.audit.json#klb1_ca_perovskite_ricolleau_2009_bm2_alphakt"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -28,21 +38,18 @@
         "reference_volume_law": "integrated_expansivity"
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [30.0, 111.0],
+        "temperature_k": [300.0, 2569.0]
+      },
       "experimental_pressure_range_gpa": [30.0, 111.0],
       "experimental_temperature_range_k": [300.0, 2569.0],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [30.0, 111.0],
-        "temperature_k": [300.0, 2569.0],
-        "notes": ["Effective coexisting-phase EOS; high-temperature diffraction is cubic."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "sample_composition": "Ca-perovskite coexisting in natural KLB-1 pyrolite.",
+      "notes": "Effective EOS of the Ca-perovskite coexisting in KLB-1 pyrolite. Its high-temperature diffraction is cubic.",
       "fit_datasets": ["klb1_ricolleau_2009_table_s1_ca_perovskite_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Ricolleau",
@@ -64,14 +71,9 @@
         "locator": "L06302",
         "doi": "10.1029/2008GL036759"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "One independent thermal BM2 fit for KLB-1 Ca-perovskite.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/klb1_ca_perovskite.audit.json#klb1_ca_perovskite_ricolleau_2009_bm2_alphakt"
-      }
+      "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "sample_composition": "Ca-perovskite coexisting in natural KLB-1 pyrolite."
     }
   ],
   "aliases": ["KLB-1 Ca-pv", "pyrolitic Ca-perovskite"],

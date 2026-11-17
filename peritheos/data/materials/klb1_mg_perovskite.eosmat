@@ -10,6 +10,15 @@
     {
       "identifier": "klb1_mg_perovskite_ricolleau_2009_bm2_alphakt",
       "label": "Ricolleau et al. (2009), KLB-1 Mg-perovskite thermal BM2",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "One independent thermal BM2 fit for KLB-1 Mg-perovskite.",
+        "audit": "../audits/klb1_mg_perovskite.audit.json#klb1_mg_perovskite_ricolleau_2009_bm2_alphakt"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -28,23 +37,18 @@
         "reference_volume_law": "integrated_expansivity"
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [30.0, 112.0],
+        "temperature_k": [300.0, 2569.0]
+      },
       "experimental_pressure_range_gpa": [30.0, 112.0],
       "experimental_temperature_range_k": [300.0, 2569.0],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [30.0, 112.0],
-        "temperature_k": [300.0, 2569.0],
-        "notes": [
-          "Effective EOS includes the small phase-composition changes of the coexisting pyrolite assemblage.",
-          "No record-level molar mass is encoded because the source does not define one fixed Mg-Fe-Al-Si composition."
-        ]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "sample_composition": "Mg-, Fe-, and Al-bearing orthorhombic Mg-perovskite coexisting in natural KLB-1 pyrolite.",
+      "notes": "Effective EOS that includes the small phase-composition changes of the coexisting pyrolite assemblage. No molar mass is given because the source does not define one fixed Mg-Fe-Al-Si composition.",
       "fit_datasets": ["klb1_ricolleau_2009_table_s1_mg_perovskite_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Ricolleau",
@@ -66,14 +70,8 @@
         "locator": "L06302",
         "doi": "10.1029/2008GL036759"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "One independent thermal BM2 fit for KLB-1 Mg-perovskite.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/klb1_mg_perovskite.audit.json#klb1_mg_perovskite_ricolleau_2009_bm2_alphakt"
-      }
+      "equation_kind": "thermal",
+      "sample_composition": "Mg-, Fe-, and Al-bearing orthorhombic Mg-perovskite coexisting in natural KLB-1 pyrolite."
     }
   ],
   "aliases": ["KLB-1 Mg-pv", "pyrolitic bridgmanite", "KLB-1 Mg-perovskite"],

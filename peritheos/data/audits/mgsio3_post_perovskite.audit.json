@@ -144,6 +144,10 @@
         "parameter_provenance": {
           "determination_method": "Mosenfelder (2009), Table 4 and Section 3: joint inversion of static P-V-T observations and six PPv shock states. The isentropic reference and caloric model are reductions of experimental constraints."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Global errors-in-variables inversion of 48 Guignot et al. static P-V-T observations and six PPv shock P-density states. V0=162.2 A^3 was fixed. Table 4 reports K0S=225(2) GPa, K0S'=4.21(7), theta0=990(146) K, gamma0=2.61(67), q=2.1(8), and Cvm=1.035(50) J g^-1 K^-1; Cvmax is the exact molar conversion using 100.3875 g mol^-1. The BM3 term is a 300 K reference isentrope, so thermal pressure subtracts energy at T_S(V)=Tr*theta(V)/theta0. The three source-reported shock temperatures are retained as measured diagnostics but are not constraints in the solid PPv inversion; section 3 explicitly identifies shock-temperature fitting only for MgSiO3 liquid.",
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsio3_post_perovskite_sakai_2016_bm3_2": {
@@ -258,6 +262,10 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Methods and EOS results; EOS parameter table."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Experimental BM3 fit 1 to laser-heated DAC data from this study plus Guignot et al., reaching 265 GPa. Stored as a room-temperature cold curve only because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. Sakai et al. prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range rather than extrapolated.",
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsio3_post_perovskite_ono_2006_anderson_bm2_3": {
@@ -418,6 +426,14 @@
             "doi": "10.1038/nature02701"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Pure MgSiO3 CaIrO3-type post-perovskite, not CaIrO3 composition or bridgmanite. The conventional Cmcm volume contains four MgSiO3 formula units. This pressure-scale-specific record is distinct from the later Mosenfelder and Sakai parameterizations.",
+        "validity_notes": [
+          "The pressure interval is the marginal range of the six Anderson-et-al.-gold-scale observations, not an extrapolation range for the zero-pressure reference parameters.",
+          "The source reports that the CaIrO3-type phase remained stable over its 116-144 GPa experimental range and was difficult to measure below 110 GPa because it is metastable there."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsio3_post_perovskite_ono_2006_jamieson_bm2_4": {
@@ -575,6 +591,13 @@
             "doi": "10.1038/nature02701"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.",
+        "validity_notes": [
+          "The pressure interval is the marginal range of the same six observations reduced with the Jamieson et al. gold scale; it is not a separate experiment or phase-stability boundary."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsio3_post_perovskite_ono_2006_dewaele_bm2_5": {
@@ -735,6 +758,10 @@
             "doi": "10.1038/nature02701"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.",
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsio3_post_perovskite_akber_knutson_2005_gga_bm3": {
@@ -801,6 +828,12 @@
           "uncertainties": "Not reported.",
           "method": "Static VASP GGA, 1000 eV cutoff, fully relaxed at fixed volume."
         }
+      },
+      "superseded_record_text": {
+        "label": "Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3",
+        "notes": "Source-specific theoretical comparison; it does not replace experimental records.",
+        "validity_notes": ["Static 0 K GGA calculation envelope; not an experimental stability field."],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3": {
@@ -857,6 +890,11 @@
           "parameters": "Table I, PPv LDA row at 300 K.",
           "volume_conversion": "40.02 A3 per MgSiO3 multiplied by Z=4."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": ["Anharmonic phonon-quasiparticle LDA reference isotherm; not an experimental ambient stability field."],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3": {
@@ -913,6 +951,11 @@
           "parameters": "Table I, PPv PBE row at 300 K.",
           "volume_conversion": "42.56 A3 per MgSiO3 multiplied by Z=4."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": ["Anharmonic phonon-quasiparticle PBE reference isotherm; not an experimental ambient stability field."],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsio3_post_perovskite_li_zeng_2009_gga_bm3": {
@@ -1098,6 +1141,13 @@
           "volume_basis": "The source identifies V as unit-cell volume; Cmcm MgSiO3 post-perovskite has Z=4.",
           "method": "Plane-wave pseudopotential density-functional calculation in the local-density approximation."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Accepted LitCurate source record litcurate_cf1303ecf47a5001. The six remaining same-DOI rows are literature comparisons and are not duplicated.",
+        "validity_notes": [
+          "Static LDA reference branch. The article's separate quasi-harmonic Debye outputs extend to 2000 K but are not represented by this isothermal BM3 record."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey": {
@@ -1207,6 +1257,13 @@
           "K0_prime": "Table 1: 4.03.",
           "K_infinity_prime": "Table 1 fixes k=5; therefore K_infinity_prime=5/3."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Accepted corrected mapping for LitCurate source row 868 (litcurate_ef9e7ca080ec8309). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.",
+        "validity_notes": [
+          "Reference isotherm of the source's larger Helmholtz model; the zero-pressure state is an extrapolated thermodynamic reference, not a stable ambient phase."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3": {
@@ -1491,6 +1548,11 @@
           "fixed_parameters": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced.",
           "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
+      },
+      "superseded_record_text": {
+        "notes": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+        "validity_notes": ["Bounds describe fitted observations, not a phase-stability field."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

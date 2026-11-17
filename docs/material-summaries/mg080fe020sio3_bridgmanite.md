@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
     - **Molar mass g mol:** 106.695
 - **Reported error confidence level:** Not specified
 
-BM2 is represented as BM3 with V0 and K0\_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.
+BM2 stored as an algebraically identical BM3 with K0' = 4 fixed. K0 is fitted to the Fe10 data only; the authors apply the same compression curve to all three compositions, each with its own ambient V0.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -16,6 +16,16 @@
     {
       "identifier": "wadsleyite_katsura_2009_bm3_1",
       "label": "Katsura et al. (2009), high-temperature BM3-MGD",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0' (-5.2%): outside the combined error; gamma0 (-31.4%): outside the combined error and beyond the agreement limit.",
+        "warning": "On hold; not recommended pending source mapping review.",
+        "source_check": "deferred",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The paper supplies the BM3 reference isotherm and Mie-Gruneisen-Debye parameters. Theta0=814 K is explicitly fixed; K0=169.2(9) GPa is fixed in the fit but its source uncertainty is retained.",
+        "audit": "../audits/wadsleyite.audit.json#wadsleyite_katsura_2009_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -36,7 +46,7 @@
       "experimental_pressure_range_gpa": [11.0, 20.0],
       "experimental_temperature_range_k": [300.0, 2100.0],
       "determination_method": "experimental",
-      "notes": "Katsura et al. fit 11-20 GPa and 300-2100 K data with a BM3 reference isotherm plus Mie-Gruneisen-Debye thermal pressure. Their measured V0=538.49(2) A^3 and K0=169.2(9) GPa are fixed during the fit; K0'=4.1(1), gamma0=1.64(2), and q=1.5(1) are fitted, while theta0=814 K is fixed. Fixed source parameters retain their published uncertainties.",
+      "notes": "BM3 reference isotherm + Mie-Grüneisen-Debye thermal pressure. V0 and K0 are the authors' measured values, fixed in the fit; their stored errors are the published measurement uncertainties.",
       "reference": {
         "authors": [
           "Katsura",
@@ -59,14 +69,6 @@
         "volume": "36",
         "locator": "L11307",
         "doi": "10.1029/2009GL038107"
-      },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": "On hold; not recommended pending source mapping review.",
-        "finding": "The paper supplies the BM3 reference isotherm and Mie-Gruneisen-Debye parameters. Theta0=814 K is explicitly fixed; K0=169.2(9) GPa is fixed in the fit but its source uncertainty is retained.",
-        "source": "deferred",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/wadsleyite.audit.json#wadsleyite_katsura_2009_bm3_1"
       }
     }
   ],

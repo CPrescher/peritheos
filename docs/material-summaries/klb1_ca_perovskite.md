@@ -90,7 +90,6 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[30.0, 111.0\]
     - **Temperature k:** \[300.0, 2569.0\]
-    - **Notes:** Effective coexisting-phase EOS; high-temperature diffraction is cubic.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
@@ -104,6 +103,8 @@ Automatic selection for equilibrium calculations.
 - **Reference volume law:** integrated\_expansivity
 
 </details>
+
+Effective EOS of the Ca-perovskite coexisting in KLB-1 pyrolite. Its high-temperature diffraction is cubic.
 
 <details markdown="1">
 <summary>Source review</summary>

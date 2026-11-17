@@ -37,7 +37,7 @@ stays in EOSMAT and the ledger.
 | --- | --- | --- |
 | [Sakai et al. (2025), Mo generalized Rydberg-Stacey scale](#record-molybdenum_sakai_2025_rydberg_stacey_1) | **untested** (not refittable) |  |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-molybdenum_shen_2026_vinet_1) | **reproduced** |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-molybdenum_sokolova_2013_holzapfel_2) | **untested** (source calculation reconstructed) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-molybdenum_sokolova_2013_holzapfel_2) | **untested** (source calculation reconstructed) |  |
 | [Dewaele (2019), Mo MAO-scale Vinet](#record-molybdenum_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), Mo DOR-scale Vinet](#record-molybdenum_dewaele_2019_dor_vinet) | **reproduced** |  |
 | [Dorfman et al. (2012), Mo K0-fixed Vinet](#record-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet) | **disagrees** |  |
@@ -140,7 +140,7 @@ Both fits use the same 283 recovered audit input rows. **Volume coordinate:** un
 
 <a id="record-molybdenum_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `molybdenum_sokolova_2013_holzapfel_2` · `Holzapfel` · [Coefficients and source](../material-summaries/molybdenum.md#record-molybdenum_sokolova_2013_holzapfel_2)
 

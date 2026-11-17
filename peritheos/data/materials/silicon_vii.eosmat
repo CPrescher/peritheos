@@ -9,6 +9,16 @@
     {
       "identifier": "silicon_vii_anzellini_2019_vinet_1",
       "label": "Anzellini et al. (2019), 300 K Vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "V0 (+45.5%) and K0' (+127.2%): beyond the agreement limit; K0 (-95.0%): outside the combined error and beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Per-atom volumes were converted using each phase's conventional-cell Z.",
+        "audit": "../audits/silicon_vii.audit.json#silicon_vii_anzellini_2019_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -19,7 +29,7 @@
       "parameter_error_confidence": 0.95,
       "experimental_pressure_range_gpa": [46.0, 94.4],
       "determination_method": "experimental",
-      "notes": "Table 8 room-temperature fit. Published V0=14.3 A^3/atom is multiplied by two atoms in the hcp cell; V0 is extrapolated because Si-VII was observed only at high pressure.",
+      "notes": "Table 8 room-temperature fit. Published V0 = 14.3 Å³/atom; stored per hcp cell (×2). V0 is extrapolated because Si-VII was observed only at high pressure.",
       "reference": {
         "authors": ["Anzellini", "Wharmby", "Miozzi", "Kleppe", "Daisenberger", "Wilhelm"],
         "year": 2019,
@@ -28,14 +38,6 @@
         "volume": "9",
         "locator": "15537",
         "doi": "10.1038/s41598-019-51931-1"
-      },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Per-atom volumes were converted using each phase's conventional-cell Z.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/silicon_vii.audit.json#silicon_vii_anzellini_2019_vinet_1"
       }
     }
   ],

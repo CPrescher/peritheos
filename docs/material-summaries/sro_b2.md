@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[32.0, 59.0\]
 - **Coverage provenance:** reported\_exactly
 
-Room-temperature second-order finite-strain EOS for B2 SrO. The published rho0=6.14+/-0.20 Mg/m^3 converts to V0=28.0224+/-0.9128 A^3 for one SrO per Pm-3m cell; K0=160+/-19 GPa and K0'=4 fixed. B2 reflections were measured from 32 to 59 GPa, with B1-B2 coexistence at 32 and 37 GPa and a transition pressure of 36+/-4 GPa. No covariance is published.
+Room-temperature second-order finite-strain EOS for B2 SrO; V0 is converted from the published rho0 = 6.14 ± 0.20 Mg/m³ for one SrO per Pm-3m cell. B1 and B2 coexist at 32 and 37 GPa, and the transition pressure is 36 ± 4 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

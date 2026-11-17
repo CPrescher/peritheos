@@ -136,6 +136,14 @@
           "uncertainties": "Parenthetical/plus-minus errors are published without an explicit confidence convention; V0 was fixed rather than freely refined.",
           "fit_selection": "The source describes third- and fourth-order fits to the experimental data and deposits all 95 P-V observations, but does not publish a machine-readable row mask, weights, covariance, or regression objective."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Preferred source fit. Table 2's K0' uncertainty (0.2) is stored instead of the abstract's inconsistent 0.1.",
+        "validity_notes": [
+          "The range is the measured room-temperature envelope, including decompression to ambient pressure; it is not a thermodynamic stability field.",
+          "The 3.65 A phase is expected to form from the 10 A phase near 9-10 GPa but was retained metastably below that pressure."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2": {
@@ -261,6 +269,14 @@
           "K0_double_prime": "Table 2: -0.7(2) GPa^-1.",
           "fit_selection": "Same deposited 95-point experimental P-V series as the BM3; retained separately because the source explicitly reports the full higher-order coefficient set."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Sensitivity record only; intentionally has no default_for. Its K0, K0', and K0'' are strongly covariant and the source does not publish covariance.",
+        "validity_notes": [
+          "Higher-order sensitivity parameterization of the same experimental observations, not the paper's preferred EOS.",
+          "Do not extrapolate K0'' outside the measured compression envelope."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3": {
@@ -328,6 +344,14 @@
           "K0_double_prime": "Table 2: -0.05 GPa^-1.",
           "model": "Methods: PAW-GGA in VASP, 1000 eV cutoff, 2x2x2 Monkhorst-Pack grid, P21 primitive cell; total energies converged within 5 meV/atom."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Clearly distinct theoretical record. No default_for is assigned; the preferred catalog equilibrium record is the experimental BM3.",
+        "validity_notes": [
+          "Static PAW-GGA model-crystal curve; it is not an experimental ambient-temperature fit.",
+          "The numerical energy-volume grid is not tabulated; the bounds conservatively follow the green Figure 3a calculation markers."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

@@ -162,6 +162,15 @@
           "uncertainties": "Results states that parenthetical values are one-sigma uncertainties.",
           "temperature_ref": "Abstract and experimental description: pressure-volume observations at 300 K."
         }
+      },
+      "superseded_record_text": {
+        "label": "Shieh et al. (2006), preferred second-order Eulerian finite-strain fit",
+        "notes": null,
+        "validity_notes": [
+          "The range is the measured metastable decompression envelope, not a thermodynamic phase-stability field.",
+          "The long extrapolation from the measured range to zero pressure makes V0 and K0 strongly correlated; the authors therefore fixed K0'=4."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2": {
@@ -313,6 +322,11 @@
           "K0_prime": "Results: fixed at 4.4.",
           "uncertainties": "Results states that parenthetical values are one-sigma uncertainties."
         }
+      },
+      "superseded_record_text": {
+        "notes": "This record corrects LitCurate's suggested BM2 mapping: a fixed K0'=4.4 requires BM3. It is retained only as an author-reported sensitivity fit.",
+        "validity_notes": ["Nonpreferred parameter-tradeoff sensitivity fit; use the BM2 record by default."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

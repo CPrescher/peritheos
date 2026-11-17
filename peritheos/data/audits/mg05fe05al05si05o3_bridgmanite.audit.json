@@ -146,6 +146,15 @@
           "fit_selection": "All 23 rows on the official Zenodo latticeparameters.xlsx 'sample 1' worksheet. Black-font rows are before current-step heating and red-font rows are after current-step heating.",
           "uncertainties": "Parenthetical published parameter uncertainties are retained, but the article does not state their confidence convention or covariance."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Authors' preferred room-temperature BM2, chosen for denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. This mixed-spin curve is the equilibrium default, but not a pure low-spin branch.",
+        "validity_notes": [
+          "Bounds are the 23-observation fitted envelope, not a broader phase-stability field.",
+          "V0 is extrapolated because FA50 bridgmanite is not retained at ambient pressure.",
+          "The curve averages before- and after-current-step-anneal states and must not be interpreted as a pure low-spin branch."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2": {
@@ -283,6 +292,15 @@
           "fit_selection": "The 11 red-font rows in official latticeparameters.xlsx sample 1: 29.0, 35.2, 43.8, 53.2, 62.2, 68.0, 74.8, 82.2, 91.8, 95.8, and 102.2 GPa.",
           "uncertainties": "Parenthetical published parameter uncertainties retained; confidence convention and covariance unreported."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Non-default fit retained because the authors explicitly report it. It tests the effect of selecting observations collected after each current pressure-step anneal; it is not a separate thermodynamic or fully low-spin branch.",
+        "validity_notes": [
+          "Bounds are the 11 selected-observation envelope.",
+          "V0 is a high-pressure bridgmanite extrapolation.",
+          "This comparison subset is not an independent spin-state branch."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3": {
@@ -420,6 +438,15 @@
           "fit_selection": "All 21 rows in official latticeparameters.xlsx sample 2.",
           "uncertainties": "Parenthetical published parameter uncertainties retained; confidence convention and covariance unreported."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Non-default, metastable cold-compression comparison retained because both its complete observations and explicitly reported BM2 are available. It is the authors' high-spin original-ordering reference, not a license to infer a separate equilibrium branch outside its measured envelope.",
+        "validity_notes": [
+          "Bounds are the 21-observation fitted envelope.",
+          "V0 is a high-pressure bridgmanite extrapolation.",
+          "The record preserves a kinetically retained cation-ordering history and is not the equilibrium default."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4": {
@@ -562,6 +589,16 @@
           "fit_selection": "Supplementary Table S3 Pnma observations at 10.8-60.0 GPa; two refinements within the 8+/-2 GPa transition interval are excluded.",
           "uncertainties": "Published parameter uncertainties are retained; confidence convention and covariance are not reported."
         }
+      },
+      "superseded_record_text": {
+        "label": "Koemets et al. (2023) single-crystal Pnma perovskite BM2",
+        "notes": "Accepted LitCurate record litcurate_1a8c16a1075ca2d2. Pnma is an alternative setting of the material card's Pbnm space group 62. The low-pressure R3c and FeMg0.5Si0.5O3 P21/n candidates require distinct phase cards and were not added in this batch.",
+        "validity_notes": [
+          "Bounds are the selected Pnma observation envelope, not a broader phase-stability field.",
+          "V0 is extrapolated because the Pnma perovskite is not retained at ambient pressure.",
+          "The 7.5 and 8.6 GPa measurements fall in the reported structural-transition interval and are outside this fit."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

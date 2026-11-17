@@ -154,6 +154,10 @@
           "K0": "Noguchi et al. (1999), abstract and shock-reduced 300 K BM3 curve; independently checked by the executable Debye Mie-Gruneisen reduction documented in scientific_validation.independent_refit.",
           "K0_prime": "Noguchi et al. (1999), abstract and shock-reduced 300 K BM3 curve; independently checked by the executable Debye Mie-Gruneisen reduction documented in scientific_validation.independent_refit."
         }
+      },
+      "superseded_record_text": {
+        "notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient. The primary reduction uses a 300 K Debye Mie-Gruneisen correction with theta0=390 K, gamma0=1.38, gamma/V constant (the q=1 integrated-Gruneisen law), two atoms per NiO formula unit, and the source Us=5.36+1.19up relation. The shock table must never be fitted directly as an isotherm.",
+        "superseded_on": "2026-11-16"
       }
     },
     "nickel_oxide_noguchi_1999_linear_hugoniot_2": {
@@ -281,6 +285,14 @@
             "result": "Peritheos 0.6.0 native fit reproduced the stored coefficients and covariance."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Derived constrained principal Hugoniot for the untransformed rhombohedral B1 branch only. This is not the paper's separate 300 K Mie-Gruneisen-reduced isotherm and not a general P(V,T) EOS. Row-wise Us and up errors are unavailable, so the OLS covariance reflects residual scatter rather than a complete experimental error model. V0 is deterministically derived from rho0 and is not assigned an independent error.",
+        "validity_notes": [
+          "The operational pressure envelope includes the fitted line at both observed particle-velocity endpoints; the exact source pressure extrema remain in experimental_pressure_range_gpa.",
+          "The temperature bounds describe the normalized precursor state, not a constant-temperature shock path."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

@@ -139,6 +139,14 @@
           "fit_selection": "The 300 K BM3 fit and subsequent 700/1100 K thermal fit use measured rows below 47 GPa; all higher-pressure rows are retained but excluded because the source limits the EOS to high-spin Fe2+.",
           "weighting": "Least-squares fitting is stated for gamma0 and q, but the source does not publish weights, covariance, or the numerical fitting program."
         }
+      },
+      "superseded_record_text": {
+        "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.",
+        "validity_notes": [
+          "Valid only for the high-spin B1 branch; the paper deliberately excludes observations at and above the approximately 47 GPa cutoff from fitting.",
+          "The dataset retains all measurements through 55.47 GPa to expose the onset and growth of the spin-crossover volume anomaly."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg083fe017o_solomatova_2016_hs_bm3_reference_1": {
@@ -188,6 +196,12 @@
           "K0_prime": "Table 7 HS value.",
           "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
         }
+      },
+      "superseded_record_text": {
+        "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
+        "notes": null,
+        "validity_notes": ["HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg083fe017o_solomatova_2016_ls_bm3_reference_2": {
@@ -237,6 +251,12 @@
           "K0_prime": "Fixed to 4.",
           "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
         }
+      },
+      "superseded_record_text": {
+        "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
+        "notes": null,
+        "validity_notes": ["LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

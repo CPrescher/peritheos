@@ -9,6 +9,16 @@
     {
       "identifier": "silicon_anzellini_2019_vinet_1",
       "label": "Anzellini et al. (2019), constrained Vinet",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0 and K0 have no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Per-atom volumes were converted using each phase's conventional-cell Z.",
+        "audit": "../audits/silicon.audit.json#silicon_anzellini_2019_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,7 +28,7 @@
       },
       "experimental_pressure_range_gpa": [0.0, 13.9],
       "determination_method": "experimental",
-      "notes": "Figure 1 constrained Vinet fit with K0' fixed to the ultrasonic value; published V0=20.031 A^3/atom is multiplied by eight atoms in the conventional diamond cell. Si-I was observed to 13.9 GPa under quasi-hydrostatic compression. The publication does not quote individual statistical uncertainties for this constrained fit.",
+      "notes": "Constrained Vinet fit of Figure 1, with K0' fixed to the ultrasonic value. Published V0 = 20.031 Å³/atom; stored per conventional diamond cell (×8). Si-I was observed to 13.9 GPa under quasi-hydrostatic compression.",
       "reference": {
         "authors": ["Anzellini", "Wharmby", "Miozzi", "Kleppe", "Daisenberger", "Wilhelm"],
         "year": 2019,
@@ -27,14 +37,6 @@
         "volume": "9",
         "locator": "15537",
         "doi": "10.1038/s41598-019-51931-1"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Per-atom volumes were converted using each phase's conventional-cell Z.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/silicon.audit.json#silicon_anzellini_2019_vinet_1"
       }
     }
   ],

@@ -6,10 +6,20 @@
   "phase": "B2 (CsCl-type), cubic Pm-3m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
+  "default_records": {"equilibrium": "rbbr_b2_farla_2025_bm3_mgd_cscl"},
   "eos_records": [
     {
       "identifier": "rbbr_b2_farla_2025_bm3_mgd_cscl",
-      "label": "Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)",
+      "label": "Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-15",
+        "source_note": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit.",
+        "audit": "../audits/rbbr.audit.json#rbbr_b2_farla_2025_bm3_mgd_cscl"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -30,23 +40,18 @@
         "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [1.19, 26.47],
-      "experimental_temperature_range_k": [300.0, 1800.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [1.19, 26.47],
         "temperature_k": [300.0, 1800.0],
         "notes": [
           "Only the B2 solid branch. B1 transition and melting curves are not encoded; confirm phase before using as a marker.",
-          "Bounds describe marginal coverage; high-temperature data reach about 21 GPa, not 26 GPa.",
-          "The zero-pressure reference is hypothetical and is not stable ambient B2 material."
+          "Bounds describe marginal coverage; high-temperature data reach about 21 GPa, not 26 GPa."
         ]
       },
-      "determination_method": "hybrid",
-      "record_kind": "published",
-      "equation_kind": "thermal",
-      "default": true,
-      "notes": "Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.",
+      "experimental_pressure_range_gpa": [1.19, 26.47],
+      "experimental_temperature_range_k": [300.0, 1800.0],
+      "pressure_range_status": "reported_exactly",
       "range_provenance": {
         "source": "Supplement S1-S4; main text Experimental Runs and Conclusion",
         "dac": {
@@ -59,23 +64,10 @@
         },
         "note": "Marginal data bounds, not a rectangle of measured states or phase-stability guarantee. Hot data end near 21 GPa; 26 GPa data are DAC at 300 K."
       },
-      "source_parameters": {
-        "V0_molar_cm3_mol": 41.74,
-        "V0_molar_error_cm3_mol": 0.04,
-        "V0_cell_angstrom3": 69.31,
-        "V0_cell_error_angstrom3": 0.07,
-        "uncertainty_convention": "EoSFit7 estimated standard deviations; confidence level and covariance not supplied. Fixed does not mean error-free."
-      },
+      "determination_method": "hybrid",
+      "record_kind": "published",
+      "notes": "The authors' preferred case 1, a combined-data fit with CsCl-based pressures. V0 is a hypothetical DAC-extrapolated zero-pressure B2 volume, not stable ambient material. V0 and its error are converted from the molar V0 used in the EoSFit7 program; the printed cell-volume error disagrees with it after conversion.",
       "fit_datasets": ["rbbr_farla_2025_observations"],
-      "fit_data_sources": [
-        {
-          "source": "Farla et al. (2025), combined DAC+LVP",
-          "dataset_identifier": "rbbr_farla_2025_observations",
-          "availability": "bundled_transcribed",
-          "selection": "Complete printed scope retained; independent diagnostic fits disclose cold-LVP exclusions and sensitivity. Exact author row flags unavailable."
-        }
-      ],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Farla", "Néri", "Pöppelbaum", "Glazyrin"],
         "year": 2025,
@@ -85,14 +77,22 @@
         "locator": "115901",
         "doi": "10.1063/5.0248905"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-15",
-        "audit": "../audits/rbbr.audit.json#rbbr_b2_farla_2025_bm3_mgd_cscl"
-      }
+      "equation_kind": "thermal",
+      "source_parameters": {
+        "V0_molar_cm3_mol": 41.74,
+        "V0_molar_error_cm3_mol": 0.04,
+        "V0_cell_angstrom3": 69.31,
+        "V0_cell_error_angstrom3": 0.07,
+        "uncertainty_convention": "EoSFit7 estimated standard deviations; confidence level and covariance not supplied. Fixed does not mean error-free."
+      },
+      "fit_data_sources": [
+        {
+          "source": "Farla et al. (2025), combined DAC+LVP",
+          "dataset_identifier": "rbbr_farla_2025_observations",
+          "availability": "bundled_transcribed",
+          "selection": "Complete printed scope retained; independent diagnostic fits disclose cold-LVP exclusions and sensitivity. Exact author row flags unavailable."
+        }
+      ]
     }
   ],
   "cell_contents": "One RbBr formula unit, two atoms, in the conventional cubic cell.",

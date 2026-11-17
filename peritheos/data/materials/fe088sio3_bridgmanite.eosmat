@@ -10,6 +10,15 @@
     {
       "identifier": "fe088sio3_bridgmanite_ismailova_2016_300k_bm2",
       "label": "Ismailova et al. (2016), Fe-deficient bridgmanite 300 K BM2",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "One source-owned 300 K BM2 fit for vacancy-rich Fe2+/Fe3+ bridgmanite, with K0_prime fixed at 4. The coefficients are complete, but the row-level inputs are not: Figure 3 shows substantially more markers than the four selected crystallographic states printed in Table S2.",
+        "audit": "../audits/fe088sio3_bridgmanite.audit.json#fe088sio3_bridgmanite_ismailova_2016_300k_bm2"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -17,25 +26,20 @@
         "K0": {"value": 190.0, "error": 4.0}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [14.0, 132.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_qualitatively",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [14.0, 132.0],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "Composition-specific vacancy-rich iron bridgmanite. The source synthesizes it between approximately 45 and 110 GPa, while Figure 3 plots compression/decompression observations from about 14 to 132 GPa; V0 is the fitted ambient extrapolation, not an observation."
+          "Synthesized at about 45-110 GPa; Figure 3 shows compression and decompression data from about 14 to 132 GPa. V0 is a fitted extrapolation."
         ]
       },
+      "experimental_pressure_range_gpa": [14.0, 132.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 125.225},
-      "sample_composition": "(Fe2+0.64(2)Fe3+0.24(2))Si1.00(3)O3, with about 12% A-site vacancies.",
-      "notes": "Published 300 K BM2 for vacancy-rich Fe0.88SiO3 bridgmanite. Figure 3A contains about fifteen compression/decompression markers, whereas supplementary Table S2 explicitly lists only four selected crystallographic states. The four rows are bundled as exact checkpoints, not asserted as the complete fit input. No source exclusion rule, residual objective, numerical weighting convention, covariance, or parameter-error confidence convention is reported.",
-      "implicit_parameters": {"K0_prime": 4.0},
       "fit_datasets": ["fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography"],
-      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Ismailova",
@@ -63,14 +67,10 @@
         "locator": "e1600427",
         "doi": "10.1126/sciadv.1600427"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "One source-owned 300 K BM2 fit for vacancy-rich Fe2+/Fe3+ bridgmanite, with K0_prime fixed at 4. The coefficients are complete, but the row-level inputs are not: Figure 3 shows substantially more markers than the four selected crystallographic states printed in Table S2.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/fe088sio3_bridgmanite.audit.json#fe088sio3_bridgmanite_ismailova_2016_300k_bm2"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 125.225},
+      "sample_composition": "(Fe2+0.64(2)Fe3+0.24(2))Si1.00(3)O3, with about 12% A-site vacancies.",
+      "implicit_parameters": {"K0_prime": 4.0}
     }
   ],
   "aliases": [

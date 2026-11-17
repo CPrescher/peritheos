@@ -91,10 +91,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[25.4, 125.6\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.7691266913, 0.9257687577\]
-    - **Notes:** The fit represents only the fully post-transition branch. The authors place the mixed-spin interval at 18-25 GPa and use only observations above 25 GPa for this EOS.; The pressure bound is the 63-row published-fit observation envelope, not a broader phase-stability field or permission to use this branch through the spin transition.; V0 is an ambient-pressure extrapolation of the low-spin branch, not the measured ambient high-spin cell volume.
+    - **Notes:** Only for the fully post-transition branch: the authors fit observations above 25 GPa. Do not apply it to high-spin or 18-25 GPa mixed-spin data.; V0 is an ambient-pressure extrapolation of the low-spin branch, not the measured ambient high-spin cell volume.
 - **Reported error confidence level:** Not specified
 
-Published 300 K post-transition low-spin branch. Peritheos stores it as BM3 because the source explicitly calls the fit third-order Birch-Murnaghan; K0\_prime=4 is retained as fixed, making this parameterization algebraically reduce to the second-order special case without changing the source's family label. The article's conventional-cell wording, Pbnm structure, Z=4 topology, complete Table S1 curve, and coefficient-parity refit establish the volume basis. Do not apply this EOS to the high-spin or 18-25 GPa mixed-spin observations.
+Published 300 K post-transition branch with low-spin B-site Fe3+. Stored as BM3 because the source calls the fit third-order Birch-Murnaghan; with K0' = 4 fixed it reduces to the second-order form.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -219,7 +219,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Molar mass g mol:** 103.541
 - **Reported error confidence level:** Not specified
 
-BM2 is represented as BM3 with V0 and K0\_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.
+Second-order fit stored as BM3 with K0' = 4 fixed, which is algebraically identical. K0 is fitted to the Fe10 data only; the authors apply the same compression curve to all three compositions with their own ambient volumes.
 
 <details markdown="1">
 <summary>Source review</summary>

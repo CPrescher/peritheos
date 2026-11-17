@@ -111,6 +111,10 @@
           "covariance": "not published",
           "uncertainty_method": "not reported"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. The report first constrained V0(T) from thermal expansion and K0(T) from elastic, heat-capacity, and expansivity data. It then varied K0_prime(300 K), dK0_prime/dT, and temperature-invariant K0_double_prime against a compiled 295-788 K compression dataset. The full polynomial surface is independently executable in scripts/audit_fortes_2019_fcc_pb.py, but is not stored as this isothermal record because the current thermal schema cannot represent it.",
+        "superseded_on": "2026-11-16"
       }
     },
     "lead_fcc_kuznetsov_2002_bm3_2": {
@@ -199,6 +203,14 @@
             "doi": "10.1016/S0038-1098(02)00112-6"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Published 296 K isotherm of the source's temperature-dependent BM3 model. The complete P-V-T surface includes polynomial V0(T), K0(T), and K0_prime(T) terms and is independently executable in scripts/audit_fortes_2019_fcc_pb.py; only its 296 K slice is stored because the current thermal schema cannot represent those polynomials. This is a source-published parameterization, not a Peritheos refit.",
+        "validity_notes": [
+          "296 K slice of the source's fitted P-V-T surface; the numerical range ends at the Table 1 fcc transition anchor.",
+          "The paper reports transition onset at about 12 GPa at room temperature and sluggish fcc-hcp coexistence up to about 20 GPa; this validity envelope is not an assertion of a sharp equilibrium phase boundary."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

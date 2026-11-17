@@ -84,10 +84,10 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[27.7, 51.1\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Composition-specific to Fe0.93O in the rhombohedrally distorted B1 phase.; The source first observes the phase at 27.7 GPa; V0 is only the EOS reference parameter and is outside the phase's observed stability interval.
+    - **Notes:** Composition-specific to Fe0.93O in the rhombohedrally distorted B1 phase.; The source first observes the phase at 27.7 GPa.
 - **Reported error confidence level:** Not specified
 
-Published preferred cross-check fit to all nine rhombohedral Table 1 observations from 27.7 to 51.1 GPa, using a 1 atm reference without an artificial P0 data point. V0 and K0 are free and K0'=4 is fixed. The executable V0 is a metastable zero-pressure extrapolation for a phase observed only above 23 GPa. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.
+The authors' preferred cross-check fit to all nine rhombohedral observations of Table 1, referenced to 1 atm without an artificial P0 data point. V0 is a metastable zero-pressure extrapolation for a phase observed only above 23 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

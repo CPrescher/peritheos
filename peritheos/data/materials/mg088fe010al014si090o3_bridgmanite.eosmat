@@ -10,6 +10,16 @@
     {
       "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1",
       "label": "Fu et al. (2024), Fe10-Al14 bridgmanite BM2",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0: refit 164.427 vs published 163.85 (+0.4%), outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source fully defines a room-temperature standard Eulerian BM2 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; K0_prime is fixed to 4.",
+        "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 293.0,
       "parameters": {
@@ -17,33 +27,22 @@
         "K0": {"value": 242.0, "error": 3.0}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [4.2, 64.6],
-      "experimental_temperature_range_k": [293.0, 293.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [4.2, 64.6],
         "temperature_k": [293.0, 293.0],
         "volume_ratio": [0.83179737564845, 0.98687824229479],
         "notes": [
-          "Bounds are the 22-row Table S1/CIF observation envelope, not a broader phase-stability guarantee.",
-          "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa but does not establish a rectangular thermodynamic stability field."
+          "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [4.2, 64.6],
+      "experimental_temperature_range_k": [293.0, 293.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "sample_composition": "(Mg0.88Fe3+0.065Fe2+0.035Al0.03)(Al0.11Si0.90)O3",
-      "experimental_configuration": {
-        "sample": "two single-crystal platelets from synthesis run 5K2667",
-        "pressure_medium": "neon",
-        "pressure_gauge": "gold measured immediately before and after each SCXRD acquisition using Fei et al. (2007)",
-        "diffraction": "single-crystal synchrotron X-ray diffraction at APS beamline 13ID-D, GSECARS"
-      },
-      "notes": "Standard second-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. K0_prime=4 is fixed by the BM2 model; V0 and K0 were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM2 is co-reported with BM3 and is not designated preferred.",
-      "implicit_parameters": {"K0_prime": 4.0},
-      "author_fit_preference": "none; the article reports BM2 and BM3 as equally acceptable within uncertainty",
+      "notes": "Eulerian BM2 fit at 293 K, co-reported with the BM3 fit; neither is designated preferred.",
       "fit_datasets": ["mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fu", "Chariton", "Zhang", "Okuchi", "Prakapenka", "Lin"],
         "year": 2024,
@@ -53,18 +52,29 @@
         "locator": "872-881",
         "doi": "10.2138/am-2023-8969"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The source fully defines a room-temperature standard Eulerian BM2 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; K0_prime is fixed to 4.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"
-      }
+      "equation_kind": "isothermal",
+      "sample_composition": "(Mg0.88Fe3+0.065Fe2+0.035Al0.03)(Al0.11Si0.90)O3",
+      "experimental_configuration": {
+        "sample": "two single-crystal platelets from synthesis run 5K2667",
+        "pressure_medium": "neon",
+        "pressure_gauge": "gold measured immediately before and after each SCXRD acquisition using Fei et al. (2007)",
+        "diffraction": "single-crystal synchrotron X-ray diffraction at APS beamline 13ID-D, GSECARS"
+      },
+      "implicit_parameters": {"K0_prime": 4.0},
+      "author_fit_preference": "none; the article reports BM2 and BM3 as equally acceptable within uncertainty"
     },
     {
       "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2",
       "label": "Fu et al. (2024), Fe10-Al14 bridgmanite BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source fully defines a room-temperature standard Eulerian BM3 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; V0, K0, and K0_prime were fitted.",
+        "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"
+      },
       "model": "BM3",
       "temperature_ref": 293.0,
       "parameters": {
@@ -73,32 +83,22 @@
         "K0_prime": {"value": 4.1, "error": 0.2}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [4.2, 64.6],
-      "experimental_temperature_range_k": [293.0, 293.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [4.2, 64.6],
         "temperature_k": [293.0, 293.0],
         "volume_ratio": [0.82780612244897, 0.98214285714287],
         "notes": [
-          "Bounds are the 22-row Table S1/CIF observation envelope, not a broader phase-stability guarantee.",
-          "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa but does not establish a rectangular thermodynamic stability field."
+          "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [4.2, 64.6],
+      "experimental_temperature_range_k": [293.0, 293.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "sample_composition": "(Mg0.88Fe3+0.065Fe2+0.035Al0.03)(Al0.11Si0.90)O3",
-      "experimental_configuration": {
-        "sample": "two single-crystal platelets from synthesis run 5K2667",
-        "pressure_medium": "neon",
-        "pressure_gauge": "gold measured immediately before and after each SCXRD acquisition using Fei et al. (2007)",
-        "diffraction": "single-crystal synchrotron X-ray diffraction at APS beamline 13ID-D, GSECARS"
-      },
-      "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. V0, K0, and K0_prime were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM3 is co-reported with BM2 and is not designated preferred.",
-      "author_fit_preference": "none; the article reports BM2 and BM3 as equally acceptable within uncertainty",
+      "notes": "Eulerian BM3 fit at 293 K, co-reported with the BM2 fit; neither is designated preferred.",
       "fit_datasets": ["mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fu", "Chariton", "Zhang", "Okuchi", "Prakapenka", "Lin"],
         "year": 2024,
@@ -108,18 +108,29 @@
         "locator": "872-881",
         "doi": "10.2138/am-2023-8969"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source fully defines a room-temperature standard Eulerian BM3 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; V0, K0, and K0_prime were fitted.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"
-      }
+      "equation_kind": "isothermal",
+      "sample_composition": "(Mg0.88Fe3+0.065Fe2+0.035Al0.03)(Al0.11Si0.90)O3",
+      "experimental_configuration": {
+        "sample": "two single-crystal platelets from synthesis run 5K2667",
+        "pressure_medium": "neon",
+        "pressure_gauge": "gold measured immediately before and after each SCXRD acquisition using Fei et al. (2007)",
+        "diffraction": "single-crystal synchrotron X-ray diffraction at APS beamline 13ID-D, GSECARS"
+      },
+      "author_fit_preference": "none; the article reports BM2 and BM3 as equally acceptable within uncertainty"
     },
     {
       "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2023_bm2",
       "label": "Fu et al. (2023), Fe10-Al14 bridgmanite BM2",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0 has no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The source publishes a complete BM2 fit with V0 fixed to the measured ambient cell and a second complete BM3 sensitivity fit.",
+        "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2023_bm2"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -127,24 +138,19 @@
         "K0": {"value": 256.0, "error": 2.0}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 72.6],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 72.6],
         "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.82308396946565, 1.0],
-        "notes": ["Bounds are the complete Table S2 room-temperature compression envelope."]
+        "volume_ratio": [0.82308396946565, 1.0]
       },
+      "experimental_pressure_range_gpa": [0.0, 72.6],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 104.024},
-      "sample_composition": "Mg0.88Fe0.10Al0.14Si0.90O3 (Fe10-Al14-Bgm, synthesis run 5K2667)",
-      "notes": "The parenthetical error on V0 is not treated as a fitted parameter uncertainty because Text S1 explicitly fixes V0; the 0.01 A^3 value in Table S2 is the ambient observation uncertainty.",
-      "implicit_parameters": {"K0_prime": 4.0},
+      "notes": "V0 is fixed at the measured ambient cell volume (Text S1). The 0.01 Å³ printed with it in Table S2 is the uncertainty of that ambient observation, not a fitted parameter error.",
       "fit_datasets": ["mg088fe010al014si090o3_bridgmanite_fu_2023_table_s2_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fu", "Zhang", "Okuchi", "Lin"],
         "year": 2023,
@@ -154,18 +160,24 @@
         "locator": "719-730",
         "doi": "10.2138/am-2022-8435"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The source publishes a complete BM2 fit with V0 fixed to the measured ambient cell and a second complete BM3 sensitivity fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2023_bm2"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 104.024},
+      "sample_composition": "Mg0.88Fe0.10Al0.14Si0.90O3 (Fe10-Al14-Bgm, synthesis run 5K2667)",
+      "implicit_parameters": {"K0_prime": 4.0}
     },
     {
       "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2023_bm3",
       "label": "Fu et al. (2023), Fe10-Al14 bridgmanite BM3 sensitivity fit",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0: refit 267.9 vs published 259 GPa (+3.4%), outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The source explicitly reports this unconstrained-K0_prime BM3 fit in addition to its BM2 fit.",
+        "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2023_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -174,22 +186,18 @@
         "K0_prime": {"value": 3.8, "error": 0.2}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 72.6],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 72.6],
         "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.82308396946565, 1.0],
-        "notes": ["Bounds are the complete Table S2 room-temperature compression envelope."]
+        "volume_ratio": [0.82308396946565, 1.0]
       },
+      "experimental_pressure_range_gpa": [0.0, 72.6],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 104.024},
-      "sample_composition": "Mg0.88Fe0.10Al0.14Si0.90O3 (Fe10-Al14-Bgm, synthesis run 5K2667)",
       "fit_datasets": ["mg088fe010al014si090o3_bridgmanite_fu_2023_table_s2_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fu", "Zhang", "Okuchi", "Lin"],
         "year": 2023,
@@ -199,14 +207,9 @@
         "locator": "719-730",
         "doi": "10.2138/am-2022-8435"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The source explicitly reports this unconstrained-K0_prime BM3 fit in addition to its BM2 fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg088fe010al014si090o3_bridgmanite.audit.json#mg088fe010al014si090o3_bridgmanite_fu_2023_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 104.024},
+      "sample_composition": "Mg0.88Fe0.10Al0.14Si0.90O3 (Fe10-Al14-Bgm, synthesis run 5K2667)"
     }
   ],
   "aliases": ["Fe10-Al14-Bgm", "5K2667 bridgmanite", "Fe10-Al14 bridgmanite"],

@@ -35,14 +35,14 @@ Metastable high-pressure silica polymorph containing tetra-, penta-, and hexa-co
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | BM3 | 0.0 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Bykova et al. (2018), calculated BM3](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | BM3 | 0.0 | reproduced |  | primary source validated | Executable |
 | [Bykova et al. (2018), combined coesite-IV/V experimental BM2 at 32.7 GPa](#record-coesite_iv_v_bykova_2018_experimental_bm2_reference) | BM2Reference | 298.0 | untested | **Yes** | primary source validated | Executable; see usage qualifications |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | 438.6702 | 168.52 (fixed) | 3.34 (fixed) |
+| [Peritheos refit of Bykova et al. (2018), calculated BM3](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | 438.6702 | 168.52 (fixed) | 3.34 (fixed) |
 | [Bykova et al. (2018), combined coesite-IV/V experimental BM2 at 32.7 GPa](#record-coesite_iv_v_bykova_2018_experimental_bm2_reference) | 375.04 ± 0.48 | 254.0 ± 9.0 | — |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
@@ -55,7 +55,7 @@ extrapolation.
 
 <a id="record-coesite_iv_bykova_2018_am05_static_bm3_refit"></a>
 
-## Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states
+## Peritheos refit of Bykova et al. (2018), calculated BM3
 
 `coesite_iv_bykova_2018_am05_static_bm3_refit` · Executable
 
@@ -89,14 +89,14 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[27.0, 48.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Metastable static AM05 branch; the source reports spontaneous coesite-IV to coesite-V relaxation at the smaller 352.35 A3 cell volume.; The three numerical fit inputs span 39-48 GPa. The approximate 27-48 GPa plotted branch is checked separately using digitized calculated markers; neither this range nor a 0 K curve establishes experimental phase stability or thermal behavior.
+    - **Notes:** Metastable static AM05 branch. The source reports spontaneous relaxation to coesite-V at the smaller 352.35 Å³ cell volume.; The fitted states span 39-48 GPa. Below 39 GPa the approximate range rests on digitized Figure 6 markers, which were checked, not fitted.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 16.0
     - **Molar mass g mol:** 60.083
 - **Reported error confidence level:** Not specified
 
-Replays the stored Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. K0=168.52 GPa and K0-prime=3.34 are adopted from Supplementary Table 11 and held fixed. Three calculated Table 10 pressures are printed as whole GPa; they are not exact states. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding/systematic error budget. The unweighted residual sum per degree of freedom is not a statistical reduced chi-square. Figure 6 supplies separate graphical checks, including five points beyond the three apparent table counterparts; none is fitted. See the dedicated coesite-IV audit for reading bounds and limitations.
+Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. V0 is fitted to the three calculated Table 10 states, whose pressures are printed as whole GPa and so are not exact, with K0 and K0' adopted from Supplementary Table 11. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding or systematic error budget.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -183,10 +183,10 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Coverage provenance:** reported\_exactly
 - **Validity:**
     - **Pressure gpa:** \[29.9, 70.4\]
-    - **Notes:** Joint empirical IV/V branch, not a single-phase stability interval. Reproduce the published curve in the observed range; do not extrapolate to ambient pressure or use as a pressure calibrant.
+    - **Notes:** Do not extrapolate to ambient pressure or use as a pressure calibrant.
 - **Reported error confidence level:** Not specified
 
-Published joint coesite-IV/V room-temperature empirical fit, not a pure-phase EOS. The explicit 32.7 GPa reference-pressure BM2 reproduces Figure 1's red vector curve within its stroke/calibration bounds. All 16 Table 2 observations are retained: pressure RMS 4.04659 GPa; maximum 11.85457 GPa at the 44.5 GPa coesite-V datum. The source acknowledges significant between-run scatter. Original objective, weights, row mask, fixed/free reference-volume choice and covariance are unspecified. The independent equal-weight diagnostic does not recover the source coefficients and is not adopted. Source-equation validation is not author-fit parity or physical validation. See the dedicated experimental audit.
+Published joint empirical fit to the Table 2 coesite-IV and coesite-V room-temperature observations, with the reference state at 32.7 GPa; not a pure-phase EOS. The source acknowledges significant between-run scatter.
 
 <details markdown="1">
 <summary>Source review</summary>

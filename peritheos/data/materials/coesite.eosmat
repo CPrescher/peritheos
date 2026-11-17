@@ -8,7 +8,17 @@
   "eos_records": [
     {
       "identifier": "coesite_levien_1981_bm3_1",
-      "label": "data from JCPDS and Levien and Prewitt, 1981",
+      "label": "Levien and Prewitt (1981), BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0 has no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The conventional-cell V0 is calculated from the paper's ambient lattice parameters; K0 and K0' are the reported unweighted fit.",
+        "audit": "../audits/coesite.audit.json#coesite_levien_1981_bm3_1"
+      },
       "model": "BM3",
       "parameters": {
         "V0": {"value": 546.4414, "error": null},
@@ -17,7 +27,7 @@
       },
       "experimental_pressure_range_gpa": [0.0, 5.2],
       "determination_method": "experimental",
-      "notes": "Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.",
+      "notes": "V0 is the volume of the cited ambient structure; no V0 error was reported.",
       "reference": {
         "authors": ["Levien", "Prewitt"],
         "year": 1981,
@@ -25,19 +35,20 @@
         "source": "American Mineralogist",
         "volume": "66",
         "locator": "324-333"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The conventional-cell V0 is calculated from the paper's ambient lattice parameters; K0 and K0' are the reported unweighted fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/coesite.audit.json#coesite_levien_1981_bm3_1"
       }
     },
     {
       "identifier": "coesite_i_iii_bykova_2018_300k_bm3",
       "label": "Bykova et al. (2018), combined coesite-I/II/III 300 K BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-25",
+        "source_note": "Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. The original export/workbook establish the selection and rounding; Elena reports pressure-only inverse-variance weighting. The 22 inputs contain 21 measured entries and a derived Cernok fitted ambient anchor. The earlier 24-row unweighted comparison remains historical.",
+        "audit": "../audits/coesite.audit.json#coesite_i_iii_bykova_2018_300k_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -46,9 +57,7 @@
         "K0_prime": {"value": 3.02, "error": 0.15}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 36.9],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_qualitatively",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 36.9],
         "temperature_k": [300.0, 300.0],
@@ -56,13 +65,12 @@
           "Effective compression branch across the minor coesite-I to II to III transitions, explicitly represented by one EOS in the source."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 36.9],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 16.0, "molar_mass_g_mol": 60.083},
-      "sample_composition": "High-purity SiO2 coesite single crystals; combined coesite-I, coesite-II, and coesite-III compression branch.",
       "fit_datasets": ["coesite_i_iii_bykova_2018_author_fit_export"],
-      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Bykova",
@@ -87,14 +95,9 @@
         "locator": "4789",
         "doi": "10.1038/s41467-018-07265-z"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. The original export/workbook establish the selection and rounding; Elena reports pressure-only inverse-variance weighting. The 22 inputs contain 21 measured entries and a derived Cernok fitted ambient anchor. The earlier 24-row unweighted comparison remains historical.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-25",
-        "audit": "../audits/coesite.audit.json#coesite_i_iii_bykova_2018_300k_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 16.0, "molar_mass_g_mol": 60.083},
+      "sample_composition": "High-purity SiO2 coesite single crystals; combined coesite-I, coesite-II, and coesite-III compression branch."
     }
   ],
   "symmetry": "MONOCLINIC",

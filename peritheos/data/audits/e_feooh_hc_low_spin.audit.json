@@ -209,6 +209,15 @@
           "covariance": null,
           "fit_statistic": null
         }
+      },
+      "superseded_record_text": {
+        "notes": "This record represents only the volumetric BM3 fit for the hydrogen-centered low-spin ferromagnetic Pnnm branch. The paper's self-consistent Hubbard U changes with pressure; it is part of the computational protocol, not an EOS coefficient. Table 3 elastic moduli and velocities come from stress-strain elastic tensors and Voigt-Reuss-Hill averaging and are not substituted for the volumetric K0 or K0'. All three BM3 parameters were fitted. Published parameter errors are retained, but their confidence level and covariance are unavailable.",
+        "validity_notes": [
+          "The record is a static 0 K first-principles isotherm, not an experimental room-temperature EOS.",
+          "The represented branch is the hydrogen-centered Pnnm, low-spin ferromagnetic structure fitted over 30-140 GPa.",
+          "The pressure and volume bounds follow the authors' stated fit interval and the rounded Table S1 endpoints; they are not a finite-temperature phase-stability field."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

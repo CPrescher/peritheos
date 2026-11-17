@@ -33,13 +33,13 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Gleason et al. (2008)](#record-goethite_gleason_2008_bm3_1) | BM3 + MieGruneisenDebye | 300.0 | disagrees | **Yes** | primary source validated | Executable; not recommended for quantitative use |
+| [Gleason et al. (2008), BM3](#record-goethite_gleason_2008_bm3_1) | BM3 + MieGruneisenDebye | 300.0 | disagrees | **Yes** | primary source validated | Executable; not recommended for quantitative use |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Gleason et al. (2008)](#record-goethite_gleason_2008_bm3_1) | 138.75 ± 0.02 (fixed) | 140.3 ± 3.7 | 4.6 ± 0.4 |
+| [Gleason et al. (2008), BM3](#record-goethite_gleason_2008_bm3_1) | 138.75 ± 0.02 (fixed) | 140.3 ± 3.7 | 4.6 ± 0.4 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -51,7 +51,7 @@ extrapolation.
 
 <a id="record-goethite_gleason_2008_bm3_1"></a>
 
-## Gleason et al. (2008)
+## Gleason et al. (2008), BM3
 
 `goethite_gleason_2008_bm3_1` · Executable; not recommended for quantitative use
 
@@ -87,7 +87,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 29.4\]
 - **Reported temperature coverage (K):** \[296.15, 583.15\]
 
-USAGE WARNING: retained for provenance and reproduction of the published curve, but not recommended for quantitative pressure-volume or thermoelastic use. Neither the complete 65-row primary table nor an independent fit of the 47 plotted Figure 3a marker centers reproduces K0 = 140.3 GPa and K0' = 4.6; the marker fit gives K0 = 193.45 GPa and K0' = 0.893 with the reconstructed thermal model. Equation 1 is malformed as printed, although the Figure 3 curve supports the standard BM3 sign used here. Gleason et al. report a thermal EOS, not a standalone 300 K BM3: a BM3 reference with V0 = 138.75 +/- 0.02 A^3, K0 = 140.3 +/- 3.7 GPa, and K0' = 4.6 +/- 0.4 is combined with Mie-Gruneisen-Debye thermal pressure. Equation 1 references E(300 K); Table 1 gives gamma0 = 0.91 +/- 0.07 and theta0 = 740 +/- 5 K, and the text assumes dln(gamma)/dln(V) = q = 1. The Debye atom count n = 4 follows FeOOH stoichiometry. The measured zero-pressure V0 is held fixed because the authors say all P-V-T rows determine K0 and K0', specifically. Thermal quantities are also held fixed in the numerical refit because gamma0 and theta0 are thermodynamically derived after the elastic fit and q is assumed, rather than being reported as simultaneous regression coefficients. The deposited table spans 23-310 degC even though the abstract states 23-250 degC.
+V0 is the measured zero-pressure volume, and theta0 and gamma0 were derived after the elastic fit with q = 1 assumed. Neither the 65 deposited P-V-T rows (23-310 °C; the abstract states 23-250 °C) nor the 47 Figure 3a marker centers reproduce the published K0 and K0'. Equation 1 is malformed as printed; Figure 3 supports the standard BM3 sign used here.
 
 <details markdown="1">
 <summary>Source review</summary>

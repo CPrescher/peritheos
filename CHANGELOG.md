@@ -26,15 +26,55 @@ All notable changes to Peritheos are documented here. The project follows
   (receipt `docs/data/eosmat-v5-audit-split.json`). Materials later written as
   complete inline files are split the same way with the repository command
   `scripts/split_eosmat_audits.py --add`.
-- Add an optional record `check` block: `reproduction` (`reproduced`, `close`,
-  `disagrees`, `untested`, a fixed mapping of the stored assessment), `warning`,
-  `finding`, `source`, `source_checked_on` and `audit`. It must agree with any
+- Add an optional record `check` block, placed after the record's label:
+  `reproduction` (`reproduced`, `close`, `disagrees`, `untested`, a fixed
+  mapping of the stored assessment), `compared` (`published_fit`,
+  `peritheos_refit`, `source_equation`, `none`: what the headline refers to),
+  `why` (for `close` and `disagrees`, a line generated from the stored
+  coefficient table), `warning`, `source_check` (`verified`, `pending`,
+  `unresolved`, `deferred`, renaming `scientific_validation.status`),
+  `source_checked_on`, `source_note` and `audit`. It must agree with any
   evidence present.
+- Name a material's default records once in a `default_records` map
+  (`equilibrium`, `hugoniot`); bundled files use it. Per-record `default` and
+  `default_for` flags remain valid and must agree with the map; v3/v4 exports
+  write an explicit `default` flag on every record.
 - Remove three generic statements repeated in every record; they are stated
   once in the EOS label guide.
-- Add `EOSRecord.reproduction`, `EOSRecord.warning` and `EOSRecord.audit`.
+- Add the audit block `superseded_record_text`: the verbatim original of each
+  replaced `label`, `notes`, `validity.notes` and `thermal.notes`, with
+  `superseded_on`. Python and Rust validate it, expose it through the record
+  audit and carry it in v3/v4 exports. Add the
+  [record text standard](docs/record-text-standard.md) and the repository
+  tools `scripts/apply_record_text.py` and `scripts/check_record_text.py`.
+- Shorten bundled record labels and the notes of the reviewed palladium, MgO
+  and (Mg0.9Fe0.1)O sample under that standard; every replaced original is
+  kept in the sidecars. Coefficients, ranges and classifications are
+  unchanged.
+- Add `EOSRecord.reproduction`, `compared`, `why`, `warning`, `source_check`,
+  `source_note` and `audit`.
 - Add `Material.summary()` and more forgiving material and record lookup.
-- Update the Rust EOSMAT reader for the record file and audit sidecar layout.
+- Add `EOSRecord.overview()` and `Material.overview()`: plain JSON data with
+  the material, citation, model display names, default selection
+  (`is_default`, `selected_when_no_default`, `default_hold`), the check
+  headline with fixed display phrases, coefficients with errors, fixed flags
+  and documented units, stored and enforced ranges, notes and the report link.
+  `include_audit=True` adds the pressure scale from the sidecar. Add
+  `material_overviews()`, `write_material_overviews(path)` and the schema
+  `peritheos/data/overview-v1.schema.json` (`overview_version` 1), and the
+  commands `python -m peritheos show <material> [record] [--json]` and
+  `python -m peritheos list [query]`.
+- Render both `summary()` methods from the overview: one `Default` line, the
+  check as `<headline> (<compared>). <why>`, each warning once, fixed
+  coefficients as `fixed` with any published error marked as such, long
+  computed numbers rounded for display only, labelled validity and
+  experimental ranges, and a unit note only for coefficients whose unit is not
+  documented.
+- Out-of-range errors name the quantity, value and exceeded bound; looking up a
+  deferred bundled record says it is deferred and how to read its document.
+- Update the Rust EOSMAT reader for the record file and audit sidecar layout,
+  the check fields (`EosRecord::compared()`, `why()`, `source_check()`,
+  `source_note()`, with `Compared` and `SourceCheck`) and `default_records`.
 - Lead each reconstruction-report section with its headline and warning, show
   only recorded content and state shared conventions once per page; the report
   index counts records by headline. Material summaries show the headline,

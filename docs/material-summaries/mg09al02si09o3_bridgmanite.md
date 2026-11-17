@@ -91,10 +91,9 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 8.71\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.9645476773, 1.0\]
-    - **Notes:** The pressure bound is the complete Table I observation envelope, not a broader phase-stability guarantee.; K0\_prime=4 was fixed by the authors. The source nevertheless calls the fit third-order Birch-Murnaghan; Peritheos preserves that family label although this coefficient choice algebraically reduces to BM2.; The source normalized ap and ku observations to their separate measured atmospheric volumes of 163.6 and 163.5 A^3. The executable record uses the more precise ap value 163.6(4) A^3 as its single conventional-cell V0.
 - **Reported error confidence level:** Not specified
 
-Preferred source result. K0\_prime was fixed rather than fitted. The source calls this a third-order Birch-Murnaghan fit; preserving BM3 plus an explicit fixed parameter avoids changing the published model label.
+The authors' preferred fit. The source calls it BM3, but with K0' = 4 fixed it reduces algebraically to BM2. The two decompression runs (ap and ku) were normalized to their own measured ambient volumes, 163.6 and 163.5 Å³, and this record uses the more precise ap value, 163.6(4) Å³.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -200,10 +199,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0, 8.71\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.9645476773, 1.0\]
-    - **Notes:** The pressure bound is the complete Table I observation envelope, not a broader phase-stability guarantee.; V0, K0, and K0\_prime are represented, but V0 came from measured run-specific atmospheric references rather than a shared three-parameter fit.; The authors explicitly caution that the pressure range and less than 4% compression do not constrain K0\_prime accurately; this record is retained as a reported alternative, not as the equilibrium default.
 - **Reported error confidence level:** Not specified
 
-Valid source-reported but nonpreferred unconstrained fit. The derivative is not treated as a robust physical determination because the source says its less than 4% compression range cannot determine K0\_prime accurately.
+Not the authors' preferred fit: they state that less than 4% compression cannot determine K0' accurately. V0 comes from the measured run-specific ambient volumes, not from a shared three-parameter fit.
 
 <details markdown="1">
 <summary>Source review</summary>

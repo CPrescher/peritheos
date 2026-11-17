@@ -88,10 +88,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Validity:**
     - **Pressure gpa:** \[0.0, 6.671\]
-    - **Notes:** Room-temperature static compression only; upper bound is experimental coverage, not a phase-stability boundary.; Zero pressure is the model reference; lowest observed pressure is 0.0001 GPa. No numerical experimental temperature range is asserted.
 - **Reported error confidence level:** Not specified
-
-Only the physical volume BM3 is executable. Axial BM3-on-edge-cubes fits are supporting data, not volume EOS records. Published parameters remain unchanged. Independent refits are diagnostic outputs in the material-specific reproduction report, not replacement published coefficients. Room temperature is represented nominally as 298 K.
 
 <details markdown="1">
 <summary>Source review</summary>

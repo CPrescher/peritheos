@@ -35,12 +35,12 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data](#record-fesi_b2_fischer_2014_bm3_refit) | **reproduced** |  |
-| [Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data](#record-fesi_b2_fischer_2014_vinet_refit) | **reproduced** |  |
+| [Peritheos refit of Fischer et al. (2014), BM3 + MGD](#record-fesi_b2_fischer_2014_bm3_refit) | **reproduced** |  |
+| [Peritheos refit of Fischer et al. (2014), Vinet + MGD](#record-fesi_b2_fischer_2014_vinet_refit) | **reproduced** |  |
 
 <a id="record-fesi_b2_fischer_2014_bm3_refit"></a>
 
-## Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data
+## Peritheos refit of Fischer et al. (2014), BM3 + MGD
 
 **reproduced** · `fesi_b2_fischer_2014_bm3_refit` · `BM3` · [Coefficients and source](../material-summaries/fesi_b2.md#record-fesi_b2_fischer_2014_bm3_refit)
 
@@ -110,7 +110,7 @@ Both fits use the same 114 recovered audit input rows. **Volume coordinate:** b2
 
 <a id="record-fesi_b2_fischer_2014_vinet_refit"></a>
 
-## Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data
+## Peritheos refit of Fischer et al. (2014), Vinet + MGD
 
 **reproduced** · `fesi_b2_fischer_2014_vinet_refit` · `Vinet` · [Coefficients and source](../material-summaries/fesi_b2.md#record-fesi_b2_fischer_2014_vinet_refit)
 

@@ -6,10 +6,20 @@
   "phase": "Layered brucite; lattice-average volume EOS including H rearrangement",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
+  "default_records": {"equilibrium": "brucite_fukui_2003_300k_bm3"},
   "eos_records": [
     {
       "identifier": "brucite_fukui_2003_300k_bm3",
       "label": "Fukui et al. (2003), 300 K lattice-average BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-16",
+        "source_note": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.",
+        "audit": "../audits/brucite.audit.json#brucite_fukui_2003_300k_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -18,30 +28,18 @@
         "K0_prime": {"value": 6.6, "error": 0.3}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [0, 22.56],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [-0.06, 22.56],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [0, 22.56],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
-          "Measured pressure span at this temperature; no temperature interpolation by an isothermal record."
-        ]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default": true,
-      "experimental_configuration": {
-        "sample": "Synthetic commercial Mg(OH)2 reagent, 99.9% purity, Iwatani Chemical Ltd.; Au mixture under pressure.",
-        "apparatus": "SPEED-1500 multi-anvil; BL04B1 SPring-8 energy-dispersive diffraction; MgO medium, graphite sample capsule.",
-        "path": "Compressed, annealed at 900 K for over 10 minutes, collected on cooling.",
-        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
-      },
-      "notes": "Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.",
+      "notes": "Empirical lattice-average volume EOS of layered brucite, including the H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui et al. describe a higher-order H change, and Sun (2025) XRD supports the layered average lattice beyond this range.",
       "fit_datasets": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fukui", "Ohtaka", "Suzuki", "Funakoshi"],
         "year": 2003,
@@ -51,18 +49,26 @@
         "locator": "511-516",
         "doi": "10.1007/s00269-003-0353-z"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-16",
-        "audit": "../audits/brucite.audit.json#brucite_fukui_2003_300k_bm3"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "Synthetic commercial Mg(OH)2 reagent, 99.9% purity, Iwatani Chemical Ltd.; Au mixture under pressure.",
+        "apparatus": "SPEED-1500 multi-anvil; BL04B1 SPring-8 energy-dispersive diffraction; MgO medium, graphite sample capsule.",
+        "path": "Compressed, annealed at 900 K for over 10 minutes, collected on cooling.",
+        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
       }
     },
     {
       "identifier": "brucite_fukui_2003_473k_bm3",
       "label": "Fukui et al. (2003), 473 K lattice-average BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-16",
+        "source_note": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.",
+        "audit": "../audits/brucite.audit.json#brucite_fukui_2003_473k_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 473,
       "parameters": {
@@ -71,30 +77,18 @@
         "K0_prime": {"value": 8.3, "error": 1.1}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [5.95, 16.52],
+        "temperature_k": [473, 473]
+      },
       "experimental_pressure_range_gpa": [5.95, 16.52],
       "experimental_temperature_range_k": [473, 473],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [5.95, 16.52],
-        "temperature_k": [473, 473],
-        "notes": [
-          "Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
-          "Measured pressure span at this temperature; no temperature interpolation by an isothermal record."
-        ]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default": false,
-      "experimental_configuration": {
-        "sample": "Synthetic commercial Mg(OH)2 reagent, 99.9% purity, Iwatani Chemical Ltd.; Au mixture under pressure.",
-        "apparatus": "SPEED-1500 multi-anvil; BL04B1 SPring-8 energy-dispersive diffraction; MgO medium, graphite sample capsule.",
-        "path": "Compressed, annealed at 900 K for over 10 minutes, collected on cooling.",
-        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
-      },
-      "notes": "Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.",
+      "notes": "Empirical lattice-average volume EOS of layered brucite, including the H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui et al. describe a higher-order H change, and Sun (2025) XRD supports the layered average lattice beyond this range.",
       "fit_datasets": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fukui", "Ohtaka", "Suzuki", "Funakoshi"],
         "year": 2003,
@@ -104,18 +98,26 @@
         "locator": "511-516",
         "doi": "10.1007/s00269-003-0353-z"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-16",
-        "audit": "../audits/brucite.audit.json#brucite_fukui_2003_473k_bm3"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "Synthetic commercial Mg(OH)2 reagent, 99.9% purity, Iwatani Chemical Ltd.; Au mixture under pressure.",
+        "apparatus": "SPEED-1500 multi-anvil; BL04B1 SPring-8 energy-dispersive diffraction; MgO medium, graphite sample capsule.",
+        "path": "Compressed, annealed at 900 K for over 10 minutes, collected on cooling.",
+        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
       }
     },
     {
       "identifier": "brucite_fukui_2003_673k_bm3",
       "label": "Fukui et al. (2003), 673 K lattice-average BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-16",
+        "source_note": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.",
+        "audit": "../audits/brucite.audit.json#brucite_fukui_2003_673k_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 673,
       "parameters": {
@@ -124,30 +126,18 @@
         "K0_prime": {"value": 9.0, "error": 1.1}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [5.62, 16.09],
+        "temperature_k": [673, 673]
+      },
       "experimental_pressure_range_gpa": [5.62, 16.09],
       "experimental_temperature_range_k": [673, 673],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [5.62, 16.09],
-        "temperature_k": [673, 673],
-        "notes": [
-          "Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
-          "Measured pressure span at this temperature; no temperature interpolation by an isothermal record."
-        ]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default": false,
-      "experimental_configuration": {
-        "sample": "Synthetic commercial Mg(OH)2 reagent, 99.9% purity, Iwatani Chemical Ltd.; Au mixture under pressure.",
-        "apparatus": "SPEED-1500 multi-anvil; BL04B1 SPring-8 energy-dispersive diffraction; MgO medium, graphite sample capsule.",
-        "path": "Compressed, annealed at 900 K for over 10 minutes, collected on cooling.",
-        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
-      },
-      "notes": "Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.",
+      "notes": "Empirical lattice-average volume EOS of layered brucite, including the H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui et al. describe a higher-order H change, and Sun (2025) XRD supports the layered average lattice beyond this range.",
       "fit_datasets": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fukui", "Ohtaka", "Suzuki", "Funakoshi"],
         "year": 2003,
@@ -157,13 +147,12 @@
         "locator": "511-516",
         "doi": "10.1007/s00269-003-0353-z"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-16",
-        "audit": "../audits/brucite.audit.json#brucite_fukui_2003_673k_bm3"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "Synthetic commercial Mg(OH)2 reagent, 99.9% purity, Iwatani Chemical Ltd.; Au mixture under pressure.",
+        "apparatus": "SPEED-1500 multi-anvil; BL04B1 SPring-8 energy-dispersive diffraction; MgO medium, graphite sample capsule.",
+        "path": "Compressed, annealed at 900 K for over 10 minutes, collected on cooling.",
+        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
       }
     }
   ],

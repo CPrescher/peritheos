@@ -95,10 +95,14 @@ nav:
   - Pressure standards: pressure-standards.md
   - Pressure-scale normalization: pressure-scale-normalization.md
   - Dioptas integration: dioptas-integration.md
-  - EOSMAT v5: eosmat-v5.md
-  - EOSMAT v4 compatibility: eosmat-v4.md
-  - EOSMAT v3 compatibility: eosmat-schema.md
-  - Reading and editing EOSMAT: eosmat-authoring.md
+  - EOSMAT material files:
+      - Writing your own EOSMAT file: eosmat-authoring.md
+      - EOSMAT v5 record reference: eosmat-reference.md
+      - EOS labels and reconstruction status: eos-labels.md
+      - Writing standard for record text: record-text-standard.md
+      - EOSMAT v5 format overview: eosmat-v5.md
+      - EOSMAT v4 compatibility: eosmat-v4.md
+      - EOSMAT v3 compatibility: eosmat-schema.md
   - Advanced DAC analysis: dac-thermal-pressure.md
   - Units and reference states: units.md
   - API reference: api.md
@@ -106,7 +110,6 @@ nav:
   - API stability: api-stability.md
   - Error handling: error-handling.md
   - Validation: validation.md
-  - EOS labels and reconstruction status: eos-labels.md
   - Source audits and reproductions:
       - Scientific source review (2026-11-04): research/pr27-scientific-domain-review.md
       - All source audits: source-audits.md

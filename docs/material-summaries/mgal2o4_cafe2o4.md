@@ -92,10 +92,10 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Validity:**
     - **Pressure gpa:** \[0.0, 33.4\]
-    - **Notes:** The only nonzero-pressure volume is the in-situ run-2 observation after laser heating; the zero-pressure volume is measured after recovery.; The interval describes the two observations constraining the source parameterization, not a continuous stability field.; K0'=4 is fixed by the second-order Birch finite-strain model.; This is a historical one-point endpoint construction, not a regression EOS; later multi-point studies should be preferred for quantitative compression work.
+    - **Notes:** The range spans only the two observations that define the EOS, not a continuous stability field.
 - **Reported error confidence level:** Not specified
 
-This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.
+CaFe2O4-type run-2 product only, distinct from the higher-pressure CaTi2O4-type phase of runs 3 and 4. A one-point construction, not a multi-point fit: the only compressed volume is the in-situ run-2 observation after laser heating, and V0 was measured after recovery.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -202,10 +202,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_exactly
 - **Validity:**
     - **Pressure gpa:** \[0.0, 34.7\]
-    - **Notes:** Coverage includes recovery and three compressed states, not a continuous stability field.; No thermal EOS is represented.
 - **Reported error confidence level:** Not specified
 
-Only three compressed points: do not infer a free K0-prime, covariance, thermal coefficients or a new default. The existing Funamori structural cell and default are retained independently of this EOS reference volume.
+Only three compressed states plus the recovered ambient state: do not infer a free K0', covariance or thermal coefficients.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -316,7 +315,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 41.5\]
     - **Temperature k:** \[298.0, 2400.0\]
-    - **Notes:** Table 1 extrema are marginal experimental coverage, not a rectangular phase-stability guarantee. KMA spans 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.; Section 3.1 gives the room-temperature KMA interval as 28.7-41.5 GPa, but Table 1 also includes 24.8 and 26.6 GPa observations. All 16 explicitly 300 K rows are used in the diagnostic static refit; all 46 rows enter the thermal refits.; Two ambient HTXRD observations are at 298 K, not 300 K. They remain at the printed temperatures.; The structural reference lattice remains the independently sourced Funamori cell; Sueda Table 1 has its own rounded reference cells and Table 2 has the fitted V0.
+    - **Notes:** Data: KMA 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.; Section 3.1 gives 28.7-41.5 GPa for the room-temperature KMA data, but Table 1 also has observations at 24.8 and 26.6 GPa.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -327,7 +326,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The existing Funamori equilibrium default is retained. See docs/literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md for source printing errors and refit limitations.
+Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The source contains printing errors, which the audit documents.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -465,7 +464,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 41.5\]
     - **Temperature k:** \[298.0, 2400.0\]
-    - **Notes:** Table 1 extrema are marginal experimental coverage, not a rectangular phase-stability guarantee. KMA spans 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.; Section 3.1 gives the room-temperature KMA interval as 28.7-41.5 GPa, but Table 1 also includes 24.8 and 26.6 GPa observations. All 16 explicitly 300 K rows are used in the diagnostic static refit; all 46 rows enter the thermal refits.; Two ambient HTXRD observations are at 298 K, not 300 K. They remain at the printed temperatures.; The structural reference lattice remains the independently sourced Funamori cell; Sueda Table 1 has its own rounded reference cells and Table 2 has the fitted V0.
+    - **Notes:** Data: KMA 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.; Section 3.1 gives 28.7-41.5 GPa for the room-temperature KMA data, but Table 1 also has observations at 24.8 and 26.6 GPa.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -475,7 +474,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The existing Funamori equilibrium default is retained. See docs/literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md for source printing errors and refit limitations.
+Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The source contains printing errors, which the audit documents.
 
 <details markdown="1">
 <summary>Source review</summary>

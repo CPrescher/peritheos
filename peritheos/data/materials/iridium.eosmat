@@ -9,6 +9,15 @@
     {
       "identifier": "iridium_anzellini_2025_bm3_1",
       "label": "Anzellini et al. (2025), BM3 + HP",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The source publishes a BM3 300 K reference isotherm plus a volume-independent Holland-Powell Einstein thermal-pressure increment with Tr=300 K, theta=298 K, and alpha0=1.87(8)e-5 K^-1. The fit combines Monteseguro et al. (2019) ambient-temperature data with present resistive- and laser-heating data and averages the two pyrometry temperatures.",
+        "audit": "../audits/iridium.audit.json#iridium_anzellini_2025_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -28,8 +37,7 @@
       "experimental_pressure_range_gpa": [0.0, 101.0],
       "experimental_temperature_range_k": [300.0, 5600.0],
       "determination_method": "experimental",
-      "equation_kind": "thermal",
-      "notes": "Combined BM3 plus Holland-Powell thermal-pressure fit. The 300 K reference data are from Monteseguro et al. (2019), while the thermal contribution is constrained by the present resistive- and laser-heating experiments. Equation 2 uses a fixed 298 K Einstein temperature and the arithmetic mean of upstream/downstream pyrometry. The 122-row supplement contains the exact laser-heating observations but not numerical tables for the Monteseguro 300 K or present 830 K resistive-heating series. Figure 4 does expose 91 and 16 corresponding marker centers as vector paths; these are bundled as explicitly plot-derived coordinates with graphical uncertainty. A source-conditioned fit holds the published BM3 coefficients fixed and tests alpha0 on all exact hot rows. A separate four-parameter reconstruction combines the digitized series with exact hot rows in the stated plus-or-minus 100 K isotherm bands; it is not exact source parity because the original rows, averaging algorithm, weights, and covariance remain unpublished. fcc Ir remained stable to 101 GPa and 5600 K in the present experiments.",
+      "notes": "BM3 300 K reference isotherm plus Holland-Powell thermal pressure. The 300 K data are from Monteseguro et al. (2019); the thermal part rests on the present resistive- and laser-heating experiments, with temperatures the arithmetic mean of upstream and downstream pyrometry. fcc Ir remained stable to 101 GPa and 5600 K in these experiments.",
       "fit_datasets": ["iridium_anzellini_2025_tables_s1_s3_pvt", "iridium_anzellini_2025_figure4_300k_830k_vector_digitized"],
       "reference": {
         "authors": [
@@ -51,14 +59,7 @@
         "locator": "221",
         "doi": "10.1038/s43246-025-00963-4"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The source publishes a BM3 300 K reference isotherm plus a volume-independent Holland-Powell Einstein thermal-pressure increment with Tr=300 K, theta=298 K, and alpha0=1.87(8)e-5 K^-1. The fit combines Monteseguro et al. (2019) ambient-temperature data with present resistive- and laser-heating data and averages the two pyrometry temperatures.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/iridium.audit.json#iridium_anzellini_2025_bm3_1"
-      }
+      "equation_kind": "thermal"
     }
   ],
   "symmetry": "CUBIC",

@@ -36,15 +36,15 @@ MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 plus au
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Sakai et al. (2025), MgO generalized Rydberg-Stacey scale](#record-mgo_sakai_2025_rydberg_stacey_1) | RydbergStacey | 300 | untested |  | primary source validated | Executable |
-| [Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD](#record-mgo_b1_tange_2009_vinet) | Vinet + AsymptoticPowerLawMieGruneisenDebye | 300.0 | close |  | primary source validated | Executable |
-| [JCPDS 4-0829, EOS from Duffy et al, 95](#record-mgo_duffy_1995_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
+| [Tange et al. (2009), pressure-scale-free Vinet-MGD](#record-mgo_b1_tange_2009_vinet) | Vinet + AsymptoticPowerLawMieGruneisenDebye | 300.0 | close |  | primary source validated | Executable |
+| [Duffy et al. (1995), nonhydrostatic BM3](#record-mgo_duffy_1995_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
 | [Speziale et al. (2001), BM3 + variable-q Debye](#record-mgo_speziale_2001_bm3_2) | BM3 + VariableQMieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable; see usage qualifications |
 | [Li et al. (2006), acoustic absolute-pressure BM3](#record-mgo_li_2006_bm3_absolute_acoustic) | BM3 | 300.0 | close |  | primary source validated | Executable |
 | [Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3](#record-mgo_jacobsen_2008_bm3_kcl_mao1978) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Jacobsen et al. (2008), helium medium, Mao-1986-scale BM3](#record-mgo_jacobsen_2008_bm3_helium_mao1986) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-mgo_shen_2026_vinet_3) | Vinet | 300.0 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Luo et al. (2023), cold Vinet plus second-order thermal pressure](#record-mgo_b1_luo_2023_vinet_thermal_5) | Vinet + SecondOrderTaylorThermalPressure | 300.0 | untested |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-mgo_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Luo et al. (2023), 0 K Vinet + Taylor thermal pressure](#record-mgo_b1_luo_2023_vinet_thermal_5) | Vinet + SecondOrderTaylorThermalPressure | 300.0 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-mgo_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Dewaele et al. (2000), BM3-MGD](#record-mgo_dewaele_2000_bm3_mgd_5) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele et al. (2000), constrained BM2 sensitivity](#record-mgo_dewaele_2000_bm2_sensitivity_1) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele et al. (2000), Murnaghan sensitivity](#record-mgo_dewaele_2000_murnaghan_sensitivity_2) | Murnaghan | 300.0 | reproduced |  | primary source validated | Executable |
@@ -78,15 +78,15 @@ MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 plus au
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Sakai et al. (2025), MgO generalized Rydberg-Stacey scale](#record-mgo_sakai_2025_rydberg_stacey_1) | 74.698 (fixed) | 160.6 (fixed) | 4.227 ± 0.009 |
-| [Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD](#record-mgo_b1_tange_2009_vinet) | 74.698 ± 0.016 (fixed) | 160.63 ± 0.18 | 4.367 ± 0.013 |
-| [JCPDS 4-0829, EOS from Duffy et al, 95](#record-mgo_duffy_1995_bm3_1) | 74.744 (fixed) | 177.0 ± 4.0 | 4.0 ± 0.1 |
+| [Tange et al. (2009), pressure-scale-free Vinet-MGD](#record-mgo_b1_tange_2009_vinet) | 74.698 ± 0.016 (fixed) | 160.63 ± 0.18 | 4.367 ± 0.013 |
+| [Duffy et al. (1995), nonhydrostatic BM3](#record-mgo_duffy_1995_bm3_1) | 74.744 (fixed) | 177.0 ± 4.0 | 4.0 ± 0.1 |
 | [Speziale et al. (2001), BM3 + variable-q Debye](#record-mgo_speziale_2001_bm3_2) | 74.71 ± 0.01 | 160.2 (fixed) | 3.99 ± 0.01 |
 | [Li et al. (2006), acoustic absolute-pressure BM3](#record-mgo_li_2006_bm3_absolute_acoustic) | 74.702 ± 0.026 (fixed) | 161.1767340842165 | 4.237911491402006 |
 | [Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3](#record-mgo_jacobsen_2008_bm3_kcl_mao1978) | 74.698 ± 0.007 | 164.1 ± 0.9 | 4.05 ± 0.04 |
 | [Jacobsen et al. (2008), helium medium, Mao-1986-scale BM3](#record-mgo_jacobsen_2008_bm3_helium_mao1986) | 74.687 ± 0.006 | 159.6 ± 0.6 | 3.74 ± 0.03 |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-mgo_shen_2026_vinet_3) | 74.636 (fixed) | 161.9 ± 0.7 | 4.08 ± 0.03 |
-| [Luo et al. (2023), cold Vinet plus second-order thermal pressure](#record-mgo_b1_luo_2023_vinet_thermal_5) | 74.0741025123 ± 0.0267705466 | 169.8 ± 0.5 | 4.501 ± 0.007 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-mgo_sokolova_2013_holzapfel_4) | 74.71096452981054 | 160.3 | 4.1 |
+| [Luo et al. (2023), 0 K Vinet + Taylor thermal pressure](#record-mgo_b1_luo_2023_vinet_thermal_5) | 74.0741025123 ± 0.0267705466 | 169.8 ± 0.5 | 4.501 ± 0.007 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-mgo_sokolova_2013_holzapfel_4) | 74.71096452981054 | 160.3 | 4.1 |
 | [Dewaele et al. (2000), BM3-MGD](#record-mgo_dewaele_2000_bm3_mgd_5) | 74.71 ± 0.03 (fixed) | 161.0 ± 1.0 (fixed) | 3.94 ± 0.2 (fixed) |
 | [Dewaele et al. (2000), constrained BM2 sensitivity](#record-mgo_dewaele_2000_bm2_sensitivity_1) | 74.71 ± 0.03 (fixed) | 159.0 ± 0.6 | — |
 | [Dewaele et al. (2000), Murnaghan sensitivity](#record-mgo_dewaele_2000_murnaghan_sensitivity_2) | 74.71 ± 0.03 (fixed) | 161.0 ± 1.0 (fixed) | 3.75 ± 0.05 |
@@ -159,7 +159,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
 
-Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
+Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 are fixed (the source takes most ambient V0 and K0 values from cited primary measurements), K0' is fitted to the internally consistent compression network, and K∞' is fixed at 5/3. Parameter covariance and the confidence convention for printed errors are not reported.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -213,7 +213,7 @@ Table 2 source parameterization. The source fixes most ambient V0 and K0 values 
 
 <a id="record-mgo_b1_tange_2009_vinet"></a>
 
-## Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD
+## Tange et al. (2009), pressure-scale-free Vinet-MGD
 
 `mgo_b1_tange_2009_vinet` · Executable
 
@@ -246,7 +246,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo
 - **Reported pressure coverage (GPa):** \[0.0, 196.0\]
 - **Reported temperature coverage (K):** \[300.0, 3700.0\]
 
-Fit3-Vinet is one of the two retained pressure-scale-free MgO models. K0 and theta0 are dependent quantities recalculated from the fixed 300 K KS0, alpha0, and CP0 anchors at every trial gamma0; only K0\_prime, gamma0, a, and b are independent Fit3 variables. The redistributable 102-row subset validates the coupled thermal, elastic, and shock implementation but is not the complete eight-source global fit. The 2010 correction changes Figure 11 only and does not change these parameters.
+Pressure-scale-free Vinet + Mie-Grüneisen-Debye EOS (Fit3 in the paper), fitted jointly to acoustic, thermal-expansion and shock data. The 2010 correction changes Figure 11 only, not these parameters.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -295,7 +295,7 @@ Fit3-Vinet is one of the two retained pressure-scale-free MgO models. K0 and the
 
 <a id="record-mgo_duffy_1995_bm3_1"></a>
 
-## JCPDS 4-0829, EOS from Duffy et al, 95
+## Duffy et al. (1995), nonhydrostatic BM3
 
 `mgo_duffy_1995_bm3_1` · Executable
 
@@ -320,7 +320,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **DOI:** 10.1103/PhysRevLett.74.1371
 - **Reported pressure coverage (GPa):** \[0.0, 227.0\]
 
-Static nonhydrostatic BM3 fit to 227 GPa: K0 = 177 +/- 4 GPa and K0' = 4.0 +/- 0.1. The fixed molar V0 = 11.253 cm^3/mol was converted to the conventional Z=4 B1 cell.
+Static BM3 fit to nonhydrostatic compression data. Published V0 = 11.253 cm³/mol (fixed); stored per conventional B1 cell (Z = 4).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -408,16 +408,16 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 203.0\]
     - **Temperature k:** \[300.0, 3663.0\]
-    - **Notes:** Marginal envelope of the static and shock conditions described by the paper, not verification of every P-T combination in this rectangle.; The record experimental\_pressure\_range\_gpa \[0,52\] describes the authors own 300 K compression observations. Thermal static comparisons extend to 53 GPa and 2500 K; shock comparisons cover 174-203 GPa.
+    - **Notes:** Static thermal comparisons reach 53 GPa and 2500 K; shock comparisons cover 174-203 GPa.
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
-- **Notes:** Final variable-q model, not the preliminary abstract gamma0 or a constant-q Table 3 fit. q0 is thermodynamically constrained; q1 is shock-constrained. Reported error widths are retained without assuming a confidence level or covariance. Section 5.4 gives q0 +/-0.4; Figure 10 instead labels +/-0.3. theta(V) integrates d ln(theta)=-gamma(V)d ln(V), as confirmed by the author.
+- **Notes:** Final variable-q model, not the preliminary abstract gamma0 or the constant-q Table 3 fit. q0 is thermodynamically constrained, q1 shock-constrained. theta(V) integrates d ln(theta) = -gamma(V) d ln(V), as confirmed by the author. Section 5.4 gives the q0 error as 0.4; Figure 10 shows 0.3.
 
 </details>
 
-Published BM3 reference isotherm plus the final variable-q Mie-Gruneisen-Debye thermal model. All coefficients are taken from the paper. Sergio Speziale confirms numerical integration of the defining Debye-temperature relation using Equation 11. The former imported constant-alpha approximation was removed and is not used.
+Published BM3 reference isotherm with the final variable-q Mie-Grüneisen-Debye thermal model.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -548,10 +548,10 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo
 - **Validity:**
     - **Pressure gpa:** \[0.0, 10.95\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The upper bound is the largest calculated sample pressure printed in Table 1; the title rounds this to 11 GPa.; The range is experimental coverage of stable B1 MgO, not a phase boundary or an endorsement of higher-pressure extrapolation.
+    - **Notes:** The upper bound is the largest calculated sample pressure in Table 1; the title rounds it to 11 GPa.
 - **Reported error confidence level:** Not specified
 
-This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. It is directly reproducible through the source's actual measurement-to-coefficient chain: measured acoustic velocities and density are fitted with third-order finite-strain equations to obtain adiabatic moduli, Equation 4 converts the preferred decompression fit to isothermal K0T and K0T', and BM3 Equation 3 then calculates pressure from volume. Table 1 pressures are therefore downstream EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.
+The paper's 300 K absolute-pressure scale, not a direct BM3 fit to independent P-V observations. Table 1 pressures are outputs of this EOS, not independent observations for a P-V refit. The V0 error is one standard deviation; K0 and K0' have no error because the source does not propagate one.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -689,10 +689,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 86.6\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The pressure bound is the reported KCl-medium observation range plus the ambient reference state, not a hydrostatic validity claim or a phase boundary.; The source explicitly describes the KCl experiment as non-hydrostatic.
 - **Reported error confidence level:** Not specified
 
-Published three-parameter BM3 fit to the non-hydrostatic KCl-medium series using the Mao et al. (1978) non-hydrostatic ruby scale. The fitted V0 was not fixed. Table 2 contains 26 high-pressure observations; the ambient V0 anchor is printed in Table 1 and attributed to Jacobsen et al. (2002). The paper reports no parameter covariance, no confidence level for the parenthesized parameter errors, and no exact fitting software or residual objective. The 300 K reference is nominal room temperature. This pressure-scale-specific fit is retained separately from the companion helium/Mao-1986 fit.
+BM3 fit to the non-hydrostatic KCl-medium series, with pressures from the Mao et al. (1978) non-hydrostatic ruby scale. The data are the Table 2 high-pressure observations plus the ambient V0 anchor printed in Table 1, from Jacobsen et al. (2002).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -808,10 +807,10 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 111.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The pressure bound is the actual Mao-1986/Sun pressure coordinate used by this fit, not the 118.1 GPa Zha-scale recalculation of the last row.; The authors interpret the low K0' either as a possible MgO compression change above 40 GPa or as evidence that the Mao-1986 ruby gauge requires adjustment in helium; this record preserves the reported fit without endorsing either interpretation.
+    - **Notes:** The upper bound is the Mao-1986/Sun pressure of the last row; the 118.1 GPa in the paper is the same volume on the Zha et al. (2000) scale.
 - **Reported error confidence level:** Not specified
 
-Published three-parameter BM3 fit to all three helium-medium runs using Mao et al. (1986) quasi-hydrostatic ruby pressures through 85 GPa and six Sun et al. (2005) diamond-Raman pressures calibrated against that ruby scale at higher compression. The 111.0 GPa upper bound is the maximum pressure actually used by this BM3; the paper's 118.1 GPa headline value is the same final volume recalculated from the Zha et al. (2000) MgO scale. The Zha-derived pressure column is preserved as provenance but is not a separate Jacobsen MgO EOS because it is calculated from the already-defined Zha pressure scale. The paper reports no parameter covariance, no confidence level for the parenthesized parameter errors, and no exact fitting software or residual objective.
+BM3 fit to all three helium-medium runs. Pressures from the Mao et al. (1986) ruby scale to 85 GPa and, above that, from six Sun et al. (2005) diamond-Raman points calibrated to the same ruby scale. The authors attribute the low K0' either to a change in MgO compression above 40 GPa or to the Mao-1986 ruby gauge in helium; this record takes no position.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -923,7 +922,7 @@ Published three-parameter BM3 fit to all three helium-medium runs using Mao et a
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_shen_2026_vinet_3)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Source finding:** The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.
 
@@ -946,7 +945,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 140.0\]
 
-Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0\_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.
+Table II fit to the DAC-2 data, with pressures from the simultaneously measured Cu volumes.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1006,7 +1005,7 @@ Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K
 
 <a id="record-mgo_b1_luo_2023_vinet_thermal_5"></a>
 
-## Luo et al. (2023), cold Vinet plus second-order thermal pressure
+## Luo et al. (2023), 0 K Vinet + Taylor thermal pressure
 
 `mgo_b1_luo_2023_vinet_thermal_5` · Executable
 
@@ -1047,9 +1046,9 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Pressure gpa:** \[0.0, 345.0\]
     - **Temperature k:** \[300.0, 8500.0\]
     - **Volume ratio:** \[0.563747, 1.006692\]
-    - **Notes:** Pressure and temperature bounds are the authors' stated range for the derived pressure-scale equation, not a rectangular experimental-data envelope or a phase boundary.; The volume-ratio bounds convert the Tables II-III ambient compression range through the measured initial density and the fitted 0 K cold reference volume.
+    - **Notes:** Tables II-III quote compression relative to the ambient V0 = 1/rho0 (rho0 = 3.590 g/cm³); Equation (B2) and these volume-ratio bounds use the smaller fitted 0 K V0.
 
-This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; four temperatures span 3088-5676 K and three Eulerian sound velocities are reported. The full quasi-Debye equations and inverse-variance objective are reconstructable from Luo et al. (2023) and Xian et al. (2022), and Peritheos implements that mechanism as SoundVelocityDebyeHelmholtz. The source-author numerical rerun is not reconstructable because the Kono velocity-density coefficients, complete upstream row mask, uncertainty propagation across P-V-T observables, and covariance are not published. A bounded 12-residual fit using only Luo Table I primary rows and a declared Li-2006 velocity-ratio proxy is recorded in the refit ledger; it does not replace this published Appendix-B record. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.
+The complete empirical pressure scale of Appendix B, not a standalone 300 K Vinet fit. Equation (3) gives a 0 K cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr = 300 K is the Taylor-expansion reference, not the temperature of the cold curve.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1129,7 +1128,7 @@ This is the complete empirical pressure-scale form in Appendix B, not a standalo
 
 <a id="record-mgo_sokolova_2013_holzapfel_4"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `mgo_sokolova_2013_holzapfel_4` · Executable
 
@@ -1170,7 +1169,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reference temperature (K):** 298.15
 - **Coverage provenance:** reference\_parameterization
 
-This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The implemented MgO a0 coefficient follows the explicit 2016 correction, so that term has dual 2013/2016 provenance. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
+Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to shock-wave, ultrasonic, X-ray diffraction, dilatometric and thermochemical data: reference volume from Table 1, Holzapfel and thermal coefficients from Table 4. Sokolova et al. (2016) supplies the spreadsheet implementation, reference-temperature convention and corrected equations; the a\_0 coefficient follows its 2016 correction.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1264,7 +1263,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 53.0\]
     - **Temperature k:** \[300.0, 2474.0\]
-    - **Notes:** Validated only for B1 periclase over the measured P-T envelope; the article does not claim a phase transition in this range.; The highest tabulated temperature is 2474 K; the abstract rounds the experimental limit to 2500 K.
+    - **Notes:** The highest tabulated temperature is 2474 K; the abstract rounds the limit to 2500 K.
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -1273,7 +1272,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Preferred complete P-V-T parameterization from Table 5 and the conclusion: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. The implemented theta(V) relation follows exactly from d ln(theta)/d ln(V)=-gamma with gamma=gamma0(V/V0)^q, i.e. the integrated-Gruneisen law. Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 fits are preserved separately as nonpreferred room-temperature model-sensitivity records; they are not thermal parameterizations. The static coefficients were obtained from a staged combined-data analysis that included earlier published room-temperature measurements; the bundled Table 2 contains all 61 new observations from this study. The K0' uncertainty is internally inconsistent: formal +/-0.06 in the text (0.05 after Table 3 rounding), pressure-propagated +/-0.2 in the text and abstract, and unexplained +/-0.3 in the conclusion; the stored +/-0.2 follows the explicit error analysis. No official supplement or machine-readable data deposit accompanies the article.
+The authors' preferred P-V-T EOS (Table 5): 300 K BM3 reference isotherm + quasi-harmonic Mie-Grüneisen-Debye thermal pressure. The paper gives three K0' errors (0.06, 0.2 and 0.3); the stored 0.2 is the pressure-propagated value.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1364,14 +1363,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 65.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Combined room-temperature fit; nonpreferred sensitivity to fixing K0'=4.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
 
-Explicit Table 3 sensitivity fit to the same combined 300 K data used for the preferred BM3 reference isotherm. It is retained for model comparison and is not a separate experiment or thermal EOS.
+Table 3 sensitivity fit with K0' fixed at 4, to the same combined 300 K data as the authors' preferred BM3 reference isotherm. Not the preferred fit, not a separate experiment and not a thermal EOS.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1449,14 +1447,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 65.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Combined room-temperature fit; nonpreferred functional-form sensitivity.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
 
-Explicit Table 3 Murnaghan fit to the combined 300 K data. It is retained for model comparison and is not a separate experiment or thermal EOS.
+Table 3 Murnaghan fit to the combined 300 K data, a nonpreferred functional-form sensitivity fit. Not a separate experiment or a thermal EOS.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1534,14 +1531,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 65.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Combined room-temperature fit; nonpreferred functional-form sensitivity.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
 
-Explicit Table 3 Vinet fit to the combined 300 K data. It is retained for model comparison and is not a separate experiment or thermal EOS.
+Table 3 Vinet fit to the combined 300 K data, a nonpreferred functional-form sensitivity fit. Not a separate experiment or a thermal EOS.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1619,14 +1615,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 65.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Combined room-temperature fit; nonpreferred functional-form sensitivity.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
 
-The paper calls this the logarithmic EOS and cites Poirier-Tarantola; it is encoded as the equivalent third-order natural-strain model. It is an explicit Table 3 fit to the combined 300 K data, retained only as a nonpreferred sensitivity.
+Table 3 fit to the combined 300 K data, a nonpreferred functional-form sensitivity fit. The paper calls it the logarithmic EOS (after Poirier-Tarantola); it is stored as the equivalent third-order natural-strain model.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1732,7 +1727,7 @@ Automatic selection for hugoniot calculations.
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
 
-Constrained principal Hugoniot for the untransformed B1 phase only. This is not the separately plotted equilibrium 300 K isotherm/hydrostat or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty.
+Principal Hugoniot of untransformed B1 MgO only; not the equilibrium 300 K isotherm or a general P(V,T) surface. The c0, s and rho0 errors are one standard deviation. V0 is computed from rho0 and has no separate error.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1902,11 +1897,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static GGA theoretical comparison branch.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
+
+Static GGA theoretical comparison branch.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1983,11 +1979,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static GGA theoretical comparison branch.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
+
+Static GGA theoretical comparison branch.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2064,11 +2061,12 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static GGA theoretical branch; the Table III pressures provide an independent curve check, not the original energy-fit objective.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
+
+Static GGA theoretical branch.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2146,11 +2144,12 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static small-core PAW pressure shifted by -7.736 GPa to match experimental ambient volume; excludes zero-point and thermal pressure.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
+
+Static small-core PAW pressures shifted by -7.736 GPa to match the experimental ambient volume. Excludes zero-point and thermal pressure.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2228,11 +2227,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Pressure-corrected 0 K isotherm including zero-point energy; do not conflate with the Static row.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
+
+Pressure-corrected 0 K isotherm including zero-point energy; do not conflate with the Static record.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2309,11 +2309,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[298.0, 298.0\]
-    - **Notes:** Single theoretical isotherm; not the paper's full thermal model.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
+
+A single theoretical isotherm, not the paper's full thermal model.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2389,7 +2390,6 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[1000.0, 1000.0\]
-    - **Notes:** Single theoretical isotherm.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
@@ -2469,7 +2469,6 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[2000.0, 2000.0\]
-    - **Notes:** Single theoretical isotherm.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
@@ -2549,7 +2548,6 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[3000.0, 3000.0\]
-    - **Notes:** Single theoretical isotherm.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
@@ -2629,7 +2627,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[4000.0, 4000.0\]
-    - **Notes:** Single theoretical isotherm; source AIMD cross-checks extend to 4500 K.
+    - **Notes:** Source AIMD cross-checks extend to 4500 K.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
@@ -2709,12 +2707,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 170.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Uncorrected LDA branch used to quantify exchange-correlation pressure differences; the paper does not designate it as a preferred physical EOS.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
+
+Uncorrected LDA branch, used by the authors to quantify exchange-correlation pressure differences. The paper does not designate it as a preferred physical EOS.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2792,12 +2791,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 170.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Uncorrected GGA branch; source finds it more compatible than its LDA branch with the external Karki and Isaak comparisons, while focusing on exchange-correlation differences rather than recommending a pressure standard.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
+
+Uncorrected GGA branch. The authors find it more compatible than their LDA branch with the external Karki and Isaak comparisons, but they study exchange-correlation differences rather than recommend a pressure standard.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2876,11 +2876,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 30.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** MgO periclase thermodynamic endmember.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
+
+Periclase (per) thermodynamic endmember.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3037,14 +3038,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static LDA B1 branch. The conventional-cell reference volume is derived exactly as a0^3 from the source's a0=4.2506 angstrom; Z=4.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
 
-Accepted LitCurate source record litcurate\_c2d9fd33177eb390 after resolving its omitted V0 and K0\_double\_prime directly from the primary paper. This BM4 fit is retained separately from the paper's BM3 sensitivity fit.
+Static LDA calculation for B1 MgO. V0 is computed as a0³ from the published a0 = 4.2506 Å (conventional cell, Z = 4).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3121,14 +3121,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Third-order sensitivity fit to the same static LDA B1 pressure-volume states as the preferred BM4 fit.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
 
-Accepted LitCurate source record litcurate\_df447e7b3becd6df. This is a source-reported model-order sensitivity fit, not a duplicate experimental run.
+Model-order sensitivity fit reported by the source: BM3 fitted to the same static LDA B1 pressure-volume states as the preferred BM4 fit.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3205,12 +3204,13 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo
 - **Validity:**
     - **Pressure gpa:** \[0.0, 168.74\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static-lattice B3LYP branch only. Zero-point and finite-temperature contributions belong to the paper's first-principles Mie-Gruneisen model and are not folded into this BM3 record.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
+
+Static-lattice B3LYP branch only. Zero-point and finite-temperature contributions belong to the paper's first-principles Mie-Grüneisen model and are not included in this BM3 record.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3289,14 +3289,14 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Pressure gpa:** \[0.0, 1000.0\]
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.35, 1.0\]
-    - **Notes:** The source compares the Vinet curve with the static-lattice theoretical EOS and reports agreement for diatomic solids to approximately 1 TPa or V/V0=0.35; this is a comparison domain, not an experimental calibration range.
+    - **Notes:** Comparison domain, not a calibration range: the source reports Vinet agreement with static-lattice theory for diatomic solids to about 1 TPa or V/V0 = 0.35.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
 
-Accepted LitCurate source record litcurate\_c6a0c7a005a7ff43 after resolving the printed atomic-unit volume basis directly from Table 1.
+Static-lattice reference values from Table 1, used in the paper's Vinet comparison. V0 is converted from the atomic-unit volume printed in Table 1.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3374,12 +3374,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 300.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** This is Ye et al.'s fitted 300 K co-compression isotherm.; Zhu et al. later fixed this static branch inside a separate thermal P-V-T model.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
+
+Ye et al.'s fitted 300 K co-compression isotherm. Zhu et al. later fixed this isotherm as the static branch of their separate thermal P-V-T model.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3474,14 +3475,13 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0001, 138.104\]
     - **Temperature k:** \[298.0, 2986.0\]
     - **Volume ratio:** \[0.6890643822781422, 1.1490817828938562\]
-    - **Notes:** Bounds conservatively report the extrema of the released v3 fit-input tables, not a rectangular phase-stability field.; The record follows the v3 optimizer and property script (gamma0=1.53 after rounding). The separate v3 pressure calculator instead hard-codes gamma0=1.52.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
 - **Reported error confidence level:** Not specified
 
-This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm.
+Temperature-dependent P-V-T model whose 300 K Vinet isotherm is fixed from the Ye et al. co-compression fit. The coefficients follow the v3 optimizer and property script (gamma0 = 1.53 after rounding); the separate v3 pressure calculator hard-codes gamma0 = 1.52.
 
 <details markdown="1">
 <summary>Source review</summary>

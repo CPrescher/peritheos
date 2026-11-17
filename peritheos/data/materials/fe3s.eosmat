@@ -8,7 +8,17 @@
   "eos_records": [
     {
       "identifier": "fe3s_fei_2000_bm3_1",
-      "label": "Fei et al Am. Mineral. 85, 1830, 2000",
+      "label": "Fei et al. (2000), BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0: refit 379.8 vs published 377 (+0.8%), outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Figure 2 provides 13 readable Fe3S compression markers. They were digitized from the supplied primary paper; the constrained K0'=4 BM3 fit is the EOS variant represented by this record.",
+        "audit": "../audits/fe3s.audit.json#fe3s_fei_2000_bm3_1"
+      },
       "model": "BM3",
       "parameters": {
         "V0": {"value": 377.0, "error": 0.2},
@@ -17,7 +27,6 @@
       },
       "experimental_pressure_range_gpa": [0.0, 40.0],
       "determination_method": "experimental",
-      "notes": "Fei et al. report V0 = 377.0(2) A^3 and K0 = 150 +/- 2 GPa with K0' fixed at 4.0.",
       "reference": {
         "authors": ["Fei", "Li", "Bertka", "Prewitt"],
         "year": 2000,
@@ -26,14 +35,6 @@
         "volume": "85",
         "locator": "1830-1833",
         "doi": "10.2138/am-2000-11-1229"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Figure 2 provides 13 readable Fe3S compression markers. They were digitized from the supplied primary paper; the constrained K0'=4 BM3 fit is the EOS variant represented by this record.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/fe3s.audit.json#fe3s_fei_2000_bm3_1"
       }
     }
   ],

@@ -159,6 +159,14 @@
             "doi": "10.1029/2008JB005900"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text. Retain in production as a published candidate reference isentrope with explicit qualification: it is not a direct P-rho fit, not a complete executable thermal Hugoniot, and not independently identifiable from the three melt states.",
+        "validity_notes": [
+          "This executable BM3 is the source's zero-pressure reference isentrope for its candidate high-pressure melt EOS, not an ambient liquid isotherm.",
+          "The source's Gruneisen, heat-capacity, and transition-energy terms are not implied by this cold/reference-curve record."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

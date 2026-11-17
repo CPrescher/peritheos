@@ -6,8 +6,8 @@ imply another, and none of them is experimental validation of a prediction.
 | Layer | What it establishes | Where to look |
 |---|---|---|
 | Structural | The `.eosmat` file matches its version's schema and declarations. File and software interoperability only. | `python -m peritheos validate` |
-| Source check | Equation, coefficients, units, normalization, reference state, phase, uncertainty convention and represented range were traced to the cited primary publication or official supplement. Parsing or reproducing another library is never sufficient. | Each record's `check.source`; [source-audit reports](source-audits.md) |
-| Reproduction | Whether a refit of the original data reproduced the published coefficients: the `check.reproduction` headline `reproduced`, `close`, `disagrees` or `untested`, plus any usage `warning`. | [Reconstruction reports](reconstruction-reports/index.md) (counts by headline and one section per record); [refit ledger](primary-eos-refits.md) |
+| Source check | Equation, coefficients, units, normalization, reference state, phase, uncertainty convention and represented range were traced to the cited primary publication or official supplement. Parsing or reproducing another library is never sufficient. | Each record's `check.source_check` and `check.source_note`; [source-audit reports](source-audits.md) |
+| Reproduction | The `check.reproduction` headline `reproduced`, `close`, `disagrees` or `untested`; `check.compared` says whether it refers to a refit of the source data against the published fit, a replay of a stored Peritheos refit or a rebuilt source equation; `check.why` names the failed coefficients, plus any usage `warning`. | [Reconstruction reports](reconstruction-reports/index.md) (counts by headline and one section per record); [refit ledger](primary-eos-refits.md) |
 | Numerical | The implemented equations, inversions, fits and uncertainty propagation behave as specified. | The sections below |
 
 The words, criteria and caveats are defined once in [EOS labels](eos-labels.md).

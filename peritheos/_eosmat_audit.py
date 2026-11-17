@@ -15,15 +15,19 @@ A bundled material is stored as two files:
 may keep all of this inline; a sidecar is never required for authoring.
 
 Nothing here reclassifies a record. ``check.reproduction`` is a fixed mapping of
-the stored assessment status and ``check.warning`` is built only from stored
-coded restrictions (see :func:`usage_warning`).
+the stored assessment status, ``check.compared`` a fixed mapping of its status
+and scope, ``check.why`` is composed only from the stored coefficient
+comparison table, ``check.source_check`` is a fixed renaming of the stored
+source-validation status and ``check.warning`` is built only from stored coded
+restrictions (see :func:`usage_warning`). The audit sidecar keeps the original
+codes.
 """
 
 from __future__ import annotations
 
 import copy
 import json
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from functools import lru_cache
 from importlib import resources
 from pathlib import Path
@@ -48,7 +52,14 @@ AUDIT_RECORD_KEYS = (
     "migration_corrections",
     "scope_history",
     "author_input_followup",
+    "superseded_record_text",
 )
+
+#: Free-text record fields whose replaced original text a record keeps in its
+#: ``superseded_record_text`` audit block: ``label``, ``notes``,
+#: ``validity_notes`` (``validity.notes``) and ``thermal_notes``
+#: (``thermal.notes``). ``null`` means the field was absent before.
+SUPERSEDED_TEXT_FIELDS = ("label", "notes", "validity_notes", "thermal_notes")
 
 #: Fixed mapping from ``evidence.reproduction.assessment.status``.
 REPRODUCTION_HEADLINES = {
@@ -60,20 +71,47 @@ REPRODUCTION_HEADLINES = {
     "not_assessed": "untested",
 }
 REPRODUCTION_VALUES = ("reproduced", "close", "disagrees", "untested")
-SOURCE_STATUSES = (
-    "primary_source_validated",
-    "pending_primary_source_check",
-    "not_reproduced",
-    "deferred",
-)
+
+#: What ``reproduction`` refers to, from the stored assessment status and scope.
+#: ``published_fit``: a refit compared with the published coefficients
+#: (scope ``parameter_agreement`` or ``author_workflow``); ``peritheos_refit``:
+#: a separately defined Peritheos refit rerun under its own inputs (scope
+#: ``independent_refit``); ``source_equation``: the source equation or its
+#: calculated checkpoints were rebuilt (status ``source_reconstruction``, or
+#: scope ``source_equation`` with an assessed status); ``none``: nothing was
+#: compared (status ``not_refittable`` or ``not_assessed``, or no assessment).
+COMPARED_VALUES = ("published_fit", "peritheos_refit", "source_equation", "none")
+_COMPARED_BY_SCOPE = {
+    "parameter_agreement": "published_fit",
+    "author_workflow": "published_fit",
+    "independent_refit": "peritheos_refit",
+    "source_equation": "source_equation",
+}
+_NOT_COMPARED_STATUSES = ("not_refittable", "not_assessed")
+
+#: Fixed renaming of ``scientific_validation.status`` for ``check.source_check``.
+#: The sidecar and compatibility exports keep the original codes.
+SOURCE_CHECK_VALUES = {
+    "primary_source_validated": "verified",
+    "pending_primary_source_check": "pending",
+    "not_reproduced": "unresolved",
+    "deferred": "deferred",
+}
+SOURCE_STATUSES = tuple(SOURCE_CHECK_VALUES)
+SOURCE_CHECK_CODES = {value: code for code, value in SOURCE_CHECK_VALUES.items()}
 CHECK_KEYS = (
     "reproduction",
+    "compared",
+    "why",
     "warning",
-    "finding",
-    "source",
+    "source_check",
     "source_checked_on",
+    "source_note",
     "audit",
 )
+#: Earlier names of v5 ``check`` fields. They are rejected, never reinterpreted.
+RENAMED_CHECK_KEYS = {"finding": "source_note", "source": "source_check"}
+WHY_MAX_LENGTH = 160
 
 #: Statements that apply to every assessment of their kind. They are defined
 #: once in docs/eos-labels.md and are not repeated in bundled sidecars.
@@ -111,7 +149,7 @@ USAGE_RECOMMENDATION_WARNINGS = {
 }
 _DO_NOT_USE_WARNING = "Do not use."
 _HOLD_WARNING = "Default selection on hold pending review."
-_EXPLICIT_SELECTION_WARNING = "Explicit selection only; not loaded by default."
+_EXPLICIT_SELECTION_WARNING = "Never chosen automatically; select it explicitly."
 
 
 def derived_report_links(material: str, record: str) -> dict[str, str]:
@@ -154,10 +192,193 @@ def _mutable_section(value: Any, key: str) -> dict[str, Any]:
     return {}
 
 
+def _assessment(record: Mapping[str, Any]) -> Mapping[str, Any]:
+    return _section(_section(_evidence(record), "reproduction"), "assessment")
+
+
 def reproduction_headline(record: Mapping[str, Any]) -> str:
     """Map the stored assessment status; anything else is ``untested``."""
-    assessment = _section(_section(_evidence(record), "reproduction"), "assessment")
-    return REPRODUCTION_HEADLINES.get(str(assessment.get("status")), "untested")
+    return REPRODUCTION_HEADLINES.get(
+        str(_assessment(record).get("status")), "untested"
+    )
+
+
+def compared_scope(record: Mapping[str, Any]) -> str:
+    """Map the stored assessment status and scope (see :data:`COMPARED_VALUES`)."""
+    assessment = _assessment(record)
+    status = assessment.get("status")
+    if status is None or status in _NOT_COMPARED_STATUSES:
+        return "none"
+    if status == "source_reconstruction":
+        return "source_equation"
+    return _COMPARED_BY_SCOPE.get(str(assessment.get("scope")), "none")
+
+
+_WHY_UNITS = {"K0": " GPa", "K0_double_prime": " GPa^-1", "theta0": " K"}
+
+
+def _parameter_name(name: str) -> str:
+    name = name.removeprefix("rt_eos.")
+    if name.endswith("_double_prime"):
+        return name.removesuffix("_double_prime") + "''"
+    if name.endswith("_prime"):
+        return name.removesuffix("_prime") + "'"
+    return name
+
+
+def _number(value: Any) -> float | None:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    return float(value)
+
+
+def _printed(value: Any) -> str:
+    """The stored number as JSON prints it, without a spurious trailing ``.0``."""
+    if isinstance(value, float) and value.is_integer() and abs(value) < 1e15:
+        return str(int(value))
+    return json.dumps(value)
+
+
+def _rounded_refit(refit: float, published: str) -> str:
+    """Round to at most one digit more than the printed published value."""
+    mantissa, _, exponent = published.lower().partition("e")
+    if exponent:
+        digits = len(mantissa.replace("-", "").replace(".", "").lstrip("0"))
+        return f"{refit:.{digits}e}"
+    decimals = len(mantissa.partition(".")[2])
+    text = f"{refit:.{decimals + 1}f}"
+    if "." in text:
+        text = text.rstrip("0").rstrip(".")
+    return "0" if text == "-0" else text
+
+
+def _join(items: list[str]) -> str:
+    """``a``, ``a and b``, ``a, b and c``."""
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def _failed_criteria(row: Mapping[str, Any]) -> list[str]:
+    """Phrases for the stored criterion flags that are ``false`` in one row.
+
+    ``similar`` is the audit's own agreement screen (the generic limits or the
+    criterion recorded in the assessment basis), so it is reported as "beyond
+    the agreement limit" without naming a limit.
+    """
+    failed = []
+    if row.get("within_combined_2sigma") is False:
+        failed.append("outside the combined error")
+    if row.get("similar") is False:
+        failed.append("beyond the agreement limit")
+    if row.get("within_reported_error") is False:
+        failed.append("outside the published error")
+    return failed
+
+
+def _relative_change(row: Mapping[str, Any]) -> float | None:
+    refit, base = _number(row.get("refit")), _number(row.get("published"))
+    if refit is None or base is None or base == 0.0:
+        return None
+    return (refit - base) / abs(base)
+
+
+def _why_row(row: Mapping[str, Any], *, numbers: bool) -> str:
+    name = _parameter_name(str(row["parameter"]))
+    published, refit = row.get("published"), _number(row.get("refit"))
+    relative = _relative_change(row)
+    change = None if relative is None else f"{relative * 100:+.1f}%"
+    if not numbers:
+        return name if change is None else f"{name} ({change})"
+    if refit is None or _number(published) is None:
+        return name
+    unit = _WHY_UNITS.get(str(row["parameter"]).removeprefix("rt_eos."), "")
+    printed = _printed(published)
+    text = f"{name}: refit {_rounded_refit(refit, printed)} vs published "
+    text += f"{printed}{unit}"
+    return text + (f" ({change})" if change else "")
+
+
+#: At most this many failing coefficients are named; the rest are counted.
+_WHY_NAMED = 3
+
+
+def _failing_lines(failing: list[tuple[Mapping[str, Any], list[str]]]) -> list[str]:
+    """Candidate texts for the failing rows, most detailed first."""
+    hidden = max(0, len(failing) - _WHY_NAMED)
+    if hidden:
+        # Name the largest relative differences; rows without one come last.
+        def size(item: tuple[Mapping[str, Any], list[str]]) -> float:
+            change = _relative_change(item[0])
+            return -1.0 if change is None else abs(change)
+
+        failing = sorted(failing, key=size, reverse=True)[:_WHY_NAMED]
+    groups: dict[str, list[Mapping[str, Any]]] = {}
+    for row, failed in failing:
+        groups.setdefault(_join(failed), []).append(row)
+    more = f"{hidden} more"
+
+    def grouped(name: Callable[[Mapping[str, Any]], str]) -> str:
+        if hidden and len(groups) == 1:
+            ((failed, group),) = groups.items()
+            return f"{_join([name(r) for r in group] + [more])}: {failed}"
+        text = "; ".join(
+            f"{_join([name(r) for r in group])}: {failed}"
+            for failed, group in groups.items()
+        )
+        return text + (f"; and {more}" if hidden else "")
+
+    candidates = []
+    if not hidden:
+        candidates.append(
+            "; ".join(
+                f"{_why_row(row, numbers=True)}, {_join(failed)}"
+                for row, failed in failing
+            )
+        )
+    candidates.append(grouped(lambda r: _why_row(r, numbers=False)))
+    candidates.append(grouped(lambda r: _parameter_name(str(r["parameter"]))))
+    return candidates
+
+
+def reproduction_why(record: Mapping[str, Any]) -> str | None:
+    """One generated line saying which coefficients kept a refit from parity.
+
+    Only for ``close`` and ``disagrees``. Built from the stored
+    ``assessment.parameters`` rows and their criterion flags
+    (``within_combined_2sigma``, ``similar``, ``within_reported_error``);
+    no prose is interpreted. Published values print as stored (without a
+    trailing ``.0``); the refit is rounded to at most one digit more. More
+    than three failing coefficients: the three largest relative differences
+    are named and the rest counted. Returns ``None`` when the table supports
+    no statement within :data:`WHY_MAX_LENGTH` characters.
+    """
+    headline = reproduction_headline(record)
+    if headline not in ("close", "disagrees"):
+        return None
+    rows = _assessment(record).get("parameters")
+    if not isinstance(rows, list):
+        return None
+    rows = [r for r in rows if isinstance(r, Mapping) and "parameter" in r]
+    failing = [(row, _failed_criteria(row)) for row in rows if _failed_criteria(row)]
+    if failing:
+        for text in _failing_lines(failing):
+            if len(text) + 1 <= WHY_MAX_LENGTH:
+                return text + "."
+        return None
+    if headline != "close":
+        return None
+    untested = [
+        _parameter_name(str(row["parameter"]))
+        for row in rows
+        if "within_combined_2sigma" in row and row["within_combined_2sigma"] is None
+    ]
+    if not untested:
+        return None
+    verb = "has" if len(untested) == 1 else "have"
+    text = f"{_join(untested)} {verb} no error to test against the combined-error rule"
+    if rows and all(row.get("similar") is True for row in rows):
+        text += "; all within the agreement limit"
+    text += "."
+    return text if len(text) <= WHY_MAX_LENGTH else None
 
 
 def _hold_covers(hold: Any, identifier: str) -> bool:
@@ -215,15 +436,19 @@ def check_block(
     validation = _section(_evidence(record), "scientific_validation")
     result: dict[str, Any] = {
         "reproduction": reproduction_headline(record),
-        "warning": usage_warning(record, material),
+        "compared": compared_scope(record),
     }
-    finding = _section(validation, "primary_source_check").get("finding")
-    if isinstance(finding, str) and finding:
-        result["finding"] = finding
-    if "status" in validation:
-        result["source"] = validation["status"]
+    why = reproduction_why(record)
+    if why is not None:
+        result["why"] = why
+    result["warning"] = usage_warning(record, material)
+    if validation.get("status") in SOURCE_CHECK_VALUES:
+        result["source_check"] = SOURCE_CHECK_VALUES[validation["status"]]
     if "audit_date" in validation:
         result["source_checked_on"] = validation["audit_date"]
+    finding = _section(validation, "primary_source_check").get("finding")
+    if isinstance(finding, str) and finding:
+        result["source_note"] = finding
     if audit is not None:
         result["audit"] = audit
     return result
@@ -232,19 +457,32 @@ def check_block(
 def headline(
     record: Mapping[str, Any], material: Mapping[str, Any] | None = None
 ) -> dict[str, Any]:
-    """Effective ``reproduction`` and ``warning`` of a record.
+    """Effective ``check`` fields of a record, stored or derived.
 
-    A stored ``check`` value wins; otherwise the value is derived from inline
-    evidence exactly as :func:`check_block` would. No assessment means
-    ``untested``.
+    Returns ``reproduction``, ``compared``, ``why``, ``warning``,
+    ``source_check``, ``source_checked_on`` and ``source_note``. A stored ``check`` value wins;
+    otherwise the value is derived from inline evidence exactly as
+    :func:`check_block` would. No assessment means ``untested``, compared
+    ``none``.
     """
     check = record.get("check")
     check = check if isinstance(check, Mapping) else {}
+    validation = _section(_evidence(record), "scientific_validation")
+    finding = _section(validation, "primary_source_check").get("finding")
+    status = validation.get("status")
     return {
         "reproduction": check.get("reproduction") or reproduction_headline(record),
+        "compared": check.get("compared") or compared_scope(record),
+        "why": check["why"] if "why" in check else reproduction_why(record),
         "warning": (
             check["warning"] if "warning" in check else usage_warning(record, material)
         ),
+        "source_check": check.get("source_check")
+        or SOURCE_CHECK_VALUES.get(str(status)),
+        "source_checked_on": check.get("source_checked_on")
+        or validation.get("audit_date"),
+        "source_note": check.get("source_note")
+        or (finding if isinstance(finding, str) and finding else None),
     }
 
 
@@ -252,6 +490,17 @@ def validate_check(check: Any, location: str) -> None:
     """Validate the structure of an optional record ``check`` block."""
     if not isinstance(check, Mapping):
         raise EosmatError(f"{location}.check must be an object")
+    for old, new in RENAMED_CHECK_KEYS.items():
+        if old in check:
+            raise EosmatError(
+                f"{location}.check.{old} is no longer read; EOSMAT v5 names this "
+                f"field check.{new}"
+                + (
+                    f" ({', '.join(f'{c} -> {v}' for c, v in SOURCE_CHECK_VALUES.items())})"
+                    if old == "source"
+                    else ""
+                )
+            )
     unknown = set(check) - set(CHECK_KEYS)
     if unknown:
         raise EosmatError(f"{location}.check has unknown fields {sorted(unknown)}")
@@ -260,15 +509,84 @@ def validate_check(check: Any, location: str) -> None:
             f"{location}.check.reproduction must be one of "
             f"{', '.join(REPRODUCTION_VALUES)}"
         )
-    if "source" in check and check["source"] not in SOURCE_STATUSES:
-        raise EosmatError(f"{location}.check.source is invalid")
+    if "compared" in check and check["compared"] not in COMPARED_VALUES:
+        raise EosmatError(
+            f"{location}.check.compared must be one of {', '.join(COMPARED_VALUES)}"
+        )
+    if "reproduction" in check and "compared" in check:
+        # Only an assessed comparison can give a result; ``untested`` has none
+        # or only a rebuilt source equation.
+        allowed = (
+            ("none", "source_equation")
+            if check["reproduction"] == "untested"
+            else ("published_fit", "peritheos_refit", "source_equation")
+        )
+        if check["compared"] not in allowed:
+            raise EosmatError(
+                f"{location}.check.compared {check['compared']!r} cannot accompany "
+                f"reproduction {check['reproduction']!r}"
+            )
+    if "source_check" in check and check["source_check"] not in SOURCE_CHECK_CODES:
+        raise EosmatError(
+            f"{location}.check.source_check must be one of "
+            f"{', '.join(SOURCE_CHECK_CODES)}"
+        )
     if check.get("warning") is not None and (
         not isinstance(check["warning"], str) or not check["warning"].strip()
     ):
         raise EosmatError(f"{location}.check.warning must be null or text")
-    for key in ("finding", "source_checked_on", "audit"):
+    for key in ("why", "source_note", "source_checked_on", "audit"):
         if key in check and (not isinstance(check[key], str) or not check[key]):
             raise EosmatError(f"{location}.check.{key} must be a non-empty string")
+    if "why" in check:
+        if len(check["why"]) > WHY_MAX_LENGTH:
+            raise EosmatError(
+                f"{location}.check.why must be at most {WHY_MAX_LENGTH} characters"
+            )
+        if check.get("reproduction", "close") not in ("close", "disagrees"):
+            raise EosmatError(
+                f"{location}.check.why is only given for reproduction close or "
+                "disagrees"
+            )
+
+
+def validate_superseded_record_text(value: Any, location: str) -> None:
+    """Validate a record's ``superseded_record_text`` audit block.
+
+    The block keeps the original value of every free-text field replaced by a
+    text revision (see :data:`SUPERSEDED_TEXT_FIELDS`) and the ISO date
+    ``superseded_on``. It never changes how the record is read.
+    """
+    import datetime
+    import re
+
+    where = f"{location}.superseded_record_text"
+    if not isinstance(value, Mapping):
+        raise EosmatError(f"{where} must be an object")
+    unknown = set(value) - {*SUPERSEDED_TEXT_FIELDS, "superseded_on"}
+    if unknown:
+        raise EosmatError(f"{where} has unknown fields {sorted(unknown)}")
+    if not any(key in value for key in SUPERSEDED_TEXT_FIELDS):
+        raise EosmatError(f"{where} names no superseded field")
+    date = value.get("superseded_on")
+    try:
+        valid_date = (
+            isinstance(date, str)
+            and re.fullmatch(r"\d{4}-\d{2}-\d{2}", date) is not None
+            and datetime.date.fromisoformat(date) is not None
+        )
+    except ValueError:
+        valid_date = False
+    if not valid_date:
+        raise EosmatError(f"{where}.superseded_on must be an ISO date (YYYY-MM-DD)")
+    for key in ("label", "notes", "thermal_notes"):
+        if key in value and value[key] is not None and not isinstance(value[key], str):
+            raise EosmatError(f"{where}.{key} must be a string or null")
+    notes = value.get("validity_notes")
+    if notes is not None and (
+        not isinstance(notes, list) or not all(isinstance(n, str) for n in notes)
+    ):
+        raise EosmatError(f"{where}.validity_notes must be an array of strings or null")
 
 
 def validate_check_consistency(record: Mapping[str, Any], location: str) -> None:
@@ -285,11 +603,20 @@ def validate_check_consistency(record: Mapping[str, Any], location: str) -> None
                 f"{location}.check.reproduction {check['reproduction']!r} "
                 f"contradicts assessment status {assessment['status']!r}"
             )
-    validation = _section(evidence, "scientific_validation")
-    if "source" in check and "status" in validation:
-        if check["source"] != validation["status"]:
+    if "compared" in check and "status" in assessment:
+        expected = compared_scope(record)
+        if check["compared"] != expected:
             raise EosmatError(
-                f"{location}.check.source contradicts scientific_validation.status"
+                f"{location}.check.compared {check['compared']!r} contradicts "
+                f"assessment status {assessment['status']!r} and scope "
+                f"{assessment.get('scope')!r} (expected {expected!r})"
+            )
+    validation = _section(evidence, "scientific_validation")
+    if "source_check" in check and "status" in validation:
+        if check["source_check"] != SOURCE_CHECK_VALUES.get(validation["status"]):
+            raise EosmatError(
+                f"{location}.check.source_check {check['source_check']!r} "
+                f"contradicts scientific_validation.status {validation['status']!r}"
             )
 
 
@@ -376,11 +703,15 @@ def split_document(
     Generic statements are removed and derivable report links are omitted.
     Each record gets a ``check`` block derived from its evidence (an existing
     block is replaced only by the identical derivation plus the audit link).
+    Per-record default flags become the material ``default_records`` map.
     """
+    from peritheos._eosmat_v4 import collect_default_records
+
     if document.get("format_version") != 5:
         raise EosmatError("Audit sidecars are defined for EOSMAT v5 only")
     material = str(document["identifier"])
     records_document = copy.deepcopy(dict(document))
+    collect_default_records(records_document)
     sidecar: dict[str, Any] = {
         "format": AUDIT_FORMAT,
         "format_version": 5,
@@ -433,6 +764,10 @@ def validate_sidecar(sidecar: Any, material: str) -> None:
             raise EosmatError(
                 f"Audit sidecar entry {identifier!r} may contain only "
                 f"{', '.join(AUDIT_RECORD_KEYS)}"
+            )
+        if "superseded_record_text" in entry:
+            validate_superseded_record_text(
+                entry["superseded_record_text"], f"audit sidecar entry {identifier!r}"
             )
 
 
@@ -541,15 +876,21 @@ def load_referenced_audits(document: Mapping[str, Any], base: Path) -> dict[str,
 
 __all__ = [
     "AUDIT_RECORD_KEYS",
+    "COMPARED_VALUES",
+    "SOURCE_CHECK_VALUES",
     "GENERIC_QUALIFICATIONS",
     "GENERIC_VALIDATION_NOTES",
     "REPRODUCTION_HEADLINES",
+    "SUPERSEDED_TEXT_FIELDS",
     "audit_entry",
     "check_block",
+    "compared_scope",
     "derived_report_links",
     "load_bundled_audit",
     "merge_audit",
     "remove_generic_statements",
+    "reproduction_why",
     "split_document",
     "usage_warning",
+    "validate_superseded_record_text",
 ]

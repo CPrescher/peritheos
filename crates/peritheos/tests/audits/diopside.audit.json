@@ -162,6 +162,14 @@
           "statistics": {"observations": 14},
           "source_covariance": "not_reported"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Independent static diffraction EOS, not combined with Zhao thermal coefficients. The source also reports a fixed-Kprime=4 alternative (K0=117.1(2) GPa, V0=438.66(2) A^3), retained in the audit rather than conflated with this free-Kprime record. Source P is Mao (1978) ruby scale. Room temperature is represented nominally as 300 K.",
+        "validity_notes": [
+          "Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.",
+          "Static source room temperature is nominally 300 K."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "diopside_zhao_1998_thermal_bm3": {
@@ -444,6 +452,14 @@
             "original_author_input": false
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published-model and parameter parity established within graphical precision and reported parameter errors using the independently digitized Figure 2 pressure for source row 15 in the audit calculation. The original 32-row table, duplicate ambient entries, printed errors and published EOS coefficients are preserved. Source-table pressure and lattice inconsistencies are documented provenance, not an EOS acceptance blocker. V0 is the source ambient-volume anchor. Exact original fit inputs and regression workflow are not recovered. The independent Thompson static record remains the room-temperature default; use this thermal record for elevated-temperature evaluation. The separately bundled corrected P-V-T dataset is recommended for refitting; its row-15 pressure is 4.58 GPa with a separate graphical reading bound.",
+        "validity_notes": [
+          "Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.",
+          "Published-model and parameter parity established with the documented table-error treatment; source inconsistencies remain recorded as provenance. Published coefficients and original observations are preserved."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

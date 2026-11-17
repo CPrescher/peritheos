@@ -86,14 +86,13 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 296.11\]
     - **Temperature k:** \[2500.0, 2500.0\]
-    - **Notes:** This executable record is only the T0=2500 K BM4 reference term of the paper's larger P-V-T liquid model.; The paper classifies individual simulations from mean-square displacement. Figure 1 maps every Table 1 state to an unambiguous circle (liquid and used in the EOS fit) or square (nonliquid); the six square states are excluded by the bundled fit-selection flag.; The numerical pressure envelope summarizes the reported FPMD grid and is not a phase-stability guarantee.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 131.928
 - **Reported error confidence level:** Not specified
 
-The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm. The exact 40-state liquid selection is bundled. The paper derives Cv from energy-temperature slopes and gamma from pressure-energy slopes before fitting their volume functions; the supporting information supplies those observations only as raster plots, whose regression-line slopes are now digitized in a separate dataset. The digitization closely recovers the published Cv function but cannot recover the authors' unknown relative weighting for the gamma function. Consequently, subtracting either rounded published or digitized thermal coefficients from Table 1 and freely fitting four BM4 coefficients remains an ill-conditioned sensitivity experiment, not a reproduction of the source regression.
+Only the 2500 K BM4 reference isotherm of the source EOS. The full model adds a thermal term built from a Gaussian heat-capacity function and a volume-dependent Grüneisen parameter, which EOSMAT cannot yet represent. The fit uses the 40 liquid states; the six nonliquid states of Table 1 are excluded.
 
 <details markdown="1">
 <summary>Source review</summary>

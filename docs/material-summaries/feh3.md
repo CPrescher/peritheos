@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1103/PhysRevLett.113.265504
 - **Reported pressure coverage (GPa):** \[39.0, 160.0\]
 
-Experimental Vinet fit: molar V0 = 11.171 +/- 0.040 cm^3/mol and K0 = 190.1 +/- 0.05 GPa, with K0' fixed at 5. V0 and its uncertainty were converted to the Z=1 cubic cell.
+Published V0 = 11.171 ± 0.040 cm³/mol; V0 and its error are stored per Z = 1 cubic cell.
 
 <details markdown="1">
 <summary>Source review</summary>

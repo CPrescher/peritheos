@@ -10,6 +10,15 @@
     {
       "identifier": "cu_sun_2010_low_vn_refit",
       "label": "AIP Handbook Cu low-pressure Vinet m=8 refit",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "peritheos_refit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The handbook prints 25 populated Cu V/V0 values from 15 to 340 kbar. The 15 kbar cell is a confirmed printing error, 09900, interpreted as 0.9900. Sun et al. define the Vinet model, hold experimental V0 fixed, and state the m=8 pressure-residual objective.",
+        "audit": "../audits/cu_handbook_1972_legacy.audit.json#cu_sun_2010_low_vn_refit"
+      },
       "model": "Vinet",
       "temperature_ref": 298.15,
       "parameters": {
@@ -18,21 +27,17 @@
         "K0_prime": {"value": 5.00112704, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [1.5, 34.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 34.0],
         "temperature_k": [298.15, 298.15],
-        "notes": [
-          "The fitted observations span 1.5-34 GPa; V0 fixes the exact normalized zero-pressure reference point.",
-          "This phase-unresolved derived isotherm is not a phase-stability or extrapolation guarantee."
-        ]
+        "notes": ["The data span 1.5-34 GPa; the range starts at 0 GPa because V0 fixes the zero-pressure point."]
       },
+      "experimental_pressure_range_gpa": [1.5, 34.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "refit",
-      "equation_kind": "isothermal",
-      "notes": "Independent Peritheos refit of the manually verified Cu column in AIP Handbook Table 4d-12. It is intentionally separate from the Sun et al. source-author Vinet record. The handbook values are rounded derived-isotherm points rather than experiment-level raw observations.",
-      "parameter_covariance": null,
+      "notes": "Peritheos Vinet refit of the Cu column in AIP Handbook Table 4d-12, separate from the Sun et al. Vinet record. The handbook values are rounded points of a derived isotherm, not raw observations.",
       "reference": {
         "authors": ["Kennedy", "Keeler"],
         "year": 1972,
@@ -40,14 +45,7 @@
         "source": "American Institute of Physics Handbook, 3rd ed.",
         "locator": "section 4d-2, Table 4d-12, p. 4-100"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The handbook prints 25 populated Cu V/V0 values from 15 to 340 kbar. The 15 kbar cell is a confirmed printing error, 09900, interpreted as 0.9900. Sun et al. define the Vinet model, hold experimental V0 fixed, and state the m=8 pressure-residual objective.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/cu_handbook_1972_legacy.audit.json#cu_sun_2010_low_vn_refit"
-      }
+      "equation_kind": "isothermal"
     }
   ],
   "aliases": ["Cu"],

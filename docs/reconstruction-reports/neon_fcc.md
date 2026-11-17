@@ -35,13 +35,13 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Fei et al PNAS 2007 \[BM3\]](#record-neon_fcc_fei_2007_bm3_1) | **reproduced** |  |
-| [Fei et al PNAS 2007 \[Vinet\]](#record-neon_fcc_fei_2007_vinet_2) | **reproduced** |  |
-| [Hemley et al. (1989) Table I direct 300 K BM3 refit](#record-neon_fcc_hemley_1989_bm3_refit) | **reproduced** |  |
+| [Fei et al. (2007), BM3-MGD](#record-neon_fcc_fei_2007_bm3_1) | **reproduced** |  |
+| [Fei et al. (2007), Vinet-MGD](#record-neon_fcc_fei_2007_vinet_2) | **reproduced** |  |
+| [Peritheos refit of Hemley et al. (1989), 300 K BM3](#record-neon_fcc_hemley_1989_bm3_refit) | **reproduced** |  |
 
 <a id="record-neon_fcc_fei_2007_bm3_1"></a>
 
-## Fei et al PNAS 2007 \[BM3\]
+## Fei et al. (2007), BM3-MGD
 
 **reproduced** · `neon_fcc_fei_2007_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/neon_fcc.md#record-neon_fcc_fei_2007_bm3_1)
 
@@ -100,7 +100,7 @@ Both fits use the same 54 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-neon_fcc_fei_2007_vinet_2"></a>
 
-## Fei et al PNAS 2007 \[Vinet\]
+## Fei et al. (2007), Vinet-MGD
 
 **reproduced** · `neon_fcc_fei_2007_vinet_2` · `Vinet` · [Coefficients and source](../material-summaries/neon_fcc.md#record-neon_fcc_fei_2007_vinet_2)
 
@@ -159,7 +159,7 @@ Both fits use the same 54 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-neon_fcc_hemley_1989_bm3_refit"></a>
 
-## Hemley et al. (1989) Table I direct 300 K BM3 refit
+## Peritheos refit of Hemley et al. (1989), 300 K BM3
 
 **reproduced** · `neon_fcc_hemley_1989_bm3_refit` · `BM3` · [Coefficients and source](../material-summaries/neon_fcc.md#record-neon_fcc_hemley_1989_bm3_refit)
 

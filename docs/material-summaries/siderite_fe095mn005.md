@@ -36,14 +36,14 @@ Diffraction model combines the EOS sample first ambient a/c measurement with sep
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3](#record-siderite_fe095mn005_litasov_2013_bm3) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | BM3 + AlphaKT | 300.0 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Litasov et al. (2013), joint thermal BM3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | BM3 + AlphaKT | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3](#record-siderite_fe095mn005_litasov_2013_bm3) | 293.4 ± 0.1 (fixed) | 120.0 ± 1.0 | 3.57 ± 0.09 |
-| [Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | 293.4 (fixed) | 121.90288040577286 ± 0.8855927629328301 | 3.427642322450656 ± 0.08617420289324854 |
+| [Peritheos refit of Litasov et al. (2013), joint thermal BM3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | 293.4 (fixed) | 121.90288040577286 ± 0.8855927629328301 | 3.427642322450656 ± 0.08617420289324854 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -86,7 +86,7 @@ Automatic selection for equilibrium calculations.
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Reported error confidence level:** Not specified
 
-Source-reported 300 K isotherm, preserved without substituting refit coefficients. Natural high-spin R-3c Fe0.95Mn0.05CO3, not pure FeCO3. Pressure is retained on the printed Au scale; its exact realization is unresolved. The high-temperature candidate is withheld because Table 1 and the abstract disagree on a0. All printed cold rows give pressure RMSE 0.230 GPa with published coefficients; the manuscript 0.11-0.17 GPa RMS range is not recovered. Source objective, weights, parameter covariance and confidence convention are not specified. No extension across the cited spin transition near 45 GPa or a numerical decomposition boundary is claimed.
+Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeCO3), on the printed Au pressure scale, whose exact realization is unresolved. The published thermal parameters are not used because Table 1 and the abstract disagree on a0. No extension across the cited spin transition near 45 GPa or a decomposition boundary is claimed.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -152,7 +152,7 @@ Source-reported 300 K isotherm, preserved without substituting refit coefficient
 
 <a id="record-siderite_fe095mn005_litasov_2013_joint_thermal_refit"></a>
 
-## Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3
+## Peritheos refit of Litasov et al. (2013), joint thermal BM3
 
 `siderite_fe095mn005_litasov_2013_joint_thermal_refit` · Executable
 
@@ -195,7 +195,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Explicit opt-in Peritheos joint thermal refit, not either parameter set published by Litasov et al. All five coefficients were fitted together; V0=293.4 A^3 and Tr=300 K remain fixed. alpha0 is the absolute-temperature intercept. The observed pressure RMSE is 0.22121 GPa. The full conditional covariance is supplied; standard errors omit fixed-reference-volume uncertainty and pressure-scale systematics. The original 300 K EOS remains the default. Use within the measured paths; extrema do not guarantee phase stability throughout a rectangle. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa outside these measurements. Both conflicting published thermal sets are non-executable under source.thermal\_parameterizations.
+Peritheos joint thermal refit of the Litasov et al. (2013) data, not either published parameter set, with alpha0 as the absolute-temperature intercept. The errors omit the uncertainty of the fixed V0 and pressure-scale systematics. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa, outside these data.
 
 <details markdown="1">
 <summary>Source review</summary>

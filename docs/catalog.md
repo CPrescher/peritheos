@@ -25,9 +25,9 @@ completed additions and evidence-dependent holds.
 
 Each record carries separate answers to three questions: **where the
 coefficients come from** (`record_kind`), **whether the represented EOS was
-checked against its source** (`scientific_validation.status`) and **whether a
-refit reproduced it** (the `check.reproduction` headline and its detailed
-code). They are independent fields, not a single quality ranking. All words
+checked against its source** (`check.source_check`, renaming
+`scientific_validation.status`) and **whether a comparison reproduced it**
+(the `check.reproduction` headline, what it `compared`, and its detailed code). They are independent fields, not a single quality ranking. All words
 and codes are defined in [EOS labels](eos-labels.md). A new fit receives its
 own record and never silently replaces the published coefficients. Older files
 without `record_kind` mean `published`. Primary-source validation supports the
@@ -163,6 +163,17 @@ assert scale in gold.eos_records
 An unknown identifier raises `MaterialLookupError` and includes close matches
 when useful. Material names and aliases such as `Periclase` are discovery
 metadata; stable identifiers remain the safest choice for saved analyses.
+
+## Overviews for display
+
+`Material.overview()` and `EOSRecord.overview()` return the material, default
+selection, check headline with display phrases, coefficients with units, the
+stored and enforced ranges and the report link as plain JSON data;
+`summary()` prints the same content as text. `write_material_overviews(path)`
+writes the whole catalog as one JSON index without reading any audit sidecar.
+From a shell, `python -m peritheos show mgo` and `python -m peritheos list gold`
+print summaries. See [overviews](api.md#material-and-record-overviews) for the
+key list.
 
 ## Search executable materials
 

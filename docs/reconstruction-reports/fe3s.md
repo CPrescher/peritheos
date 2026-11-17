@@ -35,11 +35,11 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Fei et al Am. Mineral. 85, 1830, 2000](#record-fe3s_fei_2000_bm3_1) | **close** |  |
+| [Fei et al. (2000), BM3](#record-fe3s_fei_2000_bm3_1) | **close** |  |
 
 <a id="record-fe3s_fei_2000_bm3_1"></a>
 
-## Fei et al Am. Mineral. 85, 1830, 2000
+## Fei et al. (2000), BM3
 
 **close** · `fe3s_fei_2000_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/fe3s.md#record-fe3s_fei_2000_bm3_1)
 

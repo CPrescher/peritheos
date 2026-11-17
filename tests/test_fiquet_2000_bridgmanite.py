@@ -82,6 +82,5 @@ def test_fiquet_isotherm_is_executable_only_in_source_range():
     assert loaded.volume(pressure, 298.0) == pytest.approx(140.827)
     with pytest.raises(MaterialError, match="outside the published"):
         loaded.volume(20.0, 298.0, check_validity=True)
-    assert "not either composite thermal inversion" in " ".join(
-        source["validity"]["notes"]
-    )
+    assert "not either composite thermal inversion" in source["notes"]
+    assert "after stress-relieving laser heating" in source["notes"]

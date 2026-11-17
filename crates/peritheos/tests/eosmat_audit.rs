@@ -11,7 +11,8 @@ use std::path::{Path, PathBuf};
 use peritheos::{
     derive_eosmat_check, export_eosmat_v3, load_eosmat, load_eosmat_str,
     load_eosmat_str_with_audit, load_eosmat_without_audit, material_from_value, merge_eosmat_audit,
-    validate_eosmat_document, EosmatErrorKind, Material, Reproduction, AUDIT_RECORD_KEYS,
+    validate_eosmat_document, Compared, EosmatErrorKind, Material, Reproduction, SourceCheck,
+    AUDIT_RECORD_KEYS, WHY_MAX_LENGTH,
 };
 use serde_json::{json, Value};
 
@@ -69,19 +70,28 @@ fn assert_headline_matches_check(material: &Material, path: &Path) {
         let check = record
             .check()
             .unwrap_or_else(|| panic!("{}: {} has no check", path.display(), record.identifier));
+        let context = format!("{}: {}", path.display(), record.identifier);
         assert_eq!(
             Some(record.reproduction().as_str()),
             check["reproduction"].as_str(),
-            "{}: {}",
-            path.display(),
-            record.identifier
+            "{context}"
         );
         assert_eq!(
-            record.warning(),
-            check["warning"].as_str(),
-            "{}: {}",
-            path.display(),
-            record.identifier
+            Some(record.compared().as_str()),
+            check["compared"].as_str(),
+            "{context}"
+        );
+        assert_eq!(record.why(), check["why"].as_str(), "{context}");
+        assert_eq!(record.warning(), check["warning"].as_str(), "{context}");
+        assert_eq!(
+            record.source_check().map(SourceCheck::as_str),
+            check["source_check"].as_str(),
+            "{context}"
+        );
+        assert_eq!(
+            record.source_note(),
+            check["source_note"].as_str(),
+            "{context}"
         );
     }
 }
@@ -129,7 +139,11 @@ fn bundled_headlines_equal_stored_checks_and_the_merged_audit_derivation() {
             assert!(!complete.audit_is_external());
             assert!(complete.audit().is_some());
             assert_eq!(alone.reproduction(), complete.reproduction());
+            assert_eq!(alone.compared(), complete.compared());
+            assert_eq!(alone.why(), complete.why());
             assert_eq!(alone.warning(), complete.warning());
+            assert_eq!(alone.source_check(), complete.source_check());
+            assert_eq!(alone.source_note(), complete.source_note());
             assert_eq!(alone.check(), Some(check));
             // Every bundled record file names a sidecar entry; records with
             // no audit-only block have no sidecar entry and stay complete.
@@ -163,8 +177,16 @@ fn bundled_v3_exports_restore_evidence_and_drop_check() {
             assert!(record.get("check").is_none(), "{}", path.display());
             assert!(record.get("evidence").is_none(), "{}", path.display());
             assert_eq!(
-                record["scientific_validation"]["status"],
-                source.check().unwrap()["source"],
+                record["scientific_validation"]["status"].as_str(),
+                source.source_check().map(SourceCheck::status_code),
+                "{}: {}",
+                path.display(),
+                source.identifier
+            );
+            // Historical readers see the default selection on every record.
+            assert_eq!(
+                record["default"].as_bool(),
+                Some(source.is_default),
                 "{}: {}",
                 path.display(),
                 source.identifier
@@ -173,8 +195,19 @@ fn bundled_v3_exports_restore_evidence_and_drop_check() {
         // Without check, the v3 headline is derived from the inline evidence.
         for (old, new) in exported.eos_records.iter().zip(&material.eos_records) {
             assert_eq!(old.reproduction(), new.reproduction(), "{}", path.display());
+            assert_eq!(old.compared(), new.compared(), "{}", path.display());
+            assert_eq!(old.why(), new.why(), "{}", path.display());
             assert_eq!(old.warning(), new.warning(), "{}", path.display());
+            assert_eq!(old.source_check(), new.source_check(), "{}", path.display());
+            assert_eq!(old.source_note(), new.source_note(), "{}", path.display());
+            assert_eq!(old.is_default, new.is_default, "{}", path.display());
         }
+        assert_eq!(
+            exported.default_record().map(|record| &record.identifier),
+            material.default_record().map(|record| &record.identifier),
+            "{}",
+            path.display()
+        );
         assert_eq!(pressure_samples(&exported), pressure_samples(&material));
     }
 }
@@ -235,7 +268,10 @@ fn v4_fixture_derives_the_headlines_stored_in_the_v5_catalog() {
     for (old, new) in legacy.eos_records.iter().zip(&current.eos_records) {
         assert_eq!(old.identifier, new.identifier);
         assert_eq!(old.reproduction(), new.reproduction(), "{}", old.identifier);
+        assert_eq!(old.compared(), new.compared(), "{}", old.identifier);
+        assert_eq!(old.why(), new.why(), "{}", old.identifier);
         assert_eq!(old.warning(), new.warning(), "{}", old.identifier);
+        assert_eq!(old.is_default, new.is_default, "{}", old.identifier);
         assert_eq!(
             derive_eosmat_check(&old.document, Some(&legacy.document)),
             without_audit_link(new.check().unwrap()),
@@ -322,10 +358,11 @@ fn inline_check_must_agree_with_inline_evidence() {
         derived,
         json!({
             "reproduction": "reproduced",
+            "compared": "published_fit",
             "warning": null,
-            "finding": "Table 2 values match.",
-            "source": "primary_source_validated",
-            "source_checked_on": "2026-01-02"
+            "source_check": "verified",
+            "source_checked_on": "2026-01-02",
+            "source_note": "Table 2 values match."
         })
     );
     let consistent = standalone(&json!({"evidence": evidence("parity"), "check": derived}));
@@ -347,9 +384,17 @@ fn inline_check_must_agree_with_inline_evidence() {
 
     let source = standalone(&json!({
         "evidence": evidence("similar"),
-        "check": {"reproduction": "close", "source": "deferred"}
+        "check": {"reproduction": "close", "source_check": "deferred"}
     }));
-    assert!(invalid_reason(&source).contains("check.source contradicts"));
+    assert!(invalid_reason(&source).contains("check.source_check \"deferred\" contradicts"));
+
+    let mut independent = evidence("parity");
+    independent["reproduction"]["assessment"]["scope"] = json!("independent_refit");
+    let compared = standalone(&json!({
+        "evidence": independent,
+        "check": {"compared": "published_fit"}
+    }));
+    assert!(invalid_reason(&compared).contains("check.compared \"published_fit\" contradicts"));
 }
 
 #[test]
@@ -361,7 +406,40 @@ fn check_block_structure_is_validated() {
             json!({"reproduction": "parity"}),
             "check.reproduction must be one of",
         ),
-        (json!({"source": "validated"}), "check.source is invalid"),
+        (
+            json!({"source_check": "validated"}),
+            "check.source_check must be one of",
+        ),
+        (
+            json!({"compared": "paper"}),
+            "check.compared must be one of",
+        ),
+        (
+            json!({"reproduction": "reproduced", "compared": "none"}),
+            "cannot accompany",
+        ),
+        (
+            json!({"reproduction": "untested", "compared": "published_fit"}),
+            "cannot accompany",
+        ),
+        (
+            json!({"reproduction": "reproduced", "why": "x"}),
+            "only given for reproduction close",
+        ),
+        (
+            json!({"why": "x".repeat(WHY_MAX_LENGTH + 1)}),
+            "at most 160",
+        ),
+        (
+            json!({"finding": "Table 2 values match."}),
+            "check.finding is no longer read; EOSMAT v5 names this field check.source_note",
+        ),
+        (
+            json!({"source": "primary_source_validated"}),
+            "check.source is no longer read; EOSMAT v5 names this field check.source_check \
+             (primary_source_validated -> verified, pending_primary_source_check -> pending, \
+             not_reproduced -> unresolved, deferred -> deferred)",
+        ),
         (
             json!({"warning": " "}),
             "check.warning must be null or text",
@@ -372,16 +450,21 @@ fn check_block_structure_is_validated() {
             "check.audit must be a non-empty string",
         ),
         (
-            json!({"finding": 1}),
-            "check.finding must be a non-empty string",
+            json!({"source_note": 1}),
+            "check.source_note must be a non-empty string",
         ),
     ] {
         let document = standalone(&json!({ "check": check }));
         assert!(invalid_reason(&document).contains(reason), "{check}");
     }
-    let document = standalone(&json!({"check": {"reproduction": "close", "warning": null}}));
+    let document = standalone(&json!({"check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": null
+    }}));
     let record = &material_from_value(document).unwrap().eos_records[0];
-    assert_eq!(record.reproduction(), Reproduction::Close);
+    assert_eq!(record.reproduction(), Reproduction::Untested);
+    assert_eq!(record.compared(), Compared::SourceEquation);
     assert_eq!(record.warning(), None);
 }
 
@@ -391,10 +474,11 @@ fn split_example() -> (Value, Value) {
     let record_file = standalone(&json!({
         "check": {
             "reproduction": "disagrees",
+            "compared": "published_fit",
             "warning": "Not recommended for use.",
-            "finding": "Table 2 values match.",
-            "source": "primary_source_validated",
+            "source_check": "verified",
             "source_checked_on": "2026-01-02",
+            "source_note": "Table 2 values match.",
             "audit": "../audits/example.audit.json#example_bm3"
         }
     }));
@@ -420,7 +504,11 @@ fn record_files_load_without_a_sidecar_and_merge_with_one() {
     assert!(record.audit_is_external());
     assert_eq!(record.audit(), None);
     assert_eq!(record.reproduction(), Reproduction::Disagrees);
+    assert_eq!(record.compared(), Compared::PublishedFit);
+    assert_eq!(record.why(), None);
     assert_eq!(record.warning(), Some("Not recommended for use."));
+    assert_eq!(record.source_check(), Some(SourceCheck::Verified));
+    assert_eq!(record.source_note(), Some("Table 2 values match."));
     assert_eq!(
         record.audit_reference(),
         Some("../audits/example.audit.json#example_bm3")
@@ -585,7 +673,7 @@ fn coded_restrictions_and_holds_form_the_derived_warning() {
     });
     let expected = "Do not use. Consult the source audit before quantitative use. \
                     Default selection on hold pending review. \
-                    Explicit selection only; not loaded by default.";
+                    Never chosen automatically; select it explicitly.";
     assert_eq!(
         derive_eosmat_check(&document["eos_records"][0], Some(&document))["warning"],
         expected
@@ -605,4 +693,569 @@ fn coded_restrictions_and_holds_form_the_derived_warning() {
         derive_eosmat_check(&record["eos_records"][0], None)["warning"],
         "Diagnostic only."
     );
+}
+
+fn assessed(status: Option<&str>, scope: &str, rows: Option<Value>) -> Value {
+    let mut evidence = evidence("parity");
+    match status {
+        Some(status) => {
+            let assessment = &mut evidence["reproduction"]["assessment"];
+            assessment["status"] = json!(status);
+            assessment["scope"] = json!(scope);
+            if let Some(rows) = rows {
+                assessment["parameters"] = rows;
+            }
+        }
+        None => {
+            evidence.as_object_mut().unwrap().remove("reproduction");
+        }
+    }
+    standalone(&json!({ "evidence": evidence }))
+}
+
+#[allow(clippy::needless_pass_by_value)] // Called with literal json! values.
+fn row(parameter: &str, published: Value, refit: f64, flags: &Value) -> Value {
+    let mut row = json!({
+        "parameter": parameter,
+        "published": published,
+        "published_error": null,
+        "refit": refit,
+        "refit_error": null
+    });
+    row.as_object_mut()
+        .unwrap()
+        .extend(flags.as_object().unwrap().clone());
+    row
+}
+
+fn why(document: &Value) -> Option<String> {
+    let derived = derive_eosmat_check(&document["eos_records"][0], Some(document));
+    let loaded = material_from_value(document.clone()).unwrap();
+    let record = &loaded.eos_records[0];
+    // Without a stored check the record derives what derive_eosmat_check writes.
+    assert_eq!(record.why(), derived["why"].as_str());
+    assert_eq!(
+        Some(record.compared().as_str()),
+        derived["compared"].as_str()
+    );
+    record.why().map(str::to_owned)
+}
+
+#[test]
+fn compared_is_a_fixed_mapping_of_status_and_scope() {
+    for (status, scope, expected) in [
+        (
+            Some("parity"),
+            "parameter_agreement",
+            Compared::PublishedFit,
+        ),
+        (
+            Some("similar"),
+            "parameter_agreement",
+            Compared::PublishedFit,
+        ),
+        (
+            Some("not_reproduced"),
+            "author_workflow",
+            Compared::PublishedFit,
+        ),
+        (
+            Some("parity"),
+            "independent_refit",
+            Compared::PeritheosRefit,
+        ),
+        (Some("parity"), "source_equation", Compared::SourceEquation),
+        (
+            Some("source_reconstruction"),
+            "source_equation",
+            Compared::SourceEquation,
+        ),
+        (
+            Some("not_refittable"),
+            "parameter_agreement",
+            Compared::Nothing,
+        ),
+        (Some("not_refittable"), "source_equation", Compared::Nothing),
+        (
+            Some("not_assessed"),
+            "parameter_agreement",
+            Compared::Nothing,
+        ),
+        (None, "", Compared::Nothing),
+    ] {
+        let document = assessed(status, scope, None);
+        let record = &material_from_value(document.clone()).unwrap().eos_records[0];
+        assert_eq!(record.compared(), expected, "{status:?} {scope}");
+        assert_eq!(record.source_check(), Some(SourceCheck::Verified));
+        assert_eq!(record.source_note(), Some("Table 2 values match."));
+        // The derived block is a valid stored check for the same evidence.
+        let mut checked = document.clone();
+        checked["eos_records"][0]["check"] =
+            derive_eosmat_check(&document["eos_records"][0], Some(&document));
+        validate_eosmat_document(&checked).unwrap();
+    }
+    for code in [
+        "primary_source_validated",
+        "pending_primary_source_check",
+        "not_reproduced",
+        "deferred",
+    ] {
+        let check = SourceCheck::from_status_code(code).unwrap();
+        assert_eq!(check.status_code(), code);
+        assert_eq!(SourceCheck::from_check(check.as_str()), Some(check));
+    }
+}
+
+#[test]
+#[allow(clippy::too_many_lines)]
+fn why_names_failed_coefficients_from_the_stored_table() {
+    // The same cases as tests/test_eosmat_v5_check_fields.py.
+    let close = assessed(
+        Some("similar"),
+        "parameter_agreement",
+        Some(json!([
+            row(
+                "V0",
+                json!(162.4),
+                162.41,
+                &json!({"similar": true, "within_combined_2sigma": true})
+            ),
+            row(
+                "K0",
+                json!(256),
+                263.7307,
+                &json!({"similar": true, "within_combined_2sigma": false})
+            ),
+        ])),
+    );
+    assert_eq!(
+        why(&close).as_deref(),
+        Some("K0: refit 263.7 vs published 256 GPa (+3.0%), outside the combined error.")
+    );
+    let disagrees = assessed(
+        Some("not_reproduced"),
+        "parameter_agreement",
+        Some(json!([{
+            "parameter": "rt_eos.K0_prime",
+            "published": 4.91,
+            "published_sigma": 0.12,
+            "refit": 4.183_456,
+            "refit_sigma": null,
+            "similar": false,
+            "within_combined_2sigma": false,
+            "within_reported_error": false
+        }])),
+    );
+    assert_eq!(
+        why(&disagrees).as_deref(),
+        Some(
+            "K0': refit 4.183 vs published 4.91 (-14.8%), outside the combined error, \
+             beyond the agreement limit and outside the published error."
+        )
+    );
+    let untested = assessed(
+        Some("similar"),
+        "parameter_agreement",
+        Some(json!([
+            row(
+                "K0",
+                json!(160),
+                161.0,
+                &json!({"similar": true, "within_combined_2sigma": null})
+            ),
+            row(
+                "K0_prime",
+                json!(4),
+                4.1,
+                &json!({"similar": true, "within_combined_2sigma": null})
+            ),
+        ])),
+    );
+    assert_eq!(
+        why(&untested).as_deref(),
+        Some(
+            "K0 and K0' have no error to test against the combined-error rule; \
+             all within the agreement limit."
+        )
+    );
+    let single = assessed(
+        Some("similar"),
+        "parameter_agreement",
+        Some(json!([row(
+            "V0",
+            json!(74.7),
+            74.71,
+            &json!({"similar": true, "within_combined_2sigma": null})
+        )])),
+    );
+    assert_eq!(
+        why(&single).as_deref(),
+        Some(
+            "V0 has no error to test against the combined-error rule; \
+             all within the agreement limit."
+        )
+    );
+    // Published values print as stored, without a trailing ".0".
+    let integral = assessed(
+        Some("similar"),
+        "parameter_agreement",
+        Some(json!([row(
+            "theta0",
+            json!(600.0),
+            766.2634,
+            &json!({"similar": false})
+        )])),
+    );
+    assert_eq!(
+        why(&integral).as_deref(),
+        Some("theta0: refit 766.3 vs published 600 K (+27.7%), beyond the agreement limit.")
+    );
+    // Exponent notation follows the stored spelling's significant digits.
+    let small = assessed(
+        Some("similar"),
+        "parameter_agreement",
+        Some(json!([row(
+            "alpha1",
+            json!(8.7e-9),
+            5.6123e-9,
+            &json!({"similar": false})
+        )])),
+    );
+    assert_eq!(
+        why(&small).as_deref(),
+        Some("alpha1: refit 5.61e-09 vs published 8.7e-09 (-35.5%), beyond the agreement limit.")
+    );
+    // More than three failures: the three largest relative differences are
+    // named and the rest counted.
+    let four = assessed(
+        Some("not_reproduced"),
+        "parameter_agreement",
+        Some(json!([
+            row("V0", json!(74.7), 75.0, &json!({"similar": false})),
+            row("K0", json!(160), 200.0, &json!({"similar": false})),
+            row("K0_prime", json!(4), 2.0, &json!({"similar": false})),
+            row("gamma0", json!(1.5), 1.6, &json!({"similar": false})),
+        ])),
+    );
+    assert_eq!(
+        why(&four).as_deref(),
+        Some("K0' (-50.0%), K0 (+25.0%), gamma0 (+6.7%) and 1 more: beyond the agreement limit.")
+    );
+    // Nothing failed and nothing untested, or a parity headline: no statement.
+    let passing = assessed(
+        Some("not_reproduced"),
+        "parameter_agreement",
+        Some(json!([row(
+            "K0",
+            json!(160),
+            161.0,
+            &json!({"similar": true, "within_combined_2sigma": true})
+        )])),
+    );
+    assert_eq!(why(&passing), None);
+    let parity = assessed(
+        Some("parity"),
+        "parameter_agreement",
+        Some(
+            close["eos_records"][0]["evidence"]["reproduction"]["assessment"]["parameters"].clone(),
+        ),
+    );
+    assert_eq!(why(&parity), None);
+    assert_eq!(
+        why(&assessed(Some("similar"), "parameter_agreement", None)),
+        None
+    );
+    let many: Vec<Value> = (0..12)
+        .map(|index| {
+            row(
+                &format!("coefficient_{index}"),
+                json!(1.25),
+                1.5 + f64::from(index),
+                &json!({"similar": false}),
+            )
+        })
+        .collect();
+    let many = assessed(
+        Some("not_reproduced"),
+        "parameter_agreement",
+        Some(json!(many)),
+    );
+    assert!(why(&many).is_none_or(|text| text.chars().count() <= WHY_MAX_LENGTH));
+}
+
+fn two_records(map: Option<Value>, first: &Value, second: &Value) -> Value {
+    let mut document = standalone(&json!({}));
+    let base = document["eos_records"][0].clone();
+    let mut a = base.clone();
+    a.as_object_mut()
+        .unwrap()
+        .extend(first.as_object().unwrap().clone());
+    let mut b = base;
+    b["identifier"] = json!("example_vinet");
+    b["model"] = json!("Vinet");
+    b.as_object_mut()
+        .unwrap()
+        .extend(second.as_object().unwrap().clone());
+    document["eos_records"] = json!([a, b]);
+    if let Some(map) = map {
+        document["default_records"] = map;
+    }
+    document
+}
+
+#[test]
+fn default_records_map_selects_exactly_like_record_flags() {
+    let mapped = two_records(
+        Some(json!({"equilibrium": "example_vinet"})),
+        &json!({}),
+        &json!({}),
+    );
+    let flagged = two_records(None, &json!({}), &json!({"default": true}));
+    let by_map = material_from_value(mapped.clone()).unwrap();
+    let by_flag = material_from_value(flagged).unwrap();
+    assert_eq!(by_map.default_record().unwrap().identifier, "example_vinet");
+    assert_eq!(
+        by_map
+            .eos_records
+            .iter()
+            .map(|r| r.is_default)
+            .collect::<Vec<_>>(),
+        by_flag
+            .eos_records
+            .iter()
+            .map(|r| r.is_default)
+            .collect::<Vec<_>>()
+    );
+    // The retained document keeps the map as authored.
+    assert_eq!(
+        by_map.document["default_records"],
+        json!({"equilibrium": "example_vinet"})
+    );
+    // A v3 export writes an explicit flag on every record instead.
+    let legacy = export_eosmat_v3(&mapped).unwrap();
+    assert!(legacy.get("default_records").is_none());
+    assert_eq!(legacy["eos_records"][0]["default"], false);
+    assert!(legacy["eos_records"][0].get("default_for").is_none());
+    assert_eq!(legacy["eos_records"][1]["default"], true);
+    assert_eq!(legacy["eos_records"][1]["default_for"], "equilibrium");
+    // Both forms in one file are accepted only when they agree.
+    validate_eosmat_document(&two_records(
+        Some(json!({"equilibrium": "example_vinet"})),
+        &json!({}),
+        &json!({"default_for": "equilibrium"}),
+    ))
+    .unwrap();
+    let map = Some(json!({"equilibrium": "example_vinet"}));
+    for (document, message) in [
+        (
+            two_records(map.clone(), &json!({"default": true}), &json!({})),
+            "flagged as the default equilibrium record, but default_records names 'example_vinet'",
+        ),
+        (
+            two_records(map.clone(), &json!({}), &json!({"default": false})),
+            "flagged default: false",
+        ),
+        (
+            two_records(
+                Some(json!({"equilibrium": "missing"})),
+                &json!({}),
+                &json!({}),
+            ),
+            "unknown record",
+        ),
+        (
+            two_records(
+                Some(json!({"hugoniot": "example_vinet"})),
+                &json!({}),
+                &json!({}),
+            ),
+            "which is not a hugoniot record",
+        ),
+        (
+            two_records(
+                Some(json!({"best": "example_vinet"})),
+                &json!({}),
+                &json!({}),
+            ),
+            "keys must be",
+        ),
+        (
+            two_records(Some(json!({})), &json!({}), &json!({})),
+            "non-empty object",
+        ),
+    ] {
+        let reason = invalid_reason(&document);
+        assert!(reason.contains(message), "{reason}");
+        assert!(material_from_value(document).is_err());
+    }
+    let mut v4 = mapped;
+    v4["format_version"] = json!(4);
+    assert!(invalid_reason(&v4).contains("requires EOSMAT format_version 5"));
+}
+
+#[test]
+fn bundled_default_selection_uses_the_material_map() {
+    let Some(directory) = catalog_directory() else {
+        return;
+    };
+    let mut mapped = 0;
+    for path in bundled_paths(&directory) {
+        let stored: Value = serde_json::from_slice(&fs::read(&path).unwrap()).unwrap();
+        let material = load_eosmat_without_audit(&path).unwrap();
+        for record in stored["eos_records"].as_array().unwrap() {
+            assert!(record.get("default").is_none(), "{}", path.display());
+            assert!(record.get("default_for").is_none(), "{}", path.display());
+        }
+        let Some(map) = stored.get("default_records") else {
+            assert!(
+                material.eos_records.iter().all(|record| !record.is_default),
+                "{}",
+                path.display()
+            );
+            continue;
+        };
+        mapped += 1;
+        let named: Vec<&str> = map
+            .as_object()
+            .unwrap()
+            .values()
+            .map(|value| value.as_str().unwrap())
+            .collect();
+        for record in &material.eos_records {
+            assert_eq!(
+                record.is_default,
+                named.contains(&record.identifier.as_str()),
+                "{}: {}",
+                path.display(),
+                record.identifier
+            );
+        }
+        if let Some(identifier) = map.get("equilibrium").and_then(Value::as_str) {
+            if let Some(default) = material.default_equilibrium_record() {
+                assert_eq!(default.identifier, identifier, "{}", path.display());
+            }
+        }
+        if let Some(identifier) = map.get("hugoniot").and_then(Value::as_str) {
+            assert_eq!(
+                material
+                    .default_hugoniot_record()
+                    .unwrap()
+                    .record
+                    .identifier,
+                identifier,
+                "{}",
+                path.display()
+            );
+        }
+    }
+    assert!(mapped > 50, "unexpectedly few default_records maps");
+}
+
+#[test]
+fn superseded_record_text_is_an_audit_block_read_like_the_others() {
+    let block = json!({
+        "label": "Example (2020), BM3 (diagnostic only)",
+        "notes": "Original wording, kept verbatim.",
+        "validity_notes": ["Original range note."],
+        "thermal_notes": null,
+        "superseded_on": "2026-11-16"
+    });
+    assert!(AUDIT_RECORD_KEYS.contains(&"superseded_record_text"));
+    let (record_file, mut sidecar) = split_example();
+    sidecar["records"]["example_bm3"]["superseded_record_text"] = block.clone();
+    let merged =
+        load_eosmat_str_with_audit(&record_file.to_string(), &sidecar.to_string()).unwrap();
+    let audit = merged.eos_records[0].audit().unwrap();
+    assert_eq!(audit["superseded_record_text"], block);
+    // Compatibility exports carry it inline, like the other audit blocks.
+    let legacy = export_eosmat_v3(&merged.document).unwrap();
+    assert_eq!(legacy["eos_records"][0]["superseded_record_text"], block);
+    // A standalone file may keep it inline.
+    let inline =
+        material_from_value(standalone(&json!({"superseded_record_text": block}))).unwrap();
+    assert_eq!(
+        inline.eos_records[0].audit().unwrap()["superseded_record_text"],
+        block
+    );
+    let mut both = record_file.clone();
+    both["eos_records"][0]["superseded_record_text"] = block.clone();
+    assert!(merge_eosmat_audit(&both, &sidecar)
+        .unwrap_err()
+        .to_string()
+        .contains("both inline and in its audit sidecar"));
+    for (invalid, message) in [
+        (json!({"notes": "x"}), "superseded_on must be an ISO date"),
+        (
+            json!({"notes": "x", "superseded_on": "2026-02-30"}),
+            "superseded_on must be an ISO date",
+        ),
+        (
+            json!({"note": "x", "superseded_on": "2026-11-16"}),
+            "unknown fields",
+        ),
+        (
+            json!({"superseded_on": "2026-11-16"}),
+            "names no superseded field",
+        ),
+        (
+            json!({"validity_notes": "x", "superseded_on": "2026-11-16"}),
+            "validity_notes must be an array of strings or null",
+        ),
+        (
+            json!({"label": 3, "superseded_on": "2026-11-16"}),
+            "label must be a string or null",
+        ),
+    ] {
+        let mut wrong = sidecar.clone();
+        wrong["records"]["example_bm3"]["superseded_record_text"] = invalid.clone();
+        let error = merge_eosmat_audit(&record_file, &wrong).unwrap_err();
+        assert!(error.to_string().contains(message), "{error}");
+        let error = material_from_value(standalone(&json!({"superseded_record_text": invalid})))
+            .unwrap_err();
+        assert!(error.to_string().contains(message), "{error}");
+    }
+}
+
+#[test]
+fn bundled_superseded_record_text_matches_the_sidecar() {
+    // Python reads the same sidecars (tests/test_record_text.py); both must
+    // expose each stored block unchanged through the record's audit.
+    let Some(directory) = catalog_directory() else {
+        return;
+    };
+    let mut found = 0;
+    for path in bundled_paths(&directory) {
+        let material = load_eosmat(&path).unwrap();
+        let sidecar_path = directory
+            .join("../audits")
+            .join(format!("{}.audit.json", material.identifier));
+        let sidecar: Value =
+            serde_json::from_str(&fs::read_to_string(sidecar_path).unwrap()).unwrap();
+        for record in &material.eos_records {
+            let stored = sidecar["records"]
+                .get(&record.identifier)
+                .and_then(|entry| entry.get("superseded_record_text"));
+            let audit = record.audit().unwrap();
+            assert_eq!(
+                audit.get("superseded_record_text"),
+                stored,
+                "{}",
+                record.identifier
+            );
+            found += usize::from(stored.is_some());
+        }
+    }
+    assert!(found > 0, "no bundled record keeps superseded text");
+    // The packaged Rust fixture reads its own copy of the Pd sidecar.
+    let fixture = load_eosmat(crate_directory().join("tests/data/palladium.eosmat")).unwrap();
+    let record = fixture
+        .eos_records
+        .iter()
+        .find(|record| record.identifier == "palladium_fedotenko_2020_bm2_2")
+        .unwrap();
+    assert_eq!(
+        record.audit().unwrap()["superseded_record_text"]["label"],
+        "Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)"
+    );
+    assert_eq!(record.label, "Fedotenko et al. (2020), constrained BM2");
 }

@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_qualitatively
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-Hanna et al. report V0 = 19.61(10) A^3 per ZnO and K0 = 172(21) GPa with K0' fixed at 4; values are converted to the conventional Z=4 cell. B1 data were collected above the 8.3-10 GPa coexistence interval, but the exact fitted pressure interval is not tabulated.
+Published V0 = 19.61(10) Å³ per ZnO; stored per conventional cell (Z = 4). B1 data were collected above the 8.3-10 GPa coexistence interval, but the exact fitted pressure interval is not tabulated.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -83,7 +83,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 147.6\]
 
-The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient. The primary reduction uses a 300 K Debye Mie-Gruneisen correction with theta0=390 K, gamma0=1.38, gamma/V constant (the q=1 integrated-Gruneisen law), two atoms per NiO formula unit, and the source Us=5.36+1.19up relation. The shock table must never be fitted directly as an isotherm.
+BM3 isotherm reduced from shock data with a 300 K Mie-Grüneisen-Debye correction (q = 1 integrated-Grüneisen law, two atoms per NiO formula unit); do not fit the shock table directly as an isotherm. V0 is stored for the Z = 3 rhombohedral hexagonal cell. The quoted K0'' = -0.03 GPa⁻¹ is implied by the third-order fit, not an independent BM4 coefficient.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -211,7 +211,7 @@ Automatic selection for hugoniot calculations.
     - **Pressure gpa:** \[17.1, 147.7\]
     - **Temperature k:** \[298.15, 298.15\]
     - **Volume ratio:** \[0.6984, 0.9267\]
-    - **Notes:** The operational pressure envelope includes the fitted line at both observed particle-velocity endpoints; the exact source pressure extrema remain in experimental\_pressure\_range\_gpa.; The temperature bounds describe the normalized precursor state, not a constant-temperature shock path.
+    - **Notes:** The pressure bounds are the fitted line at the observed particle-velocity extremes; the measured pressure extrema are 17.7-147.6 GPa.; The temperature bounds describe the normalized precursor state, not a constant-temperature shock path.
 - **Loading path:** principal
 - **Branch kind:** untransformed
 - **Initial state:**
@@ -236,7 +236,7 @@ Automatic selection for hugoniot calculations.
 - **Reported error confidence level:** Not specified
 - **Parameter covariance:** supplied in the EOSMAT source
 
-Derived constrained principal Hugoniot for the untransformed rhombohedral B1 branch only. This is not the paper's separate 300 K Mie-Gruneisen-reduced isotherm and not a general P(V,T) EOS. Row-wise Us and up errors are unavailable, so the OLS covariance reflects residual scatter rather than a complete experimental error model. V0 is deterministically derived from rho0 and is not assigned an independent error.
+Principal Hugoniot of the untransformed rhombohedral B1 branch only; not the paper's separate 300 K Mie-Grüneisen-reduced isotherm or a general P(V,T) EOS. V0 is computed from rho0 and has no separate error.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -82,7 +82,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[1.26, 2.81\]
 - **Reported temperature coverage (K):** \[298.7, 340.7\]
 
-PVT fit for pure H2O ice VI. The best-supported refit reconstruction uses the 300 K and 340 K isotherms displayed in Figure 2 (30 rows: 23 at 298.7-300.7 K and seven at 340.0-340.7 K). The 15 intermediate-temperature Table I observations are retained in the linked primary dataset but form a correlated pressure-temperature ramp and are not plotted in Figure 2. Published molar V0=14.17(2) cm^3/mol is converted to the Z=10 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of all ice-VI measurements tabulated in the paper.
+P-V-T fit for pure H2O ice VI. Published molar V0 = 14.17(2) cm³/mol; stored per unit cell (Z = 10). dK/dT was fixed to zero because no temperature dependence was detectable.
 
 <details markdown="1">
 <summary>Source review</summary>

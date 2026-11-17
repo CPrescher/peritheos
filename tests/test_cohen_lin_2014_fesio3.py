@@ -176,8 +176,19 @@ def test_cohen_lin_refit_ledger_retains_all_three_as_not_refittable():
         "fesio3_post_perovskite_cohen_lin_2014_vinet_1",
         "fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1",
     }
-    for record in records.values():
+    catalog = {
+        record["identifier"]: record
+        for material in MATERIALS
+        for record in get_material_document(material)["eos_records"]
+    }
+    for identifier, record in records.items():
         assert record["status"] == "not_refittable"
         assert record["dataset_identifiers"] == []
         assert "after source exhaustion" in record["reason"]
-        assert "approximate raster-marker diagnostic" in record["source_notes"]
+        source = catalog[identifier]
+        assert record["source_notes"] == source.get("notes")
+        # The curation reason is audit material, kept in the stored original.
+        assert (
+            "approximate raster-marker diagnostic"
+            in (source["superseded_record_text"]["notes"])
+        )

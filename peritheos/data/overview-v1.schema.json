@@ -1,0 +1,868 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://peritheos.readthedocs.io/schemas/overview-v1.schema.json",
+  "title": "Peritheos material and EOS record overview, version 1",
+  "description": "Display-ready overviews returned by EOSRecord.overview(), Material.overview() and written by write_material_overviews(). Values are stored record fields or facts derived in code; nothing is inferred.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/index"
+    },
+    {
+      "$ref": "#/$defs/material"
+    },
+    {
+      "$ref": "#/$defs/record"
+    }
+  ],
+  "$defs": {
+    "index": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "overview_version",
+        "peritheos_version",
+        "materials"
+      ],
+      "properties": {
+        "overview_version": {
+          "const": 1
+        },
+        "peritheos_version": {
+          "type": "string"
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/material"
+          }
+        }
+      }
+    },
+    "material": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "overview_version",
+        "identifier",
+        "name",
+        "formula",
+        "phase",
+        "cell_contents",
+        "volume_unit",
+        "formula_units_per_cell",
+        "aliases",
+        "family_id",
+        "notes",
+        "default_record",
+        "default_records",
+        "default_hold",
+        "records"
+      ],
+      "properties": {
+        "overview_version": {
+          "const": 1
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "formula": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "cell_contents": {
+          "type": "string"
+        },
+        "volume_unit": {
+          "type": "string"
+        },
+        "formula_units_per_cell": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "family_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "description": "Stored material notes, unmodified; null when absent."
+        },
+        "default_record": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "default_records": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "equilibrium",
+            "hugoniot"
+          ],
+          "properties": {
+            "equilibrium": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "identifier",
+                    "label"
+                  ],
+                  "properties": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "hugoniot": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "identifier",
+                    "label"
+                  ],
+                  "properties": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "default_hold": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record"
+          }
+        }
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "overview_version",
+        "identifier",
+        "label",
+        "aliases",
+        "material",
+        "citation",
+        "short_citation",
+        "title",
+        "doi",
+        "model",
+        "thermal_model",
+        "category",
+        "equation_kind",
+        "record_kind",
+        "determination_method",
+        "reference_temperature_k",
+        "is_default",
+        "selected_when_no_default",
+        "catalog_access",
+        "pressure_scale_variant_of",
+        "check",
+        "parameters",
+        "error_confidence",
+        "covariance_parameters",
+        "ranges",
+        "pressure_scale",
+        "notes",
+        "thermal_notes",
+        "validity_notes",
+        "audit",
+        "report_url"
+      ],
+      "properties": {
+        "overview_version": {
+          "const": 1
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "material": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "identifier",
+            "name",
+            "formula",
+            "phase"
+          ],
+          "properties": {
+            "identifier": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "formula": {
+              "type": "string"
+            },
+            "phase": {
+              "type": "string"
+            }
+          }
+        },
+        "citation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "short_citation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "doi": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model": {
+          "$ref": "#/$defs/model"
+        },
+        "thermal_model": {
+          "$ref": "#/$defs/model"
+        },
+        "category": {
+          "enum": [
+            "equilibrium",
+            "hugoniot"
+          ]
+        },
+        "equation_kind": {
+          "enum": [
+            "isothermal",
+            "thermal",
+            "hugoniot"
+          ]
+        },
+        "record_kind": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "determination_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reference_temperature_k": {
+          "type": "number"
+        },
+        "is_default": {
+          "type": "boolean"
+        },
+        "selected_when_no_default": {
+          "type": "boolean"
+        },
+        "catalog_access": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pressure_scale_variant_of": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "check": {
+          "$ref": "#/$defs/check"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/parameter"
+          }
+        },
+        "error_confidence": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "covariance_parameters": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "ranges": {
+          "$ref": "#/$defs/ranges"
+        },
+        "pressure_scale": {
+          "$ref": "#/$defs/pressure_scale"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "thermal_notes": {
+          "description": "Stored thermal-model notes, unmodified; null when absent."
+        },
+        "validity_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "audit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "report_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "parameter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "component",
+        "name",
+        "display_name",
+        "value",
+        "error",
+        "fixed",
+        "unit"
+      ],
+      "properties": {
+        "component": {
+          "enum": [
+            "model",
+            "thermal_model"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "value": {},
+        "error": {
+          "description": "Stored error in the parameter's unit; null when not reported."
+        },
+        "fixed": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "null when no record file records it."
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Documented unit; \"1\" is dimensionless; null when no documentation states it."
+        }
+      }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reproduction",
+        "compared",
+        "why",
+        "warning",
+        "source_check",
+        "source_checked_on",
+        "source_note",
+        "display"
+      ],
+      "properties": {
+        "reproduction": {
+          "enum": [
+            "reproduced",
+            "close",
+            "disagrees",
+            "untested"
+          ]
+        },
+        "compared": {
+          "enum": [
+            "published_fit",
+            "peritheos_refit",
+            "source_equation",
+            "none"
+          ]
+        },
+        "why": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "warning": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_check": {
+          "enum": [
+            "verified",
+            "pending",
+            "unresolved",
+            "deferred",
+            null
+          ]
+        },
+        "source_checked_on": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "display": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "compared",
+            "explanation"
+          ],
+          "properties": {
+            "compared": {
+              "type": "string"
+            },
+            "explanation": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ranges": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "validity",
+        "experimental",
+        "effective"
+      ],
+      "properties": {
+        "validity": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "pressure_gpa",
+                "temperature_k",
+                "volume_ratio"
+              ],
+              "properties": {
+                "pressure_gpa": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "temperature_k": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "volume_ratio": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "experimental": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "pressure_gpa",
+                "temperature_k",
+                "status"
+              ],
+              "properties": {
+                "pressure_gpa": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "temperature_k": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "status": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "effective": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source",
+            "pressure_gpa",
+            "temperature_k",
+            "volume_ratio",
+            "particle_velocity_km_s"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "validity",
+                "experimental",
+                "none"
+              ]
+            },
+            "pressure_gpa": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              ]
+            },
+            "temperature_k": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              ]
+            },
+            "volume_ratio": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              ]
+            },
+            "particle_velocity_km_s": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "pressure_scale": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "methods"
+          ],
+          "properties": {
+            "status": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "methods": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "kind",
+                  "material",
+                  "reference_eos_record",
+                  "reference_calibration_record",
+                  "citation",
+                  "scope"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "material": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "reference_eos_record": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "reference_calibration_record": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "citation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "scope": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "model": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "identifier",
+            "name"
+          ],
+          "properties": {
+            "identifier": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -106,6 +106,16 @@
           "construction_states": "Recovered run-4 zero-pressure cell fixes V0; the in-situ run-4 cell at the mean post-heating pressure of 64.3 GPa then determines K0 algebraically. Run 3 establishes phase identity but has no usable in-situ volume. This is not a regression fit.",
           "uncertainties": "The source says bulk-modulus uncertainty is calculated from the difference between ruby- and Pt-derived post-heating pressures; no covariance or confidence convention is published."
         }
+      },
+      "superseded_record_text": {
+        "notes": "This record describes the CaTi2O4-type product established by runs 3 and 4. It is distinct from the lower-pressure CaFe2O4-type run-2 phase. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.",
+        "validity_notes": [
+          "The only nonzero-pressure volume is the in-situ run-4 observation after laser heating; the zero-pressure volume is measured after recovery.",
+          "The interval describes the two observations constraining the source parameterization, not a continuous stability field.",
+          "K0'=4 is fixed by the second-order Birch finite-strain model.",
+          "This is a historical one-point endpoint construction, not a regression EOS; later multi-point studies should be preferred for quantitative compression work."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mgal2o4_cati2o4_ono_2006_bm2_2": {
@@ -237,6 +247,15 @@
           "uncertainties": "Printed parenthetical errors retained; confidence level, covariance, and fit weights are not given.",
           "fit_selection": "All 14 Table 3 rows are retained, including both recovered ambient cells. No row-resolved pressure errors or Pt volumes are printed. Parentheses are described only as errors, with no confidence convention. Printed (0) errors are preserved as rounding to zero, not exact observations. Weighting and any exclusion of recovered cells from the original regression are unspecified. The independent diagnostic uses unweighted pressure residuals, with an explicitly labeled high-pressure-only sensitivity fit."
         }
+      },
+      "superseded_record_text": {
+        "notes": "The structural lattice remains independently sourced to Funamori (1998); it is not the fitted Ono reference volume. No epsilon-phase EOS or cited theoretical/comparison fit is reassigned to this paper. See docs/literature-reproductions/ono-2006-mgal2o4-cati2o4.md.",
+        "validity_notes": [
+          "The nonzero Table 3 measurements span 42.7-91.2 GPa; two recovered ambient cells are also printed. This is not a continuous equilibrium stability field.",
+          "The approximately 45-117 GPa high-temperature phase-stability observations are separate from the 300 K EOS; no thermal extension is published.",
+          "K0-prime=4 is implicit in BM2, not a fitted parameter."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

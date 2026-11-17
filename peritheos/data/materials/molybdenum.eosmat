@@ -9,6 +9,15 @@
     {
       "identifier": "molybdenum_sakai_2025_rydberg_stacey_1",
       "label": "Sakai et al. (2025), Mo generalized Rydberg-Stacey scale",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+        "audit": "../audits/molybdenum.audit.json#molybdenum_sakai_2025_rydberg_stacey_1"
+      },
       "model": "RydbergStacey",
       "temperature_ref": 300,
       "parameters": {
@@ -21,9 +30,7 @@
       "experimental_pressure_range_gpa": [0, 395],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 95.95},
-      "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+      "notes": "Table 2 parameterization. The authors fix most ambient V0 and K0 values from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.",
       "fit_datasets": ["molybdenum_sakai_2025_table_s5_measured_pairs"],
       "reference": {
         "authors": [
@@ -45,18 +52,21 @@
         "locator": "68",
         "doi": "10.1038/s43246-025-00792-5"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/molybdenum.audit.json#molybdenum_sakai_2025_rydberg_stacey_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 95.95}
     },
     {
       "identifier": "molybdenum_shen_2026_vinet_1",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+        "audit": "../audits/molybdenum.audit.json#molybdenum_shen_2026_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -66,7 +76,7 @@
       },
       "experimental_pressure_range_gpa": [0.0, 140.0],
       "determination_method": "experimental",
-      "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.5 GPa and K0' +/- 0.02. Measurements extend to 140 GPa.",
+      "notes": "Table II fit to the combined DAC-1 and DAC-2 data, with pressures from the simultaneously measured Cu volumes.",
       "reference": {
         "authors": ["Shen", "Smith"],
         "year": 2026,
@@ -75,19 +85,20 @@
         "volume": "113",
         "locator": "144113",
         "doi": "10.1103/fxgq-96sg"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/molybdenum.audit.json#molybdenum_shen_2026_vinet_1"
       }
     },
     {
       "identifier": "molybdenum_sokolova_2013_holzapfel_2",
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
+      "check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "audit": "../audits/molybdenum.audit.json#molybdenum_sokolova_2013_holzapfel_2"
+      },
       "model": "Holzapfel",
       "temperature_ref": 298.15,
       "parameters": {
@@ -120,7 +131,7 @@
       },
       "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
-      "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "notes": "Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to shock-wave, ultrasonic, X-ray diffraction, dilatometric and thermochemical data: reference volume from Table 1, Holzapfel and thermal coefficients from Table 4. Sokolova et al. (2016) supplies the spreadsheet implementation, reference-temperature convention and corrected equations.",
       "reference": {
         "authors": ["Sokolova", "Dorogokupets", "Litasov"],
         "year": 2013,
@@ -130,19 +141,20 @@
         "locator": "181-199",
         "details": "Tables 1 and 4",
         "doi": "10.1016/j.rgg.2013.01.005"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/molybdenum.audit.json#molybdenum_sokolova_2013_holzapfel_2"
       }
     },
     {
       "identifier": "molybdenum_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Mo MAO-scale Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2019_mao_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -151,19 +163,17 @@
         "K0_prime": {"value": 3.34, "error": 0.12}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 124.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 124.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [300.0, 300.0]
       },
+      "experimental_pressure_range_gpa": [0.0, 124.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 record is an alternative reduction of the same data, not an independent experiment.",
       "fit_datasets": ["molybdenum_dewaele_2008_table2_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -171,18 +181,20 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2019_mao_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "molybdenum_dewaele_2019_dor_vinet",
       "label": "Dewaele (2019), Mo DOR-scale Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2019_dor_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -191,20 +203,17 @@
         "K0_prime": {"value": 3.87, "error": 0.12}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 124.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 124.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [300.0, 300.0]
       },
+      "experimental_pressure_range_gpa": [0.0, 124.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-      "pressure_scale_variant_of": "molybdenum_dewaele_2019_mao_vinet",
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986 record is an alternative reduction of the same data, not an independent experiment.",
       "fit_datasets": ["molybdenum_dewaele_2008_table2_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -212,18 +221,22 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2019_dor_vinet"
-      }
+      "equation_kind": "isothermal",
+      "pressure_scale_variant_of": "molybdenum_dewaele_2019_mao_vinet"
     },
     {
       "identifier": "molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet",
       "label": "Dorfman et al. (2012), Mo K0-fixed Vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0': refit 4.138 vs published 4.19 (-1.2%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-07",
+        "source_note": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
+        "audit": "../audits/molybdenum.audit.json#molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -232,22 +245,21 @@
         "K0_prime": {"value": 4.19, "error": 0.02}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 207.0],
-      "pressure_range_status": "reference_parameterization",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 207.0],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.",
-          "The available auxiliary rows containing Mo span 43.1-214.6 GPa in the source's printed derived pressures."
+          "The range is that of the published Table 2 pressure-standard parameterization, not the observation envelope.",
+          "The available Mo data rows span 43.1-214.6 GPa (printed derived pressures)."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 207.0],
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
+      "notes": "Pressure-standard fit to co-compression data, with pressures from the Tange et al. (2009) MgO Vinet EOS (their Fit 3) as fixed 300 K anchor. This K0-fixed solution and the K0-free record are correlated alternatives from the same data, not independent experiments.",
       "fit_datasets": ["dorfman_2012_tables_s1_s6_cocompression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dorfman", "Prakapenka", "Meng", "Duffy"],
         "year": 2012,
@@ -255,18 +267,21 @@
         "source": "Journal of Geophysical Research",
         "doi": "10.1029/2012JB009292"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-07",
-        "audit": "../audits/molybdenum.audit.json#molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "molybdenum_dorfman_2012_tange_mgo_k0_free_vinet",
       "label": "Dorfman et al. (2012), Mo K0-free Vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 255.5 vs published 271 GPa (-5.7%), beyond the agreement limit; K0': refit 4.295 vs published 3.89 (+10.4%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-07",
+        "source_note": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
+        "audit": "../audits/molybdenum.audit.json#molybdenum_dorfman_2012_tange_mgo_k0_free_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -275,22 +290,21 @@
         "K0_prime": {"value": 3.89, "error": 0.09}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 207.0],
-      "pressure_range_status": "reference_parameterization",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 207.0],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.",
-          "The available auxiliary rows containing Mo span 43.1-214.6 GPa in the source's printed derived pressures."
+          "The range is that of the published Table 2 pressure-standard parameterization, not the observation envelope.",
+          "The available Mo data rows span 43.1-214.6 GPa (printed derived pressures)."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 207.0],
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
+      "notes": "Pressure-standard fit to co-compression data, with pressures from the Tange et al. (2009) MgO Vinet EOS (their Fit 3) as fixed 300 K anchor. This K0-free solution and the K0-fixed record are correlated alternatives from the same data, not independent experiments.",
       "fit_datasets": ["dorfman_2012_tables_s1_s6_cocompression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dorfman", "Prakapenka", "Meng", "Duffy"],
         "year": 2012,
@@ -298,18 +312,20 @@
         "source": "Journal of Geophysical Research",
         "doi": "10.1029/2012JB009292"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-07",
-        "audit": "../audits/molybdenum.audit.json#molybdenum_dorfman_2012_tange_mgo_k0_free_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "molybdenum_dewaele_2008_table4_vinet",
       "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-23",
+        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2008_table4_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -318,14 +334,13 @@
         "K0_prime": {"value": 3.58, "error": 0.12}
       },
       "parameter_error_confidence": 0.95,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 97.9],
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "notes": "Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data; run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.",
       "fit_datasets": ["molybdenum_dewaele_2008_source_table"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
         "year": 2008,
@@ -335,18 +350,20 @@
         "locator": "104102",
         "doi": "10.1103/PhysRevB.78.104102"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-23",
-        "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2008_table4_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "molybdenum_dewaele_2008_table4_us_k0_261_vinet",
       "label": "Dewaele et al. (2008), Table IV Vinet, US K0=261 GPa fixed",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-23",
+        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2008_table4_us_k0_261_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -355,14 +372,13 @@
         "K0_prime": {"value": 4.06, "error": 0.05}
       },
       "parameter_error_confidence": 0.95,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 97.9],
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "notes": "Table IV fit with V0 fixed from a separate fit to the 0-5 GPa data and K0 adopted from ultrasound; it is distinct from the later 2019 all-free-parameter recalibration. Run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.",
       "fit_datasets": ["molybdenum_dewaele_2008_source_table"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
         "year": 2008,
@@ -372,14 +388,7 @@
         "locator": "104102",
         "doi": "10.1103/PhysRevB.78.104102"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-23",
-        "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2008_table4_us_k0_261_vinet"
-      }
+      "equation_kind": "isothermal"
     }
   ],
   "symmetry": "CUBIC",

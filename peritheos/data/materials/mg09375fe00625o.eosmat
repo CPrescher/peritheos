@@ -6,10 +6,20 @@
   "phase": "B1 ferropericlase",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1"},
   "eos_records": [
     {
       "identifier": "mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1",
       "label": "Marcondes et al. (2020), 6Fp 11nn hs static BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
+        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 0,
       "parameters": {
@@ -18,20 +28,17 @@
         "K0_prime": {"value": 4.16, "error": null}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 135],
         "temperature_k": [0, 0],
         "notes": [
-          "Static LSDA+Usc HS branch for two Fe ions at 11th-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+          "The bound follows the pressure range of the source's phonon calculations; the unpublished energy-volume grid may span a different interval."
         ]
       },
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "parameter_covariance": null,
+      "notes": "Static LSDA+Usc calculation for two high-spin Fe ions at 11th-neighbor separation.",
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -41,18 +48,21 @@
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525}
     },
     {
       "identifier": "mg09375fe00625o_marcondes_2020_11nn_ls_bm3_2",
       "label": "Marcondes et al. (2020), 6Fp 11nn ls static BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
+        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_11nn_ls_bm3_2"
+      },
       "model": "BM3",
       "temperature_ref": 0,
       "parameters": {
@@ -61,19 +71,17 @@
         "K0_prime": {"value": 4.17, "error": null}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 135],
         "temperature_k": [0, 0],
         "notes": [
-          "Static LSDA+Usc LS branch for two Fe ions at 11th-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+          "The bound follows the pressure range of the source's phonon calculations; the unpublished energy-volume grid may span a different interval."
         ]
       },
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "parameter_covariance": null,
+      "notes": "Static LSDA+Usc calculation for two low-spin Fe ions at 11th-neighbor separation.",
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -83,18 +91,21 @@
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_11nn_ls_bm3_2"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525}
     },
     {
       "identifier": "mg09375fe00625o_marcondes_2020_11nn_ms_bm3_3",
       "label": "Marcondes et al. (2020), 6Fp 11nn ms static BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
+        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_11nn_ms_bm3_3"
+      },
       "model": "BM3",
       "temperature_ref": 0,
       "parameters": {
@@ -103,19 +114,17 @@
         "K0_prime": {"value": 4.23, "error": null}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 135],
         "temperature_k": [0, 0],
         "notes": [
-          "Static LSDA+Usc MS branch for one HS and one LS Fe at 11th-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+          "The bound follows the pressure range of the source's phonon calculations; the unpublished energy-volume grid may span a different interval."
         ]
       },
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "parameter_covariance": null,
+      "notes": "Static LSDA+Usc mixed-spin calculation with one high-spin and one low-spin Fe ion at 11th-neighbor separation.",
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -125,18 +134,21 @@
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_11nn_ms_bm3_3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525}
     },
     {
       "identifier": "mg09375fe00625o_marcondes_2020_2nn_hs_bm3_4",
       "label": "Marcondes et al. (2020), 6Fp 2nn hs static BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
+        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_2nn_hs_bm3_4"
+      },
       "model": "BM3",
       "temperature_ref": 0,
       "parameters": {
@@ -145,19 +157,17 @@
         "K0_prime": {"value": 4.05, "error": null}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 135],
         "temperature_k": [0, 0],
         "notes": [
-          "Static LSDA+Usc HS branch for two Fe ions at 2nd-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+          "The bound follows the pressure range of the source's phonon calculations; the unpublished energy-volume grid may span a different interval."
         ]
       },
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "parameter_covariance": null,
+      "notes": "Static LSDA+Usc calculation for two high-spin Fe ions at 2nd-neighbor separation.",
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -167,18 +177,21 @@
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_2nn_hs_bm3_4"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525}
     },
     {
       "identifier": "mg09375fe00625o_marcondes_2020_2nn_ls_bm3_5",
       "label": "Marcondes et al. (2020), 6Fp 2nn ls static BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
+        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_2nn_ls_bm3_5"
+      },
       "model": "BM3",
       "temperature_ref": 0,
       "parameters": {
@@ -187,19 +200,17 @@
         "K0_prime": {"value": 4.17, "error": null}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 135],
         "temperature_k": [0, 0],
         "notes": [
-          "Static LSDA+Usc LS branch for two Fe ions at 2nd-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+          "The bound follows the pressure range of the source's phonon calculations; the unpublished energy-volume grid may span a different interval."
         ]
       },
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "parameter_covariance": null,
+      "notes": "Static LSDA+Usc calculation for two low-spin Fe ions at 2nd-neighbor separation.",
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -209,18 +220,21 @@
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_2nn_ls_bm3_5"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525}
     },
     {
       "identifier": "mg09375fe00625o_marcondes_2020_2nn_ms_bm3_6",
       "label": "Marcondes et al. (2020), 6Fp 2nn ms static BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
+        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_2nn_ms_bm3_6"
+      },
       "model": "BM3",
       "temperature_ref": 0,
       "parameters": {
@@ -229,19 +243,17 @@
         "K0_prime": {"value": 4.16, "error": null}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 135],
         "temperature_k": [0, 0],
         "notes": [
-          "Static LSDA+Usc MS branch for one HS and one LS Fe at 2nd-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+          "The bound follows the pressure range of the source's phonon calculations; the unpublished energy-volume grid may span a different interval."
         ]
       },
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "parameter_covariance": null,
+      "notes": "Static LSDA+Usc mixed-spin calculation with one high-spin and one low-spin Fe ion at 2nd-neighbor separation.",
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -251,14 +263,8 @@
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg09375fe00625o.audit.json#mg09375fe00625o_marcondes_2020_2nn_ms_bm3_6"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525}
     }
   ],
   "aliases": [

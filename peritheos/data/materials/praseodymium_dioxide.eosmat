@@ -9,6 +9,15 @@
     {
       "identifier": "praseodymium_dioxide_gerward_2005_bm3_1",
       "label": "Gerward et al. (2005), room-temperature BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.",
+        "audit": "../audits/praseodymium_dioxide.audit.json#praseodymium_dioxide_gerward_2005_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -18,7 +27,7 @@
       },
       "experimental_pressure_range_gpa": [0.0, 35.0],
       "determination_method": "experimental",
-      "notes": "Room-temperature powder XRD fit of the cubic fluorite phase. The equation fits K0 and K0_prime using measured a0=5.394(2) A; V0=a0^3 and its error is propagated as 3*a0^2*sigma_a.",
+      "notes": "Room-temperature powder XRD fit of the cubic fluorite phase. K0 and K0' are fitted with V0 fixed from the measured a0 = 5.394(2) Å; V0 = a0³, with its error propagated as 3 a0² sigma_a.",
       "reference": {
         "authors": ["Gerward", "Staun Olsen", "Petit", "Vaitheeswaran", "Kanchana", "Svane"],
         "year": 2005,
@@ -27,14 +36,6 @@
         "volume": "400",
         "locator": "56-61",
         "doi": "10.1016/j.jallcom.2005.04.008"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/praseodymium_dioxide.audit.json#praseodymium_dioxide_gerward_2005_bm3_1"
       }
     }
   ],

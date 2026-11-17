@@ -9,6 +9,15 @@
     {
       "identifier": "lif_b1_dewaele_2019_vinet_1",
       "label": "Dewaele (2019), 300 K helium-medium Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Table 4 reports 60 LiF P-V observations in three experimental runs; all are bundled without converting their per-formula-unit volume convention.",
+        "audit": "../audits/lif_b1.audit.json#lif_b1_dewaele_2019_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -20,7 +29,7 @@
       "experimental_pressure_range_gpa": [0.0, 109.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
-      "notes": "Table 1 Mao-ruby-scale fit, selected because that column reports parameter uncertainties. Published V0=16.371(30) A^3 per formula unit is multiplied by Z=4 for the conventional B1 cell. The paper states that parenthesized values are 95% confidence intervals.",
+      "notes": "Table 1 fit on the Mao ruby scale. Published V0 = 16.371(30) Å³ per formula unit; stored per conventional B1 cell (×4).",
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -29,14 +38,6 @@
         "volume": "9",
         "locator": "684",
         "doi": "10.3390/min9110684"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 4 reports 60 LiF P-V observations in three experimental runs; all are bundled without converting their per-formula-unit volume convention.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/lif_b1.audit.json#lif_b1_dewaele_2019_vinet_1"
       }
     }
   ],

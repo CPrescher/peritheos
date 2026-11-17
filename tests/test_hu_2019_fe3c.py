@@ -30,6 +30,7 @@ from scripts.hu_2019_fe3c import (
     observations,
     reproduce,
 )
+from scripts.split_eosmat_audits import restore_record_text
 from scripts.standardize_reconstruction_metadata import assessment_for_record
 
 
@@ -95,7 +96,13 @@ def test_saved_record_assessment_matches_ledger_and_existing_default(
 ):
     d = get_material_document("cementite_nonmagnetic", format_version=4)
     r = next(x for x in d["eos_records"] if x["identifier"] == IDENTIFIER)
-    assert_record_replay_close(r, catalog_record())
+    # v4 exports write an explicit default flag beside default_for.
+    assert r.pop("default") is True
+    # The integration script wrote the label later shortened by a text
+    # revision; its original is kept verbatim in superseded_record_text.
+    restored = copy.deepcopy(r)
+    restore_record_text(restored)
+    assert_record_replay_close(restored, catalog_record())
     entry = next(
         x
         for x in json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())[
@@ -206,6 +213,23 @@ def test_native_and_compatibility_roundtrip_preserve_porosity_rows_and_scope(
             check = original["check"]
             assert check_block(reconstructed, restored, audit=check["audit"]) == check
             reconstructed["check"] = check
+    if version != 5:
+        # v3/v4 carry the default selection as per-record flags; the v5 file
+        # names it once in default_records.
+        for record in restored["eos_records"]:
+            category = d["default_records"].get(
+                "hugoniot" if record["model"] == "LinearUsUpHugoniot" else "equilibrium"
+            )
+            assert record.pop("default") is (record["identifier"] == category)
+            assert record.pop("default_for", None) == (
+                None
+                if record["identifier"] != category
+                else (
+                    "hugoniot"
+                    if record["model"] == "LinearUsUpHugoniot"
+                    else "equilibrium"
+                )
+            )
     assert restored["eos_records"] == d["eos_records"]
     assert restored["datasets"] == d["datasets"]
     chosen = Material.from_eosmat(out, record_identifiers=[IDENTIFIER])

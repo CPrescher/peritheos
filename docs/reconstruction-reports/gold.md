@@ -39,9 +39,9 @@ stays in EOSMAT and the ledger.
 | [Dewaele et al. (2004), revised-ruby Vinet](#record-gold_dewaele_2004_vinet_5) | **reproduced** |  |
 | [Takemura and Dewaele (2008), Dorogokupets-ruby Vinet](#record-gold_takemura_2008_vinet_6) | **reproduced** |  |
 | [Anderson et al. (1989), Au logarithmic-volume thermal EOS](#record-gold_anderson_1989_bm3_1) | **untested** (not refittable) |  |
-| [04-0784, Fei et al PNAS, 2007 \[Vinet\]](#record-gold_fei_2007_vinet_2) | **reproduced** |  |
+| [Fei et al. (2007), Vinet-MGD](#record-gold_fei_2007_vinet_2) | **reproduced** |  |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-gold_shen_2026_vinet_3) | **reproduced** |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | **untested** (source calculation reconstructed) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | **untested** (source calculation reconstructed) |  |
 | [Fratanduono et al. (2021), ramp-derived 298 K Vinet](#record-gold_fratanduono_2021_vinet_7) | **reproduced** |  |
 | [Dewaele (2019), Au MAO-scale Vinet](#record-gold_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | **reproduced** |  |
@@ -56,8 +56,8 @@ stays in EOSMAT and the ledger.
 | [Fei et al. (2004), gold BM3-MGD on Speziale MgO scale](#record-gold_fei_2004_bm3_mgd) | **untested** (not refittable) |  |
 | [Yokoo et al. (2009), Au fitted BM3 isotherm, 300 K](#record-gold_yokoo_2009_bm3_300k) | **untested** (not refittable) |  |
 | [Yokoo et al. (2009), Au fitted Vinet isotherm, 300 K](#record-gold_yokoo_2009_vinet_300k) | **untested** (not refittable) |  |
-| [Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | **untested** (source calculation reconstructed) | Explicit selection only; not loaded by default. |
-| [Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | **reproduced** |  |
+| [Yokoo et al. (2009), Table III P-V-T reconstruction](#record-gold_yokoo_2009_pvt_reconstruction) | **untested** (source calculation reconstructed) | Never chosen automatically; select it explicitly. |
+| [Peritheos refit of Hirose et al. (2008) + Fei (2004), BM3](#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit) | **reproduced** |  |
 
 <a id="record-gold_sakai_2025_rydberg_stacey_1"></a>
 
@@ -255,7 +255,7 @@ Both fits use the same 86 recovered audit input rows. **Volume coordinate:** lat
 
 <a id="record-gold_fei_2007_vinet_2"></a>
 
-## 04-0784, Fei et al PNAS, 2007 \[Vinet\]
+## Fei et al. (2007), Vinet-MGD
 
 **reproduced** · `gold_fei_2007_vinet_2` · `Vinet` · [Coefficients and source](../material-summaries/gold.md#record-gold_fei_2007_vinet_2)
 
@@ -386,7 +386,7 @@ Both fits use the same 228 recovered audit input rows. **Volume coordinate:** un
 
 <a id="record-gold_sokolova_2013_holzapfel_4"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `gold_sokolova_2013_holzapfel_4` · `Holzapfel` · [Coefficients and source](../material-summaries/gold.md#record-gold_sokolova_2013_holzapfel_4)
 
@@ -1244,11 +1244,11 @@ Both fits use the same 26 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-gold_yokoo_2009_pvt_reconstruction"></a>
 
-## Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction
+## Yokoo et al. (2009), Table III P-V-T reconstruction
 
 **untested** (source calculation reconstructed) · `gold_yokoo_2009_pvt_reconstruction` · `BM3` · [Coefficients and source](../material-summaries/gold.md#record-gold_yokoo_2009_pvt_reconstruction)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Scope:** Reconstruction of a source equation or calculation. **Basis:** Numerically checked diagnostic reconstruction of published table outputs. The published analytical PVT parameterization remains unreproduced: Au uses altered phonon coefficients and Pt adds an empirical pressure correction. This source-output status does not validate the published Yokoo pressure standard. The separate pressure-convention audit rules out cold-reference offsets and tests last-digit rounding; no caloric or original-fit inputs are required for PVT evaluation.
 
@@ -1276,7 +1276,7 @@ Recorded pressure RMS error (GPa), in the audit's own coordinates and objective:
 
 <a id="record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit"></a>
 
-## Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO
+## Peritheos refit of Hirose et al. (2008) + Fei (2004), BM3
 
 **reproduced** · `gold_hirose_2008_fei_2004_speziale_2001_bm3_refit` · `BM3` · [Coefficients and source](../material-summaries/gold.md#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit)
 

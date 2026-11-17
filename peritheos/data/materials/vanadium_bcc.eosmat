@@ -6,10 +6,20 @@
   "phase": "bcc",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 2,
+  "default_records": {"equilibrium": "vanadium_bcc_crichton_2016_bm3_thermal"},
   "eos_records": [
     {
       "identifier": "vanadium_bcc_crichton_2016_bm3_thermal",
       "label": "Crichton et al. (2016), bcc V thermal BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-19",
+        "source_note": "Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit.",
+        "audit": "../audits/vanadium_bcc.audit.json#vanadium_bcc_crichton_2016_bm3_thermal"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -33,22 +43,12 @@
       "experimental_pressure_range_gpa": [0.0, 11.5],
       "experimental_temperature_range_k": [300.0, 1000.0],
       "pressure_range_status": "reported_qualitatively",
-      "determination_method": "experimental",
-      "equation_kind": "thermal",
-      "default": true,
-      "notes": "Source-owned unconstrained 62-point unweighted fit, measured to 11.5 GPa and 1000 K. Initial first-cycle stressed-foil observations were anomalous; recovered ambient point is explicitly excluded. No statistical confidence/covariance is specified. Nominal-temperature digitized symbols only support a qualified proxy refit, not the original regression. The source Conclusion quotes 2.7% ambient and 1.2% at 10 GPa expansion from 300 to 1000 K; stored coefficients give 2.294% and 1.026%. Figure 2 supports the stored expansion convention; no coefficient is changed to force the prose values. Two fixed-K0-prime alternatives are withheld for missing V0 and thermal parameters.",
       "range_provenance": {
         "source_location": "Abstract; Experimental; Figure 2",
         "notes": "Marginal experimental coverage, not a fully sampled rectangle or phase boundary. The bcc-to-rhombohedral transitions discussed near 60-69 GPa are outside this experiment and do not extend its validity. Excludes oxidized/reacted material and initially stressed foil."
       },
-      "source_volume_normalization": {
-        "fitted_relative_volume": 1.005,
-        "reported_uncertainty": 0.001,
-        "uncertainty_confidence": null,
-        "recovered_cell_volume_a3": 27.995,
-        "plot_denominator_a3": 27.85572139303483,
-        "notes": "The plot uses a different reference denominator from the relaxed EOS V0. Do not divide the stored EOS V0 by 1.005 or replace it with the separately sourced structural cell."
-      },
+      "determination_method": "experimental",
+      "notes": "The authors' unconstrained, unweighted 62-point thermal fit; the anomalous first-cycle stressed-foil observations and the recovered ambient point are excluded, and no confidence or covariance is specified. The Conclusion quotes 2.7% thermal expansion at ambient pressure and 1.2% at 10 GPa from 300 to 1000 K; the stored coefficients give 2.294% and 1.026%, consistent with Figure 2.",
       "validation_datasets": ["vanadium_crichton_2016_figure2_points", "vanadium_crichton_2016_figure2_curves"],
       "reference": {
         "authors": ["Crichton", "Guignard", "Bailey", "Dobson", "Hunt", "Thomson"],
@@ -59,13 +59,14 @@
         "locator": "16-22",
         "doi": "10.1080/08957959.2015.1123256"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-19",
-        "audit": "../audits/vanadium_bcc.audit.json#vanadium_bcc_crichton_2016_bm3_thermal"
+      "equation_kind": "thermal",
+      "source_volume_normalization": {
+        "fitted_relative_volume": 1.005,
+        "reported_uncertainty": 0.001,
+        "uncertainty_confidence": null,
+        "recovered_cell_volume_a3": 27.995,
+        "plot_denominator_a3": 27.85572139303483,
+        "notes": "The plot uses a different reference denominator from the relaxed EOS V0. Do not divide the stored EOS V0 by 1.005 or replace it with the separately sourced structural cell."
       }
     }
   ],

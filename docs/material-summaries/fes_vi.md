@@ -100,7 +100,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. Accepted on staged parameter agreement within reported uncertainties. The residual-envelope discrepancy is informational; exact author workflow is unverified. Use the common EOS within the paper's 40-150 GPa scope and observed thermal coverage; this is not a phase-stability guarantee.
+One published volume relation fitted jointly across FeS-VI, FeS-IV and FeS-IX. V0 is an extrapolated EOS parameter, distinct from the structural cell measured at 56 GPa and 300 K. Use within the paper's 40-150 GPa model range and the observed thermal coverage.
 
 <details markdown="1">
 <summary>Source review</summary>

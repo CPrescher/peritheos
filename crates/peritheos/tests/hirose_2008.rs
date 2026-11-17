@@ -52,6 +52,9 @@ fn hirose_gold_records_load_and_roundtrip_through_native_eosmat() {
         .unwrap()
         .retain(|dataset| dataset["identifier"].as_str().unwrap() == "gold_hirose_2008_table1");
     assert_eq!(document["eos_records"].as_array().unwrap().len(), 3);
+    // The material default is not among the kept records; a default_records
+    // map naming a missing record is invalid.
+    document.as_object_mut().unwrap().remove("default_records");
     let material = load_eosmat_str(&document.to_string()).unwrap();
     let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
     assert_eq!(material.document, restored.document);

@@ -84,7 +84,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 15.5\]
 
-Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 2.5 GPa and K0' +/- 0.5. The bcc phase data extend to 15.5 GPa.
+Table II fit to the combined DAC-1 and DAC-2 data, with pressures from the simultaneously measured Cu volumes. The bcc-phase data extend to 15.5 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -169,7 +169,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Reported error confidence level:** 0.95
 
-Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data; run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -246,7 +246,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Reported error confidence level:** 0.95
 
-Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+Table IV fit with V0 fixed from a separate fit to the 0-5 GPa data and K0 adopted from ultrasound; it is distinct from the later 2019 all-free-parameter recalibration. Run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -104,6 +104,10 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary abstract; third-order Birch-Murnaghan fit."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Third-order Birch-Murnaghan fit to 22 single-crystal measurements from ambient pressure to 8.9 GPa at room temperature. The range describes the fitted data, not the alpha-quartz stability field.",
+        "superseded_on": "2026-11-16"
       }
     },
     "alpha_quartz_driver_2010_qmc_300k_vinet": {
@@ -161,6 +165,11 @@
           "parameters": "Table 1, quartz QMC column.",
           "volume_conversion": "254(2) bohr3 per SiO2 multiplied by (0.529177210903 A/bohr)^3 and Z=3."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": ["QMC plus quasiharmonic phonons; quartz is metastable above its transition."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

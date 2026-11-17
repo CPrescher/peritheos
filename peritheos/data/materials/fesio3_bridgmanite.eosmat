@@ -6,10 +6,20 @@
   "phase": "orthorhombic perovskite (Pv), high-spin antiferromagnetic",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "fesio3_bridgmanite_cohen_lin_2014_vinet_1"},
   "eos_records": [
     {
       "identifier": "fesio3_bridgmanite_cohen_lin_2014_vinet_1",
       "label": "Cohen and Lin (2014), static GGA+U FeSiO3 Pv Vinet",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The final paper reports a separate static Vinet fit for FeSiO3 Pv. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.",
+        "audit": "../audits/fesio3_bridgmanite.audit.json#fesio3_bridgmanite_cohen_lin_2014_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 0.0,
       "parameters": {
@@ -18,25 +28,18 @@
         "K0_prime": {"value": 4.42, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [-10.0, 150.0],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [-10.0, 150.0],
         "temperature_k": [0.0, 0.0],
         "volume_ratio": [0.718447, 1.050881],
-        "notes": [
-          "Static 0 K GGA+U curve; it is not an experimental ambient-pressure stability field.",
-          "The source energy grid corresponds to -10, 0, 25, 50, 75, 100, 125, and 150 GPa."
-        ]
+        "notes": ["The source energy grid corresponds to -10, 0, 25, 50, 75, 100, 125 and 150 GPa."]
       },
+      "experimental_pressure_range_gpa": [-10.0, 150.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
-      "sample_composition": "Stoichiometric FeSiO3 perovskite; static high-spin antiferromagnetic GGA+U model crystal.",
-      "notes": "Retain as a directly published Vinet parameterization. Keep not_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.",
-      "parameter_covariance": null,
+      "notes": "Published static 0 K GGA+U Vinet fit; the numerical E(V) grid was not deposited.",
       "reference": {
         "authors": ["Cohen", "Lin"],
         "year": 2014,
@@ -46,18 +49,22 @@
         "locator": "140102(R)",
         "doi": "10.1103/PhysRevB.90.140102"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The final paper reports a separate static Vinet fit for FeSiO3 Pv. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/fesio3_bridgmanite.audit.json#fesio3_bridgmanite_cohen_lin_2014_vinet_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
+      "sample_composition": "Stoichiometric FeSiO3 perovskite; static high-spin antiferromagnetic GGA+U model crystal."
     },
     {
       "identifier": "fesio3_bridgmanite_holland_2013_fpv_modified_tait",
       "label": "Holland et al. (2013), fpv modified Tait",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The fpv endmember is a distinct modified-Tait reference isotherm.",
+        "audit": "../audits/fesio3_bridgmanite.audit.json#fesio3_bridgmanite_holland_2013_fpv_modified_tait"
+      },
       "model": "ModifiedTait",
       "temperature_ref": 298.15,
       "parameters": {
@@ -66,18 +73,16 @@
         "K0_prime": {"value": 4.14, "error": null},
         "K0_double_prime": {"value": -0.016, "error": null}
       },
+      "validity": {
+        "pressure_gpa": [0.0001, 30.0],
+        "temperature_k": [298.15, 298.15]
+      },
       "experimental_pressure_range_gpa": [0.0001, 30.0],
       "experimental_temperature_range_k": [298.15, 298.15],
       "pressure_range_status": "reference_parameterization",
-      "validity": {
-        "pressure_gpa": [0.0001, 30.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": ["Ideal FeSiO3 perovskite thermodynamic endmember, not an ambient stable phase or individual experiment."]
-      },
       "determination_method": "unknown",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
+      "notes": "Ideal FeSiO3 perovskite thermodynamic endmember, not an ambient stable phase or an individual experiment.",
       "reference": {
         "authors": ["Holland", "Hudson", "Powell", "Harte"],
         "year": 2013,
@@ -87,14 +92,8 @@
         "locator": "1901-1920",
         "doi": "10.1093/petrology/egt035"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The fpv endmember is a distinct modified-Tait reference isotherm.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/fesio3_bridgmanite.audit.json#fesio3_bridgmanite_holland_2013_fpv_modified_tait"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928}
     }
   ],
   "aliases": ["FeSiO3 bridgmanite", "FeSiO3 Pv", "Iron silicate perovskite"],

@@ -36,7 +36,7 @@ stays in EOSMAT and the ledger.
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
 | [Campbell and Heinz (1994), RbCl-B2 BM3](#record-rbcl_b2_campbell_1994_bm3_1) | **reproduced** |  |
-| [Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | **reproduced** |  |
+| [Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | **reproduced** |  |
 
 <a id="record-rbcl_b2_campbell_1994_bm3_1"></a>
 
@@ -102,7 +102,7 @@ Both fits use the same 24 recovered audit input rows. **Volume coordinate:** lat
 
 <a id="record-rbcl_b2_farla_2025_bm3_mgd_cscl"></a>
 
-## Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)
+## Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)
 
 **reproduced** · `rbcl_b2_farla_2025_bm3_mgd_cscl` · `BM3` · [Coefficients and source](../material-summaries/rbcl.md#record-rbcl_b2_farla_2025_bm3_mgd_cscl)
 

@@ -88,14 +88,14 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[-10.0, 150.0\]
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.703885, 1.060675\]
-    - **Notes:** Static 0 K GGA+U fit interval, not a Cmmm phase-stability field.; The source reports a displacive Cmmm-to-C2/m distortion at low pressure; use the Cmmm structure specifically near the 100 GPa tabulated state.; The eight energy calculations correspond to -10 through 150 GPa.
+    - **Notes:** The source reports a displacive Cmmm-to-C2/m distortion at low pressure; use the Cmmm structure specifically near the 100 GPa tabulated state.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 131.928
 - **Reported error confidence level:** Not specified
 
-Retain as a directly published Vinet parameterization, without implying Cmmm stability across the whole mathematical interval. Keep not\_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.
+Static 0 K GGA+U Vinet fit to eight energy calculations covering -10 to 150 GPa; no numerical E(V) grid was deposited.
 
 <details markdown="1">
 <summary>Source review</summary>

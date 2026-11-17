@@ -40,7 +40,7 @@ stays in EOSMAT and the ledger.
 | [Dewaele (2019), Re MAO-scale Vinet](#record-rhenium_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), Re DOR-scale Vinet](#record-rhenium_dewaele_2019_dor_vinet) | **reproduced** |  |
 | [Sakai et al. (2018), Re Vinet on the Yokoo Pt scale](#record-rhenium_sakai_2018_yokoo_pt_vinet) | **reproduced** |  |
-| [Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | **reproduced** |  |
+| [Zha et al. (2004), Table III BM3 + logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | **reproduced** |  |
 
 <a id="record-rhenium_sakai_2025_rydberg_stacey_1"></a>
 
@@ -349,7 +349,7 @@ Both fits use the same 26 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-rhenium_zha_2004_bm3_log_thermal"></a>
 
-## Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure
+## Zha et al. (2004), Table III BM3 + logarithmic thermal pressure
 
 **reproduced** · `rhenium_zha_2004_bm3_log_thermal` · `BM3` · [Coefficients and source](../material-summaries/rhenium.md#record-rhenium_zha_2004_bm3_log_thermal)
 

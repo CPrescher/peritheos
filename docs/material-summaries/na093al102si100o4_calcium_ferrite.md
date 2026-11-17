@@ -89,10 +89,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0001, 41.0\]
     - **Temperature k:** \[293.0, 293.0\]
     - **Volume ratio:** \[0.8580298013, 0.9995860927\]
-    - **Notes:** The pressure and volume-ratio bounds are the Table S3 observation envelope, not a broader phase-stability guarantee.; All measurements are described as room temperature; 293 K is the explicit temperature of the official 1.7 GPa CIF block, and no row-wise temperatures are published.
+    - **Notes:** Measurements are described as room temperature; 293 K is the temperature stated in the official 1.7 GPa CIF block. No row-wise temperatures are published.
 - **Reported error confidence level:** Not specified
 
-Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0\_prime were all fitted with EosFit7c; none was fixed. Parenthesized coefficient errors are retained as generic published uncertainties because the source gives neither confidence level nor covariance. The observed range is not a phase-stability guarantee. See docs/qin-2023-naalsio4-eos.md.
+Eulerian BM3 fit at room temperature with V0, K0 and K0' all fitted (EosFit7c program).
 
 <details markdown="1">
 <summary>Source review</summary>

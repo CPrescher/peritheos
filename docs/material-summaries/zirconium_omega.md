@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 33.0\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 
-The fit constrained V0 to the independently measured decompression value 23.05(3) A^3/atom; volume and uncertainty are tripled for the conventional Z=3 cell.
+V0 is fixed at the independently measured decompression value, 23.05(3) Å³/atom; value and error are stored per conventional cell (×3).
 
 <details markdown="1">
 <summary>Source review</summary>

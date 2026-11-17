@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from collections.abc import Mapping
-from typing import Any
+from typing import Any, NamedTuple
 
 _MATERIAL_KEYS = (
     "format",
@@ -74,9 +74,9 @@ _RECORD_KEYS = (
     "evidence",
 )
 
-# Native records put the information needed to read/use the EOS ahead of long
-# citations and audit history. Unrecognized extensions stay ahead of that tail
-# too: a source-specific scientific qualification must not disappear below it.
+# EOSMAT v4 records (and v5 records written before the v5 reading-order
+# revision) put the information needed to read/use the EOS ahead of long
+# citations and audit history. Unrecognized extensions stay ahead of that tail.
 _V4_RECORD_KEYS = (
     "identifier",
     "label",
@@ -123,13 +123,101 @@ _V4_RECORD_TAIL = (
     "check",
     "pressure_calibration",
     "evidence",
+    "superseded_record_text",
+)
+
+# Native v5 records read in this order: what the record is and how it was
+# checked, the model and its reference state, coefficients, error convention
+# and covariance, the stated envelope, how the values were determined, notes,
+# linked datasets and the citation. The remaining keys keep their earlier
+# relative order. Unrecognized extensions stay ahead of the audit tail: a
+# source-specific scientific qualification must not disappear below it.
+_V5_RECORD_KEYS = (
+    "identifier",
+    "label",
+    "check",
+    "model",
+    "temperature_ref",
+    "reference_pressure_gpa",
+    "parameters",
+    "equation_options",
+    "thermal",
+    "parameter_error_confidence",
+    "parameter_error_volume_basis",
+    "parameter_covariance",
+    "validity",
+    "experimental_pressure_range_gpa",
+    "experimental_temperature_range_k",
+    "pressure_range_status",
+    "range_provenance",
+    "determination_method",
+    "record_kind",
+    "notes",
+    "fit_datasets",
+    "supporting_datasets",
+    "validation_datasets",
+    "comparison_datasets",
+    "diagnostic_datasets",
+    "analysis_datasets",
+    "context_datasets",
+    "reference",
+    "equation_kind",
+    "default_for",
+    "default",
+    "catalog_access",
+    "recommendation_hold",
+    "phase_scope",
+    "phase_selection",
+    "loading_path",
+    "branch_kind",
+    "initial_state",
+    "volume_basis",
+    "volume",
+    "branch_domain",
+    "sample_composition",
+    "experimental_configuration",
+    "computational_configuration",
+    "temperature_ref_provenance",
+    "pressure_scale_variant_of",
+    "derived_from_record",
+    "aliases",
+)
+_V5_RECORD_TAIL = (
+    "pressure_calibration",
+    "evidence",
+    "superseded_record_text",
+)
+_V4_MATERIAL_FIRST = (
+    "format_version",
+    "identifier",
+    "name",
+    "formula",
+    "phase",
+    "units",
+    "formula_units_per_cell",
+    "recommendation_hold",
+    "eos_records",
+)
+_V5_MATERIAL_FIRST = (
+    "format_version",
+    "identifier",
+    "name",
+    "formula",
+    "phase",
+    "units",
+    "formula_units_per_cell",
+    "recommendation_hold",
+    "default_records",
+    "eos_records",
 )
 _CHECK_KEYS = (
     "reproduction",
+    "compared",
+    "why",
     "warning",
-    "finding",
-    "source",
+    "source_check",
     "source_checked_on",
+    "source_note",
     "audit",
 )
 _THERMAL_KEYS = (
@@ -169,7 +257,33 @@ _COMPARISON_KEYS = (
 )
 
 
-def format_eosmat(document: Mapping[str, Any]) -> str:
+class Layout(NamedTuple):
+    """Key-order tables of one native layout (v4/v5 records, check blocks)."""
+
+    material_first: tuple[str, ...]
+    record_keys: tuple[str, ...]
+    record_tail: tuple[str, ...]
+    check_keys: tuple[str, ...]
+
+
+#: The EOSMAT v5 layout written by ``save_eosmat`` and ``format``.
+V5_LAYOUT = Layout(
+    material_first=_V5_MATERIAL_FIRST,
+    record_keys=_V5_RECORD_KEYS,
+    record_tail=_V5_RECORD_TAIL,
+    check_keys=_CHECK_KEYS,
+)
+#: The EOSMAT v4 layout. Bundled v5 files used it before the v5 reading-order
+#: revision; repository receipts use it to recover those files byte for byte.
+V4_LAYOUT = Layout(
+    material_first=_V4_MATERIAL_FIRST,
+    record_keys=_V4_RECORD_KEYS,
+    record_tail=_V4_RECORD_TAIL,
+    check_keys=_CHECK_KEYS,
+)
+
+
+def format_eosmat(document: Mapping[str, Any], *, layout: Layout | None = None) -> str:
     """Format a validated document; retain array order and extension metadata.
 
     Material/record fields, native thermal components and recognized reconstruction
@@ -177,16 +291,21 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
     Parameter maps, covariance metadata, arrays and arbitrary nested extensions
     retain their order. Historical v2/v3 layout is unchanged. Short scalar groups
     fit on one line; long strings remain intact even above 120 columns.
+    ``layout`` defaults to :data:`V5_LAYOUT` for v5 and :data:`V4_LAYOUT`
+    otherwise.
     """
-    return _format(document, audit=False)
+    if layout is None:
+        layout = V5_LAYOUT if document.get("format_version") == 5 else V4_LAYOUT
+    return _format(document, audit=False, layout=layout)
 
 
 def format_audit(sidecar: Mapping[str, Any]) -> str:
     """Format an audit sidecar; each entry uses the native record ordering."""
-    return _format(sidecar, audit=True)
+    return _format(sidecar, audit=True, layout=V5_LAYOUT)
 
 
-def _format(document: Mapping[str, Any], *, audit: bool) -> str:
+def _format(document: Mapping[str, Any], *, audit: bool, layout: Layout) -> str:
+    """Render ``document``; ``layout`` selects the native key-order tables."""
     native = audit or document.get("format_version") in (4, 5)
 
     def scalar(value: Any) -> bool:
@@ -221,24 +340,14 @@ def _format(document: Mapping[str, Any], *, audit: bool) -> str:
                 else ()
             )
             if context == "material" and native:
-                first: tuple[str, ...] = (
-                    "format_version",
-                    "identifier",
-                    "name",
-                    "formula",
-                    "phase",
-                    "units",
-                    "formula_units_per_cell",
-                    "recommendation_hold",
-                    "eos_records",
-                )
+                first: tuple[str, ...] = layout.material_first
                 priority = (
                     first
                     + tuple(key for key in priority if key not in first)
                     + ("shared_metadata",)
                 )
             if context == "record" and native:
-                priority = _V4_RECORD_KEYS
+                priority = layout.record_keys
             elif context == "record" and "model" in value:
                 # Retain the historical formatter's treatment of extensions.
                 first = (
@@ -253,7 +362,7 @@ def _format(document: Mapping[str, Any], *, audit: bool) -> str:
             if context == "thermal":
                 priority = _THERMAL_KEYS
             if context == "check":
-                priority = _CHECK_KEYS
+                priority = layout.check_keys
             if context == "evidence":
                 priority = ("reproduction",)
             if context == "reproduction":
@@ -263,7 +372,7 @@ def _format(document: Mapping[str, Any], *, audit: bool) -> str:
             if context == "comparison":
                 priority = _COMPARISON_KEYS
             keys = [key for key in priority if key in value]
-            tail = _V4_RECORD_TAIL if context == "record" and native else ()
+            tail = layout.record_tail if context == "record" and native else ()
             keys.extend(key for key in value if key not in priority and key not in tail)
             keys.extend(key for key in tail if key in value)
             lines = []

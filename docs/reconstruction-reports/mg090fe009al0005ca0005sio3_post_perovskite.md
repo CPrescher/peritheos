@@ -35,12 +35,12 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Shieh et al. (2006), preferred second-order Eulerian finite-strain fit](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1) | **reproduced** |  |
+| [Shieh et al. (2006), preferred BM2](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1) | **reproduced** |  |
 | [Shieh et al. (2006), K0'=4.4 sensitivity BM3](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2) | **reproduced** |  |
 
 <a id="record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1"></a>
 
-## Shieh et al. (2006), preferred second-order Eulerian finite-strain fit
+## Shieh et al. (2006), preferred BM2
 
 **reproduced** · `mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1` · `BM2` · [Coefficients and source](../material-summaries/mg090fe009al0005ca0005sio3_post_perovskite.md#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1)
 

@@ -87,14 +87,12 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[-9.13242065, 218.6536035\]
     - **Temperature k:** \[0, 0\]
     - **Volume ratio:** \[0.65, 1.05\]
-    - **Notes:** Static 0 K GGA model-crystal fit; not an experimental stability field.; The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa.
+    - **Notes:** The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 100.4853
 - **Reported error confidence level:** Not specified
-
-No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.
 
 <details markdown="1">
 <summary>Source review</summary>

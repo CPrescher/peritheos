@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 
 from peritheos import convert_eosmat, validate_eosmat_document
-from peritheos._eosmat_format import format_eosmat
+from peritheos._eosmat_format import V4_LAYOUT, format_eosmat
 
 ROOT = Path(__file__).resolve().parents[1]
 RECEIPT = ROOT / "docs/data/eosmat-v5-migration.json"
@@ -108,7 +108,9 @@ def prior_material_bytes(material: str, *, root: Path | None = None) -> bytes:
                     if r["identifier"] not in added
                 ]
                 if (
-                    hashlib.sha256(format_eosmat(predecessor).encode()).hexdigest()
+                    hashlib.sha256(
+                        format_eosmat(predecessor, layout=V4_LAYOUT).encode()
+                    ).hexdigest()
                     != binding["after_sha256"]
                 ):
                     raise ValueError(
@@ -166,7 +168,8 @@ def migrate_catalog() -> None:
             )
             if not allowed:
                 raise ValueError(f"Unexpected migration change: {path}: {p}")
-        rendered = format_eosmat(after).encode()
+        # The migration wrote v5 in the layout v5 files used at the time.
+        rendered = format_eosmat(after, layout=V4_LAYOUT).encode()
         binding = {
             "before_sha256": hashlib.sha256(original).hexdigest(),
             "after_sha256": hashlib.sha256(rendered).hexdigest(),

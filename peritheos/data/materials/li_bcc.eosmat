@@ -10,6 +10,15 @@
     {
       "identifier": "li_hanfland_1999_vinet_1",
       "label": "Hanfland et al. (1999), combined bcc-fcc Li Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "This is explicitly one empirical Vinet curve fitted across the small bcc-fcc volume discontinuity. Its bcc two-atom-cell volume convention is retained, and it is not described as a phase-specific bcc EOS.",
+        "audit": "../audits/li_bcc.audit.json#li_hanfland_1999_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -20,7 +29,7 @@
       "experimental_pressure_range_gpa": [0.0, 21.1],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Empirical 298 K Vinet fit jointly spanning bcc and fcc lithium, exactly as defined by the primary paper. It is not a phase-specific bcc EOS: the bcc-fcc transition occurs near 7.5 GPa with a 0.16(3)% volume discontinuity. Public volumes use twice the paper's atomic volume so they remain compatible with this file's two-atom bcc conventional-cell convention, including for fcc observations. V0 was fixed; no V0 error or parameter covariance is published.",
+      "notes": "Empirical 298 K Vinet fit spanning both bcc and fcc lithium, as defined by the paper; not a phase-specific bcc EOS. The bcc-fcc transition near 7.5 GPa has a 0.16(3)% volume discontinuity. Volumes are twice the paper's atomic volume (two-atom bcc cell), also for fcc observations.",
       "reference": {
         "authors": ["Hanfland", "Loa", "Syassen", "Schwarz", "Takemura"],
         "year": 1999,
@@ -29,14 +38,6 @@
         "volume": "112",
         "locator": "123-127",
         "doi": "10.1016/S0038-1098(99)00322-1"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "This is explicitly one empirical Vinet curve fitted across the small bcc-fcc volume discontinuity. Its bcc two-atom-cell volume convention is retained, and it is not described as a phase-specific bcc EOS.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/li_bcc.audit.json#li_hanfland_1999_vinet_1"
       }
     }
   ],

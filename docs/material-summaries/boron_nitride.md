@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1103/PhysRevB.75.214104
 - **Reported pressure coverage (GPa):** \[0.0, 162.5\]
 
-V0=5.9062 A^3/atom multiplied by 8 atoms in the conventional cubic cell. The fitted range is described as 160 GPa in prose; Table IV's highest row is 162.5 GPa. The unsupported migrated K0=500 record was removed.
+Published V0 = 5.9062 Å³/atom; stored per conventional cubic cell (×8). The text gives the fitted range as 160 GPa; the highest Table IV row is 162.5 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -175,7 +175,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/bor
     - **Pressure gpa:** \[0.0, 162.5\]
     - **Temperature k:** \[295.0, 948.0\]
     - **Volume ratio:** \[0.77125, 1.00844\]
-    - **Notes:** Marginal envelope of Table IV; 295 K compression reaches 162.5 GPa, whereas heated compression reaches 900 K and 84.2 GPa and the 948 K observation is at ambient pressure.; The record represents zinc-blende c-BN only; no transition was observed in the 295 K compression range.
+    - **Notes:** Heated data reach only 84.2 GPa, at up to 900 K, and the 948 K point is at ambient pressure. The 295 K data reach 162.5 GPa.; Zinc-blende c-BN only. No transition was observed in the 295 K compression range.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -186,7 +186,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/bor
 
 </details>
 
-This is not the existing 295 K Vinet record with a reference-subtracted thermal increment. Datchi et al. explicitly define Pth(V,T)=0 at 0 K and Table V supplies a distinct 0 K cold Vinet curve. Peritheos therefore uses thermal\_pressure\_reference=absolute\_zero while keeping Tr=295 K only as the public default temperature and for reference-relative diagnostics. At the printed Table IV lattice parameters, the published coefficients give a 0.584 GPa pressure RMSE, reproducing the paper's stated 0.6 GPa. A q-only unweighted pressure-residual refit gives q=7.35(1.89); the discrepancy from 4(1.5) is less than two combined standard deviations and is plausibly affected by rounded P/a rows and the unpublished regression weights. Section IV's gamma\_th0=1.04(1) conflicts with final Table V's 1.04(2); this record follows the final parameter table. The source states that parenthetical errors are fit standard deviations, not absolute uncertainties; pressure-scale uncertainty dominates and coefficient covariance is not published.
+0 K cold Vinet curve (Table V) plus Mie-Grüneisen-Debye thermal pressure with Pth = 0 at 0 K, not the 295 K Vinet record with a thermal increment. Tr = 295 K is only the default evaluation temperature. The source states that parenthetical errors are fit standard deviations, not absolute uncertainties, and that pressure-scale uncertainty dominates.
 
 <details markdown="1">
 <summary>Source review</summary>

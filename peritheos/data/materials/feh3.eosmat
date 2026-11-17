@@ -9,6 +9,15 @@
     {
       "identifier": "feh3_p_pin_2014_vinet_1",
       "label": "Pepin et al. (2014), Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Molar volumes were converted to the represented conventional cells.",
+        "audit": "../audits/feh3.audit.json#feh3_p_pin_2014_vinet_1"
+      },
       "model": "Vinet",
       "parameters": {
         "V0": {"value": 18.5499, "error": 0.0664},
@@ -17,7 +26,7 @@
       },
       "experimental_pressure_range_gpa": [39.0, 160.0],
       "determination_method": "experimental",
-      "notes": "Experimental Vinet fit: molar V0 = 11.171 +/- 0.040 cm^3/mol and K0 = 190.1 +/- 0.05 GPa, with K0' fixed at 5. V0 and its uncertainty were converted to the Z=1 cubic cell.",
+      "notes": "Published V0 = 11.171 ± 0.040 cm³/mol; V0 and its error are stored per Z = 1 cubic cell.",
       "reference": {
         "authors": ["Pépin", "Dewaele", "Geneste", "Loubeyre", "Mezouar"],
         "year": 2014,
@@ -26,14 +35,6 @@
         "volume": "113",
         "locator": "265504",
         "doi": "10.1103/PhysRevLett.113.265504"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Molar volumes were converted to the represented conventional cells.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/feh3.audit.json#feh3_p_pin_2014_vinet_1"
       }
     }
   ],

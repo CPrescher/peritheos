@@ -91,6 +91,10 @@
             "doi": "10.1038/s43246-025-00792-5"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_mao_1990_bm3_1": {
@@ -207,6 +211,11 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, journal page 21738; Table 3 and EOS discussion, journal pages 21739-21740."
         }
+      },
+      "superseded_record_text": {
+        "label": "(hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90",
+        "notes": "Mao et al. report V0 = 22.35(3) A^3, K0 = 165(4) GPa, and K0' = 5.33(9) for the two-atom hcp cell. The legacy volume was also corrected for the hexagonal sin(120 degree) factor.",
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_shen_2026_vinet_2": {
@@ -338,6 +347,10 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.6 GPa and K0' +/- 0.03. The hcp phase data are above 16 GPa.",
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_dewaele_2019_mao_vinet": {
@@ -506,6 +519,11 @@
             "doi": "10.3390/min9110684"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+        "validity_notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_dewaele_2019_dor_vinet": {
@@ -674,6 +692,11 @@
             "doi": "10.3390/min9110684"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+        "validity_notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": {
@@ -922,6 +945,14 @@
             "objective_inference": "An independently computed unweighted Jacobian covariance matches Table S5 within 0.6%; no row weights are stated by the source."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published mixed-input thermal EOS Fit #1; Supplementary Table S6 reports RMSE=4.504302 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. This is the authors' preferred relaxed-V0 solution.",
+        "validity_notes": [
+          "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
+          "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_zhang_2025_fit2_birch_murnaghan_3_mgd": {
@@ -1159,6 +1190,14 @@
             "objective_inference": "An independently computed unweighted Jacobian covariance matches Table S5 within 0.6%; no row weights are stated by the source."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published mixed-input thermal EOS Fit #2; Supplementary Table S6 reports RMSE=4.504408 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.",
+        "validity_notes": [
+          "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
+          "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_zhang_2025_fit5_vinet_mgd": {
@@ -1396,6 +1435,14 @@
             "objective_inference": "An independently computed unweighted Jacobian covariance matches Table S5 within 0.6%; no row weights are stated by the source."
           }
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published mixed-input thermal EOS Fit #5; Supplementary Table S6 reports RMSE=5.084659 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.",
+        "validity_notes": [
+          "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
+          "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_dewaele_2006_vinet_thermal": {
@@ -1505,6 +1552,14 @@
             "doi": "10.1134/S1028334X06070208"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Source-specific implementation of Equations (1)-(2): a 300 K Vinet reference isotherm plus reference-subtracted single-Debye, intrinsic-anharmonic, and electronic thermal pressures. The published atomic V0 and uncertainty are doubled for the two-atom conventional hcp cell used by this material document.",
+        "validity_notes": [
+          "The 17-197 GPa static compression observations are near room temperature; the high-temperature extension is constrained by shock-wave data to 200 GPa and ab-initio anharmonic and electronic pressures.",
+          "The authors plot 298, 5000, 6000, and 7000 K isotherms through the Earth's core pressure range; this is a proposed pressure-scale domain, not a direct static P-V-T data envelope."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_fei_2016_bm3": {
@@ -1585,6 +1640,13 @@
           "K0": "Section 3.1, p. 6840, equation (1) and following paragraph",
           "K0_prime": "Section 3.1, p. 6840"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
+        "validity_notes": [
+          "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_fei_2016_free_density_bm3": {
@@ -1665,6 +1727,13 @@
           "K0": "Section 3.1, p. 6840, equation (1) and following paragraph",
           "K0_prime": "Section 3.1, p. 6840"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
+        "validity_notes": [
+          "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_fei_2016_bm3_debye_quadratic": {
@@ -1752,6 +1821,13 @@
           "thermal.A": "Equation (2), p. 6841: gamma_e=2 fixed; beta0=0.07 J/kg/K^2 fitted; A=gamma_e*beta0*rho0_SI/(2*1e9)=5.78865e-7 GPa/K^2.",
           "thermal.m": "p. 6841: k=1.34 fitted; m=k-1=0.34 after dividing specific energy by specific volume."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved. Thermal pressure adds MGD with integrated gamma(V) plus A*(V/V0)^m*(T^2-300^2). No thermal fit errors are reported. Independent gamma_e=2 and k=1.34 define an empirical pressure surface, not a thermodynamically consistent caloric potential. Do not infer caloric observables. Table S2 is only the static subset of the thermal fit.",
+        "validity_notes": [
+          "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p1_bm3": {
@@ -1849,6 +1925,11 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p1_vinet": {
@@ -1995,6 +2076,11 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p1_v0_mao_bm3": {
@@ -2092,6 +2178,11 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p1_v0_mao_vinet": {
@@ -2189,6 +2280,11 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p1_v0_dewaele_bm3": {
@@ -2286,6 +2382,11 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p1_v0_dewaele_vinet": {
@@ -2383,6 +2484,11 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p2_bm3": {
@@ -2451,6 +2557,14 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": [
+          "Observation envelope; extensions to inner-core conditions are extrapolations.",
+          "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p2_vinet": {
@@ -2519,6 +2633,14 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": [
+          "Observation envelope; extensions to inner-core conditions are extrapolations.",
+          "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p3_bm3": {
@@ -2590,6 +2712,14 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": [
+          "Observation envelope; extensions to inner-core conditions are extrapolations.",
+          "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p3_vinet": {
@@ -2661,6 +2791,14 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": [
+          "Observation envelope; extensions to inner-core conditions are extrapolations.",
+          "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p4_bm3": {
@@ -2758,6 +2896,11 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p4_vinet": {
@@ -2904,6 +3047,11 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p5_bm3": {
@@ -3050,6 +3198,14 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": [
+          "Observation envelope; extensions to inner-core conditions are extrapolations.",
+          "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p5_vinet": {
@@ -3196,6 +3352,14 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": [
+          "Observation envelope; extensions to inner-core conditions are extrapolations.",
+          "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p6_bm3": {
@@ -3293,6 +3457,11 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_sakai_2014_p6_vinet": {
@@ -3439,6 +3608,11 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_yamazaki_2012_bm3_thermal": {
@@ -3603,6 +3777,12 @@
             "n": "Primary thermal equation and parameter table; fixed/adopted"
           }
         }
+      },
+      "superseded_record_text": {
+        "label": "Yamazaki et al. (2012), bm3_thermal",
+        "notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_yamazaki_2012_vinet_thermal": {
@@ -3767,6 +3947,12 @@
             "n": "Primary thermal equation and parameter table; fixed/adopted"
           }
         }
+      },
+      "superseded_record_text": {
+        "label": "Yamazaki et al. (2012), vinet_thermal",
+        "notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_dubrovinsky_2000_bm3_thermal": {
@@ -3840,6 +4026,12 @@
             "beta3": "Primary thermal equation and parameter table; fixed/adopted"
           }
         }
+      },
+      "superseded_record_text": {
+        "label": "Dubrovinsky et al. (2000), bm3_thermal",
+        "notes": "K0 derived exactly from 1/(b1+b2*300+b3*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_dewaele_2006_bm3": {
@@ -3983,6 +4175,11 @@
           "K0": "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell: fixed/adopted",
           "K0_prime": "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell: published fit"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.",
+        "validity_notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_brown_2000_linear_hugoniot": {
@@ -4083,6 +4280,14 @@
           "s": "Table III linear fit to all 37 Tables I–II points: published fit",
           "P0": "Table III linear fit to all 37 Tables I–II points: fixed/adopted"
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS.",
+        "validity_notes": [
+          "Observation envelope; extensions to inner-core conditions are extrapolations.",
+          "Temperature bounds describe only the normalized initial state, not a constant-temperature shock path. The sample is steel, not pure Fe."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_miozzi_2020_bm3": {
@@ -4223,6 +4428,10 @@
           "volume_basis": "Equation (3) and dataset headings specify the conventional hcp unit cell with two Fe atoms. Thermal energy is per mole of Fe atoms (n=1); molar cm^3/mol = V_cell*N_A/(2e24).",
           "uncertainties": "Parenthesized reported errors, unspecified confidence; missing Vinet V0 error is null. Fixed thermal V0 retains independent reference-volume error. No author covariance."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_miozzi_2020_vinet": {
@@ -4363,6 +4572,10 @@
           "volume_basis": "Equation (3) and dataset headings specify the conventional hcp unit cell with two Fe atoms. Thermal energy is per mole of Fe atoms (n=1); molar cm^3/mol = V_cell*N_A/(2e24).",
           "uncertainties": "Parenthesized reported errors, unspecified confidence; missing Vinet V0 error is null. Fixed thermal V0 retains independent reference-volume error. No author covariance."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_miozzi_2020_bm3_mgd": {
@@ -4543,6 +4756,11 @@
             "scope": "Author-reported software settings; not printed n in the article or a recovered original session. Article prose says V0 fixed; final free V0 follows the personal communication."
           }
         }
+      },
+      "superseded_record_text": {
+        "label": "Miozzi et al. (2020), published BM3–MGD — author-reported n=2",
+        "notes": "Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved.",
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_miozzi_2020_tange_2009_bm3_mgd_refit": {
@@ -4767,6 +4985,15 @@
             "derived_csv_sha256": "5f0e7513c7eb6158748d7c9d9d8c96a0fb25621ba67ff5d22c7da665d5584a5a"
           }
         }
+      },
+      "superseded_record_text": {
+        "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights",
+        "notes": "Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation.",
+        "validity_notes": [
+          "Marginal observation ranges only; zero-pressure coefficients extrapolated from compressed hcp Fe.",
+          "No independent experimental validation or validated core extrapolation."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "iron_miozzi_2020_speziale_2001_bm3_mgd_refit": {
@@ -4992,6 +5219,11 @@
             "derived_csv_sha256": "4059a98c14548f07f9d648f8ba941d8911adf27e12792cfac5fac1e99a63c51a"
           }
         }
+      },
+      "superseded_record_text": {
+        "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1",
+        "notes": "Independent Peritheos refit, not Miozzi's published coefficients. All 116 MgO-series pressures are recalculated with the Speziale (2001) variable-q Debye model; the 15 He pressures remain unchanged. Equal pressure-residual weights; 36 RT rows first, all rows with cold coefficients fixed second, then V0,K0,K0_prime,gamma0,q free. theta0=420 K, Tr=300 K, n=1 per mole Fe fixed. Local errors/covariance are conditional on this calibration, objective and fixed parameters, excluding calibrant systematics, predictor and inter-row covariance and fixed-theta uncertainty. Original author weights and exact pressure reduction remain unavailable; numerical reproducibility does not establish independent physical accuracy.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

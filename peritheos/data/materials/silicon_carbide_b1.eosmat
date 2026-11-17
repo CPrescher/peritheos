@@ -9,6 +9,15 @@
     {
       "identifier": "silicon_carbide_b1_miozzi_2018_bm3_1",
       "label": "Miozzi et al. (2018), 300 K BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0: refit 65.78 vs published 66.3 (-0.8%), outside the combined error; K0: refit 340.6 vs published 323 GPa (+5.5%), outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/silicon_carbide_b1.audit.json#silicon_carbide_b1_miozzi_2018_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,7 +27,7 @@
       },
       "experimental_pressure_range_gpa": [65.0, 205.0],
       "determination_method": "experimental",
-      "notes": "Table 1 room-temperature Birch-Murnaghan fit. The B1 phase was measured between 65 and 205 GPa; V0 is extrapolated to zero pressure.",
+      "notes": "Room-temperature BM3 fit from Table 1. V0 is extrapolated to zero pressure from B1 data measured at 65-205 GPa.",
       "reference": {
         "authors": ["Miozzi", "Morard", "Antonangeli", "Clark", "Mezouar", "Dorn", "Rozel", "Fiquet"],
         "year": 2018,
@@ -27,13 +36,6 @@
         "volume": "123",
         "locator": "2295-2309",
         "doi": "10.1029/2018JE005582"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/silicon_carbide_b1.audit.json#silicon_carbide_b1_miozzi_2018_bm3_1"
       }
     }
   ],

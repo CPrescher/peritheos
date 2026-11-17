@@ -6,44 +6,37 @@
   "phase": "calcium-titanate-type orthorhombic phase, Cmcm",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mgal2o4_cati2o4_funamori_1998_bm2_1"},
   "eos_records": [
     {
       "identifier": "mgal2o4_cati2o4_funamori_1998_bm2_1",
       "label": "Funamori et al. (1998), CaTi2O4-type MgAl2O4 BM2",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": "Not recommended for quantitative use.",
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure. The authors construct its second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from the one usable compressed run-4 cell; run-2 CaTi2O4-type peaks were too weak and overlapped for a reliable cell volume.",
+        "audit": "../audits/mgal2o4_cati2o4.audit.json#mgal2o4_cati2o4_funamori_1998_bm2_1"
+      },
       "model": "BM2",
       "parameters": {
         "V0": {"value": 240.3, "error": 0.4, "fixed": true},
         "K0": {"value": 206.0, "error": 3.0}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 64.3],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 64.3],
-        "notes": [
-          "The only nonzero-pressure volume is the in-situ run-4 observation after laser heating; the zero-pressure volume is measured after recovery.",
-          "The interval describes the two observations constraining the source parameterization, not a continuous stability field.",
-          "K0'=4 is fixed by the second-order Birch finite-strain model.",
-          "This is a historical one-point endpoint construction, not a regression EOS; later multi-point studies should be preferred for quantitative compression work."
-        ]
+        "notes": ["The range spans only the two observations that define the EOS, not a continuous stability field."]
       },
+      "experimental_pressure_range_gpa": [0.0, 64.3],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "sample_composition": "99% pure polycrystalline MgAl2O4 spinel starting material mixed with 5 wt% Pt; run-3 TEM confirms MgAl2O4 composition and runs 3-4 establish the CaTi2O4-type product",
-      "experimental_configuration": {
-        "apparatus": "laser-heated Mao-Bell diamond-anvil cell",
-        "laser_heating": "2000-3000 K for about 60 minutes",
-        "measurement_temperature": "room temperature after heating; no numerical value reported",
-        "diffraction": "laboratory XRD and TEM for recovered run 3; synchrotron XRD at SSRL beamline 10-2 for run 4",
-        "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
-        "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 64.3 GPa state is their post-heating average"
-      },
-      "notes": "This record describes the CaTi2O4-type product established by runs 3 and 4. It is distinct from the lower-pressure CaFe2O4-type run-2 phase. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.",
+      "notes": "CaTi2O4-type product established by runs 3 and 4, distinct from the lower-pressure CaFe2O4-type run-2 phase. A one-point construction, not a multi-point fit: the only compressed volume is the in-situ run-4 observation after laser heating, and V0 was measured after recovery.",
       "fit_datasets": ["mgal2o4_cati2o4_funamori_1998_text_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Funamori", "Jeanloz", "Nguyen", "Kavner", "Caldwell", "Fujino", "Miyajima", "Shinmei", "Tomioka"],
         "year": 1998,
@@ -53,18 +46,29 @@
         "locator": "20813-20818",
         "doi": "10.1029/98JB01575"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": "Not recommended for quantitative use.",
-        "finding": "Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure. The authors construct its second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from the one usable compressed run-4 cell; run-2 CaTi2O4-type peaks were too weak and overlapped for a reliable cell volume.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mgal2o4_cati2o4.audit.json#mgal2o4_cati2o4_funamori_1998_bm2_1"
+      "equation_kind": "isothermal",
+      "sample_composition": "99% pure polycrystalline MgAl2O4 spinel starting material mixed with 5 wt% Pt; run-3 TEM confirms MgAl2O4 composition and runs 3-4 establish the CaTi2O4-type product",
+      "experimental_configuration": {
+        "apparatus": "laser-heated Mao-Bell diamond-anvil cell",
+        "laser_heating": "2000-3000 K for about 60 minutes",
+        "measurement_temperature": "room temperature after heating; no numerical value reported",
+        "diffraction": "laboratory XRD and TEM for recovered run 3; synchrotron XRD at SSRL beamline 10-2 for run 4",
+        "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
+        "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 64.3 GPa state is their post-heating average"
       }
     },
     {
       "identifier": "mgal2o4_cati2o4_ono_2006_bm2_2",
       "label": "Ono et al. (2006), CaTi2O4-type MgAl2O4 BM2",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves.",
+        "audit": "../audits/mgal2o4_cati2o4.audit.json#mgal2o4_cati2o4_ono_2006_bm2_2"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -72,32 +76,21 @@
         "K0": {"value": 219.0, "error": 6.0}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 91.2],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 91.2],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "The nonzero Table 3 measurements span 42.7-91.2 GPa; two recovered ambient cells are also printed. This is not a continuous equilibrium stability field.",
-          "The approximately 45-117 GPa high-temperature phase-stability observations are separate from the 300 K EOS; no thermal extension is published.",
-          "K0-prime=4 is implicit in BM2, not a fitted parameter."
+          "The compressed Table 3 data span 42.7-91.2 GPa. The 0 GPa bound comes from two recovered ambient cells.",
+          "The approximately 45-117 GPa high-temperature phase-stability observations are not part of this 300 K EOS."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 91.2],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default": false,
-      "sample_composition": "Synthetic powdered MgAl2O4 spinel mixed with Pt; CaTi2O4-type Cmcm product, not the natural MORB aluminous phase.",
-      "experimental_configuration": {
-        "apparatus": "laser-heated diamond-anvil cell",
-        "pressure_medium": "Ar for CaTi2O4-type runs #1-5 (Table 1); MgO and NaCl runs investigate epsilon phase",
-        "diffraction": "angle-dispersive synchrotron XRD, BL13A Photon Factory and BL10XU SPring-8",
-        "measurement_temperature": "300 K (Table 3 and Figure 4)"
-      },
-      "notes": "The structural lattice remains independently sourced to Funamori (1998); it is not the fitted Ono reference volume. No epsilon-phase EOS or cited theoretical/comparison fit is reassigned to this paper. See docs/literature-reproductions/ono-2006-mgal2o4-cati2o4.md.",
       "fit_datasets": ["mgal2o4_cati2o4_ono_2006_table3"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Ono", "Kikegawa", "Ohishi"],
         "year": 2006,
@@ -107,13 +100,13 @@
         "locator": "200-206",
         "doi": "10.1007/s00269-006-0068-z"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mgal2o4_cati2o4.audit.json#mgal2o4_cati2o4_ono_2006_bm2_2"
+      "equation_kind": "isothermal",
+      "sample_composition": "Synthetic powdered MgAl2O4 spinel mixed with Pt; CaTi2O4-type Cmcm product, not the natural MORB aluminous phase.",
+      "experimental_configuration": {
+        "apparatus": "laser-heated diamond-anvil cell",
+        "pressure_medium": "Ar for CaTi2O4-type runs #1-5 (Table 1); MgO and NaCl runs investigate epsilon phase",
+        "diffraction": "angle-dispersive synchrotron XRD, BL13A Photon Factory and BL10XU SPring-8",
+        "measurement_temperature": "300 K (Table 3 and Figure 4)"
       }
     }
   ],

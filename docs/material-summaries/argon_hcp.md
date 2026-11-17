@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1107/S0108768197005739
 - **Reported pressure coverage (GPa):** \[1.2, 8.5\]
 
-NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. The publication reports V0=78(3) A^3 and K0=6.5(1.3) GPa; K0\_prime is fixed at 4 by BM2. V0 is a fitted reference volume because ambient hcp argon could not be measured directly. Historical hcp-only fit over 1.2-8.5 GPa; not recommended as a general argon pressure standard or for high-pressure extrapolation. The published curve has 0.772 GPa RMS residual on the nine digitized observations. An errors-in-variables diagnostic has about 0.451 GPa RMS at the original observations, versus 0.012 GPa at adjusted coordinates; these metrics must not be compared as equivalent improvements.
+BM2 fit to hcp argon only; V0 is a fitted reference volume because ambient hcp argon could not be measured. The published fit could not be independently reproduced; the published curve has a 0.772 GPa RMS residual on the nine digitized observations. Not recommended as a general argon pressure standard or for high-pressure extrapolation.
 
 <details markdown="1">
 <summary>Source review</summary>

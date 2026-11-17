@@ -10,6 +10,16 @@
     {
       "identifier": "srsio3_cubic_xiao_2013_experimental_bm2_1",
       "label": "Xiao et al. (2013), experimental cubic SrSiO3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0: refit 48.869 vs published 49.18 (-0.6%), outside the combined error; K0: refit 227 vs published 211 GPa (+7.6%), outside the combined error.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "One experimental cubic BM2 parameterization is reported.",
+        "audit": "../audits/srsio3_cubic_perovskite.audit.json#srsio3_cubic_xiao_2013_experimental_bm2_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,15 +28,13 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [9.0, 37.8],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 163.702},
       "fit_datasets": ["srsio3_cubic_xiao_2013_table1_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Xiao", "Tan", "Zhou", "Liu", "Xu"],
         "year": 2013,
@@ -36,18 +44,21 @@
         "locator": "2096-2104",
         "doi": "10.2138/am.2013.4470"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "One experimental cubic BM2 parameterization is reported.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/srsio3_cubic_perovskite.audit.json#srsio3_cubic_xiao_2013_experimental_bm2_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 163.702}
     },
     {
       "identifier": "srsio3_cubic_xiao_2013_gga_bm2_2",
       "label": "Xiao et al. (2013), static-GGA cubic SrSiO3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "A distinct static-GGA cubic EOS is published.",
+        "audit": "../audits/srsio3_cubic_perovskite.audit.json#srsio3_cubic_xiao_2013_gga_bm2_2"
+      },
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -56,14 +67,12 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 40.0],
       "experimental_temperature_range_k": [0.0, 0.0],
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 163.702},
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Xiao", "Tan", "Zhou", "Liu", "Xu"],
         "year": 2013,
@@ -73,14 +82,8 @@
         "locator": "2096-2104",
         "doi": "10.2138/am.2013.4470"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "A distinct static-GGA cubic EOS is published.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/srsio3_cubic_perovskite.audit.json#srsio3_cubic_xiao_2013_gga_bm2_2"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 163.702}
     }
   ],
   "aliases": ["cubic strontium metasilicate"],

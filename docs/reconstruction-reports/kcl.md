@@ -35,7 +35,7 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite](#record-kcl_campbell_1991_bm2_1) | **reproduced** |  |
+| [Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2](#record-kcl_campbell_1991_bm2_1) | **reproduced** |  |
 | [Walker et al. (2002), B2 thermal Birch](#record-kcl_walker_2002_bm3_2) | **close** |  |
 | [Dewaele et al. (2012), B2 P-V-T pressure calibration](#record-kcl_b2_dewaele_2012_vinet_3) | **close** |  |
 | [Tateno et al. (2019), B2 Vinet + MGD on Sokolova Pt](#record-kcl_b2_tateno_2019_vinet_4) | **reproduced** |  |
@@ -48,7 +48,7 @@ stays in EOSMAT and the ledger.
 
 <a id="record-kcl_campbell_1991_bm2_1"></a>
 
-## Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite
+## Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2
 
 **reproduced** · `kcl_campbell_1991_bm2_1` · `BM2` · [Coefficients and source](../material-summaries/kcl.md#record-kcl_campbell_1991_bm2_1)
 

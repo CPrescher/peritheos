@@ -16,11 +16,11 @@ Every record is also listed by identifier in the
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [(Mg0.5Fe0.5)O B1 ferropericlase, Leonov et al. (2017) high-spin BM3](#record-mg05fe05o_leonov_2017_hs_bm3_1) | **untested** (not refittable) |  |
+| [Leonov et al. (2017), high-spin DFT+DMFT BM3](#record-mg05fe05o_leonov_2017_hs_bm3_1) | **untested** (not refittable) |  |
 
 <a id="record-mg05fe05o_leonov_2017_hs_bm3_1"></a>
 
-## (Mg0.5Fe0.5)O B1 ferropericlase, Leonov et al. (2017) high-spin BM3
+## Leonov et al. (2017), high-spin DFT+DMFT BM3
 
 **untested** (not refittable) · `mg05fe05o_leonov_2017_hs_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/mg05fe05o.md#record-mg05fe05o_leonov_2017_hs_bm3_1)
 

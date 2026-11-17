@@ -33,15 +33,15 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [EOS from Haines et al. 2001](#record-molybenum_carbide_mo2c_haines_2001_bm3_1) | BM3 | 300.0 | close |  | primary source validated | Executable |
-| [Haines et al. (2001) Figure 2 direct BM3 refit](#record-molybenum_carbide_mo2c_haines_2001_bm3_refit) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Haines et al. (2001), BM3](#record-molybenum_carbide_mo2c_haines_2001_bm3_1) | BM3 | 300.0 | close |  | primary source validated | Executable |
+| [Peritheos refit of Haines et al. (2001), digitized-data BM3](#record-molybenum_carbide_mo2c_haines_2001_bm3_refit) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [EOS from Haines et al. 2001](#record-molybenum_carbide_mo2c_haines_2001_bm3_1) | 148.9071 ± 0.049 (fixed) | 307.0 ± 5.0 | 6.2 ± 0.3 |
-| [Haines et al. (2001) Figure 2 direct BM3 refit](#record-molybenum_carbide_mo2c_haines_2001_bm3_refit) | 148.9071 (fixed) | 325.87419826054304 ± 9.50029103042738 | 4.9092021387052664 ± 0.6513930636044009 |
+| [Haines et al. (2001), BM3](#record-molybenum_carbide_mo2c_haines_2001_bm3_1) | 148.9071 ± 0.049 (fixed) | 307.0 ± 5.0 | 6.2 ± 0.3 |
+| [Peritheos refit of Haines et al. (2001), digitized-data BM3](#record-molybenum_carbide_mo2c_haines_2001_bm3_refit) | 148.9071 (fixed) | 325.87419826054304 ± 9.50029103042738 | 4.9092021387052664 ± 0.6513930636044009 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -53,7 +53,7 @@ extrapolation.
 
 <a id="record-molybenum_carbide_mo2c_haines_2001_bm3_1"></a>
 
-## EOS from Haines et al. 2001
+## Haines et al. (2001), BM3
 
 `molybenum_carbide_mo2c_haines_2001_bm3_1` · Executable
 
@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 46.0\]
 
-Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the source fits and plots V/V0 and does not report V0 as a fitted coefficient, the refit fixes V0 at the value calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors. The dedicated literature reproduction documents the remaining high-pressure sensitivity.
+Room-temperature BM3 fit to relative-volume (V/V0) X-ray data; the paper does not report V0 as a fitted coefficient. The stored V0 is computed from the sample's measured ambient hexagonal subcell, a = 3.0128(4) Å and c = 4.7357(9) Å, converted to the four-formula-unit orthorhombic cell, with its error propagated from the lattice-parameter errors.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -128,7 +128,7 @@ Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GP
 
 <a id="record-molybenum_carbide_mo2c_haines_2001_bm3_refit"></a>
 
-## Haines et al. (2001) Figure 2 direct BM3 refit
+## Peritheos refit of Haines et al. (2001), digitized-data BM3
 
 `molybenum_carbide_mo2c_haines_2001_bm3_refit` · Executable
 
@@ -156,7 +156,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0, 45.499\]
 - **Parameter covariance:** supplied in the EOSMAT source
 
-Opt-in Peritheos refit of all 16 digitized Figure 2 markers, not a parameter set published by Haines et al. V0 is fixed to the measured ambient reference used for the source's V/V0 representation; K0 and K0' are refined with errors in both digitized pressure and relative volume and absolute\_sigma=True. The unchanged record molybenum\_carbide\_mo2c\_haines\_2001\_bm3\_1 remains the authoritative literature parameterization. The diagnostic fit that omits the two observations above 40 GPa is documented but is not stored as an EOS record.
+Peritheos BM3 refit of the points digitized from Figure 2 of Haines et al. (2001), not a published parameter set. V0 is fixed at the measured ambient volume used for the source's V/V0 data; K0 and K0' are fitted with errors in both digitized pressure and relative volume.
 
 <details markdown="1">
 <summary>Source review</summary>

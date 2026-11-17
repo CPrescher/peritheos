@@ -36,14 +36,14 @@ Shieh et al. synthesized this phase from natural orthopyroxene (Mg1.80Fe0.18Al0.
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Shieh et al. (2006), preferred second-order Eulerian finite-strain fit](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Shieh et al. (2006), preferred BM2](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Shieh et al. (2006), K0'=4.4 sensitivity BM3](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Shieh et al. (2006), preferred second-order Eulerian finite-strain fit](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1) | 164.9 ± 0.6 | 219.0 ± 5.0 | — |
+| [Shieh et al. (2006), preferred BM2](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1) | 164.9 ± 0.6 | 219.0 ± 5.0 | — |
 | [Shieh et al. (2006), K0'=4.4 sensitivity BM3](#record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2) | 166.2 ± 0.7 | 198.0 ± 5.0 | 4.4 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
@@ -56,7 +56,7 @@ extrapolation.
 
 <a id="record-mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1"></a>
 
-## Shieh et al. (2006), preferred second-order Eulerian finite-strain fit
+## Shieh et al. (2006), preferred BM2
 
 `mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1` · Executable
 
@@ -90,8 +90,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[12.0, 106.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.755039, 0.950539\]
-    - **Notes:** The range is the measured metastable decompression envelope, not a thermodynamic phase-stability field.; The long extrapolation from the measured range to zero pressure makes V0 and K0 strongly correlated; the authors therefore fixed K0'=4.
+    - **Notes:** The range is the measured metastable decompression envelope.
 - **Reported error confidence level:** 0.6826894921370859
+
+The authors fixed K0' = 4 because the long extrapolation from the measured range to zero pressure makes V0 and K0 strongly correlated.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -211,10 +213,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[12.0, 106.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.749133, 0.943057\]
-    - **Notes:** Nonpreferred parameter-tradeoff sensitivity fit; use the BM2 record by default.
 - **Reported error confidence level:** 0.6826894921370859
 
-This record corrects LitCurate's suggested BM2 mapping: a fixed K0'=4.4 requires BM3. It is retained only as an author-reported sensitivity fit.
+Nonpreferred parameter-trade-off sensitivity fit reported by the authors; the preferred fit is the BM2 record.
 
 <details markdown="1">
 <summary>Source review</summary>

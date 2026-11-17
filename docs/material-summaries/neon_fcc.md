@@ -33,17 +33,17 @@ FCC neon; the Fei et al. (2007) primary Vinet fit is the default, with their BM3
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Fei et al PNAS 2007 \[BM3\]](#record-neon_fcc_fei_2007_bm3_1) | BM3 + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
-| [Fei et al PNAS 2007 \[Vinet\]](#record-neon_fcc_fei_2007_vinet_2) | Vinet + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
-| [Hemley et al. (1989) Table I direct 300 K BM3 refit](#record-neon_fcc_hemley_1989_bm3_refit) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Fei et al. (2007), BM3-MGD](#record-neon_fcc_fei_2007_bm3_1) | BM3 + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
+| [Fei et al. (2007), Vinet-MGD](#record-neon_fcc_fei_2007_vinet_2) | Vinet + MieGruneisenDebye | Not specified | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Hemley et al. (1989), 300 K BM3](#record-neon_fcc_hemley_1989_bm3_refit) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Fei et al PNAS 2007 \[BM3\]](#record-neon_fcc_fei_2007_bm3_1) | 88.967 (fixed) | 1.43 ± 0.14 | 8.02 ± 0.31 |
-| [Fei et al PNAS 2007 \[Vinet\]](#record-neon_fcc_fei_2007_vinet_2) | 88.967 (fixed) | 1.16 ± 0.14 | 8.23 ± 0.31 |
-| [Hemley et al. (1989) Table I direct 300 K BM3 refit](#record-neon_fcc_hemley_1989_bm3_refit) | 88.96504106290601 (fixed) | 1.7277462566083195 ± 0.22322191999036312 | 6.972110967032526 ± 0.5439133435530098 |
+| [Fei et al. (2007), BM3-MGD](#record-neon_fcc_fei_2007_bm3_1) | 88.967 (fixed) | 1.43 ± 0.14 | 8.02 ± 0.31 |
+| [Fei et al. (2007), Vinet-MGD](#record-neon_fcc_fei_2007_vinet_2) | 88.967 (fixed) | 1.16 ± 0.14 | 8.23 ± 0.31 |
+| [Peritheos refit of Hemley et al. (1989), 300 K BM3](#record-neon_fcc_hemley_1989_bm3_refit) | 88.96504106290601 (fixed) | 1.7277462566083195 ± 0.22322191999036312 | 6.972110967032526 ± 0.5439133435530098 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -55,7 +55,7 @@ extrapolation.
 
 <a id="record-neon_fcc_fei_2007_bm3_1"></a>
 
-## Fei et al PNAS 2007 \[BM3\]
+## Fei et al. (2007), BM3-MGD
 
 `neon_fcc_fei_2007_bm3_1` · Executable
 
@@ -97,7 +97,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal parameters and Eq. 3 printed variable-exponent theta law, relative to 300 K. V0=88.967 A^3 is the fixed four-atom conventional fcc-cell volume for both branches; K0 and K0-prime remain specific to the cold equation. V0, theta0 and gamma0 are adopted source parameters; q=0.6(3) is retained with unspecified confidence/covariance. The room-temperature fit combined Finger (1981), Hemley (1989, recalculated to Dewaele 2004 ruby) and new Fei Pt/Au observations. All 14 Finger and 21 Hemley table rows, 13 separable new 300 K markers and six new 1000 K Pt-scale markers are bundled. Complete new rows, paired calibrant volumes and original weights are unrecovered. The 2000 K curve is a calculated extrapolation. See docs/literature-reproductions/fei-2007-neon.md; diagnostics do not replace published coefficients. Reported overall range is about 4.7-115 GPa; digitized/table recalculated endpoints carry their own rounding and can extend slightly above 115 GPa.
+Cold BM3 branch with the single Table 1 Mie-Grüneisen-Debye parameter set that the paper gives for both cold equations, relative to 300 K. The 300 K fit combined Finger (1981), Hemley (1989, recalculated to the Dewaele 2004 ruby scale) and new Fei Pt- and Au-scale data. The 2000 K curve is a calculated extrapolation, and recalculated data endpoints can lie slightly above the reported maximum of about 115 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -190,7 +190,7 @@ Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal p
 
 <a id="record-neon_fcc_fei_2007_vinet_2"></a>
 
-## Fei et al PNAS 2007 \[Vinet\]
+## Fei et al. (2007), Vinet-MGD
 
 `neon_fcc_fei_2007_vinet_2` · Executable
 
@@ -234,7 +234,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal parameters and Eq. 3 printed variable-exponent theta law, relative to 300 K. V0=88.967 A^3 is the fixed four-atom conventional fcc-cell volume for both branches; K0 and K0-prime remain specific to the cold equation. V0, theta0 and gamma0 are adopted source parameters; q=0.6(3) is retained with unspecified confidence/covariance. The room-temperature fit combined Finger (1981), Hemley (1989, recalculated to Dewaele 2004 ruby) and new Fei Pt/Au observations. All 14 Finger and 21 Hemley table rows, 13 separable new 300 K markers and six new 1000 K Pt-scale markers are bundled. Complete new rows, paired calibrant volumes and original weights are unrecovered. The 2000 K curve is a calculated extrapolation. See docs/literature-reproductions/fei-2007-neon.md; diagnostics do not replace published coefficients. Reported overall range is about 4.7-115 GPa; digitized/table recalculated endpoints carry their own rounding and can extend slightly above 115 GPa.
+Cold Vinet branch with the single Table 1 Mie-Grüneisen-Debye parameter set that the paper gives for both cold equations, relative to 300 K. The 300 K fit combined Finger (1981), Hemley (1989, recalculated to the Dewaele 2004 ruby scale) and new Fei Pt- and Au-scale data. The 2000 K curve is a calculated extrapolation, and recalculated data endpoints can lie slightly above the reported maximum of about 115 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -327,7 +327,7 @@ Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal p
 
 <a id="record-neon_fcc_hemley_1989_bm3_refit"></a>
 
-## Hemley et al. (1989) Table I direct 300 K BM3 refit
+## Peritheos refit of Hemley et al. (1989), 300 K BM3
 
 `neon_fcc_hemley_1989_bm3_refit` · Executable
 
@@ -354,7 +354,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[10.0, 110.4\]
 - **Coverage provenance:** reported\_exactly
 
-Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Hemley et al. Table I, using the tabulated Mao-ruby pressures and lattice-parameter uncertainties. V0 is fixed to the paper's low-temperature 13.394 cm^3/mol value converted to the four-atom fcc cell. This direct table-only reference is intentionally distinct from Hemley et al.'s published thermally reduced 0 K fit, which also included the earlier Finger et al. low-pressure data and reported K0=1.097 GPa and K0'=9.23(3).
+Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Table I, with the tabulated Mao ruby pressures and lattice-parameter uncertainties. V0 is fixed to the paper's low-temperature 13.394 cm³/mol, converted to the four-atom fcc cell. Not the paper's thermally reduced 0 K fit, which also used the Finger et al. low-pressure data and gave K0 = 1.097 GPa and K0' = 9.23(3).
 
 <details markdown="1">
 <summary>Source review</summary>

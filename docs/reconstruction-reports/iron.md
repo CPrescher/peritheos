@@ -36,7 +36,7 @@ stays in EOSMAT and the ledger.
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
 | [Sakai et al. (2025), Fe-hcp generalized Rydberg-Stacey scale](#record-iron_sakai_2025_rydberg_stacey_1) | **untested** (not refittable) |  |
-| [(hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90](#record-iron_mao_1990_bm3_1) | **close** |  |
+| [Mao et al. (1990), BM3](#record-iron_mao_1990_bm3_1) | **close** |  |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-iron_shen_2026_vinet_2) | **reproduced** |  |
 | [Dewaele (2019), Fe MAO-scale Vinet](#record-iron_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), Fe DOR-scale Vinet](#record-iron_dewaele_2019_dor_vinet) | **reproduced** |  |
@@ -63,16 +63,16 @@ stays in EOSMAT and the ledger.
 | [Sakai et al. (2014), p5\_vinet](#record-iron_sakai_2014_p5_vinet) | **reproduced** |  |
 | [Sakai et al. (2014), p6\_bm3](#record-iron_sakai_2014_p6_bm3) | **disagrees** |  |
 | [Sakai et al. (2014), p6\_vinet](#record-iron_sakai_2014_p6_vinet) | **reproduced** |  |
-| [Yamazaki et al. (2012), bm3\_thermal](#record-iron_yamazaki_2012_bm3_thermal) | **disagrees** |  |
-| [Yamazaki et al. (2012), vinet\_thermal](#record-iron_yamazaki_2012_vinet_thermal) | **disagrees** |  |
-| [Dubrovinsky et al. (2000), bm3\_thermal](#record-iron_dubrovinsky_2000_bm3_thermal) | **untested** (not refittable) |  |
+| [Yamazaki et al. (2012), BM3 + thermal](#record-iron_yamazaki_2012_bm3_thermal) | **disagrees** |  |
+| [Yamazaki et al. (2012), Vinet + thermal](#record-iron_yamazaki_2012_vinet_thermal) | **disagrees** |  |
+| [Dubrovinsky et al. (2000), BM3 + thermal](#record-iron_dubrovinsky_2000_bm3_thermal) | **untested** (not refittable) |  |
 | [Dewaele et al. (2006), bm3](#record-iron_dewaele_2006_bm3) | **reproduced** |  |
 | [Brown et al. (2000), nominal-iron steel linear Hugoniot, solid subset](#record-iron_brown_2000_linear_hugoniot) | **reproduced** |  |
-| [Miozzi et al. (2020), 300 K BM3 (not reproduced)](#record-iron_miozzi_2020_bm3) | **disagrees** | Explicit selection only; not loaded by default. |
-| [Miozzi et al. (2020), 300 K Vinet (not reproduced)](#record-iron_miozzi_2020_vinet) | **disagrees** | Explicit selection only; not loaded by default. |
-| [Miozzi et al. (2020), published BM3–MGD — author-reported n=2](#record-iron_miozzi_2020_bm3_mgd) | **disagrees** | Explicit selection only; not loaded by default. |
-| [Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights](#record-iron_miozzi_2020_tange_2009_bm3_mgd_refit) | **reproduced** |  |
-| [Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1](#record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit) | **reproduced** |  |
+| [Miozzi et al. (2020), 300 K BM3 (not reproduced)](#record-iron_miozzi_2020_bm3) | **disagrees** | Never chosen automatically; select it explicitly. |
+| [Miozzi et al. (2020), 300 K Vinet (not reproduced)](#record-iron_miozzi_2020_vinet) | **disagrees** | Never chosen automatically; select it explicitly. |
+| [Miozzi et al. (2020), BM3-MGD, author-reported n=2](#record-iron_miozzi_2020_bm3_mgd) | **disagrees** | Never chosen automatically; select it explicitly. |
+| [Peritheos refit of Miozzi et al. (2020), Tange MgO scale](#record-iron_miozzi_2020_tange_2009_bm3_mgd_refit) | **reproduced** |  |
+| [Peritheos refit of Miozzi et al. (2020), Speziale MgO scale](#record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit) | **reproduced** |  |
 
 <a id="record-iron_sakai_2025_rydberg_stacey_1"></a>
 
@@ -93,7 +93,7 @@ stays in EOSMAT and the ledger.
 
 <a id="record-iron_mao_1990_bm3_1"></a>
 
-## (hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90
+## Mao et al. (1990), BM3
 
 **close** · `iron_mao_1990_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_mao_1990_bm3_1)
 
@@ -1598,7 +1598,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_yamazaki_2012_bm3_thermal"></a>
 
-## Yamazaki et al. (2012), bm3\_thermal
+## Yamazaki et al. (2012), BM3 + thermal
 
 **disagrees** · `iron_yamazaki_2012_bm3_thermal` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_yamazaki_2012_bm3_thermal)
 
@@ -1659,7 +1659,7 @@ Both fits use the same 207 recovered audit input rows. **Volume coordinate:** au
 
 <a id="record-iron_yamazaki_2012_vinet_thermal"></a>
 
-## Yamazaki et al. (2012), vinet\_thermal
+## Yamazaki et al. (2012), Vinet + thermal
 
 **disagrees** · `iron_yamazaki_2012_vinet_thermal` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_yamazaki_2012_vinet_thermal)
 
@@ -1720,7 +1720,7 @@ Both fits use the same 207 recovered audit input rows. **Volume coordinate:** au
 
 <a id="record-iron_dubrovinsky_2000_bm3_thermal"></a>
 
-## Dubrovinsky et al. (2000), bm3\_thermal
+## Dubrovinsky et al. (2000), BM3 + thermal
 
 **untested** (not refittable) · `iron_dubrovinsky_2000_bm3_thermal` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_dubrovinsky_2000_bm3_thermal)
 
@@ -1873,7 +1873,7 @@ The fitted quantity is shock velocity, not isothermal pressure. Residual = Us(mo
 
 **disagrees** · `iron_miozzi_2020_bm3` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_miozzi_2020_bm3)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. The thermal source replay now uses n=2 with volume per mole Fe, as confirmed in user-relayed personal communication with Miozzi, recorded 2026-10-03. This diagnostic fixes V0 even though the author clarified that V0 was free in the final stage. See literature-reproductions/miozzi-2020-iron.md.
 
@@ -1932,7 +1932,7 @@ Both fits use the same 35 recovered audit input rows. **Volume coordinate:** aud
 
 **disagrees** · `iron_miozzi_2020_vinet` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_miozzi_2020_vinet)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. The thermal source replay now uses n=2 with volume per mole Fe, as confirmed in user-relayed personal communication with Miozzi, recorded 2026-10-03. This diagnostic fixes V0 even though the author clarified that V0 was free in the final stage. See literature-reproductions/miozzi-2020-iron.md.
 
@@ -1987,11 +1987,11 @@ Both fits use the same 35 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_miozzi_2020_bm3_mgd"></a>
 
-## Miozzi et al. (2020), published BM3–MGD — author-reported n=2
+## Miozzi et al. (2020), BM3-MGD, author-reported n=2
 
 **disagrees** · `iron_miozzi_2020_bm3_mgd` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_miozzi_2020_bm3_mgd)
 
-**Warning:** Explicit selection only; not loaded by default.
+**Warning:** Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. The thermal source replay now uses n=2 with volume per mole Fe, as confirmed in user-relayed personal communication with Miozzi, recorded 2026-10-03. This diagnostic fixes V0 even though the author clarified that V0 was free in the final stage. See literature-reproductions/miozzi-2020-iron.md.
 
@@ -2048,7 +2048,7 @@ Both fits use the same 131 recovered audit input rows. **Volume coordinate:** au
 
 <a id="record-iron_miozzi_2020_tange_2009_bm3_mgd_refit"></a>
 
-## Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights
+## Peritheos refit of Miozzi et al. (2020), Tange MgO scale
 
 **reproduced** · `iron_miozzi_2020_tange_2009_bm3_mgd_refit` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_miozzi_2020_tange_2009_bm3_mgd_refit)
 
@@ -2111,7 +2111,7 @@ Both fits use the same 131 recovered audit input rows. **Volume coordinate:** vo
 
 <a id="record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit"></a>
 
-## Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1
+## Peritheos refit of Miozzi et al. (2020), Speziale MgO scale
 
 **reproduced** · `iron_miozzi_2020_speziale_2001_bm3_mgd_refit` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit)
 

@@ -85,7 +85,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.56, 165.0\]
 - **Reported error confidence level:** 0.95
 
-Quasihydrostatic 300 K Vinet fit to corundum data from 0.56 to 165 GPa. V0=255.45+/-0.52 A^3, K0=254.1+/-7.6 GPa, and K0'=4.00+/-0.15 were all fitted; errors are 95% confidence intervals.
+Quasihydrostatic 300 K Vinet fit to corundum data, with all three parameters free.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -179,7 +179,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published corundum model 3 selected in main Table 1 and Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V \[E\_D(V,T)-E\_D(V,300 K)\], gamma=gamma0(V/V0)^q, and theta=theta0 exp\[-(gamma-gamma0)/q\], with n=5 atoms per Al2O3 formula unit. V0=255.1 A^3 is the fixed conventional six-formula-unit hexagonal corundum cell from Lutterotti and Scardi (1990); K0, gamma0, and q were fitted, while K0', V0, theta0, Tr, and n were fixed. Main Table 1 reports K0=246(2) GPa for the selected model, whereas sensitivity Table 2 reports 246(1) GPa; the selected-table uncertainty is retained and the discrepancy is explicit. Table 2's 500 K and 800 K Debye-temperature trials are sensitivity fits, not additional preferred records. All 75 Table S1 observations are bundled: 59 are grouped under Pt pressures (including the fixed 0 GPa reference row) and 16 under NaCl pressures. The source does not state an uncertainty confidence convention or coefficient covariance matrix. An independent unweighted Peritheos fit of pressure residuals at all 75 printed V-T states, with the published fixed parameters, returns K0=246.3083 GPa, gamma0=1.35931, and q=0.800868; all reproduce the published coefficients within their reported uncertainties. The published curve has a 1.23305 GPa pressure RMSE and the refit has a 1.19139 GPa RMSE. Weighting by the tabulated coordinate uncertainties does not recover q, so the parity result is specifically identified as an unweighted pressure-residual reproduction rather than an undocumented reconstruction of the authors' weighting.
+Corundum model 3, selected in Table 1 and Table S3. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3, and with K0' = 4 fixed its cold curve is numerically BM2. V0 is the hexagonal six-formula-unit cell of Lutterotti and Scardi (1990), held fixed.
 
 <details markdown="1">
 <summary>Source review</summary>

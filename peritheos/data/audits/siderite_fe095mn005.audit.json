@@ -142,6 +142,10 @@
           "K0_prime": "Abstract and Table 1: 3.57(9).",
           "temperature_ref": "Section 3 and 300 K rows in Table 2."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Source-reported 300 K isotherm, preserved without substituting refit coefficients. Natural high-spin R-3c Fe0.95Mn0.05CO3, not pure FeCO3. Pressure is retained on the printed Au scale; its exact realization is unresolved. The high-temperature candidate is withheld because Table 1 and the abstract disagree on a0. All printed cold rows give pressure RMSE 0.230 GPa with published coefficients; the manuscript 0.11-0.17 GPa RMS range is not recovered. Source objective, weights, parameter covariance and confidence convention are not specified. No extension across the cited spin transition near 45 GPa or a numerical decomposition boundary is claimed.",
+        "superseded_on": "2026-11-16"
       }
     },
     "siderite_fe095mn005_litasov_2013_joint_thermal_refit": {
@@ -446,6 +450,11 @@
           "source_parameter_conflict": "Both published thermal coefficient sets remain non-executable source metadata; these optimized coefficients are a new Peritheos result, not a correction or recovery of the authors original fit.",
           "weighting_description": "equal; reported pressure bound is not treated as a row sigma; volume errors are retained but not used as weights"
         }
+      },
+      "superseded_record_text": {
+        "label": "Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3",
+        "notes": "Explicit opt-in Peritheos joint thermal refit, not either parameter set published by Litasov et al. All five coefficients were fitted together; V0=293.4 A^3 and Tr=300 K remain fixed. alpha0 is the absolute-temperature intercept. The observed pressure RMSE is 0.22121 GPa. The full conditional covariance is supplied; standard errors omit fixed-reference-volume uncertainty and pressure-scale systematics. The original 300 K EOS remains the default. Use within the measured paths; extrema do not guarantee phase stability throughout a rectangle. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa outside these measurements. Both conflicting published thermal sets are non-executable under source.thermal_parameterizations.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

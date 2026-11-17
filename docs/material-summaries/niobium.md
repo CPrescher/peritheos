@@ -34,14 +34,14 @@ Body-centered-cubic niobium. The reference cell is calculated from the published
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Takemura and Singh (2006), helium-medium BM3](#record-niobium_takemura_2006_bm3_1) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-niobium_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-niobium_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Takemura and Singh (2006), helium-medium BM3](#record-niobium_takemura_2006_bm3_1) | 35.9599 ± 0.0098 (fixed) | 168.0 ± 4.0 | 3.4 ± 0.3 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-niobium_sokolova_2013_holzapfel_2) | 35.960629619878574 | 170.5 | 3.65 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-niobium_sokolova_2013_holzapfel_2) | 35.960629619878574 | 170.5 | 3.65 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 71.5\]
 
-Adopted 300 K BM3 fit to the quasihydrostatic helium data through 71.5 GPa: K0=168+/-4 GPa and K0'=3.4+/-0.3. V0 is fixed from a=3.3007(3) A at atmospheric pressure; the parameter errors span the alternative fit using data through 134 GPa.
+Adopted 300 K BM3 fit to the quasihydrostatic helium data. V0 is fixed from a = 3.3007(3) Å at atmospheric pressure. The parameter errors span the alternative fit using data through 134 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -135,7 +135,7 @@ Adopted 300 K BM3 fit to the quasihydrostatic helium data through 71.5 GPa: K0=1
 
 <a id="record-niobium_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `niobium_sokolova_2013_holzapfel_2` · Executable
 
@@ -176,7 +176,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reference temperature (K):** 298.15
 - **Coverage provenance:** reference\_parameterization
 
-This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
+Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to shock-wave, ultrasonic, X-ray diffraction, dilatometric and thermochemical data: reference volume and composition inputs from Table 1, Holzapfel and thermal coefficients from Table 4. Sokolova et al. (2016) supplies the spreadsheet implementation, reference-temperature convention and corrected equations.
 
 <details markdown="1">
 <summary>Source review</summary>

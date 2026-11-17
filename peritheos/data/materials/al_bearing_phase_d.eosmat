@@ -6,10 +6,20 @@
   "phase": "Al-bearing trigonal phase D, P-31m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
+  "default_records": {"equilibrium": "al_bearing_phase_d_xu_2020_bm3_300k"},
   "eos_records": [
     {
       "identifier": "al_bearing_phase_d_xu_2020_bm3_300k",
       "label": "Xu et al. (2020), 300 K gold-scale BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "Xu et al. report a conventional-cell, 300 K third-order Birch-Murnaghan fit with V0=86.71 A^3 fixed, KT0=143 GPa, and KT0'=5.8 on the Tsuchiya-2003 gold pressure scale. The author-deposited workbook exposes all eight selected 300 K P-V states plus the retained high-temperature P-V-T observations.",
+        "audit": "../audits/al_bearing_phase_d.audit.json#al_bearing_phase_d_xu_2020_bm3_300k"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,33 +28,20 @@
         "K0_prime": {"value": 5.8, "error": 0.7}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 20.53],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 20.53],
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.8996655518394651, 1.0],
-        "notes": [
-          "Empirical 300 K isotherm over the measured range only; it is not the paper's high-temperature or acoustic finite-strain model.",
-          "The lower volume-ratio bound is the smallest 300 K observation, 78.01/86.71."
-        ]
+        "notes": ["The lower volume-ratio bound is the smallest 300 K observation, 78.01/86.71."]
       },
+      "experimental_pressure_range_gpa": [0.0, 20.53],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "experimental_configuration": {
-        "sample": "Sintered polycrystalline Al-bearing phase D synthesized at 24 GPa and 1373 K for 1 h; reported EDS oxides 20.7 wt% MgO, 44.5 wt% SiO2, and 18.8 wt% Al2O3 with about 16.0 wt% H2O estimated by total deficit",
-        "pressure_cell": "Kawai-type multianvil apparatus at SPring-8 BL04B1",
-        "diffraction": "In situ energy-dispersive synchrotron X-ray diffraction",
-        "temperature_measurement": "W97Re3-W75Re25 thermocouple",
-        "fit_software": "EosFit",
-        "fit_selection": "All eight author-deposited 300 K P-V states from 0 to 20.53 GPa"
-      },
-      "notes": "Published room-temperature BM3. V0 was fixed to the in situ 300 K zero-pressure observation; K0 and K0' were fitted. Parenthetical parameter errors have no stated confidence convention, and no covariance matrix or scalar fit statistic is published. The broader experiment used Au and NaCl pressure standards, while the article's Table 1 explicitly labels this represented BM3 as the Tsuchiya (2003) gold-scale fit. The article also publishes high-temperature BM3 and pressure-scale-free elastic parameterizations, but the narrative and Table 1 disagree on their fit interval, fixed/free choices, alpha(T) form, and coefficients; none is silently approximated as a Peritheos thermal EOS.",
+      "notes": "Room-temperature BM3 on the Tsuchiya (2003) gold pressure scale (Table 1); the experiment also used Au and NaCl pressure standards. V0 is fixed to the in situ 300 K zero-pressure observation. The paper's high-temperature BM3 and pressure-scale-free elastic parameterizations are not represented because its text and Table 1 disagree on them.",
       "fit_datasets": ["al_bearing_phase_d_xu_2020_earthchem_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Xu", "Gréaux", "Inoue", "Noda", "Sun", "Kuwahara", "Higo"],
         "year": 2020,
@@ -54,13 +51,14 @@
         "locator": "e2020GL088877",
         "doi": "10.1029/2020GL088877"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Xu et al. report a conventional-cell, 300 K third-order Birch-Murnaghan fit with V0=86.71 A^3 fixed, KT0=143 GPa, and KT0'=5.8 on the Tsuchiya-2003 gold pressure scale. The author-deposited workbook exposes all eight selected 300 K P-V states plus the retained high-temperature P-V-T observations.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/al_bearing_phase_d.audit.json#al_bearing_phase_d_xu_2020_bm3_300k"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "Sintered polycrystalline Al-bearing phase D synthesized at 24 GPa and 1373 K for 1 h; reported EDS oxides 20.7 wt% MgO, 44.5 wt% SiO2, and 18.8 wt% Al2O3 with about 16.0 wt% H2O estimated by total deficit",
+        "pressure_cell": "Kawai-type multianvil apparatus at SPring-8 BL04B1",
+        "diffraction": "In situ energy-dispersive synchrotron X-ray diffraction",
+        "temperature_measurement": "W97Re3-W75Re25 thermocouple",
+        "fit_software": "EosFit",
+        "fit_selection": "All eight author-deposited 300 K P-V states from 0 to 20.53 GPa"
       }
     }
   ],

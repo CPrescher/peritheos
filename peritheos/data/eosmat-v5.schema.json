@@ -111,6 +111,20 @@
       },
       "description": "Primary experimental datasets used to derive one or more EOS records. Small tables may be embedded as rows; larger tables may use a checksummed relative resource."
     },
+    "default_records": {
+      "type": "object",
+      "description": "The material's designated default records, by category: equilibrium (isothermal and thermal records) and hugoniot. Each value names one record of this file in that category. Absent: no record is designated and Material.default_record() uses the first record. Per-record default/default_for flags remain valid; when both are present they must agree.",
+      "properties": {
+        "equilibrium": {
+          "$ref": "#/$defs/identifier"
+        },
+        "hugoniot": {
+          "$ref": "#/$defs/identifier"
+        }
+      },
+      "minProperties": 1,
+      "additionalProperties": false
+    },
     "eos_records": {
       "type": "array",
       "items": {
@@ -1945,6 +1959,9 @@
         },
         "check": {
           "$ref": "#/$defs/check"
+        },
+        "superseded_record_text": {
+          "$ref": "#/$defs/superseded_record_text"
         }
       },
       "additionalProperties": true,
@@ -2995,7 +3012,7 @@
     },
     "check": {
       "type": "object",
-      "description": "Optional short headline of the record's checks. reproduction maps the stored reconstruction assessment status (parity: reproduced, similar: close, not_reproduced: disagrees, any other or absent status: untested). warning is a short stored usage restriction or null. finding and source copy the primary-source finding and scientific_validation status; source_checked_on is that check's audit date. audit points to the record's entry in an audit sidecar when its evidence is stored there.",
+      "description": "Optional short headline of the record's checks, generated from stored audit data. reproduction maps the stored reconstruction assessment status (parity: reproduced, similar: close, not_reproduced: disagrees, any other or absent status: untested). compared says what the headline refers to: published_fit (scope parameter_agreement or author_workflow), peritheos_refit (scope independent_refit), source_equation (status source_reconstruction, or scope source_equation with an assessed status) or none (status not_refittable or not_assessed, or no assessment). why, only for close or disagrees, names the coefficients whose stored comparison failed. warning is a short stored usage restriction or null. source_check renames scientific_validation.status (primary_source_validated: verified, pending_primary_source_check: pending, not_reproduced: unresolved, deferred: deferred); source_checked_on is that check's audit date and source_note copies its finding. audit points to the record's entry in an audit sidecar when its evidence is stored there. The earlier names finding and source are rejected.",
       "properties": {
         "reproduction": {
           "enum": [
@@ -3005,6 +3022,19 @@
             "untested"
           ]
         },
+        "compared": {
+          "enum": [
+            "published_fit",
+            "peritheos_refit",
+            "source_equation",
+            "none"
+          ]
+        },
+        "why": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
         "warning": {
           "type": [
             "string",
@@ -3012,15 +3042,11 @@
           ],
           "minLength": 1
         },
-        "finding": {
-          "type": "string",
-          "minLength": 1
-        },
-        "source": {
+        "source_check": {
           "enum": [
-            "primary_source_validated",
-            "pending_primary_source_check",
-            "not_reproduced",
+            "verified",
+            "pending",
+            "unresolved",
             "deferred"
           ]
         },
@@ -3028,10 +3054,56 @@
           "type": "string",
           "minLength": 1
         },
+        "source_note": {
+          "type": "string",
+          "minLength": 1
+        },
         "audit": {
           "type": "string",
           "minLength": 1,
           "description": "Relative sidecar path and #record identifier, for example ../audits/mgo.audit.json#mgo_record. Bundled materials store evidence, pressure_calibration and the other audit-only record blocks there."
+        }
+      },
+      "additionalProperties": false
+    },
+    "superseded_record_text": {
+      "type": "object",
+      "description": "Audit-only: the original value of each free-text field replaced by a later text revision, kept verbatim so no wording is lost. label, notes, validity_notes (validity.notes) and thermal_notes (thermal.notes) hold the replaced value; null means the field was absent. A field appears only if it changed; a later revision never overwrites a stored original. superseded_on is the ISO date of the revision. Bundled materials store this block in the audit sidecar.",
+      "required": [
+        "superseded_on"
+      ],
+      "minProperties": 2,
+      "properties": {
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validity_notes": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "thermal_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "superseded_on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
         }
       },
       "additionalProperties": false

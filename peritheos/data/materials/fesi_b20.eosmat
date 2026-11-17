@@ -6,10 +6,20 @@
   "phase": "b20",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "fesi_b20_fischer_2014_bm3_1"},
   "eos_records": [
     {
       "identifier": "fesi_b20_fischer_2014_bm3_1",
       "label": "Fischer et al. (2014), FeSi b20 BM3 at 300 K",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-19",
+        "source_note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+        "audit": "../audits/fesi_b20.audit.json#fesi_b20_fischer_2014_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,23 +28,19 @@
         "K0_prime": {"value": 5.03, "error": 0.17}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 36.27929763454465],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
-      "determination_method": "experimental",
-      "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "sample_composition": "Stoichiometric FeSi starting material",
-      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
       "range_provenance": {
         "source_location": "2014 official Table S2, source worksheet row numbers retained",
         "selection": "phase=B20",
         "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "The authors' preferred fit; the Vinet record is their published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
       "fit_datasets": ["fischer_2014_table_s2_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
         "year": 2014,
@@ -44,18 +50,21 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-19",
-        "audit": "../audits/fesi_b20.audit.json#fesi_b20_fischer_2014_bm3_1"
-      }
+      "equation_kind": "isothermal",
+      "sample_composition": "Stoichiometric FeSi starting material"
     },
     {
       "identifier": "fesi_b20_fischer_2014_vinet_2",
       "label": "Fischer et al. (2014), FeSi b20 VINET at 300 K",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-19",
+        "source_note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+        "audit": "../audits/fesi_b20.audit.json#fesi_b20_fischer_2014_vinet_2"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -64,22 +73,19 @@
         "K0_prime": {"value": 5.03, "error": 0.17}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 36.27929763454465],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
-      "determination_method": "experimental",
-      "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default": false,
-      "sample_composition": "Stoichiometric FeSi starting material",
-      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
       "range_provenance": {
         "source_location": "2014 official Table S2, source worksheet row numbers retained",
         "selection": "phase=B20",
         "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "Published alternative to the authors' preferred BM3 fit. Room-temperature compression can retain metastable phases because of slow kinetics.",
       "fit_datasets": ["fischer_2014_table_s2_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
         "year": 2014,
@@ -89,14 +95,8 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-19",
-        "audit": "../audits/fesi_b20.audit.json#fesi_b20_fischer_2014_vinet_2"
-      }
+      "equation_kind": "isothermal",
+      "sample_composition": "Stoichiometric FeSi starting material"
     }
   ],
   "aliases": ["epsilon FeSi", "iron monosilicide B20"],

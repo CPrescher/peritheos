@@ -35,13 +35,13 @@ B2 solid is not stable at ambient pressure. The reference cell is a hypothetical
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbbr_b2_farla_2025_bm3_mgd_cscl) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)](#record-rbbr_b2_farla_2025_bm3_mgd_cscl) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbbr_b2_farla_2025_bm3_mgd_cscl) | 69.31090066383636 ± 0.06642156268695387 (fixed) | 16.28 ± 0.04 | 5.28 ± 0.02 |
+| [Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)](#record-rbbr_b2_farla_2025_bm3_mgd_cscl) | 69.31090066383636 ± 0.06642156268695387 (fixed) | 16.28 ± 0.04 | 5.28 ± 0.02 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -53,7 +53,7 @@ extrapolation.
 
 <a id="record-rbbr_b2_farla_2025_bm3_mgd_cscl"></a>
 
-## Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)
+## Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)
 
 `rbbr_b2_farla_2025_bm3_mgd_cscl` · Executable
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[1.19, 26.47\]
     - **Temperature k:** \[300.0, 1800.0\]
-    - **Notes:** Only the B2 solid branch. B1 transition and melting curves are not encoded; confirm phase before using as a marker.; Bounds describe marginal coverage; high-temperature data reach about 21 GPa, not 26 GPa.; The zero-pressure reference is hypothetical and is not stable ambient B2 material.
+    - **Notes:** Only the B2 solid branch. B1 transition and melting curves are not encoded; confirm phase before using as a marker.; Bounds describe marginal coverage; high-temperature data reach about 21 GPa, not 26 GPa.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -103,7 +103,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.
+The authors' preferred case 1, a combined-data fit with CsCl-based pressures. V0 is a hypothetical DAC-extrapolated zero-pressure B2 volume, not stable ambient material. V0 and its error are converted from the molar V0 used in the EoSFit7 program; the printed cell-volume error disagrees with it after conversion.
 
 <details markdown="1">
 <summary>Source review</summary>

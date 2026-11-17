@@ -36,13 +36,13 @@ Fe endmember distinct from Mg-ringwoodite and fayalite. Derived static ambient-c
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction](#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction) | BM2 | 296.15 | reproduced |  | primary source validated | Executable |
+| [Finger et al. (1979), 23 °C BM2 on measured ambient cell](#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction) | BM2 | 296.15 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction](#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction) | 558.7 ± 0.2 (fixed) | 196.0 ± 6.0 | — |
+| [Finger et al. (1979), 23 °C BM2 on measured ambient cell](#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction) | 558.7 ± 0.2 (fixed) | 196.0 ± 6.0 | — |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -54,7 +54,7 @@ extrapolation.
 
 <a id="record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"></a>
 
-## Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction
+## Finger et al. (1979), 23 °C BM2 on measured ambient cell
 
 `ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction` · Executable
 
@@ -86,9 +86,9 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 4.0\]
     - **Temperature k:** \[296.15, 296.15\]
-    - **Notes:** Three measured Fe2SiO4 states only, at room temperature; no thermal correction or equilibrium phase-stability claim.; Source BM2 coefficients reconstructed with the measured ambient volume; original fit covariance/weights and precise reference-intercept treatment are not recovered.; Zero-pressure gauge approximation to the1bar measured ambient state is explicit and negligible at the source precision.
+    - **Notes:** Three measured Fe2SiO4 states only, at room temperature.
 
-Derived ambient-cell reconstruction, not an independently refitted record and not a claim to have recovered the original fit intercept. Static default; the separate 2011 thermal candidate remains staged outside the executable catalog. PublishedK0 unchanged;Kprime=4 fixed. ReferenceT296.15K; no300K or thermal behavior claimed.
+Reconstruction: the published BM2 K0 combined with the measured ambient cell volume as V0, not the authors' fit intercept and not a refit. The reference temperature is 296.15 K; no 300 K or thermal behavior is claimed.
 
 <details markdown="1">
 <summary>Source review</summary>

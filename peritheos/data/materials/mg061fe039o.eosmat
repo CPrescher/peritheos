@@ -10,6 +10,15 @@
     {
       "identifier": "mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1",
       "label": "Solomatova et al. (2016), fei hs BM3 reference branch",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -18,27 +27,15 @@
         "K0_prime": {"value": 4.25, "error": 0.24}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
-      "spin_crossover_context": {
-        "branch": "high_spin_reference",
-        "transition_pressure_gpa": 56.6,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 17.2,
-        "mixer_implemented": false
-      },
-      "parameter_covariance": null,
+      "notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -48,18 +45,29 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 56.6,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 17.2,
+        "mixer_implemented": false
       }
     },
     {
       "identifier": "mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2",
       "label": "Solomatova et al. (2016), fei ls BM3 reference branch",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0, K0 and K0' have no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -68,17 +76,24 @@
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
+      },
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
       "spin_crossover_context": {
@@ -87,29 +102,21 @@
         "transition_pressure_sigma_gpa": null,
         "transition_width_20_80_gpa": 17.2,
         "mixer_implemented": false
-      },
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
-        "year": 2016,
-        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-        "source": "American Mineralogist",
-        "volume": "101",
-        "locator": "1084-1093",
-        "doi": "10.2138/am-2016-5510"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2"
       }
     },
     {
       "identifier": "mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3",
       "label": "Solomatova et al. (2016), zhuravlev hs BM3 reference branch",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0, K0 and K0' have no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -118,17 +125,24 @@
         "K0_prime": {"value": 4.07, "error": 0.05}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
+      },
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
       "spin_crossover_context": {
@@ -137,29 +151,20 @@
         "transition_pressure_sigma_gpa": null,
         "transition_width_20_80_gpa": 10.3,
         "mixer_implemented": false
-      },
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
-        "year": 2016,
-        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-        "source": "American Mineralogist",
-        "volume": "101",
-        "locator": "1084-1093",
-        "doi": "10.2138/am-2016-5510"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3"
       }
     },
     {
       "identifier": "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4",
       "label": "Solomatova et al. (2016), zhuravlev ls BM3 reference branch",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -168,27 +173,15 @@
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
-      "spin_crossover_context": {
-        "branch": "low_spin_reference",
-        "transition_pressure_gpa": 73.5,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 10.3,
-        "mixer_implemented": false
-      },
-      "parameter_covariance": null,
+      "notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -198,18 +191,28 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 73.5,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 10.3,
+        "mixer_implemented": false
       }
     },
     {
       "identifier": "mg061fe039o_zhuravlev_2010_high_spin_bm2_5",
       "label": "Zhuravlev et al. (2010), high-spin BM2",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The paper fits 43 compression observations from 15.5 to 70.9 GPa as high spin. Its displayed solid curve and leading reported fit are BM2 with V0=77.4(2) A^3 and K0=161(3) GPa; Table 6's three other rows are equation-form and free-derivative sensitivity fits.",
+        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_zhuravlev_2010_high_spin_bm2_5"
+      },
       "model": "BM2",
       "temperature_ref": 300,
       "parameters": {
@@ -217,24 +220,19 @@
         "K0": {"value": 161, "error": 3}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [15.5, 70.9],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [15.5, 70.9],
         "temperature_k": [300, 300],
-        "notes": [
-          "High-spin compression branch only; the first volume collapse occurs at 72.2 GPa.",
-          "BM2 makes K0_prime=4 part of the equation definition."
-        ]
+        "notes": ["High-spin compression branch only; the first volume collapse occurs at 72.2 GPa."]
       },
+      "experimental_pressure_range_gpa": [15.5, 70.9],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
-      "notes": "This is Zhuravlev et al.'s source-owned high-spin EOS, distinct from the later Solomatova et al. coupled crossover branches fitted to the full compression trajectory. The paper states that the printed pressure uncertainties describe drift during acquisition and that the true pressure uncertainty is likely closer to 3%; exact EOS-FIT weights and covariance are not published.",
+      "notes": "High-spin EOS of Zhuravlev et al., separate from the later Solomatova et al. coupled crossover branches. The paper states that printed pressure errors describe drift during acquisition and that the true pressure uncertainty is likely closer to 3%.",
       "fit_datasets": ["mg061fe039o_zhuravlev_2010_table5_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Zhuravlev", "Jackson", "Wolf", "Wicks", "Yan", "Clark", "Prakapenka"],
         "year": 2010,
@@ -244,18 +242,21 @@
         "locator": "465-474",
         "doi": "10.1007/s00269-009-0347-6"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The paper fits 43 compression observations from 15.5 to 70.9 GPa as high spin. Its displayed solid curve and leading reported fit are BM2 with V0=77.4(2) A^3 and K0=161(3) GPa; Table 6's three other rows are equation-form and free-derivative sensitivity fits.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_zhuravlev_2010_high_spin_bm2_5"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046}
     },
     {
       "identifier": "mg061fe039o_fei_2007_hs_b1_bm3",
-      "label": "Fei et al. (2007), GRL, mg061fe039o high-spin B1 compression BM3",
+      "label": "Fei et al. (2007), high-spin B1 BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": "Consult the source audit before quantitative use.",
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_fei_2007_hs_b1_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -264,23 +265,19 @@
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 55],
         "temperature_k": [300, 300],
         "notes": [
-          "Published high-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+          "Approximate fitting domain stated in the paper, not a sharp spin-state boundary.",
+          "Do not use one branch across the spin crossover; outside its spin regime the curve is an extrapolation."
         ]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
-      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
       "fit_datasets": ["mg061fe039o_fei_2007_table_s2_pv"],
-      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
         "year": 2007,
@@ -290,18 +287,22 @@
         "locator": "L17307",
         "doi": "10.1029/2007GL030712"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": "Consult the source audit before quantitative use.",
-        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_fei_2007_hs_b1_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
     },
     {
       "identifier": "mg061fe039o_fei_2007_ls_b1_bm3",
-      "label": "Fei et al. (2007), GRL, mg061fe039o low-spin B1 compression BM3",
+      "label": "Fei et al. (2007), low-spin B1 BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": "Consult the source audit before quantitative use.",
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_fei_2007_ls_b1_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -310,23 +311,19 @@
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [60, 148],
         "temperature_k": [300, 300],
         "notes": [
-          "Published low-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+          "Approximate fitting domain stated in the paper, not a sharp spin-state boundary.",
+          "Do not use one branch across the spin crossover; outside its spin regime the curve is an extrapolation."
         ]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
-      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
       "fit_datasets": ["mg061fe039o_fei_2007_table_s2_pv"],
-      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
         "year": 2007,
@@ -336,14 +333,9 @@
         "locator": "L17307",
         "doi": "10.1029/2007GL030712"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": "Consult the source audit before quantitative use.",
-        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg061fe039o.audit.json#mg061fe039o_fei_2007_ls_b1_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
     }
   ],
   "aliases": [

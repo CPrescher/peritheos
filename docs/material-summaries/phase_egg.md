@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[293.0, 293.0\]
 
-Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0\_prime were all fitted in EosFit7c; none was fixed or adopted. Parenthesized coefficient errors are stored as printed, but the article gives no confidence level or covariance matrix. Table 2 also prints a BM3 re-fit to Vanpeteghem et al. (2003): V0=211.41(11) A^3, K0=155(5) GPa, K0\_prime=6.7(5). That comparison reduction belongs to the older powder dataset and is not a second parameterization of the 2018 single-crystal observations. The fitted V0 is a zero-pressure extrapolation because the only ambient observation was intentionally omitted. The experimental pressure envelope is not a phase-stability guarantee.
+Room-temperature BM3 in the Eulerian finite-strain convention, fitted with the EosFit7c program. V0 is a zero-pressure extrapolation because the only ambient observation was intentionally omitted.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -192,10 +192,10 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[-6.4, 15.0\]
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.9324009, 1.0465725\]
-    - **Notes:** This is a static 0 K first-principles isotherm, not an experimental room-temperature EOS.; The authors define LP below the approximately 15 GPa proton transfer; LP calculations above that boundary are a metastable continuation of the same optimized starting configuration.; The numerical bounds describe the represented low-pressure branch and calculation grid, not the broader experimental phase-stability field.
+    - **Notes:** The authors define LP below the proton transfer at about 15 GPa; LP calculations above it, to 43.7 GPa, are a metastable continuation.
 - **Reported error confidence level:** Not specified
 
-Published LP parameterization. All V0, K0, and K0' values were fitted; none was fixed or adopted. The source's separate HP proton-configuration parameters are scientifically distinct and are represented by a companion record rather than merged into this LP branch. The official supplement continues the LP calculation grid beyond the approximately 15 GPa proton-transfer boundary to 43.7 GPa; those rows document the source fit/curve but do not expand the recommended LP branch. The source reports no E0 value needed by pressure evaluation and no parameter covariance, confidence convention, row uncertainties, fit objective, weights, software-fit details, or fit statistic.
+Static 0 K first-principles BM3 for the low-pressure (LP) proton configuration, not an experimental room-temperature EOS. The high-pressure (HP) configuration is a separate record. The source reports no E0 value.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -288,14 +288,14 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/pha
 - **Validity:**
     - **Pressure gpa:** \[15.0, 44.0\]
     - **Temperature k:** \[0.0, 0.0\]
-    - **Notes:** Static 0 K first-principles isotherm for the proton-transferred HP configuration.; The authors identify the HP branch above the approximately 15 GPa proton-transfer pressure; lower-pressure HP calculations are a metastable extrapolation.
+    - **Notes:** The authors identify HP above the proton transfer at about 15 GPa; HP calculations at lower pressure are a metastable extrapolation.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 120.071
 - **Reported error confidence level:** Not specified
 
-The five supplementary HP pressure points closely reproduce the printed rounded BM3 curve, but the authors fitted total energy versus volume. The unpublished energies, weights, objective, covariance, and confidence convention prevent an exact regression reconstruction.
+Static 0 K first-principles BM3 for the proton-transferred high-pressure (HP) configuration, fitted by the authors to unpublished total energies versus volume.
 
 <details markdown="1">
 <summary>Source review</summary>

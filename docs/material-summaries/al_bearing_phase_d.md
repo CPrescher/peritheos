@@ -89,10 +89,10 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 20.53\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.8996655518394651, 1.0\]
-    - **Notes:** Empirical 300 K isotherm over the measured range only; it is not the paper's high-temperature or acoustic finite-strain model.; The lower volume-ratio bound is the smallest 300 K observation, 78.01/86.71.
+    - **Notes:** The lower volume-ratio bound is the smallest 300 K observation, 78.01/86.71.
 - **Reported error confidence level:** Not specified
 
-Published room-temperature BM3. V0 was fixed to the in situ 300 K zero-pressure observation; K0 and K0' were fitted. Parenthetical parameter errors have no stated confidence convention, and no covariance matrix or scalar fit statistic is published. The broader experiment used Au and NaCl pressure standards, while the article's Table 1 explicitly labels this represented BM3 as the Tsuchiya (2003) gold-scale fit. The article also publishes high-temperature BM3 and pressure-scale-free elastic parameterizations, but the narrative and Table 1 disagree on their fit interval, fixed/free choices, alpha(T) form, and coefficients; none is silently approximated as a Peritheos thermal EOS.
+Room-temperature BM3 on the Tsuchiya (2003) gold pressure scale (Table 1); the experiment also used Au and NaCl pressure standards. V0 is fixed to the in situ 300 K zero-pressure observation. The paper's high-temperature BM3 and pressure-scale-free elastic parameterizations are not represented because its text and Table 1 disagree on them.
 
 <details markdown="1">
 <summary>Source review</summary>

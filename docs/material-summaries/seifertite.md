@@ -86,7 +86,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[55.0, 147.0\]
 - **Reported temperature coverage (K):** \[300.0, 3500.0\]
 
-Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.
+Laser-heated diamond-anvil-cell thermal EOS; the BM2 reference isotherm implies K0' = 4.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -165,11 +165,13 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 220.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** QMC plus quasiharmonic phonons; the low-pressure part is a metastable extrapolation of alpha-PbO2-type SiO2.
+    - **Notes:** The low-pressure part is a metastable extrapolation of alpha-PbO2-type SiO2.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 60.083
+
+QMC calculation with quasiharmonic phonons.
 
 <details markdown="1">
 <summary>Source review</summary>

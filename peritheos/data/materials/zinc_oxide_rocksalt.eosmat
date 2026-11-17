@@ -9,6 +9,15 @@
     {
       "identifier": "zinc_oxide_rocksalt_hanna_2011_bm2_1",
       "label": "Hanna et al. (2011), rocksalt BM2",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0: refit 205.8 vs published 172 GPa (+19.7%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/zinc_oxide_rocksalt.audit.json#zinc_oxide_rocksalt_hanna_2011_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,7 +27,7 @@
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
-      "notes": "Hanna et al. report V0 = 19.61(10) A^3 per ZnO and K0 = 172(21) GPa with K0' fixed at 4; values are converted to the conventional Z=4 cell. B1 data were collected above the 8.3-10 GPa coexistence interval, but the exact fitted pressure interval is not tabulated.",
+      "notes": "Published V0 = 19.61(10) Å³ per ZnO; stored per conventional cell (Z = 4). B1 data were collected above the 8.3-10 GPa coexistence interval, but the exact fitted pressure interval is not tabulated.",
       "reference": {
         "authors": ["Hanna", "Teklemichael", "McCluskey", "Bergman", "Huso"],
         "year": 2011,
@@ -27,13 +36,6 @@
         "volume": "110",
         "locator": "073511",
         "doi": "10.1063/1.3644969"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/zinc_oxide_rocksalt.audit.json#zinc_oxide_rocksalt_hanna_2011_bm2_1"
       }
     }
   ],

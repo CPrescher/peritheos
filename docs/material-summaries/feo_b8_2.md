@@ -34,13 +34,13 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/curr
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [B8 Fe0.94O, Fischer et al. (2011)](#record-feo_b8_2_fischer_2011_bm3_1) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Fischer et al. (2011), BM3](#record-feo_b8_2_fischer_2011_bm3_1) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [B8 Fe0.94O, Fischer et al. (2011)](#record-feo_b8_2_fischer_2011_bm3_1) | 39.843 ± 0.0598 | 137.8 ± 0.9 | 4.0 (fixed) |
+| [Fischer et al. (2011), BM3](#record-feo_b8_2_fischer_2011_bm3_1) | 39.843 ± 0.0598 | 137.8 ± 0.9 | 4.0 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -52,7 +52,7 @@ extrapolation.
 
 <a id="record-feo_b8_2_fischer_2011_bm3_1"></a>
 
-## B8 Fe0.94O, Fischer et al. (2011)
+## Fischer et al. (2011), BM3
 
 `feo_b8_2_fischer_2011_bm3_1` · Executable
 
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Fischer et al. report a thermal EOS for iron-saturated FeO, not a standalone 300 K BM3. The Fe0.94O starting powder was mixed with Fe and the authors treat the equilibrated high-P-T oxide as approximately stoichiometric FeO. Reported sample temperatures already include the source's 3% downward axial-gradient correction and must be evaluated at their tabulated values. The current-study supplement contributes 21 numerical B8 volumes; one-peak detections have no volume and are excluded, while Figure 3 assigns +/-0.1 cm^3/mol plotting errors when two-peak uncertainties could not be constrained. Ozawa's printed Table 2 contributes 8 B8 P-V-T rows and is bundled at printed precision. Fischer's exact combined row selection and regression weights/objective are not printed. The source explicitly warns against extrapolating this EOS far beyond the B8 data range.
+Thermal EOS for iron-saturated FeO (Fe0.94O starting powder mixed with Fe, treated by the authors as approximately stoichiometric), not a standalone 300 K BM3. Tabulated sample temperatures already include the source's 3% downward axial-gradient correction. The source warns against extrapolating far beyond the B8 data range.
 
 <details markdown="1">
 <summary>Source review</summary>

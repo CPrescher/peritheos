@@ -6,10 +6,20 @@
   "phase": "cubic grossular garnet endmember",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 8,
+  "default_records": {"equilibrium": "grossular_angel_2022_bm3_q_compromise_debye"},
   "eos_records": [
     {
       "identifier": "grossular_angel_2022_bm3_q_compromise_debye",
       "label": "Angel et al. (2022), BM3 + q-compromise Debye",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-11-08",
+        "source_note": "Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.",
+        "audit": "../audits/grossular.audit.json#grossular_angel_2022_bm3_q_compromise_debye"
+      },
       "model": "BM3",
       "temperature_ref": 298.0,
       "parameters": {
@@ -27,15 +37,6 @@
         }
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 16.9],
-      "experimental_temperature_range_k": [20.0, 1650.0],
-      "determination_method": "experimental",
-      "default": true,
-      "notes": "Published q-compromise pressure approximation, with theta0 and gamma/V constant and no q parameter. V0 is adopted/fixed from Holland and Powell (2011); it is not an ambient-volume refit or a direct measurement. Source-file coefficients preserve more digits than Table 1. Marginal data bounds do not define phase stability or a validated rectangle. The model supplies P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or mixing model. The official supplements contain final EOS/covariance files and Tables S1/S2 of dataset selections, not the complete numerical mixed volume/adiabatic-modulus input project. Exact point masks, rescalings, weights and the original refinement are not replayed. Recovered source tables are available through the dataset API, including all 52 Gwanmesia rows. The separately documented full-inventory diagnostic uses 219 non-anchor channels with explicit estimated errors for 26 observations. These are not the recovered original joint fit input; normalization, selected-row processing, assigned errors and covariance remain incomplete. See docs/literature-reproductions/grossular-angel-2022.md.",
-      "range_provenance": {
-        "source_location": "Supplementary Table S1, nonzero-used rows",
-        "notes": "Union of volume and elastic-modulus constraints, including room-pressure low-T expansion and high-P room-T compression. Independent experimental series; not a rectangular phase-stability field. Rejected high-T PVT rows do not extend coverage."
-      },
       "parameter_covariance": {
         "parameter_order": ["rt_eos.K0", "rt_eos.K0_prime", "theta0", "gamma0"],
         "matrix": [
@@ -45,6 +46,14 @@
           [0.0001981, -4.0539e-05, 0.055808, 2.598e-05]
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 16.9],
+      "experimental_temperature_range_k": [20.0, 1650.0],
+      "range_provenance": {
+        "source_location": "Supplementary Table S1, nonzero-used rows",
+        "notes": "Union of volume and elastic-modulus constraints, including room-pressure low-T expansion and high-P room-T compression. Independent experimental series; not a rectangular phase-stability field. Rejected high-T PVT rows do not extend coverage."
+      },
+      "determination_method": "experimental",
+      "notes": "Published q-compromise approximation: theta0 and gamma/V are constant and there is no q parameter. V0 is adopted and fixed from Holland and Powell (2011), not refitted or measured; the other coefficients carry more digits than Table 1, as in the source files. The model gives P-V-T and pressure derivatives, not a caloric potential or mixing model.",
       "reference": {
         "authors": ["Angel", "Gilio", "Mazzucchelli", "Alvaro"],
         "year": 2022,
@@ -53,14 +62,6 @@
         "volume": "177",
         "locator": "54",
         "doi": "10.1007/s00410-022-01918-5"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-11-08",
-        "audit": "../audits/grossular.audit.json#grossular_angel_2022_bm3_q_compromise_debye"
       }
     }
   ],

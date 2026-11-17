@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 6.0\]
 
-Room-temperature B1-PbS Birch-Murnaghan fit: K0=51.0+/-1.2 GPa and K0'=4.3+/-0.9. V0=207.8955+/-0.0421 A^3 is calculated from the reported cubic a=5.9240(4) A. The B1/B16 coexistence interval ends near 6 GPa.
+Room-temperature BM3 fit for B1 PbS. V0 is calculated from the reported cubic a = 5.9240(4) Å. The B1/B16 coexistence interval ends near 6 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -6,44 +6,37 @@
   "phase": "calcium-ferrite-type orthorhombic phase, Pbnm",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mgal2o4_cafe2o4_funamori_1998_bm2_1"},
   "eos_records": [
     {
       "identifier": "mgal2o4_cafe2o4_funamori_1998_bm2_1",
       "label": "Funamori et al. (1998), CaFe2O4-type MgAl2O4 BM2",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": "Not recommended for quantitative use.",
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The authors identify run 2 as CaFe2O4-type MgAl2O4 and construct a separate second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from one compressed cell. They explicitly state that more points would be needed for a robust modulus and an estimate of K0'.",
+        "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_funamori_1998_bm2_1"
+      },
       "model": "BM2",
       "parameters": {
         "V0": {"value": 240.3, "error": 0.2, "fixed": true},
         "K0": {"value": 211.0, "error": 6.0}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 33.4],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 33.4],
-        "notes": [
-          "The only nonzero-pressure volume is the in-situ run-2 observation after laser heating; the zero-pressure volume is measured after recovery.",
-          "The interval describes the two observations constraining the source parameterization, not a continuous stability field.",
-          "K0'=4 is fixed by the second-order Birch finite-strain model.",
-          "This is a historical one-point endpoint construction, not a regression EOS; later multi-point studies should be preferred for quantitative compression work."
-        ]
+        "notes": ["The range spans only the two observations that define the EOS, not a continuous stability field."]
       },
+      "experimental_pressure_range_gpa": [0.0, 33.4],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "sample_composition": "99% pure polycrystalline MgAl2O4 spinel starting material mixed with 5 wt% Pt; run-2 transformation product assigned to CaFe2O4-type MgAl2O4",
-      "experimental_configuration": {
-        "apparatus": "laser-heated Mao-Bell diamond-anvil cell",
-        "laser_heating": "2000-3000 K for about 60 minutes",
-        "measurement_temperature": "room temperature after heating; no numerical value reported",
-        "diffraction": "synchrotron X-ray diffraction at SSRL beamline 10-2",
-        "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
-        "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 33.4 GPa state is their post-heating average"
-      },
-      "notes": "This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.",
+      "notes": "CaFe2O4-type run-2 product only, distinct from the higher-pressure CaTi2O4-type phase of runs 3 and 4. A one-point construction, not a multi-point fit: the only compressed volume is the in-situ run-2 observation after laser heating, and V0 was measured after recovery.",
       "fit_datasets": ["mgal2o4_cafe2o4_funamori_1998_text_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Funamori", "Jeanloz", "Nguyen", "Kavner", "Caldwell", "Fujino", "Miyajima", "Shinmei", "Tomioka"],
         "year": 1998,
@@ -53,18 +46,29 @@
         "locator": "20813-20818",
         "doi": "10.1029/98JB01575"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": "Not recommended for quantitative use.",
-        "finding": "The authors identify run 2 as CaFe2O4-type MgAl2O4 and construct a separate second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from one compressed cell. They explicitly state that more points would be needed for a robust modulus and an estimate of K0'.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_funamori_1998_bm2_1"
+      "equation_kind": "isothermal",
+      "sample_composition": "99% pure polycrystalline MgAl2O4 spinel starting material mixed with 5 wt% Pt; run-2 transformation product assigned to CaFe2O4-type MgAl2O4",
+      "experimental_configuration": {
+        "apparatus": "laser-heated Mao-Bell diamond-anvil cell",
+        "laser_heating": "2000-3000 K for about 60 minutes",
+        "measurement_temperature": "room temperature after heating; no numerical value reported",
+        "diffraction": "synchrotron X-ray diffraction at SSRL beamline 10-2",
+        "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
+        "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 33.4 GPa state is their post-heating average"
       }
     },
     {
       "identifier": "mgal2o4_cafe2o4_irifune_2002_bm2_2",
       "label": "Irifune et al. (2002), CaFe2O4-type MgAl2O4 BM2",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Three compressed observations constrain a single modulus with an averaged measured reference volume and fixed pressure derivative. Figure 6 identifies the three open circles as this study, filled symbols as earlier-study comparisons, and T=27 degC.",
+        "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_irifune_2002_bm2_2"
+      },
       "model": "BM2",
       "temperature_ref": 300.15,
       "parameters": {
@@ -72,27 +76,16 @@
         "K0": {"value": 213.0, "error": 3.0}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [0.0, 34.7]
+      },
       "experimental_pressure_range_gpa": [0.0, 34.7],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [0.0, 34.7],
-        "notes": [
-          "Coverage includes recovery and three compressed states, not a continuous stability field.",
-          "No thermal EOS is represented."
-        ]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default": false,
-      "sample_composition": "MgAl2O4 calcium-ferrite phase; spinel and Au mixed 5:1 by weight in S312, S369 and S402",
-      "experimental_configuration": {
-        "apparatus": "SPEED-1500 multianvil with sintered diamond anvils, BL04B1, SPring-8",
-        "measurement_temperature": "27 degC (300.15 K), Figure 6"
-      },
-      "notes": "Only three compressed points: do not infer a free K0-prime, covariance, thermal coefficients or a new default. The existing Funamori structural cell and default are retained independently of this EOS reference volume.",
+      "notes": "Only three compressed states plus the recovered ambient state: do not infer a free K0', covariance or thermal coefficients.",
       "fit_datasets": ["mgal2o4_cafe2o4_irifune_2002_text_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Irifune", "Naka", "Sanehira", "Inoue", "Funakoshi"],
         "year": 2002,
@@ -102,18 +95,25 @@
         "locator": "645-654",
         "doi": "10.1007/s00269-002-0275-1"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Three compressed observations constrain a single modulus with an averaged measured reference volume and fixed pressure derivative. Figure 6 identifies the three open circles as this study, filled symbols as earlier-study comparisons, and T=27 degC.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_irifune_2002_bm2_2"
+      "equation_kind": "isothermal",
+      "sample_composition": "MgAl2O4 calcium-ferrite phase; spinel and Au mixed 5:1 by weight in S312, S369 and S402",
+      "experimental_configuration": {
+        "apparatus": "SPEED-1500 multianvil with sintered diamond anvils, BL04B1, SPring-8",
+        "measurement_temperature": "27 degC (300.15 K), Figure 6"
       }
     },
     {
       "identifier": "mgal2o4_cafe2o4_sueda_2009_htbm_2",
       "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 HTBM",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells.",
+        "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_sueda_2009_htbm_2"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -133,27 +133,22 @@
         "reference_volume_law": "integrated_expansivity"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0001, 41.5],
-      "experimental_temperature_range_k": [298.0, 2400.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0001, 41.5],
         "temperature_k": [298.0, 2400.0],
         "notes": [
-          "Table 1 extrema are marginal experimental coverage, not a rectangular phase-stability guarantee. KMA spans 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.",
-          "Section 3.1 gives the room-temperature KMA interval as 28.7-41.5 GPa, but Table 1 also includes 24.8 and 26.6 GPa observations. All 16 explicitly 300 K rows are used in the diagnostic static refit; all 46 rows enter the thermal refits.",
-          "Two ambient HTXRD observations are at 298 K, not 300 K. They remain at the printed temperatures.",
-          "The structural reference lattice remains the independently sourced Funamori cell; Sueda Table 1 has its own rounded reference cells and Table 2 has the fitted V0."
+          "Data: KMA 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.",
+          "Section 3.1 gives 28.7-41.5 GPa for the room-temperature KMA data, but Table 1 also has observations at 24.8 and 26.6 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0001, 41.5],
+      "experimental_temperature_range_k": [298.0, 2400.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "default": false,
-      "sample_composition": "Synthetic MgAl2O4 calcium-ferrite phase; KMA starting spinel mixed with Au at 10:1 by weight; DAC uses a pre-synthesized CF-MgAl2O4 specimen.",
-      "notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The existing Funamori equilibrium default is retained. See docs/literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md for source printing errors and refit limitations.",
+      "notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The source contains printing errors, which the audit documents.",
       "fit_datasets": ["mgal2o4_cafe2o4_sueda_2009_table1_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Sueda", "Irifune", "Sanehira", "Yagi", "Nishiyama", "Kikegawa", "Funakoshi"],
         "year": 2009,
@@ -163,18 +158,21 @@
         "locator": "78-85",
         "doi": "10.1016/j.pepi.2008.07.046"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_sueda_2009_htbm_2"
-      }
+      "equation_kind": "thermal",
+      "sample_composition": "Synthetic MgAl2O4 calcium-ferrite phase; KMA starting spinel mixed with Au at 10:1 by weight; DAC uses a pre-synthesized CF-MgAl2O4 specimen."
     },
     {
       "identifier": "mgal2o4_cafe2o4_sueda_2009_mgd_3",
       "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 BM3-MGD",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells.",
+        "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_sueda_2009_mgd_3"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -194,27 +192,22 @@
         "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0001, 41.5],
-      "experimental_temperature_range_k": [298.0, 2400.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0001, 41.5],
         "temperature_k": [298.0, 2400.0],
         "notes": [
-          "Table 1 extrema are marginal experimental coverage, not a rectangular phase-stability guarantee. KMA spans 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.",
-          "Section 3.1 gives the room-temperature KMA interval as 28.7-41.5 GPa, but Table 1 also includes 24.8 and 26.6 GPa observations. All 16 explicitly 300 K rows are used in the diagnostic static refit; all 46 rows enter the thermal refits.",
-          "Two ambient HTXRD observations are at 298 K, not 300 K. They remain at the printed temperatures.",
-          "The structural reference lattice remains the independently sourced Funamori cell; Sueda Table 1 has its own rounded reference cells and Table 2 has the fitted V0."
+          "Data: KMA 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.",
+          "Section 3.1 gives 28.7-41.5 GPa for the room-temperature KMA data, but Table 1 also has observations at 24.8 and 26.6 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0001, 41.5],
+      "experimental_temperature_range_k": [298.0, 2400.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "default": false,
-      "sample_composition": "Synthetic MgAl2O4 calcium-ferrite phase; KMA starting spinel mixed with Au at 10:1 by weight; DAC uses a pre-synthesized CF-MgAl2O4 specimen.",
-      "notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The existing Funamori equilibrium default is retained. See docs/literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md for source printing errors and refit limitations.",
+      "notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The source contains printing errors, which the audit documents.",
       "fit_datasets": ["mgal2o4_cafe2o4_sueda_2009_table1_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Sueda", "Irifune", "Sanehira", "Yagi", "Nishiyama", "Kikegawa", "Funakoshi"],
         "year": 2009,
@@ -224,14 +217,8 @@
         "locator": "78-85",
         "doi": "10.1016/j.pepi.2008.07.046"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mgal2o4_cafe2o4.audit.json#mgal2o4_cafe2o4_sueda_2009_mgd_3"
-      }
+      "equation_kind": "thermal",
+      "sample_composition": "Synthetic MgAl2O4 calcium-ferrite phase; KMA starting spinel mixed with Au at 10:1 by weight; DAC uses a pre-synthesized CF-MgAl2O4 specimen."
     }
   ],
   "aliases": ["CaFe2O4-type MgAl2O4", "MgAl2O4 CF phase"],

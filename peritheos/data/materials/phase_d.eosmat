@@ -10,6 +10,15 @@
     {
       "identifier": "phase_d_ant_a_shieh_2000_bm2_1",
       "label": "Shieh et al. (2000), antigorite-derived phase D (AntA)",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
+        "audit": "../audits/phase_d.audit.json#phase_d_ant_a_shieh_2000_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -19,7 +28,7 @@
       "experimental_pressure_range_gpa": [0.0, 24.6],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Reference-volume variant for the AntA antigorite-derived phase-D run. Table 2 reports V0=88.12+/-0.32 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
+      "notes": "Reference-volume variant for run AntA, with V0 from Table 2. The paper fits one BM2 with one K0 to the combined antigorite-derived data, but AntA and AntB have different ambient volumes, so each record uses its run's measured V0.",
       "reference": {
         "authors": ["Shieh", "Mao", "Hemley", "Ming"],
         "year": 2000,
@@ -28,19 +37,20 @@
         "volume": "177",
         "locator": "69-80",
         "doi": "10.1016/S0012-821X(00)00033-9"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/phase_d.audit.json#phase_d_ant_a_shieh_2000_bm2_1"
       }
     },
     {
       "identifier": "phase_d_ant_b_shieh_2000_bm2_1",
       "label": "Shieh et al. (2000), antigorite-derived phase D (AntB)",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
+        "audit": "../audits/phase_d.audit.json#phase_d_ant_b_shieh_2000_bm2_1"
+      },
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -50,7 +60,7 @@
       "experimental_pressure_range_gpa": [0.0, 22.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Reference-volume variant for the AntB antigorite-derived phase-D run. Table 2 reports V0=87.191+/-0.097 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
+      "notes": "Reference-volume variant for run AntB, with V0 from Table 2. The paper fits one BM2 with one K0 to the combined antigorite-derived data, but AntA and AntB have different ambient volumes, so each record uses its run's measured V0.",
       "reference": {
         "authors": ["Shieh", "Mao", "Hemley", "Ming"],
         "year": 2000,
@@ -59,14 +69,6 @@
         "volume": "177",
         "locator": "69-80",
         "doi": "10.1016/S0012-821X(00)00033-9"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/phase_d.audit.json#phase_d_ant_b_shieh_2000_bm2_1"
       }
     }
   ],

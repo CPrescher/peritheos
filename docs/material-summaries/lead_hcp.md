@@ -87,10 +87,9 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[13.0, 131.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Mao-1986 ruby scale. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -169,10 +168,9 @@ Published pressure-scale alternative of [lead\_hcp\_dewaele\_2019\_mao\_vinet](#
 - **Validity:**
     - **Pressure gpa:** \[13.0, 131.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Dorogokupets-2007 ruby scale. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -254,7 +252,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Temperature k:** \[296.0, 296.0\]
     - **Notes:** 296 K slice of a P-V-T model fitted to experiments extending to 40 GPa and 800 K.; At room temperature transformation begins near 12 GPa and fcc-hcp coexistence persists to about 20 GPa; this is not a sharp equilibrium stability boundary.
 
-Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit\_fortes\_2019\_fcc\_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.
+Published 296 K isotherm of the source's temperature-dependent hcp BM3 model; the full P-V-T surface is outside the current thermal schema.
 
 <details markdown="1">
 <summary>Source review</summary>

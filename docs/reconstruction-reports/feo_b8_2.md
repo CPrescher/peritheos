@@ -35,11 +35,11 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [B8 Fe0.94O, Fischer et al. (2011)](#record-feo_b8_2_fischer_2011_bm3_1) | **reproduced** |  |
+| [Fischer et al. (2011), BM3](#record-feo_b8_2_fischer_2011_bm3_1) | **reproduced** |  |
 
 <a id="record-feo_b8_2_fischer_2011_bm3_1"></a>
 
-## B8 Fe0.94O, Fischer et al. (2011)
+## Fischer et al. (2011), BM3
 
 **reproduced** · `feo_b8_2_fischer_2011_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/feo_b8_2.md#record-feo_b8_2_fischer_2011_bm3_1)
 

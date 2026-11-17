@@ -6,10 +6,20 @@
   "phase": "monoclinic hydroxide perovskite 3.65 A phase, P21",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 2,
+  "default_records": {"equilibrium": "mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1"},
   "eos_records": [
     {
       "identifier": "mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1",
       "label": "Mookherjee et al. (2015), preferred experimental BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The paper identifies exact MgSi(OH)6, P21, Z=2 and reports this BM3 as the preferred experimental description.",
+        "audit": "../audits/mgsioh6_365a_phase.audit.json#mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,22 +28,32 @@
         "K0_prime": {"value": 4.9, "error": 0.2}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 41.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 41.0],
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.767993, 1.002622],
         "notes": [
-          "The range is the measured room-temperature envelope, including decompression to ambient pressure; it is not a thermodynamic stability field.",
-          "The 3.65 A phase is expected to form from the 10 A phase near 9-10 GPa but was retained metastably below that pressure."
+          "The 3.65 Å phase is expected to form from the 10 Å phase near 9-10 GPa; below that pressure it was retained metastably."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 41.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "The authors' preferred fit. The K0' error is from Table 2; the abstract gives 0.1.",
+      "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
+      "reference": {
+        "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
+        "year": 2015,
+        "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity",
+        "source": "American Mineralogist",
+        "volume": "100",
+        "locator": "2199-2208",
+        "doi": "10.2138/am-2015-5312"
+      },
       "equation_kind": "isothermal",
-      "default_for": "equilibrium",
       "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
       "sample_composition": "Nominal MgSi(OH)6 3.65 A phase synthesized at 10 GPa and 425 degrees C for 77 h; Mg/Si=1.02+/-0.06 (43 crystals) and water=34+/-3 wt.%.",
       "experimental_configuration": {
@@ -43,31 +63,21 @@
         "pressure_gauge": "ruby R1 fluorescence (all runs), with Au cross-check in experiment I",
         "diffraction": "angle-dispersive synchrotron XRD at PETRA III P02.2",
         "path": "ambient-temperature compression and decompression in three runs"
-      },
-      "notes": "Preferred source fit. Table 2's K0' uncertainty (0.2) is stored instead of the abstract's inconsistent 0.1.",
-      "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
-        "year": 2015,
-        "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity",
-        "source": "American Mineralogist",
-        "volume": "100",
-        "locator": "2199-2208",
-        "doi": "10.2138/am-2015-5312"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The paper identifies exact MgSi(OH)6, P21, Z=2 and reports this BM3 as the preferred experimental description.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mgsioh6_365a_phase.audit.json#mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1"
       }
     },
     {
       "identifier": "mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2",
       "label": "Mookherjee et al. (2015), experimental BM4 sensitivity fit",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0'': refit -0.35 vs published -0.7 GPa^-1 (+50.5%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The complete BM4 parameters are source-reported; LitCurate omitted K0' and K0''.",
+        "audit": "../audits/mgsioh6_365a_phase.audit.json#mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2"
+      },
       "model": "BM4",
       "temperature_ref": 300.0,
       "parameters": {
@@ -77,26 +87,20 @@
         "K0_double_prime": {"value": -0.7, "error": 0.2}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 41.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 41.0],
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.767993, 1.002622],
-        "notes": [
-          "Higher-order sensitivity parameterization of the same experimental observations, not the paper's preferred EOS.",
-          "Do not extrapolate K0'' outside the measured compression envelope."
-        ]
+        "notes": ["Do not extrapolate K0'' outside the measured compression range."]
       },
+      "experimental_pressure_range_gpa": [0.0, 41.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
-      "sample_composition": "Same nominal MgSi(OH)6 experimental dataset as the preferred BM3 record.",
-      "notes": "Sensitivity record only; intentionally has no default_for. Its K0, K0', and K0'' are strongly covariant and the source does not publish covariance.",
+      "notes": "BM4 sensitivity fit to the same data as the preferred BM3 record; not the paper's preferred EOS. K0, K0' and K0'' are strongly correlated; the source gives no covariance.",
       "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
         "year": 2015,
@@ -106,18 +110,22 @@
         "locator": "2199-2208",
         "doi": "10.2138/am-2015-5312"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The complete BM4 parameters are source-reported; LitCurate omitted K0' and K0''.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mgsioh6_365a_phase.audit.json#mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
+      "sample_composition": "Same nominal MgSi(OH)6 experimental dataset as the preferred BM3 record."
     },
     {
       "identifier": "mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3",
       "label": "Mookherjee et al. (2015), static GGA model-crystal BM4",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "This is a separate theoretical BM4 parameterization of the stoichiometric P21 model crystal, not another fit to the experimental P-V table.",
+        "audit": "../audits/mgsioh6_365a_phase.audit.json#mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3"
+      },
       "model": "BM4",
       "temperature_ref": 0.0,
       "parameters": {
@@ -127,24 +135,20 @@
         "K0_double_prime": {"value": -0.05, "error": null}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [-8.0, 115.0],
-      "pressure_range_status": "theoretical",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [-8.0, 115.0],
         "temperature_k": [0.0, 0.0],
         "volume_ratio": [0.594001, 1.138501],
         "notes": [
-          "Static PAW-GGA model-crystal curve; it is not an experimental ambient-temperature fit.",
-          "The numerical energy-volume grid is not tabulated; the bounds conservatively follow the green Figure 3a calculation markers."
+          "The energy-volume grid is not tabulated; the bounds conservatively follow the calculation markers of Figure 3a."
         ]
       },
+      "experimental_pressure_range_gpa": [-8.0, 115.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
-      "sample_composition": "Stoichiometric MgSi(OH)6 primitive P21 model crystal; static 0 K PAW-GGA calculation.",
-      "notes": "Clearly distinct theoretical record. No default_for is assigned; the preferred catalog equilibrium record is the experimental BM3.",
-      "parameter_covariance": null,
+      "notes": "Static PAW-GGA model-crystal curve, not an experimental ambient-temperature fit.",
       "reference": {
         "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
         "year": 2015,
@@ -154,14 +158,9 @@
         "locator": "2199-2208",
         "doi": "10.2138/am-2015-5312"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "This is a separate theoretical BM4 parameterization of the stoichiometric P21 model crystal, not another fit to the experimental P-V table.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mgsioh6_365a_phase.audit.json#mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
+      "sample_composition": "Stoichiometric MgSi(OH)6 primitive P21 model crystal; static 0 K PAW-GGA calculation."
     }
   ],
   "aliases": ["3.65 A phase", "3.65 angstrom phase", "MgSi(OH)6", "hydroxide perovskite"],

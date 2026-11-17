@@ -8,7 +8,16 @@
   "eos_records": [
     {
       "identifier": "naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1",
-      "label": "Dubrovinsky et al. (2002)",
+      "label": "Dubrovinsky et al. (2002), BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The paper states that 23 observations were collected but publishes them only in Figure 2. Nineteen distinct marker centers are visually separable and bundled; four measurements overlap too closely to recover independently. The molar V0 was converted to the Z=4 conventional cell for the EOS record.",
+        "audit": "../audits/naalsio4_calcium_ferrite.audit.json#naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1"
+      },
       "model": "BM3",
       "parameters": {
         "V0": {"value": 242.9573, "error": 0.1328},
@@ -17,7 +26,7 @@
       },
       "experimental_pressure_range_gpa": [0.0, 40.0],
       "determination_method": "experimental",
-      "notes": "Dubrovinsky et al. report molar V0 = 36.58(2) cm^3/mol, K0 = 220(1) GPa, and K0' = 4.1(1). V0 and its uncertainty were converted to the Z=4 cell.",
+      "notes": "Published V0 = 36.58(2) cm³/mol; stored with its error per conventional cell (Z = 4).",
       "reference": {
         "authors": ["Dubrovinsky", "Dubrovinskaia", "Prokopenko", "Le Bihan"],
         "year": 2002,
@@ -26,14 +35,6 @@
         "volume": "22",
         "locator": "495-499",
         "doi": "10.1080/08957950212807"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The paper states that 23 observations were collected but publishes them only in Figure 2. Nineteen distinct marker centers are visually separable and bundled; four measurements overlap too closely to recover independently. The molar V0 was converted to the Z=4 conventional cell for the EOS record.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/naalsio4_calcium_ferrite.audit.json#naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1"
       }
     }
   ],

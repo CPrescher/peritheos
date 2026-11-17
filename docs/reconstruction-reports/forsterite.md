@@ -36,7 +36,7 @@ stays in EOSMAT and the ledger.
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
 | [Finkelstein et al. (2014), room-temperature BM3](#record-forsterite_finkelstein_2014_bm3_1) | **reproduced** |  |
-| [Katsura (2022), author script full-precision BM3-MGD (recommended thermal option)](#record-forsterite_katsura_2022_author_script_bm3_mgd) | **reproduced** |  |
+| [Katsura (2022), author-script BM3-MGD, recommended option](#record-forsterite_katsura_2022_author_script_bm3_mgd) | **reproduced** |  |
 | [Katsura (2022), corrected forsterite BM3-MGD, final Table 2](#record-forsterite_katsura_2022_bm3_mgd) | **reproduced** |  |
 
 <a id="record-forsterite_finkelstein_2014_bm3_1"></a>
@@ -101,7 +101,7 @@ Both fits use the same 14 recovered audit input rows. **Volume coordinate:** uni
 
 <a id="record-forsterite_katsura_2022_author_script_bm3_mgd"></a>
 
-## Katsura (2022), author script full-precision BM3-MGD (recommended thermal option)
+## Katsura (2022), author-script BM3-MGD, recommended option
 
 **reproduced** · `forsterite_katsura_2022_author_script_bm3_mgd` · `BM3` · [Coefficients and source](../material-summaries/forsterite.md#record-forsterite_katsura_2022_author_script_bm3_mgd)
 

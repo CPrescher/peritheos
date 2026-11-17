@@ -9,7 +9,17 @@
   "eos_records": [
     {
       "identifier": "mg090fe010o_solomatova_2016_hs_bm3_reference_1",
-      "label": "Solomatova et al. (2016), hs BM3 reference branch",
+      "label": "Solomatova et al. (2016), high-spin BM3 reference branch",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0, K0 and K0' have no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_solomatova_2016_hs_bm3_reference_1"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -18,17 +28,24 @@
         "K0_prime": {"value": 3.96, "error": 0.14}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 52.1 GPa; reported 20-80% crossover width 2.3 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
+      },
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "spin_crossover_context": {
@@ -37,29 +54,21 @@
         "transition_pressure_sigma_gpa": null,
         "transition_width_20_80_gpa": 2.3,
         "mixer_implemented": false
-      },
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
-        "year": 2016,
-        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-        "source": "American Mineralogist",
-        "volume": "101",
-        "locator": "1084-1093",
-        "doi": "10.2138/am-2016-5510"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_solomatova_2016_hs_bm3_reference_1"
       }
     },
     {
       "identifier": "mg090fe010o_solomatova_2016_ls_bm3_reference_2",
-      "label": "Solomatova et al. (2016), ls BM3 reference branch",
+      "label": "Solomatova et al. (2016), low-spin BM3 reference branch",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "V0, K0 and K0' have no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_solomatova_2016_ls_bm3_reference_2"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -68,27 +77,15 @@
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 52.1 GPa; reported 20-80% crossover width 2.3 GPa."
-        ]
+        "temperature_k": [300, 300]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "spin_crossover_context": {
-        "branch": "low_spin_reference",
-        "transition_pressure_gpa": 52.1,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 2.3,
-        "mixer_implemented": false
-      },
-      "parameter_covariance": null,
+      "notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -98,18 +95,28 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_solomatova_2016_ls_bm3_reference_2"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 52.1,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 2.3,
+        "mixer_implemented": false
       }
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_hs_bm3",
-      "label": "Marquardt et al. (2009), EPSL high-spin BM3",
+      "label": "Marquardt et al. (2009), high-spin BM3",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Section 3.1.1 prints the HS BM3 coefficients. The subsequently supplied EPSL supplement supplies 12 LS constrained BM3 fits in Table S1 and elastic observations in Table S2; these are distinct from the Science supplement.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_hs_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -118,32 +125,19 @@
         "K0_prime": {"value": 3.98, "error": 0.14}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [0, 43.8],
+        "temperature_k": [300, 300]
+      },
       "experimental_pressure_range_gpa": [0.0001, 43.8],
       "experimental_temperature_range_k": [300, 300],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [0, 43.8],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS interpretation is P < 45 GPa; last measured HS row is 43.8 GPa.",
-          "Room temperature represented as 300 K. No thermal extrapolation or mixed-spin population model."
-        ]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+      "notes": "High-spin isothermal BM3 fit to XRD data below 45 GPa, with K0 constrained by room-pressure Brillouin data.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "spin_crossover_context": {
-        "branch": "high_spin",
-        "high_spin_pressure_upper_exclusive_gpa": 45,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixer_implemented": false
-      },
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s2_elasticity"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -153,18 +147,28 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Section 3.1.1 prints the HS BM3 coefficients. The subsequently supplied EPSL supplement supplies 12 LS constrained BM3 fits in Table S1 and elastic observations in Table S2; these are distinct from the Science supplement.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_hs_bm3"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
+      "spin_crossover_context": {
+        "branch": "high_spin",
+        "high_spin_pressure_upper_exclusive_gpa": 45,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixer_implemented": false
       }
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 1",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.99",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_01"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -173,25 +177,31 @@
         "K0_prime": {"value": 4.5, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
       },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
       "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
       "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -205,8 +215,42 @@
         "v0_ls_over_hs": 0.99,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.98",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_02"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 74.1, "error": null, "fixed": true},
+        "K0": {"value": 153.0, "error": null},
+        "K0_prime": {"value": 4.5, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -216,45 +260,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_01"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 2",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 74.1, "error": null, "fixed": true},
-        "K0": {"value": 153.0, "error": null},
-        "K0_prime": {"value": 4.5, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -268,8 +275,42 @@
         "v0_ls_over_hs": 0.98,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.97",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_03"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 73.34, "error": null, "fixed": true},
+        "K0": {"value": 163.0, "error": null},
+        "K0_prime": {"value": 4.5, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -279,45 +320,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_02"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 3",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 73.34, "error": null, "fixed": true},
-        "K0": {"value": 163.0, "error": null},
-        "K0_prime": {"value": 4.5, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -331,8 +335,43 @@
         "v0_ls_over_hs": 0.97,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4.5, V0(LS/HS)=0.96",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0 has no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_04"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 72.59, "error": null, "fixed": true},
+        "K0": {"value": 175.0, "error": null},
+        "K0_prime": {"value": 4.5, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -342,45 +381,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_03"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 4",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 72.59, "error": null, "fixed": true},
-        "K0": {"value": 175.0, "error": null},
-        "K0_prime": {"value": 4.5, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -394,8 +396,43 @@
         "v0_ls_over_hs": 0.96,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.99",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0 has no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_05"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 74.85, "error": null, "fixed": true},
+        "K0": {"value": 156.0, "error": null},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -405,45 +442,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_04"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 5",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 74.85, "error": null, "fixed": true},
-        "K0": {"value": 156.0, "error": null},
-        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -457,8 +457,42 @@
         "v0_ls_over_hs": 0.99,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.98",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_06"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 74.1, "error": null, "fixed": true},
+        "K0": {"value": 164.0, "error": null},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -468,45 +502,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_05"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 6",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 74.1, "error": null, "fixed": true},
-        "K0": {"value": 164.0, "error": null},
-        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -520,8 +517,43 @@
         "v0_ls_over_hs": 0.98,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.97",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0 has no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_07"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 73.34, "error": null, "fixed": true},
+        "K0": {"value": 175.0, "error": null},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -531,45 +563,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_06"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 7",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 73.34, "error": null, "fixed": true},
-        "K0": {"value": 175.0, "error": null},
-        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -583,8 +578,42 @@
         "v0_ls_over_hs": 0.97,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=4, V0(LS/HS)=0.96",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_08"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 72.59, "error": null, "fixed": true},
+        "K0": {"value": 186.0, "error": null},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -594,45 +623,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_07"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 8",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 72.59, "error": null, "fixed": true},
-        "K0": {"value": 186.0, "error": null},
-        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -646,8 +638,42 @@
         "v0_ls_over_hs": 0.96,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.99",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_09"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 74.85, "error": null, "fixed": true},
+        "K0": {"value": 167.0, "error": null},
+        "K0_prime": {"value": 3.5, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -657,45 +683,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_08"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 9",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 74.85, "error": null, "fixed": true},
-        "K0": {"value": 167.0, "error": null},
-        "K0_prime": {"value": 3.5, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -709,8 +698,42 @@
         "v0_ls_over_hs": 0.99,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.98",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_10"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 74.1, "error": null, "fixed": true},
+        "K0": {"value": 177.0, "error": null},
+        "K0_prime": {"value": 3.5, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -720,45 +743,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_09"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 10",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 74.1, "error": null, "fixed": true},
-        "K0": {"value": 177.0, "error": null},
-        "K0_prime": {"value": 3.5, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -772,8 +758,42 @@
         "v0_ls_over_hs": 0.98,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.97",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_11"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 73.34, "error": null, "fixed": true},
+        "K0": {"value": 187.0, "error": null},
+        "K0_prime": {"value": 3.5, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -783,45 +803,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_10"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 11",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 73.34, "error": null, "fixed": true},
-        "K0": {"value": 187.0, "error": null},
-        "K0_prime": {"value": 3.5, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -835,8 +818,42 @@
         "v0_ls_over_hs": 0.97,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
+      }
+    },
+    {
+      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_12",
+      "label": "Marquardt et al. (2009), LS BM3, K0'=3.5, V0(LS/HS)=0.96",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_12"
       },
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 72.59, "error": null, "fixed": true},
+        "K0": {"value": 199.0, "error": null},
+        "K0_prime": {"value": 3.5, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
       "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [63.9, 77.4],
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region (45-63 GPa). V0 is extrapolated, not a measured ambient low-spin volume."]
+      },
+      "experimental_pressure_range_gpa": [63.9, 77.4],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "One of 12 alternative constrained low-spin fits (Table S1); none is preferred, and their spread reflects the assumed V0 and K0', not statistical error. Only K0 is fitted, to the six XRD points above 63 GPa.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -846,45 +863,8 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_11"
-      }
-    },
-    {
-      "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_12",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 12",
-      "model": "BM3",
-      "temperature_ref": 300,
-      "parameters": {
-        "V0": {"value": 72.59, "error": null, "fixed": true},
-        "K0": {"value": 199.0, "error": null},
-        "K0_prime": {"value": 3.5, "error": null, "fixed": true}
-      },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [63.9, 77.4],
-      "experimental_temperature_range_k": [300, 300],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [63.9, 77.4],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
-          "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
-          "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
       "spin_crossover_context": {
         "branch": "low_spin",
         "low_spin_pressure_lower_exclusive_gpa": 63,
@@ -898,24 +878,6 @@
         "v0_ls_over_hs": 0.96,
         "preferred_member": false,
         "summary_rows_are_independent_fits": false
-      },
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_12"
       }
     }
   ],

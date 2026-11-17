@@ -214,6 +214,15 @@
             "sha256": "80f895e66372fe27ba8104a7b65960fea67846b3aea10225c644df77ffc845d2"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Canonical equilibrium-oriented record. V0 is fitted under a 78.94 +/- 0.1 A^3 ambient prior rather than fixed; K0 and K0_prime are freely varied. Parenthetical values are the source's 1-sigma fit uncertainties, stored with null confidence because they are standard errors rather than interval half-widths. The 300 K reference is nominal room temperature and no row-wise temperature observations are reported.",
+        "validity_notes": [
+          "Empirical nominal-300 K cubic compression curve through the helium data range plus its zero-pressure reference; the bounds are not a phase-stability guarantee.",
+          "The crystal remains metrically cubic through 55.5 GPa, but spin state was measured only at room pressure before loading and is unresolved under compression.",
+          "Helium is the more hydrostatic baseline, although the article cites gradual nonhydrostaticity in helium above about 23 GPa."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2": {
@@ -412,6 +421,15 @@
             "sha256": "80f895e66372fe27ba8104a7b65960fea67846b3aea10225c644df77ffc845d2"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Published stress-sensitive low-pressure neon alternative. V0 and K0_prime were constrained by priors, not fixed, so fixed_parameters is empty. The authors attribute the stiffer curve relative to helium to neon crystallization and nonhydrostaticity; this record is intentionally not the default. Parenthetical values are 1-sigma fit uncertainties.",
+        "validity_notes": [
+          "Empirical nominal-300 K low-pressure cubic-indexing fit plus its zero-pressure reference; it is not an equilibrium recommendation.",
+          "Neon crystallizes near 4.8 GPa, and the authors state that the unit-cell volume is affected below the approximately 20 GPa onset of resolvable hexagonal distortion.",
+          "Do not extrapolate this stress-sensitive fit into the high-pressure distorted branch."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

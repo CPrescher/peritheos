@@ -162,10 +162,10 @@ shape is an additive extension of its format 2. Its
 uses Peritheos as the numerical engine and performs the conventional-cell to
 molar-volume conversion required by thermal and Holzapfel models.
 
-The bundled Peritheos library now uses v4. For Dioptas versions with a v3-only
+The bundled Peritheos library uses v5. For Dioptas versions with a v3-only
 reader, export the selected file with
 `python -m peritheos convert native.eosmat compatible.eosmat --format-version 3`.
-Reading v4 directly requires a consumer that dispatches the native v4 layout.
+Reading v5 directly requires a consumer that implements the native v5 layout.
 
 All 116 mechanically migrated documents and all 147 raw records were loaded with the
 Dioptas 0.10.0 `Material` implementation as an interoperability regression.
@@ -218,11 +218,11 @@ Peritheos remains responsible for the EOS model registry and scientific record
 semantics. Dioptas remains responsible for interpreting structures,
 calculating reflections, and storing GUI/project state.
 
-## Native v4 and consumer compatibility
+## Native v5 and consumer compatibility
 
-New standalone files use [native v4](eosmat-v4.md), with one model identifier and
+New standalone files use [native v5](eosmat-v5.md), with one model identifier and
 errors/fixed flags beside parameter values. The basic example above describes
-v3 compatibility, not the required layout of a new v4 file. The installed Python
+v3 compatibility, not the required layout of a new v5 file. The installed Python
 and current Rust readers support both layouts. Do not assume a Dioptas release
 or another application's pinned reader includes every new capability:
 

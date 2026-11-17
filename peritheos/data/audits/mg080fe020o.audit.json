@@ -130,6 +130,14 @@
           "fit_selection": "The paper assigns the onset of the spin transition to 40 GPa and explicitly fits only its own (Mg0.80Fe0.20)O observations below that pressure.",
           "weighting": "The paper does not report the residual coordinate, weights, covariance, or fitting software."
         }
+      },
+      "superseded_record_text": {
+        "notes": "All three EOS coefficients were fitted. Parenthetical errors are preserved exactly; their confidence convention and covariance are not reported.",
+        "validity_notes": [
+          "Valid only for the high-spin cubic B1 branch below the source's 40 GPa spin-transition onset.",
+          "It is not a continuous-spin-crossover EOS and must not be extrapolated through the 40-80 GPa mixed-spin interval."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg080fe020o_fei_2007_hs_b1_bm3": {
@@ -281,6 +289,15 @@
           "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
           "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature."
         }
+      },
+      "superseded_record_text": {
+        "label": "Fei et al. (2007), GRL, mg080fe020o high-spin B1 compression BM3",
+        "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+        "validity_notes": [
+          "Published high-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
+          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg080fe020o_fei_2007_ls_b1_bm3": {
@@ -440,6 +457,15 @@
           "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
           "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature."
         }
+      },
+      "superseded_record_text": {
+        "label": "Fei et al. (2007), GRL, mg080fe020o low-spin B1 compression BM3",
+        "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+        "validity_notes": [
+          "Published low-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
+          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg080fe020o_fei_2007_ls_b1_bm3_refit": {
@@ -657,6 +683,16 @@
           },
           "fit_date": "2026-09-08"
         }
+      },
+      "superseded_record_text": {
+        "label": "Peritheos refit (2026), fp20 low-spin B1, Fei (2007) Table S1, 40-95 GPa",
+        "notes": "Independent Peritheos refit of Fei's original Table S1 observations, not published Fei EOS coefficients. Uses the full reported approximate 40-95 GPa LS interval, including its 95.48 GPa endpoint, without selecting a higher cutoff for coefficient agreement. The lower pressure residual is an in-sample fit improvement, not proof of a more accurate pure-LS EOS or a recalibrated pressure scale. Near-transition points may retain mixed-spin character; V0 and K0 are strongly correlated and extrapolation outside the observed interval is not recommended. Formal errors exclude calibration systematics and uncertainty in row selection. The original source-owned record remains unchanged.",
+        "validity_notes": [
+          "Empirical LS-labelled compression refit over the reported interval; does not establish complete spin conversion for every included row.",
+          "V0 is an extrapolated zero-pressure reference parameter; the fit is qualified for the observed 40.95-95.48 GPa interval.",
+          "Unweighted residual improvement does not establish general physical superiority over the published EOS."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

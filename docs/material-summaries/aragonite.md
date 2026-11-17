@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Staged second-order Birch-Murnaghan P-V-T parameterization from Martinez et al. (1996). Each Table 6 isotherm fixes K0'=4; Equation (2) supplies the reported linear K0(T) slope, and Equation (3) uses the reported mean expansion coefficient in the direct relation V0(T)=V0(298 K)\*\[1+alpha\_bar\*(T-298 K)\]. Table 6 reports the 298 K V0=227.5+/-0.8 A^3 and sigma(K0)=3.48 GPa; the prose and Table 7 instead summarize the K0 error as approximately 4.3 GPa. Table 6 contains fitted isotherms through 973 K. The source reports no parameter covariance or confidence convention, and the stored pressure/temperature extrema are an experimental envelope rather than a rectangular validity guarantee.
+Staged P-V-T parameterization: each Table 6 isotherm is a BM2 fit (K0' = 4), K0(T) is linear (Equation (2)), and V0(T) = V0(298 K)\*\[1 + alpha\_bar\*(T - 298 K)\] uses the reported mean expansion coefficient (Equation (3)). The stored K0 error is the Table 6 value; the prose and Table 7 give about 4.3 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

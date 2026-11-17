@@ -132,6 +132,15 @@
             "doi": "10.1029/2006GL025686"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Preferred source-selected 300 K experimental fit. V0 is the four-formula-unit conventional Cmcm-cell volume. K0' was fixed, while V0 and K0 were fitted with an external elasticity-systematics constraint.",
+        "validity_notes": [
+          "The pressure interval is the marginal range of the 22 included room-temperature observations, not a phase-stability claim.",
+          "The three Table S1 rows below 47 GPa are preserved in the dataset but excluded as in the source because their weak, broad peaks gave anomalously large volumes.",
+          "V0 is an extrapolation far below the experimental pressure range."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2": {
@@ -241,6 +250,15 @@
           "fit_selection": "The same 22 Table S1 rows at or above 47.3 GPa as the selected fit.",
           "fit_role": "Sensitivity analysis demonstrating V0-K0-K0' trade-off, not the source-selected curve."
         }
+      },
+      "superseded_record_text": {
+        "label": "Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit",
+        "notes": "Executable but deliberately non-default. It is the article's fixed-K0'=4 sensitivity result for the same data, not an independent experimental EOS.",
+        "validity_notes": [
+          "This is a nonpreferred parameter-trade-off sensitivity fit to the same 22 rows as the default record.",
+          "The source describes it as K0'=4 in its third-order Birch-Murnaghan convention; setting K0'=4 removes the third-order correction and is represented canonically as BM2."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mggeo3_post_perovskite_hirose_2005_bm3_fixed_1": {
@@ -353,6 +371,11 @@
             "doi": "10.2138/am.2005.1702"
           }
         ]
+      },
+      "superseded_record_text": {
+        "label": "Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)",
+        "notes": "Abstract-selected fixed-K0'=4 fit to all nine Table 3 decompression observations. The abstract reports this better-constrained result; The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
+        "superseded_on": "2026-11-16"
       }
     },
     "mggeo3_post_perovskite_hirose_2005_bm3_free_2": {
@@ -476,6 +499,10 @@
             "doi": "10.2138/am.2005.1702"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

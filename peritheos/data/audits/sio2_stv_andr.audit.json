@@ -141,6 +141,11 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1 and 2, journal pages 303-304; EOS discussion and Figure 2, journal page 304."
         }
+      },
+      "superseded_record_text": {
+        "label": "Andrault et al. (2003)",
+        "notes": "Andrault et al. report V0 = 46.51(61) A^3, K0 = 309.9(1.1) GPa, and K0' = 4.59(23). The stored V0 retains the more precise ambient lattice product.",
+        "superseded_on": "2026-11-16"
       }
     },
     "sio2_stv_andr_wang_2012_vinet_mgd_2": {
@@ -301,6 +306,11 @@
           "b": "Table 2, Morse-Rydberg (Vinet) column",
           "n": "Equation 5 atom count applied to SiO2 stoichiometry"
         }
+      },
+      "superseded_record_text": {
+        "notes": "This is a thermal EOS, not a standalone room-temperature Vinet fit. Equations 1 and 4-8 add a Debye Mie-Gruneisen pressure increment relative to 300 K; with a=1, gamma(V)=gamma0*(V/V0)^b and theta(V)=theta0*exp[-gamma0*((V/V0)^b-1)/b]. The paper also reports an equally successful BM3-MGD alternative: V0=46.55 A^3 fixed, K0=294(2) GPa, K0'=4.85(12), theta0=1130(100) K, gamma0=1.66(7), a=1 fixed, and b=2.9(4). Vinet is retained as the single executable record from this paper because Figure 2 uses it and Tables 3-4 present its values first, with BM3 in parentheses; the authors state that the two fits agree within analytical uncertainty rather than explicitly designating a preferred model. The fixed V0 rounds the independently measured recovered-sample value 46.553(19) A^3; null in parameter_errors means it was not a fitted coefficient, not that the ambient measurement lacked uncertainty. Several measurements crossed the established stishovite-CaCl2-type boundary without transforming on the experimental timescale; the authors report that excluding them gives identical fit results, so the marginal P-T envelope is not a rectangular phase-stability claim.",
+        "thermal_notes": null,
+        "superseded_on": "2026-11-16"
       }
     },
     "sio2_stv_andr_driver_2010_qmc_300k_vinet": {
@@ -423,6 +433,11 @@
           "parameters": "Article Table 1 and official tc-ds62 stv block.",
           "unit_conversion": "V0=1.401 J/bar/mol, K0=3090 kbar, K0''=-0.00150 kbar^-1; converted to executable units and Z=2."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": ["Stishovite thermodynamic endmember reference isotherm."],
+        "superseded_on": "2026-11-16"
       }
     },
     "stishovite_akber_knutson_2002_vibc_300k_bm3": {
@@ -473,6 +488,11 @@
           "parameters": "Table 1, VIBC row.",
           "method": "Variational induced breathing plus parameterized Si-O covalent correction; thermally corrected to 300 K."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": ["Rutile-type stishovite benchmark calculated with the same VIBC potential used for the CaSiO3 analysis."],
+        "superseded_on": "2026-11-16"
       }
     },
     "stishovite_zhang_bukowinski_1991_mpib_bm3": {
@@ -650,6 +670,10 @@
             "citation": "Nisr et al. (2017), JGR: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055."
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Source-owned new dry reference specimen (10 GPa, 1473 K, 1 h synthesis), co-compressed with hydrous sample in He. Distinct dataset and pressure scale from Andrault (2003); only K0_prime is adopted. Table 3 EOS V0=46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612; preserve both. All S1 volumes are source-refined tetragonal values; article describes onset of dry post-stishovite distortion near 60 GPa. Full 0-62.934 GPa fit is the authors' reference curve, not a claim of rutile stability throughout. No dry CaCl2 EOS is fitted in this paper; Table 4 dry row cites Andrault (2003). Existing ambient crystallography is retained separately from this EOS reference cell.",
+        "superseded_on": "2026-11-16"
       }
     }
   }

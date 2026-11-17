@@ -8,7 +8,15 @@
   "eos_records": [
     {
       "identifier": "diamond_datchi_2007_vinet_1",
-      "label": "Occelli data on the H2005 scale (Datchi et al. 2007)",
+      "label": "Datchi et al. (2007), Vinet, Occelli data on H2005 scale",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "audit": "../audits/diamond.audit.json#diamond_datchi_2007_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -18,7 +26,7 @@
       },
       "experimental_pressure_range_gpa": [0.0, 152.919271497],
       "determination_method": "experimental",
-      "notes": "Reanalysis of Occelli et al. diamond data; V0=5.6733 A^3/atom multiplied by 8 atoms per conventional cell. Occelli report run 2 to 139 GPa on MXB1986, corresponding to 152.92 GPa on H2005. The center of the final plotted marker digitizes to 140.80/154.98 GPa and is retained as figure evidence rather than substituted for the source-reported experimental limit. Replaces the dummy record and removes the unsupported K0=800 record.",
+      "notes": "Reanalysis of the Occelli et al. diamond data. Published V0 = 5.6733 Å³/atom; stored per conventional cell (×8). Occelli et al. report run 2 to 139 GPa on the MXB1986 scale, which is 152.92 GPa on H2005.",
       "fit_datasets": ["diamond_occelli_2003_figure2_digitized"],
       "reference": {
         "authors": ["Datchi", "Dewaele", "Le Godec", "Loubeyre"],
@@ -29,18 +37,20 @@
         "locator": "214104",
         "details": "Table II",
         "doi": "10.1103/PhysRevB.75.214104"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/diamond.audit.json#diamond_datchi_2007_vinet_1"
       }
     },
     {
       "identifier": "diamond_dewaele_2008_vinet_2",
       "label": "Dewaele et al. (2008), 298 K neon-medium Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The diamond observations and fitted reference isotherm are explicitly on the Holzapfel (2005) H05 ruby scale.",
+        "audit": "../audits/diamond.audit.json#diamond_dewaele_2008_vinet_2"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -51,7 +61,7 @@
       "parameter_error_confidence": 0.95,
       "experimental_pressure_range_gpa": [0.0, 80.0],
       "determination_method": "experimental",
-      "notes": "Independent single-crystal XRD fit in neon to 80 GPa; K0 was fixed to the isothermal ultrasonic value. Published atomic V0=5.6693 A^3 is multiplied by eight atoms in the conventional diamond cell.",
+      "notes": "Single-crystal XRD fit in neon, with K0 fixed to the isothermal ultrasonic value. Published V0 = 5.6693 Å³/atom; stored per conventional cell (×8).",
       "reference": {
         "authors": ["Dewaele", "Datchi", "Loubeyre", "Mezouar"],
         "year": 2008,
@@ -60,19 +70,20 @@
         "volume": "77",
         "locator": "094106",
         "doi": "10.1103/PhysRevB.77.094106"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The diamond observations and fitted reference isotherm are explicitly on the Holzapfel (2005) H05 ruby scale.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/diamond.audit.json#diamond_dewaele_2008_vinet_2"
       }
     },
     {
       "identifier": "diamond_sokolova_2013_holzapfel_3",
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
+      "check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "audit": "../audits/diamond.audit.json#diamond_sokolova_2013_holzapfel_3"
+      },
       "model": "Holzapfel",
       "temperature_ref": 298.15,
       "parameters": {
@@ -105,7 +116,7 @@
       },
       "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
-      "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "notes": "Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to shock-wave, ultrasonic, X-ray diffraction, dilatometric and thermochemical data: reference volume from Table 1, Holzapfel and thermal coefficients from Table 4. Sokolova et al. (2016) supplies the spreadsheet implementation, reference-temperature convention and corrected equations.",
       "reference": {
         "authors": ["Sokolova", "Dorogokupets", "Litasov"],
         "year": 2013,
@@ -115,19 +126,21 @@
         "locator": "181-199",
         "details": "Tables 1 and 4",
         "doi": "10.1016/j.rgg.2013.01.005"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/diamond.audit.json#diamond_sokolova_2013_holzapfel_3"
       }
     },
     {
       "identifier": "diamond_correa_2008_double_debye_log_moment_5",
       "label": "Correa et al. (2008), logarithmic-moment double-Debye Helmholtz",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "theta_0_0 (+1900.0%), theta_a0 (+366.2%), b_a (-285.2%) and 6 more: beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The complete source equation and coefficients are represented. All 57 Figure 8 pressure markers are bundled as plot checkpoints, but the upstream cold-energy and phonon fitting grids are not tabulated.",
+        "audit": "../audits/diamond.audit.json#diamond_correa_2008_double_debye_log_moment_5"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -152,20 +165,20 @@
           "anharmonic_a": {"value": 3.8e-05, "error": null},
           "phi0": {"value": -14960919.113708327, "error": null},
           "Tr": {"value": null, "error": null}
-        }
+        },
+        "notes": "Follows Correa Equation 18 literally: F_anh = -a*T^2 with a = 3.8e-5 K^-1, which adds no pressure. Benedict (2014) writes -alpha*T^2/2 with alpha = 3.79e-5 K^-1, so the equivalent alpha is 2*a. Electronic excitations are neglected."
       },
       "validity": {
         "pressure_gpa": [0.0, 1075.0],
         "temperature_k": [1.0, 10000.0],
         "volume_ratio": [0.40103716508210885, 1.0],
         "notes": [
-          "The lower volume is the compressed diamond phonon-DOS state in Figure 3; the cold curve itself was fitted over approximately 1-9 A^3/atom.",
-          "The upper pressure is the calculated 0 K diamond-BC8 crossing. These are marginal model bounds, not a phase-stability surface at finite temperature."
+          "The lower volume bound is the compressed phonon-DOS state of Figure 3. The cold curve was fitted over about 1-9 Å³/atom.",
+          "The upper pressure is the calculated 0 K diamond-BC8 crossing, not a finite-temperature phase boundary."
         ]
       },
       "determination_method": "theoretical",
-      "volume": {"reference_value": 46.28, "public_to_model_scale": 0.00752767595, "model_unit": "J bar^-1 mol^-1"},
-      "notes": "Complete diamond free-energy branch from equations 2-18; the double-Debye weights conserve the logarithmic phonon moment theta_0 (equation 13). Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet term is a motionless-ion DFT-GGA cold curve. The authors state that its theoretical V0 is about 3% too large after zero-point and thermal effects and may need an application-specific density shift; Peritheos preserves the published value. The constant anharmonic coefficient changes caloric properties but contributes no pressure. Electronic excitations are neglected for insulating diamond as in the source. Factor-of-two source ambiguity: Correa equation 18 defines F_anh=-a*T^2 with a=3.8e-5 K^-1, whereas Benedict 2014 says it carries over the same correction but writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1. This record follows Correa literally; in Benedict's normalization the equivalent coefficient would be alpha=2*a. The source reports no coefficient uncertainties or covariance.",
+      "notes": "Complete diamond free-energy model of Equations 2-18, with a motionless-ion DFT-GGA Vinet cold curve. The authors state that its V0 is about 3% too large after zero-point and thermal effects and may need an application-specific density shift. Published volumes are per atom; stored per eight-atom conventional cell.",
       "reference": {
         "authors": ["Correa", "Benedict", "Young", "Schwegler", "Bonev"],
         "year": 2008,
@@ -177,18 +190,21 @@
         "doi": "10.1103/PhysRevB.78.024101",
         "locations": ["Equations 2-7 and 13-18", "Table I, diamond row", "Figures 3 and 5-8", "Section II.A"]
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "The complete source equation and coefficients are represented. All 57 Figure 8 pressure markers are bundled as plot checkpoints, but the upstream cold-energy and phonon fitting grids are not tabulated.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/diamond.audit.json#diamond_correa_2008_double_debye_log_moment_5"
-      }
+      "volume": {"reference_value": 46.28, "public_to_model_scale": 0.00752767595, "model_unit": "J bar^-1 mol^-1"}
     },
     {
       "identifier": "diamond_benedict_2014_double_debye_4",
       "label": "Benedict et al. (2014), Vinet double-Debye Helmholtz",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "b_a (-100.7%), alpha0 (+60.9%), Ve (-49.6%) and 3 more: beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The complete source equation and coefficients are represented. The exact 96-row solid DFT-MD pressure/internal-energy validation grid is bundled, but the upstream cold-energy and phonon fitting grids are not supplied.",
+        "audit": "../audits/diamond.audit.json#diamond_benedict_2014_double_debye_4"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -215,20 +231,20 @@
           "kappa": {"value": 0.0, "error": null},
           "phi0": {"value": -874736.0210299286, "error": null},
           "Tr": {"value": null, "error": null}
-        }
+        },
+        "notes": "Follows Benedict literally: F_anh = -alpha*T^2/2 with alpha = 3.79e-5 K^-1. The Correa (2008) correction it claims to retain is F_anh = -a*T^2 with a = 3.8e-5 K^-1. Matching that energy would require alpha of about 2*a."
       },
       "validity": {
         "pressure_gpa": [0.0, 1000.0],
         "temperature_k": [300.0, 9000.0],
         "volume_ratio": [0.4383350282287758, 1.2273380790405721],
         "notes": [
-          "The paper constructs the diamond free-energy branch over 2.5-7.0 A^3/atom; Figure 7 directly checks DFT-MD states only over 3.0-5.6 A^3/atom and 2000-9000 K.",
-          "These are marginal model bounds, not a phase-stability surface; check the diamond-BC8 boundary and melting separately, especially near 1 TPa."
+          "The free-energy branch is built over 2.5-7.0 Å³/atom. Figure 7 checks DFT-MD states only at 3.0-5.6 Å³/atom and 2000-9000 K.",
+          "Check the diamond-BC8 boundary and melting separately, especially near 1 TPa."
         ]
       },
       "determination_method": "theoretical",
-      "volume": {"reference_value": 45.6272, "public_to_model_scale": 0.00752767595, "model_unit": "J bar^-1 mol^-1"},
-      "notes": "Complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generic Mie-Gruneisen-Debye correction. Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet curve is the motionless-ion 0 K cold curve, so V0=5.7034 A^3/atom is not a 300 K zero-total-pressure reference volume. Factor-of-two source ambiguity: Benedict writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1, while the Correa 2008 correction it claims to retain is F_anh=-a*T^2 with a=3.8e-5 K^-1. This record follows Benedict literally; matching Correa's anharmonic energy would require alpha approximately 2*a. The source reports no coefficient uncertainties or covariance.",
+      "notes": "Complete Helmholtz model of Equations 3-7, not a Vinet curve plus a generic Mie-Grüneisen-Debye correction. The Vinet term is the motionless-ion 0 K cold curve, so V0 = 5.7034 Å³/atom is not a 300 K zero-pressure volume. Published volumes are per atom; stored per eight-atom conventional cell.",
       "reference": {
         "authors": ["Benedict", "Driver", "Hamel", "Militzer", "Qi", "Correa", "Schwegler"],
         "year": 2014,
@@ -240,18 +256,20 @@
         "doi": "10.1103/PhysRevB.89.224109",
         "locations": ["Equations 3-7", "Table I, diamond column", "Section III.A", "Figure 6"]
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "The complete source equation and coefficients are represented. The exact 96-row solid DFT-MD pressure/internal-energy validation grid is bundled, but the upstream cold-energy and phonon fitting grids are not supplied.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/diamond.audit.json#diamond_benedict_2014_double_debye_4"
-      }
+      "volume": {"reference_value": 45.6272, "public_to_model_scale": 0.00752767595, "model_unit": "J bar^-1 mol^-1"}
     },
     {
       "identifier": "diamond_correa_2008_dewaele_anchored",
-      "label": "Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)",
+      "label": "Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal",
+      "check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-03",
+        "source_note": "Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Correa thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.",
+        "audit": "../audits/diamond.audit.json#diamond_correa_2008_dewaele_anchored"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -284,22 +302,13 @@
         "temperature_k": [1.0, 10000.0],
         "volume_ratio": [0.4092215970225601, 1.0204081632653061],
         "notes": [
-          "The Dewaele 298 K reference isotherm was measured to 80 GPa; its Vinet representation remains evaluable beyond that calibration coverage.",
+          "The Dewaele 298 K isotherm was measured to 80 GPa. Above that the Vinet form is evaluated beyond its calibration coverage.",
           "The Correa thermal contribution uses the simulation range recorded by the unanchored source record."
         ]
       },
       "determination_method": "hybrid",
       "record_kind": "derived",
-      "volume": {"reference_value": 45.3544, "public_to_model_scale": 0.00752767595, "model_unit": "J bar^-1 mol^-1"},
-      "notes": "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Correa(V,T)-P_Correa(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Correa's simulated logarithmic-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.",
-      "derived_from_record": "diamond_dewaele_2008_vinet_2",
-      "derivation": {
-        "source_kind": "calculation",
-        "source_identifier": "diamond_dewaele_2008_vinet_2+diamond_correa_2008_double_debye_log_moment_5",
-        "method": "Reference-isotherm Helmholtz composition: retain the Dewaele 298 K Vinet pressure and add the published theoretical thermal free-energy difference F_theory(V,T)-F_theory(V,298 K). No coefficients are optimized.",
-        "software": {"name": "Peritheos", "reproduction_script": "scripts/reproduce_diamond_thermal_composites.py"},
-        "access_and_licensing": "Derived from cited published equations and checked-in source observations."
-      },
+      "notes": "P(V,T) = P_Dewaele(V, 298 K) + P_Correa(V,T) - P_Correa(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Correa's simulated logarithmic-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.",
       "reference": {
         "authors": ["A. Dewaele", "F. Datchi", "P. Loubeyre", "M. Mezouar"],
         "year": 2008,
@@ -311,18 +320,28 @@
         "doi": "10.1103/PhysRevB.77.094106",
         "locations": ["Dewaele Table III", "Correa equations 2-7 and 13-18 and Table I"]
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Correa thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-03",
-        "audit": "../audits/diamond.audit.json#diamond_correa_2008_dewaele_anchored"
+      "volume": {"reference_value": 45.3544, "public_to_model_scale": 0.00752767595, "model_unit": "J bar^-1 mol^-1"},
+      "derived_from_record": "diamond_dewaele_2008_vinet_2",
+      "derivation": {
+        "source_kind": "calculation",
+        "source_identifier": "diamond_dewaele_2008_vinet_2+diamond_correa_2008_double_debye_log_moment_5",
+        "method": "Reference-isotherm Helmholtz composition: retain the Dewaele 298 K Vinet pressure and add the published theoretical thermal free-energy difference F_theory(V,T)-F_theory(V,298 K). No coefficients are optimized.",
+        "software": {"name": "Peritheos", "reproduction_script": "scripts/reproduce_diamond_thermal_composites.py"},
+        "access_and_licensing": "Derived from cited published equations and checked-in source observations."
       }
     },
     {
       "identifier": "diamond_benedict_2014_dewaele_anchored",
-      "label": "Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)",
+      "label": "Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal",
+      "check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-03",
+        "source_note": "Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Benedict thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.",
+        "audit": "../audits/diamond.audit.json#diamond_benedict_2014_dewaele_anchored"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -357,22 +376,13 @@
         "temperature_k": [298.0, 9000.0],
         "volume_ratio": [0.44097154851568976, 1.2347203358439314],
         "notes": [
-          "The Dewaele 298 K reference isotherm was measured to 80 GPa; its Vinet representation remains evaluable beyond that calibration coverage.",
+          "The Dewaele 298 K isotherm was measured to 80 GPa. Above that the Vinet form is evaluated beyond its calibration coverage.",
           "The Benedict thermal contribution uses the simulation range recorded by the unanchored source record."
         ]
       },
       "determination_method": "hybrid",
       "record_kind": "derived",
-      "volume": {"reference_value": 45.3544, "public_to_model_scale": 0.00752767595, "model_unit": "J bar^-1 mol^-1"},
-      "notes": "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Benedict(V,T)-P_Benedict(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Benedict's simulated first-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.",
-      "derived_from_record": "diamond_dewaele_2008_vinet_2",
-      "derivation": {
-        "source_kind": "calculation",
-        "source_identifier": "diamond_dewaele_2008_vinet_2+diamond_benedict_2014_double_debye_4",
-        "method": "Reference-isotherm Helmholtz composition: retain the Dewaele 298 K Vinet pressure and add the published theoretical thermal free-energy difference F_theory(V,T)-F_theory(V,298 K). No coefficients are optimized.",
-        "software": {"name": "Peritheos", "reproduction_script": "scripts/reproduce_diamond_thermal_composites.py"},
-        "access_and_licensing": "Derived from cited published equations and checked-in source observations."
-      },
+      "notes": "P(V,T) = P_Dewaele(V, 298 K) + P_Benedict(V,T) - P_Benedict(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Benedict's simulated first-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.",
       "reference": {
         "authors": ["A. Dewaele", "F. Datchi", "P. Loubeyre", "M. Mezouar"],
         "year": 2008,
@@ -384,13 +394,14 @@
         "doi": "10.1103/PhysRevB.77.094106",
         "locations": ["Dewaele Table III", "Benedict equations 3-7 and Table I"]
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Benedict thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-03",
-        "audit": "../audits/diamond.audit.json#diamond_benedict_2014_dewaele_anchored"
+      "volume": {"reference_value": 45.3544, "public_to_model_scale": 0.00752767595, "model_unit": "J bar^-1 mol^-1"},
+      "derived_from_record": "diamond_dewaele_2008_vinet_2",
+      "derivation": {
+        "source_kind": "calculation",
+        "source_identifier": "diamond_dewaele_2008_vinet_2+diamond_benedict_2014_double_debye_4",
+        "method": "Reference-isotherm Helmholtz composition: retain the Dewaele 298 K Vinet pressure and add the published theoretical thermal free-energy difference F_theory(V,T)-F_theory(V,298 K). No coefficients are optimized.",
+        "software": {"name": "Peritheos", "reproduction_script": "scripts/reproduce_diamond_thermal_composites.py"},
+        "access_and_licensing": "Derived from cited published equations and checked-in source observations."
       }
     }
   ],

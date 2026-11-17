@@ -77,7 +77,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 151.0\]
 
-Experimental helium-medium BM3 fit to 151 GPa; the paper reports V0=27.122(6) A^3, K0=323.4(1.1) GPa, and K0'=4.150(19).
+Experimental BM3 fit to data in a helium pressure medium.
 
 <details markdown="1">
 <summary>Source review</summary>

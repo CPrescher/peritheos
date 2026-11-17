@@ -6,10 +6,20 @@
   "phase": "Natural high-spin calcite-type siderite, R-3c",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 6,
+  "default_records": {"equilibrium": "siderite_fe095mn005_litasov_2013_bm3"},
   "eos_records": [
     {
       "identifier": "siderite_fe095mn005_litasov_2013_bm3",
       "label": "Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-19",
+        "source_note": "Natural Fe0.95Mn0.05CO3 from Panasqueira; BM3 with V0 fixed at 293.4 A^3. The highest-pressure 300 K observation (241.54 A^3, 33.01 GPa) is reproduced within the printed 0.1 GPa pressure bound. An independent refit of all 27 printed 300 K rows gives K0=120.2242 GPa and Kprime=3.572214. Thermal expansion conflicts between Table 1 and the abstract remain withheld.",
+        "audit": "../audits/siderite_fe095mn005.audit.json#siderite_fe095mn005_litasov_2013_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -20,11 +30,10 @@
       "parameter_error_confidence": null,
       "experimental_pressure_range_gpa": [0.0, 33.01],
       "experimental_temperature_range_k": [300.0, 300.0],
+      "range_provenance": "Extrema of all 27 Table 2 rows at 300 K. The full P-V-T experiment reaches 1673 K, but this record represents only the 300 K isotherm.",
       "determination_method": "experimental",
       "record_kind": "published",
-      "default": true,
-      "notes": "Source-reported 300 K isotherm, preserved without substituting refit coefficients. Natural high-spin R-3c Fe0.95Mn0.05CO3, not pure FeCO3. Pressure is retained on the printed Au scale; its exact realization is unresolved. The high-temperature candidate is withheld because Table 1 and the abstract disagree on a0. All printed cold rows give pressure RMSE 0.230 GPa with published coefficients; the manuscript 0.11-0.17 GPa RMS range is not recovered. Source objective, weights, parameter covariance and confidence convention are not specified. No extension across the cited spin transition near 45 GPa or a numerical decomposition boundary is claimed.",
-      "range_provenance": "Extrema of all 27 Table 2 rows at 300 K. The full P-V-T experiment reaches 1673 K, but this record represents only the 300 K isotherm.",
+      "notes": "Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeCO3), on the printed Au pressure scale, whose exact realization is unresolved. The published thermal parameters are not used because Table 1 and the abstract disagree on a0. No extension across the cited spin transition near 45 GPa or a decomposition boundary is claimed.",
       "fit_datasets": ["siderite_fe095mn005_litasov_2013_table2_pvt"],
       "reference": {
         "authors": ["Litasov", "Shatskiy", "Gavryushkin", "Sharygin", "Dorogokupets", "Dymshits", "Ohtani", "Higo", "Funakoshi"],
@@ -34,19 +43,20 @@
         "volume": "224",
         "locator": "83-87",
         "doi": "10.1016/j.pepi.2013.07.011"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Natural Fe0.95Mn0.05CO3 from Panasqueira; BM3 with V0 fixed at 293.4 A^3. The highest-pressure 300 K observation (241.54 A^3, 33.01 GPa) is reproduced within the printed 0.1 GPa pressure bound. An independent refit of all 27 printed 300 K rows gives K0=120.2242 GPa and Kprime=3.572214. Thermal expansion conflicts between Table 1 and the abstract remain withheld.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-19",
-        "audit": "../audits/siderite_fe095mn005.audit.json#siderite_fe095mn005_litasov_2013_bm3"
       }
     },
     {
       "identifier": "siderite_fe095mn005_litasov_2013_joint_thermal_refit",
-      "label": "Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3",
+      "label": "Peritheos refit of Litasov et al. (2013), joint thermal BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "peritheos_refit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-19",
+        "source_note": "All 111 Table 2 observations are fitted with the Section 3 HTBM model, using the integrated-expansivity convention in cited Litasov (2007) Equations (1)-(4). The refit and residuals are independently reproduced; the source alpha0 conflict is retained rather than corrected.",
+        "audit": "../audits/siderite_fe095mn005.audit.json#siderite_fe095mn005_litasov_2013_joint_thermal_refit"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -66,15 +76,6 @@
         "reference_volume_law": "integrated_expansivity"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 33.01],
-      "experimental_temperature_range_k": [300.0, 1673.0],
-      "determination_method": "experimental",
-      "record_kind": "refit",
-      "default": false,
-      "notes": "Explicit opt-in Peritheos joint thermal refit, not either parameter set published by Litasov et al. All five coefficients were fitted together; V0=293.4 A^3 and Tr=300 K remain fixed. alpha0 is the absolute-temperature intercept. The observed pressure RMSE is 0.22121 GPa. The full conditional covariance is supplied; standard errors omit fixed-reference-volume uncertainty and pressure-scale systematics. The original 300 K EOS remains the default. Use within the measured paths; extrema do not guarantee phase stability throughout a rectangle. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa outside these measurements. Both conflicting published thermal sets are non-executable under source.thermal_parameterizations.",
-      "range_provenance": "Marginal extrema of the 111 fitted Table 2 observations, not a rectangular phase-stability or independent predictive-validation domain.",
-      "derived_from_record": "siderite_fe095mn005_litasov_2013_bm3",
-      "fit_datasets": ["siderite_fe095mn005_litasov_2013_table2_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.K0", "rt_eos.K0_prime", "alpha0", "alpha1", "dK_dT"],
         "matrix": [
@@ -115,6 +116,13 @@
           ]
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 33.01],
+      "experimental_temperature_range_k": [300.0, 1673.0],
+      "range_provenance": "Marginal extrema of the 111 fitted Table 2 observations, not a rectangular phase-stability or independent predictive-validation domain.",
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "notes": "Peritheos joint thermal refit of the Litasov et al. (2013) data, not either published parameter set, with alpha0 as the absolute-temperature intercept. The errors omit the uncertainty of the fixed V0 and pressure-scale systematics. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa, outside these data.",
+      "fit_datasets": ["siderite_fe095mn005_litasov_2013_table2_pvt"],
       "reference": {
         "authors": ["Litasov", "Shatskiy", "Gavryushkin", "Sharygin", "Dorogokupets", "Dymshits", "Ohtani", "Higo", "Funakoshi"],
         "year": 2013,
@@ -125,14 +133,7 @@
         "doi": "10.1016/j.pepi.2013.07.011",
         "details": "Source of observations and model; coefficients in this record are a Peritheos refit on 2026-09-19, not source-reported values."
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "All 111 Table 2 observations are fitted with the Section 3 HTBM model, using the integrated-expansivity convention in cited Litasov (2007) Equations (1)-(4). The refit and residuals are independently reproduced; the source alpha0 conflict is retained rather than corrected.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-19",
-        "audit": "../audits/siderite_fe095mn005.audit.json#siderite_fe095mn005_litasov_2013_joint_thermal_refit"
-      }
+      "derived_from_record": "siderite_fe095mn005_litasov_2013_bm3"
     }
   ],
   "cell_contents": "Fe5.7Mn0.3C6O18 in the conventional hexagonal cell",

@@ -29,6 +29,7 @@ from scripts.ono_mibe_2010_fe3c import (
     pressure,
     reproduce,
 )
+from scripts.split_eosmat_audits import restore_record_text
 from scripts.standardize_reconstruction_metadata import assessment_for_record
 
 
@@ -38,6 +39,15 @@ def test_original_parameters_adopted_anchor_and_strict_scope(
     d = get_material_document("cementite", format_version=4)
     r = next(r for r in d["eos_records"] if r["identifier"] == IDENTIFIER)
     expected = catalog_record()
+    # v4 exports write an explicit default flag on every record.
+    assert r.pop("default") is False
+    # The shortened record text keeps the scope a user needs; the builder's
+    # full wording is the stored original in the audit sidecar.
+    assert "below 35 GPa" in r["notes"]
+    assert "not the Litasov recalibration" in r["notes"]
+    assert "this fit uses only those to 34.3 GPa" in r["validity"]["notes"][0]
+    assert "no magnetic transition is modelled" in r["validity"]["notes"][1]
+    restore_record_text(r)
     assert_record_replay_close(r, expected)
     assert r["parameters"] == {
         "V0": {"value": 155.4, "error": 0.2},
@@ -46,7 +56,7 @@ def test_original_parameters_adopted_anchor_and_strict_scope(
     }
     assert r["temperature_ref"] == 300
     assert r["experimental_pressure_range_gpa"] == [0, 34.3]
-    assert r["validity"] == catalog_record()["validity"]
+    assert r["validity"] == expected["validity"]
     assert r["record_kind"] == "published"
     a = r["evidence"]["reproduction"]["assessment"]
     assert a["scope"] == "source_equation"

@@ -77,7 +77,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 25.3\]
 
-Recommended finite-strain result from neon-medium single-crystal XRD to 25.3 GPa. Second-order Birch-Murnaghan fixes K0'=4 by definition; the unconstrained alternative was not selected.
+Recommended finite-strain fit to neon-medium single-crystal XRD data. The unconstrained alternative was not selected.
 
 <details markdown="1">
 <summary>Source review</summary>

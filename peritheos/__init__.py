@@ -17,8 +17,10 @@ from peritheos.catalog import (
     list_material_families,
     list_materials,
     list_reference_variants,
+    material_overviews,
     search_eos_records,
     search_materials,
+    write_material_overviews,
 )
 from peritheos.dataset_pressure import DatasetPressure, resolve_dataset_pressure
 from peritheos.datasets import (
@@ -212,6 +214,7 @@ __all__ = [
     "list_xrd_pressure_standards",
     "load_eosmat",
     "material_from_dict",
+    "material_overviews",
     "pressure_calibration_library",
     "recalculate_eos_pressure_scale",
     "recalculate_diamond_raman_pressure",
@@ -226,5 +229,6 @@ __all__ = [
     "search_materials",
     "validate_eosmat_document",
     "validate_pressure_calibration_references",
+    "write_material_overviews",
     "xrd_standard_pressure",
 ]

@@ -33,13 +33,13 @@ Historical material/card import retained as provenance; the inherited hkl/d/inte
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [(OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht](#record-mg7si2o8_crichton_2002_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
+| [Crichton and Ross (2002), BM3](#record-mg7si2o8_crichton_2002_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [(OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht](#record-mg7si2o8_crichton_2002_bm3_1) | 512.56 ± 0.03 | 97.5 ± 0.4 | 5.97 ± 0.14 |
+| [Crichton and Ross (2002), BM3](#record-mg7si2o8_crichton_2002_bm3_1) | 512.56 ± 0.03 | 97.5 ± 0.4 | 5.97 ± 0.14 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -51,7 +51,7 @@ extrapolation.
 
 <a id="record-mg7si2o8_crichton_2002_bm3_1"></a>
 
-## (OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht
+## Crichton and Ross (2002), BM3
 
 `mg7si2o8_crichton_2002_bm3_1` · Executable
 
@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.2138/am-2002-2-316
 - **Reported pressure coverage (GPa):** \[0.0, 7.6\]
 
-Hydrous phase A, Mg7Si2O8(OH)6. Crichton and Ross report V0 = 512.56(3) A^3, K0 = 97.5(4) GPa, and K0' = 5.97(14). The formula is stored in parser-compatible expanded form.
+Hydrous phase A, Mg7Si2O8(OH)6.
 
 <details markdown="1">
 <summary>Source review</summary>

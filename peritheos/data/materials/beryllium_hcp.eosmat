@@ -10,6 +10,15 @@
     {
       "identifier": "beryllium_hcp_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Be MAO-scale Vinet",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/beryllium_hcp.audit.json#beryllium_hcp_dewaele_2019_mao_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,18 +27,16 @@
         "K0_prime": {"value": 2.94, "error": 0.05}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 95.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 95.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [300.0, 300.0]
       },
+      "experimental_pressure_range_gpa": [0.0, 95.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-      "parameter_covariance": null,
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Mao et al. (1986) ruby scale. The Dorogokupets (2007) ruby-scale record is an alternative reduction of the same data, not an independent experiment.",
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -37,18 +44,20 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/beryllium_hcp.audit.json#beryllium_hcp_dewaele_2019_mao_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "beryllium_hcp_dewaele_2019_dor_vinet",
       "label": "Dewaele (2019), Be DOR-scale Vinet",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/beryllium_hcp.audit.json#beryllium_hcp_dewaele_2019_dor_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -57,19 +66,16 @@
         "K0_prime": {"value": 3.29, "error": 0.05}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 95.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 95.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [300.0, 300.0]
       },
+      "experimental_pressure_range_gpa": [0.0, 95.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-      "pressure_scale_variant_of": "beryllium_hcp_dewaele_2019_mao_vinet",
-      "parameter_covariance": null,
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Dorogokupets (2007) ruby scale. The Mao et al. (1986) ruby-scale record is an alternative reduction of the same data, not an independent experiment.",
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -77,14 +83,8 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/beryllium_hcp.audit.json#beryllium_hcp_dewaele_2019_dor_vinet"
-      }
+      "equation_kind": "isothermal",
+      "pressure_scale_variant_of": "beryllium_hcp_dewaele_2019_mao_vinet"
     }
   ],
   "cell_contents": "Two Be atoms per conventional hcp cell; lattice parameters are not inferred from the EOS records.",

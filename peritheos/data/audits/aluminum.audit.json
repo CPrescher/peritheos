@@ -106,6 +106,11 @@
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Figure 2 caption; Tables I and II."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'_R scale. Source-fixed parameters: V0. Published atomic V0 is converted to the material card's conventional-cell basis.",
+        "validity_notes": ["Published Table I data envelope, not a phase-stability or extrapolation guarantee."],
+        "superseded_on": "2026-11-16"
       }
     },
     "aluminum_sokolova_2013_holzapfel_2": {
@@ -239,6 +244,11 @@
             "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
           }
         ]
+      },
+      "superseded_record_text": {
+        "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+        "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+        "superseded_on": "2026-11-16"
       }
     },
     "aluminum_dewaele_2019_mao_vinet": {
@@ -412,6 +422,11 @@
             "doi": "10.3390/min9110684"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+        "validity_notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."],
+        "superseded_on": "2026-11-16"
       }
     },
     "aluminum_dewaele_2019_dor_vinet": {
@@ -585,6 +600,11 @@
             "doi": "10.3390/min9110684"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+        "validity_notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."],
+        "superseded_on": "2026-11-16"
       }
     },
     "aluminum_dewaele_2004_mao_ruby_vinet": {
@@ -688,6 +708,11 @@
             "doi": "10.1103/PhysRevB.70.094112"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
+        "validity_notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

@@ -36,15 +36,15 @@ stays in EOSMAT and the ledger.
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
 | [Sakai et al. (2025), MgO generalized Rydberg-Stacey scale](#record-mgo_sakai_2025_rydberg_stacey_1) | **untested** (not refittable) |  |
-| [Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD](#record-mgo_b1_tange_2009_vinet) | **close** |  |
-| [JCPDS 4-0829, EOS from Duffy et al, 95](#record-mgo_duffy_1995_bm3_1) | **reproduced** |  |
+| [Tange et al. (2009), pressure-scale-free Vinet-MGD](#record-mgo_b1_tange_2009_vinet) | **close** |  |
+| [Duffy et al. (1995), nonhydrostatic BM3](#record-mgo_duffy_1995_bm3_1) | **reproduced** |  |
 | [Speziale et al. (2001), BM3 + variable-q Debye](#record-mgo_speziale_2001_bm3_2) | **reproduced** |  |
 | [Li et al. (2006), acoustic absolute-pressure BM3](#record-mgo_li_2006_bm3_absolute_acoustic) | **close** |  |
 | [Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3](#record-mgo_jacobsen_2008_bm3_kcl_mao1978) | **reproduced** |  |
 | [Jacobsen et al. (2008), helium medium, Mao-1986-scale BM3](#record-mgo_jacobsen_2008_bm3_helium_mao1986) | **reproduced** |  |
-| [Shen and Smith (2026), Cu-referenced Vinet](#record-mgo_shen_2026_vinet_3) | **disagrees** | Not recommended for quantitative use. Explicit selection only; not loaded by default. |
-| [Luo et al. (2023), cold Vinet plus second-order thermal pressure](#record-mgo_b1_luo_2023_vinet_thermal_5) | **untested** (not refittable) |  |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-mgo_sokolova_2013_holzapfel_4) | **untested** (source calculation reconstructed) |  |
+| [Shen and Smith (2026), Cu-referenced Vinet](#record-mgo_shen_2026_vinet_3) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Luo et al. (2023), 0 K Vinet + Taylor thermal pressure](#record-mgo_b1_luo_2023_vinet_thermal_5) | **untested** (not refittable) |  |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-mgo_sokolova_2013_holzapfel_4) | **untested** (source calculation reconstructed) |  |
 | [Dewaele et al. (2000), BM3-MGD](#record-mgo_dewaele_2000_bm3_mgd_5) | **reproduced** |  |
 | [Dewaele et al. (2000), constrained BM2 sensitivity](#record-mgo_dewaele_2000_bm2_sensitivity_1) | **reproduced** |  |
 | [Dewaele et al. (2000), Murnaghan sensitivity](#record-mgo_dewaele_2000_murnaghan_sensitivity_2) | **reproduced** |  |
@@ -92,7 +92,7 @@ stays in EOSMAT and the ledger.
 
 <a id="record-mgo_b1_tange_2009_vinet"></a>
 
-## Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD
+## Tange et al. (2009), pressure-scale-free Vinet-MGD
 
 **close** · `mgo_b1_tange_2009_vinet` · `Vinet` · [Coefficients and source](../material-summaries/mgo.md#record-mgo_b1_tange_2009_vinet)
 
@@ -150,7 +150,7 @@ PARTIAL REPLAY: these panels evaluate both stored coefficient sets only on the p
 
 <a id="record-mgo_duffy_1995_bm3_1"></a>
 
-## JCPDS 4-0829, EOS from Duffy et al, 95
+## Duffy et al. (1995), nonhydrostatic BM3
 
 **reproduced** · `mgo_duffy_1995_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/mgo.md#record-mgo_duffy_1995_bm3_1)
 
@@ -467,7 +467,7 @@ Both fits use the same 52 recovered audit input rows. **Volume coordinate:** uni
 
 **disagrees** · `mgo_shen_2026_vinet_3` · `Vinet` · [Coefficients and source](../material-summaries/mgo.md#record-mgo_shen_2026_vinet_3)
 
-**Warning:** Not recommended for quantitative use. Explicit selection only; not loaded by default.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0\_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them. The paper identifies Table II as direct fits to this study's Cu-referenced P-V data, with earlier literature included for comparison. Its data-availability statement also mentions other author-held data, so completeness of the actual author fit inputs is unconfirmed. No additional experimental fit rows are identified by the published fitting description. See the \[source-input audit\](literature-reproductions/shen-smith-2026-cu-refits.md). Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0\_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.
 
@@ -551,7 +551,7 @@ Both fits use the same 194 recovered audit input rows. **Volume coordinate:** un
 
 <a id="record-mgo_b1_luo_2023_vinet_thermal_5"></a>
 
-## Luo et al. (2023), cold Vinet plus second-order thermal pressure
+## Luo et al. (2023), 0 K Vinet + Taylor thermal pressure
 
 **untested** (not refittable) · `mgo_b1_luo_2023_vinet_thermal_5` · `Vinet` · [Coefficients and source](../material-summaries/mgo.md#record-mgo_b1_luo_2023_vinet_thermal_5)
 
@@ -611,7 +611,7 @@ Replay of the existing bounded sensitivity diagnostic: five pressures, four temp
 
 <a id="record-mgo_sokolova_2013_holzapfel_4"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 **untested** (source calculation reconstructed) · `mgo_sokolova_2013_holzapfel_4` · `Holzapfel` · [Coefficients and source](../material-summaries/mgo.md#record-mgo_sokolova_2013_holzapfel_4)
 

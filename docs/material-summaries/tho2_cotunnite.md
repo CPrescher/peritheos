@@ -35,13 +35,13 @@ End-member ThO2 (Strem 99.99%); conventional cell contains Th4O8. Distinct phase
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Chidester et al. (2018), cotunnite-type ThO2 experimental thermal EOS](#record-tho2_cotunnite_chidester_2018_bm3_linear_thermal) | BM3 + LinearThermalPressure | 300.0 | reproduced |  | primary source validated | Executable |
+| [Chidester et al. (2018), experimental thermal BM3](#record-tho2_cotunnite_chidester_2018_bm3_linear_thermal) | BM3 + LinearThermalPressure | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Chidester et al. (2018), cotunnite-type ThO2 experimental thermal EOS](#record-tho2_cotunnite_chidester_2018_bm3_linear_thermal) | 164.39336765021082 ± 0.3985293761217232 | 190 ± 3 | 4.0 (fixed) |
+| [Chidester et al. (2018), experimental thermal BM3](#record-tho2_cotunnite_chidester_2018_bm3_linear_thermal) | 164.39336765021082 ± 0.3985293761217232 | 190 ± 3 | 4.0 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -53,7 +53,7 @@ extrapolation.
 
 <a id="record-tho2_cotunnite_chidester_2018_bm3_linear_thermal"></a>
 
-## Chidester et al. (2018), cotunnite-type ThO2 experimental thermal EOS
+## Chidester et al. (2018), experimental thermal BM3
 
 `tho2_cotunnite_chidester_2018_bm3_linear_thermal` · Executable
 
@@ -85,7 +85,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1018, 2553\]
 
-All 59 high-temperature observations. No reliable room-temperature lattice parameters or volumes: the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.
+Fit to high-temperature data only: there are no reliable room-temperature volumes, so the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Phase coexistence and kinetic inhibition occur. For thorianite, the fixed V0 keeps its measurement error.
 
 <details markdown="1">
 <summary>Source review</summary>

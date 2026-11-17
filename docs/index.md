@@ -50,18 +50,21 @@ The documentation is organized around scientific workflows:
   parameter errors into EOS predictions.
 - [Dioptas and `.eosmat`](dioptas-integration.md) defines the shared material
   ownership and the bundled EOS library.
-- [Create and read EOSMAT](eosmat-authoring.md) starts with a small editable file
-  and explains each field, including complete thermal and database-style examples.
-- [Native EOSMAT v5](eosmat-v5.md) documents the current structure, units, the
-  record `check` headline and audit sidecars. The [v3 compatibility
-  reference](eosmat-schema.md) retains historical layouts and advanced semantics.
+- EOSMAT material files:
+  - [Writing your own EOSMAT file](eosmat-authoring.md) starts with a small
+    editable file, with complete thermal and database-style examples.
+  - [EOSMAT v5 record reference](eosmat-reference.md) defines every field of a
+    current file.
+  - [EOS labels and reconstruction status](eos-labels.md) defines the
+    reproduction headlines, warnings, source checks and record origins.
+  - [EOSMAT v5 format overview](eosmat-v5.md) summarizes the format, audit
+    sidecars and compatibility exports; the [v4](eosmat-v4.md) and
+    [v3](eosmat-schema.md) pages describe older files.
 - [Advanced DAC analysis](dac-thermal-pressure.md) documents the optional
   two-volume thermal-pressure boundary-condition model.
 - [Units and reference states](units.md) explains the deliberately strict
   thermal volume convention.
 - [Validation](validation.md) describes the numerical and literature checks.
-- [EOS labels and reconstruction status](eos-labels.md) defines the reproduction
-  headlines, warnings, source checks and record origins without conflating them.
 - [Paper investigation ledger](paper-investigation-ledger.md) gives the final
   disposition of every primary paper reviewed, including unreproduced,
   unavailable-data, withheld, and deferred cases.

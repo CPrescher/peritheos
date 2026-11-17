@@ -89,14 +89,14 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0001, 7.179\]
     - **Temperature k:** \[298.0, 298.0\]
     - **Volume ratio:** \[0.95864, 1.0\]
-    - **Notes:** The bounds are the complete seven-observation Table 5 measurement envelope, not a phase-stability guarantee.; The Fe75 crystal cracked against the upper diamond near 8 GPa, so no higher-pressure points were reported.; The numeric temperature is operational because the source states only room/ambient temperature.
+    - **Notes:** The Fe75 crystal cracked against the upper diamond near 8 GPa; no higher-pressure points were reported.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 61.873065
 - **Reported error confidence level:** Not specified
 
-The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.
+The printed errors are standard deviations.
 
 <details markdown="1">
 <summary>Source review</summary>

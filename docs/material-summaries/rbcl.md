@@ -35,14 +35,14 @@ High-pressure CsCl-type B2 RbCl. The phase is not quenchable to zero pressure. T
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Campbell and Heinz (1994), RbCl-B2 BM3](#record-rbcl_b2_campbell_1994_bm3_1) | BM3 | 298.0 | reproduced |  | primary source validated | Executable |
-| [Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Campbell and Heinz (1994), RbCl-B2 BM3](#record-rbcl_b2_campbell_1994_bm3_1) | 60.7214565241 ± 0.0183626033 (fixed) | 17.9 ± 1.0 | 5.23 ± 0.29 |
-| [Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | 60.19454118505194 ± 0.049816172015215404 (fixed) | 19.89 ± 0.08 | 5.0 ± 0.02 |
+| [Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | 60.19454118505194 ± 0.049816172015215404 (fixed) | 19.89 ± 0.08 | 5.0 ± 0.02 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -83,7 +83,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[1.11, 32.3\]
 - **Coverage provenance:** reported\_exactly
 
-Room-temperature third-order Birch-Murnaghan fit to all 24 RbCl-B2 compression observations in Table 1. Campbell and Heinz fixed the non-quenchable phase's hypothetical zero-pressure density at rho02=3.3068(10) Mg/m^3 and report K0=17.9(10) GPa and K0'=5.23(29). Peritheos converts that density to the one-formula-unit reference volume using M(RbCl)=120.9208 g/mol; its uncertainty is propagated from the reported density error.
+BM3 fit to all 24 RbCl-B2 observations of Table 1. V0 is converted from the authors' fixed hypothetical zero-pressure density of this non-quenchable phase, rho0 = 3.3068(10) Mg/m³, using M(RbCl) = 120.9208 g/mol, with the error propagated.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -138,7 +138,7 @@ Room-temperature third-order Birch-Murnaghan fit to all 24 RbCl-B2 compression o
 
 <a id="record-rbcl_b2_farla_2025_bm3_mgd_cscl"></a>
 
-## Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)
+## Farla et al. (2025), BM3-MGD, CsCl pressures (case 1)
 
 `rbcl_b2_farla_2025_bm3_mgd_cscl` · Executable
 
@@ -175,7 +175,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.54, 26.05\]
     - **Temperature k:** \[300.0, 1800.0\]
-    - **Notes:** Only the B2 solid branch. B1 transition and melting curves are not encoded; confirm phase before using as a marker.; Bounds describe marginal coverage; high-temperature data reach about 21 GPa, not 26 GPa.; The zero-pressure reference is hypothetical and is not stable ambient B2 material.
+    - **Notes:** B2 solid only; the B1 transition and melting curves are not encoded, so confirm the phase before using it as a marker.; High-temperature data reach only about 21 GPa; higher pressures are 300 K DAC data. The 0 GPa B2 reference is hypothetical.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -186,7 +186,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.
+The authors' preferred case 1, fitted to combined DAC and large-volume-press data. The printed molar and cell V0 errors disagree after unit conversion; the stored V0 and error are converted from the molar value used in the EoSFit7 program.
 
 <details markdown="1">
 <summary>Source review</summary>

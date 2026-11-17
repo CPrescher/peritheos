@@ -35,7 +35,7 @@ The lattice parameter is calculated from the fitted 298 K atomic reference volum
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Dewaele et al. (2004), revised-ruby Vinet](#record-aluminum_dewaele_2004_vinet_1) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-aluminum_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-aluminum_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Dewaele (2019), Al MAO-scale Vinet](#record-aluminum_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Al DOR-scale Vinet](#record-aluminum_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2004), Al mao ruby Vinet](#record-aluminum_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
@@ -45,7 +45,7 @@ The lattice parameter is calculated from the fitted 298 K atomic reference volum
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Dewaele et al. (2004), revised-ruby Vinet](#record-aluminum_dewaele_2004_vinet_1) | 66.292 (fixed) | 74.3 ± 1.1 | 4.47 ± 0.06 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-aluminum_sokolova_2013_holzapfel_2) | 66.28871141603032 | 72.8 | 4.51 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-aluminum_sokolova_2013_holzapfel_2) | 66.28871141603032 | 72.8 | 4.51 |
 | [Dewaele (2019), Al MAO-scale Vinet](#record-aluminum_dewaele_2019_mao_vinet) | 66.292 ± 0.076 | 76.32 ± 1.5 | 4.16 ± 0.06 |
 | [Dewaele (2019), Al DOR-scale Vinet](#record-aluminum_dewaele_2019_dor_vinet) | 66.336 ± 0.076 | 74.2 ± 1.5 | 4.52 ± 0.06 |
 | [Dewaele et al. (2004), Al mao ruby Vinet](#record-aluminum_dewaele_2004_mao_ruby_vinet) | 66.292 (fixed) | 76.3 ± 1.1 | 4.16 ± 0.05 |
@@ -91,10 +91,9 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 153.0\]
     - **Temperature k:** \[298.0, 298.0\]
-    - **Notes:** Published Table I data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'\_R scale. Source-fixed parameters: V0. Published atomic V0 is converted to the material card's conventional-cell basis.
+Static 298 K Vinet fit to all Table I observations, with pressures on the revised ruby scale (P'\_R in the paper). Published atomic V0 is stored per conventional cell (×4).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -149,7 +148,7 @@ Static 298 K Vinet fit to all available Table I observations for this metal on t
 
 <a id="record-aluminum_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `aluminum_sokolova_2013_holzapfel_2` · Executable
 
@@ -190,7 +189,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reference temperature (K):** 298.15
 - **Coverage provenance:** reference\_parameterization
 
-This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
+Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to shock-wave, ultrasonic, X-ray diffraction, dilatometric and thermochemical data: reference volume from Table 1, Holzapfel and thermal coefficients from Table 4. Sokolova et al. (2016) supplies the spreadsheet implementation, reference-temperature convention and corrected equations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -279,10 +278,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 155.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -369,10 +367,9 @@ Published pressure-scale alternative of [aluminum\_dewaele\_2019\_mao\_vinet](#r
 - **Validity:**
     - **Pressure gpa:** \[0.0, 155.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986 record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -459,10 +456,9 @@ Published pressure-scale alternative of [aluminum\_dewaele\_2004\_vinet\_1](#rec
 - **Validity:**
     - **Pressure gpa:** \[0.0, 144.3\]
     - **Temperature k:** \[298.0, 298.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.
+Static 298 K synchrotron X-ray fit to all Table I observations, with pressures on the classical Mao ruby scale. V0 is fixed from the authors' 0-5 GPa determination. The revised-ruby record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>

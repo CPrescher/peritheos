@@ -6,10 +6,20 @@
   "phase": "ferrous iron-bearing bridgmanite, orthorhombic Pbnm",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1"},
   "eos_records": [
     {
       "identifier": "mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1",
       "label": "Wolf et al. (2015), 13% Fe bridgmanite Vinet-MGD",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The executable record is the complete published 300 K Vinet plus integrated constant-q MGD model for the measured 13% Fe composition. It is not a room-temperature slice of the thermal fit.",
+        "audit": "../audits/mg087fe013sio3_bridgmanite.audit.json#mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -29,31 +39,6 @@
         "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": 0.68,
-      "experimental_pressure_range_gpa": [33.15, 132.7],
-      "experimental_temperature_range_k": [300.0, 2455.0],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [33.15, 132.7],
-        "temperature_k": [300.0, 2455.0],
-        "volume_ratio": [0.75030645, 0.89844325],
-        "notes": [
-          "Marginal envelope of the 153 observations; the sampled P-T paths are not a rectangular phase-stability guarantee.",
-          "The authors report that every experimental state followed a thermodynamic path within the bridgmanite stability field and found no H-phase exsolution."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "published",
-      "equation_kind": "thermal",
-      "default_for": "equilibrium",
-      "experimental_configuration": {
-        "sample": "polycrystalline synthetic (Mg0.87Fe0.13)SiO3 bridgmanite; microprobe verified; ferric iron below the approximately 3% detection constraint",
-        "pressure_medium": "quasi-hydrostatic neon",
-        "pressure_cell": "symmetric laser-heated diamond-anvil cell with beveled 250 micrometre culets",
-        "diffraction": "angle-dispersive powder X-ray diffraction at GSECARS 13-ID-D, wavelength 0.3344 angstrom",
-        "temperature_measurement": "double-sided laser heating and gray-body spectroradiometry over 600-800 nm"
-      },
-      "notes": "The 300 K Vinet parameters and thermal parameters are one coupled published thermal EOS. V0, K0, K0', gamma0, and q were fitted; Tr=300 K, theta0=1000 K, and the 20-atom conventional-cell count were fixed. The complete five-parameter covariance is reconstructed from Tables 3-4 rather than treating strongly correlated errors as independent. Table 5 provides an independent source-output check: at 108.7 GPa and 2387 K the implementation reproduces density 5.40 g/cm3, KS=604.5 GPa, gamma=1.23, and Cv/(3Nk)=0.9838 at the source's printed precision.",
-      "fit_datasets": ["mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
         "matrix": [
@@ -64,6 +49,21 @@
           [0.0021089999999999998, -0.50912, 0.02035, 0.039479, 0.1369]
         ]
       },
+      "validity": {
+        "pressure_gpa": [33.15, 132.7],
+        "temperature_k": [300.0, 2455.0],
+        "volume_ratio": [0.75030645, 0.89844325],
+        "notes": [
+          "The authors report that every experimental state followed a path within the bridgmanite stability field and found no H-phase exsolution."
+        ]
+      },
+      "experimental_pressure_range_gpa": [33.15, 132.7],
+      "experimental_temperature_range_k": [300.0, 2455.0],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "The 300 K Vinet and thermal parameters form one coupled published thermal EOS. The complete five-parameter covariance is reconstructed from Tables 3-4; the errors are strongly correlated and should not be treated as independent.",
+      "fit_datasets": ["mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt"],
       "reference": {
         "authors": ["Wolf", "Jackson", "Dera", "Prakapenka"],
         "year": 2015,
@@ -73,13 +73,13 @@
         "locator": "7460-7489",
         "doi": "10.1002/2015JB012108"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The executable record is the complete published 300 K Vinet plus integrated constant-q MGD model for the measured 13% Fe composition. It is not a room-temperature slice of the thermal fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg087fe013sio3_bridgmanite.audit.json#mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1"
+      "equation_kind": "thermal",
+      "experimental_configuration": {
+        "sample": "polycrystalline synthetic (Mg0.87Fe0.13)SiO3 bridgmanite; microprobe verified; ferric iron below the approximately 3% detection constraint",
+        "pressure_medium": "quasi-hydrostatic neon",
+        "pressure_cell": "symmetric laser-heated diamond-anvil cell with beveled 250 micrometre culets",
+        "diffraction": "angle-dispersive powder X-ray diffraction at GSECARS 13-ID-D, wavelength 0.3344 angstrom",
+        "temperature_measurement": "double-sided laser heating and gray-body spectroradiometry over 600-800 nm"
       }
     }
   ],

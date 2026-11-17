@@ -145,7 +145,8 @@ def test_material_summary_lists_every_record_with_status():
     assert "Formula: MgO" in text and "B1 (periclase)" in text
     assert "4 formula units per conventional unit cell" in text
     assert "angstrom^3/conventional_unit_cell" in text
-    assert f"default_record(): {material.default_record().identifier}" in text
+    default = material.default_record()
+    assert f"  Default: {default.name} ({default.identifier})" in lines
     for record in material.eos_records:
         row = next(line for line in lines if f" {record.identifier} " in line)
         assert record.reproduction in row
@@ -153,7 +154,10 @@ def test_material_summary_lists_every_record_with_status():
         assert ("*" in row.split()[0]) is record.is_default
         assert ("!" in row.split()[0]) is bool(record.warning)
     warned = material.get_eos_record("mgo_shen_2026_vinet_3")
-    assert f"! {warned.identifier}: {warned.warning}" in text
+    warning_line = lines.index(f"    ! {warned.warning}")
+    assert warned.identifier in lines[warning_line + 1]
+    # Each distinct warning is stated once.
+    assert text.count(warned.warning) == 1
     assert "Speziale et al. 2001" in text
     assert "0-203" in text and "300-3663" in text
     # Unstated ranges are shown as "-", not as sentinel numbers.
@@ -171,17 +175,31 @@ def test_every_catalog_summary_renders_without_truncating_identifiers():
 def test_record_summary_shows_coefficients_reference_and_finding():
     record = get_eos_record("mgo_speziale_2001_bm3_2")
     text = record.summary()
-    assert text.splitlines()[0] == "mgo_speziale_2001_bm3_2 (default)"
-    assert "V0       = 74.71 +/- 0.01  [angstrom^3/conventional_unit_cell]" in text
-    assert "K0       = 160.2 (fixed)  [GPa]" in text
-    assert "q1     = 11.8 +/- 0.2" in text
+    lines = [line.rstrip() for line in text.splitlines()]
+    assert lines[0] == "mgo_speziale_2001_bm3_2"
+    assert "  Default: the designated equilibrium record" in lines
+    assert any(
+        line.split() == ["V0", "=", "74.71", "+/-", "0.01", record.volume_unit]
+        for line in lines
+    )
+    assert any(line.split() == ["K0", "=", "160.2", "fixed", "GPa"] for line in lines)
+    assert any(line.split() == ["q1", "=", "11.8", "+/-", "0.2"] for line in lines)
+    # A fixed coefficient's published error is not shown as a fit error.
+    assert "gamma0 = 1.524 fixed (published +/- 0.025)" in text
     assert "confidence level not stated" in text
-    assert "Reproduction: reproduced" in text
-    assert "Warning: none" in text
-    assert "Calibration envelope: P 0-203 GPa, T 300-3663 K" in text
-    assert "Experimental pressure range: 0-52 GPa" in text
+    assert (
+        "  Check: reproduced (refit vs published fit). A refit of the source data "
+        "gave the published coefficients."
+    ) in lines
+    assert "Warning" not in text
+    assert (
+        "    Validity range (enforced by check_validity=True): P 0-203, T 300-3663"
+    ) in lines
+    assert "    Experimental data range: P 0-52" in lines
     assert "doi:10.1029/2000JB900318" in text
-    assert "Finding: Published final BM3 + variable-q Debye model" in text
+    assert "  Source check: verified (2026-10-09). Published final BM3" in text
+    assert "No documented unit for: q0, q1" in text
+    assert "parameter_covariance" not in text
 
 
 def test_record_summary_converts_molar_volume_errors_to_the_public_unit():
@@ -197,7 +215,10 @@ def test_record_summary_states_the_confidence_level():
     record = get_eos_record("gold_dewaele_2004_vinet_5")
     text = record.summary()
     assert "95% confidence" in text
-    assert "K0_prime = 6 +/- 0.02" in text
+    assert any(
+        line.split()[:5] == ["K0'", "=", "6", "+/-", "0.02"]
+        for line in text.splitlines()
+    )
 
 
 def test_record_summary_shows_the_warning_text():

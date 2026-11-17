@@ -1,8 +1,9 @@
 # EOSMAT v4 compatibility
 
-New files and the bundled catalog use [EOSMAT v5](eosmat-v5.md). This page
-retains the v4 layout and historical uncertainty conventions. V5 keeps this
-layout while requiring errors and covariance in the units of their parameters.
+This page describes the older v4 format, kept so that existing v4 files can be
+read and exported. Current files use v5: every field of a current file is
+defined in the [EOSMAT v5 record reference](eosmat-reference.md). v5 keeps the
+v4 layout and requires errors and covariance in the units of their parameters.
 
 
 `BM2Reference` requires V0, K0 and P0, with V0/K0 defined at P0; ordinary BM2

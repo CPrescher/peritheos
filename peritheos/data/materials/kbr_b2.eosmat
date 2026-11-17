@@ -9,6 +9,15 @@
     {
       "identifier": "kbr_b2_dewaele_2012_vinet_1",
       "label": "Dewaele et al. (2012), 298 K B2 Vinet",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0 and K0' have no error to test against the combined-error rule; all within the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "audit": "../audits/kbr_b2.audit.json#kbr_b2_dewaele_2012_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -19,7 +28,7 @@
       "experimental_pressure_range_gpa": [2.3, 165.0],
       "experimental_temperature_range_k": [298.0, 298.0],
       "determination_method": "experimental",
-      "notes": "Table III experimental B2 fit in helium. V0 is a fictive zero-pressure value fixed from the lowest-pressure 2-6 GPa measurements; no coefficient standard errors are tabulated.",
+      "notes": "Table III fit to B2 data in helium. V0 is a fictive zero-pressure value fixed from the lowest-pressure (2-6 GPa) measurements.",
       "reference": {
         "authors": ["Dewaele", "Belonoshko", "Garbarino", "Occelli", "Bouvier", "Hanfland", "Mezouar"],
         "year": 2012,
@@ -28,13 +37,6 @@
         "volume": "85",
         "locator": "214105",
         "doi": "10.1103/PhysRevB.85.214105"
-      },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/kbr_b2.audit.json#kbr_b2_dewaele_2012_vinet_1"
       }
     }
   ],

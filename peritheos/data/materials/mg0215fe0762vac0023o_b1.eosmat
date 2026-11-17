@@ -6,10 +6,20 @@
   "phase": "defect-bearing B1 magnesiowustite, metrically cubic average structure",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1"},
   "eos_records": [
     {
       "identifier": "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1",
       "label": "Finkelstein et al. (2017), Mw78 cubic helium BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The defect-normalized specimen remains metrically cubic in helium through 55.5 GPa. The authors fit all 17 cubic-cell observations with their explicitly printed BM3 equation, an ambient V0 prior, and free K0 and K0_prime.",
+        "audit": "../audits/mg0215fe0762vac0023o_b1.audit.json#mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,34 +28,22 @@
         "K0_prime": {"value": 4.09, "error": 0.12}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [1.823, 55.542],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 55.542],
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.792358, 1.0],
         "notes": [
-          "Empirical nominal-300 K cubic compression curve through the helium data range plus its zero-pressure reference; the bounds are not a phase-stability guarantee.",
-          "The crystal remains metrically cubic through 55.5 GPa, but spin state was measured only at room pressure before loading and is unresolved under compression.",
+          "The crystal stays metrically cubic through 55.5 GPa, but its spin state was measured only at room pressure and is unresolved under compression.",
           "Helium is the more hydrostatic baseline, although the article cites gradual nonhydrostaticity in helium above about 23 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [1.823, 55.542],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "experimental_configuration": {
-        "sample": "single-crystal fragments from defect-normalized Mw78, Mg0.215Fe0.762□0.023O",
-        "pressure_medium": "helium gas-loaded at approximately 25000 PSI",
-        "pressure_cell": "BX90 diamond-anvil cell with 250 micrometer beveled culets",
-        "diffraction": "single-crystal X-ray diffraction at APS GSECARS PX2 13-BM-C, wavelength 0.4340 A",
-        "fit_software": "MINUTI version 2.0",
-        "fit_selection": "all 17 helium-medium cubic-indexed Table 2 rows",
-        "fit_constraints": "V0 prior 78.94 +/- 0.1 A^3; K0 and K0_prime free"
-      },
-      "notes": "Canonical equilibrium-oriented record. V0 is fitted under a 78.94 +/- 0.1 A^3 ambient prior rather than fixed; K0 and K0_prime are freely varied. Parenthetical values are the source's 1-sigma fit uncertainties, stored with null confidence because they are standard errors rather than interval half-widths. The 300 K reference is nominal room temperature and no row-wise temperature observations are reported.",
+      "notes": "Fit to the helium-medium cubic-cell data with an ambient V0 prior of 78.94 ± 0.1 Å³; V0 is not fixed, and K0 and K0' are free. The errors are the source's 1-sigma standard errors, not interval half-widths, so no confidence level is stored.",
       "fit_datasets": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Finkelstein", "Jackson", "Sturhahn", "Zhang", "Alp", "Toellner"],
         "year": 2017,
@@ -55,18 +53,29 @@
         "locator": "1709-1717",
         "doi": "10.2138/am-2017-5966"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The defect-normalized specimen remains metrically cubic in helium through 55.5 GPa. The authors fit all 17 cubic-cell observations with their explicitly printed BM3 equation, an ambient V0 prior, and free K0 and K0_prime.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg0215fe0762vac0023o_b1.audit.json#mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1"
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "single-crystal fragments from defect-normalized Mw78, Mg0.215Fe0.762□0.023O",
+        "pressure_medium": "helium gas-loaded at approximately 25000 PSI",
+        "pressure_cell": "BX90 diamond-anvil cell with 250 micrometer beveled culets",
+        "diffraction": "single-crystal X-ray diffraction at APS GSECARS PX2 13-BM-C, wavelength 0.4340 A",
+        "fit_software": "MINUTI version 2.0",
+        "fit_selection": "all 17 helium-medium cubic-indexed Table 2 rows",
+        "fit_constraints": "V0 prior 78.94 +/- 0.1 A^3; K0 and K0_prime free"
       }
     },
     {
       "identifier": "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2",
       "label": "Finkelstein et al. (2017), Mw78 low-pressure cubic neon BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The first five neon observations remain cubic-indexable through 19.244 GPa and define a separate BM3 fit with both V0 and K0_prime priors. The higher-pressure rows are increasingly hexagonally distorted and are not part of this executable record.",
+        "audit": "../audits/mg0215fe0762vac0023o_b1.audit.json#mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -75,20 +84,31 @@
         "K0_prime": {"value": 4.02, "error": 0.1}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [1.314, 19.244],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 19.244],
         "temperature_k": [300.0, 300.0],
         "volume_ratio": [0.9074588, 1.0],
         "notes": [
-          "Empirical nominal-300 K low-pressure cubic-indexing fit plus its zero-pressure reference; it is not an equilibrium recommendation.",
-          "Neon crystallizes near 4.8 GPa, and the authors state that the unit-cell volume is affected below the approximately 20 GPa onset of resolvable hexagonal distortion.",
+          "Neon crystallizes near 4.8 GPa; the authors state that the cell volume is affected below the onset of resolvable hexagonal distortion near 20 GPa.",
           "Do not extrapolate this stress-sensitive fit into the high-pressure distorted branch."
         ]
       },
+      "experimental_pressure_range_gpa": [1.314, 19.244],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
+      "notes": "Stress-sensitive low-pressure fit to the cubic-indexable neon observations; not an equilibrium recommendation. V0 and K0' are constrained by priors, not fixed, and the errors are 1-sigma fit uncertainties. The authors attribute the stiffer curve relative to helium to neon crystallization and nonhydrostaticity.",
+      "fit_datasets": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"],
+      "reference": {
+        "authors": ["Finkelstein", "Jackson", "Sturhahn", "Zhang", "Alp", "Toellner"],
+        "year": 2017,
+        "title": "Single-crystal equations of state of magnesiowustite at high pressures",
+        "source": "American Mineralogist",
+        "volume": "102",
+        "locator": "1709-1717",
+        "doi": "10.2138/am-2017-5966"
+      },
       "equation_kind": "isothermal",
       "experimental_configuration": {
         "sample": "single-crystal fragments from defect-normalized Mw78, Mg0.215Fe0.762□0.023O",
@@ -98,26 +118,6 @@
         "fit_software": "MINUTI version 2.0",
         "fit_selection": "first five neon-medium cubic-indexed Table 2 rows, 1.314-19.244 GPa",
         "fit_constraints": "V0 prior 78.94 +/- 0.1 A^3 and K0_prime prior 4.0 +/- 0.1; neither parameter fixed"
-      },
-      "notes": "Published stress-sensitive low-pressure neon alternative. V0 and K0_prime were constrained by priors, not fixed, so fixed_parameters is empty. The authors attribute the stiffer curve relative to helium to neon crystallization and nonhydrostaticity; this record is intentionally not the default. Parenthetical values are 1-sigma fit uncertainties.",
-      "fit_datasets": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"],
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Finkelstein", "Jackson", "Sturhahn", "Zhang", "Alp", "Toellner"],
-        "year": 2017,
-        "title": "Single-crystal equations of state of magnesiowustite at high pressures",
-        "source": "American Mineralogist",
-        "volume": "102",
-        "locator": "1709-1717",
-        "doi": "10.2138/am-2017-5966"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The first five neon observations remain cubic-indexable through 19.244 GPa and define a separate BM3 fit with both V0 and K0_prime priors. The higher-pressure rows are increasingly hexagonally distorted and are not part of this executable record.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg0215fe0762vac0023o_b1.audit.json#mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2"
       }
     }
   ],

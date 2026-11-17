@@ -35,12 +35,12 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | **reproduced** |  |
+| [Peritheos refit of Bykova et al. (2018), calculated BM3](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | **reproduced** |  |
 | [Bykova et al. (2018), combined coesite-IV/V experimental BM2 at 32.7 GPa](#record-coesite_iv_v_bykova_2018_experimental_bm2_reference) | **untested** (source calculation reconstructed) | Not recommended for use. |
 
 <a id="record-coesite_iv_bykova_2018_am05_static_bm3_refit"></a>
 
-## Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states
+## Peritheos refit of Bykova et al. (2018), calculated BM3
 
 **reproduced** · `coesite_iv_bykova_2018_am05_static_bm3_refit` · `BM3` · [Coefficients and source](../material-summaries/coesite_iv.md#record-coesite_iv_bykova_2018_am05_static_bm3_refit)
 

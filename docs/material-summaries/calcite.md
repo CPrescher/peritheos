@@ -77,7 +77,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 1.435\]
 - **Reported temperature coverage (K):** \[298.0, 298.0\]
 
-Second-order Birch-Murnaghan fit to room-temperature single-crystal measurements from ambient pressure to 1.435 GPa; K0\_prime=4 is implicit in BM2. The range describes the fitted data, not the calcite stability field.
+Second-order Birch-Murnaghan fit to room-temperature single-crystal measurements; K0' = 4 is implicit in BM2.
 
 <details markdown="1">
 <summary>Source review</summary>

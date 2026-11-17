@@ -1,10 +1,10 @@
-# Creating and editing EOSMAT
+# Writing your own EOSMAT file
 
 EOSMAT v5 is the native format for new material files. Your own EOS is one
 self-contained `.eosmat` file: identity, units, model, coefficients, source and
 limits. There is no separate authoring format, database registration, `check`
-block or audit sidecar to write. Curated records may add those optional pieces;
-see the [v5 format reference](eosmat-v5.md).
+block or audit sidecar to write. Curated records may add those optional pieces.
+Every field is defined in the [EOSMAT v5 record reference](eosmat-reference.md).
 
 ## Read a file before editing it
 
@@ -19,7 +19,10 @@ metadata to create an EOS for your own calculations.
 | Which equation and coefficients? | `model`, `temperature_ref`, `parameters`; optional `thermal` |
 | What do the errors mean? | Each parameter's `error`/`fixed`, then confidence convention and covariance if available |
 | Where may I use it? | `validity`; measured coverage is separate |
-| Was it checked? (curated records) | `check`: the reproduction headline, any warning and the source check |
+| Was it checked? (curated records) | `check`: the reproduction headline and what it compared, any warning and the source check |
+| Which record is the default? | The material's `default_records` (or a record's `default` flag) |
+
+The [record reference](eosmat-reference.md) defines each of these fields.
 
 For catalog display names, put the mineral family first and keep useful sample,
 structure, spin or model qualifiers after it. Store the exact composition in
@@ -141,7 +144,7 @@ V0 variance uses Å⁶, K0 variance uses GPa², and a V0–K0 cross term uses Å
 Use `rt_eos.V0` for reference-isotherm volume in a thermal record. State the
 matrix's source, parameter order and confidence assumptions separately.
 Missing errors remain unknown; zero is preserved with a precision qualification,
-and negative errors are invalid. See [the v5 uncertainty rule](eosmat-v5.md).
+and negative errors are invalid. See [the v5 uncertainty rule](eosmat-reference.md#covariance).
 
 Old v2/v3/v4 files keep their original interpretations. Explicit v3/v4 exports
 convert errors and covariance back to historical model units for older readers.
@@ -191,10 +194,11 @@ in [Adding materials and EOS](adding-materials-and-eos.md).
 A file needs neither of these to load or calculate.
 
 - A record's `check` block states its reproduction headline (`reproduced`,
-  `close`, `disagrees` or `untested`), any usage `warning` and the source check.
-  When `evidence` is present, the headline must agree with it. Without `check`,
-  `EOSRecord.reproduction` and `EOSRecord.warning` are derived from the
-  evidence; without evidence the record is `untested`.
+  `close`, `disagrees` or `untested`), what it `compared`, a generated `why`
+  for `close` or `disagrees`, any usage `warning` and the `source_check`.
+  When `evidence` is present, these must agree with it. Without `check`, the
+  `EOSRecord` properties of the same names are derived from the evidence;
+  without evidence the record is `untested` and compared `none`.
 - `evidence.reproduction.assessment` holds the reconstruction outcome, basis and
   limitations; its `parameters` table holds the source-versus-reconstructed
   values, including failed reconstructions, and `fit` the selection, objective,
@@ -204,7 +208,7 @@ A file needs neither of these to load or calculate.
   `peritheos/data/audits/<id>.audit.json`, referenced by `check.audit`. Your own
   files can keep it inline or use the same layout.
 
-The [v5 reference](eosmat-v5.md#complete-example-record-file-and-audit-entry)
+The [record reference](eosmat-reference.md#audit-sidecar)
 has a complete record file with its audit entry. Words and caveats are defined
 once in [EOS labels](eos-labels.md).
 
@@ -228,14 +232,16 @@ not needed. `validate` checks structure, model declarations and local references
 It does not establish experimental accuracy or fit reproduction. `format` changes
 layout only, retaining every JSON value and array order; `--check` is read-only.
 
-In v5, saved records put model, reference temperature, coefficients and thermal
-terms first, followed by uncertainty confidence, experimental coverage, validity
-and usage qualifications. Thermal blocks use `model`, then `parameters`, then
-the explicit law/reference choices. Full covariance, citations, calibration and
-audit evidence follow the practical information. Material-level recommendation
-holds appear before the EOS list. These are formatting choices; field names and
-scientific meanings are unchanged, and readers accept any JSON key order.
-See the [native reading order](eosmat-v4.md#reading-order-in-saved-files).
+In v5, saved records put the identifier, label and `check` first, then the
+model, reference temperature, coefficients and thermal terms, the error
+convention and covariance, validity and experimental ranges, how the values
+were determined, notes, linked datasets and the citation; pressure calibration
+and audit evidence come last. Thermal blocks use `model`, then `parameters`,
+then the explicit law/reference choices. Material-level recommendation holds and
+`default_records` appear before the EOS list. These are formatting choices;
+field names and scientific meanings are unchanged, and readers accept any JSON
+key order. The [record reference](eosmat-reference.md#eos-record-fields) lists
+the fields in this order.
 
 For an application whose pinned reader supports only v3:
 
@@ -319,5 +325,5 @@ what the audit records: method, curve and residual plots, and the coefficient
 comparison. The assessment's `report_url` opens it on Read the Docs **latest**;
 `report_path` names the same page and anchor in the repository. Bundled sidecars
 omit both because they follow from the identifiers (see
-[audit sidecars](eosmat-v5.md#audit-sidecars)). Standalone files can omit them or
+[audit sidecars](eosmat-reference.md#audit-sidecar)). Standalone files can omit them or
 link to their own reports.

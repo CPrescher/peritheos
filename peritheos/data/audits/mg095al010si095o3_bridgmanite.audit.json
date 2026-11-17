@@ -190,6 +190,15 @@
             "doi": "10.1007/BF00308114"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Preferred second-order Birch-Murnaghan fit. K0_prime=4 is intrinsic to BM2, so V0 and K0 are the only free EOS parameters and fixed_parameters is empty. The one-sigma covariance is reconstructed transparently from the published marginal errors and correlation.",
+        "validity_notes": [
+          "The pressure and volume-ratio bounds are the complete auxiliary Table 1 observation envelope, not a broader phase-stability guarantee.",
+          "The record follows the authors' mixed pressure coordinate: Mao-1986 ruby below 25 GPa and Hemley-1989 neon above 25 GPa.",
+          "The BM2 family enforces K0_prime=4 by definition; V0 and K0 are the two free coefficients."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "mg095al010si095o3_bridgmanite_daniel_2004_bm3_2": {
@@ -390,6 +399,15 @@
             "doi": "10.1007/BF00308114"
           }
         ]
+      },
+      "superseded_record_text": {
+        "notes": "Third-order Birch-Murnaghan alternative with V0, K0, and K0_prime all fitted. Its derivative is statistically indistinguishable from 4 and the paper therefore favors the BM2 representation.",
+        "validity_notes": [
+          "The pressure and volume-ratio bounds are the complete auxiliary Table 1 observation envelope, not a broader phase-stability guarantee.",
+          "The record follows the authors' mixed pressure coordinate: Mao-1986 ruby below 25 GPa and Hemley-1989 neon above 25 GPa.",
+          "V0, K0, and K0_prime were all free; the source finds no significant departure of K0_prime from 4."
+        ],
+        "superseded_on": "2026-11-16"
       }
     }
   }

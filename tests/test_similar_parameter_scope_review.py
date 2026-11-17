@@ -111,7 +111,19 @@ def test_native_assessments_roundtrip_and_unpromoted_ledger_findings_are_unchang
                         "iron_carbide_fe7c3_prescher_2015_author_fit_input"
                     ]
                 else:
-                    assert ledger[rid] == original[rid]
+                    expected = dict(original[rid])
+                    block = record.get("superseded_record_text")
+                    if block:
+                        # A later text revision changed the ledger's copies of
+                        # label and notes; the frozen inputs keep the
+                        # originals, which the sidecar stores verbatim.
+                        assert expected["label"] == block.get("label", record["label"])
+                        assert expected["source_notes"] == block.get(
+                            "notes", record.get("notes")
+                        )
+                        expected["label"] = record["label"]
+                        expected["source_notes"] = record.get("notes")
+                    assert ledger[rid] == expected
                 continue
             assessment = record["evidence"]["reproduction"]["assessment"]
             assert assessment == roundtrip["evidence"]["reproduction"]["assessment"]

@@ -40,7 +40,7 @@ stays in EOSMAT and the ledger.
 | [Ono et al. (2006), Anderson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3) | **reproduced** |  |
 | [Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_jamieson_bm2_4) | **reproduced** |  |
 | [Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_dewaele_bm2_5) | **reproduced** |  |
-| [Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3](#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3) | **untested** (not refittable) |  |
+| [Akber-Knutson et al. (2005), static GGA BM3](#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3) | **untested** (not refittable) |  |
 | [Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3](#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3) | **untested** (not refittable) |  |
 | [Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3](#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3) | **untested** (not refittable) |  |
 | [Li and Zeng (2009), GGA BM3](#record-mgsio3_post_perovskite_li_zeng_2009_gga_bm3) | **untested** (not refittable) |  |
@@ -346,7 +346,7 @@ Both fits use the same 6 recovered audit input rows. **Volume coordinate:** mgsi
 
 <a id="record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3"></a>
 
-## Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3
+## Akber-Knutson et al. (2005), static GGA BM3
 
 **untested** (not refittable) · `mgsio3_post_perovskite_akber_knutson_2005_gga_bm3` · `BM3` · [Coefficients and source](../material-summaries/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3)
 

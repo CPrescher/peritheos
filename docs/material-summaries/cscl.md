@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 28.7\]
 - **Coverage provenance:** reported\_exactly
 
-Room-temperature third-order Birch-Murnaghan fit to the authors' 13 Table 1 observations and nine corrected Yagi (1978) Table 1 compression ratios. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). Campbell and Heinz do not state the numerical weights used for their normalized-stress regression, so exact central-value reproduction remains fit-protocol limited.
+Room-temperature BM3 fit to the authors' Table 1 data plus corrected compression ratios of Yagi (1978). V0 is fixed from the paper's a0 = 4.123 Å for the one-formula-unit Pm-3m cell.
 
 <details markdown="1">
 <summary>Source review</summary>

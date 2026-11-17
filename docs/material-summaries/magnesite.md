@@ -35,7 +35,7 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/curr
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Ross (1997)](#record-magnesite_ross_1997_bm3_1) | BM3 | 298.0 | reproduced |  | primary source validated | Executable |
+| [Ross (1997), BM3](#record-magnesite_ross_1997_bm3_1) | BM3 | 298.0 | reproduced |  | primary source validated | Executable |
 | [Vocadlo (1999), static GGA BM3](#record-magnesite_vocadlo_1999_bm3_2) | BM3 | 0.0 | reproduced |  | primary source validated | Executable |
 | [Yu et al. (2024), BM3-MGD](#record-magnesite_yu_2024_bm3_mgd_3) | BM3 + MieGruneisenDebye | 300.0 | close |  | primary source validated | Executable |
 
@@ -43,7 +43,7 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/curr
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Ross (1997)](#record-magnesite_ross_1997_bm3_1) | 279.41 ± 0.08 | 117.0 ± 3.0 | 2.3 ± 0.7 |
+| [Ross (1997), BM3](#record-magnesite_ross_1997_bm3_1) | 279.41 ± 0.08 | 117.0 ± 3.0 | 2.3 ± 0.7 |
 | [Vocadlo (1999), static GGA BM3](#record-magnesite_vocadlo_1999_bm3_2) | 287.49 | 99.0 ± 0.5 | 4.28 ± 0.01 |
 | [Yu et al. (2024), BM3-MGD](#record-magnesite_yu_2024_bm3_mgd_3) | 280.71 (fixed) | 105.0 ± 2.0 | 4.49 ± 0.05 |
 
@@ -57,7 +57,7 @@ extrapolation.
 
 <a id="record-magnesite_ross_1997_bm3_1"></a>
 
-## Ross (1997)
+## Ross (1997), BM3
 
 `magnesite_ross_1997_bm3_1` · Executable
 
@@ -83,7 +83,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 7.0\]
 
-Room-temperature unconstrained BM3 fit to single-crystal data from 0 to 7 GPa: V0=279.41+/-0.08 A^3, K0=117+/-3 GPa, and K0'=2.3+/-0.7. The paper also reports an alternative BM2 fit with K0=111+/-1 GPa; this record represents the BM3 result.
+Room-temperature BM3 fit to single-crystal data, with all three parameters free. The paper also gives a BM2 fit (K0 = 111 ± 1 GPa), which is not this record.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -165,7 +165,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[-2.41596, 207.419\]
 - **Coverage provenance:** theoretical
 
-Static-lattice GGA pseudopotential calculation for the named magnesite phase using a fully relaxed 30-atom MgCO3 cell (Z=6), with atomic positions and cell shape relaxed at nine volumes. The source reports the zero-pressure reference volume and an isothermal BM3 fit, but no finite-temperature or vibrational contribution; temperature\_ref=0 K records that static electronic reference. The nine calculated states span -2.41596 to 207.419 GPa. Table 1 incorrectly labels both its energy and volume columns as per formula unit: its 160-295 A^3 volumes, stated V0=287.49 A^3, Figure 1 volume axis, and exact BM3 pressure reproduction establish the 30-atom conventional-cell basis; the energy rows likewise recover K0=98.921 GPa only when interpreted per 30-atom cell and give a factor-of-six error under the printed label. The parenthetical K0 and K0\_prime errors are preserved, but the source states no confidence convention or covariance and gives no V0 uncertainty. The alternative K0\_prime=4 fit, K0=111(1) GPa is not stored because the article calls it a poor second-order fit and does not use it in the subsequent analysis. The calculation finds no discontinuity within the sampled pressure range but explicitly cannot rule out reconstructive transitions with an energy barrier.
+Static-lattice GGA pseudopotential BM3 fit to nine relaxed volumes of the 30-atom (Z = 6) cell, with no vibrational contribution, so the reference temperature is 0 K. Table 1 labels its volumes and energies per formula unit, but they are per 30-atom cell. No discontinuity was found in the calculated range, but reconstructive transitions with an energy barrier are not ruled out.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -257,7 +257,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 119.5\]
     - **Temperature k:** \[300.0, 2200.0\]
     - **Volume ratio:** \[0.667094154109223, 1.0\]
-    - **Notes:** Marginal envelope of the Table S1 magnesite observations; the measured P-T states do not fill a rectangular domain.; The record represents rhombohedral R-3c magnesite only. Measurements showing the high-temperature transformation to magnesite-II were not used in this EOS fit.
+    - **Notes:** Rhombohedral R-3c magnesite only. Measurements showing the high-temperature transformation to magnesite-II were not used in the fit.
 - **Reported error confidence level:** Not specified
 
 <details markdown="1">
@@ -267,7 +267,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-Preferred thermal parameterization from Table 1: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. Equations 7-8 specify gamma=gamma0(V/V0)^q and theta=theta0\*exp\[-(gamma-gamma0)/q\], which is Peritheos's integrated\_gruneisen law, not the Fei et al. variable-exponent law used for the Pt calibrant. The source conventional-cell volumes are converted internally to molar volume using Z=6, while the public API remains in A^3 per conventional hexagonal cell. The paper also reports a separate high-temperature BM3 reference-state fit with alpha0, alpha1, and dK/dT; it is not represented here because the preferred MGD model is explicitly described as more reliable for extrapolation and is used in the downstream mantle calculations. The publication does not report the regression weights, residual definition, coefficient covariance, or confidence convention for parenthetical parameter errors. An independent unweighted pressure-residual refit is therefore a transparent reproduction diagnostic rather than a claim to duplicate the unpublished regression protocol.
+The preferred thermal EOS of Table 1: 300 K BM3 reference isotherm + quasi-harmonic Mie-Grüneisen-Debye thermal pressure. The paper's high-temperature BM3 fit with alpha0, alpha1 and dK/dT is not represented. The authors describe the MGD model as more reliable for extrapolation.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -6,10 +6,21 @@
   "phase": "B1 ferropericlase",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mg080fe020o_speziale_2007_high_spin_bm3_1"},
   "eos_records": [
     {
       "identifier": "mg080fe020o_speziale_2007_high_spin_bm3_1",
       "label": "Speziale et al. (2007), (Mg0.80Fe0.20)O high-spin BM3",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "K0: refit 132.1 vs published 158 GPa (-16.4%), beyond the agreement limit; K0': refit 6.67 vs published 4.4 (+51.7%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source reports one composition-specific, three-parameter high-spin Birch-Murnaghan fit to its Fe20 data below 40 GPa.",
+        "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_speziale_2007_high_spin_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -18,31 +29,21 @@
         "K0_prime": {"value": 4.4, "error": 0.2}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 40.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 40.0],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "Valid only for the high-spin cubic B1 branch below the source's 40 GPa spin-transition onset.",
-          "It is not a continuous-spin-crossover EOS and must not be extrapolated through the 40-80 GPa mixed-spin interval."
+          "High-spin cubic B1 branch only, below the source's 40 GPa spin-transition onset.",
+          "Not a spin-crossover EOS; do not extrapolate through the 40-80 GPa mixed-spin interval."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 40.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 46.612},
-      "experimental_configuration": {
-        "sample": "Polycrystalline (Mg0.80Fe0.20)O measured in a 3:1 volume mixture with (Mg0.10Fe0.90)O",
-        "pressure_cell": "Gasketed diamond-anvil cells; methanol-ethanol-water 16:3:1 or argon pressure medium",
-        "temperature_control": "Room-temperature diffraction; samples annealed to 450 K for about 30 minutes after each pressure increase",
-        "diffraction": "Synchrotron powder X-ray diffraction at ALS 12.2.2, GSECARS 13ID-D, and HPCAT 16ID-B"
-      },
-      "notes": "All three EOS coefficients were fitted. Parenthetical errors are preserved exactly; their confidence convention and covariance are not reported.",
       "fit_datasets": ["mg080fe020o_speziale_2007_table1_pv"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Speziale", "Lee", "Clark", "Lin", "Pasternak", "Jeanloz"],
         "year": 2007,
@@ -52,18 +53,27 @@
         "locator": "B10212",
         "doi": "10.1029/2006JB004730"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The source reports one composition-specific, three-parameter high-spin Birch-Murnaghan fit to its Fe20 data below 40 GPa.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_speziale_2007_high_spin_bm3_1"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 46.612},
+      "experimental_configuration": {
+        "sample": "Polycrystalline (Mg0.80Fe0.20)O measured in a 3:1 volume mixture with (Mg0.10Fe0.90)O",
+        "pressure_cell": "Gasketed diamond-anvil cells; methanol-ethanol-water 16:3:1 or argon pressure medium",
+        "temperature_control": "Room-temperature diffraction; samples annealed to 450 K for about 30 minutes after each pressure increase",
+        "diffraction": "Synchrotron powder X-ray diffraction at ALS 12.2.2, GSECARS 13ID-D, and HPCAT 16ID-B"
       }
     },
     {
       "identifier": "mg080fe020o_fei_2007_hs_b1_bm3",
-      "label": "Fei et al. (2007), GRL, mg080fe020o high-spin B1 compression BM3",
+      "label": "Fei et al. (2007), high-spin B1 BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": "Consult the source audit before quantitative use.",
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_fei_2007_hs_b1_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -72,23 +82,19 @@
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 35],
         "temperature_k": [300, 300],
         "notes": [
-          "Published high-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+          "The bounds are the paper's approximate fitting domain for the high-spin branch, not a sharp spin-state boundary.",
+          "Do not use one branch across the spin crossover; outside its spin regime it is an extrapolated reference curve."
         ]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
-      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
       "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
-      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
         "year": 2007,
@@ -98,18 +104,23 @@
         "locator": "L17307",
         "doi": "10.1029/2007GL030712"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": "Consult the source audit before quantitative use.",
-        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_fei_2007_hs_b1_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
+      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
     },
     {
       "identifier": "mg080fe020o_fei_2007_ls_b1_bm3",
-      "label": "Fei et al. (2007), GRL, mg080fe020o low-spin B1 compression BM3",
+      "label": "Fei et al. (2007), low-spin B1 BM3",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "V0 (+2.9%): outside the combined error; K0 (-15.2%): outside the combined error and beyond the agreement limit.",
+        "warning": "Consult the source audit before quantitative use.",
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_fei_2007_ls_b1_bm3"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -118,23 +129,19 @@
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
       "parameter_error_confidence": null,
-      "experimental_temperature_range_k": [300, 300],
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [40, 95],
         "temperature_k": [300, 300],
         "notes": [
-          "Published low-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+          "The bounds are the paper's approximate fitting domain for the low-spin branch, not a sharp spin-state boundary.",
+          "Do not use one branch across the spin crossover; outside its spin regime it is an extrapolated reference curve."
         ]
       },
+      "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
-      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
       "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
-      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
         "year": 2007,
@@ -144,18 +151,22 @@
         "locator": "L17307",
         "doi": "10.1029/2007GL030712"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": "Consult the source audit before quantitative use.",
-        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_fei_2007_ls_b1_bm3"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
+      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
     },
     {
       "identifier": "mg080fe020o_fei_2007_ls_b1_bm3_refit",
-      "label": "Peritheos refit (2026), fp20 low-spin B1, Fei (2007) Table S1, 40-95 GPa",
+      "label": "Peritheos refit of Fei et al. (2007), low-spin BM3, 40-95 GPa",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "peritheos_refit",
+        "warning": "Consult the source audit before quantitative use.",
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Fei Figure 1 and paragraph 14 publish V0=74.2(1), K0=170(3), K0-prime=4 for fp20 LS. This record instead stores a Peritheos refit to the official Table S1 over that approximate pressure interval; no refitted coefficient is attributed to Fei.",
+        "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_fei_2007_ls_b1_bm3_refit"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -164,25 +175,6 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "parameter_error_confidence": 0.682689492137,
-      "experimental_pressure_range_gpa": [40.95, 95.48],
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [40.95, 95.48],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Empirical LS-labelled compression refit over the reported interval; does not establish complete spin conversion for every included row.",
-          "V0 is an extrapolated zero-pressure reference parameter; the fit is qualified for the observed 40.95-95.48 GPa interval.",
-          "Unweighted residual improvement does not establish general physical superiority over the published EOS."
-        ]
-      },
-      "determination_method": "experimental",
-      "record_kind": "refit",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
-      "notes": "Independent Peritheos refit of Fei's original Table S1 observations, not published Fei EOS coefficients. Uses the full reported approximate 40-95 GPa LS interval, including its 95.48 GPa endpoint, without selecting a higher cutoff for coefficient agreement. The lower pressure residual is an in-sample fit improvement, not proof of a more accurate pure-LS EOS or a recalibrated pressure scale. Near-transition points may retain mixed-spin character; V0 and K0 are strongly correlated and extrapolation outside the observed interval is not recommended. Formal errors exclude calibration systematics and uncertainty in row selection. The original source-owned record remains unchanged.",
-      "derived_from_record": "mg080fe020o_fei_2007_ls_b1_bm3",
-      "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
-      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
       "parameter_covariance": {
         "parameter_order": ["V0", "K0"],
         "matrix": [
@@ -190,6 +182,17 @@
           [-1.5514188767709631, 17.457356977840043]
         ]
       },
+      "validity": {
+        "pressure_gpa": [40.95, 95.48],
+        "temperature_k": [300, 300],
+        "notes": ["V0 is an extrapolated zero-pressure parameter; extrapolation outside 40.95-95.48 GPa is not recommended."]
+      },
+      "experimental_pressure_range_gpa": [40.95, 95.48],
+      "experimental_temperature_range_k": [300, 300],
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "notes": "Peritheos refit of Fei's Table S1 over the full approximate 40-95 GPa low-spin interval, not Fei's published coefficients. Points near the transition may retain mixed-spin character, and smaller residuals are not proof of a more accurate low-spin EOS than the published fit. V0 and K0 are strongly correlated, and formal errors exclude calibration systematics and row-selection uncertainty.",
+      "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
       "reference": {
         "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
         "year": 2007,
@@ -200,14 +203,10 @@
         "doi": "10.1029/2007GL030712",
         "details": "Reference identifies the observation source only. Parameters and covariance in this record were independently fitted by Peritheos on 2026-09-08; they are not published by Fei et al."
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": "Consult the source audit before quantitative use.",
-        "finding": "Fei Figure 1 and paragraph 14 publish V0=74.2(1), K0=170(3), K0-prime=4 for fp20 LS. This record instead stores a Peritheos refit to the official Table S1 over that approximate pressure interval; no refitted coefficient is attributed to Fei.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_fei_2007_ls_b1_bm3_refit"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
+      "derived_from_record": "mg080fe020o_fei_2007_ls_b1_bm3",
+      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
     }
   ],
   "aliases": [

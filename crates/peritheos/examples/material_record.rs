@@ -1,4 +1,7 @@
-use peritheos::{export_eosmat_v3, load_eosmat_str, load_eosmat_str_with_audit, Reproduction};
+use peritheos::{
+    export_eosmat_v3, load_eosmat_str, load_eosmat_str_with_audit, Compared, Reproduction,
+    SourceCheck,
+};
 
 /// A fictional EOSMAT v5 record file; no experimental validation is claimed.
 const RECORD_FILE: &str = r#"{
@@ -13,8 +16,9 @@ const RECORD_FILE: &str = r#"{
     "reference": "Synthetic documentation example",
     "check": {
       "reproduction": "close",
+      "compared": "published_fit",
       "warning": null,
-      "source": "deferred",
+      "source_check": "deferred",
       "audit": "../audits/example_v5.audit.json#example_v5_bm3"
     }
   }]
@@ -92,11 +96,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let record_file = load_eosmat_str(RECORD_FILE)?;
     let record = &record_file.eos_records[0];
     println!(
-        "{}: reproduction {}, warning {:?}",
+        "{}: reproduction {} ({}), warning {:?}, source check {:?}",
         record.identifier,
         record.reproduction(),
-        record.warning()
+        record.compared(),
+        record.warning(),
+        record.source_check().map(SourceCheck::as_str)
     );
+    assert_eq!(record.compared(), Compared::PublishedFit);
     assert!(record.audit_is_external() && record.audit().is_none());
 
     // Supplying the sidecar restores the complete record and its evidence.

@@ -46,6 +46,8 @@ def test_original_coefficients_and_source_table_are_preserved():
     validate_eosmat_document(native)
     recovered = convert_eosmat(convert_eosmat(native, version=3), version=4)
     # The v5 check headline is derived from evidence; older layouts omit it.
+    # Older layouts also carry an explicit per-record default flag.
+    assert all(r.pop("default") is False for r in recovered["eos_records"])
     assert recovered["eos_records"] == [
         {k: v for k, v in r.items() if k != "check"} for r in native["eos_records"]
     ]

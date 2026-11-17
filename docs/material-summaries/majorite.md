@@ -82,7 +82,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 9.72\]
 - **Coverage provenance:** reported\_exactly
 
-Room-temperature MgSiO3 tetragonal-garnet BM3 with the measured one-bar V0=1513.1 A^3 and K0'=4 assumed. The fit gives K0=161.2 GPa. The paper prints no fit error or covariance for V0 or K0, so the migrated +/-4 GPa value is removed rather than inferred from the separate composition-regression uncertainties. The diffraction structure in this file is an independent 1518.5 A^3 cell.
+Room-temperature MgSiO3 tetragonal-garnet BM3 with V0 fixed at the measured one-bar volume and K0' = 4 assumed. The crystal structure in this file is an independent 1518.5 Å³ cell, not this V0.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -77,8 +77,6 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.2138/am.2006.2347
 - **Reported pressure coverage (GPa):** \[43.2, 120.1\]
 
-Ono and Kikegawa report V0 = 99.5(7) A^3 and K0 = 156(6) GPa with K0' fixed at 4.0.
-
 <details markdown="1">
 <summary>Source review</summary>
 

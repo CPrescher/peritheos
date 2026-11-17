@@ -93,6 +93,14 @@
           "uncertainties": "The source publishes no coefficient uncertainties or covariance.",
           "method": "Quantum ESPRESSO PAW-PBE GGA+U, U=6.0 eV, 20-atom cell, 4x4x4 k mesh, 80 Ry cutoff; high-spin antiferromagnetic state."
         }
+      },
+      "superseded_record_text": {
+        "notes": "Retain as a directly published Vinet parameterization. Keep not_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.",
+        "validity_notes": [
+          "Static 0 K GGA+U curve; it is not an experimental ambient-pressure stability field.",
+          "The source energy grid corresponds to -10, 0, 25, 50, 75, 100, 125, and 150 GPa."
+        ],
+        "superseded_on": "2026-11-16"
       }
     },
     "fesio3_bridgmanite_holland_2013_fpv_modified_tait": {
@@ -158,6 +166,11 @@
           "parameters": "Article Table 1 and official tc-ds62 fpv block.",
           "unit_conversion": "Primary artifact V0=2.548 J/bar/mol (correcting LitCurate's 2.534 transcription), K0=2810 kbar, K0''=-0.00160 kbar^-1; converted to executable units and Z=4."
         }
+      },
+      "superseded_record_text": {
+        "notes": null,
+        "validity_notes": ["Ideal FeSiO3 perovskite thermodynamic endmember, not an ambient stable phase or individual experiment."],
+        "superseded_on": "2026-11-16"
       }
     }
   }

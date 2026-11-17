@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 30.8\]
 - **Coverage provenance:** reported\_exactly
 
-Room-temperature empirical Murnaghan fit from Equation (4) and Table VI. The authors fitted B0 and B0' over the entire measured range and explicitly caution that they need not equal the true one-atmosphere bulk modulus and derivative; calculated pressures are insensitive to their exact individual values when the pair is properly balanced. Table III gives the smoothed CoO compression data through 308 kbar (30.8 GPa). No parameter errors, covariance, confidence convention, or exact measurement temperature are printed.
+Room-temperature empirical Murnaghan fit (Equation (4), Table VI) over the whole measured range. The authors caution that K0 and K0' need not equal the true one-atmosphere values, although calculated pressures are insensitive to their individual values when the pair is balanced. The paper gives no exact measurement temperature.
 
 <details markdown="1">
 <summary>Source review</summary>

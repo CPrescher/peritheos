@@ -33,13 +33,13 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Dubrovinsky et al. (2002)](#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
+| [Dubrovinsky et al. (2002), BM3](#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Dubrovinsky et al. (2002)](#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1) | 242.9573 ± 0.1328 | 220.0 ± 1.0 | 4.1 ± 0.1 |
+| [Dubrovinsky et al. (2002), BM3](#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1) | 242.9573 ± 0.1328 | 220.0 ± 1.0 | 4.1 ± 0.1 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -51,7 +51,7 @@ extrapolation.
 
 <a id="record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1"></a>
 
-## Dubrovinsky et al. (2002)
+## Dubrovinsky et al. (2002), BM3
 
 `naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1` · Executable
 
@@ -78,7 +78,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1080/08957950212807
 - **Reported pressure coverage (GPa):** \[0.0, 40.0\]
 
-Dubrovinsky et al. report molar V0 = 36.58(2) cm^3/mol, K0 = 220(1) GPa, and K0' = 4.1(1). V0 and its uncertainty were converted to the Z=4 cell.
+Published V0 = 36.58(2) cm³/mol; stored with its error per conventional cell (Z = 4).
 
 <details markdown="1">
 <summary>Source review</summary>

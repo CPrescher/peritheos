@@ -38,7 +38,7 @@ Phase reference: JCPDS 5-0702. The reference cell is constrained to the fitted 3
 | [Dewaele (2019), Re MAO-scale Vinet](#record-rhenium_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Re DOR-scale Vinet](#record-rhenium_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Sakai et al. (2018), Re Vinet on the Yokoo Pt scale](#record-rhenium_sakai_2018_yokoo_pt_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
-| [Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | BM3 + LogVolumeThermalPressure | 300.0 | reproduced |  | primary source validated | Executable |
+| [Zha et al. (2004), Table III BM3 + logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | BM3 + LogVolumeThermalPressure | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
@@ -49,7 +49,7 @@ Phase reference: JCPDS 5-0702. The reference cell is constrained to the fitted 3
 | [Dewaele (2019), Re MAO-scale Vinet](#record-rhenium_dewaele_2019_mao_vinet) | 29.474 ± 0.04 | 350.5 ± 8.0 | 3.98 ± 0.17 |
 | [Dewaele (2019), Re DOR-scale Vinet](#record-rhenium_dewaele_2019_dor_vinet) | 29.468 ± 0.04 | 350.5 ± 8.0 | 4.62 ± 0.17 |
 | [Sakai et al. (2018), Re Vinet on the Yokoo Pt scale](#record-rhenium_sakai_2018_yokoo_pt_vinet) | 29.47 (fixed) | 358.0 ± 10.0 | 4.8 ± 0.2 |
-| [Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | 29.4087 (fixed) | 360.0 (fixed) | 4.5 (fixed) |
+| [Zha et al. (2004), Table III BM3 + logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | 29.4087 (fixed) | 360.0 (fixed) | 4.5 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -97,7 +97,7 @@ Automatic selection for equilibrium calculations.
     - **Molar mass g mol:** 186.207
 - **Reported error confidence level:** Not specified
 
-Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
+Table 2 parameterization: V0 and K0 are fixed (the source fixes most ambient V0 and K0 values from cited primary measurements), and K0' is fitted to the source's internally consistent compression network.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -175,7 +175,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0, 144.0\]
 - **Reported error confidence level:** 0.95
 
-Quasi-hydrostatic powder-XRD fit in helium to 144 GPa. The published molar V0=8.8726 cm^3/mol is converted to 14.7333 A^3/atom and multiplied by two atoms in the conventional hcp cell.
+Quasi-hydrostatic powder-XRD fit in helium. Published V0 = 8.8726 cm³/mol (14.7333 Å³/atom); stored per conventional hcp cell (×2).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -276,10 +276,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 144.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Mao-1986 ruby scale. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -365,10 +364,9 @@ Published pressure-scale alternative of [rhenium\_dewaele\_2019\_mao\_vinet](#re
 - **Validity:**
     - **Pressure gpa:** \[0.0, 144.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Dorogokupets-2007 ruby scale. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -455,10 +453,10 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[130.0, 310.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Approximate Yokoo-Pt pressure coverage read from Figure 10, not exact tabulated endpoints. The text reports RP01 to 280 GPa on the lower pressure scale; the Yokoo-Pt reduction reaches about 310 GPa.; Room temperature represented as 300 K; no exact temperature or thermal coefficients are reported.; The approximately 464 GPa Micro16 result is an extrapolation beyond the Re-Pt co-compression fit.
+    - **Notes:** Bounds are read approximately from Figure 10. The text gives RP01 to 280 GPa on a lower pressure scale; on the Yokoo-Pt scale it reaches about 310 GPa.; The approximately 464 GPa Micro16 result is an extrapolation beyond the Re-Pt co-compression fit.
 - **Reported error confidence level:** Not specified
 
-Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure scale. Figure 10 distinguishes conventional-DAC RP01 and ds-DAC Micro17 points; exact fit-row membership and weights are not specified. RP01 used silica glass and a tungsten gasket; Micro17 used glycerin and direct anvil loading. Parenthetical errors are preserved without assuming their confidence level or covariance. V0 is fixed, with no fabricated zero uncertainty. At the rounded reported V=18.65 A^3, the printed parameters give 461.56 GPa versus the reported 464 GPa; the difference is compatible with coefficient rounding. This does not independently refit the original observations. A subsequent Figure 10 vector refit of the 26 RP01 Yokoo-Pt points gives K0=357.19 GPa and K0\_prime=4.83483, both within the printed errors. Selecting RP01 and unweighted pressure residuals is a documented reconstruction: adding Micro17 or changing residual coordinates changes the optimum; see the dedicated audit.
+Vinet fit of Re-Pt co-compression on the Yokoo et al. (2009) platinum pressure scale. Figure 10 shows conventional-DAC RP01 points (silica glass medium, tungsten gasket) and ds-DAC Micro17 points (glycerin, direct anvil loading); which points and weights entered the fit is not specified.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -520,7 +518,7 @@ Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure s
 
 <a id="record-rhenium_zha_2004_bm3_log_thermal"></a>
 
-## Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure
+## Zha et al. (2004), Table III BM3 + logarithmic thermal pressure
 
 `rhenium_zha_2004_bm3_log_thermal` · Executable
 
@@ -553,7 +551,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1380.3, 1914.5\]
 
-Published continuous Equation (6), Table III branch, not the author-preferred fixed-V0 Table IV/Table V isotherms. All eight Table IIb observations determine linear isochore slopes; their unweighted regression against ln(Va/V) reproduces both Table III coefficients to 0.05%. The model gives pressure RMS 0.4085 GPa against printed rows. No coefficient uncertainties or covariance are published. Experiments cover only 6.41-8.47 GPa and 1380.3-1914.5 K, with V&gt;Va; application to 20% compression and 3000 K is a large source extrapolation. Table III gives Kprime=4.5; the apparent prose 4.53 is 4.5 followed by superscript citation 3. The source Va differs from the existing structural cell. Table IV fixed-V0 and free branches and all Table V outputs are bundled separately; no interpolation or substitution for Equation (6) is implied. The cited Anderson gold calibration is partially resolved: substituting the explicit Au reference volume in the related catalog model leaves discrepancies up to 0.318 GPa, which are documented separately.
+Continuous Equation (6) thermal EOS of Table III, not the authors' preferred fixed-V0 isotherms of Tables IV and V; pressures rest on the cited Anderson gold calibration. Data cover only V &gt; Va (the source Va differs from this material's structural cell); application to 20% compression and 3000 K is a large source extrapolation. Table III gives K0' = 4.5; the text's 4.53 is 4.5 plus citation 3.
 
 <details markdown="1">
 <summary>Source review</summary>

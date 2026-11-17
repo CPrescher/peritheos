@@ -37,8 +37,8 @@ The diffraction structure is the source's 87.8 GPa Rietveld refinement, not an a
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Kubo et al. (2006), MgGeO3 post-perovskite preferred BM3](#record-mggeo3_post_perovskite_kubo_2006_bm3_1) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit](#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)](#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1) | BM3 | 300 | reproduced |  | primary source validated | Executable |
+| [Kubo et al. (2006), BM2 with K0'=4, sensitivity fit](#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2) | BM2 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Hirose et al. (2005), BM3 with fixed K0'](#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1) | BM3 | 300 | reproduced |  | primary source validated | Executable |
 | [Hirose et al. (2005), MgGeO3 post-perovskite BM3 (free)](#record-mggeo3_post_perovskite_hirose_2005_bm3_free_2) | BM3 | 300 | close |  | primary source validated | Executable |
 
 ### Reference coefficients
@@ -46,8 +46,8 @@ The diffraction structure is the source's 87.8 GPa Rietveld refinement, not an a
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Kubo et al. (2006), MgGeO3 post-perovskite preferred BM3](#record-mggeo3_post_perovskite_kubo_2006_bm3_1) | 179.2 ± 0.7 | 207.0 ± 5.0 | 4.4 (fixed) |
-| [Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit](#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2) | 175.9 ± 0.6 | 245.0 ± 5.0 | — |
-| [Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)](#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1) | 183.1 ± 0.8 | 192 ± 5 | 4 (fixed) |
+| [Kubo et al. (2006), BM2 with K0'=4, sensitivity fit](#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2) | 175.9 ± 0.6 | 245.0 ± 5.0 | — |
+| [Hirose et al. (2005), BM3 with fixed K0'](#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1) | 183.1 ± 0.8 | 192 ± 5 | 4 (fixed) |
 | [Hirose et al. (2005), MgGeO3 post-perovskite BM3 (free)](#record-mggeo3_post_perovskite_hirose_2005_bm3_free_2) | 182.2 ± 1.1 | 210 ± 20 | 3.5 ± 0.5 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
@@ -94,10 +94,10 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[47.3, 196.3\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** The pressure interval is the marginal range of the 22 included room-temperature observations, not a phase-stability claim.; The three Table S1 rows below 47 GPa are preserved in the dataset but excluded as in the source because their weak, broad peaks gave anomalously large volumes.; V0 is an extrapolation far below the experimental pressure range.
+    - **Notes:** The three Table S1 rows below 47 GPa are excluded, as in the source, because their weak, broad peaks gave anomalously large volumes.; V0 is an extrapolation far below the experimental pressure range.
 - **Reported error confidence level:** Not specified
 
-Preferred source-selected 300 K experimental fit. V0 is the four-formula-unit conventional Cmcm-cell volume. K0' was fixed, while V0 and K0 were fitted with an external elasticity-systematics constraint.
+The authors' preferred 300 K fit. V0 is per conventional Cmcm cell (four formula units). K0' was fixed, with V0 and K0 fitted under an external elasticity-systematics constraint.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -160,7 +160,7 @@ Preferred source-selected 300 K experimental fit. V0 is the four-formula-unit co
 
 <a id="record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2"></a>
 
-## Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit
+## Kubo et al. (2006), BM2 with K0'=4, sensitivity fit
 
 `mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2` · Executable
 
@@ -191,10 +191,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[47.3, 196.3\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** This is a nonpreferred parameter-trade-off sensitivity fit to the same 22 rows as the default record.; The source describes it as K0'=4 in its third-order Birch-Murnaghan convention; setting K0'=4 removes the third-order correction and is represented canonically as BM2.
 - **Reported error confidence level:** Not specified
 
-Executable but deliberately non-default. It is the article's fixed-K0'=4 sensitivity result for the same data, not an independent experimental EOS.
+Nonpreferred sensitivity fit with K0' = 4, reported to show the parameter trade-off; same data as the preferred BM3 record, not an independent EOS. The source calls it a third-order fit with K0' = 4, which is equivalent to BM2.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -254,7 +253,7 @@ Executable but deliberately non-default. It is the article's fixed-K0'=4 sensiti
 
 <a id="record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1"></a>
 
-## Hirose et al. (2005), MgGeO3 post-perovskite BM3 (K0-prime fixed)
+## Hirose et al. (2005), BM3 with fixed K0'
 
 `mggeo3_post_perovskite_hirose_2005_bm3_fixed_1` · Executable
 
@@ -293,7 +292,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Molar mass g mol:** 145.916
 - **Reported error confidence level:** Not specified
 
-Abstract-selected fixed-K0'=4 fit to all nine Table 3 decompression observations. The abstract reports this better-constrained result; The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.
+Fit with K0' fixed at 4 to all nine Table 3 decompression observations; the abstract reports this better-constrained result.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -388,7 +387,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgg
     - **Molar mass g mol:** 145.916
 - **Reported error confidence level:** Not specified
 
-Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.
+Source-reported free BM3 alternative, fitted to all nine Table 3 decompression observations; a same-data sensitivity fit.
 
 <details markdown="1">
 <summary>Source review</summary>

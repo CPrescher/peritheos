@@ -10,6 +10,15 @@
     {
       "identifier": "e_feooh_hc_low_spin_thompson_2017_bm3_1",
       "label": "Thompson et al. (2017), hydrogen-centered low-spin FM BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "Table 2 reports separate HOC and HC unit-cell BM3 fits. The HC self-consistent-U parameters reproduce the 12 rounded Table S1 rows from 30.01 to 139.99 GPa and the independently printed 60 and 90 GPa densities. The HOC row is excluded because its published V0 is inconsistent with the supplement's near-zero-pressure unit-cell volume.",
+        "audit": "../audits/e_feooh_hc_low_spin.audit.json#e_feooh_hc_low_spin_thompson_2017_bm3_1"
+      },
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -18,23 +27,17 @@
         "K0_prime": {"value": 4.07, "error": 0.03}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [30.0, 140.0],
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "pressure_range_status": "theoretical",
       "validity": {
         "pressure_gpa": [30.0, 140.0],
         "temperature_k": [0.0, 0.0],
-        "volume_ratio": [0.7233026270897305, 0.89798703514159],
-        "notes": [
-          "The record is a static 0 K first-principles isotherm, not an experimental room-temperature EOS.",
-          "The represented branch is the hydrogen-centered Pnnm, low-spin ferromagnetic structure fitted over 30-140 GPa.",
-          "The pressure and volume bounds follow the authors' stated fit interval and the rounded Table S1 endpoints; they are not a finite-temperature phase-stability field."
-        ]
+        "volume_ratio": [0.7233026270897305, 0.89798703514159]
       },
+      "experimental_pressure_range_gpa": [30.0, 140.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "This record represents only the volumetric BM3 fit for the hydrogen-centered low-spin ferromagnetic Pnnm branch. The paper's self-consistent Hubbard U changes with pressure; it is part of the computational protocol, not an EOS coefficient. Table 3 elastic moduli and velocities come from stress-strain elastic tensors and Voigt-Reuss-Hill averaging and are not substituted for the volumetric K0 or K0'. All three BM3 parameters were fitted. Published parameter errors are retained, but their confidence level and covariance are unavailable.",
+      "notes": "Volumetric BM3 fit for the hydrogen-centered, low-spin ferromagnetic Pnnm branch from static 0 K first-principles calculations. The self-consistent Hubbard U varies with pressure as part of the computational protocol and is not an EOS coefficient. The Table 3 elastic moduli come from stress-strain elastic tensors and are not substitutes for the volumetric K0 or K0'. The confidence level and covariance of the published errors are unavailable.",
       "fit_datasets": ["epsilon_feooh_thompson_2017_supplement_table_s1"],
       "reference": {
         "authors": ["Thompson", "Campbell", "Tsuchiya"],
@@ -45,14 +48,7 @@
         "locator": "5038-5047",
         "doi": "10.1002/2017JB014168"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 2 reports separate HOC and HC unit-cell BM3 fits. The HC self-consistent-U parameters reproduce the 12 rounded Table S1 rows from 30.01 to 139.99 GPa and the independently printed 60 and 90 GPa densities. The HOC row is excluded because its published V0 is inconsistent with the supplement's near-zero-pressure unit-cell volume.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/e_feooh_hc_low_spin.audit.json#e_feooh_hc_low_spin_thompson_2017_bm3_1"
-      }
+      "equation_kind": "isothermal"
     }
   ],
   "aliases": ["epsilon-FeOOH HC", "hydrogen-bond-symmetric epsilon-FeOOH", "Pnnm low-spin epsilon-FeOOH"],

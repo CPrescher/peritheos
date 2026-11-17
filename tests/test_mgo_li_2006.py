@@ -101,7 +101,10 @@ def test_li_2006_isothermal_conversion_reproduces_stored_parameters():
     assert source["eos"]["parameters"]["K0_prime"] == pytest.approx(
         k0_t_prime, rel=1.0e-14
     )
-    assert "not a direct volumetric BM3 fit" in source["notes"]
+    assert "not a direct BM3 fit" in source["notes"]
+    assert (
+        "not a direct volumetric BM3 fit" in source["superseded_record_text"]["notes"]
+    )
     assert (
         source["scientific_validation"]["numerical_reproduction"]["refit_status"]
         == "direct_acoustic_coefficient_reproduction"

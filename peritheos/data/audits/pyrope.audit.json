@@ -303,6 +303,10 @@
           "covariance_gamma0_standard_error": 0.011600862036935014,
           "printed_gamma0_error": 0.012
         }
+      },
+      "superseded_record_text": {
+        "notes": "Published q-compromise pressure approximation, with constant theta0 and gamma/V and no q parameter. Adopted/fixed Holland and Powell (2011) V0 and the unchanged official EOS coefficients/covariance are retained separately from the later author-log snapshot and independent replay. All 194 author-processed observations, assigned errors and exact scale groups were recovered and replayed on 14 November 2026; coefficients and parameter errors agree closely with EosFit and the author log. Original upstream reduction/calibration covariance and all exclusion decisions remain partial. The model supplies P-V-T and pressure derivatives/parameter uncertainty, not a caloric potential or mixing model. Marginal source bounds do not define phase stability or a validated rectangle. See docs/literature-reproductions/pyrope-author-input-replay.md",
+        "superseded_on": "2026-11-16"
       }
     }
   }

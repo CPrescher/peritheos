@@ -82,7 +82,7 @@ Automatic selection for equilibrium calculations.
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Reported error confidence level:** Not specified
 
-Al-free sample; water inferred from volume calibration, not directly measured by SIMS/IR/TGA on this specimen. Raman confirms structural OH qualitatively. Preserve Table 1 Si0.954O2H0.184: its mass-equivalent H2O is about 2.81 wt%, within the reported 3.2(5) wt% range but not exactly its central value. H retention at high pressure is inferred, not measured. No atomic coordinates were refined (Section 2). The 28-42 GPa interval is two-phase coexistence, excluded from both hydrous EOS fits. CaCl2-type Pnnm denotes the Si-O framework refinement model; hydrogen ordering and a possible delta-AlOOH-related subgroup are unresolved (Section 3.2). BM2 means fixed K0\_prime=4; V0 is an extrapolation to zero pressure. Structural reference cell is measured at 47.57 GPa, not the EOS V0.
+Al-free sample; its water content (Table 1 Si0.954O2H0.184, about 2.81 wt% H2O, within the reported 3.2(5) wt% but not at its centre) is inferred from volume calibration, not directly measured, and H retention at high pressure is also inferred. Data in the 28-42 GPa two-phase coexistence interval are excluded. V0 is an extrapolation to zero pressure, distinct from the structural cell measured at 47.57 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

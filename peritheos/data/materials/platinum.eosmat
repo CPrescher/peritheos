@@ -9,6 +9,15 @@
     {
       "identifier": "platinum_sakai_2025_rydberg_stacey_1",
       "label": "Sakai et al. (2025), Pt generalized Rydberg-Stacey scale",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+        "audit": "../audits/platinum.audit.json#platinum_sakai_2025_rydberg_stacey_1"
+      },
       "model": "RydbergStacey",
       "temperature_ref": 300,
       "parameters": {
@@ -21,9 +30,7 @@
       "experimental_pressure_range_gpa": [0, 394],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084},
-      "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+      "notes": "Table 2 parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0' to its internally consistent compression network, and fixes K_infinity' = 5/3.",
       "fit_datasets": ["platinum_sakai_2025_table_s2_measured_pairs"],
       "reference": {
         "authors": [
@@ -45,18 +52,21 @@
         "locator": "68",
         "doi": "10.1038/s43246-025-00792-5"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/platinum.audit.json#platinum_sakai_2025_rydberg_stacey_1"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084}
     },
     {
       "identifier": "platinum_holmes_1989_vinet_1",
       "label": "Holmes et al. (1989), theoretical 300 K Vinet scale",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Equation (11) and Table IV provide an exact analytical 300 K universal (Vinet) parameterization, qualified against the shock data, plus the paper's approximate constant thermal-pressure extension below 2000 K. The underlying LMTO E0(V), P0(V), density-of-states, and 300 K fit grids are plotted or described but not tabulated, so the curve is exactly reconstructable while the source regression is not independently refittable.",
+        "audit": "../audits/platinum.audit.json#platinum_holmes_1989_vinet_1"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -74,15 +84,7 @@
       "experimental_pressure_range_gpa": [0.0, 550.0],
       "experimental_temperature_range_k": [300.0, 2000.0],
       "determination_method": "hybrid",
-      "notes": "The 300 K pressure scale is Holmes et al.'s theoretical universal (Vinet) EOS, qualified against shock data to at least 10% in pressure. Equation (11) and Table IV give V0=101.9 bohr^3/atom, P_T=798.31 GPa, and eta=7.2119; the executable Vinet coefficients are the exact mappings K0=P_T/3 and K0'=1+eta/1.5. Table IV's separately printed B_T=266 GPa and B_T'=5.81 are rounded interpretations of the same curve. The approximate finite-temperature extension adds alpha*B_T*(T-300 K), with alpha=0.261e-4 K^-1 and rounded B_T=266 GPa, and is stated to be adequate below 2000 K. The 300 K isotherm itself is represented through 550 GPa; 32-660 GPa is the shock-Hugoniot range, not the static-isotherm validity range. The source publishes no numerical LMTO E0(V), P0(V), density-of-states, or 300 K fit grid, so the analytical curve is exactly reconstructable but its underlying theoretical fit is not independently refittable.",
-      "source_parameterization": {
-        "equation": "Equation (11)",
-        "V0_bohr3_per_atom": 101.9,
-        "P_T_gpa": 798.31,
-        "eta": 7.2119,
-        "equivalent_parameter_mapping": {"K0": "P_T/3", "K0_prime": "1+eta/1.5"},
-        "table_iv_rounded_parameters": {"K0_gpa": 266.0, "K0_prime": 5.81}
-      },
+      "notes": "Theoretical universal (Vinet) 300 K EOS of Holmes et al., represented to 550 GPa and qualified to at least 10% in pressure against shock data (32-660 GPa Hugoniot range, not the isotherm range). K0 and K0' map exactly from Equation (11) P_T and eta, not the rounded Table IV values. The approximate thermal term alpha*B_T*(T - 300 K) uses rounded B_T = 266 GPa, stated adequate below 2000 K.",
       "reference": {
         "authors": ["Holmes", "Moriarty", "Gathers", "Nellis"],
         "year": 1989,
@@ -92,18 +94,27 @@
         "locator": "2962-2967",
         "doi": "10.1063/1.344177"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Equation (11) and Table IV provide an exact analytical 300 K universal (Vinet) parameterization, qualified against the shock data, plus the paper's approximate constant thermal-pressure extension below 2000 K. The underlying LMTO E0(V), P0(V), density-of-states, and 300 K fit grids are plotted or described but not tabulated, so the curve is exactly reconstructable while the source regression is not independently refittable.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/platinum.audit.json#platinum_holmes_1989_vinet_1"
+      "source_parameterization": {
+        "equation": "Equation (11)",
+        "V0_bohr3_per_atom": 101.9,
+        "P_T_gpa": 798.31,
+        "eta": 7.2119,
+        "equivalent_parameter_mapping": {"K0": "P_T/3", "K0_prime": "1+eta/1.5"},
+        "table_iv_rounded_parameters": {"K0_gpa": 266.0, "K0_prime": 5.81}
       }
     },
     {
       "identifier": "platinum_shen_2026_vinet_2",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+        "audit": "../audits/platinum.audit.json#platinum_shen_2026_vinet_2"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -113,7 +124,7 @@
       },
       "experimental_pressure_range_gpa": [0.0, 140.0],
       "determination_method": "experimental",
-      "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.5 GPa and K0' +/- 0.02. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.",
+      "notes": "Table II fit to the DAC-2 data, with pressures referenced to Cu. Measurements were made at 298.5 ± 0.5 K.",
       "reference": {
         "authors": ["Shen", "Smith"],
         "year": 2026,
@@ -122,19 +133,20 @@
         "volume": "113",
         "locator": "144113",
         "doi": "10.1103/fxgq-96sg"
-      },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/platinum.audit.json#platinum_shen_2026_vinet_2"
       }
     },
     {
       "identifier": "platinum_dorogokupets_oganov_2007_vinet_4",
       "label": "Dorogokupets and Oganov (2007), Vinet four-oscillator thermal scale",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The paper supplies a complete Pt Vinet plus four-oscillator Helmholtz EOS. The full caloric implementation reproduces the printed 298 K entropy, and evaluation with the rounded Table I coefficients reproduces every printed Table VI Pt pressure within 0.02 GPa.",
+        "audit": "../audits/platinum.audit.json#platinum_dorogokupets_oganov_2007_vinet_4"
+      },
       "model": "Vinet",
       "temperature_ref": 298.15,
       "parameters": {
@@ -168,19 +180,19 @@
           "n": {"value": 1.0, "error": null}
         }
       },
-      "experimental_pressure_range_gpa": [0.0, 262.523],
-      "experimental_temperature_range_k": [298.15, 3000.0],
       "validity": {
         "pressure_gpa": [0.0, 262.523],
         "temperature_k": [298.15, 3000.0],
         "volume_ratio": [0.7, 1.0],
         "notes": [
-          "The conservative executable domain follows the Pt isochors printed in Table VI; the general formulation is discussed over wider compression and temperature ranges.",
-          "Table I coefficients are rounded as published, so recalculated Table VI pressures agree within about 0.02 GPa rather than at every final printed digit."
+          "The range follows the Pt isochors printed in Table VI. The paper discusses the formulation over wider compression and temperature ranges.",
+          "Rounded Table I coefficients reproduce Table VI pressures within about 0.02 GPa, not at every printed digit."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 262.523],
+      "experimental_temperature_range_k": [298.15, 3000.0],
       "determination_method": "experimental",
-      "notes": "Complete equations (6)-(14) Pt pressure scale. The published molar V0=9.091 cm^3/mol is converted to the four-atom fcc conventional cell using the exact Avogadro constant. The implementation includes the two generalized-Bose and two Einstein oscillator terms, volume-dependent Gruneisen law, intrinsic anharmonicity, electronic excitation, and vacancy contribution, all referenced to 298.15 K.",
+      "notes": "Complete Pt pressure scale of Equations (6)-(14): two generalized-Bose and two Einstein oscillator terms, a volume-dependent Grüneisen law, intrinsic anharmonicity, electronic excitation and vacancies, all referenced to 298.15 K. Published V0 = 9.091 cm³/mol; stored per four-atom fcc conventional cell.",
       "fit_datasets": ["platinum_dewaele_2004_table1_compression"],
       "validation_datasets": ["platinum_holmes_1989_table3_shock"],
       "reference": {
@@ -191,19 +203,20 @@
         "volume": "75",
         "locator": "024115",
         "doi": "10.1103/PhysRevB.75.024115"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The paper supplies a complete Pt Vinet plus four-oscillator Helmholtz EOS. The full caloric implementation reproduces the printed 298 K entropy, and evaluation with the rounded Table I coefficients reproduces every printed Table VI Pt pressure within 0.02 GPa.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/platinum.audit.json#platinum_dorogokupets_oganov_2007_vinet_4"
       }
     },
     {
       "identifier": "platinum_sokolova_2013_holzapfel_3",
-      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "label": "Sokolova et al. (2013), Holzapfel thermal (2016 workbook)",
+      "check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "audit": "../audits/platinum.audit.json#platinum_sokolova_2013_holzapfel_3"
+      },
       "model": "Holzapfel",
       "temperature_ref": 298.15,
       "parameters": {
@@ -236,7 +249,7 @@
       },
       "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
-      "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "notes": "Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to shock-wave, ultrasonic, X-ray diffraction, dilatometric and thermochemical data: reference volume from Table 1, Holzapfel and thermal coefficients from Table 4. Sokolova et al. (2016) supplies the spreadsheet implementation, reference-temperature convention and corrected equations.",
       "reference": {
         "authors": ["Sokolova", "Dorogokupets", "Litasov"],
         "year": 2013,
@@ -246,19 +259,20 @@
         "locator": "181-199",
         "details": "Tables 1 and 4",
         "doi": "10.1016/j.rgg.2013.01.005"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/platinum.audit.json#platinum_sokolova_2013_holzapfel_3"
       }
     },
     {
       "identifier": "platinum_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Pt MAO-scale Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/platinum.audit.json#platinum_dewaele_2019_mao_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -267,19 +281,17 @@
         "K0_prime": {"value": 4.83, "error": 0.08}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 95.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 95.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [300.0, 300.0]
       },
+      "experimental_pressure_range_gpa": [0.0, 95.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The Mao-1986 and Dorogokupets-2007 ruby-scale records are alternative reductions of the same data, not independent experiments.",
       "fit_datasets": ["platinum_dewaele_2004_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -287,18 +299,20 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/platinum.audit.json#platinum_dewaele_2019_mao_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "platinum_dewaele_2019_dor_vinet",
       "label": "Dewaele (2019), Pt DOR-scale Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-06",
+        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "audit": "../audits/platinum.audit.json#platinum_dewaele_2019_dor_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -307,20 +321,17 @@
         "K0_prime": {"value": 5.5, "error": 0.08}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 95.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 95.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [300.0, 300.0]
       },
+      "experimental_pressure_range_gpa": [0.0, 95.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-      "pressure_scale_variant_of": "platinum_dewaele_2019_mao_vinet",
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The Mao-1986 and Dorogokupets-2007 ruby-scale records are alternative reductions of the same data, not independent experiments.",
       "fit_datasets": ["platinum_dewaele_2004_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -328,18 +339,21 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-06",
-        "audit": "../audits/platinum.audit.json#platinum_dewaele_2019_dor_vinet"
-      }
+      "equation_kind": "isothermal",
+      "pressure_scale_variant_of": "platinum_dewaele_2019_mao_vinet"
     },
     {
       "identifier": "platinum_dewaele_2004_mao_ruby_vinet",
       "label": "Dewaele et al. (2004), Pt mao ruby Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
+        "audit": "../audits/platinum.audit.json#platinum_dewaele_2004_mao_ruby_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -348,18 +362,16 @@
         "K0_prime": {"value": 4.78, "error": 0.08}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 90.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 90.0],
-        "temperature_k": [298.0, 298.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [298.0, 298.0]
       },
+      "experimental_pressure_range_gpa": [0.0, 90.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
-      "parameter_covariance": null,
+      "notes": "Static 298 K synchrotron X-ray compression fit to all Table I observations for this metal, with V0 fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical (Mao ruby) and revised ruby-scale records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
       "reference": {
         "authors": ["Dewaele", "Loubeyre", "Mezouar"],
         "year": 2004,
@@ -367,18 +379,20 @@
         "source": "Physical Review B",
         "doi": "10.1103/PhysRevB.70.094112"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/platinum.audit.json#platinum_dewaele_2004_mao_ruby_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "platinum_dewaele_2004_revised_ruby_vinet",
       "label": "Dewaele et al. (2004), Pt revised ruby Vinet",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
+        "audit": "../audits/platinum.audit.json#platinum_dewaele_2004_revised_ruby_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 298.0,
       "parameters": {
@@ -387,18 +401,16 @@
         "K0_prime": {"value": 5.08, "error": 0.02}
       },
       "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 93.6],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 93.6],
-        "temperature_k": [298.0, 298.0],
-        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+        "temperature_k": [298.0, 298.0]
       },
+      "experimental_pressure_range_gpa": [0.0, 93.6],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
-      "parameter_covariance": null,
+      "notes": "Static 298 K synchrotron X-ray compression fit to all Table I observations for this metal. V0 is fixed from the authors' 0-5 GPa determination, and K0 is printed as fixed (bold) in Table II. The classical (Mao ruby) and revised ruby-scale records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
       "reference": {
         "authors": ["Dewaele", "Loubeyre", "Mezouar"],
         "year": 2004,
@@ -406,18 +418,21 @@
         "source": "Physical Review B",
         "doi": "10.1103/PhysRevB.70.094112"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/platinum.audit.json#platinum_dewaele_2004_revised_ruby_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "platinum_dorfman_2012_tange_mgo_k0_fixed_vinet",
       "label": "Dorfman et al. (2012), Pt K0-fixed Vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0': refit 5.365 vs published 5.43 (-1.2%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-07",
+        "source_note": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
+        "audit": "../audits/platinum.audit.json#platinum_dorfman_2012_tange_mgo_k0_fixed_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -426,22 +441,21 @@
         "K0_prime": {"value": 5.43, "error": 0.02}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 226.0],
-      "pressure_range_status": "reference_parameterization",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 226.0],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.",
+          "The range follows the published Table 2 pressure-standard parameterization, not the observation envelope.",
           "The available auxiliary rows containing Pt span 5.2-231.3 GPa in the source's printed derived pressures."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 226.0],
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
+      "notes": "Co-compression pressure-standard fit (Table 2), with the Tange et al. (2009) MgO Vinet EOS (Fit 3 in that paper) as the fixed 300 K anchor. The K0-fixed and K0-free solutions are correlated alternatives from the same data, not independent experiments.",
       "fit_datasets": ["dorfman_2012_tables_s1_s6_cocompression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dorfman", "Prakapenka", "Meng", "Duffy"],
         "year": 2012,
@@ -449,18 +463,21 @@
         "source": "Journal of Geophysical Research",
         "doi": "10.1029/2012JB009292"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-07",
-        "audit": "../audits/platinum.audit.json#platinum_dorfman_2012_tange_mgo_k0_fixed_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "platinum_dorfman_2012_tange_mgo_k0_free_vinet",
       "label": "Dorfman et al. (2012), Pt K0-free Vinet",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "K0: refit 294.3 vs published 280 GPa (+5.1%), beyond the agreement limit; K0': refit 4.899 vs published 5.29 (-7.4%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-07",
+        "source_note": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
+        "audit": "../audits/platinum.audit.json#platinum_dorfman_2012_tange_mgo_k0_free_vinet"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -469,22 +486,21 @@
         "K0_prime": {"value": 5.29, "error": 0.07}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 226.0],
-      "pressure_range_status": "reference_parameterization",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 226.0],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.",
+          "The range follows the published Table 2 pressure-standard parameterization, not the observation envelope.",
           "The available auxiliary rows containing Pt span 5.2-231.3 GPa in the source's printed derived pressures."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 226.0],
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
+      "notes": "Co-compression pressure-standard fit (Table 2), with the Tange et al. (2009) MgO Vinet EOS (Fit 3 in that paper) as the fixed 300 K anchor. The K0-fixed and K0-free solutions are correlated alternatives from the same data, not independent experiments.",
       "fit_datasets": ["dorfman_2012_tables_s1_s6_cocompression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Dorfman", "Prakapenka", "Meng", "Duffy"],
         "year": 2012,
@@ -492,18 +508,20 @@
         "source": "Journal of Geophysical Research",
         "doi": "10.1029/2012JB009292"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-07",
-        "audit": "../audits/platinum.audit.json#platinum_dorfman_2012_tange_mgo_k0_free_vinet"
-      }
+      "equation_kind": "isothermal"
     },
     {
       "identifier": "platinum_ye_2017_vinet_300k",
       "label": "Ye et al. (2017), Pt Vinet 300 K co-compression fit",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "Ye fits K0-prime=5.230(33) through the Au-D07 to MgO to Pt pathway with V0 and K0 fixed......",
+        "audit": "../audits/platinum.audit.json#platinum_ye_2017_vinet_300k"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -512,24 +530,18 @@
         "K0_prime": {"value": 5.23, "error": 0.033}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [0.0, 300.0],
+        "temperature_k": [300.0, 300.0]
+      },
       "experimental_pressure_range_gpa": [0.0, 300.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_qualitatively",
-      "validity": {
-        "pressure_gpa": [0.0, 300.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "This is Ye et al.'s fitted 300 K co-compression isotherm.",
-          "Zhu et al. later fixed this static branch inside a separate thermal P-V-T model."
-        ]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 195.084},
-      "aliases": ["platinum_zhu_2025_vinet_300k"],
+      "notes": "Fitted 300 K co-compression isotherm of Ye et al. Zhu et al. later fixed this static branch inside their separate thermal P-V-T model.",
       "fit_datasets": ["ye_2017_data_s1_au_mgo_300k", "ye_2017_data_s2_pt_mgo_300k"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Ye", "Prakapenka", "Meng", "Shim"],
         "year": 2017,
@@ -539,18 +551,22 @@
         "locator": "3450-3464",
         "doi": "10.1002/2016JB013811"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Ye fits K0-prime=5.230(33) through the Au-D07 to MgO to Pt pathway with V0 and K0 fixed......",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/platinum.audit.json#platinum_ye_2017_vinet_300k"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 195.084},
+      "aliases": ["platinum_zhu_2025_vinet_300k"]
     },
     {
       "identifier": "platinum_zhu_2025_pvt",
       "label": "Zhu et al. (2025), Pt internally consistent P-V-T EOS",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-08",
+        "source_note": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set.",
+        "audit": "../audits/platinum.audit.json#platinum_zhu_2025_pvt"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -572,25 +588,19 @@
         }
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 682.402],
-      "experimental_temperature_range_k": [293.0, 1900.0],
-      "pressure_range_status": "reference_parameterization",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 682.402],
         "temperature_k": [293.0, 1900.0],
-        "volume_ratio": [0.5945710500165617, 0.9277393176548525],
-        "notes": [
-          "Bounds conservatively report the extrema of the released v3 fit-input tables, not a rectangular phase-stability field.",
-          "The record follows the v3 optimizer's theta0=240 K and its downstream rounded gamma coefficients. The separate v3 pressure calculator instead hard-codes theta0=230 K."
-        ]
+        "volume_ratio": [0.5945710500165617, 0.9277393176548525]
       },
+      "experimental_pressure_range_gpa": [0.0, 682.402],
+      "experimental_temperature_range_k": [293.0, 1900.0],
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 195.084},
-      "notes": "This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm.",
+      "notes": "Temperature-dependent P-V-T model whose 300 K branch is the fitted co-compression isotherm of the separate Ye et al. record. theta0 = 240 K and the rounded gamma coefficients follow the authors' v3 optimizer. The separate v3 pressure calculator instead hard-codes theta0 = 230 K.",
       "fit_datasets": ["zhu_2025_pt_shock", "zhu_2025_pt_zero_pressure_thermal_expansion"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Zhu", "Ye", "Sun", "Katsura", "Caracas"],
         "year": 2025,
@@ -599,18 +609,22 @@
         "locator": "version 1",
         "doi": "10.22541/essoar.176236186.65259830/v1"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-08",
-        "audit": "../audits/platinum.audit.json#platinum_zhu_2025_pvt"
-      }
+      "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 195.084}
     },
     {
       "identifier": "platinum_fei_2004_bm3_mgd",
       "label": "Fei et al. (2004), platinum BM3-MGD on Speziale MgO scale",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "q (-295.4%), K0' (-45.1%), K0 (+6.1%) and 1 more: beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "New modified Au q and fitted Pt parameterization, not a new MgO scale. Published heat-capacity prefactors retained; see dedicated numerical audit.",
+        "audit": "../audits/platinum.audit.json#platinum_fei_2004_bm3_mgd"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -630,30 +644,19 @@
         "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [3.7, 28.24],
-      "experimental_temperature_range_k": [300.0, 1873.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 28.24],
         "temperature_k": [300.0, 1873.0],
-        "notes": [
-          "Marginal experimental envelope, not rectangular phase-stability claim. Au also constrained by upstream shock data not deposited here."
-        ]
+        "notes": ["Au also constrained by upstream shock data not deposited here."]
       },
+      "experimental_pressure_range_gpa": [3.7, 28.24],
+      "experimental_temperature_range_k": [300.0, 1873.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084},
-      "notes": "fcc conventional cell with four atoms; composition/phase match existing material. No covariance or error confidence reported. Published coefficients remain unchanged; diagnostic refits do not replace this record. See docs/literature-reproductions/fei-2004-pressure-scales.md. The source does not explicitly enumerate V0/theta0 as fixed; holding them fixed is a diagnostic regression choice, not a reported constraint.",
+      "notes": "Volumes per four-atom fcc conventional cell. The paper does not state whether V0 and theta0 were fixed in the fit.",
       "fit_datasets": ["platinum_fei_2004_table2"],
-      "source_heat_capacity": {
-        "printed_3R_j_g_k": 0.12786,
-        "physical_atoms_per_formula_unit": 1,
-        "molar_mass_g_mol": 195.084,
-        "effective_debye_normalization": 1.0000021001774333,
-        "derivation": "n_eff=C_mass*M/(3 R_SI); reproduces published mass-specific energy convention without changing gamma, q, or cell contents."
-      },
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Li", "Hirose", "Minarik", "Van Orman", "Sanloup", "van Westrenen", "Komabayashi", "Funakoshi"],
         "year": 2004,
@@ -663,18 +666,28 @@
         "locator": "515-526",
         "doi": "10.1016/j.pepi.2003.09.018"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "New modified Au q and fitted Pt parameterization, not a new MgO scale. Published heat-capacity prefactors retained; see dedicated numerical audit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/platinum.audit.json#platinum_fei_2004_bm3_mgd"
+      "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084},
+      "source_heat_capacity": {
+        "printed_3R_j_g_k": 0.12786,
+        "physical_atoms_per_formula_unit": 1,
+        "molar_mass_g_mol": 195.084,
+        "effective_debye_normalization": 1.0000021001774333,
+        "derivation": "n_eff=C_mass*M/(3 R_SI); reproduces published mass-specific energy convention without changing gamma, q, or cell contents."
       }
     },
     {
       "identifier": "platinum_fei_2004_bm3_300k",
       "label": "Fei et al. (2004), preliminary 300 K Pt BM3",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-10",
+        "source_note": "New modified Au q and fitted Pt parameterization, not a new MgO scale. Published heat-capacity prefactors retained; see dedicated numerical audit.",
+        "audit": "../audits/platinum.audit.json#platinum_fei_2004_bm3_300k"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -683,21 +696,18 @@
         "K0_prime": {"value": 2.7, "error": 0.9}
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "validity": {
+        "pressure_gpa": [0.0, 21.02],
+        "temperature_k": [300.0, 300.0]
+      },
       "experimental_pressure_range_gpa": [3.7, 21.02],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [0.0, 21.02],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Preliminary fit has poorly constrained derivative; authors prefer the simultaneous thermal fit."]
-      },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084},
-      "notes": "Section 3.2 page 522 preliminary 300 K fit: K0=290(10), K0_prime=2.7(9). Same Table 3 V0=60.38 A^3; narrow compression range gives an unreliable derivative. Not the preferred Pt pressure scale. Seven Table 2 300 K observations only. The source does not explicitly enumerate V0/theta0 as fixed; holding them fixed is a diagnostic regression choice, not a reported constraint.",
+      "notes": "Preliminary 300 K fit (Section 3.2) to the seven 300 K observations of Table 2, with the V0 of Table 3. The narrow compression range leaves K0' poorly constrained, and the authors prefer their simultaneous thermal fit. The paper does not state whether V0 and theta0 were fixed.",
       "fit_datasets": ["platinum_fei_2004_table2"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Li", "Hirose", "Minarik", "Van Orman", "Sanloup", "van Westrenen", "Komabayashi", "Funakoshi"],
         "year": 2004,
@@ -707,18 +717,21 @@
         "locator": "515-526",
         "doi": "10.1016/j.pepi.2003.09.018"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "New modified Au q and fitted Pt parameterization, not a new MgO scale. Published heat-capacity prefactors retained; see dedicated numerical audit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-10",
-        "audit": "../audits/platinum.audit.json#platinum_fei_2004_bm3_300k"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084}
     },
     {
       "identifier": "platinum_matsui_2009_vinet_300k",
       "label": "Matsui et al. (2009), Pt Vinet reference isotherm, 300 K",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-09",
+        "source_note": "Exact 300 K Vinet branch retained. Matsui equations and Tsuchiya-Kawamura Table I now reconstruct the pressure scale; electronic nodes are preserved with explicit linear interpolation. See docs/literature-reproductions/matsui-2009-platinum.md.",
+        "audit": "../audits/platinum.audit.json#platinum_matsui_2009_vinet_300k"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -727,20 +740,18 @@
         "K0_prime": {"value": 5.2, "error": null}
       },
       "parameter_error_confidence": null,
-      "pressure_range_status": "reference_parameterization",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 300.0],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "Exact 300 K reference isotherm only, not the full Matsui thermal EOS. Table II V0=60.38 A^3, K0=273 GPa, K0_prime=5.20; uncertainties and covariance not reported for this triplet. The source recommends its complete model up to 300 GPa; shock constraints reach 290 GPa and are not 300 K observations."
+          "The source recommends its complete model to 300 GPa. Its shock constraints reach 290 GPa and are not 300 K observations."
         ]
       },
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084},
-      "notes": "Exact 300 K reference isotherm only, not the full Matsui thermal EOS. Table II V0=60.38 A^3, K0=273 GPa, K0_prime=5.20; uncertainties and covariance not reported for this triplet. The source recommends its complete model up to 300 GPa; shock constraints reach 290 GPa and are not 300 K observations.",
-      "parameter_covariance": null,
+      "notes": "Exact 300 K reference isotherm (Table II) of the Matsui thermal EOS only, not the full thermal model.",
       "reference": {
         "authors": ["Matsui", "Ito", "Katsura", "Yamazaki", "Yoshino", "Yokoyama", "Funakoshi"],
         "year": 2009,
@@ -750,18 +761,21 @@
         "locator": "013505",
         "doi": "10.1063/1.3054331"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Exact 300 K Vinet branch retained. Matsui equations and Tsuchiya-Kawamura Table I now reconstruct the pressure scale; electronic nodes are preserved with explicit linear interpolation. See docs/literature-reproductions/matsui-2009-platinum.md.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-09",
-        "audit": "../audits/platinum.audit.json#platinum_matsui_2009_vinet_300k"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084}
     },
     {
       "identifier": "platinum_matsui_2009_vinet_mgd_electronic",
-      "label": "Matsui et al. (2009), Pt Vinet-Debye plus tabulated electronic pressure",
+      "label": "Matsui et al. (2009), Vinet-Debye + tabulated electronic pressure",
+      "check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-09",
+        "source_note": "All numeric terms recovered. Independent SI replay agrees with the production pressure equation below 1e-9 GPa and with all 35 printed grid states within 0.0071 GPa. Node reproduction is source-based; sub-grid linear interpolation is explicitly an implementation choice. No original-fit parity claim.",
+        "audit": "../audits/platinum.audit.json#platinum_matsui_2009_vinet_mgd_electronic"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -894,20 +908,19 @@
         }
       },
       "parameter_error_confidence": null,
-      "pressure_range_status": "reference_parameterization",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 300.0],
         "temperature_k": [300.0, 3000.0],
         "notes": [
-          "Published Matsui Vinet and integrated-q Debye pressure plus volume-independent Tsuchiya-Kawamura (2002) Table I electronic correction, subtracting raw P_el(300 K)=0.04 GPa once. 2003 erratum corrects Au only. All 51 Pt nodes retained; linear interpolation between 100 K nodes is an explicit numerical implementation choice, not specified by the authors. No extrapolation outside 0-5000 K; positive-temperature API. Recommended scale envelope 0-300 GPa/300-3000 K is modeled, not measured coverage or a solid-phase guarantee. Rounded coefficients/table values reproduce 35 Table III states within 0.0071 GPa. Original joint shock/expansion fit, weights and covariance remain unreproduced."
+          "The electronic-pressure table is not extrapolated outside 0-5000 K.",
+          "0-300 GPa and 300-3000 K is the authors' recommended scale envelope, modeled rather than measured coverage."
         ]
       },
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "hybrid",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084},
-      "notes": "Published Matsui Vinet and integrated-q Debye pressure plus volume-independent Tsuchiya-Kawamura (2002) Table I electronic correction, subtracting raw P_el(300 K)=0.04 GPa once. 2003 erratum corrects Au only. All 51 Pt nodes retained; linear interpolation between 100 K nodes is an explicit numerical implementation choice, not specified by the authors. No extrapolation outside 0-5000 K; positive-temperature API. Recommended scale envelope 0-300 GPa/300-3000 K is modeled, not measured coverage or a solid-phase guarantee. Rounded coefficients/table values reproduce 35 Table III states within 0.0071 GPa. Original joint shock/expansion fit, weights and covariance remain unreproduced.",
-      "parameter_covariance": null,
+      "notes": "Matsui Vinet + integrated-q Debye thermal pressure plus the volume-independent electronic pressure of Tsuchiya-Kawamura (2002) Table I, from which P_el(300 K) = 0.04 GPa is subtracted once. Linear interpolation between the 100 K electronic-pressure nodes is an implementation choice, not specified by the authors. The 2003 erratum corrects Au only.",
       "reference": {
         "authors": ["Matsui", "Ito", "Katsura", "Yamazaki", "Yoshino", "Yokoyama", "Funakoshi"],
         "year": 2009,
@@ -917,18 +930,21 @@
         "locator": "013505",
         "doi": "10.1063/1.3054331"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "All numeric terms recovered. Independent SI replay agrees with the production pressure equation below 1e-9 GPa and with all 35 printed grid states within 0.0071 GPa. Node reproduction is source-based; sub-grid linear interpolation is explicitly an implementation choice. No original-fit parity claim.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-09",
-        "audit": "../audits/platinum.audit.json#platinum_matsui_2009_vinet_mgd_electronic"
-      }
+      "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084}
     },
     {
       "identifier": "platinum_fei_2007_vinet_300k",
       "label": "Fei et al. (2007), Pt Vinet reference isotherm, 300 K",
+      "check": {
+        "reproduction": "reproduced",
+        "compared": "published_fit",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-19",
+        "source_note": "Exact 300 K Vinet branch; no thermal extension inferred. See docs/literature-reproductions/sakai-2011-nacl-b2.md.",
+        "audit": "../audits/platinum.audit.json#platinum_fei_2007_vinet_300k"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -937,23 +953,19 @@
         "K0_prime": {"value": 5.08, "error": 0.02}
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 93.6],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 93.6],
         "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Exact 300 K reference isotherm only, not the full Fei thermal EOS. Table 1 gives the Vinet coefficients 60.38(1), 277, 5.08(2); confidence convention and covariance are unspecified. The same rounded cold coefficients occur in Dewaele (2004), whose catalog reference is 298 K; this record preserves the explicit Fei 300 K convention. V0 and K0 are held fixed in the cold-subset diagnostic. Thermal rows are retained as upstream context, not fitted as isothermal data. The conservative validity envelope is the Dewaele cold subset, not all later use of this pressure scale."
-        ]
+        "notes": ["The range is that of the Dewaele cold subset, not of all later use of this pressure scale."]
       },
+      "experimental_pressure_range_gpa": [0.0, 93.6],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084},
-      "notes": "Exact 300 K reference isotherm only, not the full Fei thermal EOS. Table 1 gives the Vinet coefficients 60.38(1), 277, 5.08(2); confidence convention and covariance are unspecified. The same rounded cold coefficients occur in Dewaele (2004), whose catalog reference is 298 K; this record preserves the explicit Fei 300 K convention. V0 and K0 are held fixed in the cold-subset diagnostic. Thermal rows are retained as upstream context, not fitted as isothermal data. The conservative validity envelope is the Dewaele cold subset, not all later use of this pressure scale.",
+      "notes": "Exact 300 K reference isotherm (Table 1) of the Fei thermal EOS only, not the full thermal model. The same rounded coefficients appear in Dewaele (2004) with a 298 K reference, but this record uses Fei's 300 K convention. V0 and K0 are held fixed in the reconstruction from the Dewaele cold subset.",
       "fit_datasets": ["platinum_dewaele_2004_table1_compression"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
         "year": 2007,
@@ -963,18 +975,22 @@
         "locator": "9182-9186",
         "doi": "10.1073/pnas.0609013104"
       },
-      "check": {
-        "reproduction": "reproduced",
-        "warning": null,
-        "finding": "Exact 300 K Vinet branch; no thermal extension inferred. See docs/literature-reproductions/sakai-2011-nacl-b2.md.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-19",
-        "audit": "../audits/platinum.audit.json#platinum_fei_2007_vinet_300k"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084}
     },
     {
       "identifier": "platinum_fei_2007_vinet_mgd",
       "label": "Fei et al. (2007), Pt Vinet-MGD thermal pressure scale",
+      "check": {
+        "reproduction": "disagrees",
+        "compared": "published_fit",
+        "why": "gamma0: refit 2.612 vs published 2.72 (-4.0%), beyond the agreement limit; q: refit -1.66 vs published 0.5 (-432.1%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-08",
+        "source_note": "Complete Pt Vinet-MGD pressure scale. The variable-exponent theta law is retained explicitly; all published coefficients and errors are preserved. The Pt paragraph requires Au re-reduction of the earlier paired data.",
+        "audit": "../audits/platinum.audit.json#platinum_fei_2007_vinet_mgd"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -991,27 +1007,25 @@
           "q": {"value": 0.5, "error": 0.5},
           "n": {"value": 1.0, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "variable_exponent"
+        "debye_temperature_law": "variable_exponent",
+        "notes": "The printed variable-exponent pressure convention is not a thermodynamic consistency claim."
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 93.6],
-      "experimental_temperature_range_k": [300.0, 1873.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 93.6],
         "temperature_k": [300.0, 1873.0],
         "notes": [
-          "Conservative marginal envelope of the recovered cold and paired high-temperature observations. High-temperature paired data cover much lower pressure than the cold subset; this rectangle does not assert measured high-temperature coverage at 93.6 GPa. The printed variable-exponent pressure convention is not a thermodynamic consistency claim."
+          "The paired high-temperature data cover much lower pressures than the cold data. There is no measured high-temperature coverage at 93.6 GPa."
         ]
       },
+      "experimental_pressure_range_gpa": [0.0, 93.6],
+      "experimental_temperature_range_k": [300.0, 1873.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084},
-      "notes": "Complete published Vinet plus Mie-Gruneisen-Debye pressure parameterization, with the direct variable-exponent Debye-temperature law printed after Equation (3). The exact 300 K branch remains available separately. The source combines Dewaele (2004) ruby-referenced cold data and Fei (2004) paired Au-Pt data recalculated on its new Au scale. The independent 78-row diagnostic re-reduction and joint fit do not recover all published coefficients; no diagnostic coefficients replace this record. V0/theta0 treatment and source weights are not fully enumerated. Published uncertainty confidence and covariance are unknown. See docs/literature-reproductions/fei-2007-platinum.md.",
-      "aliases": ["pt_fcc_fei_2007"],
+      "notes": "Complete Vinet + Mie-Grüneisen-Debye pressure scale, with the variable-exponent Debye-temperature law printed after Equation (3). It combines the ruby-referenced cold data of Dewaele (2004) with the paired Au-Pt data of Fei (2004), recalculated on the new Au scale. The paper does not fully state how V0 and theta0 were treated or how the sources were weighted.",
       "fit_datasets": ["platinum_dewaele_2004_table1_compression", "platinum_fei_2004_table2"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
         "year": 2007,
@@ -1021,18 +1035,22 @@
         "locator": "9182-9186",
         "doi": "10.1073/pnas.0609013104"
       },
-      "check": {
-        "reproduction": "disagrees",
-        "warning": null,
-        "finding": "Complete Pt Vinet-MGD pressure scale. The variable-exponent theta law is retained explicitly; all published coefficients and errors are preserved. The Pt paragraph requires Au re-reduction of the earlier paired data.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-08",
-        "audit": "../audits/platinum.audit.json#platinum_fei_2007_vinet_mgd"
-      }
+      "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084},
+      "aliases": ["pt_fcc_fei_2007"]
     },
     {
       "identifier": "platinum_yokoo_2009_vinet_300k",
       "label": "Yokoo et al. (2009), Pt fitted Vinet isotherm, 300 K",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-10-09",
+        "source_note": "All nine source pages inspected visually. The published 300 K Vinet fit is executable; the complete thermal model is not reconstructed by this record.",
+        "audit": "../audits/platinum.audit.json#platinum_yokoo_2009_vinet_300k"
+      },
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -1041,20 +1059,19 @@
         "K0_prime": {"value": 5.48, "error": null}
       },
       "parameter_error_confidence": null,
-      "pressure_range_status": "reference_parameterization",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 522.6307426505111],
         "temperature_k": [300.0, 300.0],
         "notes": [
-          "Modeled reference-isotherm compression range V/V0=0.6-1.0 inherited from the source grid; not static data coverage or a phase-stability guarantee. The full-model grid reaches 550.69 GPa at 3000 K and is not this Vinet fit."
+          "The range is the source grid V/V0 = 0.6-1.0, modeled rather than static data coverage.",
+          "The full-model grid reaching 550.69 GPa at 3000 K is not this Vinet fit."
         ]
       },
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084},
-      "notes": "Published Table IV fitted 300 K Vinet branch: K0=276.4 GPa, K0_prime=5.48. V0=60.55 A^3 per four-atom fcc cell is derived from printed ambient density 21.40 Mg/m^3 using Pt molar mass 195.084 g/mol, rounded at the density precision (unrounded conversion 60.5503931552 A^3). This is a fitted reference isotherm, not an exact projection of the full cold-BM3 + phonon + first-principles electronic model. The full-model Table V differs by up to 6.0093 GPa on its 300 K grid. Vinet parameter uncertainties/covariance are not reported; the 0 K BM3 derivative error must not be transferred. A separate derived Au/Pt PVT reconstruction is registered with the recovered electronic-pressure table and explicit interpolation. Exact author cold-volume/unrounded normalization and adopted full electronic implementation remain unrecovered; the original author joint fit is not independently reproduced. The author joint fit is not independently refittable.",
-      "parameter_covariance": null,
+      "notes": "Fitted 300 K Vinet branch of Table IV, not an exact projection of the full cold-BM3 + phonon + electronic model, whose Table V differs by up to 6.0093 GPa on its 300 K grid. V0 = 60.55 Å³ per four-atom fcc cell is derived from the printed ambient density 21.40 Mg/m³ and rounded at the density precision. The 0 K BM3 derivative error must not be transferred to this fit.",
       "reference": {
         "authors": ["Yokoo", "Kawai", "Nakamura", "Kondo", "Tange", "Tsuchiya"],
         "year": 2009,
@@ -1064,18 +1081,21 @@
         "locator": "104114",
         "doi": "10.1103/PhysRevB.80.104114"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "All nine source pages inspected visually. The published 300 K Vinet fit is executable; the complete thermal model is not reconstructed by this record.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-10-09",
-        "audit": "../audits/platinum.audit.json#platinum_yokoo_2009_vinet_300k"
-      }
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 195.084}
     },
     {
       "identifier": "platinum_yokoo_2009_pvt_reconstruction",
-      "label": "Yokoo et al. (2009), Platinum PVT — diagnostic Table V reconstruction",
+      "label": "Yokoo et al. (2009), Table V P-V-T reconstruction",
+      "check": {
+        "reproduction": "untested",
+        "compared": "source_equation",
+        "warning": "Never chosen automatically; select it explicitly.",
+        "source_check": "unresolved",
+        "source_checked_on": "2026-10-09",
+        "source_note": "Equations 1-12 and Table V supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction.",
+        "audit": "../audits/platinum.audit.json#platinum_yokoo_2009_pvt_reconstruction"
+      },
       "model": "BM3",
       "parameters": {
         "V0": {"value": 60.17580150980359, "error": null},
@@ -1214,22 +1234,32 @@
             0.23842775721955872,
             0.20006129266837777
           ]
-        }
+        },
+        "notes": "Phonon and electronic pressures are absolute relative to 0 K. Electronic pressure is assumed volume-independent, linearly interpolated and not extrapolated. An added Pt residual-pressure correction, linear between source temperatures, has unresolved origin."
       },
       "parameter_error_confidence": null,
+      "parameter_covariance": null,
       "validity": {
         "temperature_k": [0, 3000],
         "volume_ratio": [0.6, 1.0],
         "notes": [
-          "Bounds of pressure reconstruction, not independently measured or guaranteed solid-phase validity. First-liquid markers excluded from fitting; missing source cells are not fabricated observations."
+          "Solid Pt is not guaranteed throughout the range. Check the source phase markers, whose first-liquid points were excluded from the fit."
         ]
       },
       "determination_method": "hybrid",
       "record_kind": "derived",
+      "notes": "Diagnostic reconstruction of the calculated P-V-T outputs of Yokoo et al. Table V, not the published analytical model or a validated replacement for that pressure standard. V0 is the 0 K cold volume Vc, and the ambient volume is Vc/cold_volume_ratio. The model gives pressure only, with no caloric potential.",
+      "reference": {
+        "authors": ["Yokoo", "Kawai", "Nakamura", "Kondo", "Tange", "Tsuchiya"],
+        "year": 2009,
+        "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
+        "source": "Physical Review B",
+        "volume": "80",
+        "locator": "104114",
+        "doi": "10.1103/PhysRevB.80.104114"
+      },
       "equation_kind": "thermal",
-      "default": false,
       "catalog_access": "explicit_selection",
-      "notes": "Diagnostic reconstruction of Yokoo (2009) Table V calculated PVT outputs; published analytical PVT remains unreproduced. Not a validated replacement for the source pressure standard. Cold BM3 V0 is Vc at 0 K; ambient normalization is Vc/cold_volume_ratio. Phonon and electronic pressures are absolute relative to 0 K. Electronic pressure is assumed volume independent and interpolated linearly; no extrapolation. Source first-liquid annotations are preserved and excluded from the primary fit. Numerical bounds do not guarantee solid Au/Pt throughout the rectangular domain; use the source phase markers. Pt has an additional derived residual-pressure correction, linear between source temperatures, retained separately from the original electronic table. Its physical origin is unresolved. No parameter errors or covariance are inferred from model-output residuals. This pressure model supplies no caloric potential.",
       "derivation": {
         "diagnostic_only": true,
         "published_analytical_pvt_reproduced": false,
@@ -1293,24 +1323,6 @@
         ],
         "experimental_observations": 0,
         "author_fit_reproduced": false
-      },
-      "parameter_covariance": null,
-      "reference": {
-        "authors": ["Yokoo", "Kawai", "Nakamura", "Kondo", "Tange", "Tsuchiya"],
-        "year": 2009,
-        "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
-        "source": "Physical Review B",
-        "volume": "80",
-        "locator": "104114",
-        "doi": "10.1103/PhysRevB.80.104114"
-      },
-      "check": {
-        "reproduction": "untested",
-        "warning": "Explicit selection only; not loaded by default.",
-        "finding": "Equations 1-12 and Table V supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction.",
-        "source": "not_reproduced",
-        "source_checked_on": "2026-10-09",
-        "audit": "../audits/platinum.audit.json#platinum_yokoo_2009_pvt_reconstruction"
       }
     }
   ],

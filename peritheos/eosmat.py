@@ -1600,7 +1600,8 @@ def convert_eosmat(
     if current != version or version < 5 and legacy_uncertainty_units:
         native = result if current in (4, 5) else None
         if current in (4, 5):
-            result = to_v3(result)
+            # Historical readers get an explicit default flag on every record.
+            result = to_v3(result, explicit_defaults=version in (3, 4))
         if version == 5:
             convert_units(result, parameter_units=True)
         elif legacy_uncertainty_units:
@@ -1630,6 +1631,11 @@ def convert_eosmat(
                                 "parameter_covariance"
                             ]["volume_basis"]
                 result = native
+                if version == 4 and current == 5:
+                    # Older readers know only per-record default flags.
+                    from peritheos._eosmat_v4 import write_explicit_default_flags
+
+                    write_explicit_default_flags(result)
             result["format_version"] = version
     if version in (3, 4):
         # The v5 check headline is derived from evidence that compatibility

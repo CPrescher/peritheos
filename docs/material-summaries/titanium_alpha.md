@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Reported error confidence level:** 0.95
 
-Low-pressure alpha-phase Vinet fit; K0' was fixed at 4.
+Low-pressure alpha-phase Vinet fit.
 
 <details markdown="1">
 <summary>Source review</summary>

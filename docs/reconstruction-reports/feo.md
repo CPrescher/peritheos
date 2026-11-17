@@ -35,7 +35,7 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [B1 iron-saturated FeO, Fischer et al. (2011)](#record-feo_fischer_2011_bm3_2) | **reproduced** |  |
+| [Fischer et al. (2011), BM3, iron-saturated FeO](#record-feo_fischer_2011_bm3_2) | **reproduced** |  |
 | [Jacobsen et al. (2005), cubic Fe0.93O constrained BM3](#record-fe093o_b1_jacobsen_2005_bm3_1) | **reproduced** |  |
 | [Leonov et al. (2017), FeO high-spin DFT+DMFT BM3](#record-feo_leonov_2017_hs_bm3_1) | **untested** (not refittable) |  |
 | [Holland et al. (2013), fper modified Tait](#record-feo_holland_2013_fper_modified_tait) | **untested** (not refittable) |  |
@@ -43,7 +43,7 @@ stays in EOSMAT and the ledger.
 
 <a id="record-feo_fischer_2011_bm3_2"></a>
 
-## B1 iron-saturated FeO, Fischer et al. (2011)
+## Fischer et al. (2011), BM3, iron-saturated FeO
 
 **reproduced** · `feo_fischer_2011_bm3_2` · `BM3` · [Coefficients and source](../material-summaries/feo.md#record-feo_fischer_2011_bm3_2)
 

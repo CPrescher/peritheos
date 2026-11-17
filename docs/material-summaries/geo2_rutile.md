@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 293.15
 - **Reported pressure coverage (GPa):** \[0.0, 3.7\]
 
-20 degC BM3 representation with K0' fixed at 7: K0=258+/-5 GPa. V0=55.3318 A^3 is calculated from the Table 3 ambient a0 and c0; the paper does not publish an EOS-fit V0 error or parameter covariance.
+BM3 at 20 °C with K0' = 7 assumed. V0 is calculated from the ambient a0 and c0 of Table 3 and has no published error.
 
 <details markdown="1">
 <summary>Source review</summary>

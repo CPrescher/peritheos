@@ -36,7 +36,7 @@ stays in EOSMAT and the ledger.
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
 | [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3](#record-siderite_fe095mn005_litasov_2013_bm3) | **reproduced** |  |
-| [Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | **reproduced** |  |
+| [Peritheos refit of Litasov et al. (2013), joint thermal BM3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | **reproduced** |  |
 
 <a id="record-siderite_fe095mn005_litasov_2013_bm3"></a>
 
@@ -109,7 +109,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** vol
 
 <a id="record-siderite_fe095mn005_litasov_2013_joint_thermal_refit"></a>
 
-## Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3
+## Peritheos refit of Litasov et al. (2013), joint thermal BM3
 
 **reproduced** · `siderite_fe095mn005_litasov_2013_joint_thermal_refit` · `BM3` · [Coefficients and source](../material-summaries/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit)
 

@@ -80,7 +80,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[25.0, 127.0\]
 
-Room-temperature unconstrained Eulerian finite-strain BM3 fit for orthorhombic (Mg0.88Fe0.12)SiO3 perovskite from 25 to 127 GPa: V0=162.77+/-0.39 A^3 (from the reported ambient lattice parameters), K0=266+/-6 GPa, and K0'=3.9+/-0.4.
+Unconstrained room-temperature BM3 fit; V0 is from the reported ambient lattice parameters.
 
 <details markdown="1">
 <summary>Source review</summary>

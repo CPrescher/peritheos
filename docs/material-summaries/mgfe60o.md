@@ -37,16 +37,16 @@ Historical material/card import retained as provenance; the inherited hkl/d/inte
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Richet et al. (1989), (Mg0.4Fe0.6)O BM2](#record-mgfe60o_richet_1989_bm2_1) | BM2 | 298.0 | reproduced |  | primary source validated | Executable |
-| [Solomatova et al. (2016), Lin-data high-spin BM3 reference branch](#record-mgfe60o_solomatova_2016_hs_bm3_reference_1) | BM3 | 300 | untested |  | primary source validated | Executable |
-| [Solomatova et al. (2016), Lin-data low-spin BM3 reference branch](#record-mgfe60o_solomatova_2016_ls_bm3_reference_2) | BM3 | 300 | untested |  | primary source validated | Executable |
+| [Solomatova et al. (2016), Lin-data HS BM3 reference branch](#record-mgfe60o_solomatova_2016_hs_bm3_reference_1) | BM3 | 300 | untested |  | primary source validated | Executable |
+| [Solomatova et al. (2016), Lin-data LS BM3 reference branch](#record-mgfe60o_solomatova_2016_ls_bm3_reference_2) | BM3 | 300 | untested |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
 | [Richet et al. (1989), (Mg0.4Fe0.6)O BM2](#record-mgfe60o_richet_1989_bm2_1) | 78.430232810125 ± 0.0219872163 (fixed) | 149.0 ± 4.0 | — |
-| [Solomatova et al. (2016), Lin-data high-spin BM3 reference branch](#record-mgfe60o_solomatova_2016_hs_bm3_reference_1) | 77.9 ± 0.04 | 159 ± 2 | 3.82 ± 0.14 |
-| [Solomatova et al. (2016), Lin-data low-spin BM3 reference branch](#record-mgfe60o_solomatova_2016_ls_bm3_reference_2) | 73.83 ± 0.84 | 169 ± 9 | 4 (fixed) |
+| [Solomatova et al. (2016), Lin-data HS BM3 reference branch](#record-mgfe60o_solomatova_2016_hs_bm3_reference_1) | 77.9 ± 0.04 | 159 ± 2 | 3.82 ± 0.14 |
+| [Solomatova et al. (2016), Lin-data LS BM3 reference branch](#record-mgfe60o_solomatova_2016_ls_bm3_reference_2) | 73.83 ± 0.84 | 169 ± 9 | 4 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -86,7 +86,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 49.4\]
 - **Coverage provenance:** reported\_exactly
 
-Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. It is distinct from the paper's later global linear-composition model. V0 and its error are propagated from the primary a0=4.2805(4) A measurement; K0=149+/-4 GPa and K0'=4 fixed. Table 2 spans 0-49.4 GPa. No covariance or confidence convention for the K0 error is reported.
+Fit-specific room-temperature BM2 for MW60 (60 mol% FeO), distinct from the paper's global linear-composition model. V0 and its error are propagated from the measured a0 = 4.2805(4) Å. No covariance or confidence convention for the K0 error is reported.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -136,7 +136,7 @@ Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. I
 
 <a id="record-mgfe60o_solomatova_2016_hs_bm3_reference_1"></a>
 
-## Solomatova et al. (2016), Lin-data high-spin BM3 reference branch
+## Solomatova et al. (2016), Lin-data HS BM3 reference branch
 
 `mgfe60o_solomatova_2016_hs_bm3_reference_1` · Executable
 
@@ -165,11 +165,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0, 140\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 59.228
+
+High-spin reference branch of a coupled spin-crossover fit to the Lin data (MINUTI program); not the mixed-spin curve through the transition.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -214,7 +215,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 <a id="record-mgfe60o_solomatova_2016_ls_bm3_reference_2"></a>
 
-## Solomatova et al. (2016), Lin-data low-spin BM3 reference branch
+## Solomatova et al. (2016), Lin-data LS BM3 reference branch
 
 `mgfe60o_solomatova_2016_ls_bm3_reference_2` · Executable
 
@@ -243,11 +244,12 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0, 140\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 59.228
+
+Low-spin reference branch of a coupled spin-crossover fit to the Lin data (MINUTI program); not the mixed-spin curve through the transition.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -77,7 +77,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[65.0, 205.0\]
 
-Table 1 room-temperature Birch-Murnaghan fit. The B1 phase was measured between 65 and 205 GPa; V0 is extrapolated to zero pressure.
+Room-temperature BM3 fit from Table 1. V0 is extrapolated to zero pressure from B1 data measured at 65-205 GPa.
 
 <details markdown="1">
 <summary>Source review</summary>

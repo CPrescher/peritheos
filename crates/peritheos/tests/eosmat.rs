@@ -294,7 +294,9 @@ fn bundled_ma_2024_kcl_scale_preserves_molar_units_and_source_metadata() {
     );
     let volume = record.volume(100.0, 2000.0).unwrap();
     assert_close(record.pressure(volume, 2000.0).unwrap(), 100.0, 1e-8);
-    assert_eq!(record.document["default"], false);
+    // Bundled files name defaults in the material default_records map.
+    assert!(record.document.get("default").is_none());
+    assert!(!record.is_default);
     let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
     assert_eq!(restored.document, material.document);
 }
@@ -1618,7 +1620,8 @@ fn maltby_published_is_executable_without_claiming_reproduction() {
         raw["evidence"]["scientific_validation"]["status"],
         "not_reproduced"
     );
-    assert_eq!(raw["default"], false);
+    assert!(raw.get("default").is_none());
+    assert!(!record.is_default);
 }
 
 #[test]

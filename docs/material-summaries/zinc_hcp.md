@@ -89,10 +89,9 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 157.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 ruby-scale record is the same data on the other scale, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -179,10 +178,9 @@ Published pressure-scale alternative of [zinc\_hcp\_dewaele\_2019\_mao\_vinet](#
 - **Validity:**
     - **Pressure gpa:** \[0.0, 157.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986 ruby-scale record is the same data on the other scale, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -268,7 +266,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Reported error confidence level:** 0.95
 
-Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+Table IV fit. V0 is fixed from a separate fit to the 0-5 GPa data. Run-2 Ag/Mo points with revised pressure above 100 GPa are excluded (Section III); the 2008 ruby calibration derived later in the paper is not the pressure scale of these fits.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -353,7 +351,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Reported error confidence level:** 0.95
 
-Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+Table IV fit. V0 is fixed from a separate fit to the 0-5 GPa data; K0 is adopted from ultrasonic data and fixed. Run-2 Ag/Mo points with revised pressure above 100 GPa are excluded (Section III); the 2008 ruby calibration derived later in the paper is not the pressure scale of these fits.
 
 <details markdown="1">
 <summary>Source review</summary>

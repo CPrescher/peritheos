@@ -22,7 +22,11 @@ def test_original_record_is_explicit_diagnostic_and_preserves_local_constraints(
     assert raw["reproduction"]["do_not_use"] is True
     assert raw["fit_datasets"] == []
     assert not raw["default"]
-    assert "DO NOT USE" in raw["label"]
+    # The status left the label for the generated warning; the original
+    # label is kept verbatim in the audit.
+    assert "DO NOT USE" not in raw["label"]
+    assert "DO NOT USE" in raw["superseded_record_text"]["label"]
+    assert get_eos_record(ORIGINAL).warning.startswith("Do not use.")
     assert get_material("argon_fcc").default_record().identifier != ORIGINAL
     with pytest.raises(ValueError, match="not_reproduced"):
         Material.from_eosmat(doc, record_identifiers=[ORIGINAL])

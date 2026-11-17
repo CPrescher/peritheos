@@ -1114,7 +1114,11 @@ def test_all_sokolova_eosmat_records_explain_fit_and_workbook_lineage():
         assert lineage["spreadsheet implementation, conventions, and corrections"] == (
             "10.1016/j.cageo.2016.06.002"
         )
-        assert "not derived from one experimental dataset" in source["notes"]
+        assert "fitted jointly to shock-wave, ultrasonic" in source["notes"]
+        assert (
+            "not derived from one experimental dataset"
+            in (source["superseded_record_text"]["notes"])
+        )
 
     mgo = next(source for source in sources if source["identifier"].startswith("mgo_"))
     assert any(
@@ -1517,7 +1521,9 @@ def test_shi_2022_rh2o3_ii_record_and_primary_data_are_source_reproduced():
         "K0": 6.0,
         "K0_prime": None,
     }
-    assert record["thermal"] == {
+    thermal = dict(record["thermal"])
+    assert "Thermal pressure is taken relative to 300 K" in thermal.pop("notes")
+    assert thermal == {
         "type": "MieGruneisenDebye",
         "model": "mie_gruneisen_debye",
         "debye_temperature_law": "integrated_gruneisen",
@@ -2155,7 +2161,11 @@ def test_walker_2002_kcl_be1_and_reported_product_error_regression():
     # The preferred bold Table 3 row uses the staged fit; the italic row is the
     # separate simultaneous solution. V0 is therefore fixed for this record.
     assert source["fixed_parameters"] == ["V0"]
-    assert "italic Table 3 row" in source["notes"]
+    assert "Table 3 (bold row)" in source["notes"]
+    assert (
+        "simultaneous four-parameter solution (italic row) is not this record"
+        in (source["notes"])
+    )
 
     # Table 2 reports V=47.57(3) A^3 at 36.3(2) kbar and 23 degC.
     assert record.pressure(47.57, 296.15) == pytest.approx(3.63, abs=0.02)
@@ -2186,7 +2196,9 @@ def test_dewaele_2012_kcl_b2_table_i_and_equation_2_regression(
         document, record_identifiers=[source["identifier"]]
     ).eos_records[0]
 
-    assert source["default"] is True
+    # The material's default_records map is exported as a per-record flag.
+    assert source["default_for"] == "equilibrium"
+    assert record.is_default
     assert source["fixed_parameters"] == ["V0"]
     assert source["parameter_errors"] == {
         "V0": None,

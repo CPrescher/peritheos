@@ -35,7 +35,7 @@ The lattice parameter is calculated from the fitted 300 K atomic reference volum
 | --- | --- | --- | --- | --- | --- | --- |
 | [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-silver_dewaele_2008_table4_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Mao-scale Vinet; historical 2008 identifier](#record-silver_dewaele_2008_vinet_1) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | untested |  | primary source validated | Executable |
 | [Dewaele (2019), Ag MAO-scale Vinet](#record-silver_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Ag DOR-scale Vinet](#record-silver_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2008), Table IV Vinet, US K0=101 GPa fixed](#record-silver_dewaele_2008_table4_us_k0_101_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
@@ -46,7 +46,7 @@ The lattice parameter is calculated from the fitted 300 K atomic reference volum
 | --- | --- | --- | --- |
 | [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-silver_dewaele_2008_table4_vinet) | 68.084 (fixed) | 103.9 ± 1.4 | 5.78 ± 0.09 |
 | [Dewaele (2019), Mao-scale Vinet; historical 2008 identifier](#record-silver_dewaele_2008_vinet_1) | 68.28 ± 0.064 | 100.2 ± 1.6 | 5.7 ± 0.09 |
-| [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | 68.0820933882075 | 100.0 | 6.15 |
+| [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | 68.0820933882075 | 100.0 | 6.15 |
 | [Dewaele (2019), Ag MAO-scale Vinet](#record-silver_dewaele_2019_mao_vinet) | 68.28 ± 0.064 | 100.2 ± 1.6 | 5.7 ± 0.09 |
 | [Dewaele (2019), Ag DOR-scale Vinet](#record-silver_dewaele_2019_dor_vinet) | 68.352 ± 0.064 | 96.6 ± 1.6 | 6.22 ± 0.09 |
 | [Dewaele et al. (2008), Table IV Vinet, US K0=101 GPa fixed](#record-silver_dewaele_2008_table4_us_k0_101_vinet) | 68.084 (fixed) | 101.0 (fixed) | 5.97 ± 0.02 |
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_qualitatively
 - **Reported error confidence level:** 0.95
 
-Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a fit to the 0-5 GPa data, and run-2 rows with revised pressure above 100 GPa are excluded (Section III). The paper's new 2008 ruby upgrade is an output of its later cross-calibration, not the pressure scale of these fits.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -167,7 +167,7 @@ Published pressure-scale alternative of [silver\_dewaele\_2019\_mao\_vinet](#rec
 - **Reported pressure coverage (GPa):** \[0.0, 124.0\]
 - **Reported error confidence level:** 0.95
 
-Compatibility lookup: this identifier historically attributed later 2019 Mao-scale coefficients to the 2008 paper and compared them with revised-scale observations. Its numerical coefficients and uncertainties are preserved exactly. Table IV of the 2008 paper is represented separately by the \*\_dewaele\_2008\_table4\_\* records. The source attribution, calibration and audit are corrected to the matching 2019 Table 1 Mao row; this is not an additional experiment.
+Compatibility identifier for the Mao-scale Vinet fit of Dewaele (2019, Table 1), not a fit from the 2008 paper or an additional experiment. The 2008 Table IV fits are separate records.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -228,7 +228,7 @@ Compatibility lookup: this identifier historically attributed later 2019 Mao-sca
 
 <a id="record-silver_sokolova_2013_holzapfel_2"></a>
 
-## Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)
+## Sokolova et al. (2013), Holzapfel thermal (2016 workbook)
 
 `silver_sokolova_2013_holzapfel_2` · Executable
 
@@ -269,7 +269,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reference temperature (K):** 298.15
 - **Coverage provenance:** reference\_parameterization
 
-This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
+Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to shock-wave, ultrasonic, X-ray diffraction, dilatometric and thermochemical data: reference volume from Table 1, Holzapfel and thermal coefficients from Table 4. Sokolova et al. (2016) supplies the spreadsheet implementation, reference-temperature convention and corrected equations.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -358,10 +358,9 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 124.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The Mao-1986 and Dorogokupets-2007 ruby-scale records are alternative reductions of the same data, not independent experiments.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -448,10 +447,9 @@ Published pressure-scale alternative of [silver\_dewaele\_2019\_mao\_vinet](#rec
 - **Validity:**
     - **Pressure gpa:** \[0.0, 124.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Published fit/data envelope, not a phase-stability or extrapolation guarantee.
 - **Reported error confidence level:** 0.95
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The Mao-1986 and Dorogokupets-2007 ruby-scale records are alternative reductions of the same data, not independent experiments.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -537,7 +535,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Reported error confidence level:** 0.95
 
-Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+Table IV fit with K0 adopted from ultrasound and fixed, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a fit to the 0-5 GPa data, and run-2 rows with revised pressure above 100 GPa are excluded (Section III). The paper's new 2008 ruby upgrade is an output of its later cross-calibration, not the pressure scale of these fits.
 
 <details markdown="1">
 <summary>Source review</summary>

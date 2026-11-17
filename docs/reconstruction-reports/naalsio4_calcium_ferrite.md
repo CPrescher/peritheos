@@ -35,11 +35,11 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Dubrovinsky et al. (2002)](#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1) | **reproduced** |  |
+| [Dubrovinsky et al. (2002), BM3](#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1) | **reproduced** |  |
 
 <a id="record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1"></a>
 
-## Dubrovinsky et al. (2002)
+## Dubrovinsky et al. (2002), BM3
 
 **reproduced** · `naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/naalsio4_calcium_ferrite.md#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1)
 

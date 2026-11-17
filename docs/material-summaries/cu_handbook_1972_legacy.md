@@ -82,10 +82,10 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 34.0\]
     - **Temperature k:** \[298.15, 298.15\]
-    - **Notes:** The fitted observations span 1.5-34 GPa; V0 fixes the exact normalized zero-pressure reference point.; This phase-unresolved derived isotherm is not a phase-stability or extrapolation guarantee.
+    - **Notes:** The data span 1.5-34 GPa; the range starts at 0 GPa because V0 fixes the zero-pressure point.
 - **Reported error confidence level:** Not specified
 
-Independent Peritheos refit of the manually verified Cu column in AIP Handbook Table 4d-12. It is intentionally separate from the Sun et al. source-author Vinet record. The handbook values are rounded derived-isotherm points rather than experiment-level raw observations.
+Peritheos Vinet refit of the Cu column in AIP Handbook Table 4d-12, separate from the Sun et al. Vinet record. The handbook values are rounded points of a derived isotherm, not raw observations.
 
 <details markdown="1">
 <summary>Source review</summary>

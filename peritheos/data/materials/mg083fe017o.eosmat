@@ -6,10 +6,21 @@
   "phase": "high-spin B1 ferropericlase",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "default_records": {"equilibrium": "mg083fe017o_matsui_2012_bm3_mgd_1"},
   "eos_records": [
     {
       "identifier": "mg083fe017o_matsui_2012_bm3_mgd_1",
       "label": "Matsui et al. (2012), (Mg0.83Fe0.17)O high-spin BM3-MGD",
+      "check": {
+        "reproduction": "close",
+        "compared": "published_fit",
+        "why": "q: refit 0.93 vs published 0.7 (+32.7%), beyond the agreement limit.",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-05",
+        "source_note": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.83Fe0.17)O, fitted only below 47 GPa.",
+        "audit": "../audits/mg083fe017o.audit.json#mg083fe017o_matsui_2012_bm3_mgd_1"
+      },
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
@@ -30,32 +41,18 @@
         "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 47.0],
-      "experimental_temperature_range_k": [300.0, 1100.0],
-      "pressure_range_status": "reported_exactly",
+      "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 47.0],
         "temperature_k": [300.0, 1100.0],
-        "notes": [
-          "Valid only for the high-spin B1 branch; the paper deliberately excludes observations at and above the approximately 47 GPa cutoff from fitting.",
-          "The dataset retains all measurements through 55.47 GPa to expose the onset and growth of the spin-crossover volume anomaly."
-        ]
+        "notes": ["High-spin B1 branch only; the paper excludes observations at and above about 47 GPa from the fit."]
       },
+      "experimental_pressure_range_gpa": [0.0, 47.0],
+      "experimental_temperature_range_k": [300.0, 1100.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "thermal",
-      "default_for": "equilibrium",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 45.6658},
-      "experimental_configuration": {
-        "sample": "Stoichiometric (Mg0.83Fe0.17)O B1 powder mixed with Au at approximately 10:1 Fp:Au by weight",
-        "pressure_cell": "Kawai-type multi-anvil SPEED-Mk.II with 14 mm sintered-diamond anvils and 0.75 mm truncations",
-        "pressure_gauge": "Au T-P-V EOS of Matsui (2010)",
-        "temperature_measurement": "W97Re3-W75Re25 thermocouple",
-        "diffraction": "Energy-dispersive synchrotron powder X-ray diffraction at SPring-8 BL04B1"
-      },
-      "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.",
       "fit_datasets": ["mg083fe017o_matsui_2012_table1_pvt"],
-      "parameter_covariance": null,
       "reference": {
         "authors": ["Matsui", "Ito", "Yamazaki", "Yoshino", "Guo", "Shan", "Higo", "Funakoshi"],
         "year": 2012,
@@ -65,18 +62,28 @@
         "locator": "176-183",
         "doi": "10.2138/am.2012.3937"
       },
-      "check": {
-        "reproduction": "close",
-        "warning": null,
-        "finding": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.83Fe0.17)O, fitted only below 47 GPa.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-05",
-        "audit": "../audits/mg083fe017o.audit.json#mg083fe017o_matsui_2012_bm3_mgd_1"
+      "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 45.6658},
+      "experimental_configuration": {
+        "sample": "Stoichiometric (Mg0.83Fe0.17)O B1 powder mixed with Au at approximately 10:1 Fp:Au by weight",
+        "pressure_cell": "Kawai-type multi-anvil SPEED-Mk.II with 14 mm sintered-diamond anvils and 0.75 mm truncations",
+        "pressure_gauge": "Au T-P-V EOS of Matsui (2010)",
+        "temperature_measurement": "W97Re3-W75Re25 thermocouple",
+        "diffraction": "Energy-dispersive synchrotron powder X-ray diffraction at SPring-8 BL04B1"
       }
     },
     {
       "identifier": "mg083fe017o_solomatova_2016_hs_bm3_reference_1",
-      "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
+      "label": "Solomatova et al. (2016), Lin-data HS BM3 reference branch",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "audit": "../audits/mg083fe017o.audit.json#mg083fe017o_solomatova_2016_hs_bm3_reference_1"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -86,19 +93,11 @@
       },
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": ["HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+        "temperature_k": [300, 300]
       },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 45.6658},
-      "spin_crossover_context": {
-        "branch": "high_spin_reference",
-        "transition_pressure_gpa": 49.2,
-        "transition_width_20_80_gpa": 8.2,
-        "mixer_implemented": false
-      },
+      "notes": "High-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -108,18 +107,27 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg083fe017o.audit.json#mg083fe017o_solomatova_2016_hs_bm3_reference_1"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 45.6658},
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 49.2,
+        "transition_width_20_80_gpa": 8.2,
+        "mixer_implemented": false
       }
     },
     {
       "identifier": "mg083fe017o_solomatova_2016_ls_bm3_reference_2",
-      "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
+      "label": "Solomatova et al. (2016), Lin-data LS BM3 reference branch",
+      "check": {
+        "reproduction": "untested",
+        "compared": "none",
+        "warning": null,
+        "source_check": "verified",
+        "source_checked_on": "2026-09-01",
+        "source_note": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "audit": "../audits/mg083fe017o.audit.json#mg083fe017o_solomatova_2016_ls_bm3_reference_2"
+      },
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -129,19 +137,11 @@
       },
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": ["LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+        "temperature_k": [300, 300]
       },
       "determination_method": "experimental",
       "record_kind": "published",
-      "equation_kind": "isothermal",
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 45.6658},
-      "spin_crossover_context": {
-        "branch": "low_spin_reference",
-        "transition_pressure_gpa": 49.2,
-        "transition_width_20_80_gpa": 8.2,
-        "mixer_implemented": false
-      },
+      "notes": "Low-spin end-member branch of a coupled spin-crossover fit (MINUTI program); not the mixed-spin curve through the transition.",
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -151,13 +151,13 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "check": {
-        "reproduction": "untested",
-        "warning": null,
-        "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
-        "source": "primary_source_validated",
-        "source_checked_on": "2026-09-01",
-        "audit": "../audits/mg083fe017o.audit.json#mg083fe017o_solomatova_2016_ls_bm3_reference_2"
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 45.6658},
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 49.2,
+        "transition_width_20_80_gpa": 8.2,
+        "mixer_implemented": false
       }
     }
   ],
