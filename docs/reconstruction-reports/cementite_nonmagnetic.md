@@ -202,7 +202,7 @@ Both fits use the same 60 recovered audit input rows. **Volume coordinate:** aud
 
 **reproduced**, poor data agreement · `cementite_nonmagnetic_sata_2010_bm3` · `BM3` · [Coefficients and source](../material-summaries/cementite_nonmagnetic.md#record-cementite_nonmagnetic_sata_2010_bm3)
 
-**Warning:** Qualified use only; see the audit. Some quoted point errors are smaller than the overall experimental scatter; use within 300 K and 27.2–186.6 GPa.
+**Warning:** Qualified use only; see the audit. Some quoted point errors are smaller than the experimental scatter: six of nine Sata observations exceed their combined P/V error widths.
 
 **Warning (source review):** Some quoted point errors are smaller than the overall experimental scatter. Retain the published EOS within 300 K and 27.2–186.6 GPa; the separate refit is diagnostic.
 

@@ -68,7 +68,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 **Warning:** Not recommended for quantitative use. A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use.
 
-**Source finding:** V0 and K0 from Section 3.3; K0 is calculated from one compressed run-2 cell, and the authors state that more points would be needed for a robust modulus and an estimate of K0'. The K0 error is calculated from the ruby-Pt pressure difference.
+**Source finding:** V0 and K0 from Section 3.3; K0 is calculated from the in-situ run-2 cell at 33.4 GPa, and the authors state that more points would be needed for a robust modulus and an estimate of K0'. The K0 error is calculated from the ruby-Pt pressure difference.
 
 Automatic selection for equilibrium calculations.
 

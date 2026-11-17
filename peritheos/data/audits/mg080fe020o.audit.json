@@ -271,7 +271,7 @@
             "finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context."
           },
           "usage_recommendation": "consult_source_audit_before_quantitative_use",
-          "warning_reason": "Fei's row selection and weights are not published, so the check is approximate; stay within the stated spin regime.",
+          "warning_reason": "Fei's row selection and weights are not published, so the check is approximate.",
           "reproduction_summary": {
             "report": "docs/literature-reproductions/fei-2007-ferropericlase.md",
             "refit_ledger": "docs/data/primary-eos-refits.json",
@@ -600,7 +600,7 @@
             "doi": "10.1029/2007GL030712",
             "locations": ["Figures 1-3 captions", "paragraphs 6-15", "Tables S1-S3"],
             "finding": "Fei Figure 1 and paragraph 14 publish V0=74.2(1), K0=170(3), K0-prime=4 for fp20 LS. This record instead stores a Peritheos refit to the official Table S1 over that approximate pressure interval; no refitted coefficient is attributed to Fei.",
-            "record_note": "Observations from the official Table S1. Fei's published low-spin fit (Figure 1, paragraph 14) is V0 = 74.2(1), K0 = 170(3) GPa; the stored coefficients are a Peritheos refit, not Fei values.",
+            "record_note": "Observations from the official Table S1, over Fei's approximate low-spin pressure interval; Fei's own low-spin fit is in Figure 1 and paragraph 14.",
             "zotero_item_key": "33JIXYGF",
             "zotero_attachment_key": "FKWA95NJ",
             "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"

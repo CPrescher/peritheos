@@ -67,7 +67,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** On hold; not recommended pending source mapping review. Pressure calibration and the MGD reference-state and Debye convention mapping remain unresolved.
 
-**Source finding:** Coefficients from paragraphs 5-9. How the pressure calibration and the MGD reference-state and Debye conventions map to the stored model is unresolved.
+**Source finding:** Coefficients from paragraphs 5-9; Table 1 prints all 85 P-T-V/V0 observations.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

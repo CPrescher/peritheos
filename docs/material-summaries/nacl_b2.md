@@ -1205,7 +1205,7 @@ Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in t
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_fei_2007)
 
-**Source finding:** Coefficients from Table 1 (Vinet fit; the BM3 coefficients 30.69 and 4.33 are a separate parameterization). V0, gamma0 and theta0 are adopted from Bukowinski and Aidun (1985) per the Table 1 footnote; Equation 3 subtracts the 300 K Debye energy.
+**Source finding:** Coefficients from the Table 1 Vinet fit, not its separate BM3 parameterization. V0, gamma0 and theta0 are adopted from Bukowinski and Aidun (1985) per the Table 1 footnote; Equation 3 subtracts the 300 K Debye energy.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

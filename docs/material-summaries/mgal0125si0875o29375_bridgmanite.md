@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgal0125si0875o29375_bridgmanite.md#record-mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** Coefficients from the Table 1 perovskite OVM 6.25 mol.% row (Section 2); the printed V0 = 42.36 Å³ on the normalized five-atom basis is multiplied by four.
+**Source finding:** Coefficients from the Table 1 perovskite OVM 6.25 mol.% row (Section 2); the printed V0 = 42.36 Å³ on the normalized, approximately five-atom basis is multiplied by four.
 
 Automatic selection for equilibrium calculations.
 

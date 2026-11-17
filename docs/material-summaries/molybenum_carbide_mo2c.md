@@ -135,7 +135,7 @@ Room-temperature BM3 fit to relative-volume (V/V0) X-ray data; the paper does no
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybenum_carbide_mo2c.md#record-molybenum_carbide_mo2c_haines_2001_bm3_refit)
 
-**Source finding:** Observations are the 16 markers digitized from Figure 2 (section 4.1, pp. 2449-2450). K0 and K0' are Peritheos fits; the paper's own BM3 curve has K0 = 307 GPa and K0' = 6.2.
+**Source finding:** Observations are the 16 markers digitized from Figure 2 (section 4.1, pp. 2449-2450). K0 and K0' are Peritheos fits, not the paper's own BM3 curve.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

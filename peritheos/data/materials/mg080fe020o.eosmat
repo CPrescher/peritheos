@@ -69,7 +69,7 @@
         "reproduction": "reproduced",
         "compared": "published_fit",
         "warning": "Consult the source audit before quantitative use.",
-        "warning_reason": "Fei's row selection and weights are not published, so the check is approximate; stay within the stated spin regime.",
+        "warning_reason": "Fei's row selection and weights are not published, so the check is approximate.",
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
         "source_note": "Coefficients from Figure 1, with the K0 error from paragraph 12; V0 is the measured high-spin reference volume. The paper names the form third-order Birch-Murnaghan; with K0' fixed it is algebraically BM2.",
@@ -167,7 +167,7 @@
         "warning_reason": "A Peritheos refit, not Fei's coefficients; near-transition points may be mixed-spin and V0 and K0 are strongly correlated.",
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Observations from the official Table S1. Fei's published low-spin fit (Figure 1, paragraph 14) is V0 = 74.2(1), K0 = 170(3) GPa; the stored coefficients are a Peritheos refit, not Fei values.",
+        "source_note": "Observations from the official Table S1, over Fei's approximate low-spin pressure interval; Fei's own low-spin fit is in Figure 1 and paragraph 14.",
         "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_fei_2007_ls_b1_bm3_refit"
       },
       "model": "BM3",
