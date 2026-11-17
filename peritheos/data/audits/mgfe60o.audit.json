@@ -68,6 +68,7 @@
               "page 3041, equation (1) and discussion of fixing K0'=4"
             ],
             "finding": "This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.",
+            "record_note": "K0 from the Table 1 MW60 fit (pages 3038-3039); V0 is a0³ of the page 3037 ambient measurement, and K0' = 4 follows equation (1), page 3041.",
             "doi": "10.1029/jb094ib03p03037"
           },
           "migration_source": {
@@ -124,7 +125,8 @@
             "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
             "doi": "10.2138/am-2016-5510",
             "locations": ["Table 7"],
-            "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+            "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+            "record_note": "Coefficients from the Table 7 high-spin values; the underlying compression data are from Lin et al. (2005)."
           },
           "primary_data_check": {
             "status": "transition_constraints_only",
@@ -177,7 +179,8 @@
             "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
             "doi": "10.2138/am-2016-5510",
             "locations": ["Table 7"],
-            "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+            "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+            "record_note": "Coefficients from the Table 7 low-spin values; the underlying compression data are from Lin et al. (2005)."
           },
           "primary_data_check": {
             "status": "transition_constraints_only",

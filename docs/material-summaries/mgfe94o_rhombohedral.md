@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgfe94o_rhombohedral.md#record-mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1)
 
-**Source finding:** The source defines an independent 12-row, 300 K rhombohedral BM3 fit with V0, K0, and K0-prime all refined and no stated prior or fixed coefficient.
+**Source finding:** Coefficients from Table 1 and Section 3.2, fitted with the MINUTI 2.0.0 program to the 12 rows of Table S1; the printed V0 = 9.59(10) Å³/atom is stored ×2 for one formula unit.
 
 Automatic selection for equilibrium calculations.
 
@@ -102,6 +102,7 @@ Published rhombohedral parameterization on the Dewaele-2008 ruby scale. V0 is st
     - **Access URL:** https://www.mdpi.com/2075-163X/9/12/762
     - **Repository url:** https://authors.library.caltech.edu/records/3cdm5-rgv88
     - **Locations:** article sections 2.1, 3, and 3.2; article Table 1; official supplement Table S1 and Figure S2
+    - **Finding:** The source defines an independent 12-row, 300 K rhombohedral BM3 fit with V0, K0, and K0-prime all refined and no stated prior or fixed coefficient.
     - **DOI:** 10.3390/min9120762
     - **Article sha256:** 34238063c07d90e8cf3a00746420291735b7be0015735c30c715cb2edcc69898
     - **Supplement sha256:** b936a7aecff8ce9eaf65b51fd1433fe32d5bd4d93837c7d726c83e158c3958e9

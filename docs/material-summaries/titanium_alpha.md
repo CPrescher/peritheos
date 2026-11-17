@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/titanium_alpha.md#record-titanium_alpha_dewaele_2015_vinet_1)
 
-**Source finding:** Per-atom V0 values were converted to conventional-cell volumes.
+**Source finding:** Coefficients from the Table III experimental alpha Vinet row (Section IV), with the per-atom V0 converted to the two-atom cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ Low-pressure alpha-phase Vinet fit.
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1103/PhysRevB.91.134108
     - **Locations:** Section IV; Table III, experimental alpha and omega Vinet rows
+    - **Finding:** Per-atom V0 values were converted to conventional-cell volumes.
     - **DOI:** 10.1103/physrevb.91.134108
 - **Migration source:**
     - **Project:** Dioptas

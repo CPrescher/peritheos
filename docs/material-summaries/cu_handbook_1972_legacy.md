@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cu_handbook_1972_legacy.md#record-cu_sun_2010_low_vn_refit)
 
-**Source finding:** The handbook prints 25 populated Cu V/V0 values from 15 to 340 kbar. The 15 kbar cell is a confirmed printing error, 09900, interpreted as 0.9900. Sun et al. define the Vinet model, hold experimental V0 fixed, and state the m=8 pressure-residual objective.
+**Source finding:** V0 is the Sun et al. (2010) Table 2 Cu volume; K0 and K0' are Peritheos fits to the 25 Cu values of Table 4d-12 (p. 4-100) with the m = 8 objective of Sun equation (20). The 15 kbar entry, printed 09900, is read as 0.9900.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,6 +94,7 @@ Peritheos Vinet refit of the Cu column in AIP Handbook Table 4d-12, separate fro
 - **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; validity
 - **Primary source check:**
     - **Locations:** Kennedy and Keeler (1972), Table 4d-12, p. 4-100; Sun et al. (2010), equations (3) and (20), Tables 2-3
+    - **Finding:** The handbook prints 25 populated Cu V/V0 values from 15 to 340 kbar. The 15 kbar cell is a confirmed printing error, 09900, interpreted as 0.9900. Sun et al. define the Vinet model, hold experimental V0 fixed, and state the m=8 pressure-residual objective.
     - **Access URL:** https://doi.org/10.1515/zna-2010-1-202
     - **DOI:** Not specified
 - **Primary data check:**

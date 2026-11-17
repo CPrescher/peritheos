@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-07",
-        "source_note": "Equation (1) is a temperature-dependent BM3 relation with V_T=V0*exp(integral(alpha(T)dT)), alpha(T)=a+b*T, and K_T=K_T0+dK_dT*(T-300 K). For the preferred column the authors fixed V0=403 A^3 and K0'=5, then fitted all four remaining coefficients to the hydrostatic P-V-T observations in Table 1.",
+        "source_note": "Coefficients from the preferred K0' = 5 column of Table 2 with Equation (1); Table 2 prints K0 = 125(4) GPa, and the stored value follows the fit prose on page 6. The fixed V0 is not the Table 1 measurement of 403.32(8) Å³.",
         "audit": "../audits/naalsi2o6.audit.json#naalsi2o6_zhao_1997_bm3_1"
       },
       "model": "BM3",

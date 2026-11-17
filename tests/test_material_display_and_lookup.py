@@ -197,7 +197,19 @@ def test_record_summary_shows_coefficients_reference_and_finding():
     ) in lines
     assert "    Experimental data range: P 0-52" in lines
     assert "doi:10.1029/2000JB900318" in text
-    assert "  Source check: verified (2026-10-09). Published final BM3" in text
+    assert (
+        "  Source check: verified (2026-10-09). Reference isotherm from the "
+        "constrained BM3 fit of Section 4.2;"
+    ) in text
+    # The author's confirmation of the theta integration is in the thermal
+    # notes; the full source-check finding stays in the audit sidecar.
+    thermal_notes = record.eosmat_metadata["thermal"]["notes"]
+    assert "as confirmed by the author" in thermal_notes
+    finding = record.audit["evidence"]["scientific_validation"]["primary_source_check"][
+        "finding"
+    ]
+    assert finding.startswith("Published final BM3 + variable-q Debye model")
+    assert "Author reply confirms integration of the defining theta" in finding
     assert "No documented unit for: q0, q1" in text
     assert "parameter_covariance" not in text
 

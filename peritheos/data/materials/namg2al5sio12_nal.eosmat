@@ -18,7 +18,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 NAL. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.",
+        "source_note": "Coefficients from Table 1 (page 308). V0 is printed as 35.8 cm³/mol on an unstated four-oxygen basis (Figure 2c is three times this scale) and stored ×3 for the Z = 1 12-oxygen cell. The BM3 formula is not printed; the standard Eulerian form matches Figure 2c.",
         "audit": "../audits/namg2al5sio12_nal.audit.json#namg2al5sio12_nal_kawai_2012_bm3_1"
       },
       "model": "BM3",

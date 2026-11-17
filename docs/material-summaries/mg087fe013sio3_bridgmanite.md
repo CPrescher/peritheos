@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg087fe013sio3_bridgmanite.md#record-mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1)
 
-**Source finding:** The executable record is the complete published 300 K Vinet plus integrated constant-q MGD model for the measured 13% Fe composition. It is not a room-temperature slice of the thermal fit.
+**Source finding:** Coefficients from the Table 3 13% Fe column (Equations 1-6), fitted with priors V0 = 163.2 ± 0.2 Å³ and gamma0, q = 1 ± 1; theta0 is fixed (Section 3.3) after a preliminary Fe-free fit gave 991 ± 77 K.
 
 Automatic selection for equilibrium calculations.
 
@@ -117,6 +117,7 @@ The 300 K Vinet and thermal parameters form one coupled published thermal EOS. T
     - **Access URL:** https://doi.org/10.1002/2015JB012108
     - **DOI:** 10.1002/2015JB012108
     - **Locations:** final article, sections 2.1-2.3, 3.1-3.4, and 4.2; final article, equations 1-11 and Tables 1, 3, and 4; final article, Appendices A-B and data-availability statement; corresponding-author data page, Table 1 machine-readable mirror; PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit\_Wolf2014\_lsq\_fixdeb.in
+    - **Finding:** The executable record is the complete published 300 K Vinet plus integrated constant-q MGD model for the measured 13% Fe composition. It is not a room-temperature slice of the thermal fit.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

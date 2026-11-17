@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/orthoenstatite.md#record-orthoenstatite_angel_2002_bm3_1)
 
-**Source finding:** The recommended BM3 parameters combine two compression experiments, Brillouin data, and high-pressure ultrasonic data.
+**Source finding:** Recommended coefficients from the Abstract, Table 1 and the Summary (page 561), combining two compression experiments with Brillouin and high-pressure ultrasonic data.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,6 +90,7 @@ Combined room-pressure/high-pressure fit reported after reanalysis of the static
 - **Primary source check:**
     - **Access URL:** https://web.gps.caltech.edu/~jackson/pdf/Angel\_Jackson\_AmMin02\_87\_558.pdf
     - **Locations:** Abstract; Table 1; Summary, page 561
+    - **Finding:** The recommended BM3 parameters combine two compression experiments, Brillouin data, and high-pressure ultrasonic data.
     - **DOI:** 10.2138/am-2002-0419
 - **Migration source:**
     - **Project:** Dioptas

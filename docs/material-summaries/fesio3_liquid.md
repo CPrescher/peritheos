@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fesio3_liquid.md#record-fesio3_liquid_sun_2019_2500k_bm4_1)
 
-**Source finding:** The article explicitly defines a 2500 K BM4 reference isotherm and reports all four coefficients. Figure 1 states that circles are the liquid states used in the EOS fit and squares are nonliquid; matching the exact Table 1 P-V-T coordinates to symbol shape gives 40 circles and six squares without digitizing coordinates. At the Table 1 V/Vx=1 state (V=40.72 cm^3/mol), the converted executable BM4 gives 1.08485 GPa versus the printed 1.07(12) GPa.
+**Source finding:** Coefficients from Section 3.1 (Equations (4)-(9)), with V0 printed as 47.25 cm³/mol. At the Table 1 V/Vx = 1 state the stored BM4 gives 1.08485 GPa against the printed 1.07(12) GPa.
 
 Automatic selection for equilibrium calculations.
 
@@ -104,6 +104,7 @@ Only the 2500 K BM4 reference isotherm of the source EOS. The full model adds a 
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018GL081421
     - **DOI:** 10.1029/2018gl081421
     - **Locations:** Computational methods, Section 2; Table 1; Figure 1 and caption; Equations (4)-(9), Section 3.1
+    - **Finding:** The article explicitly defines a 2500 K BM4 reference isotherm and reports all four coefficients. Figure 1 states that circles are the liquid states used in the EOS fit and squares are nonliquid; matching the exact Table 1 P-V-T coordinates to symbol shape gives 40 circles and six squares without digitizing coordinates. At the Table 1 V/Vx=1 state (V=40.72 cm^3/mol), the converted executable BM4 gives 1.08485 GPa versus the printed 1.07(12) GPa.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08

@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cairo3_perovskite.md#record-cairo3_perovskite_boffa_ballaran_2007_bm3_1)
 
-**Source finding:** The source defines a standard zero-pressure BM3 fit for the Pbnm conventional-cell volume, reports all three coefficients with standard deviations, excludes decompression data, and identifies the Mao et al. (1986) ruby scale. No separate supplement or machine-readable data attachment was located.
+**Source finding:** Coefficients from the abstract and Table 2 (BM3 fitted with EosFit52, Results, p. 1761); the decompression point is excluded and pressures use the Mao et al. (1986) ruby scale.
 
 Automatic selection for equilibrium calculations.
 
@@ -107,6 +107,7 @@ Pbnm CaIrO3 perovskite only; do not use it for the Cmcm post-perovskite. V0 is p
     - **Source version:** author-uploaded copy of the final published American Mineralogist pages
     - **DOI:** 10.2138/am.2007.2715
     - **Locations:** Abstract; Experimental method; Results; Table 1; Table 2; Figures 1-2 and captions
+    - **Finding:** The source defines a standard zero-pressure BM3 fit for the Pbnm conventional-cell volume, reports all three coefficients with standard deviations, excludes decompression data, and identifies the Mao et al. (1986) ruby scale. No separate supplement or machine-readable data attachment was located.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/hydrous_stishovite_nisr_2017.md#record-hydrous_stishovite_nisr_2017_bm3)
 
-**Source finding:** Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.
+**Source finding:** K0 from Table 3 for the Birch (1978) BM3 cited in Section 3.3; the fixed K0' is adopted from Andrault et al. (2003).
 
 Automatic selection for equilibrium calculations.
 
@@ -94,6 +94,7 @@ Al-free sample whose water content (Table 1: Si0.954O2H0.184) is inferred from v
     - **DOI:** 10.1002/2017JB014055
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055
     - **Locations:** Sections 2, 3.1-3.3 and 4.2; Tables 1-4; Figures 2-5; Erratum, page 6983; Supporting Text S1 and Tables S1-S4
+    - **Finding:** Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.
 - **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; validity; primary\_data; independent\_refit
 - **Primary data check:**
     - **Status:** bundled

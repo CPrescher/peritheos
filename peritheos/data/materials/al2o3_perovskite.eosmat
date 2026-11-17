@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.",
+        "source_note": "Coefficients from the Table 1 perovskite CCM 100 mol.% row; the printed V0 = 42.83 Å³ on the normalized, approximately five-atom basis is multiplied by four for the stored cell.",
         "audit": "../audits/al2o3_perovskite.audit.json#al2o3_perovskite_akber_knutson_2005_gga_bm3"
       },
       "model": "BM3",
@@ -60,7 +60,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The apv endmember is a distinct modified-Tait reference isotherm.",
+        "source_note": "Coefficients from Table 1 and the official tc-ds62 apv block, printed as V0 = 2.540 J/bar/mol, K0 = 2030 kbar and K0'' = -0.00200 kbar^-1, and converted to GPa, Å³ and the Z = 4 cell.",
         "audit": "../audits/al2o3_perovskite.audit.json#al2o3_perovskite_holland_2013_apv_modified_tait"
       },
       "model": "ModifiedTait",

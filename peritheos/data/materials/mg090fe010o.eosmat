@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "source_note": "Coefficients from the Table 7 high-spin column; the coupled fit uses the P-V data of Marquardt et al. (2009b).",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_solomatova_2016_hs_bm3_reference_1"
       },
       "model": "BM3",
@@ -66,7 +66,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself.",
+        "source_note": "Coefficients from the Table 7 low-spin column; the coupled fit uses the P-V data of Marquardt et al. (2009b).",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_solomatova_2016_ls_bm3_reference_2"
       },
       "model": "BM3",
@@ -114,7 +114,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Section 3.1.1 prints the HS BM3 coefficients. The subsequently supplied EPSL supplement supplies 12 LS constrained BM3 fits in Table S1 and elastic observations in Table S2; these are distinct from the Science supplement.",
+        "source_note": "Coefficients from Section 3.1.1 (pp. 346-347); V0 is the ambient single-crystal XRD volume of Table 2. K0 is the isothermal KT0, not the Brillouin-only adiabatic KS0 = 161.4 GPa of Section 3.2.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_hs_bm3"
       },
       "model": "BM3",
@@ -166,7 +166,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 1 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.99.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_01"
       },
       "model": "BM3",
@@ -226,7 +226,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 2 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.98.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_02"
       },
       "model": "BM3",
@@ -286,7 +286,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 3 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.97.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_03"
       },
       "model": "BM3",
@@ -347,7 +347,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 4 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.96.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_04"
       },
       "model": "BM3",
@@ -408,7 +408,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 5 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.99.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_05"
       },
       "model": "BM3",
@@ -468,7 +468,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 6 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.98.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_06"
       },
       "model": "BM3",
@@ -529,7 +529,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 7 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.97.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_07"
       },
       "model": "BM3",
@@ -589,7 +589,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 8 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.96.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_08"
       },
       "model": "BM3",
@@ -649,7 +649,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 9 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.99.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_09"
       },
       "model": "BM3",
@@ -709,7 +709,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 10 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.98.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_10"
       },
       "model": "BM3",
@@ -769,7 +769,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 11 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.97.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_11"
       },
       "model": "BM3",
@@ -829,7 +829,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values.",
+        "source_note": "Coefficients from EPSL supplementary Table S1, row 12 (Section 3.1.2, p. 347). V0 is the printed row value, not recomputed from the rounded LS/HS volume ratio 0.96.",
         "audit": "../audits/mg090fe010o.audit.json#mg090fe010o_marquardt_2009b_ls_bm3_s1_12"
       },
       "model": "BM3",

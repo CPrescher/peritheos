@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-03",
-        "source_note": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+        "source_note": "Stored parameters match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).",
         "audit": "../audits/mgo.audit.json#mgo_sakai_2025_rydberg_stacey_1"
       },
       "model": "RydbergStacey",
@@ -67,7 +67,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-03",
-        "source_note": "The stored record is the pressure-scale-free Fit3 Vinet-MGD parameterization. Fit3 fixes V0, KS0, alpha0, CP0, and n; K0 and theta0 are thermodynamically dependent on trial gamma0, leaving K0_prime, gamma0, a, and b as the four independent least-squares variables.",
+        "source_note": "Fit3 of Tables 1-5 (Equations 2-5, 10-16 and 20-23). Fit3 fixes V0, KS0, alpha0, CP0 and n; K0 and theta0 depend on the trial gamma0, so K0', gamma0, a and b are the only independent least-squares variables.",
         "audit": "../audits/mgo.audit.json#mgo_b1_tange_2009_vinet"
       },
       "model": "Vinet",
@@ -148,7 +148,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-09",
-        "source_note": "Published final BM3 + variable-q Debye model: V0=74.71 A^3/cell, K0=160.2 GPa, K0_prime=3.99, gamma0=1.524, q0=1.65, q1=11.8, theta0=773 K and Tr=300 K. Author reply confirms integration of the defining theta relation using Equation 11.",
+        "source_note": "Reference isotherm from the constrained BM3 fit of Section 4.2; theta0 and gamma0 from Section 5.1, q0 and q1 from Section 5.4 (Equations 10-11).",
         "audit": "../audits/mgo.audit.json#mgo_speziale_2001_bm3_2"
       },
       "model": "BM3",
@@ -200,7 +200,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Li et al. report a new absolute 300 K MgO BM3 pressure scale, not a direct pressure-volume BM3 regression. Its conventional-cell V0 is measured by XRD; its isothermal K0 and K0' follow exactly from the preferred decompression acoustic finite-strain fit and the printed Equation 4 conversion.",
+        "source_note": "V0 from the Table 1 footnote; K0 and K0' are converted with Equation 4 from the preferred decompression acoustic fit, using K0S = 163.5 GPa from the abstract and Section 4 rather than the 163.6 GPa printed in Table 2.",
         "audit": "../audits/mgo.audit.json#mgo_li_2006_bm3_absolute_acoustic"
       },
       "model": "BM3",
@@ -243,7 +243,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The KCl series is a B1-MgO, conventional-cell (Z=4), nominal-300 K BM3 fit on the Mao-1978 ruby scale. The preferred three-parameter result is V0=74.698(7) A^3, KT0=164.1(9) GPa, and K'=4.05(4).",
+        "source_note": "Coefficients from the preferred three-parameter KCl-medium fit (Results, p. 1825), not the sensitivity fits that omit the ambient anchor or fix K0'.",
         "audit": "../audits/mgo.audit.json#mgo_jacobsen_2008_bm3_kcl_mao1978"
       },
       "model": "BM3",
@@ -284,7 +284,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The all-data helium series is a B1-MgO, conventional-cell (Z=4), nominal-300 K BM3 fit on a Mao-1986-linked pressure coordinate. The Results section gives V0=74.687(6) A^3, KT0=159.6(6) GPa, and K'=3.74(3). The calculated Zha-scale pressure column is not an independent fitted Jacobsen EOS.",
+        "source_note": "Coefficients from the all-three-runs fit in the Results (p. 1826). The abstract prints V0 = 74.697(6) Å³, an isolated inconsistency; the Results value is used.",
         "audit": "../audits/mgo.audit.json#mgo_jacobsen_2008_bm3_helium_mao1986"
       },
       "model": "BM3",
@@ -330,7 +330,7 @@
         "warning_reason": "The Table II fit is not reproduced from the published data; the published curve leaves residuals up to about +2.8 GPa.",
         "source_check": "unresolved",
         "source_checked_on": "2026-10-17",
-        "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+        "source_note": "Coefficients from Table II (Cu-referenced fit, V0 fixed). The Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.",
         "audit": "../audits/mgo.audit.json#mgo_shen_2026_vinet_3"
       },
       "model": "Vinet",
@@ -363,7 +363,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "The source-author model is a 0 K Rydberg-Vinet cold curve plus a sound-velocity-derived quasi-Debye Helmholtz free energy. Appendix B supplies a separately executable second-order Taylor pressure surrogate, which remains the catalog record because the Kono velocity-density coefficients required by the full source model are not printed.",
+        "source_note": "Cold coefficients from Section III (p. 6), with V0 = 0.2767 cm³/g converted to the Z = 4 cell; thermal coefficients from Equation (B2) (p. 10). The Appendix B surrogate is stored because the Kono velocity-density coefficients the full quasi-Debye model needs are not printed.",
         "audit": "../audits/mgo.audit.json#mgo_b1_luo_2023_vinet_thermal_5"
       },
       "model": "Vinet",
@@ -426,7 +426,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "source_note": "Stored coefficients match the MgO columns of Tables 1 and 4; n and Z come from the model definitions of Sokolova et al. (2016), Equations (1)-(3) and Table 2.",
         "audit": "../audits/mgo.audit.json#mgo_sokolova_2013_holzapfel_4"
       },
       "model": "Holzapfel",
@@ -482,7 +482,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "The article's reproducible preferred result is one B1-MgO BM3-MGD EOS with V0=74.71 A^3, K0=161 GPa, K0'=3.94, theta0=800 K, gamma0=1.45, and q=0.8. Alternative Murnaghan, Vinet, logarithmic, and constrained BM3 rows in Table 3 quantify room-temperature extrapolation sensitivity and are not additional recommended thermal parameterizations.",
+        "source_note": "Coefficients from Table 5 with Equations 2-8. V0 (average of prior ambient measurements) and K0 (adopted acoustic value) are fixed in the room-temperature fit, as stated before Table 3.",
         "audit": "../audits/mgo.audit.json#mgo_dewaele_2000_bm3_mgd_5"
       },
       "model": "BM3",
@@ -532,7 +532,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "A distinct constrained BM2 sensitivity row is explicitly reported.",
+        "source_note": "BM2 row of Table 3 (Section 3), with V0 fixed at the adopted ambient average.",
         "audit": "../audits/mgo.audit.json#mgo_dewaele_2000_bm2_sensitivity_1"
       },
       "model": "BM2",
@@ -572,7 +572,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "A distinct Murnaghan sensitivity row is explicitly reported.",
+        "source_note": "Murnaghan row of Table 3 (Section 3), with V0 fixed at the adopted ambient average and K0 at the adopted acoustic value.",
         "audit": "../audits/mgo.audit.json#mgo_dewaele_2000_murnaghan_sensitivity_2"
       },
       "model": "Murnaghan",
@@ -613,7 +613,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "A distinct Vinet sensitivity row is explicitly reported.",
+        "source_note": "Vinet row of Table 3 (Section 3), with V0 fixed at the adopted ambient average and K0 at the adopted acoustic value.",
         "audit": "../audits/mgo.audit.json#mgo_dewaele_2000_vinet_sensitivity_3"
       },
       "model": "Vinet",
@@ -654,7 +654,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "A distinct logarithmic/natural-strain sensitivity row is explicitly reported.",
+        "source_note": "Logarithmic-EOS row of Table 3 (Section 3), with V0 fixed at the adopted ambient average and K0 at the adopted acoustic value.",
         "audit": "../audits/mgo.audit.json#mgo_dewaele_2000_natural_strain3_sensitivity_4"
       },
       "model": "NaturalStrain3",
@@ -695,7 +695,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "All four Table 3 final shock states reproduce Us=6.87(10)+1.24(4)up when their printed one-standard-deviation velocity errors are used. The selected polycrystalline data are distinct from the single-crystal comparison, elastic precursor, sound-velocity shots, and calculated 300 K hydrostat; no phase transition is assigned within 14-133 GPa.",
+        "source_note": "Linear Us-up relation from the abstract and Table 4 (p. 533), fitted to the four Table 3 polycrystalline shock states; rho0 is the measured average bulk density (p. 530).",
         "audit": "../audits/mgo.audit.json#mgo_b1_duffy_ahrens_1995_hugoniot_5"
       },
       "model": "LinearUsUpHugoniot",
@@ -761,7 +761,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "This is one of four separately calculated static BM3 fits; it is not the citation-only experimental row.",
+        "source_note": "Coefficients from the ECP large-core Mg row of Table I (unshifted static GGA, Ne-core Mg pseudopotential), BM3 as in Equation (3).",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_ecp_large_core_static_bm3"
       },
       "model": "BM3",
@@ -806,7 +806,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Independent small-core ECP static fit.",
+        "source_note": "Coefficients from the ECP small-core Mg row of Table I (unshifted static GGA, Mg 2p treated as semicore), BM3 as in Equations (3)-(4).",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_ecp_small_core_static_bm3"
       },
       "model": "BM3",
@@ -847,7 +847,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Independent large-core PAW static fit.",
+        "source_note": "Coefficients from the PAW large-core Mg row of Table I (unshifted static GGA, Ne-core Mg potential), BM3 as in Equations (3)-(4).",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_paw_large_core_static_bm3"
       },
       "model": "BM3",
@@ -889,7 +889,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Independent small-core PAW static fit; the citation-only experimental row was excluded.",
+        "source_note": "Coefficients from the PAW small-core Mg row of Table I (unshifted static GGA), BM3 as in Equations (3)-(4); checked against eight Table III pressures.",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_paw_small_core_static_bm3"
       },
       "model": "BM3",
@@ -932,7 +932,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Separate pressure-corrected static BM3, distinct from the unshifted Table-I static fits and the zero-point 0 K row.",
+        "source_note": "Coefficients from the Static row of Table V (Section VI, Figure 5); the pressure shift is stated on p. 224110-7.",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_pressure_corrected_static_bm3"
       },
       "model": "BM3",
@@ -974,7 +974,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The 0 K row includes zero-point energy and is physically distinct from Static.",
+        "source_note": "Coefficients from the 0 K row of Table V (Section VI): the quasiharmonic Debye model at zero temperature, with the -7.736 GPa pressure correction.",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_pressure_corrected_0k_bm3"
       },
       "model": "BM3",
@@ -1015,7 +1015,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Pressure-corrected theoretical 298 K BM3.",
+        "source_note": "Coefficients from the 298 K row of Table V (Section VI, Figure 5), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_pressure_corrected_298k_bm3"
       },
       "model": "BM3",
@@ -1056,7 +1056,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Pressure-corrected theoretical 1000 K BM3.",
+        "source_note": "Coefficients from the 1000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_pressure_corrected_1000k_bm3"
       },
       "model": "BM3",
@@ -1096,7 +1096,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Pressure-corrected theoretical 2000 K BM3.",
+        "source_note": "Coefficients from the 2000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_pressure_corrected_2000k_bm3"
       },
       "model": "BM3",
@@ -1136,7 +1136,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Pressure-corrected theoretical 3000 K BM3; compared in Figure 5 with experimental extrapolation.",
+        "source_note": "Coefficients from the 3000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa; Figure 5 compares this isotherm with experimental extrapolation.",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_pressure_corrected_3000k_bm3"
       },
       "model": "BM3",
@@ -1176,7 +1176,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Pressure-corrected theoretical 4000 K BM3.",
+        "source_note": "Coefficients from the 4000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.",
         "audit": "../audits/mgo.audit.json#mgo_oganov_2003_pressure_corrected_4000k_bm3"
       },
       "model": "BM3",
@@ -1217,7 +1217,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Independent source-computed LDA EOS, paired with but not derived from the GGA fit.",
+        "source_note": "Coefficients from Section IV.A, below Figure 1; the printed V0 = 3782.30 bohr³ for the 32-formula-unit supercell is converted to the Z = 4 cell.",
         "audit": "../audits/mgo.audit.json#mgo_lee_wan_2008_lda_static_bm3"
       },
       "model": "BM3",
@@ -1260,7 +1260,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Independent source-computed GGA EOS using pseudopotentials matched to the LDA branch except for exchange correlation.",
+        "source_note": "Coefficients from Section IV.A, below Figure 1; the printed V0 = 4046.43 bohr³ for the 32-formula-unit supercell is converted to the Z = 4 cell.",
         "audit": "../audits/mgo.audit.json#mgo_lee_wan_2008_gga_static_bm3"
       },
       "model": "BM3",
@@ -1303,7 +1303,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The per endmember is a distinct modified-Tait reference isotherm.",
+        "source_note": "Coefficients from Table 1 and the official tc-ds62 per block, printed as V0 = 1.125 J/bar/mol, K0 = 1616 kbar and K0'' = -0.00240 kbar^-1, converted to GPa and the Z = 4 cell.",
         "audit": "../audits/mgo.audit.json#mgo_holland_2013_per_modified_tait"
       },
       "model": "ModifiedTait",
@@ -1345,7 +1345,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Complete B1 room-temperature coefficients.",
+        "source_note": "Coefficients from the B1 room-temperature row of Table IV (Birch-Murnaghan fit, Section III.B); the printed 18.65 Å³ per MgO is multiplied by Z = 4.",
         "audit": "../audits/mgo.audit.json#mgo_b1_zhang_bukowinski_1991_mpib_bm3"
       },
       "model": "BM3",
@@ -1381,7 +1381,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The paper reports a complete fourth-order fit to its 0-150 GPa calculated pressure-volume states.",
+        "source_note": "Coefficients from Table 1 and the text following Equation (11), the fourth-order fit to the 0-150 GPa calculated states plotted in Figure 1.",
         "audit": "../audits/mgo.audit.json#mgo_karki_1997_lda_static_bm4"
       },
       "model": "BM4",
@@ -1425,7 +1425,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The paper separately reports a complete third-order fit and states that its fourth-order term is negligible.",
+        "source_note": "K0 and K0' from the text following Equation (11), the paper's third-order fit, for which it states the fourth-order term is negligible; a0 from Table 1.",
         "audit": "../audits/mgo.audit.json#mgo_karki_1997_lda_static_bm3"
       },
       "model": "BM3",
@@ -1469,7 +1469,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The static B3LYP branch is a complete BM3 parameterization. Table 1's zero-point and finite-temperature moduli are thermophysical outputs of the FPMG-EOS, not additional BM3 coefficient triplets.",
+        "source_note": "K0 from Table 1, K0' from Table 2 and V0 from Table 4; Section 3.3 identifies the static branch as BM3. Table 1's zero-point and finite-temperature moduli are FPMG-EOS outputs, not further BM3 coefficients.",
         "audit": "../audits/mgo.audit.json#mgo_belmonte_2017_b3lyp_static_bm3"
       },
       "model": "BM3",
@@ -1513,7 +1513,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Table 1 supplies a complete MgO reference triple used by the paper's Vinet comparison; the curve is distinct from the paper's later modified high-compression proposal.",
+        "source_note": "Coefficients from the Table 1 QSM row, with the Vinet equation of Section 1 as applied in Section 2 and Figure 2b; not the paper's later modified high-compression proposal.",
         "audit": "../audits/mgo.audit.json#mgo_hama_suito_1996_qsm_static_vinet"
       },
       "model": "Vinet",
@@ -1560,7 +1560,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Ye fits K0-prime=4.182(19) with V0 and K0 fixed......",
+        "source_note": "K0' from Table 1, fitted to the corrected Au+MgO Data Set S1 (erratum) with Au-D07 as pressure standard; V0 and K0 are fixed to Dorogokupets-Dewaele (2007).",
         "audit": "../audits/mgo.audit.json#mgo_ye_2017_vinet_300k"
       },
       "model": "Vinet",
@@ -1605,7 +1605,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set.",
+        "source_note": "Thermal form from Equations (2)-(8): Debye thermal energy plus a volume-dependent T-squared excess term, referenced to 300 K. Thermal coefficients are the Mendeley Data v3 values, not Table 1; beta0 is converted from J g^-1 K^-2 to J mol^-1 K^-2.",
         "audit": "../audits/mgo.audit.json#mgo_zhu_2025_pvt"
       },
       "model": "Vinet",

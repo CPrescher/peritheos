@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/magnesiowustite_fe75.md#record-magnesiowustite_fe75_jacobsen_2002_bm3_1)
 
-**Source finding:** The source defines a three-free-parameter, error-weighted BM3 fit to all 7 Fe75 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration.
+**Source finding:** Coefficients from paragraph 25 and Table 6, an error-weighted EoSFIT fit to the 7 Fe75 rows of Table 5; pressures are from simultaneously measured quartz volumes (paragraph 23).
 
 Automatic selection for equilibrium calculations.
 
@@ -108,6 +108,7 @@ The printed errors are standard deviations.
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490
     - **DOI:** 10.1029/2001JB000490
     - **Locations:** Paragraphs 23-26; Tables 1 and 5-6; Figures 5-6
+    - **Finding:** The source defines a three-free-parameter, error-weighted BM3 fit to all 7 Fe75 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

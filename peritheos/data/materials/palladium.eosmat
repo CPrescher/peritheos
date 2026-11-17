@@ -23,7 +23,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "The article identifies a separate 0 K DFT BM3 cold curve. Supplementary Table S3 evaluates that curve alongside five literature EOS parameterizations; it is not a table of observations used in the experimental fit.",
+        "source_note": "The cold curve is the 'This work' column of Supplementary Table S3 and the green curve in Figure 3; Table S3 lists pressures calculated from this fit, not fit input.",
         "audit": "../audits/palladium.audit.json#palladium_baty_2024_bm3_dft_2"
       },
       "model": "BM3",
@@ -55,7 +55,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "The source reports a room-temperature Vinet EOS for pure fcc Pd compressed in neon, separately from the hydride results.",
+        "source_note": "Coefficients from the pure-Pd compression discussion and EOS figure, reported separately from the hydride results; the pure-Pd observations are plotted, not tabulated.",
         "audit": "../audits/palladium.audit.json#palladium_guigue_2020_vinet_1"
       },
       "model": "Vinet",
@@ -88,7 +88,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "Table 1 supplies 15 pure-Pd P-V observations. Section 3.1 and Figure 1 report the BM3 parameters; the isolated 58.863 value in Table 2 conflicts with three occurrences of 58.868 and is treated as a typographical inconsistency.",
+        "source_note": "Coefficients from Section 3.1 and Figure 1 (Equation 1). Table 2 prints V0 as 58.863(2) Å³, which conflicts with three other occurrences of the stored value and is treated as a typographical error.",
         "audit": "../audits/palladium.audit.json#palladium_fedotenko_2020_bm3_1"
       },
       "model": "BM3",
@@ -122,7 +122,7 @@
         "warning_reason": "The published curve fits its 15 Table 1 points poorly (up to about 1.4 GPa) although its coefficients are reproduced.",
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "Table 2 explicitly reports the second-order result K0=203(3) GPa with K0'=4. It uses the same Table 1 observations as the BM3 fit.",
+        "source_note": "K0 from the second-order result in Table 2. V0 follows Table 1, the BM3 fit paragraph and Figure 1 rather than Table 2's isolated 58.863(2) Å³.",
         "audit": "../audits/palladium.audit.json#palladium_fedotenko_2020_bm2_2"
       },
       "model": "BM2",
@@ -157,7 +157,7 @@
         "warning_reason": "The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.",
         "source_check": "unresolved",
         "source_checked_on": "2026-09-04",
-        "source_note": "The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.",
+        "source_note": "Vinet coefficients from Table I, fitted with pressure and volume uncertainties. Pressures come from tungsten markers in Runs 1 and 2 and gold in Run 3 (Supplementary Tables I-III).",
         "audit": "../audits/palladium.audit.json#palladium_frost_2023_vinet_1"
       },
       "model": "Vinet",
@@ -193,7 +193,7 @@
         "warning_reason": "The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.",
         "source_check": "unresolved",
         "source_checked_on": "2026-09-04",
-        "source_note": "Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.",
+        "source_note": "BM3 coefficients from Table I, fitted by Marquardt-Levenberg least squares with 0.1 GPa pressure and Le Bail volume uncertainties (Methods, page 035901-2); observations from Supplementary Tables I-III.",
         "audit": "../audits/palladium.audit.json#palladium_frost_2023_bm3_2"
       },
       "model": "BM3",
@@ -229,7 +229,7 @@
         "warning_reason": "The verified Table S1 observations and source equation do not recover the published experimental BM3 fit.",
         "source_check": "unresolved",
         "source_checked_on": "2026-09-01",
-        "source_note": "The paper reports the BM3 fit in the text and plots its own 300 K P-V observations in Figure 3. The official supplementary Table S1 supplies the complete 78-point compression dataset.",
+        "source_note": "BM3 coefficients from the text with Equation 1; the 300 K observations plotted in Figure 3 are tabulated in the official Supplementary Table S1.",
         "audit": "../audits/palladium.audit.json#palladium_baty_2024_bm3_1"
       },
       "model": "BM3",

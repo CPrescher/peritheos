@@ -123,7 +123,8 @@
             "doi": "10.1002/2013JB010898",
             "access_url": "https://doi.org/10.1002/2013JB010898",
             "locations": ["Table S5 and Text S1, page 2", "2012 official Table S2, source worksheet row numbers retained"],
-            "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+            "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+            "record_note": "Coefficients from Table S5 and Text S1 (p. 2), where Vinet replaces BM3 in Equations (1)-(2); the printed V0 = 6.799 cm³/mol atoms is stored per 16-atom cell. Observations from the official 2012 Table S2."
           },
           "primary_data_check": {
             "status": "bundled",

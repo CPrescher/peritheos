@@ -119,7 +119,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The article defines two high-temperature BM3 models that share the same 300 K isotherm. Tables 2 and 3 give V0=24.45 cm^3/mol and K0=260.51 GPa at 300 K, while the abstract and Equation 16 prescribe K'_300=4. This yields one non-duplicate static BM3 record on the source's Jamieson-1982 Pt pressure scale.",
+        "source_note": "V0 and K0 from Tables 2 and 3 at 300 K (V0 printed as 24.45 cm³/mol, converted to the Z = 4 cell); K0' is prescribed by the abstract and Equation 16. Pressures are on the Jamieson (1982) Pt scale.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_saxena_1999_bm3_4"
       },
       "model": "BM3",
@@ -164,7 +164,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The paper reports a preferred free-K0/free-K0-prime BM3 and a same-data K0-fixed sensitivity fit. The formal correction replaces the erroneous original table while explicitly stating that the EOS parameters are unchanged.",
+        "source_note": "K0 and K0' from section 4.1 and the abstract; V0 is the product of the paragraph 11 ambient lattice parameters. A corrigendum replaces the original Table 1 and states that the EOS parameters are unchanged.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_katsura_2009_bm3"
       },
       "model": "BM3",
@@ -229,7 +229,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source explicitly reports K'_T0=4.1(2) after refitting its own dataset with K_T0 assumed to be 253 GPa.",
+        "source_note": "K0' from section 4.1, paragraph 12, where the authors refit their data with K0 assumed as a Brillouin-comparison value; V0 is the paragraph 11 ambient lattice product.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_katsura_2009_bm3_k0_fixed"
       },
       "model": "BM3",
@@ -291,7 +291,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The record is the complete Wolf et al. reanalysis of Fe-free MgSiO3 observations: a 300 K Vinet isotherm and integrated constant-q MGD correction. It remains distinct from both original Tange et al. records already bundled.",
+        "source_note": "Coefficients from Table 3, 0% Fe column (Equations 1-6); theta0 was fixed after a preliminary Fe-free fit gave 991 ± 77 K (section 3.3). The author's plain-text Table 2 labels the MgO volumes V_Ne; the article identifies them as MgO.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_wolf_2015_vinet_mgd_4"
       },
       "model": "Vinet",
@@ -361,7 +361,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Equation 3 is an executable volumetric BM3 pressure equation. It is distinct from the third-order finite-strain fits to K_S and G in Table 2.",
+        "source_note": "K0 and K0' from Section 3.3 (Equation 3), not the finite-strain K_S and G fits of Table 2. V0 follows from the Table 1 ambient density of 4.1045(10) g/cm³.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_criniti_2021_absolute_bm3"
       },
       "model": "BM3",
@@ -404,7 +404,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source distinguishes a 25-point post-heating 298 K BM3 from global P-V-T inversions combining different datasets.",
+        "source_note": "Coefficients from Section 3.3, fitted by the authors to the 25 post-heating 298 K points of Table 1 by generalized least squares.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_fiquet_2000_bm3_1"
       },
       "model": "BM3",
@@ -454,7 +454,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The study reports its own pure-MgSiO3 control alongside the six Fe-bearing fits and uses it to derive composition trends.",
+        "source_note": "Coefficients from Table 1(c), with K0' fixed per the Table 1 note and Section 3.2; V0 is printed as 24.2717 cm³/mol and converted to the Z = 4 cell.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_metsue_2012_static_bm3_1"
       },
       "model": "BM3",
@@ -497,7 +497,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Table 1 reports the pure perovskite static GGA BM3.",
+        "source_note": "Coefficients from the Table 1 pure-perovskite row (energy-volume BM3 fit, Section 2); V0 is printed as 41.75 Å³ per five-atom unit and stored ×4.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_akber_knutson_2005_gga_bm3"
       },
       "model": "BM3",
@@ -540,7 +540,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv.",
+        "source_note": "Coefficients from the Table I Pv LDA row at 300 K, a BM3 fit to F(V,T) (Section III); V0 is printed as 40.15 Å³ per MgSiO3 and stored for Z = 4.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_zhang_wentzcovitch_2022_phq_lda_300k_bm3"
       },
       "model": "BM3",
@@ -581,7 +581,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv.",
+        "source_note": "Coefficients from the Table I Pv PBE row at 300 K, a BM3 fit to F(V,T) (Section III); V0 is printed as 42.44 Å³ per MgSiO3 and stored for Z = 4.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3"
       },
       "model": "BM3",
@@ -622,7 +622,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations.",
+        "source_note": "V0 from the MgSiO3 entry of Table 1; K0 from the equation-of-state fit paragraph, whose fit uses the nine 300 K Fe10 rows of Table 2.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_mao_1991_bm2_1"
       },
       "model": "BM3",
@@ -662,7 +662,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The mpv endmember is a genuine modified-Tait reference isotherm.",
+        "source_note": "Coefficients from Table 1 and the official tc-ds62 mpv block, printed as V0 = 2.445 J/bar/mol (24.45 cm³/mol), K0 = 2510 kbar and K0'' = -0.00160 kbar^-1; stored in Å³ (Z = 4) and GPa.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_holland_2013_mpv_modified_tait"
       },
       "model": "ModifiedTait",
@@ -704,7 +704,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Table 1 reports three distinct fitted EOS families for the same Pnma energy-volume calculation.",
+        "source_note": "Coefficients from the Table 1 this-study perovskite row, third-order Birch-Murnaghan column; the energy-volume calculation is described in Section 2 and plotted in Figure 1.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_li_zeng_2009_gga_bm3"
       },
       "model": "BM3",
@@ -738,7 +738,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The Vinet column is an author-reported alternative fit, not an independent run.",
+        "source_note": "Coefficients from the Table 1 this-study perovskite row, Vinet column, an alternative fit by the authors to their Pnma energy-volume calculation (Figure 1).",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_li_zeng_2009_gga_vinet"
       },
       "model": "Vinet",
@@ -772,7 +772,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The natural-strain column is a distinct author-reported alternative fit.",
+        "source_note": "Coefficients from the Table 1 this-study perovskite row, third-order natural-strain column, an alternative fit by the authors to their Pnma energy-volume calculation (Figure 1).",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_li_zeng_2009_gga_natural_strain3"
       },
       "model": "NaturalStrain3",
@@ -806,7 +806,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The x=0 EOS triplet is explicitly distinguished from the elastic-modulus finite-strain fit in Table 1.",
+        "source_note": "Coefficients from the text following Table 1 (x = 0), derived from the equation of state; they are distinct from the elastic-modulus finite-strain fit in Table 1.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_kiefer_2002_gga_bm3"
       },
       "model": "BM3",
@@ -849,7 +849,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Superscript b is explicitly the third-order fit; superscript a is fourth order but lacks the required K0'' coefficient and is withheld.",
+        "source_note": "Coefficients from the Table 1 theory (0 K) entry marked b (page 2336), the third-order fit; entry a is a fourth-order fit printed without K0''.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_deng_2006_lda_bm3"
       },
       "model": "BM3",
@@ -893,7 +893,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Complete source-generated Mg endmember BM3, distinct from Table 1's experimental comparison values.",
+        "source_note": "Coefficients from the Table 1 calculation column (Equation (10)), not Table 1's experimental comparison values; the source prints K0 and K0' as B0 and B0'.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_wu_2013_gga_bm3"
       },
       "model": "BM3",
@@ -937,7 +937,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "One complete source-owned static GGA BM3 fit for Pbnm MgSiO3 perovskite.",
+        "source_note": "Coefficients from the Table I this-study GGA column, a least-squares fit to the calculated 0-150 GPa volumes (Section III.A, plotted in Figure 1).",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_liu_2011_gga_static_bm3"
       },
       "model": "BM3",
@@ -980,7 +980,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "The source's k=5 generalized Rydberg reference isotherm is complete; LitCurate's Birch-Murnaghan label is corrected rather than propagated.",
+        "source_note": "Coefficients from Table 1 (V0 = 24.45 cm³/mol, stored per Z = 4 cell). Equation (2) is a generalized Rydberg form with k = 5, i.e. Rydberg-Stacey with K_infinity_prime = 5/3, not Birch-Murnaghan.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_dorogokupets_2015_298k_rydberg_stacey"
       },
       "model": "RydbergStacey",
@@ -1026,7 +1026,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "The source explicitly fits the 300 K simulated volumes to BM3 and reports rho0, K_T0, and K'_T0.",
+        "source_note": "K0 and K0' from the compression-data subsection (Equation (2)); V0 is computed from the printed rho0 = 4.030 g/cm³ for Z = 4.",
         "audit": "../audits/bridgmanite.audit.json#bridgmanite_hamahata_2000_md_300k_bm3"
       },
       "model": "BM3",

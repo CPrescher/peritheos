@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-23",
-        "source_note": "Supplementary Table 11 publishes K0=168.52 GPa and K0_prime=3.34, but no V0. The stored V0 is a conditional Peritheos one-parameter fit, quantitatively checked against Figure 6 without fitting its markers.",
+        "source_note": "Supplementary Table 11 prints K0 and K0' but no V0, so V0 is the Peritheos fit; the calculated markers of Supplementary Figure 6 were used only as a check.",
         "audit": "../audits/coesite_iv.audit.json#coesite_iv_bykova_2018_am05_static_bm3_refit"
       },
       "model": "BM3",
@@ -91,7 +91,7 @@
         "warning_reason": "A joint coesite-IV/V fit, not a pure-phase EOS, with large observation residuals and an unresolved fitting protocol.",
         "source_check": "verified",
         "source_checked_on": "2026-10-24",
-        "source_note": "The published coefficients with an explicit 32.7 GPa reference reproduce the drawn red curve; all observation residuals and unresolved author-fit details are separately retained.",
+        "source_note": "Coefficients from the Figure 1 caption and Supplementary Figure 9, which print the volume per formula unit, 23.44(3) Å³, stored ×16. With P0 as the reference pressure the BM2 matches the red vector curve of Figure 1.",
         "audit": "../audits/coesite_iv.audit.json#coesite_iv_v_bykova_2018_experimental_bm2_reference"
       },
       "model": "BM2Reference",

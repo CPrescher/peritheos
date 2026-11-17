@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg092fe008sio3_bridgmanite.md#record-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3)
 
-**Source finding:** The paper reports one shock-reduced BM3 reference isentrope; the AIP conference version is the same experiment and was rejected as a duplicate.
+**Source finding:** K0S and K0S' from Section 3.3, a BM3 isentrope reduced from the porosity-corrected shock states of Table 1 with a Mie-Grüneisen reduction; V0 follows from rho0 = 4.19 g/cm³ and Z = 4.
 
 Automatic selection for equilibrium calculations.
 
@@ -106,6 +106,7 @@ The source's shock-reduced reference isentrope; not the directly measured princi
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2003GL019132
     - **DOI:** 10.1029/2003gl019132
     - **Locations:** Sections 2 and 3.3; Table 1
+    - **Finding:** The paper reports one shock-reduced BM3 reference isentrope; the AIP conference version is the same experiment and was rejected as a duplicate.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fe093o_rhombohedral.md#record-fe093o_rhombohedral_jacobsen_2005_bm3_1)
 
-**Source finding:** The source's preferred rhombohedral Fe0.93O parameterization is the ambient-reference BM3 cross-check on all nine 27.7-51.1 GPa rows, with V0 and K0 varied and K0'=4 fixed.
+**Source finding:** Coefficients from Results section 3.1 (p. 580), the ambient-reference fit of Figure 5; Table 1 gives equivalent-hexagonal-cell volumes.
 
 Automatic selection for equilibrium calculations.
 
@@ -98,6 +98,7 @@ The authors' preferred cross-check fit to all nine rhombohedral observations of 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1107/S0909049505022326
     - **Locations:** Experiment, pages 577-578; Results section 3.1 and Table 1, pages 579-580; Figure 5, page 580
+    - **Finding:** The source's preferred rhombohedral Fe0.93O parameterization is the ambient-reference BM3 cross-check on all nine 27.7-51.1 GPa rows, with V0 and K0 varied and K0'=4 fixed.
     - **DOI:** 10.1107/S0909049505022326
 - **Reported parameterizations:**
     - **Role:** finite\_pressure\_fit

@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-07",
-        "source_note": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observations, 3% temperature correction, and global multi-study fit scope were reconstructed. All identifiable row-level sources are bundled: Fischer Table S1, Seagle supplementary Table 1, Ozawa printed Table 2, and Campbell supplementary Table S2. The final combined row selection and exact weighting protocol remain unpublished.",
+        "source_note": "Coefficients from Table 1 with Equation (1) (pages 12-13); V0 = 12.256 cm³/mol is fixed from McCammon and Liu (1984) and converted to the Z = 4 cell. The K0' error is the Table 1 value; the abstract prints 0.4.",
         "audit": "../audits/feo.audit.json#feo_fischer_2011_bm3_2"
       },
       "model": "BM3",
@@ -59,7 +59,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source reports a cubic B1 Fe0.93O BM3 fit to the seven 0-22.8 GPa rows, with V0 and K0 varied and K0'=4 fixed.",
+        "source_note": "V0 and K0 from Results section 3.1, page 579 (EOS-FIT 5.2 program); K0' was fixed because relatively few points lie below 20 GPa.",
         "audit": "../audits/feo.audit.json#fe093o_b1_jacobsen_2005_bm3_1"
       },
       "model": "BM3",
@@ -101,7 +101,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Complete high-spin BM3 after formula-unit volume conversion; low-spin row rejected because low-spin V0 is absent.",
+        "source_note": "Coefficients from the Table I high-spin column; V0 = 144.1 bohr³ per formula unit is converted to the Z = 4 cell. The paper gives no low-spin V0.",
         "audit": "../audits/feo.audit.json#feo_leonov_2017_hs_bm3_1"
       },
       "model": "BM3",
@@ -142,7 +142,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The fper endmember is a distinct modified-Tait reference isotherm.",
+        "source_note": "Coefficients from Table 1 and the official tc-ds62 fper block, converted from V0 = 1.206 J/bar/mol, K0 = 1520 kbar and K0'' = -0.00320 kbar^-1 to GPa and the Z = 4 cell.",
         "audit": "../audits/feo.audit.json#feo_holland_2013_fper_modified_tait"
       },
       "model": "ModifiedTait",
@@ -185,7 +185,7 @@
         "warning": null,
         "source_check": "deferred",
         "source_checked_on": "2026-09-20",
-        "source_note": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+        "source_note": "Coefficients from Equation (5) and Table 1, page 560; italic Table 1 values are held fixed. The exact Seagle pressure reduction Campbell used and the authors' regression inputs and row selection are unresolved.",
         "audit": "../audits/feo.audit.json#feo_campbell_2009_bm3_mgd"
       },
       "model": "BM3",

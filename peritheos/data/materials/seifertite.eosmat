@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The stored BM2 records are the 300 K reference isotherms of the MGD fits.",
+        "source_note": "Coefficients from the Table 1 seifertite row and the paper's thermal EOS formulation; the BM2 is the 300 K reference isotherm of that MGD fit.",
         "audit": "../audits/seifertite.audit.json#seifertite_sun_2019_bm2_1"
       },
       "model": "BM2",
@@ -58,7 +58,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly.",
+        "source_note": "Coefficients from the Table 1 alpha-PbO2 QMC column; V0 = 154.8(1) bohr³ per SiO2 is converted to Å³ and multiplied by Z = 4.",
         "audit": "../audits/seifertite.audit.json#seifertite_driver_2010_qmc_300k_vinet"
       },
       "model": "Vinet",

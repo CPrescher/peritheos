@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/nickel_oxide_b1.md#record-nickel_oxide_b1_campbell_2009_bm3_mgd)
 
-**Source finding:** Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.
+**Source finding:** Coefficients from Table 1 and Equation (5); italic Table 1 values are held fixed. V0 = 10.973 cm³/mol is the source's JCPDS value (card not identified), converted to the Z = 4 cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -107,6 +107,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://doi.org/10.1016/j.epsl.2009.07.022
     - **DOI:** 10.1016/j.epsl.2009.07.022
     - **Locations:** Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5
+    - **Finding:** Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.
     - **Source pdf sha256:** e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0
 - **Primary data check:**
     - **Status:** bundled

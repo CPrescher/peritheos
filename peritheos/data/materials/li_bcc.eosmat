@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "This is explicitly one empirical Vinet curve fitted across the small bcc-fcc volume discontinuity. Its bcc two-atom-cell volume convention is retained, and it is not described as a phase-specific bcc EOS.",
+        "source_note": "Coefficients from the Table 2 this-work Vinet row (page 125); the fixed atomic V0 = 21.6225 Å³ is doubled for the two-atom bcc cell.",
         "audit": "../audits/li_bcc.audit.json#li_hanfland_1999_vinet_1"
       },
       "model": "Vinet",

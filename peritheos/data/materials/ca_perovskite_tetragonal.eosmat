@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Table 2's fixed-derivative fit is used. Its V0 and error are converted from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 cell. All 23 Table 1 rows were transcribed, with the 14 reanalyzed 2016 and nine new 2022 observations distinguished, and independently reproduce both Table 2 fits.",
+        "source_note": "Coefficients from the fixed-K0' row of Table 2 (p. 112), with the Birch-Murnaghan form and Z normalization of pp. 111-112; the P-V data are in Table 1.",
         "audit": "../audits/ca_perovskite_tetragonal.audit.json#ca_perovskite_tetragonal_sun_2022_bm3_1"
       },
       "model": "BM3",
@@ -59,7 +59,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Complete source-owned LDA room-temperature Ca-pv Vinet fit; I4/mcm is the relevant 300 K phase.",
+        "source_note": "Coefficients from the this-work LDA Ca-pv row of Table 2, with the Vinet form given in Methods.",
         "audit": "../audits/ca_perovskite_tetragonal.audit.json#ca_perovskite_tetragonal_sagatova_2021_lda_300k_vinet"
       },
       "model": "Vinet",
@@ -103,7 +103,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Complete source-owned GGA room-temperature Ca-pv Vinet fit; I4/mcm is the relevant 300 K phase.",
+        "source_note": "Coefficients from the this-work GGA Ca-pv row of Table 2, with the Vinet form given in Methods.",
         "audit": "../audits/ca_perovskite_tetragonal.audit.json#ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet"
       },
       "model": "Vinet",
@@ -147,7 +147,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Explicit source BM3 fit for I4/mcm (a0a0c-).",
+        "source_note": "Coefficients from the BM3 fit in the I4/mcm column of Table 2 (Section 4); the source V0 per formula unit is multiplied by Z = 4.",
         "audit": "../audits/ca_perovskite_tetragonal.audit.json#ca_perovskite_tetragonal_caracas_2005_bm3_1"
       },
       "model": "BM3",
@@ -190,7 +190,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Explicit source BM4 fit for I4/mcm (a0a0c-).",
+        "source_note": "Coefficients from the BM4 fit in the I4/mcm column of Table 2 (Section 4); the source V0 per formula unit is multiplied by Z = 4.",
         "audit": "../audits/ca_perovskite_tetragonal.audit.json#ca_perovskite_tetragonal_caracas_2005_bm4_2"
       },
       "model": "BM4",
@@ -234,7 +234,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-07",
-        "source_note": "The paper reports a seven-observation I4/mcm 300 K Vinet fit, K0'=4 fixed, with V0 fitted because the phase is unstable at ambient pressure.",
+        "source_note": "Coefficients from Table 2 (p. 467) and Figure 5 (p. 466); only the I4/mcm refinements of Table 1 enter the fit, not the parallel P4/mmm refinements.",
         "audit": "../audits/ca_perovskite_tetragonal.audit.json#ca_perovskite_tetragonal_chen_2018_vinet"
       },
       "model": "Vinet",

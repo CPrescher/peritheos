@@ -3792,7 +3792,9 @@ def main() -> None:
                 "doi": normalized_doi(audited.get("reference")),
                 "status": check["status"],
                 "note": check["note"],
-                "primary_source_check": check["primary_source_check"],
+                "primary_source_check": ledger_source_check(
+                    check["primary_source_check"]
+                ),
             }
             if "usage_recommendation" in check:
                 entry["usage_recommendation"] = check["usage_recommendation"]
@@ -3865,6 +3867,17 @@ def main() -> None:
     print(json.dumps(report["summary"], sort_keys=True))
 
 
+def ledger_source_check(source_check: dict[str, Any]) -> dict[str, Any]:
+    """The audit evidence of a ``primary_source_check`` for the ledger.
+
+    ``record_note`` is the short text shown as a record's ``check.source_note``
+    (written by ``scripts/apply_check_text.py``); it is display text, not audit
+    evidence, so the ledger keeps the verbatim ``finding`` only, as it omits
+    ``warning_reason``.
+    """
+    return {k: v for k, v in source_check.items() if k != "record_note"}
+
+
 def aggregate_existing_audits() -> None:
     """Rebuild aggregate audit files without rewriting curated material records."""
     # Some audits retain additional candidate evidence only in this ledger.
@@ -3898,7 +3911,9 @@ def aggregate_existing_audits() -> None:
                 "note": check.get("note")
                 or previous.get("note")
                 or check["primary_source_check"]["finding"],
-                "primary_source_check": check["primary_source_check"],
+                "primary_source_check": ledger_source_check(
+                    check["primary_source_check"]
+                ),
             }
             if "usage_recommendation" in check:
                 entry["usage_recommendation"] = check["usage_recommendation"]

@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/vanadium_bcc.md#record-vanadium_bcc_crichton_2016_bm3_thermal)
 
-**Source finding:** Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit.
+**Source finding:** Coefficients from Results, p. 5, of the accepted manuscript; the modulus and thermal coefficients agree with the publisher abstract. V0 corresponds to the fitted relative volume 1.005(1), equal to the recovered volume (Figure 2 caption); alpha0 is the intercept at T = 0, not alpha(300 K).
 
 Automatic selection for equilibrium calculations.
 
@@ -110,6 +110,7 @@ The authors' unconstrained, unweighted 62-point thermal fit; the anomalous first
     - **Access URL:** https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium\_submtd\_revised.pdf
     - **Source version:** UCL author accepted manuscript; numerical abstract cross-checked on publisher publication-of-record page
     - **Locations:** Accepted manuscript pp.4-7: Experimental, Results, Conclusion; Accepted manuscript p.11: Figure 2; Publisher abstract (21 January 2016); Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions
+    - **Finding:** Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit.
 - **Verified fields:** composition; bcc phase; conventional two-atom volume; V0; K0; K0\_prime; Tr; alpha0; alpha1; dK\_dT; absolute-temperature integrated expansivity; linear K0(T); parameter errors; experimental domain
 - **Primary data check:**
     - **Status:** plot\_only

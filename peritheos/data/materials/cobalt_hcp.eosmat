@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The primary paper fits hcp cobalt with the Vinet EOS; the migrated BM3 model label was corrected.",
+        "source_note": "Coefficients from the hcp-volume paragraph on page 6; the paper fits the Vinet form, not BM3 as the earlier migrated entry had it. The observations appear only graphically in Figure 3.",
         "audit": "../audits/cobalt_hcp.audit.json#cobalt_hcp_fujihisa_1996_vinet_1"
       },
       "model": "Vinet",
@@ -47,7 +47,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/cobalt_hcp.audit.json#cobalt_hcp_dewaele_2019_mao_vinet"
       },
       "model": "Vinet",
@@ -87,7 +87,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Dorogokupets (2007) ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/cobalt_hcp.audit.json#cobalt_hcp_dewaele_2019_dor_vinet"
       },
       "model": "Vinet",
@@ -128,7 +128,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-23",
-        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "source_note": "Coefficients from Table IV, third column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per two-atom cell (Z = 2).",
         "audit": "../audits/cobalt_hcp.audit.json#cobalt_hcp_dewaele_2008_table4_vinet"
       },
       "model": "Vinet",

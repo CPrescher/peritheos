@@ -324,10 +324,9 @@ the published coefficients.
 doi:10.1029/2000JB900318
     Quasi-hydrostatic compression of magnesium oxide to 52 GPa: Implications \
 for the pressure-volume-temperature equation of state
-  Source check: verified (2026-10-09). Published final BM3 + variable-q Debye \
-model: V0=74.71 A^3/cell, K0=160.2 GPa, K0_prime=3.99, gamma0=1.524, q0=1.65, \
-q1=11.8, theta0=773 K and Tr=300 K. Author reply confirms integration of the \
-defining theta relation using Equation 11.
+  Source check: verified (2026-10-09). Reference isotherm from the constrained \
+BM3 fit of Section 4.2; theta0 and gamma0 from Section 5.1, q0 and q1 from \
+Section 5.4 (Equations 10-11).
   Report: https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mgo/\
 #record-mgo_speziale_2001_bm3_2"""
 

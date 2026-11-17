@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/klb1_mg_perovskite.md#record-klb1_mg_perovskite_ricolleau_2009_bm2_alphakt)
 
-**Source finding:** One independent thermal BM2 fit for KLB-1 Mg-perovskite.
+**Source finding:** Coefficients from the Table 1 Mg-perovskite row: the Section 3 high-temperature Birch-Murnaghan form with K0' fixed and alpha(T) = alpha0 + alpha1\*T. The observations are in Supporting Information Table S1; the paper does not publish row exclusions.
 
 Automatic selection for equilibrium calculations.
 
@@ -111,6 +111,7 @@ Effective EOS that includes the small phase-composition changes of the coexistin
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759
     - **DOI:** 10.1029/2008gl036759
     - **Locations:** Experimental Procedure; Section 3; Table 1; Supporting Information readme and Table S1
+    - **Finding:** One independent thermal BM2 fit for KLB-1 Mg-perovskite.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08

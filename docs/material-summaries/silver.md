@@ -67,7 +67,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_dewaele_2008_table4_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source finding:** Coefficients from Table IV, third column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per four-atom cell (Z = 4).
 
 Automatic selection for equilibrium calculations.
 
@@ -106,6 +106,7 @@ Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, third column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** silver\_dewaele\_2008\_source\_table
@@ -146,7 +147,7 @@ Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_dewaele_2008_vinet_1)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from the Mao ruby-scale reduction in Dewaele (2019) Table 1 with Equation (1), stored under an identifier that names the 2008 paper.
 
 Published pressure-scale alternative of [silver\_dewaele\_2019\_mao\_vinet](#record-silver_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -179,6 +180,7 @@ Compatibility identifier for the Mao-scale Vinet fit of Dewaele (2019, Table 1),
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -234,7 +236,7 @@ Compatibility identifier for the Mao-scale Vinet fit of Dewaele (2019, Table 1),
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_sokolova_2013_holzapfel_2)
 
-**Source finding:** The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.
+**Source finding:** Stored coefficients match the Ag columns of Tables 1 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -279,6 +281,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/j.rgg.2013.01.005
     - **Locations:** Equations 1-15; Table 1 input reference values; Table 4 optimized parameters for all eleven markers; Figures 3-11 cross-calibration tests
+    - **Finding:** The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.
     - **DOI:** 10.1016/j.rgg.2013.01.005
 - **Migration source:**
     - **Project:** Dioptas
@@ -335,7 +338,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_dewaele_2019_mao_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -372,6 +375,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon.
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -422,7 +426,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_dewaele_2019_dor_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Dorogokupets (2007) ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [silver\_dewaele\_2019\_mao\_vinet](#record-silver_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -461,6 +465,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon.
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -511,7 +516,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_dewaele_2008_table4_us_k0_101_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source finding:** Coefficients from Table IV, fourth column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per four-atom cell (Z = 4).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -548,6 +553,7 @@ Table IV fit with K0 adopted from ultrasound and fixed, distinct from the later 
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, fourth column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** silver\_dewaele\_2008\_source\_table

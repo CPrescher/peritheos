@@ -18,7 +18,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source fully defines one executable post-transition isothermal EOS for Pv10: a standard third-order Birch-Murnaghan pressure-volume fit to all observations above 25 GPa, with conventional Pbnm-cell V0=162.6(+/-0.3) A^3, KT0=284(+/-4) GPa, and fixed KT0'=4. The high-spin branch is discussed and was used to model the transition, but its fitted parameters are not printed and it is therefore not added.",
+        "source_note": "Coefficients from Results (p. 4337) and the Table S2 low-spin row; observations in Table S1. The high-spin branch was used to model the transition, but its fitted coefficients are not printed.",
         "audit": "../audits/mg09fe01sio3_bridgmanite.audit.json#mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1"
       },
       "model": "BM3",
@@ -76,7 +76,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations.",
+        "source_note": "V0 from the Table 1 Fe10 entry; K0 from the equation-of-state fit paragraph, fitted to the Fe10 rows of Table 2 on the gold pressure scale.",
         "audit": "../audits/mg09fe01sio3_bridgmanite.audit.json#mg09fe01sio3_bridgmanite_mao_1991_bm2_2"
       },
       "model": "BM3",

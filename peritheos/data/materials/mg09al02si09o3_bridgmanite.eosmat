@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source reports a preferred fixed-K0_prime BM3 and a secondary unconstrained BM3 for one Pbnm Mg0.9Al0.2Si0.9O3 specimen. It explicitly rejects precise interpretation of the free derivative, not the underlying fit.",
+        "source_note": "K0 from the abstract and page 106 (fixed-derivative fit to all ten Table I rows); V0 from the Table I atmospheric row of the ap run. The paper names the third-order Birch-Murnaghan form but does not print the formula.",
         "audit": "../audits/mg09al02si09o3_bridgmanite.audit.json#mg09al02si09o3_bridgmanite_kubo_2000_bm3_1"
       },
       "model": "BM3",
@@ -71,7 +71,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The unconstrained coefficients are genuinely source-reported, but the paper treats them as a poorly constrained sensitivity result and adopts the fixed-derivative alternative.",
+        "source_note": "K0 and K0' from the unconstrained fit on page 106 to all ten Table I rows; V0 from the Table I atmospheric row of the ap run. The paper names the third-order Birch-Murnaghan form but does not print the formula.",
         "audit": "../audits/mg09al02si09o3_bridgmanite.audit.json#mg09al02si09o3_bridgmanite_kubo_2000_bm3_2"
       },
       "model": "BM3",

@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2019_mao_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 Automatic selection for equilibrium calculations.
 
@@ -103,6 +103,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -153,7 +154,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2019_dor_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [zinc\_hcp\_dewaele\_2019\_mao\_vinet](#record-zinc_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -192,6 +193,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -242,7 +244,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2008_table4_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source finding:** Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -279,6 +281,7 @@ Table IV fit. V0 is fixed from a separate fit to the 0-5 GPa data. Run-2 Ag/Mo p
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, third column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** zinc\_hcp\_dewaele\_2008\_source\_table
@@ -327,7 +330,7 @@ Table IV fit. V0 is fixed from a separate fit to the 0-5 GPa data. Run-2 Ag/Mo p
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2008_table4_us_k0_60_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source finding:** Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -364,6 +367,7 @@ Table IV fit. V0 is fixed from a separate fit to the 0-5 GPa data; K0 is adopted
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, fourth column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** zinc\_hcp\_dewaele\_2008\_source\_table

@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/lif_b1.md#record-lif_b1_dewaele_2019_vinet_1)
 
-**Source finding:** Table 4 reports 60 LiF P-V observations in three experimental runs; all are bundled without converting their per-formula-unit volume convention.
+**Source finding:** Coefficients from the Table 1 Mao ruby-scale column, chosen because it reports parameter uncertainties; Table 4 lists the 60 measured P-V points.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ Table 1 fit on the Mao ruby scale. Published V0 = 16.371(30) Å³ per formula un
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.3390/min9110684
     - **Locations:** Vinet formulation; Table 1, experimental Vinet parameters; Table 4, measured LiF P-V observations; Figure 4
+    - **Finding:** Table 4 reports 60 LiF P-V observations in three experimental runs; all are bundled without converting their per-formula-unit volume convention.
     - **DOI:** 10.3390/min9110684
 - **Migration source:**
     - **Project:** Dioptas

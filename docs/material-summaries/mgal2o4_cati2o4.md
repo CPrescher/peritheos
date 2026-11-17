@@ -64,7 +64,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 **Warning:** Not recommended for quantitative use. A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use.
 
-**Source finding:** Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure. The authors construct its second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from the one usable compressed run-4 cell; run-2 CaTi2O4-type peaks were too weak and overlapped for a reliable cell volume.
+**Source finding:** V0 from Section 3.3 and Table 2 (recovered run-4 cell); K0 from Section 3.3, computed from the in-situ run-4 cell at 64.3 GPa. Its error comes from the difference between ruby- and Pt-derived pressures.
 
 Automatic selection for equilibrium calculations.
 
@@ -103,6 +103,7 @@ CaTi2O4-type product established by runs 3 and 4, distinct from the lower-pressu
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575
     - **DOI:** 10.1029/98JB01575
     - **Locations:** Experimental method; Table 1; Sections 3.2-3.3; Table 2; Figure 4
+    - **Finding:** Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure. The authors construct its second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from the one usable compressed run-4 cell; run-2 CaTi2O4-type peaks were too weak and overlapped for a reliable cell volume.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -175,7 +176,7 @@ CaTi2O4-type product established by runs 3 and 4, distinct from the lower-pressu
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgal2o4_cati2o4.md#record-mgal2o4_cati2o4_ono_2006_bm2_2)
 
-**Source finding:** Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves.
+**Source finding:** Coefficients from Results, p. 203, for the unnumbered Birch-Murnaghan equation with K0' = 4; the body resolves the abstract's V0 error notation as 0.9 Å³.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -213,6 +214,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Access URL:** https://repository.geologyscience.ru/server/api/core/bitstreams/55584c23-e366-4fc8-ae97-f94d81827cbf/content
     - **DOI:** 10.1007/s00269-006-0068-z
     - **Locations:** Experimental, p. 201; Results, pp. 202-203; Tables 2-3; Figures 4-5
+    - **Finding:** Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08

@@ -97,6 +97,7 @@
             "access_url": "https://doi.org/10.1038/s43246-025-00792-5",
             "locations": ["Equation (1)", "Table 2", "Supplementary Data 1, Tables S8-S10", "Official R-S EoS workbook"],
             "finding": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+            "record_note": "Coefficients from Table 2 with Equation (1); they match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).",
             "doi": "10.1038/s43246-025-00792-5"
           },
           "primary_data_check": {
@@ -268,7 +269,8 @@
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
             "doi": "10.1103/physrevb.70.094112",
             "locations": ["Equation (1)", "Figure 2 caption", "Tables I and II"],
-            "finding": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients."
+            "finding": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients.",
+            "record_note": "Coefficients from the revised-ruby-scale Vinet fit in Table II (with Equation (1) and the Figure 2 caption); bold Table II values are fixed."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -376,6 +378,7 @@
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.104119/fulltext",
             "locations": ["Abstract", "Vinet EOS analysis", "Table I"],
             "finding": "The stored record is the B0=167 GPa constrained fit on the Dorogokupets-Oganov ruby scale.",
+            "record_note": "The Table I fit with K0 constrained, on the Dorogokupets-Oganov ruby scale.",
             "doi": "10.1103/physrevb.78.104119"
           },
           "primary_data_check": {
@@ -469,6 +472,7 @@
               "Equations (19)-(29) and Table V, pages 1540-1541"
             ],
             "finding": "The stored record reproduces Equation (29) and all 126 top-row values in Table V: a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure slope. Tables I-IV expose the staged derivation of the two thermal coefficients and the non-regression selection of K0'. The partial published error on (dKT/dT)V is retained; the article also identifies an additional unquantified contribution from K0' uncertainty.",
+            "record_note": "Coefficients from Equation (29); the stored record agrees with all 126 top-row pressures of Table V. The dK_dT_V error is the partial published error; the article notes a further unquantified contribution from K0' uncertainty.",
             "doi": "10.1063/1.342969"
           },
           "migration_source": {
@@ -680,6 +684,7 @@
               "Au thermal-refit paragraph, pages 9183-9184"
             ],
             "finding": "Vinet K0-prime=6.00(2), gamma0=2.97(3), q=0.6(3), theta0=170 K. Equation 3 uses the direct variable-exponent Debye law and a 300 K energy subtraction. Figure 1 calculated hot curves agree at graphical precision; cold revised-ruby and hot Speziale-MgO calibration evidence is kept distinct.",
+            "record_note": "Coefficients from Table 1 and Equations 2-3 (p. 9183), with a 300 K energy subtraction in Equation 3; q comes from the Au thermal-refit paragraph (pp. 9183-9184). The record agrees with the Figure 1 calculated hot curves at graphical precision.",
             "doi": "10.1073/pnas.0609013104",
             "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306"
           },
@@ -848,6 +853,7 @@
               "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
             ],
             "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+            "record_note": "Coefficients from Table II (pp. 9-12). The Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.",
             "doi": "10.1103/fxgq-96sg"
           },
           "migration_source": {
@@ -928,6 +934,7 @@
               "Figures 3-11 cross-calibration tests"
             ],
             "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+            "record_note": "Stored coefficients match the Au columns of Tables 1 and 4.",
             "doi": "10.1016/j.rgg.2013.01.005"
           },
           "migration_source": {
@@ -1104,6 +1111,7 @@
             "access_url": "https://doi.org/10.1126/science.abh0364",
             "locations": ["Figures 2-4", "Table 1", "supplementary methods"],
             "finding": "The primary paper reports the 298 K Au Vinet parameters V0=16.929 A^3/atom, K0=170.9(24) GPa, and K0'=5.880(5), constrained by shockless ramp compression to approximately 1 TPa.",
+            "record_note": "Coefficients from Table 1; Figures 2-4 and the supplementary methods give the shockless ramp-compression constraint to about 1 TPa.",
             "doi": "10.1126/science.abh0364"
           },
           "primary_data_check": {
@@ -1268,7 +1276,8 @@
             "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
             "doi": "10.3390/min9110684",
             "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+            "record_note": "Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -1446,7 +1455,8 @@
             "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
             "doi": "10.3390/min9110684",
             "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+            "record_note": "Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -1563,7 +1573,8 @@
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
             "doi": "10.1103/physrevb.70.094112",
             "locations": ["Equation (1)", "Figure 2 caption", "Tables I and II"],
-            "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+            "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
+            "record_note": "Coefficients from Table II, classical Mao ruby reduction, with the Vinet form of the Figure 2 caption; bold Table II values are fixed."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -1674,7 +1685,8 @@
             "access_url": "https://doi.org/10.1029/2012JB009292",
             "doi": "10.1029/2012JB009292",
             "locations": ["Table 1", "Equations (2)-(3)", "Section 3.2", "Table 2", "auxiliary Tables S1-S6"],
-            "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
+            "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
+            "record_note": "Coefficients from the K0-fixed solution in Table 2, from the coupled pressure-difference fit of Equations (2)-(3) (Section 3.2). AN012, listed in Table 1, is absent from the official auxiliary data PDF."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -1834,7 +1846,8 @@
             "access_url": "https://doi.org/10.1029/2012JB009292",
             "doi": "10.1029/2012JB009292",
             "locations": ["Table 1", "Equations (2)-(3)", "Section 3.2", "Table 2", "auxiliary Tables S1-S6"],
-            "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
+            "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
+            "record_note": "Coefficients from the K0-free solution in Table 2, from the coupled pressure-difference fit of Equations (2)-(3) (Section 3.2). AN012, listed in Table 1, is absent from the official auxiliary data PDF."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -1979,7 +1992,8 @@
             "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
             "doi": "10.1002/2016jb013811",
             "locations": ["Section 3.3", "Table 1", "corrected Data Set S1", "erratum"],
-            "finding": "Ye fits K0-prime=5.897(22) with V0 and K0 fixed......"
+            "finding": "Ye fits K0-prime=5.897(22) with V0 and K0 fixed......",
+            "record_note": "Coefficients from Table 1 (Section 3.3), with V0 and K0 taken from Dorogokupets-Dewaele (2007); K0' is fitted to the erratum-corrected Au+MgO Data Set S1 with MgO-D07 as the pressure standard."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -2098,7 +2112,8 @@
             "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
             "doi": "10.22541/essoar.176236186.65259830/v1",
             "locations": ["Equations (2)-(8)", "Table 1", "Mendeley v3 Au optimizer and property scripts"],
-            "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
+            "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set.",
+            "record_note": "Thermal form from Equations (2)-(8); coefficients follow the Mendeley Data v3 Au optimizer and property scripts, with the 300 K branch fixed to Ye et al. (2017) Table 1."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -2282,7 +2297,8 @@
             "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
             "doi": "10.1016/j.pepi.2008.03.002",
             "locations": ["Table 1, page 150", "Table 2, page 152", "Sections 3.1-3.2, pages 151-153"],
-            "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled."
+            "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled.",
+            "record_note": "Coefficients from Table 2 (p. 152), fit #2, with the thermal form of Section 3.2; the record agrees with every calculated Au pressure in Table 1 (p. 150)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -2456,7 +2472,8 @@
             "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
             "doi": "10.1016/j.pepi.2008.03.002",
             "locations": ["Table 1, page 150", "Table 2, page 152", "Sections 3.1-3.2, pages 151-153"],
-            "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled."
+            "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled.",
+            "record_note": "Coefficients from Table 2 (p. 152), fit #1, with the thermal form of Section 3.2."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -2597,7 +2614,8 @@
             "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
             "doi": "10.1016/j.pepi.2008.03.002",
             "locations": ["Table 1, page 150", "Table 2, page 152", "Sections 3.1-3.2, pages 151-153"],
-            "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled."
+            "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled.",
+            "record_note": "Coefficients from the 300 K isotherm fit of Table 2 (p. 152); the Au and MgO volumes are in Table 1 (p. 150)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -2686,7 +2704,8 @@
             "access_url": "https://doi.org/10.1016/j.pepi.2003.09.018",
             "doi": "10.1016/j.pepi.2003.09.018",
             "locations": ["Tables 1-3, pages 519-523", "Sections 3.1-3.2 and 4.2", "Adopted Shim (2002) Equations 1-8 and Table 1"],
-            "finding": "New modified Au q and fitted Pt parameterization, not a new MgO scale. Published heat-capacity prefactors retained; see dedicated numerical audit."
+            "finding": "New modified Au q and fitted Pt parameterization, not a new MgO scale. Published heat-capacity prefactors retained; see dedicated numerical audit.",
+            "record_note": "Coefficients from Table 3 (p. 523): Au values adopted from Shim (2002) except q, the new Fei contribution. n encodes the printed heat-capacity prefactor 0.125 J/g/K."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -2774,7 +2793,8 @@
               "Table III and caption, page 104114-4",
               "Equations (1)-(18) and Sections II-III, pages 104114-1/6"
             ],
-            "finding": "The published fitted Au 300 K BM3 branch and density normalization are verified from the primary PDF. The full thermal equation and original fit are not reconstructed by this record."
+            "finding": "The published fitted Au 300 K BM3 branch and density normalization are verified from the primary PDF. The full thermal equation and original fit are not reconstructed by this record.",
+            "record_note": "K0 and K0' from the 300 K entries of Table II (p. 104114-3); footnote a marks the BM3 K0' as the unparenthesized value, distinct from the cold 0 K branch."
           },
           "primary_data_check": {
             "status": "parameterization_only",
@@ -2892,7 +2912,8 @@
               "Table III and caption, page 104114-4",
               "Equations (1)-(18) and Sections II-III, pages 104114-1/6"
             ],
-            "finding": "The published fitted Au 300 K Vinet branch and density normalization are verified from the primary PDF. The full thermal equation and original fit are not reconstructed by this record."
+            "finding": "The published fitted Au 300 K Vinet branch and density normalization are verified from the primary PDF. The full thermal equation and original fit are not reconstructed by this record.",
+            "record_note": "K0 and K0' from the 300 K entries of Table II (p. 104114-3); footnote a marks the Vinet K0' as the parenthesized value, distinct from the cold 0 K branch."
           },
           "primary_data_check": {
             "status": "parameterization_only",
@@ -3019,7 +3040,8 @@
               "Table III and caption, page 104114-4",
               "Equations (1)-(18) and Sections II-III, pages 104114-1/6"
             ],
-            "finding": "Equations 1-12 and Table III supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction."
+            "finding": "Equations 1-12 and Table III supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction.",
+            "record_note": "K0 and theta0 are the published values; V0 (the 0 K cold volume), K0', gamma0, a and b are fitted to the calculated Table III outputs of Equations 1-12. Electronic pressures are from Tsuchiya-Kawamura (2002) Table I with the 2003 erratum."
           },
           "primary_data_check": {
             "status": "parameterization_only",
@@ -3175,7 +3197,8 @@
               "Speziale (2001), Equation (11) and recorded author confirmation",
               "Peritheos staged regression and derived-data report"
             ],
-            "finding": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity."
+            "finding": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.",
+            "record_note": "Observations from Hirose (2008) Table 1 and Fei (2004) Table 1; pressures recalculated with Speziale (2001) Equation (11). The coefficients are Peritheos fits, not values printed in either paper."
           }
         },
         "parameter_provenance": {

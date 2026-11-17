@@ -69,7 +69,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3)
 
-**Source finding:** Table 1 reports this model-specific HS fit and the authors select model 1 for thermodynamic calculations.
+**Source finding:** Coefficients from Table 1(a), high-spin model 1, with the BM3 form of Section 3.2; the printed V0 = 24.3325 cm³/mol is stored per Z = 4 cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -115,6 +115,7 @@ Static 0 K LSDA+U calculation. The authors prefer this configuration among the s
     - **Access URL:** https://academic.oup.com/gji/article/190/1/310/598134
     - **DOI:** 10.1111/j.1365-246X.2012.05511.x
     - **Locations:** Methods; Table 1(a); Section 3.2
+    - **Finding:** Table 1 reports this model-specific HS fit and the authors select model 1 for thermodynamic calculations.
 - **Primary data check:**
     - **Status:** parameterization\_and\_pressure\_grid\_only
     - **Audit date:** 2026-09-05
@@ -158,7 +159,7 @@ Static 0 K LSDA+U calculation. The authors prefer this configuration among the s
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3)
 
-**Source finding:** Distinct model-2 supercell parameterization, retained as a non-default sensitivity record.
+**Source finding:** Coefficients from Table 1(a), high-spin model 2, with the BM3 form of Section 3.2; the printed V0 = 24.3326 cm³/mol is stored per Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -201,6 +202,7 @@ Static 0 K calculation for an alternative supercell configuration (model 2). It 
     - **Access URL:** https://academic.oup.com/gji/article/190/1/310/598134
     - **DOI:** 10.1111/j.1365-246X.2012.05511.x
     - **Locations:** Table 1(a); Section 3.2
+    - **Finding:** Distinct model-2 supercell parameterization, retained as a non-default sensitivity record.
 - **Primary data check:**
     - **Status:** parameterization\_and\_pressure\_grid\_only
     - **Audit date:** 2026-09-05
@@ -242,7 +244,7 @@ Static 0 K calculation for an alternative supercell configuration (model 2). It 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3)
 
-**Source finding:** Distinct model-3 supercell parameterization, retained as a non-default sensitivity record.
+**Source finding:** Coefficients from Table 1(a), high-spin model 3, with the BM3 form of Section 3.2; the printed V0 = 24.3317 cm³/mol is stored per Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -285,6 +287,7 @@ Static 0 K calculation for an alternative supercell configuration (model 3). It 
     - **Access URL:** https://academic.oup.com/gji/article/190/1/310/598134
     - **DOI:** 10.1111/j.1365-246X.2012.05511.x
     - **Locations:** Table 1(a); Section 3.2
+    - **Finding:** Distinct model-3 supercell parameterization, retained as a non-default sensitivity record.
 - **Primary data check:**
     - **Status:** parameterization\_and\_pressure\_grid\_only
     - **Audit date:** 2026-09-05
@@ -326,7 +329,7 @@ Static 0 K calculation for an alternative supercell configuration (model 3). It 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3)
 
-**Source finding:** The LS curve is source-reported but explicitly unstable; it is retained with a metastability warning rather than made default.
+**Source finding:** Coefficients from Table 1(b), low-spin model 1, with the BM3 form of Section 3.2; the printed V0 = 24.2583 cm³/mol is stored per Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -369,6 +372,7 @@ Metastable low-spin comparison branch; do not use it as the equilibrium spin bra
     - **Access URL:** https://academic.oup.com/gji/article/190/1/310/598134
     - **DOI:** 10.1111/j.1365-246X.2012.05511.x
     - **Locations:** Table 1(b); Sections 3.1-3.3
+    - **Finding:** The LS curve is source-reported but explicitly unstable; it is retained with a metastability warning rather than made default.
 - **Primary data check:**
     - **Status:** parameterization\_and\_pressure\_grid\_only
     - **Audit date:** 2026-09-05
@@ -410,7 +414,7 @@ Metastable low-spin comparison branch; do not use it as the equilibrium spin bra
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3)
 
-**Source finding:** Distinct source-reported LS model-2 configuration; explicitly non-equilibrium.
+**Source finding:** Coefficients from Table 1(b), low-spin model 2, with the BM3 form of Section 3.2; the printed V0 = 24.2605 cm³/mol is stored per Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -453,6 +457,7 @@ Metastable low-spin branch for an alternative supercell configuration (model 2),
     - **Access URL:** https://academic.oup.com/gji/article/190/1/310/598134
     - **DOI:** 10.1111/j.1365-246X.2012.05511.x
     - **Locations:** Table 1(b); Sections 3.1-3.3
+    - **Finding:** Distinct source-reported LS model-2 configuration; explicitly non-equilibrium.
 - **Primary data check:**
     - **Status:** parameterization\_and\_pressure\_grid\_only
     - **Audit date:** 2026-09-05
@@ -494,7 +499,7 @@ Metastable low-spin branch for an alternative supercell configuration (model 2),
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3)
 
-**Source finding:** Distinct source-reported LS model-3 configuration; explicitly non-equilibrium.
+**Source finding:** Coefficients from Table 1(b), low-spin model 3, with the BM3 form of Section 3.2; the printed V0 = 24.2596 cm³/mol is stored per Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -537,6 +542,7 @@ Metastable low-spin branch for an alternative supercell configuration (model 3),
     - **Access URL:** https://academic.oup.com/gji/article/190/1/310/598134
     - **DOI:** 10.1111/j.1365-246X.2012.05511.x
     - **Locations:** Table 1(b); Sections 3.1-3.3
+    - **Finding:** Distinct source-reported LS model-3 configuration; explicitly non-equilibrium.
 - **Primary data check:**
     - **Status:** parameterization\_and\_pressure\_grid\_only
     - **Audit date:** 2026-09-05

@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/tho2_cotunnite.md#record-tho2_cotunnite_chidester_2018_bm3_linear_thermal)
 
-**Source finding:** Both source-owned fits are experimental; older experimental and calculated literature rows in Table 1 are comparisons, not new fits. BM3 with K0\_prime fixed 4 plus constant linear thermal pressure.
+**Source finding:** Coefficients from Table 1 (page 750; K0' fixed in bold) with Equations 1-3 (page 754); V0 is printed as 24.75(0.06) cm³/mol, and alpha\_KT is the fitted constant alpha\*K\_T of Equation 3.
 
 Automatic selection for equilibrium calculations.
 
@@ -97,6 +97,7 @@ Fit to high-temperature data only: there are no reliable room-temperature volume
     - **Access URL:** https://doi.org/10.2138/am-2018-6212
     - **DOI:** 10.2138/am-2018-6212
     - **Locations:** Table 1, p.750; Methods, p.751; Equations 1–3, p.754; Figure 7, p.754; Supplemental Table 2
+    - **Finding:** Both source-owned fits are experimental; older experimental and calculated literature rows in Table 1 are comparisons, not new fits. BM3 with K0\_prime fixed 4 plus constant linear thermal pressure.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19

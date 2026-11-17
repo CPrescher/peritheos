@@ -30,7 +30,12 @@ from scripts.hu_2019_fe3c import (
     observations,
     reproduce,
 )
-from scripts.split_eosmat_audits import restore_record_text
+from scripts.split_eosmat_audits import (
+    CHECK_TEXT_FIELDS,
+    check_text,
+    restore_record_text,
+    set_check_text,
+)
 from scripts.standardize_reconstruction_metadata import assessment_for_record
 
 
@@ -102,6 +107,12 @@ def test_saved_record_assessment_matches_ledger_and_existing_default(
     # revision; its original is kept verbatim in superseded_record_text.
     restored = copy.deepcopy(r)
     restore_record_text(restored)
+    # The curated check texts were added to the sidecar after the integration
+    # script ran; its verbatim finding is unchanged beside them.
+    assert "Methods mean Archimedes density" in check_text(restored, "record_note")
+    assert "Possible melting" in check_text(restored, "warning_reason")
+    for field in CHECK_TEXT_FIELDS:
+        set_check_text(restored, field, None)
     assert_record_replay_close(restored, catalog_record())
     entry = next(
         x

@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-15",
-        "source_note": "Thompson (2008), Results and discussion, page 179: third-order Birch-Murnaghan fit to all weighted Table 1 data.",
+        "source_note": "Coefficients from the Results and discussion (p. 179) and Table 3 (p. 180), a weighted fit to all Table 1 data.",
         "audit": "../audits/diopside.audit.json#diopside_thompson_2008_bm3"
       },
       "model": "BM3",
@@ -65,7 +65,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-15",
-        "source_note": "Zhao (1998), Equation (1), page 26: third-order Eulerian finite strain, with VT=V0 exp(integral alpha dT), alpha=a+bT, KT=KT0+dK/dT*(T-300 K), Kprime independent of T.",
+        "source_note": "K0 and K0' from the abstract and Figure 2, with errors from the rounded prose values 109(4) GPa and 4.8(6); thermal coefficients from the final paragraph of p. 26, for Equation (1); V0 is the Table 1 ambient volume.",
         "audit": "../audits/diopside.audit.json#diopside_zhao_1998_thermal_bm3"
       },
       "model": "BM3",

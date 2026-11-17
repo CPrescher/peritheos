@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/hydrous_silica_cacl2_nisr_2017.md#record-hydrous_silica_cacl2_nisr_2017_bm2)
 
-**Source finding:** Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.
+**Source finding:** V0 and K0 from Table 4, for the Birch (1978) form of Section 3.3; observations in Tables S1-S4.
 
 Automatic selection for equilibrium calculations.
 
@@ -93,6 +93,7 @@ Al-free sample; its water content (Table 1 Si0.954O2H0.184, about 2.81 wt% H2O, 
     - **DOI:** 10.1002/2017JB014055
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055
     - **Locations:** Sections 2, 3.1-3.3 and 4.2; Tables 1-4; Figures 2-5; Erratum, page 6983; Supporting Text S1 and Tables S1-S4
+    - **Finding:** Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.
 - **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; validity; primary\_data; independent\_refit
 - **Primary data check:**
     - **Status:** bundled

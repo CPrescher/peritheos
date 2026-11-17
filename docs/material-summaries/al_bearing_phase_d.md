@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/al_bearing_phase_d.md#record-al_bearing_phase_d_xu_2020_bm3_300k)
 
-**Source finding:** Xu et al. report a conventional-cell, 300 K third-order Birch-Murnaghan fit with V0=86.71 A^3 fixed, KT0=143 GPa, and KT0'=5.8 on the Tsuchiya-2003 gold pressure scale. The author-deposited workbook exposes all eight selected 300 K P-V states plus the retained high-temperature P-V-T observations.
+**Source finding:** Coefficients from Section 3.1 and Table 1; Table 1 prints the K0 error as 4 GPa, while the stored error follows Section 3.1. Observations from Table 3 of the EarthChem workbook (all eight 300 K rows).
 
 Automatic selection for equilibrium calculations.
 
@@ -103,6 +103,7 @@ Room-temperature BM3 on the Tsuchiya (2003) gold pressure scale (Table 1); the e
 - **Primary source check:**
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020GL088877
     - **Locations:** Materials and Methods; Section 3.1 and Table 1; Data Availability Statement; EarthChem DOI 10.26022/IEDA/111629, workbook Tables 1-3
+    - **Finding:** Xu et al. report a conventional-cell, 300 K third-order Birch-Murnaghan fit with V0=86.71 A^3 fixed, KT0=143 GPa, and KT0'=5.8 on the Tsuchiya-2003 gold pressure scale. The author-deposited workbook exposes all eight selected 300 K P-V states plus the retained high-temperature P-V-T observations.
     - **DOI:** 10.1029/2020GL088877
 - **Reported parameterizations:**
     - **Role:** represented\_300k\_bm3

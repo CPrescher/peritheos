@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/b4c.md#record-b4c_somayazulu_2023_bm3_1)
 
-**Source finding:** The article and supplement define an integrated constant-q MGD model that Peritheos represents exactly. The article's final gamma0=0.8, q=2.1 parameterization gives a 1.39 GPa pressure RMSE on the 41 heated supplementary points. A Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), rather than independently recovering q=2.1. Source contradictions in EOS order, theta0, gamma0/q, and nominal reference temperature are retained explicitly with evidence-based resolutions.
+**Source finding:** Coefficients from the article and supplement. Source conflicts resolved: BM3, not the BM2 of the Figure 1 caption; theta0 as in the Figure 4 caption and supplement, not 1450 K (Table 1); gamma0 and q from the article, not the supplement; Tr from the supplement, not 300 K.
 
 Automatic selection for equilibrium calculations.
 
@@ -109,6 +109,7 @@ BM3 reference isotherm from the room-temperature quench-data fit, held fixed in 
 - **Primary source check:**
     - **Access URL:** https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/
     - **Locations:** Abstract; Figure 1 caption; Equations 3.1-3.7; Figure 4 caption; Table 1; official supplementary material, equations 1-9 and Tables 3-4
+    - **Finding:** The article and supplement define an integrated constant-q MGD model that Peritheos represents exactly. The article's final gamma0=0.8, q=2.1 parameterization gives a 1.39 GPa pressure RMSE on the 41 heated supplementary points. A Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), rather than independently recovering q=2.1. Source contradictions in EOS order, theta0, gamma0/q, and nominal reference temperature are retained explicitly with evidence-based resolutions.
     - **DOI:** 10.1098/rsta.2022.0331
 - **Migration source:**
     - **Project:** Dioptas
@@ -177,7 +178,7 @@ BM3 reference isotherm from the room-temperature quench-data fit, held fixed in 
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/b4c.md#record-b4c_somayazulu_2023_berman_2)
 
-**Source finding:** Source inspection shows that EosFit7's Berman implementation uses a truncated quadratic reference-volume law and effective-variance pressure weights. The article displays an exponential-integral formula that instead matches EosFit's Fei-style law. Peritheos stores the actual EosFit Berman curve and documents both fitting objectives.
+**Source finding:** Coefficients from Table 2 (Equations 3.8-3.9). The article's displayed exponential-integral formula matches the EosFit Fei-style law, not its Berman label; the stored curve is the truncated quadratic law that EosFit7 uses for Berman.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -221,6 +222,7 @@ The paper's Berman P-V-T fit, made with the EosFit7c program: V0(T) = V0\*\[1 + 
 - **Primary source check:**
     - **Access URL:** https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/
     - **Locations:** Equations 3.8-3.9; Table 2; Figure 5 caption; official supplementary material, Table 4
+    - **Finding:** Source inspection shows that EosFit7's Berman implementation uses a truncated quadratic reference-volume law and effective-variance pressure weights. The article displays an exponential-integral formula that instead matches EosFit's Fei-style law. Peritheos stores the actual EosFit Berman curve and documents both fitting objectives.
     - **DOI:** 10.1098/rsta.2022.0331
 - **Primary data check:**
     - **Status:** bundled
@@ -266,7 +268,7 @@ The paper's Berman P-V-T fit, made with the EosFit7c program: V0(T) = V0\*\[1 + 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/b4c.md#record-b4c_somayazulu_2023_berman_refit)
 
-**Source finding:** A direct EosFit7c 7.60 run on the 41 heated public-data rows gives alpha0=1.81120e-5 +/- 0.21554e-5 K^-1, dK0/dT=-0.01311 +/- 0.00419 GPa/K, reduced weighted chi-square 1.0412, and correlation -0.958. Peritheos's matched effective-variance emulation reproduces these values within printed precision.
+**Source finding:** Observations from supplementary Table 4. V0, K0 and K0' are the published 300 K BM3 values and alpha1 the published Berman-fit value; Tr is the EosFit7 Berman default.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -313,6 +315,7 @@ Peritheos refit of the public rounded data with the EosFit7c 7.60 program, not a
 - **Primary source check:**
     - **Access URL:** https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/
     - **Locations:** Equations 3.8-3.9; Table 2; Figure 5 caption; official supplementary material, Table 4; direct EosFit7c 7.60 reproduction; docs/literature-reproductions.md
+    - **Finding:** A direct EosFit7c 7.60 run on the 41 heated public-data rows gives alpha0=1.81120e-5 +/- 0.21554e-5 K^-1, dK0/dT=-0.01311 +/- 0.00419 GPa/K, reduced weighted chi-square 1.0412, and correlation -0.958. Peritheos's matched effective-variance emulation reproduces these values within printed precision.
     - **DOI:** 10.1098/rsta.2022.0331
 - **Primary data check:**
     - **Status:** bundled

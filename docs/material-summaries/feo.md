@@ -66,7 +66,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/feo.md#record-feo_fischer_2011_bm3_2)
 
-**Source finding:** The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observations, 3% temperature correction, and global multi-study fit scope were reconstructed. All identifiable row-level sources are bundled: Fischer Table S1, Seagle supplementary Table 1, Ozawa printed Table 2, and Campbell supplementary Table S2. The final combined row selection and exact weighting protocol remain unpublished.
+**Source finding:** Coefficients from Table 1 with Equation (1) (pages 12-13); V0 = 12.256 cm³/mol is fixed from McCammon and Liu (1984) and converted to the Z = 4 cell. The K0' error is the Table 1 value; the abstract prints 0.4.
 
 Automatic selection for equilibrium calculations.
 
@@ -111,6 +111,7 @@ Thermal EOS for iron-saturated FeO, not a standalone 300 K BM3; the pressure ran
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/j.epsl.2011.02.025
     - **Locations:** Experimental Methods, pages 6-8; Equation (1) and equation-of-state section, pages 12-13; Table 1; Figures 2 and 3; Supplementary Table S1 (mmc1.xls)
+    - **Finding:** The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observations, 3% temperature correction, and global multi-study fit scope were reconstructed. All identifiable row-level sources are bundled: Fischer Table S1, Seagle supplementary Table 1, Ozawa printed Table 2, and Campbell supplementary Table S2. The final combined row selection and exact weighting protocol remain unpublished.
     - **DOI:** 10.1016/j.epsl.2011.02.025
 - **Migration source:**
     - **Project:** Dioptas
@@ -188,7 +189,7 @@ Thermal EOS for iron-saturated FeO, not a standalone 300 K BM3; the pressure ran
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/feo.md#record-fe093o_b1_jacobsen_2005_bm3_1)
 
-**Source finding:** The source reports a cubic B1 Fe0.93O BM3 fit to the seven 0-22.8 GPa rows, with V0 and K0 varied and K0'=4 fixed.
+**Source finding:** V0 and K0 from Results section 3.1, page 579 (EOS-FIT 5.2 program); K0' was fixed because relatively few points lie below 20 GPa.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -226,6 +227,7 @@ Fit for non-stoichiometric Fe0.93O in the cubic B1 phase, to the seven Table 1 o
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1107/S0909049505022326
     - **Locations:** Experiment, pages 577-578; Results section 3.1 and Table 1, pages 579-580; Figure 5, page 580
+    - **Finding:** The source reports a cubic B1 Fe0.93O BM3 fit to the seven 0-22.8 GPa rows, with V0 and K0 varied and K0'=4 fixed.
     - **DOI:** 10.1107/S0909049505022326
 - **Primary data check:**
     - **Status:** bundled
@@ -294,7 +296,7 @@ Fit for non-stoichiometric Fe0.93O in the cubic B1 phase, to the seven Table 1 o
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/feo.md#record-feo_leonov_2017_hs_bm3_1)
 
-**Source finding:** Complete high-spin BM3 after formula-unit volume conversion; low-spin row rejected because low-spin V0 is absent.
+**Source finding:** Coefficients from the Table I high-spin column; V0 = 144.1 bohr³ per formula unit is converted to the Z = 4 cell. The paper gives no low-spin V0.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -336,6 +338,7 @@ Static-ion DFT+DMFT EOS for the high-spin paramagnetic B1 branch, at electronic 
     - **Access URL:** https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf
     - **DOI:** 10.1103/PhysRevB.96.075136
     - **Locations:** Methods; Table I; Figures 1-4
+    - **Finding:** Complete high-spin BM3 after formula-unit volume conversion; low-spin row rejected because low-spin V0 is absent.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -379,7 +382,7 @@ Static-ion DFT+DMFT EOS for the high-spin paramagnetic B1 branch, at electronic 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/feo.md#record-feo_holland_2013_fper_modified_tait)
 
-**Source finding:** The fper endmember is a distinct modified-Tait reference isotherm.
+**Source finding:** Coefficients from Table 1 and the official tc-ds62 fper block, converted from V0 = 1.206 J/bar/mol, K0 = 1520 kbar and K0'' = -0.00320 kbar^-1 to GPa and the Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -423,6 +426,7 @@ Ideal FeO B1 (fper) thermodynamic endmember; not a stoichiometry claim for natur
     - **Access URL:** https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf
     - **DOI:** 10.1093/petrology/egt035
     - **Locations:** Table 1; Thermodynamic data section
+    - **Finding:** The fper endmember is a distinct modified-Tait reference isotherm.
 - **Primary data check:**
     - **Status:** official\_parameter\_artifact
     - **Audit date:** 2026-09-05
@@ -465,7 +469,7 @@ Ideal FeO B1 (fper) thermodynamic endmember; not a stoichiometry claim for natur
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/feo.md#record-feo_campbell_2009_bm3_mgd)
 
-**Source finding:** Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.
+**Source finding:** Coefficients from Equation (5) and Table 1, page 560; italic Table 1 values are held fixed. The exact Seagle pressure reduction Campbell used and the authors' regression inputs and row selection are unresolved.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -512,6 +516,7 @@ Equation (5) and Table 1: 295 K BM3-MGD fitted to this study's and Seagle et al.
     - **Access URL:** https://doi.org/10.1016/j.epsl.2009.07.022
     - **DOI:** 10.1016/j.epsl.2009.07.022
     - **Locations:** Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5
+    - **Finding:** Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.
     - **Source pdf sha256:** e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0
 - **Primary data check:**
     - **Status:** bundled

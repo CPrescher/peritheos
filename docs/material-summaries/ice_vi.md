@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ice_vi.md#record-ice_vi_bezacier_2014_bm2_1)
 
-**Source finding:** The source uses BM2 with T0=300 K, exponential constant-alpha reference-volume scaling, and dK/dT fixed to zero. Figure 2 displays the ice-VI P-V series at 300 and 340 K; fitting those 30 endpoint-isotherm rows reproduces Table II. Molar volume is converted with Z=10.
+**Source finding:** Coefficients from Table II with Equations (1)-(3) (p. 104505-4): BM2 with T0 = 300 K and exponential constant-alpha scaling of the reference volume.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,6 +92,7 @@ P-V-T fit for pure H2O ice VI. Published molar V0 = 14.17(2) cm³/mol; stored pe
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1063/1.4894421
     - **Locations:** Table I, journal pages 104505-2 to 104505-3; Equations (1)-(3), journal page 104505-4; Figure 2 caption and Table II
+    - **Finding:** The source uses BM2 with T0=300 K, exponential constant-alpha reference-volume scaling, and dK/dT fixed to zero. Figure 2 displays the ice-VI P-V series at 300 and 340 K; fitting those 30 endpoint-isotherm rows reproduces Table II. Molar volume is converted with Z=10.
     - **DOI:** 10.1063/1.4894421
 - **Migration source:**
     - **Project:** Dioptas

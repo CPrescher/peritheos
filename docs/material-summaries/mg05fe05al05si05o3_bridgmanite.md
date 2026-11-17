@@ -65,7 +65,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg05fe05al05si05o3_bridgmanite.md#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1)
 
-**Source finding:** The source defines three reproducible experimental BM2 fits: the preferred 23-row sample-1 curve, an 11-row after-current-step-anneal sample-1 comparison, and a 21-row cold-compressed sample-2 comparison. Spectroscopy demonstrates gradual Fe-Al exchange and a mixed-spin population, not a separately fitted fully low-spin branch.
+**Source finding:** V0 and K0 from the article's EOS discussion and Figure 3, fitted to all 23 sample-1 rows of the official Zenodo lattice-parameter workbook.
 
 Automatic selection for equilibrium calculations.
 
@@ -107,6 +107,7 @@ The authors' preferred room-temperature BM2, chosen for its denser coverage and 
     - **Access URL:** https://doi.org/10.1029/2020JB019964
     - **DOI:** 10.1029/2020JB019964
     - **Locations:** publisher article experimental methods, EOS discussion, Figure 3, and data-availability statement; official Zenodo v2 files latticeparameters.xlsx, EoS-Ffplot-bulkv.xlsx, EPMA.xlsx, and DFTEoS.xlsx
+    - **Finding:** The source defines three reproducible experimental BM2 fits: the preferred 23-row sample-1 curve, an 11-row after-current-step-anneal sample-1 comparison, and a 21-row cold-compressed sample-2 comparison. Spectroscopy demonstrates gradual Fe-Al exchange and a mixed-spin population, not a separately fitted fully low-spin branch.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** mg05fe05al05si05o3\_bridgmanite\_zhu\_2020\_zenodo\_latticeparameters
@@ -174,7 +175,7 @@ The authors' preferred room-temperature BM2, chosen for its denser coverage and 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg05fe05al05si05o3_bridgmanite.md#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2)
 
-**Source finding:** The article explicitly reports the 11-row after-current-step-anneal comparison fit. It is a selection from the same gradual mixed-spin sample-1 trajectory, not a distinct low-spin EOS branch.
+**Source finding:** V0 and K0 from the article's EOS discussion and Figure 3, fitted to the 11 red-font (after-anneal) sample-1 rows of the official Zenodo lattice-parameter workbook.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -214,6 +215,7 @@ Comparison fit by the authors to the 11 observations collected after each curren
     - **Access URL:** https://doi.org/10.1029/2020JB019964
     - **DOI:** 10.1029/2020JB019964
     - **Locations:** publisher article EOS discussion and Figure 3; official Zenodo v2 latticeparameters.xlsx
+    - **Finding:** The article explicitly reports the 11-row after-current-step-anneal comparison fit. It is a selection from the same gradual mixed-spin sample-1 trajectory, not a distinct low-spin EOS branch.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** mg05fe05al05si05o3\_bridgmanite\_zhu\_2020\_zenodo\_latticeparameters
@@ -281,7 +283,7 @@ Comparison fit by the authors to the 11 observations collected after each curren
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg05fe05al05si05o3_bridgmanite.md#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3)
 
-**Source finding:** The article explicitly reports a 21-row BM2 for cold-compressed sample 2 and describes it as the original-ordering reference where cation exchange and spin transition are not expected.
+**Source finding:** V0 and K0 from the article's EOS discussion and Figure 3, fitted to all 21 sample-2 rows of the official Zenodo lattice-parameter workbook.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -321,6 +323,7 @@ Metastable comparison fit to cold-compressed sample 2, which keeps a kinetically
     - **Access URL:** https://doi.org/10.1029/2020JB019964
     - **DOI:** 10.1029/2020JB019964
     - **Locations:** publisher article EOS discussion and Figure 3; official Zenodo v2 latticeparameters.xlsx
+    - **Finding:** The article explicitly reports a 21-row BM2 for cold-compressed sample 2 and describes it as the original-ordering reference where cation exchange and spin transition are not expected.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** mg05fe05al05si05o3\_bridgmanite\_zhu\_2020\_zenodo\_latticeparameters
@@ -388,7 +391,7 @@ Metastable comparison fit to cold-compressed sample 2, which keeps a kinetically
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg05fe05al05si05o3_bridgmanite.md#record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4)
 
-**Source finding:** The source reports a phase-specific Pnma BM2 and complete single-crystal unit-cell measurements. The two lowest-pressure Pnma refinements occur within the stated transformation interval; selecting the 16 observations above that interval reproduces the published coefficients and uncertainties.
+**Source finding:** V0 and K0 from the Figure 4 caption; a later general discussion prints K0 = 212(3) GPa, but the caption, plotted curve and Table S3 data support the stored value. Observations from Supplementary Table S3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -429,6 +432,7 @@ Single-crystal BM2 fit to the Pnma perovskite only (Pnma is an alternative setti
     - **Access URL:** https://doi.org/10.3389/fchem.2023.1258389
     - **DOI:** 10.3389/fchem.2023.1258389
     - **Locations:** publisher article Materials and methods and Figure 4 caption; official Supplementary Table S3
+    - **Finding:** The source reports a phase-specific Pnma BM2 and complete single-crystal unit-cell measurements. The two lowest-pressure Pnma refinements occur within the stated transformation interval; selecting the 16 observations above that interval reproduces the published coefficients and uncertainties.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** mg05fe05al05si05o3\_bridgmanite\_koemets\_2023\_table\_s3\_pv

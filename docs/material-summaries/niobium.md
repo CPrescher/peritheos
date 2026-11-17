@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/niobium.md#record-niobium_takemura_2006_bm3_1)
 
-**Source finding:** The adopted BM3 fit is the 0-71.5 GPa quasihydrostatic helium subset; the wider errors span the alternative fit through 134 GPa.
+**Source finding:** Coefficients from Table II and section III.B (pages 224119-5 to -6); the adopted fit is limited to the quasihydrostatic helium data through 71.5 GPa.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ Adopted 300 K BM3 fit to the quasihydrostatic helium data. V0 is fixed from a = 
 - **Primary source check:**
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.224119/fulltext
     - **Locations:** Table I; Table II; section III.B, pages 224119-5 to -6
+    - **Finding:** The adopted BM3 fit is the 0-71.5 GPa quasihydrostatic helium subset; the wider errors span the alternative fit through 134 GPa.
     - **DOI:** 10.1103/physrevb.73.224119
 - **Migration source:**
     - **Project:** Dioptas
@@ -141,7 +142,7 @@ Adopted 300 K BM3 fit to the quasihydrostatic helium data. V0 is fixed from a = 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/niobium.md#record-niobium_sokolova_2013_holzapfel_2)
 
-**Source finding:** The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.
+**Source finding:** Stored coefficients match the niobium columns of Tables 1 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -186,6 +187,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/j.rgg.2013.01.005
     - **Locations:** Equations 1-15; Table 1 input reference values; Table 4 optimized parameters for all eleven markers; Figures 3-11 cross-calibration tests
+    - **Finding:** The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.
     - **DOI:** 10.1016/j.rgg.2013.01.005
 - **Migration source:**
     - **Project:** Dioptas

@@ -67,7 +67,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_dewaele_2008_table4_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source finding:** Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per four-atom cell (Z = 4).
 
 Automatic selection for equilibrium calculations.
 
@@ -106,6 +106,7 @@ V0 was fixed from a fit to the low-pressure (0-5 GPa) data. Run-2 Ag/Mo rows wit
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, third column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** nickel\_dewaele\_2008\_source\_table
@@ -154,7 +155,7 @@ V0 was fixed from a fit to the low-pressure (0-5 GPa) data. Run-2 Ag/Mo rows wit
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_dewaele_2008_vinet_1)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from the Mao ruby-scale row of Dewaele (2019) Table 1, Equation (1); this identifier formerly attributed them to the 2008 paper.
 
 Published pressure-scale alternative of [nickel\_dewaele\_2019\_mao\_vinet](#record-nickel_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -187,6 +188,7 @@ Compatibility identifier for the Dewaele (2019) Mao-scale Vinet fit of Table 1, 
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -242,7 +244,7 @@ Compatibility identifier for the Dewaele (2019) Mao-scale Vinet fit of Table 1, 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_dewaele_2019_mao_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -279,6 +281,7 @@ Vinet fit to static DAC X-ray compression data in helium or neon, with pressures
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -329,7 +332,7 @@ Vinet fit to static DAC X-ray compression data in helium or neon, with pressures
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_dewaele_2019_dor_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [nickel\_dewaele\_2019\_mao\_vinet](#record-nickel_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -368,6 +371,7 @@ Vinet fit to static DAC X-ray compression data in helium or neon, with pressures
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -418,7 +422,7 @@ Vinet fit to static DAC X-ray compression data in helium or neon, with pressures
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_campbell_2009_bm3_mgd)
 
-**Source finding:** Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.
+**Source finding:** Coefficients from Table 1 (page 560) with Equation (5); italic Table 1 values are held fixed. V0 = 6.587 cm³/mol is the source's JCPDS value (card not identified), and theta0 is from Knacke et al. (1991).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -464,6 +468,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/nic
     - **Access URL:** https://doi.org/10.1016/j.epsl.2009.07.022
     - **DOI:** 10.1016/j.epsl.2009.07.022
     - **Locations:** Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5
+    - **Finding:** Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.
     - **Source pdf sha256:** e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0
 - **Primary data check:**
     - **Status:** bundled
@@ -537,7 +542,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/nic
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_dewaele_2008_table4_us_k0_183_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source finding:** Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per four-atom cell (Z = 4).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -574,6 +579,7 @@ V0 was fixed from a fit to the low-pressure (0-5 GPa) data, and K0 is adopted fr
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, fourth column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** nickel\_dewaele\_2008\_source\_table

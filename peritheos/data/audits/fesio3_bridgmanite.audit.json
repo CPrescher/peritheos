@@ -34,7 +34,8 @@
             "access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf",
             "doi": "10.1103/physrevb.90.140102",
             "locations": ["Computational methods", "Figure 3", "Table III", "arXiv v1 Table 2", "arXiv v2 source archive"],
-            "finding": "The final paper reports a separate static Vinet fit for FeSiO3 Pv. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement."
+            "finding": "The final paper reports a separate static Vinet fit for FeSiO3 Pv. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.",
+            "record_note": "Coefficients from Table III, a Vinet fit to the static E(V) data; the printed V0 = 44.31 Å³ per FeSiO3 is multiplied by Z = 4."
           },
           "primary_data_check": {
             "status": "parameterization_and_independent_table_checkpoints",
@@ -151,7 +152,8 @@
             "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
             "doi": "10.1093/petrology/egt035",
             "locations": ["Table 1", "Thermodynamic data section"],
-            "finding": "The fpv endmember is a distinct modified-Tait reference isotherm."
+            "finding": "The fpv endmember is a distinct modified-Tait reference isotherm.",
+            "record_note": "Coefficients from Table 1 and the official tc-ds62 fpv block, printed as V0 = 2.548 J/bar/mol, K0 = 2810 kbar and K0'' = -0.00160 kbar^-1, converted to GPa and Z = 4."
           },
           "primary_data_check": {
             "status": "official_parameter_artifact",

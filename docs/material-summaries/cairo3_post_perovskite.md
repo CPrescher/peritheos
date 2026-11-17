@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cairo3_post_perovskite.md#record-cairo3_post_perovskite_boffa_ballaran_2007_bm3_1)
 
-**Source finding:** The source defines a standard zero-pressure BM3 fit for the Cmcm conventional-cell volume, reports all three coefficients with standard deviations, excludes decompression data, and identifies the Mao et al. (1986) ruby scale. No separate supplement or machine-readable data attachment was located.
+**Source finding:** Coefficients from the Abstract and Table 2, fitted with the EosFit52 program to the ten Table 1 compression rows; the decompression row is excluded, as stated in Results on page 1761.
 
 Automatic selection for equilibrium calculations.
 
@@ -109,6 +109,7 @@ Limited to the Cmcm CaIrO3 post-perovskite polymorph; do not use it for the Pbnm
     - **Source version:** author-uploaded copy of the final published American Mineralogist pages
     - **DOI:** 10.2138/am.2007.2715
     - **Locations:** Abstract; Experimental method; Results; Table 1; Table 2; Figures 1-2 and captions
+    - **Finding:** The source defines a standard zero-pressure BM3 fit for the Cmcm conventional-cell volume, reports all three coefficients with standard deviations, excludes decompression data, and identifies the Mao et al. (1986) ruby scale. No separate supplement or machine-readable data attachment was located.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -185,7 +186,7 @@ Limited to the Cmcm CaIrO3 post-perovskite polymorph; do not use it for the Pbnm
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cairo3_post_perovskite.md#record-cairo3_post_perovskite_martin_2007_bm2)
 
-**Source finding:** The author's dissertation reproduces the complete in-press American Mineralogist chapter and its exact pressure-volume table.
+**Source finding:** Coefficients from Table 1b (Table 7.1 in Chapter 7 of the author's dissertation, which contains the in-press American Mineralogist article); the printed second-order Birch-Murnaghan fit is stored as BM3 with K0' fixed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -227,6 +228,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Access URL:** https://dspace.sunyconnect.suny.edu/server/api/core/bitstreams/61973d9b-80a4-4be9-b292-576627366fb1/content
     - **DOI:** 10.2138/am.2007.2473
     - **Locations:** Chapter 7, Sections 7.3-7.4; Table 7.1 (publication Table 1)
+    - **Finding:** The author's dissertation reproduces the complete in-press American Mineralogist chapter and its exact pressure-volume table.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

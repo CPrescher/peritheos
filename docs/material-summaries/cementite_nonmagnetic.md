@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cementite_nonmagnetic.md#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd)
 
-**Source finding:** Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances.
+**Source finding:** V0, K0 and K0' from Table 1, gamma0 and q from Table 2 (page 6), with Equations 1-6; KBr B2 pressures follow Dewaele et al. (2012). The equations agree with the calculated density benchmarks at 329 GPa and 5000 K.
 
 Automatic selection for equilibrium calculations.
 
@@ -112,6 +112,7 @@ Published five-parameter fit on the KBr pressure scale, with theta0 fixed to the
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.3390/min9120744
     - **Locations:** Equations 1-6, pages 3-4; Tables 1-2, page 6; Figure 3a and Section 4, calculated density benchmarks; official Supplementary Table S1, worksheet Table S1, rows 4-63
+    - **Finding:** Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** cementite\_takahashi\_2019\_table\_s1
@@ -184,7 +185,7 @@ Published five-parameter fit on the KBr pressure scale, with theta0 fixed to the
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cementite_nonmagnetic.md#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd)
 
-**Source finding:** Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances.
+**Source finding:** V0, K0 and K0' from Table 1, gamma0 and q from Table 2 (page 6), with Equations 1-6; MgO pressures follow Kono et al. (2010). The equations agree with the calculated density benchmarks at 329 GPa and 5000 K.
 
 Published pressure-scale alternative of [cementite\_nonmagnetic\_takahashi\_2019\_kbr\_bm3\_mgd](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd); it is not an independent EOS choice.
 
@@ -232,6 +233,7 @@ Published five-parameter fit on the MgO pressure scale, with theta0 fixed to the
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.3390/min9120744
     - **Locations:** Equations 1-6, pages 3-4; Tables 1-2, page 6; Figure 3a and Section 4, calculated density benchmarks; official Supplementary Table S1, worksheet Table S1, rows 4-63
+    - **Finding:** Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** cementite\_takahashi\_2019\_table\_s1
@@ -307,7 +309,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 **Warning (source review):** Some quoted point errors are smaller than the overall experimental scatter. Retain the published EOS within 300 K and 27.2–186.6 GPa; the separate refit is diagnostic.
 
-**Source finding:** Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified.
+**Source finding:** Coefficients from Table 6 and paragraph 15, checked against the 2009 manuscript; Equation 1 at Pr = 0 is the BM3 of Equation 2. The per-atom V0 is stored per 16-atom cell. The Table 4 heading says 193 GPa; the text and Figure 3 give 187 GPa.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -351,6 +353,7 @@ Published 300 K BM3 based on the nine Table 1 states and three Li (2002) states 
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009JB006975
     - **DOI:** 10.1029/2009JB006975
     - **Locations:** Tables 1 and 6; Equations 1–2; paragraphs 5–6, 12 and 14–15; Table 4 diffraction spacings; paragraphs 24–27, pressure-scale consistency
+    - **Finding:** Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified.
 - **Verified fields:** original\_Fe3C\_rows\_and\_paired\_MgO; source\_BM3\_and\_mBM3\_equivalence\_at\_printed\_Pr\_zero; atomic\_to\_cell\_volume; published\_parameters\_and\_errors; source\_joint\_selection; conditional\_parameter\_parity; source\_pressure\_scale\_provenance; temperature\_and\_pressure\_limits
 - **Primary data check:**
     - **Status:** bundled
@@ -548,7 +551,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 **Warning (source review):** Possible melting at higher pressures; density data do not resolve the phase state.
 
-**Source finding:** Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.
+**Source finding:** c0 and s from the Abstract, Results and Figure 1; rho0 is the Methods mean Archimedes density and V0 = 4M/(rho0 NA) with M = 179.546 g/mol. The source's separate thermal model (7.982 g/cm³ reference) is not this record.
 
 Automatic selection for hugoniot calculations.
 
@@ -618,6 +621,7 @@ Published linear Us-up fit to all six shots on an approximately 2% porous precur
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL084545
     - **DOI:** 10.1029/2019GL084545
     - **Locations:** Methods, sample density/porosity and starting-phase XRD; Results, Us-up and conservation equations; Table 1 and footnote; Section 3.1.2, possible melting; Official PANGAEA.905474 workbook, Sheet1!A1:I8
+    - **Finding:** Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.
 - **Verified fields:** original\_linear\_shock\_coefficients\_and\_errors; all\_six\_source\_shots\_and\_reported\_errors; source\_equation\_against\_velocity\_observations; conditional\_parameter\_agreement; per\_shot\_Rankine\_Hugoniot\_replay; porous\_initial\_state\_and\_operational\_mass\_basis; full\_experimental\_shock\_path\_and\_phase\_caveat
 - **Primary data check:**
     - **Status:** bundled

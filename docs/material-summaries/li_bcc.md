@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/li_bcc.md#record-li_hanfland_1999_vinet_1)
 
-**Source finding:** This is explicitly one empirical Vinet curve fitted across the small bcc-fcc volume discontinuity. Its bcc two-atom-cell volume convention is retained, and it is not described as a phase-specific bcc EOS.
+**Source finding:** Coefficients from the Table 2 this-work Vinet row (page 125); the fixed atomic V0 = 21.6225 Å³ is doubled for the two-atom bcc cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,6 +92,7 @@ Empirical 298 K Vinet fit spanning both bcc and fcc lithium, as defined by the p
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/S0038-1098(99)00322-1
     - **Locations:** page 125, Table 1, bcc and fcc P-V observations; page 125, Table 2, experimental Vinet parameters; pages 125-126, combined bcc-fcc fit description and Figure 3
+    - **Finding:** This is explicitly one empirical Vinet curve fitted across the small bcc-fcc volume discontinuity. Its bcc two-atom-cell volume convention is retained, and it is not described as a phase-specific bcc EOS.
     - **DOI:** 10.1016/s0038-1098(99)00322-1
 - **Migration source:**
     - **Project:** Dioptas

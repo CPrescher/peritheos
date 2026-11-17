@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgfe94o_b1.md#record-mgfe94o_b1_dobrosavljevic_2019_bm3_1)
 
-**Source finding:** The source defines a 14-row, 300 K B1 BM3 fit with all three EOS coefficients refined, K0-prime constrained by a 3.8+/-0.3 prior, and two explicitly excluded pre-transition B1 observations.
+**Source finding:** Coefficients from Section 3.1 and Table 1 (V0 printed as 9.860(7) Å³/atom). The fit uses 14 rows of Supplementary Table S1 with a K0' prior of 3.8 ± 0.3 and excludes two pre-transition B1 rows.
 
 Automatic selection for equilibrium calculations.
 
@@ -104,6 +104,7 @@ B1 fit on the Dewaele (2008) ruby pressure scale, with V0 per conventional eight
     - **Access URL:** https://www.mdpi.com/2075-163X/9/12/762
     - **Repository url:** https://authors.library.caltech.edu/records/3cdm5-rgv88
     - **Locations:** article sections 2.1, 3, and 3.1; article Figure 1 and Table 1; official supplement Table S1
+    - **Finding:** The source defines a 14-row, 300 K B1 BM3 fit with all three EOS coefficients refined, K0-prime constrained by a 3.8+/-0.3 prior, and two explicitly excluded pre-transition B1 observations.
     - **DOI:** 10.3390/min9120762
     - **Article sha256:** 34238063c07d90e8cf3a00746420291735b7be0015735c30c715cb2edcc69898
     - **Supplement sha256:** b936a7aecff8ce9eaf65b51fd1433fe32d5bd4d93837c7d726c83e158c3958e9

@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/coesite.md#record-coesite_levien_1981_bm3_1)
 
-**Source finding:** The conventional-cell V0 is calculated from the paper's ambient lattice parameters; K0 and K0' are the reported unweighted fit.
+**Source finding:** K0 and K0' from the unweighted Birch-Murnaghan fit on p. 328 to the Table 7 data; V0 is calculated from the paper's ambient lattice parameters for the conventional cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,6 +89,7 @@ V0 is the volume of the cited ambient structure; no V0 error was reported.
 - **Primary source check:**
     - **Access URL:** https://msaweb.org/AmMin/AM66/AM66\_324.pdf
     - **Locations:** Abstract; Table 7, P-V data; page 328, Elasticity section, Birch-Murnaghan fit
+    - **Finding:** The conventional-cell V0 is calculated from the paper's ambient lattice parameters; K0 and K0' are the reported unweighted fit.
     - **DOI:** Not specified
 - **Migration source:**
     - **Project:** Dioptas
@@ -132,7 +133,7 @@ V0 is the volume of the cited ambient structure; no V0 error was reported.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/coesite.md#record-coesite_i_iii_bykova_2018_300k_bm3)
 
-**Source finding:** Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. The original export/workbook establish the selection and rounding; Elena reports pressure-only inverse-variance weighting. The 22 inputs contain 21 measured entries and a derived Cernok fitted ambient anchor. The earlier 24-row unweighted comparison remains historical.
+**Source finding:** Coefficients from the Results paragraph and Figure 1 caption, printed per formula unit and stored per Z = 16 cell. The author supplied the fit inputs, including one derived Cernok ambient anchor, and reports pressure-only inverse-variance weights.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -175,6 +176,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Access URL:** https://www.nature.com/articles/s41467-018-07265-z
     - **DOI:** 10.1038/s41467-018-07265-z
     - **Locations:** Results: Crystal structure of coesite-III; Figure 1 caption; Methods: X-ray diffraction; Supplementary Tables 1-2; Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1; Author-provided coeII-plot.dat Group 1 lines 9-30 and calculated curve; Author-provided coesite\_final.xlsx LIT/SUM, received 2026-10-25
+    - **Finding:** Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. The original export/workbook establish the selection and rounding; Elena reports pressure-only inverse-variance weighting. The 22 inputs contain 21 measured entries and a derived Cernok fitted ambient anchor. The earlier 24-row unweighted comparison remains historical.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-25

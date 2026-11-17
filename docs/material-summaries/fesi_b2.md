@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fesi_b2.md#record-fesi_b2_fischer_2014_bm3_refit)
 
-**Source finding:** Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.
+**Source finding:** V0 (6.414 cm³/mol of atoms), K0' and theta0 (adopted from iron) are the Table 2/S6 fixed values. K0, gamma0 and q are Peritheos fits with the BM3 cold curve.
 
 Automatic selection for equilibrium calculations.
 
@@ -113,6 +113,7 @@ Peritheos refit of the B2 observations of Fischer et al. (2014, Table S2), not t
     - **DOI:** 10.1002/2013JB010898
     - **Access URL:** https://doi.org/10.1002/2013JB010898
     - **Locations:** Table 2/S6 fixed assumptions; Official Table S2, all 114 phase=B2 observations; scripts/refit\_fischer\_2014\_b2.py and docs/data/fischer-2014-b2-refits.json
+    - **Finding:** Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19
@@ -171,7 +172,7 @@ Peritheos refit of the B2 observations of Fischer et al. (2014, Table S2), not t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fesi_b2.md#record-fesi_b2_fischer_2014_vinet_refit)
 
-**Source finding:** Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.
+**Source finding:** V0 (6.414 cm³/mol of atoms), K0' and theta0 (adopted from iron) are the Table 2/S6 fixed values. K0, gamma0 and q are Peritheos fits with the Vinet cold curve.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -220,6 +221,7 @@ Peritheos refit of the B2 observations of Fischer et al. (2014, Table S2), not t
     - **DOI:** 10.1002/2013JB010898
     - **Access URL:** https://doi.org/10.1002/2013JB010898
     - **Locations:** Table 2/S6 fixed assumptions; Official Table S2, all 114 phase=B2 observations; scripts/refit\_fischer\_2014\_b2.py and docs/data/fischer-2014-b2-refits.json
+    - **Finding:** Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19

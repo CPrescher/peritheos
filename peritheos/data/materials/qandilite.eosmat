@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record.",
+        "source_note": "V0 and K0 from page 303 and Table 2, with K0' fixed as stated in footnote b; V0 is the fitted value, not the measured ambient 602.58(49) Å³ of Table 1.",
         "audit": "../audits/qandilite.audit.json#qandilite_lv_2016_bm2"
       },
       "model": "BM2",
@@ -59,7 +59,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record.",
+        "source_note": "Coefficients from page 303 and Table 2 (K0' free), a least-squares fit with the EoS fit 5.2 program to Table 1; V0 is the fitted value, not the measured ambient 602.58(49) Å³.",
         "audit": "../audits/qandilite.audit.json#qandilite_lv_2016_bm3"
       },
       "model": "BM3",

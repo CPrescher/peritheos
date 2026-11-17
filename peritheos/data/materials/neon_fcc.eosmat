@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
+        "source_note": "Cold coefficients and the thermal set from Table 1 with the Equation 3 variable-exponent Debye law. Table 1 gives one thermal set for both cold equations and no BM3-specific q, so pairing it with BM3 is a reconstruction.",
         "audit": "../audits/neon_fcc.audit.json#neon_fcc_fei_2007_bm3_1"
       },
       "model": "BM3",
@@ -98,7 +98,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
+        "source_note": "Cold coefficients and the thermal set from Table 1 with the Equation 3 variable-exponent Debye law. theta0 is adopted from Finger et al. (1981), whose Table II gives the same gamma value as gamma1 of a different gamma(V) law; Fei's definition is used.",
         "audit": "../audits/neon_fcc.audit.json#neon_fcc_fei_2007_vinet_2"
       },
       "model": "Vinet",
@@ -180,7 +180,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The stored coefficients are a Peritheos errors-in-variables fit to that table alone; the paper's published thermally reduced 0 K fit also includes the earlier Finger et al. low-pressure series.",
+        "source_note": "Observations from Table I (p. 11823); V0 is the paper's fixed low-temperature value (p. 11824).",
         "audit": "../audits/neon_fcc.audit.json#neon_fcc_hemley_1989_bm3_refit"
       },
       "model": "BM3",

@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The experimental EOS is fitted to relative volume. The measured ambient hexagonal subcell was converted to the equivalent four-formula-unit orthorhombic conventional-cell volume used by the record.",
+        "source_note": "K0 and K0' from section 4.1 (pp. 2449-2450) and the Figure 2 Birch-Murnaghan fit through 46 GPa; the ambient lattice constants used for V0 are from section 2.",
         "audit": "../audits/molybenum_carbide_mo2c.audit.json#molybenum_carbide_mo2c_haines_2001_bm3_1"
       },
       "model": "BM3",
@@ -48,7 +48,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "The source plots 16 relative-volume observations and identifies a BM3 curve with K0=307 GPa and K0'=6.2. This separate record is the reproducible Peritheos errors-in-variables fit to all digitized marker centers with measured V0 fixed; it is not presented as a published coefficient set.",
+        "source_note": "Observations are the 16 markers digitized from Figure 2 (section 4.1, pp. 2449-2450). K0 and K0' are Peritheos fits; the paper's own BM3 curve has K0 = 307 GPa and K0' = 6.2.",
         "audit": "../audits/molybenum_carbide_mo2c.audit.json#molybenum_carbide_mo2c_haines_2001_bm3_refit"
       },
       "model": "BM3",

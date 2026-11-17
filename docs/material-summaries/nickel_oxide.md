@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/nickel_oxide.md#record-nickel_oxide_noguchi_1999_bm3_1)
 
-**Source finding:** The official open primary conference paper documents the same team's sample reference lattice and exact shock-to-300 K conventions: Debye theta0=390 K, gamma0=1.38 derived from 2s=gamma+1, gamma/V constant, and Us=5.36+1.19up. The final journal article extends the data and reports K0=191 GPa and K0'=3.9. The stored Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; the journal reports no coefficient errors for K0 or K0'.
+**Source finding:** K0 and K0' from the Noguchi et al. (1999) abstract (147.6 GPa isotherm). The shock-to-300 K reduction (theta0 = 390 K, gamma0 = 1.38, Us = 5.36 + 1.19up) and a0 = 4.177(1) Å are from Noguchi et al. (1998), pages 832-834.
 
 Automatic selection for equilibrium calculations.
 
@@ -93,6 +93,7 @@ BM3 isotherm reduced from shock data with a 300 K Mie-Grüneisen-Debye correctio
 - **Primary source check:**
     - **Access URL:** https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7\_0\_832/\_pdf
     - **Locations:** Noguchi et al. (1998), page 832, ambient lattice parameter; Noguchi et al. (1998), pages 833-834, Mie-Gruneisen reduction and Murnaghan-Birch fit; Noguchi et al. (1999), journal abstract, final 147.6 GPa isotherm coefficients
+    - **Finding:** The official open primary conference paper documents the same team's sample reference lattice and exact shock-to-300 K conventions: Debye theta0=390 K, gamma0=1.38 derived from 2s=gamma+1, gamma/V constant, and Us=5.36+1.19up. The final journal article extends the data and reports K0=191 GPa and K0'=3.9. The stored Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; the journal reports no coefficient errors for K0 or K0'.
     - **DOI:** 10.1016/s0022-3697(98)00296-0
 - **Migration source:**
     - **Project:** Dioptas
@@ -180,7 +181,7 @@ BM3 isotherm reduced from shock data with a 300 K Mie-Grüneisen-Debye correctio
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel_oxide.md#record-nickel_oxide_noguchi_1999_linear_hugoniot_2)
 
-**Source finding:** All eight final shock states remain on the source's untransformed rocksalt/B1 interpretation. The paper reports pressure and volume errors below about 2% but no row-wise shock- or particle-velocity uncertainties, so the stored coefficient errors are residual-scaled OLS standard errors.
+**Source finding:** c0 and s are a Peritheos least-squares fit to the eight final-state Us-up pairs of Table 1 (journal page 510); rho0 is the measured bulk density. The paper gives no row-wise velocity errors, so the stored errors are residual-scaled.
 
 Automatic selection for hugoniot calculations.
 
@@ -247,6 +248,7 @@ Principal Hugoniot of the untransformed rhombohedral B1 branch only; not the pap
 - **Primary source check:**
     - **Access URL:** https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7\_0\_832/\_pdf
     - **Locations:** Noguchi et al. (1998), pages 832-834, sample and shock method; Noguchi et al. (1999), Table 1, journal page 510
+    - **Finding:** All eight final shock states remain on the source's untransformed rocksalt/B1 interpretation. The paper reports pressure and volume errors below about 2% but no row-wise shock- or particle-velocity uncertainties, so the stored coefficient errors are residual-scaled OLS standard errors.
     - **DOI:** 10.1016/S0022-3697(98)00296-0
 - **Primary data check:**
     - **Status:** bundled

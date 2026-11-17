@@ -288,7 +288,8 @@
               "Figure 3a and Section 4, calculated density benchmarks",
               "official Supplementary Table S1, worksheet Table S1, rows 4-63"
             ],
-            "finding": "Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances."
+            "finding": "Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances.",
+            "record_note": "V0, K0 and K0' from Table 1, gamma0 and q from Table 2 (page 6), with Equations 1-6; KBr B2 pressures follow Dewaele et al. (2012). The equations agree with the calculated density benchmarks at 329 GPa and 5000 K."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -613,7 +614,8 @@
               "Figure 3a and Section 4, calculated density benchmarks",
               "official Supplementary Table S1, worksheet Table S1, rows 4-63"
             ],
-            "finding": "Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances."
+            "finding": "Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances.",
+            "record_note": "V0, K0 and K0' from Table 1, gamma0 and q from Table 2 (page 6), with Equations 1-6; MgO pressures follow Kono et al. (2010). The equations agree with the calculated density benchmarks at 329 GPa and 5000 K."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -778,7 +780,8 @@
               "Table 4 diffraction spacings",
               "paragraphs 24–27, pressure-scale consistency"
             ],
-            "finding": "Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified."
+            "finding": "Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified.",
+            "record_note": "Coefficients from Table 6 and paragraph 15, checked against the 2009 manuscript; Equation 1 at Pr = 0 is the BM3 of Equation 2. The per-atom V0 is stored per 16-atom cell. The Table 4 heading says 193 GPa; the text and Figure 3 give 187 GPa."
           },
           "verified_fields": [
             "original_Fe3C_rows_and_paired_MgO",
@@ -1209,7 +1212,8 @@
               "Section 3.1.2, possible melting",
               "Official PANGAEA.905474 workbook, Sheet1!A1:I8"
             ],
-            "finding": "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot."
+            "finding": "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.",
+            "record_note": "c0 and s from the Abstract, Results and Figure 1; rho0 is the Methods mean Archimedes density and V0 = 4M/(rho0 NA) with M = 179.546 g/mol. The source's separate thermal model (7.982 g/cm³ reference) is not this record."
           },
           "verified_fields": [
             "original_linear_shock_coefficients_and_errors",

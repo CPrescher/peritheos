@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/rbi.md#record-rbi_b2_farla_2025_bm3_mgd_cscl)
 
-**Source finding:** Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit.
+**Source finding:** Coefficients from Table I, case 1, of the accepted manuscript, with Equations (1) and (6)-(9). theta0 comes from DFT elastic constants of Haddadi et al. (2009), as the supplement states; main-text reference 41 cites Kumara Swamy et al. (1996) instead.
 
 Automatic selection for equilibrium calculations.
 
@@ -115,6 +115,7 @@ Published preferred case 1, with pressures on the CsCl scale. The printed molar 
     - **Access URL:** https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf
     - **DOI:** 10.1063/5.0248905
     - **Locations:** Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1; Official supplement section 1, Tables S1, S4, S7
+    - **Finding:** Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-15

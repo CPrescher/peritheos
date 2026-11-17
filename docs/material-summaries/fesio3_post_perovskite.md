@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fesio3_post_perovskite.md#record-fesio3_post_perovskite_cohen_lin_2014_vinet_1)
 
-**Source finding:** The final paper reports a separate static Vinet fit and complete 100 GPa structure for FeSiO3 PPv. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.
+**Source finding:** Coefficients from Table III, a Vinet fit to static E(V) data; the printed V0 = 44.90 Å³ per FeSiO3 is stored per Z = 4 cell. No numerical E(V) data were deposited.
 
 Automatic selection for equilibrium calculations.
 
@@ -105,6 +105,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf
     - **DOI:** 10.1103/physrevb.90.140102
     - **Locations:** Table I; Computational methods; Figure 3; Table III; arXiv v1 Table 2; arXiv v2 source archive
+    - **Finding:** The final paper reports a separate static Vinet fit and complete 100 GPa structure for FeSiO3 PPv. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.
 - **Primary data check:**
     - **Status:** parameterization\_and\_independent\_table\_checkpoints
     - **Audit date:** 2026-09-08

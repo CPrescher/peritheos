@@ -122,6 +122,7 @@
             "access_url": "https://doi.org/10.2138/am-2003-2-307",
             "locations": ["Tables 1 and 2, journal pages 303-304", "EOS discussion and Figure 2, journal page 304"],
             "finding": "The combined BM3 fit uses the new single-crystal quartz-calibrated observations in Table 1 and the laser-annealed NaCl-calibrated powder observations in Table 2. Both tables are bundled with lattice parameters, conventional-cell volumes, pressure-standard volumes, and printed uncertainties.",
+            "record_note": "Coefficients from the EOS discussion (p. 304): a combined fit to the quartz-calibrated single-crystal data of Table 1 and the NaCl-calibrated powder data of Table 2 (pp. 303-304).",
             "doi": "10.2138/am-2003-2-307"
           },
           "migration_source": {
@@ -285,6 +286,7 @@
               "Discussion, paragraph 24"
             ],
             "finding": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
+            "record_note": "Coefficients from the Table 2 Morse-Rydberg (Vinet) column with Equations 1-8; the authors fixed a because the data could not constrain it (paragraph 14).",
             "doi": "10.1029/2011JB009100"
           },
           "primary_data_check": {
@@ -354,7 +356,8 @@
             "access_url": "https://arxiv.org/pdf/1001.2066",
             "doi": "10.1073/pnas.0912130107",
             "locations": ["Equations of States section", "Figure 1b", "Table 1"],
-            "finding": "The source reports the QMC 300 K stishovite Vinet row directly."
+            "finding": "The source reports the QMC 300 K stishovite Vinet row directly.",
+            "record_note": "Coefficients from the Table 1 stishovite QMC column, Vinet fits to thermal free-energy isotherms; the printed V0 = 159.0(4) bohr³ per SiO2 is stored in Å³ per Z = 2 cell."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -418,7 +421,8 @@
             "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
             "doi": "10.1093/petrology/egt035",
             "locations": ["Table 1", "Thermodynamic data section"],
-            "finding": "The stv endmember is a distinct modified-Tait reference isotherm."
+            "finding": "The stv endmember is a distinct modified-Tait reference isotherm.",
+            "record_note": "Coefficients from Table 1 and the official tc-ds62 stv block, printed as V0 = 1.401 J/bar/mol, K0 = 3090 kbar and K0'' = -0.00150 kbar^-1, converted to Å³ (Z = 2) and GPa."
           },
           "primary_data_check": {
             "status": "official_parameter_artifact",
@@ -474,7 +478,8 @@
             "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523",
             "doi": "10.1029/2001gl013523",
             "locations": ["Table 1", "Methods"],
-            "finding": "Complete source-owned 300 K stishovite VIBC coefficients."
+            "finding": "Complete source-owned 300 K stishovite VIBC coefficients.",
+            "record_note": "Coefficients from the Table 1 VIBC row."
           },
           "primary_data_check": {
             "status": "parameterization_only",
@@ -529,7 +534,8 @@
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.44.2495/fulltext",
             "doi": "10.1103/physrevb.44.2495",
             "locations": ["Section III.C", "Figures 9-11", "Table VI"],
-            "finding": "Complete stishovite coefficients."
+            "finding": "Complete stishovite coefficients.",
+            "record_note": "Coefficients from Table VI, with the finite-strain EOS of Section III.C and Figure 11. Table VI states no temperature; 300 K is inferred from the paper's Debye EOS convention."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",
@@ -623,7 +629,8 @@
               "Erratum, page 6983",
               "Supporting Text S1 and Tables S1-S4"
             ],
-            "finding": "Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved."
+            "finding": "Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved.",
+            "record_note": "Coefficients from Table 3 with the Birch (1978) form cited in Section 3.3; the erratum (p. 6983) corrects only the dry c and V0 of Table 2."
           },
           "verified_fields": [
             "equation",

@@ -97,6 +97,7 @@
             "access_url": "https://doi.org/10.1029/2019JB017853",
             "locations": ["Thermal EOS formulation", "Table 1, CaCl2 and seifertite rows"],
             "finding": "The stored BM2 records are the 300 K reference isotherms of the MGD fits.",
+            "record_note": "Coefficients from the Table 1 seifertite row and the paper's thermal EOS formulation; the BM2 is the 300 K reference isotherm of that MGD fit.",
             "doi": "10.1029/2019jb017853"
           },
           "migration_source": {
@@ -172,7 +173,8 @@
             "access_url": "https://arxiv.org/pdf/1001.2066",
             "doi": "10.1073/pnas.0912130107",
             "locations": ["Equations of States section", "Figure 1c", "Table 1"],
-            "finding": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly."
+            "finding": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly.",
+            "record_note": "Coefficients from the Table 1 alpha-PbO2 QMC column; V0 = 154.8(1) bohr³ per SiO2 is converted to Å³ and multiplied by Z = 4."
           },
           "primary_data_check": {
             "status": "parameterization_and_plot_only",

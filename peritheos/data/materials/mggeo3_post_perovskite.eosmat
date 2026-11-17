@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source selects a constrained room-temperature BM3 fit for CaIrO3-type Cmcm MgGeO3 post-perovskite, fixes K0'=4.4, and excludes only its three rows below 47 GPa.",
+        "source_note": "Coefficients from paragraph 17 and Table 2; K0 is fitted under the paper's K*V = constant elasticity-systematics constraint, with MgSiO3 post-perovskite reference values.",
         "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_kubo_2006_bm3_1"
       },
       "model": "BM3",
@@ -78,7 +78,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source reports V0=175.9(6) A^3 and K0=245(5) GPa when K0'=4 specifically to demonstrate parameter trade-off; it does not select this curve over the fixed-4.4 result.",
+        "source_note": "Coefficients from Results and discussion paragraph 17, where the paper reports the K0' = 4 alternative to its selected fit.",
         "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2"
       },
       "model": "BM2",
@@ -120,7 +120,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The fixed BM3 coefficients are explicitly source-reported for the Cmcm MgGeO3 post-perovskite data.",
+        "source_note": "Coefficients from page 264 (fit with K0' fixed) for the printed Birch-Murnaghan equation; Table 1 gives Z = 4 for the Cmcm cell.",
         "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_hirose_2005_bm3_fixed_1"
       },
       "model": "BM3",
@@ -168,7 +168,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The free BM3 coefficients are explicitly source-reported for the Cmcm MgGeO3 post-perovskite data.",
+        "source_note": "Coefficients from page 264 (free three-parameter fit) for the printed Birch-Murnaghan equation; Table 3 volumes and V0 are conventional Cmcm cell volumes.",
         "audit": "../audits/mggeo3_post_perovskite.audit.json#mggeo3_post_perovskite_hirose_2005_bm3_free_2"
       },
       "model": "BM3",

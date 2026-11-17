@@ -59,7 +59,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Not recommended for quantitative use. Neither the 65 deposited P-V-T rows nor the 47 plotted points reproduce the published K0 and K0'.
 
-**Source finding:** The source defines a BM3 reference plus Mie-Gruneisen-Debye thermal pressure and says that all 65 deposited P-V-T rows determine K0 and K0'. The deposit's row 32 values are retained verbatim but flagged as an isolated source-data/refinement anomaly. An independent fit of the 47 plotted Figure 3a marker centers also fails badly, and Equation 1 is malformed as printed; the record is retained for provenance but is not recommended for quantitative use.
+**Source finding:** Coefficients from Table 1 (manuscript p. 15) with the EOS discussion on manuscript pages 6-7; row 32 of the deposited Table 1 (AM-08-056) is an isolated anomaly, kept verbatim.
 
 Automatic selection for equilibrium calculations.
 
@@ -98,6 +98,7 @@ V0 is the measured zero-pressure volume, and theta0 and gamma0 were derived afte
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.2138/am.2008.2942
     - **Locations:** Equation 1 and goethite EOS discussion, manuscript pages 6-7; Goethite thermodynamic parameters, Table 1 on manuscript page 15; MSA depository item AM-08-056, Table 1
+    - **Finding:** The source defines a BM3 reference plus Mie-Gruneisen-Debye thermal pressure and says that all 65 deposited P-V-T rows determine K0 and K0'. The deposit's row 32 values are retained verbatim but flagged as an isolated source-data/refinement anomaly. An independent fit of the 47 plotted Figure 3a marker centers also fails badly, and Equation 1 is malformed as printed; the record is retained for provenance but is not recommended for quantitative use.
     - **DOI:** 10.2138/am.2008.2942
 - **Migration source:**
     - **Project:** Dioptas

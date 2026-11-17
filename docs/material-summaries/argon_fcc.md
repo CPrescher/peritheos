@@ -1328,7 +1328,7 @@ The Peritheos implementation does not reproduce the paper's Table 8 sample (23.8
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/argon_fcc.md#record-argon_fcc_ross_1986_errandonea_2006_bm3_refit)
 
-**Source finding:** Input observations traced to Ross Table I and Errandonea Figure 5 through source\_lineage; coefficients are the provisional Peritheos refit, not published source coefficients.
+**Source finding:** Observations from Ross et al. (1986) Table I and a partial digitization of Errandonea et al. (2006) Figure 5; no coefficient is taken from either paper.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1363,6 +1363,7 @@ Provisional Peritheos BM3 refit of Ross (1986) Table I data at 298 K and fcc poi
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.092106/fulltext
     - **DOI:** 10.1103/PhysRevB.73.092106
     - **Locations:** Pages 1, 3-4; Figures 4-5
+    - **Finding:** Input observations traced to Ross Table I and Errandonea Figure 5 through source\_lineage; coefficients are the provisional Peritheos refit, not published source coefficients.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** argon\_fcc\_ross\_errandonea\_selected49

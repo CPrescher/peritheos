@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/naalsi2o6.md#record-naalsi2o6_zhao_1997_bm3_1)
 
-**Source finding:** Equation (1) is a temperature-dependent BM3 relation with V\_T=V0\*exp(integral(alpha(T)dT)), alpha(T)=a+b\*T, and K\_T=K\_T0+dK\_dT\*(T-300 K). For the preferred column the authors fixed V0=403 A^3 and K0'=5, then fitted all four remaining coefficients to the hydrostatic P-V-T observations in Table 1.
+**Source finding:** Coefficients from the preferred K0' = 5 column of Table 2 with Equation (1); Table 2 prints K0 = 125(4) GPa, and the stored value follows the fit prose on page 6. The fixed V0 is not the Table 1 measurement of 403.32(8) Å³.
 
 Automatic selection for equilibrium calculations.
 
@@ -108,6 +108,7 @@ The authors' preferred high-temperature BM3 parameterization, fitted to the 31 h
 - **Primary source check:**
     - **Access URL:** https://onlinelibrary.wiley.com/doi/pdfdirect/10.1029/96GL03769
     - **Locations:** Experimental Aspects and Table 1, pages 5-6; Equation (1) and thermoelastic fit paragraph, page 6; Discussion and Table 2, page 7
+    - **Finding:** Equation (1) is a temperature-dependent BM3 relation with V\_T=V0\*exp(integral(alpha(T)dT)), alpha(T)=a+b\*T, and K\_T=K\_T0+dK\_dT\*(T-300 K). For the preferred column the authors fixed V0=403 A^3 and K0'=5, then fitted all four remaining coefficients to the hydrostatic P-V-T observations in Table 1.
     - **DOI:** 10.1029/96gl03769
 - **Migration source:**
     - **Project:** Dioptas

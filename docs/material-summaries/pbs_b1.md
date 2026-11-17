@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/pbs_b1.md#record-pbs_b1_knorr_2003_bm3_1)
 
-**Source finding:** The authors' preprint reports a=5.9240(4) A and the B1-PbS BM3 fit K0=51.0(1.2) GPa, K0'=4.3(9). V0 and its uncertainty are propagated from the published cubic lattice parameter.
+**Source finding:** Coefficients from the table of BM EOS parameters in the authors' preprint; V0 and its error follow from the cubic a of its ambient-structure paragraph.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,6 +89,7 @@ Room-temperature BM3 fit for B1 PbS. V0 is calculated from the reported cubic a 
 - **Primary source check:**
     - **Access URL:** https://arxiv.org/abs/cond-mat/0210013
     - **Locations:** ambient-structure paragraph; Table of BM EOS parameters; EOS discussion
+    - **Finding:** The authors' preprint reports a=5.9240(4) A and the B1-PbS BM3 fit K0=51.0(1.2) GPa, K0'=4.3(9). V0 and its uncertainty are propagated from the published cubic lattice parameter.
     - **DOI:** 10.1140/epjb/e2003-00034-6
 - **Migration source:**
     - **Project:** Dioptas

@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/lead_fcc.md#record-lead_fcc_fortes_2019_bm4_1)
 
-**Source finding:** The stored BM4 record is exactly the 300 K isotherm of the fully specified polynomial P-V-T surface. The report's Table 1 constants are evaluated at Delta T=0 (300 K), not at absolute zero.
+**Source finding:** Coefficients are the constant terms of Table 1 (report pages 8-9; Equations 1-5), which refer to Delta T = 0, i.e. 300 K, not absolute zero.
 
 Automatic selection for equilibrium calculations.
 
@@ -93,6 +93,7 @@ Automatic selection for equilibrium calculations.
 - **Primary source check:**
     - **Access URL:** https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf
     - **Locations:** Equations 1-8; sections 2.1-2.3; Tables 1-2, report pages 8-9
+    - **Finding:** The stored BM4 record is exactly the 300 K isotherm of the fully specified polynomial P-V-T surface. The report's Table 1 constants are evaluated at Delta T=0 (300 K), not at absolute zero.
     - **DOI:** 10.5286/raltr.2019002
 - **Migration source:**
     - **Project:** Dioptas
@@ -171,7 +172,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/lead_fcc.md#record-lead_fcc_kuznetsov_2002_bm3_2)
 
-**Source finding:** The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.
+**Source finding:** Coefficients from the fcc entries of Table 2 (Equation 1), with V0 printed as 30.307 Å³/atom and stored per four-atom cell; Equations 2-3 put the reference at T0 = 296 K.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -209,6 +210,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/S0038-1098(02)00112-6
     - **Locations:** Equations 1-3; Table 1; Table 2; Figures 2-3
+    - **Finding:** The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.
     - **DOI:** 10.1016/S0038-1098(02)00112-6
 - **Primary data check:**
     - **Status:** combined\_primary\_data\_partially\_bundled

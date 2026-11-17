@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo_liquid.md#record-mgo_liquid_ghosh_karki_2016_3000k_bm3_1)
 
-**Source finding:** Complete source-owned 3000 K pure liquid MgO reference BM3.
+**Source finding:** Coefficients from the Results on page 3, the T0 = 3000 K pure-liquid reference term of Equation (2); volumes are per MgO formula unit.
 
 Automatic selection for equilibrium calculations.
 
@@ -102,6 +102,7 @@ Reference isotherm for pure MgO liquid in the authors' broader composition-tempe
     - **Access URL:** https://www.nature.com/articles/srep37269.pdf
     - **DOI:** 10.1038/srep37269
     - **Locations:** Equation (2) and following paragraph, page 3; Figure 3; Methods, page 7
+    - **Finding:** Complete source-owned 3000 K pure liquid MgO reference BM3.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-05

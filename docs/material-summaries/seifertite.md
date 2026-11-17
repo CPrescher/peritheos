@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/seifertite.md#record-seifertite_sun_2019_bm2_1)
 
-**Source finding:** The stored BM2 records are the 300 K reference isotherms of the MGD fits.
+**Source finding:** Coefficients from the Table 1 seifertite row and the paper's thermal EOS formulation; the BM2 is the 300 K reference isotherm of that MGD fit.
 
 Automatic selection for equilibrium calculations.
 
@@ -96,6 +96,7 @@ Laser-heated diamond-anvil-cell thermal EOS; the BM2 reference isotherm implies 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/2019JB017853
     - **Locations:** Thermal EOS formulation; Table 1, CaCl2 and seifertite rows
+    - **Finding:** The stored BM2 records are the 300 K reference isotherms of the MGD fits.
     - **DOI:** 10.1029/2019jb017853
 - **Migration source:**
     - **Project:** Dioptas
@@ -139,7 +140,7 @@ Laser-heated diamond-anvil-cell thermal EOS; the BM2 reference isotherm implies 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/seifertite.md#record-seifertite_driver_2010_qmc_300k_vinet)
 
-**Source finding:** The source reports the QMC 300 K alpha-PbO2-type Vinet row directly.
+**Source finding:** Coefficients from the Table 1 alpha-PbO2 QMC column; V0 = 154.8(1) bohr³ per SiO2 is converted to Å³ and multiplied by Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -183,6 +184,7 @@ QMC calculation with quasiharmonic phonons.
     - **Access URL:** https://arxiv.org/pdf/1001.2066
     - **DOI:** 10.1073/pnas.0912130107
     - **Locations:** Equations of States section; Figure 1c; Table 1
+    - **Finding:** The source reports the QMC 300 K alpha-PbO2-type Vinet row directly.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05

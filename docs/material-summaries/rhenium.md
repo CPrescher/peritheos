@@ -67,7 +67,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_sakai_2025_rydberg_stacey_1)
 
-**Source finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
+**Source finding:** Coefficients from Table 2 with Equation (1); they match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).
 
 Automatic selection for equilibrium calculations.
 
@@ -107,6 +107,7 @@ Table 2 parameterization: V0 and K0 are fixed (the source fixes most ambient V0 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1038/s43246-025-00792-5
     - **Locations:** Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook
+    - **Finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
     - **DOI:** 10.1038/s43246-025-00792-5
 - **Primary data check:**
     - **Status:** bundled
@@ -253,7 +254,7 @@ Quasi-hydrostatic powder-XRD fit in helium. Published V0 = 8.8726 cm³/mol (14.7
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_dewaele_2019_mao_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Mao-1986 ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -290,6 +291,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -339,7 +341,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_dewaele_2019_dor_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [rhenium\_dewaele\_2019\_mao\_vinet](#record-rhenium_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -378,6 +380,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -427,7 +430,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_sakai_2018_yokoo_pt_vinet)
 
-**Source finding:** One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work.
+**Source finding:** Coefficients from the paragraph below Figure 10 in Section 3 (article p. 10; final p. 116); the Re-Pt co-compression is described in Section 2 (p. 4).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -470,6 +473,7 @@ Vinet fit of Re-Pt co-compression on the Yokoo et al. (2009) platinum pressure s
     - **Source filename:** 08957959.2018.1448082.pdf
     - **Sha256:** b9cafc84c668283a96ae59c48d0c42696df38eae42765d9db483bc8f5117eb32
     - **Locations:** Section 2 (article p. 4), Re-Pt co-compression; Section 3, Figure 10 and following paragraph (article p. 10); Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure
+    - **Finding:** One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work.
 - **Primary data check:**
     - **Status:** plot\_only
     - **Audit date:** 2026-09-10
@@ -524,7 +528,7 @@ Vinet fit of Re-Pt co-compression on the Yokoo et al. (2009) platinum pressure s
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_zha_2004_bm3_log_thermal)
 
-**Source finding:** Table III is a complete continuous thermal EOS, distinct from the preferred subsequent fixed-volume isotherms. Its fitted coefficients reproduce from all eight observed isochore slopes.
+**Source finding:** Coefficients from Table III (p. 2414) with Equation (6) (p. 2410); V0 is the Table III Va, taken from JCPDS 05-0702.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -563,6 +567,7 @@ Continuous Equation (6) thermal EOS of Table III, not the authors' preferred fix
     - **DOI:** 10.1063/1.1765752
     - **Access URL:** https://doi.org/10.1063/1.1765752
     - **Locations:** Equations (3)-(6), p. 2410; Table IIa-IIb, p. 2412; Tables III-IV and Figure 5, p. 2414; Table V, p. 2415; Appendix and Table VII, pp. 2416-2418
+    - **Finding:** Table III is a complete continuous thermal EOS, distinct from the preferred subsequent fixed-volume isotherms. Its fitted coefficients reproduce from all eight observed isochore slopes.
     - **Zotero item key:** 9BAJ2FCF
     - **Zotero attachment key:** JABFZJUC
 - **Primary data check:**

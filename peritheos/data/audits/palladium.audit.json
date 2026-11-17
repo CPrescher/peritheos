@@ -43,6 +43,7 @@
             "access_url": "https://doi.org/10.1063/5.0179469",
             "locations": ["Cold-curve calculation", "Figure 3", "Supplementary Table S3"],
             "finding": "The article identifies a separate 0 K DFT BM3 cold curve. Supplementary Table S3 evaluates that curve alongside five literature EOS parameterizations; it is not a table of observations used in the experimental fit.",
+            "record_note": "The cold curve is the 'This work' column of Supplementary Table S3 and the green curve in Figure 3; Table S3 lists pressures calculated from this fit, not fit input.",
             "doi": "10.1063/5.0179469"
           },
           "primary_data_check": {
@@ -115,6 +116,7 @@
             "access_url": "https://doi.org/10.1063/1.5138697",
             "locations": ["Experimental methods", "Pure-Pd compression discussion", "Pure-Pd EOS figure"],
             "finding": "The source reports a room-temperature Vinet EOS for pure fcc Pd compressed in neon, separately from the hydride results.",
+            "record_note": "Coefficients from the pure-Pd compression discussion and EOS figure, reported separately from the hydride results; the pure-Pd observations are plotted, not tabulated.",
             "doi": "10.1063/1.5138697"
           },
           "primary_data_check": {
@@ -250,6 +252,7 @@
             "access_url": "https://doi.org/10.1016/j.jallcom.2020.156179",
             "locations": ["Section 3.1", "Table 1", "Equation 1", "Figure 1", "Table 2"],
             "finding": "Table 1 supplies 15 pure-Pd P-V observations. Section 3.1 and Figure 1 report the BM3 parameters; the isolated 58.863 value in Table 2 conflicts with three occurrences of 58.868 and is treated as a typographical inconsistency.",
+            "record_note": "Coefficients from Section 3.1 and Figure 1 (Equation 1). Table 2 prints V0 as 58.863(2) Å³, which conflicts with three other occurrences of the stored value and is treated as a typographical error.",
             "doi": "10.1016/j.jallcom.2020.156179"
           },
           "primary_data_check": {
@@ -365,6 +368,7 @@
             "access_url": "https://doi.org/10.1016/j.jallcom.2020.156179",
             "locations": ["Section 3.1", "Table 1", "Table 2"],
             "finding": "Table 2 explicitly reports the second-order result K0=203(3) GPa with K0'=4. It uses the same Table 1 observations as the BM3 fit.",
+            "record_note": "K0 from the second-order result in Table 2. V0 follows Table 1, the BM3 fit paragraph and Figure 1 rather than Table 2's isolated 58.863(2) Å³.",
             "doi": "10.1016/j.jallcom.2020.156179"
           },
           "primary_data_check": {
@@ -513,6 +517,7 @@
               "Supplementary Section II.A and Tables I-III"
             ],
             "finding": "The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.",
+            "record_note": "Vinet coefficients from Table I, fitted with pressure and volume uncertainties. Pressures come from tungsten markers in Runs 1 and 2 and gold in Run 3 (Supplementary Tables I-III).",
             "doi": "10.1063/5.0161038"
           },
           "primary_data_check": {
@@ -658,6 +663,7 @@
               "Supplementary Section II.A and Tables I-III"
             ],
             "finding": "Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.",
+            "record_note": "BM3 coefficients from Table I, fitted by Marquardt-Levenberg least squares with 0.1 GPa pressure and Le Bail volume uncertainties (Methods, page 035901-2); observations from Supplementary Tables I-III.",
             "doi": "10.1063/5.0161038"
           },
           "primary_data_check": {
@@ -784,6 +790,7 @@
             "access_url": "https://doi.org/10.1063/5.0179469",
             "locations": ["Equation 1", "Figure 3, own 300 K P-V data", "Supplementary Table S1", "Figure 4"],
             "finding": "The paper reports the BM3 fit in the text and plots its own 300 K P-V observations in Figure 3. The official supplementary Table S1 supplies the complete 78-point compression dataset.",
+            "record_note": "BM3 coefficients from the text with Equation 1; the 300 K observations plotted in Figure 3 are tabulated in the official Supplementary Table S1.",
             "doi": "10.1063/5.0179469"
           },
           "migration_source": {

@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.75Fe0.25)O, fitted only below 47 GPa.",
+        "source_note": "Coefficients from Table 3, page 179, with the 300 K BM3 and thermal increment of Equations (1)-(6); K0 is fixed from the MgO literature and theta0 from the ferropericlase literature.",
         "audit": "../audits/mg075fe025o.audit.json#mg075fe025o_matsui_2012_bm3_mgd_1"
       },
       "model": "BM3",
@@ -81,7 +81,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The corrected source defines a 300 K high-spin BM3 reference curve with V0 fixed at 76.34 A^3, K0=162(1) GPa, and K0'=4 fixed.",
+        "source_note": "High-spin coefficients from Results paragraph 7 of the corrected article (correction DOI 10.1029/2011GL050814).",
         "audit": "../audits/mg075fe025o.audit.json#mg075fe025o_mao_2011_high_spin_bm3_1"
       },
       "model": "BM3",
@@ -138,7 +138,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The corrected source defines a 300 K low-spin BM3 reference curve with V0=74.4(6) A^3, K0=166(7) GPa, and K0'=4 fixed.",
+        "source_note": "Low-spin coefficients from Results paragraph 7 of the corrected article (correction DOI 10.1029/2011GL050814).",
         "audit": "../audits/mg075fe025o.audit.json#mg075fe025o_mao_2011_low_spin_bm3_1"
       },
       "model": "BM3",
@@ -196,7 +196,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "Complete HS BM3; LS V0 absent so paired LitCurate row rejected.",
+        "source_note": "Coefficients from the Table I high-spin entry; V0 = 133.8 bohr³ per formula unit is converted to the Z = 4 cell. The paper gives no low-spin V0.",
         "audit": "../audits/mg075fe025o.audit.json#mg075fe025o_leonov_2017_hs_bm3_1"
       },
       "model": "BM3",
@@ -235,7 +235,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "source_note": "Coefficients from Table 7, high-spin branch.",
         "audit": "../audits/mg075fe025o.audit.json#mg075fe025o_solomatova_2016_hs_bm3_reference_1"
       },
       "model": "BM3",
@@ -279,7 +279,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "source_note": "Coefficients from Table 7, low-spin branch.",
         "audit": "../audits/mg075fe025o.audit.json#mg075fe025o_solomatova_2016_ls_bm3_reference_2"
       },
       "model": "BM3",

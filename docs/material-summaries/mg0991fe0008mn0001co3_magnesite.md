@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg0991fe0008mn0001co3_magnesite.md#record-mg0991fe0008mn0001co3_redfern_1993_bm2_1)
 
-**Source finding:** The source publishes 18 pressure-volume rows and reports an all-row reduced Birch least-squares fit with V0=279.4(2) A3, K0=142(9) GPa, and K0'=4.
+**Source finding:** Coefficients from the Equation-of-State section (p. 2100): a least-squares reduced Birch fit to all 18 Table 1 rows, normalized to the Table 1 ambient V0.
 
 Automatic selection for equilibrium calculations.
 
@@ -103,6 +103,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://doi.org/10.1029/93GL02507
     - **DOI:** 10.1029/93GL02507
     - **Locations:** Abstract; Experimental Methods, page 2099; Table 1 and Equation-of-State section, page 2100
+    - **Finding:** The source publishes 18 pressure-volume rows and reports an all-row reduced Birch least-squares fit with V0=279.4(2) A3, K0=142(9) GPa, and K0'=4.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08
@@ -172,7 +173,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg0991fe0008mn0001co3_magnesite.md#record-mg0991fe0008mn0001co3_redfern_1993_bm3_2)
 
-**Source finding:** The source publishes 18 pressure-volume rows and reports a weighted finite-strain regression of the nine rows with fV&gt;0.01, giving K0=151(7) GPa and fitted K0'=2.5.
+**Source finding:** Coefficients from Equation (2) and the Figure 2 caption (p. 2100): a weighted finite-strain regression of the nine Table 1 rows with fV &gt; 0.01. Yu et al. (2024) list K0' as fixed, but the source fitted it.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -211,6 +212,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg0
     - **Access URL:** https://doi.org/10.1029/93GL02507
     - **DOI:** 10.1029/93GL02507
     - **Locations:** Abstract; Experimental Methods, page 2099; Table 1, Equation (2), and Figure 2 caption, page 2100
+    - **Finding:** The source publishes 18 pressure-volume rows and reports a weighted finite-strain regression of the nine rows with fV&gt;0.01, giving K0=151(7) GPa and fitted K0'=2.5.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08

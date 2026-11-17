@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+        "source_note": "Coefficients from Table 2 with Equation (1); the curve from the stored parameters matches every corresponding value of the official 26-row Table S9 compression grid (derived output, not measurements).",
         "audit": "../audits/iron.audit.json#iron_sakai_2025_rydberg_stacey_1"
       },
       "model": "RydbergStacey",
@@ -65,7 +65,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "All 32 new hcp-iron observations in Table 1 are bundled with their printed pressure, volume, c/a, and relative-volume uncertainties. Published molar volumes are retained and also converted to the conventional two-atom hcp cell. The published BM3 fit additionally used earlier hcp-Fe data identified in the Table 3 footnote.",
+        "source_note": "Coefficients from Table 3 (journal pages 21739-21740). The published fit also used earlier hcp-Fe data identified in the Table 3 footnote, besides the 32 new Table 1 observations.",
         "audit": "../audits/iron.audit.json#iron_mao_1990_bm3_1"
       },
       "model": "BM3",
@@ -96,7 +96,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+        "source_note": "Coefficients from Table II (pages 9-12). The Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I.",
         "audit": "../audits/iron.audit.json#iron_shen_2026_vinet_2"
       },
       "model": "Vinet",
@@ -128,7 +128,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/iron.audit.json#iron_dewaele_2019_mao_vinet"
       },
       "model": "Vinet",
@@ -167,7 +167,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/iron.audit.json#iron_dewaele_2019_dor_vinet"
       },
       "model": "Vinet",
@@ -207,7 +207,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-07",
-        "source_note": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows.",
+        "source_note": "Coefficients from Fit #1 in Table 2 and Supplementary Table S6, with the molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.",
         "audit": "../audits/iron.audit.json#iron_zhang_2025_fit1_birch_murnaghan_3_mgd"
       },
       "model": "BM3",
@@ -282,7 +282,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-07",
-        "source_note": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows.",
+        "source_note": "Coefficients from Fit #2 in Table 2 and Supplementary Table S6, with the fixed molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.",
         "audit": "../audits/iron.audit.json#iron_zhang_2025_fit2_birch_murnaghan_3_mgd"
       },
       "model": "BM3",
@@ -350,7 +350,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-07",
-        "source_note": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows.",
+        "source_note": "Coefficients from Fit #5 (Vinet) in Table 2 and Supplementary Table S6, with the fixed molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.",
         "audit": "../audits/iron.audit.json#iron_zhang_2025_fit5_vinet_mgd"
       },
       "model": "Vinet",
@@ -418,7 +418,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Table III supplies the 300 K Vinet isotherm and its 95% fit errors. The thermal EOS is a simplified Dorogokupets-Oganov formalism with one Debye term plus quadratic anharmonic and electronic terms, all subtracted at 300 K.",
+        "source_note": "Vinet coefficients from the Table III row for this study; thermal coefficients from the text after Equation (2), with theta0 a fixed ambient value from the paper's reference 24 and beta derived as gamma0/(gamma0-gamma_inf).",
         "audit": "../audits/iron.audit.json#iron_dewaele_2006_vinet_thermal"
       },
       "model": "Vinet",
@@ -480,7 +480,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs.",
+        "source_note": "Coefficients from Section 3.1, Equation (1), p. 6840, with V0 from rho0 = 8.2695 g/cm³. The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.",
         "audit": "../audits/iron.audit.json#iron_fei_2016_bm3"
       },
       "model": "BM3",
@@ -527,7 +527,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs.",
+        "source_note": "Coefficients from Section 3.1, Equation (1), p. 6840, with V0 from rho0 = 8.3602 g/cm³ (error 0.0241 g/cm³). The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.",
         "audit": "../audits/iron.audit.json#iron_fei_2016_free_density_bm3"
       },
       "model": "BM3",
@@ -574,7 +574,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs.",
+        "source_note": "Cold terms from Section 3.1, Equation (1), p. 6840; thermal terms from Section 3.2, Equation (2), with A from the fitted beta0 = 0.07 J/kg/K². The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.",
         "audit": "../audits/iron.audit.json#iron_fei_2016_bm3_debye_quadratic"
       },
       "model": "BM3",
@@ -634,7 +634,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 BM3 fit on pressure scale P1.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p1_bm3"
       },
       "model": "BM3",
@@ -674,7 +674,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 Vinet fit on pressure scale P1.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p1_vinet"
       },
       "model": "Vinet",
@@ -715,7 +715,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from Table 3: the authors' alternative P1-scale BM3 fit with V0 fixed at the Mao value rather than their g-G plot value.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p1_v0_mao_bm3"
       },
       "model": "BM3",
@@ -756,7 +756,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from Table 3: the authors' alternative P1-scale Vinet fit with V0 fixed at the Mao value rather than their g-G plot value.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p1_v0_mao_vinet"
       },
       "model": "Vinet",
@@ -797,7 +797,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from Table 3: the authors' alternative P1-scale BM3 fit with V0 fixed at the Dewaele value rather than their g-G plot value.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p1_v0_dewaele_bm3"
       },
       "model": "BM3",
@@ -838,7 +838,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from Table 3: the authors' alternative P1-scale Vinet fit with V0 fixed at the Dewaele value rather than their g-G plot value.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p1_v0_dewaele_vinet"
       },
       "model": "Vinet",
@@ -878,7 +878,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 BM3 fit on pressure scale P2.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p2_bm3"
       },
       "model": "BM3",
@@ -922,7 +922,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 Vinet fit on pressure scale P2.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p2_vinet"
       },
       "model": "Vinet",
@@ -966,7 +966,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 BM3 fit on pressure scale P3.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p3_bm3"
       },
       "model": "BM3",
@@ -1010,7 +1010,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 Vinet fit on pressure scale P3.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p3_vinet"
       },
       "model": "Vinet",
@@ -1055,7 +1055,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 BM3 fit on pressure scale P4.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p4_bm3"
       },
       "model": "BM3",
@@ -1096,7 +1096,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 Vinet fit on pressure scale P4.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p4_vinet"
       },
       "model": "Vinet",
@@ -1137,7 +1137,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 BM3 fit on pressure scale P5.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p5_bm3"
       },
       "model": "BM3",
@@ -1181,7 +1181,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 Vinet fit on pressure scale P5.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p5_vinet"
       },
       "model": "Vinet",
@@ -1226,7 +1226,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 BM3 fit on pressure scale P6.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p6_bm3"
       },
       "model": "BM3",
@@ -1267,7 +1267,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+        "source_note": "Coefficients from the Table 3 Vinet fit on pressure scale P6.",
         "audit": "../audits/iron.audit.json#iron_sakai_2014_p6_vinet"
       },
       "model": "Vinet",
@@ -1309,7 +1309,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
+        "source_note": "Coefficients from the Table 1 BM3 fit with the thermal pressure of Equations (1)–(4); theta0, gamma0 and beta are fitted in the paper, the other thermal constants are fixed.",
         "audit": "../audits/iron.audit.json#iron_yamazaki_2012_bm3_thermal"
       },
       "model": "BM3",
@@ -1379,7 +1379,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
+        "source_note": "Coefficients from the Table 1 Vinet fit with the thermal pressure of Equations (1)–(4); theta0, gamma0 and beta are fitted in the paper, the other thermal constants are fixed.",
         "audit": "../audits/iron.audit.json#iron_yamazaki_2012_vinet_thermal"
       },
       "model": "Vinet",
@@ -1448,7 +1448,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "K0 derived exactly from 1/(b1+b2*300+b3*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated.",
+        "source_note": "Coefficients from Table II with Equation (1). The paper does not tabulate the 109+79 P-V-T observations behind the fit.",
         "audit": "../audits/iron.audit.json#iron_dubrovinsky_2000_bm3_thermal"
       },
       "model": "BM3",
@@ -1510,7 +1510,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.",
+        "source_note": "Coefficients from the Table I BM row; the printed atomic V0 = 11.234(12) Å³ and its error are doubled for the two-atom cell, not taken from later secondary tables.",
         "audit": "../audits/iron.audit.json#iron_dewaele_2006_bm3"
       },
       "model": "BM3",
@@ -1550,7 +1550,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS.",
+        "source_note": "c0 and s from the Table III linear fit to all 37 points of Tables I–II. The quadratic fit and the full data range to 442.1 GPa are kept as source information, not as the executable EOS.",
         "audit": "../audits/iron.audit.json#iron_brown_2000_linear_hugoniot"
       },
       "model": "LinearUsUpHugoniot",
@@ -1619,7 +1619,7 @@
         "warning_reason": "The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.",
         "source_check": "unresolved",
         "source_checked_on": "2026-10-02",
-        "source_note": "Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits.",
+        "source_note": "Coefficients from the Table 1 BM3 row (Equation (3)); volumes are per conventional two-atom hcp cell, as in the source.",
         "audit": "../audits/iron.audit.json#iron_miozzi_2020_bm3"
       },
       "model": "BM3",
@@ -1664,7 +1664,7 @@
         "warning_reason": "The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.",
         "source_check": "unresolved",
         "source_checked_on": "2026-10-02",
-        "source_note": "Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits.",
+        "source_note": "Coefficients from the Table 1 Vinet row (page 7), the current-study alternative to the BM3 of Equation (3); Table 1 prints no V0 error for this fit.",
         "audit": "../audits/iron.audit.json#iron_miozzi_2020_vinet"
       },
       "model": "Vinet",
@@ -1709,7 +1709,7 @@
         "warning_reason": "Uses MGD with n = 2 at the per-mole-Fe volume, unlike the physical per-Fe n = 1; full reproduction of the fit is unresolved.",
         "source_check": "unresolved",
         "source_checked_on": "2026-10-03",
-        "source_note": "Printed preferred thermal coefficients and their uncertainties are preserved. Full MGD, n=2 with V0 approximately 6.87 cm3/mol and the final free V0 are attributed to recorded personal communication, rather than inferred from the printed equations. The author-setting replay improves residuals but does not recover the full original fit.",
+        "source_note": "Coefficients from Section 3.3 with Equations (3), (4), (6) and (8); malformed printed Equations (5) and (7) are mapped to standard MGD. V0 follows Section 3.3, not the 22.80(2) Å³ of Table 1 and Figure 4; Section 3.3 calls V0 fixed, but the authors said in personal communication it was free.",
         "audit": "../audits/iron.audit.json#iron_miozzi_2020_bm3_mgd"
       },
       "model": "BM3",
@@ -1763,7 +1763,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-02",
-        "source_note": "Data and fixed assumptions are primary-source traced; fitted coefficients and pressure calibration choice belong to the independent Peritheos refit.",
+        "source_note": "Observations from the official Miozzi supplementary Fe-He and Fe-MgO datasets; MgO pressures from Tange (2009) Table 4 and Equations (2)-(5). theta0 is adopted from Miozzi Section 3.3; V0, K0, K0', gamma0 and q are Peritheos fits.",
         "audit": "../audits/iron.audit.json#iron_miozzi_2020_tange_2009_bm3_mgd_refit"
       },
       "model": "BM3",
@@ -1841,7 +1841,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-03",
-        "source_note": "Source observations and calibration equations traced to primary papers; fitted Fe coefficients belong to the independent Peritheos refit.",
+        "source_note": "Observations from the Miozzi supplementary data; MgO pressures recalculated with the Speziale (2001) model of its Sections 2.1 and 5.4. V0, K0, K0', gamma0 and q are Peritheos fits.",
         "audit": "../audits/iron.audit.json#iron_miozzi_2020_speziale_2001_bm3_mgd_refit"
       },
       "model": "BM3",

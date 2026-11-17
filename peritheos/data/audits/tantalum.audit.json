@@ -99,6 +99,7 @@
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.59.8526/fulltext",
             "locations": ["Equation (1), page 8528", "Table II", "conclusion, page 8528"],
             "finding": "The fixed V0=10.865 cm3/mol was converted to a two-atom bcc cell.",
+            "record_note": "The fixed V0 = 10.865 cm³/mol was converted to the two-atom bcc cell.",
             "doi": "10.1103/physrevb.59.8526"
           },
           "migration_source": {
@@ -258,6 +259,7 @@
               "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
             ],
             "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+            "record_note": "Coefficients from Table II (pp. 9-12) for the Vinet form of Equation (4). The Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.",
             "doi": "10.1103/fxgq-96sg"
           },
           "migration_source": {
@@ -338,6 +340,7 @@
               "Figures 3-11 cross-calibration tests"
             ],
             "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+            "record_note": "Stored coefficients match the Ta columns of Tables 1 and 4; n and Z come from the model definitions of Sokolova et al. (2016), Equations (1)-(3) and Table 2.",
             "doi": "10.1016/j.rgg.2013.01.005"
           },
           "migration_source": {
@@ -560,7 +563,8 @@
             "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
             "doi": "10.3390/min9110684",
             "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+            "record_note": "Coefficients from Table 1 (Mao-1986 ruby-scale reduction) for the Vinet form of Equation (1)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -738,7 +742,8 @@
             "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
             "doi": "10.3390/min9110684",
             "locations": ["Equation (1)", "Table 1"],
-            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+            "record_note": "Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1)."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -855,7 +860,8 @@
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
             "doi": "10.1103/physrevb.70.094112",
             "locations": ["Equation (1)", "Figure 2 caption", "Tables I and II"],
-            "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+            "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
+            "record_note": "Coefficients from Table II, classical Mao ruby-scale reduction, for the Vinet form defined in the Figure 2 caption."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -952,7 +958,8 @@
             "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
             "doi": "10.1103/physrevb.70.094112",
             "locations": ["Equation (1)", "Figure 2 caption", "Tables I and II"],
-            "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+            "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold.",
+            "record_note": "Coefficients from Table II, revised ruby-scale reduction (defined by Equation (1)), for the Vinet form defined in the Figure 2 caption."
           },
           "primary_data_check": {
             "status": "bundled",

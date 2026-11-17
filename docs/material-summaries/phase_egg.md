@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_egg.md#record-phase_egg_schulze_2018_bm3_1)
 
-**Source finding:** The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.
+**Source finding:** Coefficients from the this-study column of Table 2. The abstract and EOS prose print the K0' error as 1.3 instead of the tabulated 1.2; the tabulated error is stored.
 
 Automatic selection for equilibrium calculations.
 
@@ -101,6 +101,7 @@ Room-temperature BM3 in the Eulerian finite-strain convention, fitted with the E
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.2138/am-2018-6562
     - **Locations:** Methods, sample synthesis and characterization; Methods, high-pressure experiments; Results, compressibility of Phase Egg; Tables 1-2; official MSA deposit AM-18-126562, 6562schulze.cif and 6562supp.pdf
+    - **Finding:** The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.
     - **DOI:** 10.2138/am-2018-6562
     - **Accepted manuscript sha256:** 41333eb0e784d90ca0277bdd7ac7c0a7fbd3109691463f04385c0baa199b038a
     - **Official deposit sha256:** fa91df7ca987165cfeb89d9cb3035afba02794bd10a7423cc4a5cc836ebbdd97
@@ -165,7 +166,7 @@ Room-temperature BM3 in the Eulerian finite-strain convention, fitted with the E
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_egg.md#record-phase_egg_mookherjee_2019_bm3_lp_1)
 
-**Source finding:** The final article identifies DOI 10.2138/am-2019-6694 and reports a static 0 K energy-volume BM3 fit for the ordered LP proton configuration. At V=196 A^3 the published coefficients give 14.72596 GPa, reproducing the supplement's 14.7 GPa after rounding. An unweighted diagnostic fit to all 11 supplementary LP P-V rows gives V0=210.2176 A^3, K0=164.8340 GPa, and K0'=7.08137, with pressure RMSE 0.02339 GPa; the underlying total energies, exact objective, weights, covariance, and error convention are not published.
+**Source finding:** Coefficients from the equation-of-state section (pp. 132-133) with the BM3 energy form of equations (1)-(2); at V = 196 Å³ they agree with the 14.7 GPa of Supplementary Table 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -206,6 +207,7 @@ Static 0 K first-principles BM3 for the low-pressure (LP) proton configuration, 
 - **Primary source check:**
     - **Access URL:** https://par.nsf.gov/servlets/purl/10089001
     - **Locations:** article footer and bibliographic header, page 130; Methods, pages 131-132; equations (1)-(2) and equation-of-state discussion, pages 132-133; official MSA deposit AM-19-16694, Supplementary Table 1, low-pressure block
+    - **Finding:** The final article identifies DOI 10.2138/am-2019-6694 and reports a static 0 K energy-volume BM3 fit for the ordered LP proton configuration. At V=196 A^3 the published coefficients give 14.72596 GPa, reproducing the supplement's 14.7 GPa after rounding. An unweighted diagnostic fit to all 11 supplementary LP P-V rows gives V0=210.2176 A^3, K0=164.8340 GPa, and K0'=7.08137, with pressure RMSE 0.02339 GPa; the underlying total energies, exact objective, weights, covariance, and error convention are not published.
     - **DOI:** 10.2138/am-2019-6694
 - **Identifier resolution:**
     - **Canonical doi:** 10.2138/am-2019-6694
@@ -262,7 +264,7 @@ Static 0 K first-principles BM3 for the low-pressure (LP) proton configuration, 
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/phase_egg.md#record-phase_egg_mookherjee_2019_bm3_hp_1)
 
-**Source finding:** Complete static HP BM3 parameterization for the proton-transferred structure.
+**Source finding:** Coefficients from the EOS discussion (p. 133) with the BM3 energy form of equations (1)-(2); volumes refer to the primitive monoclinic P21/c calculation cell, equivalent to the conventional Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -306,6 +308,7 @@ Static 0 K first-principles BM3 for the proton-transferred high-pressure (HP) co
     - **Access URL:** https://par.nsf.gov/servlets/purl/10089001
     - **DOI:** 10.2138/am-2019-6694
     - **Locations:** Methods, pages 131-132; equations (1)-(2) and EOS discussion, pages 132-133; Figure 3
+    - **Finding:** Complete static HP BM3 parameterization for the proton-transferred structure.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

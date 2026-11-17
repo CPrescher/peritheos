@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/cerium_dioxide.md#record-cerium_dioxide_gerward_2005_bm3_1)
 
-**Source finding:** The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.
+**Source finding:** Coefficients from the room-temperature experimental BM3 fit (Equation (1), Section 4, Tables 1 and 2), not from the paper's SIC-LSD calculations.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,6 +89,7 @@ Room-temperature powder XRD fit of the cubic fluorite phase. V0 = a0³ from the 
 - **Primary source check:**
     - **Access URL:** https://people.iith.ac.in/kanchana/publications/2005/17.pdf
     - **Locations:** Equation (1), pages 57-58; section 4, pages 58-59; Tables 1 and 2; Figure 3
+    - **Finding:** The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.
     - **DOI:** 10.1016/j.jallcom.2005.04.008
 - **Migration source:**
     - **Project:** Dioptas

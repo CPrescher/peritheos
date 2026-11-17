@@ -68,7 +68,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 **Warning:** Not recommended for quantitative use. A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use.
 
-**Source finding:** The authors identify run 2 as CaFe2O4-type MgAl2O4 and construct a separate second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from one compressed cell. They explicitly state that more points would be needed for a robust modulus and an estimate of K0'.
+**Source finding:** V0 and K0 from Section 3.3; K0 is calculated from one compressed run-2 cell, and the authors state that more points would be needed for a robust modulus and an estimate of K0'. The K0 error is calculated from the ruby-Pt pressure difference.
 
 Automatic selection for equilibrium calculations.
 
@@ -107,6 +107,7 @@ CaFe2O4-type run-2 product only, distinct from the higher-pressure CaTi2O4-type 
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575
     - **DOI:** 10.1029/98JB01575
     - **Locations:** Experimental method; Table 1; Section 3.1; Section 3.3; Figure 4
+    - **Finding:** The authors identify run 2 as CaFe2O4-type MgAl2O4 and construct a separate second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from one compressed cell. They explicitly state that more points would be needed for a robust modulus and an estimate of K0'.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -179,7 +180,7 @@ CaFe2O4-type run-2 product only, distinct from the higher-pressure CaTi2O4-type 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_irifune_2002_bm2_2)
 
-**Source finding:** Three compressed observations constrain a single modulus with an averaged measured reference volume and fixed pressure derivative. Figure 6 identifies the three open circles as this study, filled symbols as earlier-study comparisons, and T=27 degC.
+**Source finding:** V0 and K0 from p. 652, where the printed BM3 with dK/dP = 4 is algebraically BM2; V0 is the averaged recovered volume. Figure 6 open circles are this study's states at 27 °C; filled symbols are earlier studies.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -216,6 +217,7 @@ Only three compressed states plus the recovered ambient state: do not infer a fr
     - **Access URL:** https://www.researchgate.net/publication/225470056\_In\_situ\_X-ray\_observations\_of\_phase\_transitions\_in\_MgAl2O4\_spinel\_to\_40\_GPa\_using\_multianvil\_apparatus\_with\_sintered\_diamond\_anvils
     - **DOI:** 10.1007/s00269-002-0275-1
     - **Locations:** Experimental, pp. 646-647; Bulk modulus discussion, p. 652; Table 2 and Figure 6
+    - **Finding:** Three compressed observations constrain a single modulus with an averaged measured reference volume and fixed pressure derivative. Figure 6 identifies the three open circles as this study, filled symbols as earlier-study comparisons, and T=27 degC.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08
@@ -285,7 +287,7 @@ Only three compressed states plus the recovered ambient state: do not infer a fr
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_sueda_2009_htbm_2)
 
-**Source finding:** The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells.
+**Source finding:** Coefficients from Table 2 with Equations (1)-(4). The printed a0 is the T = 0 intercept of alpha(T), not alpha(300 K), and 'partial K' in the denominator of Equation (4) is a typographical error for partial T.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -340,6 +342,7 @@ Published thermal parameterization, with the 300 K BM3 coefficients fixed at the
     - **Locations:** Sections 2.1-2.3; Section 3.1, Eqs. (1)-(8); Tables 1-2; Figures 2-4
     - **Source version:** Published PDF, 8 pages, retrieved from Zotero attachment FLBPJ9MU (parent 9JHZNNDC).
     - **Sha256:** f047d78ff3001ab53f681c7853a2057df0f5f6ae8618a621d38292e4c9358a3b
+    - **Finding:** The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08
@@ -433,7 +436,7 @@ Published thermal parameterization, with the 300 K BM3 coefficients fixed at the
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_sueda_2009_mgd_3)
 
-**Source finding:** The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells.
+**Source finding:** Coefficients from Table 2 with Equations (1) and (6)-(8). Equation (6) misprints the energy difference in the denominator and the first Equation (7) prints the Debye lower limit as theta; the standard forms are used.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -488,6 +491,7 @@ Published thermal parameterization, with the 300 K BM3 coefficients fixed at the
     - **Locations:** Sections 2.1-2.3; Section 3.1, Eqs. (1)-(8); Tables 1-2; Figures 2-4
     - **Source version:** Published PDF, 8 pages, retrieved from Zotero attachment FLBPJ9MU (parent 9JHZNNDC).
     - **Sha256:** f047d78ff3001ab53f681c7853a2057df0f5f6ae8618a621d38292e4c9358a3b
+    - **Finding:** The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08

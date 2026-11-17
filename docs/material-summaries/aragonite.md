@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/aragonite.md#record-aragonite_martinez_1996_bm2_2)
 
-**Source finding:** The Table 6 isotherms are BM2 fits with K0'=4 assumed. Regressing their printed V0,T values gives a mean expansion coefficient of 6.484e-5 K^-1, reproducing the Table 7 value 6.5(1)e-5 K^-1. Unweighted and error-weighted regressions of the printed K0,T values give -0.01969 and -0.01702 GPa/K, bracketing the reported -0.018(2) GPa/K. The fit-specific 298 K K0 error is retained; the conflicting summary error printed in the prose and Table 7 is recorded explicitly.
+**Source finding:** V0 and K0 from the 298 K isotherm of Table 6 (pages 618-619); alpha0 from Table 7 (page 620).
 
 Automatic selection for equilibrium calculations.
 
@@ -101,6 +101,7 @@ Staged P-V-T parameterization: each Table 6 isotherm is a BM2 fit (K0' = 4), K0(
 - **Primary source check:**
     - **Access URL:** https://rruff.info/doclib/am/vol81/AM81\_611.pdf
     - **Locations:** Equation (1), page 615; Table 3, page 616; Table 6 and EOS discussion, pages 618-619; Table 7, page 620
+    - **Finding:** The Table 6 isotherms are BM2 fits with K0'=4 assumed. Regressing their printed V0,T values gives a mean expansion coefficient of 6.484e-5 K^-1, reproducing the Table 7 value 6.5(1)e-5 K^-1. Unweighted and error-weighted regressions of the printed K0,T values give -0.01969 and -0.01702 GPa/K, bracketing the reported -0.018(2) GPa/K. The fit-specific 298 K K0 error is retained; the conflicting summary error printed in the prose and Table 7 is recorded explicitly.
     - **DOI:** 10.2138/am-1996-5-608
 - **Primary data check:**
     - **Status:** bundled

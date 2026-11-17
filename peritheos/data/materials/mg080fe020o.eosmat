@@ -18,7 +18,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source reports one composition-specific, three-parameter high-spin Birch-Murnaghan fit to its Fe20 data below 40 GPa.",
+        "source_note": "Coefficients from Section 3.2, paragraph 9: the authors' fit to the 18 (Mg0.80Fe0.20)O rows of Table 1 below the spin-transition onset.",
         "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_speziale_2007_high_spin_bm3_1"
       },
       "model": "BM3",
@@ -72,7 +72,7 @@
         "warning_reason": "Fei's row selection and weights are not published, so the check is approximate; stay within the stated spin regime.",
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "source_note": "Coefficients from Figure 1, with the K0 error from paragraph 12; V0 is the measured high-spin reference volume. The paper names the form third-order Birch-Murnaghan; with K0' fixed it is algebraically BM2.",
         "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_fei_2007_hs_b1_bm3"
       },
       "model": "BM3",
@@ -120,7 +120,7 @@
         "warning_reason": "The independent check does not reach coefficient parity; Fei's row selection and weights are not published.",
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "source_note": "Coefficients from Figure 1, with the V0 and K0 errors from paragraph 14; V0 is the fitted, extrapolated low-spin zero-pressure volume. The paper names the form third-order Birch-Murnaghan; with K0' fixed it is algebraically BM2.",
         "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_fei_2007_ls_b1_bm3"
       },
       "model": "BM3",
@@ -167,7 +167,7 @@
         "warning_reason": "A Peritheos refit, not Fei's coefficients; near-transition points may be mixed-spin and V0 and K0 are strongly correlated.",
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Fei Figure 1 and paragraph 14 publish V0=74.2(1), K0=170(3), K0-prime=4 for fp20 LS. This record instead stores a Peritheos refit to the official Table S1 over that approximate pressure interval; no refitted coefficient is attributed to Fei.",
+        "source_note": "Observations from the official Table S1. Fei's published low-spin fit (Figure 1, paragraph 14) is V0 = 74.2(1), K0 = 170(3) GPa; the stored coefficients are a Peritheos refit, not Fei values.",
         "audit": "../audits/mg080fe020o.audit.json#mg080fe020o_fei_2007_ls_b1_bm3_refit"
       },
       "model": "BM3",

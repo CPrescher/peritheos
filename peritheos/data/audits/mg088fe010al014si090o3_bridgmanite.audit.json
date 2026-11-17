@@ -111,6 +111,7 @@
               "official deposit AM-24-58969, 8969fu.cif"
             ],
             "finding": "The source fully defines a room-temperature standard Eulerian BM2 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; K0_prime is fixed to 4.",
+            "record_note": "Coefficients from Table 1, unit-cell first row (page 874), fitted with the EosFit7-GUI program. The article does not say whether the fit used the merged Table S1/CIF series or the separate platelet volumes of Figure S2.",
             "doi": "10.2138/am-2023-8969",
             "official_deposit_sha256": "233c82ae898dc31e6cb6be410abe70203cabe83fc2ebc5dcfb794413e73a2332",
             "supplement_sha256": "4797e61cc4f31ccc7b08e421d776422a5631edc2387191643d95ea17f44ce559",
@@ -311,6 +312,7 @@
               "official deposit AM-24-58969, 8969fu.cif"
             ],
             "finding": "The source fully defines a room-temperature standard Eulerian BM3 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; V0, K0, and K0_prime were fitted.",
+            "record_note": "Coefficients from Table 1, unit-cell second row (page 874), fitted with the EosFit7-GUI program. Table S1 and the deposited CIF print slightly different lattice values and errors; both versions are kept.",
             "doi": "10.2138/am-2023-8969",
             "official_deposit_sha256": "233c82ae898dc31e6cb6be410abe70203cabe83fc2ebc5dcfb794413e73a2332",
             "supplement_sha256": "4797e61cc4f31ccc7b08e421d776422a5631edc2387191643d95ea17f44ce559",
@@ -464,7 +466,8 @@
             "access_url": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
             "doi": "10.2138/am-2022-8435",
             "locations": ["main article Table 3", "Online Materials Text S1", "Online Materials Table S2"],
-            "finding": "The source publishes a complete BM2 fit with V0 fixed to the measured ambient cell and a second complete BM3 sensitivity fit."
+            "finding": "The source publishes a complete BM2 fit with V0 fixed to the measured ambient cell and a second complete BM3 sensitivity fit.",
+            "record_note": "K0 from main-article Table 3 and Online Materials Text S1 (Equation 1), fitted to the Table S2 pressure-volume series."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -559,7 +562,8 @@
             "access_url": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
             "doi": "10.2138/am-2022-8435",
             "locations": ["Online Materials Text S1", "Online Materials Table S2"],
-            "finding": "The source explicitly reports this unconstrained-K0_prime BM3 fit in addition to its BM2 fit."
+            "finding": "The source explicitly reports this unconstrained-K0_prime BM3 fit in addition to its BM2 fit.",
+            "record_note": "Coefficients from the third-order sensitivity fit in Online Materials Text S1 (Equation 1), with V0 fixed at the Table S2 ambient cell volume."
           },
           "primary_data_check": {
             "status": "bundled",

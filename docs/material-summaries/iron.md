@@ -131,7 +131,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2025_rydberg_stacey_1)
 
-**Source finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
+**Source finding:** Coefficients from Table 2 with Equation (1); the curve from the stored parameters matches every corresponding value of the official 26-row Table S9 compression grid (derived output, not measurements).
 
 Automatic selection for equilibrium calculations.
 
@@ -171,6 +171,7 @@ Table 2 parameterization. The authors adopt most ambient V0 and K0 values from c
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1038/s43246-025-00792-5
     - **Locations:** Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook
+    - **Finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
     - **DOI:** 10.1038/s43246-025-00792-5
 - **Primary data check:**
     - **Status:** bundled
@@ -220,7 +221,7 @@ Table 2 parameterization. The authors adopt most ambient V0 and K0 values from c
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_mao_1990_bm3_1)
 
-**Source finding:** All 32 new hcp-iron observations in Table 1 are bundled with their printed pressure, volume, c/a, and relative-volume uncertainties. Published molar volumes are retained and also converted to the conventional two-atom hcp cell. The published BM3 fit additionally used earlier hcp-Fe data identified in the Table 3 footnote.
+**Source finding:** Coefficients from Table 3 (journal pages 21739-21740). The published fit also used earlier hcp-Fe data identified in the Table 3 footnote, besides the 32 new Table 1 observations.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -249,6 +250,7 @@ Coefficients as published for the two-atom hcp cell. The legacy volume was corre
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/JB095iB13p21737
     - **Locations:** Table 1, journal page 21738; Table 3 and EOS discussion, journal pages 21739-21740
+    - **Finding:** All 32 new hcp-iron observations in Table 1 are bundled with their printed pressure, volume, c/a, and relative-volume uncertainties. Published molar volumes are retained and also converted to the conventional two-atom hcp cell. The published BM3 fit additionally used earlier hcp-Fe data identified in the Table 3 footnote.
     - **DOI:** 10.1029/jb095ib13p21737
 - **Migration source:**
     - **Project:** Dioptas
@@ -300,7 +302,7 @@ Coefficients as published for the two-atom hcp cell. The legacy volume was corre
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_shen_2026_vinet_2)
 
-**Source finding:** The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.
+**Source finding:** Coefficients from Table II (pages 9-12). The Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -330,6 +332,7 @@ Table II fit combining the DAC-1 and DAC-2 data, with pressures from the Cu volu
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1103/fxgq-96sg
     - **Locations:** Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)
+    - **Finding:** The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.
     - **DOI:** 10.1103/fxgq-96sg
 - **Migration source:**
     - **Project:** Dioptas
@@ -381,7 +384,7 @@ Table II fit combining the DAC-1 and DAC-2 data, with pressures from the Cu volu
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2019_mao_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -418,6 +421,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -462,7 +466,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2019_dor_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [iron\_dewaele\_2019\_mao\_vinet](#record-iron_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -501,6 +505,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -545,7 +550,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_zhang_2025_fit1_birch_murnaghan_3_mgd)
 
-**Source finding:** The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows.
+**Source finding:** Coefficients from Fit #1 in Table 2 and Supplementary Table S6, with the molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -603,6 +608,7 @@ Mixed-input thermal EOS (Fit #1 in the paper), the authors' preferred solution w
     - **Access URL:** https://mdpi-res.com/d\_attachment/crystals/crystals-15-00221/article\_deploy/crystals-15-00221.pdf
     - **DOI:** 10.3390/cryst15030221
     - **Locations:** Methods sections 2.1-2.2; Equations (1)-(6); Table 2; Supplementary Tables S1-S6
+    - **Finding:** The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -674,7 +680,7 @@ Mixed-input thermal EOS (Fit #1 in the paper), the authors' preferred solution w
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_zhang_2025_fit2_birch_murnaghan_3_mgd)
 
-**Source finding:** The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows.
+**Source finding:** Coefficients from Fit #2 in Table 2 and Supplementary Table S6, with the fixed molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -732,6 +738,7 @@ Mixed-input thermal EOS (Fit #2 in the paper); not the authors' preferred fit, w
     - **Access URL:** https://mdpi-res.com/d\_attachment/crystals/crystals-15-00221/article\_deploy/crystals-15-00221.pdf
     - **DOI:** 10.3390/cryst15030221
     - **Locations:** Methods sections 2.1-2.2; Equations (1)-(6); Table 2; Supplementary Tables S1-S6
+    - **Finding:** The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -803,7 +810,7 @@ Mixed-input thermal EOS (Fit #2 in the paper); not the authors' preferred fit, w
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_zhang_2025_fit5_vinet_mgd)
 
-**Source finding:** The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows.
+**Source finding:** Coefficients from Fit #5 (Vinet) in Table 2 and Supplementary Table S6, with the fixed molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -861,6 +868,7 @@ Mixed-input thermal EOS (Fit #5 in the paper); not the authors' preferred fit, w
     - **Access URL:** https://mdpi-res.com/d\_attachment/crystals/crystals-15-00221/article\_deploy/crystals-15-00221.pdf
     - **DOI:** 10.3390/cryst15030221
     - **Locations:** Methods sections 2.1-2.2; Equations (1)-(6); Table 2; Supplementary Tables S1-S6
+    - **Finding:** The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -932,7 +940,7 @@ Mixed-input thermal EOS (Fit #5 in the paper); not the authors' preferred fit, w
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2006_vinet_thermal)
 
-**Source finding:** Table III supplies the 300 K Vinet isotherm and its 95% fit errors. The thermal EOS is a simplified Dorogokupets-Oganov formalism with one Debye term plus quadratic anharmonic and electronic terms, all subtracted at 300 K.
+**Source finding:** Vinet coefficients from the Table III row for this study; thermal coefficients from the text after Equation (2), with theta0 a fixed ambient value from the paper's reference 24 and beta derived as gamma0/(gamma0-gamma\_inf).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -994,6 +1002,7 @@ Equations (1)-(2) of the paper: a 300 K Vinet reference isotherm plus single-Deb
     - **Access URL:** https://doi.org/10.1103/PhysRevLett.97.215504
     - **DOI:** 10.1103/PhysRevLett.97.215504
     - **Locations:** Table III; Equations (1)-(2) and accompanying text; Figure 3 and core-temperature discussion
+    - **Finding:** Table III supplies the 300 K Vinet isotherm and its 95% fit errors. The thermal EOS is a simplified Dorogokupets-Oganov formalism with one Debye term plus quadratic anharmonic and electronic terms, all subtracted at 300 K.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08
@@ -1064,7 +1073,7 @@ Equations (1)-(2) of the paper: a 300 K Vinet reference isotherm plus single-Deb
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_fei_2016_bm3)
 
-**Source finding:** The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs.
+**Source finding:** Coefficients from Section 3.1, Equation (1), p. 6840, with V0 from rho0 = 8.2695 g/cm³. The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1109,6 +1118,7 @@ Published combined fit to this study's 74 Table S1 rows and intercalibrated earl
     - **Access URL:** https://doi.org/10.1002/2016GL069456
     - **DOI:** 10.1002/2016GL069456
     - **Locations:** Section 3.1, equation (1), p. 6840; Section 3.2, equation (2), pp. 6840–6841; Official SI introduction and Tables S1–S2
+    - **Finding:** The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** iron\_fei\_2016\_table\_s1
@@ -1164,7 +1174,7 @@ Published combined fit to this study's 74 Table S1 rows and intercalibrated earl
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_fei_2016_free_density_bm3)
 
-**Source finding:** The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs.
+**Source finding:** Coefficients from Section 3.1, Equation (1), p. 6840, with V0 from rho0 = 8.3602 g/cm³ (error 0.0241 g/cm³). The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1209,6 +1219,7 @@ Published combined fit to this study's 74 Table S1 rows and intercalibrated earl
     - **Access URL:** https://doi.org/10.1002/2016GL069456
     - **DOI:** 10.1002/2016GL069456
     - **Locations:** Section 3.1, equation (1), p. 6840; Section 3.2, equation (2), pp. 6840–6841; Official SI introduction and Tables S1–S2
+    - **Finding:** The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** iron\_fei\_2016\_table\_s1
@@ -1264,7 +1275,7 @@ Published combined fit to this study's 74 Table S1 rows and intercalibrated earl
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_fei_2016_bm3_debye_quadratic)
 
-**Source finding:** The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs.
+**Source finding:** Cold terms from Section 3.1, Equation (1), p. 6840; thermal terms from Section 3.2, Equation (2), with A from the fitted beta0 = 0.07 J/kg/K². The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1316,6 +1327,7 @@ Combined fit with intercalibrated earlier literature data, excluding Mao (1990).
     - **Access URL:** https://doi.org/10.1002/2016GL069456
     - **DOI:** 10.1002/2016GL069456
     - **Locations:** Section 3.1, equation (1), p. 6840; Section 3.2, equation (2), pp. 6840–6841; Official SI introduction and Tables S1–S2
+    - **Finding:** The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** iron\_fei\_2016\_table\_s1; iron\_fei\_2016\_table\_s2
@@ -1378,7 +1390,7 @@ Combined fit with intercalibrated earlier literature data, excluding Mao (1990).
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_bm3)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1420,6 +1432,7 @@ Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1468,7 +1481,7 @@ Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_vinet)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1510,6 +1523,7 @@ Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1558,7 +1572,7 @@ Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_mao_bm3)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from Table 3: the authors' alternative P1-scale BM3 fit with V0 fixed at the Mao value rather than their g-G plot value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1600,6 +1614,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value ins
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1648,7 +1663,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value ins
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_mao_vinet)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from Table 3: the authors' alternative P1-scale Vinet fit with V0 fixed at the Mao value rather than their g-G plot value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1690,6 +1705,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value ins
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1738,7 +1754,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value ins
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_dewaele_bm3)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from Table 3: the authors' alternative P1-scale BM3 fit with V0 fixed at the Dewaele value rather than their g-G plot value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1780,6 +1796,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1828,7 +1845,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_dewaele_vinet)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from Table 3: the authors' alternative P1-scale Vinet fit with V0 fixed at the Dewaele value rather than their g-G plot value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1870,6 +1887,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -1918,7 +1936,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p2_bm3)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P2.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -1963,6 +1981,7 @@ Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2011,7 +2030,7 @@ Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p2_vinet)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P2.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -2056,6 +2075,7 @@ Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2104,7 +2124,7 @@ Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p3_bm3)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P3.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -2149,6 +2169,7 @@ Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2197,7 +2218,7 @@ Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p3_vinet)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P3.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -2242,6 +2263,7 @@ Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2290,7 +2312,7 @@ Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p4_bm3)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P4.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -2334,6 +2356,7 @@ Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2382,7 +2405,7 @@ Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p4_vinet)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P4.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -2426,6 +2449,7 @@ Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2474,7 +2498,7 @@ Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p5_bm3)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P5.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -2519,6 +2543,7 @@ Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2567,7 +2592,7 @@ Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p5_vinet)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P5.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -2612,6 +2637,7 @@ Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2660,7 +2686,7 @@ Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p6_bm3)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P6.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -2704,6 +2730,7 @@ Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2752,7 +2779,7 @@ Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p6_vinet)
 
-**Source finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P6.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -2796,6 +2823,7 @@ Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is he
     - **DOI:** 10.1016/j.pepi.2013.12.010
     - **Access URL:** https://doi.org/10.1016/j.pepi.2013.12.010
     - **Locations:** Tables 1–4; Sections 2 and 3.3–3.4
+    - **Finding:** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2844,7 +2872,7 @@ Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_yamazaki_2012_bm3_thermal)
 
-**Source finding:** Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma\_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).
+**Source finding:** Coefficients from the Table 1 BM3 fit with the thermal pressure of Equations (1)–(4); theta0, gamma0 and beta are fitted in the paper, the other thermal constants are fixed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2903,6 +2931,7 @@ Debye, anharmonic and electronic thermal pressures, subtracted at 300 K. The pap
     - **DOI:** 10.1029/2012GL053540
     - **Access URL:** https://doi.org/10.1029/2012GL053540
     - **Locations:** Equations (1)–(4), Table 1, Table S1
+    - **Finding:** Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma\_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -2963,7 +2992,7 @@ Debye, anharmonic and electronic thermal pressures, subtracted at 300 K. The pap
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_yamazaki_2012_vinet_thermal)
 
-**Source finding:** Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma\_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).
+**Source finding:** Coefficients from the Table 1 Vinet fit with the thermal pressure of Equations (1)–(4); theta0, gamma0 and beta are fitted in the paper, the other thermal constants are fixed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3022,6 +3051,7 @@ Debye, anharmonic and electronic thermal pressures, subtracted at 300 K. The pap
     - **DOI:** 10.1029/2012GL053540
     - **Access URL:** https://doi.org/10.1029/2012GL053540
     - **Locations:** Equations (1)–(4), Table 1, Table S1
+    - **Finding:** Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma\_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -3082,7 +3112,7 @@ Debye, anharmonic and electronic thermal pressures, subtracted at 300 K. The pap
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_dubrovinsky_2000_bm3_thermal)
 
-**Source finding:** K0 derived exactly from 1/(b1+b2\*300+b3\*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated.
+**Source finding:** Coefficients from Table II with Equation (1). The paper does not tabulate the 109+79 P-V-T observations behind the fit.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3138,6 +3168,7 @@ K0 is computed from the published compressibility coefficients as 1/(b1 + b2\*30
     - **DOI:** 10.1103/PhysRevLett.84.1720
     - **Access URL:** https://doi.org/10.1103/PhysRevLett.84.1720
     - **Locations:** Equation (1), Table II
+    - **Finding:** K0 derived exactly from 1/(b1+b2\*300+b3\*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated.
 - **Primary data check:**
     - **Status:** not\_available
     - **Audit date:** 2026-09-10
@@ -3194,7 +3225,7 @@ K0 is computed from the published compressibility coefficients as 1/(b1 + b2\*30
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2006_bm3)
 
-**Source finding:** Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.
+**Source finding:** Coefficients from the Table I BM row; the printed atomic V0 = 11.234(12) Å³ and its error are doubled for the two-atom cell, not taken from later secondary tables.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3236,6 +3267,7 @@ Table I BM3 alternative to the separate Vinet thermal record. The published atom
     - **DOI:** 10.1103/PhysRevLett.97.215504
     - **Access URL:** https://doi.org/10.1103/PhysRevLett.97.215504
     - **Locations:** Table I, BM row; atomic volume 11.234(12) doubled to conventional cell
+    - **Finding:** Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -3284,7 +3316,7 @@ Table I BM3 alternative to the separate Vinet thermal record. The published atom
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_brown_2000_linear_hugoniot)
 
-**Source finding:** Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS.
+**Source finding:** c0 and s from the Table III linear fit to all 37 points of Tables I–II. The quadratic fit and the full data range to 442.1 GPa are kept as source information, not as the executable EOS.
 
 Automatic selection for hugoniot calculations.
 
@@ -3345,6 +3377,7 @@ Published full-range linear Us-up fit, used only for the solid-iron subset below
     - **DOI:** 10.1063/1.1319320
     - **Access URL:** https://doi.org/10.1063/1.1319320
     - **Locations:** Table III linear fit to all 37 Tables I–II points
+    - **Finding:** Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-10
@@ -3397,7 +3430,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Never chosen automatically; select it explicitly. The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.
 
-**Source finding:** Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits.
+**Source finding:** Coefficients from the Table 1 BM3 row (Equation (3)); volumes are per conventional two-atom hcp cell, as in the source.
 
 **Usage qualification:** Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
 
@@ -3436,6 +3469,7 @@ The published fit does not reproduce the authors' supplied observations under th
     - **Access URL:** https://doi.org/10.3390/min10020100
     - **DOI:** 10.3390/min10020100
     - **Locations:** Section 2.5, pressure gauges; Section 2.6, Equations (3)–(8); Table 1, page 7; Section 3.3, pages 8–9; Official supplementary datasets
+    - **Finding:** Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** iron\_miozzi\_2020\_he\_pvt; iron\_miozzi\_2020\_mgo\_pvt
@@ -3502,7 +3536,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Never chosen automatically; select it explicitly. The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.
 
-**Source finding:** Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits.
+**Source finding:** Coefficients from the Table 1 Vinet row (page 7), the current-study alternative to the BM3 of Equation (3); Table 1 prints no V0 error for this fit.
 
 **Usage qualification:** Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
 
@@ -3541,6 +3575,7 @@ The published fit does not reproduce the authors' supplied observations under th
     - **Access URL:** https://doi.org/10.3390/min10020100
     - **DOI:** 10.3390/min10020100
     - **Locations:** Section 2.5, pressure gauges; Section 2.6, Equations (3)–(8); Table 1, page 7; Section 3.3, pages 8–9; Official supplementary datasets
+    - **Finding:** Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** iron\_miozzi\_2020\_he\_pvt; iron\_miozzi\_2020\_mgo\_pvt
@@ -3607,7 +3642,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Never chosen automatically; select it explicitly. Uses MGD with n = 2 at the per-mole-Fe volume, unlike the physical per-Fe n = 1; full reproduction of the fit is unresolved.
 
-**Source finding:** Printed preferred thermal coefficients and their uncertainties are preserved. Full MGD, n=2 with V0 approximately 6.87 cm3/mol and the final free V0 are attributed to recorded personal communication, rather than inferred from the printed equations. The author-setting replay improves residuals but does not recover the full original fit.
+**Source finding:** Coefficients from Section 3.3 with Equations (3), (4), (6) and (8); malformed printed Equations (5) and (7) are mapped to standard MGD. V0 follows Section 3.3, not the 22.80(2) Å³ of Table 1 and Figure 4; Section 3.3 calls V0 fixed, but the authors said in personal communication it was free.
 
 **Usage qualification:** Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved.
 
@@ -3658,6 +3693,7 @@ Published coefficients with full MGD, n = 2, applied at the per-mole-Fe volume (
     - **Access URL:** https://doi.org/10.3390/min10020100
     - **DOI:** 10.3390/min10020100
     - **Locations:** Section 2.5, pressure gauges; Section 2.6, Equations (3)–(8); Table 1, page 7; Section 3.3, pages 8–9; Official supplementary datasets
+    - **Finding:** Printed preferred thermal coefficients and their uncertainties are preserved. Full MGD, n=2 with V0 approximately 6.87 cm3/mol and the final free V0 are attributed to recorded personal communication, rather than inferred from the printed equations. The author-setting replay improves residuals but does not recover the full original fit.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** iron\_miozzi\_2020\_he\_pvt; iron\_miozzi\_2020\_mgo\_pvt
@@ -3744,7 +3780,7 @@ Published coefficients with full MGD, n = 2, applied at the per-mole-Fe volume (
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_tange_2009_bm3_mgd_refit)
 
-**Source finding:** Data and fixed assumptions are primary-source traced; fitted coefficients and pressure calibration choice belong to the independent Peritheos refit.
+**Source finding:** Observations from the official Miozzi supplementary Fe-He and Fe-MgO datasets; MgO pressures from Tange (2009) Table 4 and Equations (2)-(5). theta0 is adopted from Miozzi Section 3.3; V0, K0, K0', gamma0 and q are Peritheos fits.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3800,6 +3836,7 @@ Independent Peritheos refit with equal pressure weights, not Miozzi's published 
     - **DOI:** 10.3390/min10020100
     - **Access URL:** https://doi.org/10.3390/min10020100
     - **Locations:** Miozzi official supplementary Fe-He and Fe-MgO observations; Miozzi Section 3.3 adopted theta0; Tange Table 4 Fit3-Vinet and Eqs. 2-5
+    - **Finding:** Data and fixed assumptions are primary-source traced; fitted coefficients and pressure calibration choice belong to the independent Peritheos refit.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** iron\_miozzi\_2020\_tange\_2009\_vinet\_pvt
@@ -3872,7 +3909,7 @@ Independent Peritheos refit with equal pressure weights, not Miozzi's published 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit)
 
-**Source finding:** Source observations and calibration equations traced to primary papers; fitted Fe coefficients belong to the independent Peritheos refit.
+**Source finding:** Observations from the Miozzi supplementary data; MgO pressures recalculated with the Speziale (2001) model of its Sections 2.1 and 5.4. V0, K0, K0', gamma0 and q are Peritheos fits.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3924,6 +3961,7 @@ Independent Peritheos refit with equal pressure weights, not Miozzi's published 
     - **DOI:** 10.3390/min10020100
     - **Access URL:** https://doi.org/10.3390/min10020100
     - **Locations:** Miozzi supplementary observations; Speziale Sections 2.1 and 5.4
+    - **Finding:** Source observations and calibration equations traced to primary papers; fitted Fe coefficients belong to the independent Peritheos refit.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** iron\_miozzi\_2020\_speziale\_2001\_variable\_q\_pvt

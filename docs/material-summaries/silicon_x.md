@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/silicon_x.md#record-silicon_x_anzellini_2019_vinet_1)
 
-**Source finding:** Per-atom volumes were converted using each phase's conventional-cell Z.
+**Source finding:** Coefficients from Table 8 and the equation-of-state discussion.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,6 +90,7 @@ Table 8 room-temperature fit. Published V0 = 13.3 Å³/atom; stored per conventi
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1038/s41598-019-51931-1
     - **Locations:** Equation-of-state discussion; Table 8
+    - **Finding:** Per-atom volumes were converted using each phase's conventional-cell Z.
     - **DOI:** 10.1038/s41598-019-51931-1
 - **Migration source:**
     - **Project:** Dioptas

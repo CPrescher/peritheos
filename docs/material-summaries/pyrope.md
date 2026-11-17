@@ -131,7 +131,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/pyrope.md#record-pyrope_angel_2022_bm3_q_compromise_debye)
 
-**Source finding:** Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.
+**Source finding:** Coefficients from official supplementary EOS file 2, which carries the full 59x59 covariance; the printed molar V0 = 113.13 cm³/mol is converted to the eight-formula-unit cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -170,6 +170,7 @@ Published q-compromise pressure approximation: theta0 and gamma/V are constant, 
     - **DOI:** 10.1007/s00410-022-01918-5
     - **Access URL:** https://doi.org/10.1007/s00410-022-01918-5
     - **Locations:** Methodology: EoS models and EoS refinement; Table 1; Official supplementary EOS file 2; Supplementary Table S2
+    - **Finding:** Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.
 - **Primary data check:**
     - **Status:** author\_processed\_inputs\_recovered
     - **Audit date:** 2026-11-14

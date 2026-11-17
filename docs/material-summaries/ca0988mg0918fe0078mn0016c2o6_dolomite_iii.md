@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca0988mg0918fe0078mn0016c2o6_dolomite_iii.md#record-ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1)
 
-**Source finding:** The primary source reports a composition-specific high-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed, while explicitly warning that V0 is unknown and strongly trades off with K0 and K0'.
+**Source finding:** Coefficients from Discussion paragraph 11, high-spin (larger-volume) branch of Figure 3b. The authors warn that V0 is unknown and trades off strongly with K0 and K0'.
 
 Automatic selection for equilibrium calculations.
 
@@ -106,6 +106,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519
     - **DOI:** 10.1029/2011GL049519
     - **Locations:** Results, paragraphs 8-9; Discussion, paragraphs 10-11; Figure 3; auxiliary Table S1
+    - **Finding:** The primary source reports a composition-specific high-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed, while explicitly warning that V0 is unknown and strongly trades off with K0 and K0'.
 - **Primary data check:**
     - **Status:** plot\_only
     - **Audit date:** 2026-09-05
@@ -172,7 +173,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ca0988mg0918fe0078mn0016c2o6_dolomite_iii.md#record-ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2)
 
-**Source finding:** The primary source reports a composition-specific low-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed and explicitly warns of the high-pressure extrapolation tradeoff.
+**Source finding:** Coefficients from Discussion paragraph 11, low-spin (lower-volume) branch of Figure 3b on compression and decompression. The authors warn of the high-pressure extrapolation tradeoff.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -216,6 +217,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ca0
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519
     - **DOI:** 10.1029/2011GL049519
     - **Locations:** Results, paragraphs 8-9; Discussion, paragraphs 10-11; Figure 3; auxiliary Table S1
+    - **Finding:** The primary source reports a composition-specific low-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed and explicitly warns of the high-pressure extrapolation tradeoff.
 - **Primary data check:**
     - **Status:** plot\_only
     - **Audit date:** 2026-09-05

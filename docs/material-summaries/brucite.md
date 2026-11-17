@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/brucite.md#record-brucite_fukui_2003_300k_bm3)
 
-**Source finding:** BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.
+**Source finding:** V0 from Table 2; K0 and K0' from Table 5 (p. 515), repeated in Table 6, which prints the K0' error as 0.4 instead of 0.3. Equation (2) is the ordinary BM3.
 
 Automatic selection for equilibrium calculations.
 
@@ -108,6 +108,7 @@ Empirical lattice-average volume EOS of layered brucite, including the H rearran
     - **Access URL:** https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku\_03.pdf?sequence=1
     - **Source equation validated:** True
     - **Locations:** Eqs. 1-2 and Tables 1-6, pp. 512-515
+    - **Finding:** BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** brucite\_fukui\_2003\_table1; brucite\_fukui\_2003\_table4
@@ -171,7 +172,7 @@ Empirical lattice-average volume EOS of layered brucite, including the H rearran
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/brucite.md#record-brucite_fukui_2003_473k_bm3)
 
-**Source finding:** BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.
+**Source finding:** K0 and K0' from Table 6 (p. 515); the fixed 473 K V0 follows Equation (1) with the Table 2 and Table 3 values, V0(T) = 40.917 exp\[6.69e-5 (T - 300)\].
 
 **Usage qualification:** Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures.
 
@@ -213,6 +214,7 @@ Empirical lattice-average volume EOS of layered brucite, including the H rearran
     - **Access URL:** https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku\_03.pdf?sequence=1
     - **Source equation validated:** True
     - **Locations:** Eqs. 1-2 and Tables 1-6, pp. 512-515
+    - **Finding:** BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** brucite\_fukui\_2003\_table1; brucite\_fukui\_2003\_table4
@@ -276,7 +278,7 @@ Empirical lattice-average volume EOS of layered brucite, including the H rearran
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/brucite.md#record-brucite_fukui_2003_673k_bm3)
 
-**Source finding:** BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.
+**Source finding:** K0 and K0' from Table 6 (p. 515); the fixed 673 K V0 follows Equation (1) with the Table 2 and Table 3 values, V0(T) = 40.917 exp\[6.69e-5 (T - 300)\].
 
 **Usage qualification:** Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures.
 
@@ -318,6 +320,7 @@ Empirical lattice-average volume EOS of layered brucite, including the H rearran
     - **Access URL:** https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku\_03.pdf?sequence=1
     - **Source equation validated:** True
     - **Locations:** Eqs. 1-2 and Tables 1-6, pp. 512-515
+    - **Finding:** BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** brucite\_fukui\_2003\_table1; brucite\_fukui\_2003\_table4

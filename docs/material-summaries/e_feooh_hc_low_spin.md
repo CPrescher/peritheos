@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/e_feooh_hc_low_spin.md#record-e_feooh_hc_low_spin_thompson_2017_bm3_1)
 
-**Source finding:** Table 2 reports separate HOC and HC unit-cell BM3 fits. The HC self-consistent-U parameters reproduce the 12 rounded Table S1 rows from 30.01 to 139.99 GPa and the independently printed 60 and 90 GPa densities. The HOC row is excluded because its published V0 is inconsistent with the supplement's near-zero-pressure unit-cell volume.
+**Source finding:** Coefficients from the Table 2 hydrogen-centered self-consistent-U row (30-140 GPa, page 5041); they agree with the 12 rounded Table S1 rows and the Table 3 densities at 60 and 90 GPa.
 
 Automatic selection for equilibrium calculations.
 
@@ -104,6 +104,7 @@ Volumetric BM3 fit for the hydrogen-centered, low-spin ferromagnetic Pnnm branch
     - **Supplement url:** https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014168&amp;file=jgrb52198-sup-0001-2017JB014168-SI.pdf
     - **Supplement sha256:** 55653c46d1d48762fcf7a9ec2582ae91f4319ce8827075ba0a0ca3721be080f5
     - **Locations:** Methods, pages 5040-5041; Section 3.2 and displayed Birch-Murnaghan equation, page 5041; Table 2, page 5041; Table 3, page 5043; Supporting Information S1, Table S1, page 5
+    - **Finding:** Table 2 reports separate HOC and HC unit-cell BM3 fits. The HC self-consistent-U parameters reproduce the 12 rounded Table S1 rows from 30.01 to 139.99 GPa and the independently printed 60 and 90 GPa densities. The HOC row is excluded because its published V0 is inconsistent with the supplement's near-zero-pressure unit-cell volume.
     - **DOI:** 10.1002/2017JB014168
 - **Primary data check:**
     - **Status:** bundled

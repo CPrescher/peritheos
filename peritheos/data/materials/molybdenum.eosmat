@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+        "source_note": "Equation (1) with Table 2 coefficients; the stored parameters match every corresponding value in the official 26-row Table S9 compression grid, which is derived output, not measurements.",
         "audit": "../audits/molybdenum.audit.json#molybdenum_sakai_2025_rydberg_stacey_1"
       },
       "model": "RydbergStacey",
@@ -64,7 +64,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+        "source_note": "Coefficients from Table II (pages 9-12), Equation (4). The Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.",
         "audit": "../audits/molybdenum.audit.json#molybdenum_shen_2026_vinet_1"
       },
       "model": "Vinet",
@@ -96,7 +96,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "source_note": "Stored coefficients match the Mo columns of Tables 1 and 4.",
         "audit": "../audits/molybdenum.audit.json#molybdenum_sokolova_2013_holzapfel_2"
       },
       "model": "Holzapfel",
@@ -152,7 +152,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2019_mao_vinet"
       },
       "model": "Vinet",
@@ -192,7 +192,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.",
+        "source_note": "Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).",
         "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2019_dor_vinet"
       },
       "model": "Vinet",
@@ -234,7 +234,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-07",
-        "source_note": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
+        "source_note": "Coefficients from the Table 2 K0-fixed solution of the coupled pressure-difference fit (Equations (2)-(3), Section 3.2). Run AN012 is listed in Table 1 but absent from the official auxiliary PDF.",
         "audit": "../audits/molybdenum.audit.json#molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet"
       },
       "model": "Vinet",
@@ -279,7 +279,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-07",
-        "source_note": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.",
+        "source_note": "Coefficients from the Table 2 K0-free solution of the coupled pressure-difference fit (Equations (2)-(3), Section 3.2). Run AN012 is listed in Table 1 but absent from the official auxiliary PDF.",
         "audit": "../audits/molybdenum.audit.json#molybdenum_dorfman_2012_tange_mgo_k0_free_vinet"
       },
       "model": "Vinet",
@@ -323,7 +323,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-23",
-        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "source_note": "Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).",
         "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2008_table4_vinet"
       },
       "model": "Vinet",
@@ -361,7 +361,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-23",
-        "source_note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+        "source_note": "Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).",
         "audit": "../audits/molybdenum.audit.json#molybdenum_dewaele_2008_table4_us_k0_261_vinet"
       },
       "model": "Vinet",

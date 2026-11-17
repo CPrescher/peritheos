@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-11-08",
-        "source_note": "Constant theta0 and gamma/V, BM3 reference at 298 K, fixed molar V0 and 20 atoms per formula unit. Official EOS tokens and all 59x59 covariance entries retained in the source file.",
+        "source_note": "Coefficients from official supplementary EOS file 1, which carries the full 59x59 covariance; the printed molar V0 = 125.35 cm³/mol is converted to the eight-formula-unit cell.",
         "audit": "../audits/grossular.audit.json#grossular_angel_2022_bm3_q_compromise_debye"
       },
       "model": "BM3",

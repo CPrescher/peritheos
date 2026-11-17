@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo_b2.md#record-mgo_b2_zhang_bukowinski_1991_mpib_bm3)
 
-**Source finding:** Complete B2 coefficients on the Z=1 cell.
+**Source finding:** Coefficients from the Table IV B2 room-temperature row (MPIB with Debye vibrational free energy, Sections II-III).
 
 Automatic selection for equilibrium calculations.
 
@@ -99,6 +99,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.44.2495/fulltext
     - **DOI:** 10.1103/physrevb.44.2495
     - **Locations:** Sections II.D-III.B; Table IV
+    - **Finding:** Complete B2 coefficients on the Z=1 cell.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05

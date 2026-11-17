@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.",
+        "source_note": "V0 (6.414 cm³/mol of atoms), K0' and theta0 (adopted from iron) are the Table 2/S6 fixed values. K0, gamma0 and q are Peritheos fits with the BM3 cold curve.",
         "audit": "../audits/fesi_b2.audit.json#fesi_b2_fischer_2014_bm3_refit"
       },
       "model": "BM3",
@@ -80,7 +80,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.",
+        "source_note": "V0 (6.414 cm³/mol of atoms), K0' and theta0 (adopted from iron) are the Table 2/S6 fixed values. K0, gamma0 and q are Peritheos fits with the Vinet cold curve.",
         "audit": "../audits/fesi_b2.audit.json#fesi_b2_fischer_2014_vinet_refit"
       },
       "model": "Vinet",

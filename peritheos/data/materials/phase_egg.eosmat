@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.",
+        "source_note": "Coefficients from the this-study column of Table 2. The abstract and EOS prose print the K0' error as 1.3 instead of the tabulated 1.2; the tabulated error is stored.",
         "audit": "../audits/phase_egg.audit.json#phase_egg_schulze_2018_bm3_1"
       },
       "model": "BM3",
@@ -61,7 +61,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "The final article identifies DOI 10.2138/am-2019-6694 and reports a static 0 K energy-volume BM3 fit for the ordered LP proton configuration. At V=196 A^3 the published coefficients give 14.72596 GPa, reproducing the supplement's 14.7 GPa after rounding. An unweighted diagnostic fit to all 11 supplementary LP P-V rows gives V0=210.2176 A^3, K0=164.8340 GPa, and K0'=7.08137, with pressure RMSE 0.02339 GPa; the underlying total energies, exact objective, weights, covariance, and error convention are not published.",
+        "source_note": "Coefficients from the equation-of-state section (pp. 132-133) with the BM3 energy form of equations (1)-(2); at V = 196 Å³ they agree with the 14.7 GPa of Supplementary Table 1.",
         "audit": "../audits/phase_egg.audit.json#phase_egg_mookherjee_2019_bm3_lp_1"
       },
       "model": "BM3",
@@ -109,7 +109,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Complete static HP BM3 parameterization for the proton-transferred structure.",
+        "source_note": "Coefficients from the EOS discussion (p. 133) with the BM3 energy form of equations (1)-(2); volumes refer to the primitive monoclinic P21/c calculation cell, equivalent to the conventional Z = 4 cell.",
         "audit": "../audits/phase_egg.audit.json#phase_egg_mookherjee_2019_bm3_hp_1"
       },
       "model": "BM3",

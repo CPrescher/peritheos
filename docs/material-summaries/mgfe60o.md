@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgfe60o.md#record-mgfe60o_richet_1989_bm2_1)
 
-**Source finding:** This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.
+**Source finding:** K0 from the Table 1 MW60 fit (pages 3038-3039); V0 is a0³ of the page 3037 ambient measurement, and K0' = 4 follows equation (1), page 3041.
 
 Automatic selection for equilibrium calculations.
 
@@ -96,6 +96,7 @@ Fit-specific room-temperature BM2 for MW60 (60 mol% FeO), distinct from the pape
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/JB094iB03p03037
     - **Locations:** page 3037, MW60 ambient a=4.2805(4) A; pages 3038-3039, Tables 1-2, MW60 BM2 fit and P-V data; page 3041, equation (1) and discussion of fixing K0'=4
+    - **Finding:** This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.
     - **DOI:** 10.1029/jb094ib03p03037
 - **Migration source:**
     - **Project:** Dioptas
@@ -142,7 +143,7 @@ Fit-specific room-temperature BM2 for MW60 (60 mol% FeO), distinct from the pape
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgfe60o.md#record-mgfe60o_solomatova_2016_hs_bm3_reference_1)
 
-**Source finding:** Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.
+**Source finding:** Coefficients from the Table 7 high-spin values; the underlying compression data are from Lin et al. (2005).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -181,6 +182,7 @@ High-spin reference branch of a coupled spin-crossover fit to the Lin data (MINU
     - **Access URL:** https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016\_AmMin.pdf
     - **DOI:** 10.2138/am-2016-5510
     - **Locations:** Table 7
+    - **Finding:** Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.
 - **Primary data check:**
     - **Status:** transition\_constraints\_only
     - **Audit date:** 2026-09-08
@@ -221,7 +223,7 @@ High-spin reference branch of a coupled spin-crossover fit to the Lin data (MINU
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgfe60o.md#record-mgfe60o_solomatova_2016_ls_bm3_reference_2)
 
-**Source finding:** Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.
+**Source finding:** Coefficients from the Table 7 low-spin values; the underlying compression data are from Lin et al. (2005).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -260,6 +262,7 @@ Low-spin reference branch of a coupled spin-crossover fit to the Lin data (MINUT
     - **Access URL:** https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016\_AmMin.pdf
     - **DOI:** 10.2138/am-2016-5510
     - **Locations:** Table 7
+    - **Finding:** Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.
 - **Primary data check:**
     - **Status:** transition\_constraints\_only
     - **Audit date:** 2026-09-08

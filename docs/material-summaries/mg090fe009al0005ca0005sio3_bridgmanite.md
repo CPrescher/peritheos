@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg090fe009al0005ca0005sio3_bridgmanite.md#record-mg090fe009al0005ca0005sio3_bridgmanite_shieh_2006_bm3_1)
 
-**Source finding:** The coexisting pv EOS uses measured recovered V0=163.3(1) A^3, K0=255(10) GPa, and fixed K0'=3.7.
+**Source finding:** Coefficients from Table 1 and Results (p. 3040), fitted to the coexisting-perovskite observations of Figure 2; V0 is measured on the recovered sample.
 
 Automatic selection for equilibrium calculations.
 
@@ -102,6 +102,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://doi.org/10.1073/pnas.0506811103
     - **DOI:** 10.1073/pnas.0506811103
     - **Locations:** Results, page 3040; Figure 2; Table 1
+    - **Finding:** The coexisting pv EOS uses measured recovered V0=163.3(1) A^3, K0=255(10) GPa, and fixed K0'=3.7.
 - **Primary data check:**
     - **Status:** plot\_only
     - **Audit date:** 2026-09-05

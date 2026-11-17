@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ferrous_ringwoodite.md#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction)
 
-**Source finding:** Source BM2 bulk modulus with explicitly adopted measured ambient cell; both compressed states agree within the printed coordinate errors. This is a derived reconstruction, not recovery of the original fitted intercept.
+**Source finding:** K0 from p. 1005, printed as 1.96(6) Mbar, for the second-order Birch-Murnaghan form of p. 1004 (called first-order Birch in the source); V0 is the measured ambient volume of Table 2.
 
 Automatic selection for equilibrium calculations.
 
@@ -98,6 +98,7 @@ Reconstruction: the published BM2 K0 combined with the measured ambient cell vol
 - **Primary source check:**
     - **Access URL:** https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf
     - **Locations:** p1004: explicitly second-order Birch-Murnaghan, Kprime fixed4; room-condition crystal refinement; p1005 Table2: all three Fe cell refinements; p1005:1.96(6)Mbar Fe spinel bulk modulus
+    - **Finding:** Source BM2 bulk modulus with explicitly adopted measured ambient cell; both compressed states agree within the printed coordinate errors. This is a derived reconstruction, not recovery of the original fitted intercept.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** ferrous\_ringwoodite\_finger\_1979\_table2

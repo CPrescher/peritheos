@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fesio3_bridgmanite.md#record-fesio3_bridgmanite_cohen_lin_2014_vinet_1)
 
-**Source finding:** The final paper reports a separate static Vinet fit for FeSiO3 Pv. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.
+**Source finding:** Coefficients from Table III, a Vinet fit to the static E(V) data; the printed V0 = 44.31 Å³ per FeSiO3 is multiplied by Z = 4.
 
 Automatic selection for equilibrium calculations.
 
@@ -107,6 +107,7 @@ Published static 0 K GGA+U Vinet fit; the numerical E(V) grid was not deposited.
     - **Access URL:** https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf
     - **DOI:** 10.1103/physrevb.90.140102
     - **Locations:** Computational methods; Figure 3; Table III; arXiv v1 Table 2; arXiv v2 source archive
+    - **Finding:** The final paper reports a separate static Vinet fit for FeSiO3 Pv. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement.
 - **Primary data check:**
     - **Status:** parameterization\_and\_independent\_table\_checkpoints
     - **Audit date:** 2026-09-08
@@ -183,7 +184,7 @@ Published static 0 K GGA+U Vinet fit; the numerical E(V) grid was not deposited.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fesio3_bridgmanite.md#record-fesio3_bridgmanite_holland_2013_fpv_modified_tait)
 
-**Source finding:** The fpv endmember is a distinct modified-Tait reference isotherm.
+**Source finding:** Coefficients from Table 1 and the official tc-ds62 fpv block, printed as V0 = 2.548 J/bar/mol, K0 = 2810 kbar and K0'' = -0.00160 kbar^-1, converted to GPa and Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -227,6 +228,7 @@ Ideal FeSiO3 perovskite thermodynamic endmember, not an ambient stable phase or 
     - **Access URL:** https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf
     - **DOI:** 10.1093/petrology/egt035
     - **Locations:** Table 1; Thermodynamic data section
+    - **Finding:** The fpv endmember is a distinct modified-Tait reference isotherm.
 - **Primary data check:**
     - **Status:** official\_parameter\_artifact
     - **Audit date:** 2026-09-05

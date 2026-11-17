@@ -67,6 +67,24 @@ def root(tmp_path):
     target = tmp_path / RECEIPT.relative_to(ROOT)
     target.parent.mkdir(parents=True)
     target.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+    # Start from the uncurated state: remove the bundled curated texts, so
+    # each check shows the verbatim finding and no check_text is bound.
+    removal = {
+        material: {
+            record: {"source_note": None, "warning_reason": None}
+            for record in json.loads(
+                (tmp_path / f"peritheos/data/audits/{material}.audit.json").read_bytes()
+            )["records"]
+        }
+        for material in materials
+    }
+    result = plan(removal, tmp_path)
+    assert not result.refusals, [r.line() for r in result.refusals]
+    tool.apply_plan(result, tmp_path)
+    assert tool.verify(tmp_path) == (0, [])
+    for material in materials:
+        binding = json.loads(target.read_bytes())["materials"][material]
+        assert "check_text" not in binding
     return tmp_path
 
 

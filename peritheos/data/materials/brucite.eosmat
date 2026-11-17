@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-16",
-        "source_note": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.",
+        "source_note": "V0 from Table 2; K0 and K0' from Table 5 (p. 515), repeated in Table 6, which prints the K0' error as 0.4 instead of 0.3. Equation (2) is the ordinary BM3.",
         "audit": "../audits/brucite.audit.json#brucite_fukui_2003_300k_bm3"
       },
       "model": "BM3",
@@ -66,7 +66,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-16",
-        "source_note": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.",
+        "source_note": "K0 and K0' from Table 6 (p. 515); the fixed 473 K V0 follows Equation (1) with the Table 2 and Table 3 values, V0(T) = 40.917 exp[6.69e-5 (T - 300)].",
         "audit": "../audits/brucite.audit.json#brucite_fukui_2003_473k_bm3"
       },
       "model": "BM3",
@@ -115,7 +115,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-16",
-        "source_note": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported.",
+        "source_note": "K0 and K0' from Table 6 (p. 515); the fixed 673 K V0 follows Equation (1) with the Table 2 and Table 3 values, V0(T) = 40.917 exp[6.69e-5 (T - 300)].",
         "audit": "../audits/brucite.audit.json#brucite_fukui_2003_673k_bm3"
       },
       "model": "BM3",

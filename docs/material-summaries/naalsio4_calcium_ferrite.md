@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/naalsio4_calcium_ferrite.md#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1)
 
-**Source finding:** The paper states that 23 observations were collected but publishes them only in Figure 2. Nineteen distinct marker centers are visually separable and bundled; four measurements overlap too closely to recover independently. The molar V0 was converted to the Z=4 conventional cell for the EOS record.
+**Source finding:** Coefficients from the EOS discussion (p. 498). The 23 observations are published only in Figure 2; nineteen marker centers are separable and digitized.
 
 Automatic selection for equilibrium calculations.
 
@@ -88,6 +88,7 @@ Published V0 = 36.58(2) cm³/mol; stored with its error per conventional cell (Z
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1080/08957950212807
     - **Locations:** Experimental section, journal page 496; Figure 2 and EOS discussion, journal page 498
+    - **Finding:** The paper states that 23 observations were collected but publishes them only in Figure 2. Nineteen distinct marker centers are visually separable and bundled; four measurements overlap too closely to recover independently. The molar V0 was converted to the Z=4 conventional cell for the EOS record.
     - **DOI:** 10.1080/08957950212807
 - **Migration source:**
     - **Project:** Dioptas

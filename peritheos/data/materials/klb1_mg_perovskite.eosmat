@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "One independent thermal BM2 fit for KLB-1 Mg-perovskite.",
+        "source_note": "Coefficients from the Table 1 Mg-perovskite row: the Section 3 high-temperature Birch-Murnaghan form with K0' fixed and alpha(T) = alpha0 + alpha1*T. The observations are in Supporting Information Table S1; the paper does not publish row exclusions.",
         "audit": "../audits/klb1_mg_perovskite.audit.json#klb1_mg_perovskite_ricolleau_2009_bm2_alphakt"
       },
       "model": "BM2",

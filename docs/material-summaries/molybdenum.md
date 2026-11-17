@@ -73,7 +73,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_sakai_2025_rydberg_stacey_1)
 
-**Source finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
+**Source finding:** Equation (1) with Table 2 coefficients; the stored parameters match every corresponding value in the official 26-row Table S9 compression grid, which is derived output, not measurements.
 
 Automatic selection for equilibrium calculations.
 
@@ -113,6 +113,7 @@ Table 2 parameterization. The authors fix most ambient V0 and K0 values from cit
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1038/s43246-025-00792-5
     - **Locations:** Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook
+    - **Finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
     - **DOI:** 10.1038/s43246-025-00792-5
 - **Primary data check:**
     - **Status:** bundled
@@ -162,7 +163,7 @@ Table 2 parameterization. The authors fix most ambient V0 and K0 values from cit
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_shen_2026_vinet_1)
 
-**Source finding:** The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.
+**Source finding:** Coefficients from Table II (pages 9-12), Equation (4). The Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -192,6 +193,7 @@ Table II fit to the combined DAC-1 and DAC-2 data, with pressures from the simul
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1103/fxgq-96sg
     - **Locations:** Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)
+    - **Finding:** The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.
     - **DOI:** 10.1103/fxgq-96sg
 - **Migration source:**
     - **Project:** Dioptas
@@ -243,7 +245,7 @@ Table II fit to the combined DAC-1 and DAC-2 data, with pressures from the simul
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_sokolova_2013_holzapfel_2)
 
-**Source finding:** The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.
+**Source finding:** Stored coefficients match the Mo columns of Tables 1 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -288,6 +290,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/j.rgg.2013.01.005
     - **Locations:** Equations 1-15; Table 1 input reference values; Table 4 optimized parameters for all eleven markers; Figures 3-11 cross-calibration tests
+    - **Finding:** The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.
     - **DOI:** 10.1016/j.rgg.2013.01.005
 - **Migration source:**
     - **Project:** Dioptas
@@ -344,7 +347,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2019_mao_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -381,6 +384,7 @@ Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressu
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -431,7 +435,7 @@ Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressu
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2019_dor_vinet)
 
-**Source finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
+**Source finding:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [molybdenum\_dewaele\_2019\_mao\_vinet](#record-molybdenum_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -470,6 +474,7 @@ Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressu
     - **Access URL:** https://www.mdpi.com/2075-163X/9/11/684
     - **DOI:** 10.3390/min9110684
     - **Locations:** Equation (1); Table 1
+    - **Finding:** Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -520,7 +525,7 @@ Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressu
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet)
 
-**Source finding:** The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.
+**Source finding:** Coefficients from the Table 2 K0-fixed solution of the coupled pressure-difference fit (Equations (2)-(3), Section 3.2). Run AN012 is listed in Table 1 but absent from the official auxiliary PDF.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -558,6 +563,7 @@ Pressure-standard fit to co-compression data, with pressures from the Tange et a
     - **Access URL:** https://doi.org/10.1029/2012JB009292
     - **DOI:** 10.1029/2012JB009292
     - **Locations:** Table 1; Equations (2)-(3); Section 3.2; Table 2; auxiliary Tables S1-S6
+    - **Finding:** The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -624,7 +630,7 @@ Pressure-standard fit to co-compression data, with pressures from the Tange et a
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet)
 
-**Source finding:** The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.
+**Source finding:** Coefficients from the Table 2 K0-free solution of the coupled pressure-difference fit (Equations (2)-(3), Section 3.2). Run AN012 is listed in Table 1 but absent from the official auxiliary PDF.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -662,6 +668,7 @@ Pressure-standard fit to co-compression data, with pressures from the Tange et a
     - **Access URL:** https://doi.org/10.1029/2012JB009292
     - **DOI:** 10.1029/2012JB009292
     - **Locations:** Table 1; Equations (2)-(3); Section 3.2; Table 2; auxiliary Tables S1-S6
+    - **Finding:** The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-07
@@ -733,7 +740,7 @@ Pressure-standard fit to co-compression data, with pressures from the Tange et a
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_table4_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source finding:** Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -770,6 +777,7 @@ Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, third column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** molybdenum\_dewaele\_2008\_source\_table
@@ -810,7 +818,7 @@ Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_table4_us_k0_261_vinet)
 
-**Source finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source finding:** Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -847,6 +855,7 @@ Table IV fit with V0 fixed from a separate fit to the 0-5 GPa data and K0 adopte
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, fourth column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** molybdenum\_dewaele\_2008\_source\_table

@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/al2o3_perovskite.md#record-al2o3_perovskite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.
+**Source finding:** Coefficients from the Table 1 perovskite CCM 100 mol.% row; the printed V0 = 42.83 Å³ on the normalized, approximately five-atom basis is multiplied by four for the stored cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -106,6 +106,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://authors.library.caltech.edu/records/ac43h-2q991
     - **DOI:** 10.1029/2005GL023192
     - **Locations:** Section 2, paragraphs 6-8; Table 1
+    - **Finding:** The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05
@@ -157,7 +158,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/al2o3_perovskite.md#record-al2o3_perovskite_holland_2013_apv_modified_tait)
 
-**Source finding:** The apv endmember is a distinct modified-Tait reference isotherm.
+**Source finding:** Coefficients from Table 1 and the official tc-ds62 apv block, printed as V0 = 2.540 J/bar/mol, K0 = 2030 kbar and K0'' = -0.00200 kbar^-1, and converted to GPa, Å³ and the Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -201,6 +202,7 @@ Reference isotherm of the AlAlO3 perovskite (apv) thermodynamic endmember.
     - **Access URL:** https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf
     - **DOI:** 10.1093/petrology/egt035
     - **Locations:** Table 1; Thermodynamic data section
+    - **Finding:** The apv endmember is a distinct modified-Tait reference isotherm.
 - **Primary data check:**
     - **Status:** official\_parameter\_artifact
     - **Audit date:** 2026-09-05

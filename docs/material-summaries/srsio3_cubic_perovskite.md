@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/srsio3_cubic_perovskite.md#record-srsio3_cubic_xiao_2013_experimental_bm2_1)
 
-**Source finding:** One experimental cubic BM2 parameterization is reported.
+**Source finding:** Coefficients from the Results experimental fit to the sixteen Table 1 rows from 9.0 to 37.8 GPa; the 6.2 GPa point is excluded because partial amorphization starts below 9 GPa.
 
 Automatic selection for equilibrium calculations.
 
@@ -102,6 +102,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://doi.org/10.2138/am.2013.4470
     - **DOI:** 10.2138/am.2013.4470
     - **Locations:** Experimental methods; Results; Table 1; Figure 5
+    - **Finding:** One experimental cubic BM2 parameterization is reported.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -143,7 +144,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/srsio3_cubic_perovskite.md#record-srsio3_cubic_xiao_2013_gga_bm2_2)
 
-**Source finding:** A distinct static-GGA cubic EOS is published.
+**Source finding:** Coefficients from the static-GGA cubic fit (Computational methods, Results, Figure 5), with the same Birch-Murnaghan equation as the experimental fit.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -181,6 +182,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://doi.org/10.2138/am.2013.4470
     - **DOI:** 10.2138/am.2013.4470
     - **Locations:** Computational methods; Results; Figure 5
+    - **Finding:** A distinct static-GGA cubic EOS is published.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05

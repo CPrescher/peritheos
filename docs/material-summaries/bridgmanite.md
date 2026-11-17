@@ -345,7 +345,7 @@ Single-crystal P-V data; a low-pressure structural reference, not the mantle-ran
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_saxena_1999_bm3_4)
 
-**Source finding:** The article defines two high-temperature BM3 models that share the same 300 K isotherm. Tables 2 and 3 give V0=24.45 cm^3/mol and K0=260.51 GPa at 300 K, while the abstract and Equation 16 prescribe K'\_300=4. This yields one non-duplicate static BM3 record on the source's Jamieson-1982 Pt pressure scale.
+**Source finding:** V0 and K0 from Tables 2 and 3 at 300 K (V0 printed as 24.45 cm³/mol, converted to the Z = 4 cell); K0' is prescribed by the abstract and Equation 16. Pressures are on the Jamieson (1982) Pt scale.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -383,6 +383,7 @@ The 300 K isotherm shared by the paper's two high-temperature BM models (Model 1
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.2138/am-1999-0303
     - **Locations:** Abstract and experimental technique, pages 226-227; Table 1 and results, page 227; Equation 5, page 229; Equations 14-20 and Tables 2-3, pages 228-231
+    - **Finding:** The article defines two high-temperature BM3 models that share the same 300 K isotherm. Tables 2 and 3 give V0=24.45 cm^3/mol and K0=260.51 GPa at 300 K, while the abstract and Equation 16 prescribe K'\_300=4. This yields one non-duplicate static BM3 record on the source's Jamieson-1982 Pt pressure scale.
     - **DOI:** 10.2138/am-1999-0303
 - **Reported parameterizations:**
     - **Role:** model\_1\_not\_executable
@@ -474,7 +475,7 @@ The 300 K isotherm shared by the paper's two high-temperature BM models (Model 1
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_katsura_2009_bm3)
 
-**Source finding:** The paper reports a preferred free-K0/free-K0-prime BM3 and a same-data K0-fixed sensitivity fit. The formal correction replaces the erroneous original table while explicitly stating that the EOS parameters are unchanged.
+**Source finding:** K0 and K0' from section 4.1 and the abstract; V0 is the product of the paragraph 11 ambient lattice parameters. A corrigendum replaces the original Table 1 and states that the EOS parameters are unchanged.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -514,6 +515,7 @@ The authors' preferred room-temperature BM3 for pure MgSiO3 bridgmanite; not the
     - **Access URL:** https://doi.org/10.1029/2008GL035658
     - **DOI:** 10.1029/2008GL035658
     - **Locations:** original article abstract and paragraphs 5-18; original article equations 1-8; corrigendum corrected Table 1, doi:10.1029/2009GL039318
+    - **Finding:** The paper reports a preferred free-K0/free-K0-prime BM3 and a same-data K0-fixed sensitivity fit. The formal correction replaces the erroneous original table while explicitly stating that the EOS parameters are unchanged.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -612,7 +614,7 @@ The authors' preferred room-temperature BM3 for pure MgSiO3 bridgmanite; not the
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_katsura_2009_bm3_k0_fixed)
 
-**Source finding:** The source explicitly reports K'\_T0=4.1(2) after refitting its own dataset with K\_T0 assumed to be 253 GPa.
+**Source finding:** K0' from section 4.1, paragraph 12, where the authors refit their data with K0 assumed as a Brillouin-comparison value; V0 is the paragraph 11 ambient lattice product.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -652,6 +654,7 @@ The authors' sensitivity fit with K0 fixed to 253 GPa, to the same corrected dat
     - **Access URL:** https://doi.org/10.1029/2008GL035658
     - **DOI:** 10.1029/2008GL035658
     - **Locations:** original article section 4.1, paragraph 12; corrigendum corrected Table 1, doi:10.1029/2009GL039318
+    - **Finding:** The source explicitly reports K'\_T0=4.1(2) after refitting its own dataset with K\_T0 assumed to be 253 GPa.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -702,7 +705,7 @@ The authors' sensitivity fit with K0 fixed to 253 GPa, to the same corrected dat
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_wolf_2015_vinet_mgd_4)
 
-**Source finding:** The record is the complete Wolf et al. reanalysis of Fe-free MgSiO3 observations: a 300 K Vinet isotherm and integrated constant-q MGD correction. It remains distinct from both original Tange et al. records already bundled.
+**Source finding:** Coefficients from Table 3, 0% Fe column (Equations 1-6); theta0 was fixed after a preliminary Fe-free fit gave 991 ± 77 K (section 3.3). The author's plain-text Table 2 labels the MgO volumes V\_Ne; the article identifies them as MgO.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -756,6 +759,7 @@ Wolf et al.'s homogeneous reanalysis of the Fe-free data of Tange et al. (2012),
     - **Access URL:** https://doi.org/10.1002/2015JB012108
     - **DOI:** 10.1002/2015JB012108
     - **Locations:** final Wolf et al. article, sections 3.1-3.4 and 4.2; final Wolf et al. article, equations 1-11 and Tables 2-4; final Wolf et al. article data-availability statement; corresponding-author data page, Table 2 machine-readable mirror; PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit\_Tange2012\_lsq\_fixdeb.in
+    - **Finding:** The record is the complete Wolf et al. reanalysis of Fe-free MgSiO3 observations: a 300 K Vinet isotherm and integrated constant-q MGD correction. It remains distinct from both original Tange et al. records already bundled.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -830,7 +834,7 @@ Wolf et al.'s homogeneous reanalysis of the Fe-free data of Tange et al. (2012),
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_criniti_2021_absolute_bm3)
 
-**Source finding:** Equation 3 is an executable volumetric BM3 pressure equation. It is distinct from the third-order finite-strain fits to K\_S and G in Table 2.
+**Source finding:** K0 and K0' from Section 3.3 (Equation 3), not the finite-strain K\_S and G fits of Table 2. V0 follows from the Table 1 ambient density of 4.1045(10) g/cm³.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -870,6 +874,7 @@ The source's primary (absolute) pressure scale, from integrating the isothermal 
     - **Access URL:** https://epub.uni-bayreuth.de/5769/1/2020JB020967.pdf
     - **DOI:** 10.1029/2020JB020967
     - **Locations:** Section 3.3, Equation 3; Table 1; Figshare dataset 10.6084/m9.figshare.14265176.v1
+    - **Finding:** Equation 3 is an executable volumetric BM3 pressure equation. It is distinct from the third-order finite-strain fits to K\_S and G in Table 2.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -921,7 +926,7 @@ The source's primary (absolute) pressure scale, from integrating the isothermal 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_fiquet_2000_bm3_1)
 
-**Source finding:** The source distinguishes a 25-point post-heating 298 K BM3 from global P-V-T inversions combining different datasets.
+**Source finding:** Coefficients from Section 3.3, fitted by the authors to the 25 post-heating 298 K points of Table 1 by generalized least squares.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -965,6 +970,7 @@ Room-temperature BM3 for pure orthorhombic Pbnm MgSiO3 after stress-relieving la
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/1999GL008397
     - **DOI:** 10.1029/1999GL008397
     - **Locations:** Experimental section; Table 1; Section 3.3 and Table 3
+    - **Finding:** The source distinguishes a 25-point post-heating 298 K BM3 from global P-V-T inversions combining different datasets.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -1026,7 +1032,7 @@ Room-temperature BM3 for pure orthorhombic Pbnm MgSiO3 after stress-relieving la
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_metsue_2012_static_bm3_1)
 
-**Source finding:** The study reports its own pure-MgSiO3 control alongside the six Fe-bearing fits and uses it to derive composition trends.
+**Source finding:** Coefficients from Table 1(c), with K0' fixed per the Table 1 note and Section 3.2; V0 is printed as 24.2717 cm³/mol and converted to the Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1069,6 +1075,7 @@ Static 0 K calculation for pure MgSiO3: the control the source uses to quantify 
     - **Access URL:** https://academic.oup.com/gji/article/190/1/310/598134
     - **DOI:** 10.1111/j.1365-246X.2012.05511.x
     - **Locations:** Table 1(c); Section 3.2
+    - **Finding:** The study reports its own pure-MgSiO3 control alongside the six Fe-bearing fits and uses it to derive composition trends.
 - **Primary data check:**
     - **Status:** parameterization\_and\_pressure\_grid\_only
     - **Audit date:** 2026-09-05
@@ -1116,7 +1123,7 @@ Static 0 K calculation for pure MgSiO3: the control the source uses to quantify 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** Table 1 reports the pure perovskite static GGA BM3.
+**Source finding:** Coefficients from the Table 1 pure-perovskite row (energy-volume BM3 fit, Section 2); V0 is printed as 41.75 Å³ per five-atom unit and stored ×4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1158,6 +1165,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://authors.library.caltech.edu/records/ac43h-2q991
     - **DOI:** 10.1029/2005GL023192
     - **Locations:** Section 2; Table 1
+    - **Finding:** Table 1 reports the pure perovskite static GGA BM3.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05
@@ -1206,7 +1214,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_zhang_wentzcovitch_2022_phq_lda_300k_bm3)
 
-**Source finding:** The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv.
+**Source finding:** Coefficients from the Table I Pv LDA row at 300 K, a BM3 fit to F(V,T) (Section III); V0 is printed as 40.15 Å³ per MgSiO3 and stored for Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1249,6 +1257,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://arxiv.org/pdf/2204.13159
     - **DOI:** 10.1103/PhysRevB.106.054103
     - **Locations:** Sections II-III; Figure 2; Table I
+    - **Finding:** The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -1288,7 +1297,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3)
 
-**Source finding:** The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv.
+**Source finding:** Coefficients from the Table I Pv PBE row at 300 K, a BM3 fit to F(V,T) (Section III); V0 is printed as 42.44 Å³ per MgSiO3 and stored for Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1331,6 +1340,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://arxiv.org/pdf/2204.13159
     - **DOI:** 10.1103/PhysRevB.106.054103
     - **Locations:** Sections II-III; Figure 2; Table I
+    - **Finding:** The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -1370,7 +1380,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_mao_1991_bm2_1)
 
-**Source finding:** Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations.
+**Source finding:** V0 from the MgSiO3 entry of Table 1; K0 from the equation-of-state fit paragraph, whose fit uses the nine 300 K Fe10 rows of Table 2.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1410,6 +1420,7 @@ The published BM2 is stored as BM3 with K0' fixed to 4, which is algebraically i
     - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/91JB00176
     - **DOI:** 10.1029/91jb00176
     - **Locations:** Final article abstract and journal pages 8071-8074; Final article Tables 1-3; Final article equation-of-state fit paragraph and Figure 4
+    - **Finding:** Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08
@@ -1484,7 +1495,7 @@ The published BM2 is stored as BM3 with K0' fixed to 4, which is algebraically i
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_holland_2013_mpv_modified_tait)
 
-**Source finding:** The mpv endmember is a genuine modified-Tait reference isotherm.
+**Source finding:** Coefficients from Table 1 and the official tc-ds62 mpv block, printed as V0 = 2.445 J/bar/mol (24.45 cm³/mol), K0 = 2510 kbar and K0'' = -0.00160 kbar^-1; stored in Å³ (Z = 4) and GPa.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1528,6 +1539,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf
     - **DOI:** 10.1093/petrology/egt035
     - **Locations:** Table 1; Thermodynamic data section
+    - **Finding:** The mpv endmember is a genuine modified-Tait reference isotherm.
 - **Primary data check:**
     - **Status:** official\_parameter\_artifact
     - **Audit date:** 2026-09-05
@@ -1570,7 +1582,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_li_zeng_2009_gga_bm3)
 
-**Source finding:** Table 1 reports three distinct fitted EOS families for the same Pnma energy-volume calculation.
+**Source finding:** Coefficients from the Table 1 this-study perovskite row, third-order Birch-Murnaghan column; the energy-volume calculation is described in Section 2 and plotted in Figure 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1605,6 +1617,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://www.researchgate.net/publication/228511351\_First-Principles\_Study\_of\_the\_Structural\_Electronic\_and\_Optical\_Properties\_of\_MgSiO3\_at\_high\_pressure
     - **DOI:** 10.1142/s0129183109014242
     - **Locations:** Section 2; Figure 1; Table 1
+    - **Finding:** Table 1 reports three distinct fitted EOS families for the same Pnma energy-volume calculation.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -1644,7 +1657,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_li_zeng_2009_gga_vinet)
 
-**Source finding:** The Vinet column is an author-reported alternative fit, not an independent run.
+**Source finding:** Coefficients from the Table 1 this-study perovskite row, Vinet column, an alternative fit by the authors to their Pnma energy-volume calculation (Figure 1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1679,6 +1692,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://www.researchgate.net/publication/228511351\_First-Principles\_Study\_of\_the\_Structural\_Electronic\_and\_Optical\_Properties\_of\_MgSiO3\_at\_high\_pressure
     - **DOI:** 10.1142/s0129183109014242
     - **Locations:** Figure 1; Table 1
+    - **Finding:** The Vinet column is an author-reported alternative fit, not an independent run.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -1718,7 +1732,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_li_zeng_2009_gga_natural_strain3)
 
-**Source finding:** The natural-strain column is a distinct author-reported alternative fit.
+**Source finding:** Coefficients from the Table 1 this-study perovskite row, third-order natural-strain column, an alternative fit by the authors to their Pnma energy-volume calculation (Figure 1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1753,6 +1767,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://www.researchgate.net/publication/228511351\_First-Principles\_Study\_of\_the\_Structural\_Electronic\_and\_Optical\_Properties\_of\_MgSiO3\_at\_high\_pressure
     - **DOI:** 10.1142/s0129183109014242
     - **Locations:** Figure 1; Table 1
+    - **Finding:** The natural-strain column is a distinct author-reported alternative fit.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -1792,7 +1807,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_kiefer_2002_gga_bm3)
 
-**Source finding:** The x=0 EOS triplet is explicitly distinguished from the elastic-modulus finite-strain fit in Table 1.
+**Source finding:** Coefficients from the text following Table 1 (x = 0), derived from the equation of state; they are distinct from the elastic-modulus finite-strain fit in Table 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1833,6 +1848,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://discovery.ucl.ac.uk/id/eprint/112632/
     - **DOI:** 10.1029/2002gl014683
     - **Locations:** Methods; Table 1 and following paragraph
+    - **Finding:** The x=0 EOS triplet is explicitly distinguished from the elastic-modulus finite-strain fit in Table 1.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-05
@@ -1872,7 +1888,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_deng_2006_lda_bm3)
 
-**Source finding:** Superscript b is explicitly the third-order fit; superscript a is fourth order but lacks the required K0'' coefficient and is withheld.
+**Source finding:** Coefficients from the Table 1 theory (0 K) entry marked b (page 2336), the third-order fit; entry a is a fourth-order fit printed without K0''.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1915,6 +1931,7 @@ Third-order branch b of the static calculation. K0' = 4 is fixed by the paper's 
     - **Access URL:** http://cpl.iphy.ac.cn/en/article/pdf/preview/40292.pdf
     - **DOI:** 10.1088/0256-307x/23/8/101
     - **Locations:** Methods and EOS equation, page 2335; Table 1, page 2336
+    - **Finding:** Superscript b is explicitly the third-order fit; superscript a is fourth order but lacks the required K0'' coefficient and is withheld.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-05
@@ -1955,7 +1972,7 @@ Third-order branch b of the static calculation. K0' = 4 is fixed by the paper's 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_wu_2013_gga_bm3)
 
-**Source finding:** Complete source-generated Mg endmember BM3, distinct from Table 1's experimental comparison values.
+**Source finding:** Coefficients from the Table 1 calculation column (Equation (10)), not Table 1's experimental comparison values; the source prints K0 and K0' as B0 and B0'.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1998,6 +2015,7 @@ Static PBE-GGA calculation; the Mg endmember of the paper's quasiharmonic compar
     - **Access URL:** https://wulixb.iphy.ac.cn/pdf-content/10.7498/aps.62.049101.pdf
     - **DOI:** 10.7498/aps.62.049101
     - **Locations:** Section 2; Equation (10); Section 3 and Table 1
+    - **Finding:** Complete source-generated Mg endmember BM3, distinct from Table 1's experimental comparison values.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_only
     - **Audit date:** 2026-09-05
@@ -2038,7 +2056,7 @@ Static PBE-GGA calculation; the Mg endmember of the paper's quasiharmonic compar
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_liu_2011_gga_static_bm3)
 
-**Source finding:** One complete source-owned static GGA BM3 fit for Pbnm MgSiO3 perovskite.
+**Source finding:** Coefficients from the Table I this-study GGA column, a least-squares fit to the calculated 0-150 GPa volumes (Section III.A, plotted in Figure 1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2081,6 +2099,7 @@ Static GGA branch for orthorhombic Pbnm MgSiO3, from which the source builds its
     - **Access URL:** https://cjcp.ustc.edu.cn/hxwlxb/cn/article/pdf/preview/10.1088/1674-0068/24/06/703-710.pdf
     - **DOI:** 10.1088/1674-0068/24/06/703-710
     - **Locations:** Section II; Table I; Section III.A; Figure 1
+    - **Finding:** One complete source-owned static GGA BM3 fit for Pbnm MgSiO3 perovskite.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -2127,7 +2146,7 @@ Static GGA branch for orthorhombic Pbnm MgSiO3, from which the source builds its
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_dorogokupets_2015_298k_rydberg_stacey)
 
-**Source finding:** The source's k=5 generalized Rydberg reference isotherm is complete; LitCurate's Birch-Murnaghan label is corrected rather than propagated.
+**Source finding:** Coefficients from Table 1 (V0 = 24.45 cm³/mol, stored per Z = 4 cell). Equation (2) is a generalized Rydberg form with k = 5, i.e. Rydberg-Stacey with K\_infinity\_prime = 5/3, not Birch-Murnaghan.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2172,6 +2191,7 @@ Reference isotherm of the source's larger Helmholtz free-energy model; its therm
     - **Access URL:** https://doi.org/10.1016/j.rgg.2015.01.011
     - **DOI:** 10.1016/j.rgg.2015.01.011
     - **Locations:** Equations (1)-(5); Table 1; Equations of state for Fo, Wds, Rwd, Akm, Prv, and PPrv
+    - **Finding:** The source's k=5 generalized Rydberg reference isotherm is complete; LitCurate's Birch-Murnaghan label is corrected rather than propagated.
 - **Primary data check:**
     - **Status:** partial\_reconstruction
     - **Audit date:** 2026-09-08
@@ -2216,7 +2236,7 @@ Reference isotherm of the source's larger Helmholtz free-energy model; its therm
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_hamahata_2000_md_300k_bm3)
 
-**Source finding:** The source explicitly fits the 300 K simulated volumes to BM3 and reports rho0, K\_T0, and K'\_T0.
+**Source finding:** K0 and K0' from the compression-data subsection (Equation (2)); V0 is computed from the printed rho0 = 4.030 g/cm³ for Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2262,6 +2282,7 @@ BM3 fit to 300 K molecular-dynamics volumes. V0 is computed from the published r
     - **Source pdf sha256:** fc5bd5242c1bbb4c9e3e136156e951cace9d77f3fcbd72e8b2f2dad7c92cb3df
     - **DOI:** 10.2465/jmps.95.236
     - **Locations:** Method; Compression data of MgSiO3 perovskite; Equation (2); Figure 1
+    - **Finding:** The source explicitly fits the 300 K simulated volumes to BM3 and reports rho0, K\_T0, and K'\_T0.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-06

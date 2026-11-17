@@ -162,7 +162,7 @@ Reanalysis of the Occelli et al. diamond data. Published V0 = 5.6733 Å³/atom; 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_dewaele_2008_vinet_2)
 
-**Source finding:** The diamond observations and fitted reference isotherm are explicitly on the Holzapfel (2005) H05 ruby scale.
+**Source finding:** Coefficients from Table III (298 K diamond Vinet fit); the Table I observations and the fit are on the Holzapfel (2005) H05 ruby scale of Section II.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -193,6 +193,7 @@ Single-crystal XRD fit in neon, with K0 fixed to the isothermal ultrasonic value
 - **Primary source check:**
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.77.094106/fulltext
     - **Locations:** Section II, H05 pressure calibration; Table I, diamond aC rows; Table III, 298 K diamond Vinet fit
+    - **Finding:** The diamond observations and fitted reference isotherm are explicitly on the Holzapfel (2005) H05 ruby scale.
     - **DOI:** 10.1103/physrevb.77.094106
 - **Migration source:**
     - **Project:** Dioptas
@@ -244,7 +245,7 @@ Single-crystal XRD fit in neon, with K0 fixed to the isothermal ultrasonic value
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_sokolova_2013_holzapfel_3)
 
-**Source finding:** The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.
+**Source finding:** Stored coefficients match the diamond columns of Tables 1 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -289,6 +290,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1016/j.rgg.2013.01.005
     - **Locations:** Equations 1-15; Table 1 input reference values; Table 4 optimized parameters for all eleven markers; Figures 3-11 cross-calibration tests
+    - **Finding:** The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.
     - **DOI:** 10.1016/j.rgg.2013.01.005
 - **Migration source:**
     - **Project:** Dioptas
@@ -345,7 +347,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_correa_2008_double_debye_log_moment_5)
 
-**Source finding:** The complete source equation and coefficients are represented. All 57 Figure 8 pressure markers are bundled as plot checkpoints, but the upstream cold-energy and phonon fitting grids are not tabulated.
+**Source finding:** Coefficients from the Table I diamond row with Equations 2-7 and 13-18. The source does not tabulate the cold-energy and phonon grids behind the fit; Figure 8 gives 57 DFT-MD pressure markers.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -402,6 +404,7 @@ Complete diamond free-energy model of Equations 2-18, with a motionless-ion DFT-
 - **Primary source check:**
     - **Access URL:** https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.024101/fulltext
     - **Locations:** Equations 2-7 and 13-18; Table I, diamond row; Figure 8, vector DFT-MD pressure markers
+    - **Finding:** The complete source equation and coefficients are represented. All 57 Figure 8 pressure markers are bundled as plot checkpoints, but the upstream cold-energy and phonon fitting grids are not tabulated.
     - **DOI:** 10.1103/physrevb.78.024101
 - **Primary data check:**
     - **Status:** plot\_only
@@ -446,7 +449,7 @@ Complete diamond free-energy model of Equations 2-18, with a motionless-ion DFT-
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_benedict_2014_double_debye_4)
 
-**Source finding:** The complete source equation and coefficients are represented. The exact 96-row solid DFT-MD pressure/internal-energy validation grid is bundled, but the upstream cold-energy and phonon fitting grids are not supplied.
+**Source finding:** Coefficients from the Table I diamond column with Equations 3-7. The source does not supply the cold-energy and phonon grids behind the fit; the Supplemental Material gives a 96-row solid DFT-MD table.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -505,6 +508,7 @@ Complete Helmholtz model of Equations 3-7, not a Vinet curve plus a generic Mie-
 - **Primary source check:**
     - **Access URL:** https://arxiv.org/pdf/1311.4577
     - **Locations:** Equations 3-7; Table I, diamond column; Figure 7, DFT-MD pressure and internal-energy comparison; Supplemental Material, solid DFT-MD table
+    - **Finding:** The complete source equation and coefficients are represented. The exact 96-row solid DFT-MD pressure/internal-energy validation grid is bundled, but the upstream cold-energy and phonon fitting grids are not supplied.
     - **DOI:** 10.1103/physrevb.89.224109
 - **Primary data check:**
     - **Status:** bundled
@@ -549,7 +553,7 @@ Complete Helmholtz model of Equations 3-7, not a Vinet curve plus a generic Mie-
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_correa_2008_dewaele_anchored)
 
-**Source finding:** Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Correa thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.
+**Source finding:** Reference isotherm from Dewaele et al. (2008) Table III; thermal increment from Correa et al. (2008) Equations 2-7 and 13-18 and Table I. Peritheos composes the two; no coefficient is fitted.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -602,6 +606,7 @@ P(V,T) = P\_Dewaele(V, 298 K) + P\_Correa(V,T) - P\_Correa(V, 298 K): exactly th
 - **Primary source check:**
     - **Access URL:** https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106
     - **Locations:** Dewaele et al. (2008), Table III; Correa et al. (2008), equations 2-7 and 13-18 and Table I; Correa et al. (2008), Figure 8 vector DFT-MD markers
+    - **Finding:** Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Correa thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.
     - **DOI:** 10.1103/physrevb.77.094106
 - **Primary data check:**
     - **Status:** bundled
@@ -669,7 +674,7 @@ P(V,T) = P\_Dewaele(V, 298 K) + P\_Correa(V,T) - P\_Correa(V, 298 K): exactly th
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_benedict_2014_dewaele_anchored)
 
-**Source finding:** Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Benedict thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.
+**Source finding:** Reference isotherm from Dewaele et al. (2008) Table III; thermal increment from Benedict et al. (2014) Equations 3-7 and Table I. Peritheos composes the two; no coefficient is fitted.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -724,6 +729,7 @@ P(V,T) = P\_Dewaele(V, 298 K) + P\_Benedict(V,T) - P\_Benedict(V, 298 K): exactl
 - **Primary source check:**
     - **Access URL:** https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106
     - **Locations:** Dewaele et al. (2008), Table III; Benedict et al. (2014), equations 3-7 and Table I; Benedict et al. (2014), Supplemental Material, solid DFT-MD table
+    - **Finding:** Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Benedict thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.
     - **DOI:** 10.1103/physrevb.77.094106
 - **Primary data check:**
     - **Status:** bundled

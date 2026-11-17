@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_e_fe0072.md#record-phase_e_fe0072_crichton_ross_2000_bm3)
 
-**Source finding:** Publication-of-record PDF inspected in full, Table 1 checked visually. Published BM3 retained; source residual benchmarks reproduced and independent refits establish parity within reported uncertainty. Exact implementation provenance is separately documented and does not negate fit recovery.
+**Source finding:** Coefficients from the Results, p. 563, all freely refined; the fitted V0 differs from the Table 1 ambient observation of 105.633(16) Å³.
 
 Automatic selection for equilibrium calculations.
 
@@ -99,6 +99,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://triage19.com/products/MM/MM064P0561.pdf
     - **DOI:** 10.1180/002646100549427
     - **Locations:** Full article pp. 561–567; Table 1 p. 562; Results and F–f discussion p. 563; Axial fits pp. 563–564
+    - **Finding:** Publication-of-record PDF inspected in full, Table 1 checked visually. Published BM3 retained; source residual benchmarks reproduced and independent refits establish parity within reported uncertainty. Exact implementation provenance is separately documented and does not negate fit recovery.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** phase\_e\_crichton\_ross\_2000\_table1

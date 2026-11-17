@@ -84,7 +84,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_mosenfelder_2009_bm3_1)
 
-**Source finding:** The complete published BM3 reference-isentrope plus Debye thermal model is executable. The fitted Cvm is stored as molar Cvmax, and the shock reduction closes in pressure-density space without inventing missing temperatures.
+**Source finding:** Coefficients from Table 4 with Equations (2)-(12); the static observations are from Guignot et al. (2007) Table 1. Shock states constrain the fit in pressure-density space only; the source's shock temperatures are not used.
 
 Automatic selection for equilibrium calculations.
 
@@ -131,6 +131,7 @@ Joint errors-in-variables inversion of 48 static P-V-T observations of Guignot e
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/2008JB005900
     - **Locations:** Equations (2)-(12); Tables 2-4; Section 3, paragraphs 13-19; Guignot et al. (2007), Table 1
+    - **Finding:** The complete published BM3 reference-isentrope plus Debye thermal model is executable. The fitted Cvm is stored as molar Cvmax, and the shock reduction closes in pressure-density space without inventing missing temperatures.
     - **DOI:** 10.1029/2008jb005900
 - **Migration source:**
     - **Project:** Dioptas
@@ -258,7 +259,7 @@ BM3 (fit 1 in the paper) to laser-heated DAC data from this study and Guignot et
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3)
 
-**Source finding:** The source defines a standard Eulerian BM3 at 300 K, fixes K0\_prime=4 and V0=162.86 A^3, fits K0 separately on three named gold pressure scales, and prints every sample and calibrant lattice observation. The Anderson-scale fit is represented exactly by BM2.
+**Source finding:** K0 from Table 3 and the Results prose (p. 477), Anderson et al. (1989) gold scale; V0 is the 0 K LDA value of Oganov and Ono (2004). Figure 2 captions this curve as K0 = 236(1) GPa; the table value is stored.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -299,6 +300,7 @@ Pure MgSiO3 with the CaIrO3-type structure, not CaIrO3 composition or bridgmanit
     - **Source version:** final published American Mineralogist pages
     - **DOI:** 10.2138/am.2006.2118
     - **Locations:** Abstract; Experimental methods; Results and printed EOS equation; Tables 1-3; Figure 2 and caption
+    - **Finding:** The source defines a standard Eulerian BM3 at 300 K, fixes K0\_prime=4 and V0=162.86 A^3, fits K0 separately on three named gold pressure scales, and prints every sample and calibrant lattice observation. The Anderson-scale fit is represented exactly by BM2.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -375,7 +377,7 @@ Pure MgSiO3 with the CaIrO3-type structure, not CaIrO3 composition or bridgmanit
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_ono_2006_jamieson_bm2_4)
 
-**Source finding:** The source reports the same constrained BM3/BM2 fit separately on the Jamieson et al. (1982) gold scale, with all six source pressures and calibrant lattice parameters printed.
+**Source finding:** K0 from Table 3 and the Results prose (p. 477), Jamieson et al. (1982) gold scale; V0 is the 0 K LDA value of Oganov and Ono (2004). Figure 2 captions this curve as K0 = 225(1) GPa; the table value is stored.
 
 Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_anderson\_bm2\_3](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3); it is not an independent EOS choice.
 
@@ -417,6 +419,7 @@ The same six observations as the Anderson-scale record, with pressures on the Ja
     - **Source version:** final published American Mineralogist pages
     - **DOI:** 10.2138/am.2006.2118
     - **Locations:** Abstract; Experimental methods; Results and printed EOS equation; Tables 1-3; Figure 2 and caption
+    - **Finding:** The source reports the same constrained BM3/BM2 fit separately on the Jamieson et al. (1982) gold scale, with all six source pressures and calibrant lattice parameters printed.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -490,7 +493,7 @@ The same six observations as the Anderson-scale record, with pressures on the Ja
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_ono_2006_dewaele_bm2_5)
 
-**Source finding:** The source reports the same constrained BM3/BM2 fit separately on the Dewaele et al. (2004) gold scale, with all six source pressures and calibrant lattice parameters printed.
+**Source finding:** K0 from Table 3 and the Results prose (p. 477), Dewaele et al. (2004) gold scale; V0 is the 0 K LDA value of Oganov and Ono (2004). The Results prose says Z = 2; the Table 1 note and site multiplicities give Z = 4, used here.
 
 Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_anderson\_bm2\_3](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3); it is not an independent EOS choice.
 
@@ -533,6 +536,7 @@ The same six observations as the Anderson-scale record, with pressures on the De
     - **Source version:** final published American Mineralogist pages
     - **DOI:** 10.2138/am.2006.2118
     - **Locations:** Abstract; Experimental methods; Results and printed EOS equation; Tables 1-3; Figure 2 and caption
+    - **Finding:** The source reports the same constrained BM3/BM2 fit separately on the Dewaele et al. (2004) gold scale, with all six source pressures and calibrant lattice parameters printed.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -611,7 +615,7 @@ The same six observations as the Anderson-scale record, with pressures on the De
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** Table 1 reports the pure post-perovskite static GGA BM3.
+**Source finding:** Coefficients from the Table 1 pure post-perovskite row (Section 2); the printed V0 = 41.83 Å³ per normalized five-atom formula unit is multiplied by four.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -653,6 +657,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://authors.library.caltech.edu/records/ac43h-2q991
     - **DOI:** 10.1029/2005GL023192
     - **Locations:** Section 2; Table 1
+    - **Finding:** Table 1 reports the pure post-perovskite static GGA BM3.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05
@@ -701,7 +706,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3)
 
-**Source finding:** The primary manuscript reports a separate 300 K PHQ-LDA BM3 for PPv.
+**Source finding:** Coefficients from the Table I PPv LDA row at 300 K; the printed V0 = 40.02 Å³ per MgSiO3 is multiplied by Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -744,6 +749,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://arxiv.org/pdf/2204.13159
     - **DOI:** 10.1103/PhysRevB.106.054103
     - **Locations:** Sections II-III; Figure 2; Table I
+    - **Finding:** The primary manuscript reports a separate 300 K PHQ-LDA BM3 for PPv.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -783,7 +789,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3)
 
-**Source finding:** The primary manuscript reports a separate 300 K PHQ-PBE BM3 for PPv.
+**Source finding:** Coefficients from the Table I PPv PBE row at 300 K; the printed V0 = 42.56 Å³ per MgSiO3 is multiplied by Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -826,6 +832,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://arxiv.org/pdf/2204.13159
     - **DOI:** 10.1103/PhysRevB.106.054103
     - **Locations:** Sections II-III; Figure 2; Table I
+    - **Finding:** The primary manuscript reports a separate 300 K PHQ-PBE BM3 for PPv.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -865,7 +872,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_li_zeng_2009_gga_bm3)
 
-**Source finding:** Table 1 reports three distinct fitted EOS families for the same Cmcm energy-volume calculation.
+**Source finding:** Coefficients from Table 1, this-study post-perovskite row, third-order Birch-Murnaghan column.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -900,6 +907,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://www.researchgate.net/publication/228511351\_First-Principles\_Study\_of\_the\_Structural\_Electronic\_and\_Optical\_Properties\_of\_MgSiO3\_at\_high\_pressure
     - **DOI:** 10.1142/s0129183109014242
     - **Locations:** Section 2; Figure 1; Table 1
+    - **Finding:** Table 1 reports three distinct fitted EOS families for the same Cmcm energy-volume calculation.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -939,7 +947,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_li_zeng_2009_gga_vinet)
 
-**Source finding:** The Vinet column is an author-reported alternative fit, not an independent run.
+**Source finding:** Coefficients from Table 1, this-study post-perovskite row, Vinet column: the authors' alternative fit to the same energy-volume calculation.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -974,6 +982,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://www.researchgate.net/publication/228511351\_First-Principles\_Study\_of\_the\_Structural\_Electronic\_and\_Optical\_Properties\_of\_MgSiO3\_at\_high\_pressure
     - **DOI:** 10.1142/s0129183109014242
     - **Locations:** Figure 1; Table 1
+    - **Finding:** The Vinet column is an author-reported alternative fit, not an independent run.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -1013,7 +1022,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_li_zeng_2009_gga_natural_strain3)
 
-**Source finding:** The natural-strain column is a distinct author-reported alternative fit.
+**Source finding:** Coefficients from Table 1, this-study post-perovskite row, third-order natural-strain column: the authors' alternative fit to the same energy-volume calculation.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1048,6 +1057,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Access URL:** https://www.researchgate.net/publication/228511351\_First-Principles\_Study\_of\_the\_Structural\_Electronic\_and\_Optical\_Properties\_of\_MgSiO3\_at\_high\_pressure
     - **DOI:** 10.1142/s0129183109014242
     - **Locations:** Figure 1; Table 1
+    - **Finding:** The natural-strain column is a distinct author-reported alternative fit.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -1087,7 +1097,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_liu_2010_lda_static_bm3)
 
-**Source finding:** The paper reports one source-owned static LDA BM3 and clearly labels six comparison rows from earlier studies.
+**Source finding:** Coefficients from Section 3 and the Table 1 'This work' row; the other Table 1 rows are earlier studies. V is the Cmcm unit-cell volume (Z = 4).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1130,6 +1140,7 @@ Static LDA calculation. The article's separate quasi-harmonic Debye results, whi
     - **Access URL:** https://doi.org/10.1142/S0217984910022391
     - **DOI:** 10.1142/s0217984910022391
     - **Locations:** abstract; Sections 2-3; Table 1; Figure 1
+    - **Finding:** The paper reports one source-owned static LDA BM3 and clearly labels six comparison rows from earlier studies.
 - **Primary data check:**
     - **Status:** theoretical\_parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05
@@ -1170,7 +1181,7 @@ Static LDA calculation. The article's separate quasi-harmonic Debye results, whi
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey)
 
-**Source finding:** The primary source defines a complete k=5 generalized Rydberg reference isotherm; LitCurate's Birch-family ambiguity is resolved directly.
+**Source finding:** Coefficients from Table 1 (V0 = 24.2 cm³/mol, stored per Z = 4 cell). Equation (2) is a generalized Rydberg form; Table 1 fixes k = 5, which maps exactly to Rydberg-Stacey with K\_infinity\_prime = k/3, not a Birch-Murnaghan form.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1216,6 +1227,7 @@ Reference isotherm of the source's larger Helmholtz free-energy model.
     - **Access URL:** https://doi.org/10.1016/j.rgg.2015.01.011
     - **DOI:** 10.1016/j.rgg.2015.01.011
     - **Locations:** Equations (1)-(5); Table 1; MgSiO3-postperovskite subsection
+    - **Finding:** The primary source defines a complete k=5 generalized Rydberg reference isotherm; LitCurate's Birch-family ambiguity is resolved directly.
 - **Primary data check:**
     - **Status:** partial\_reconstruction
     - **Audit date:** 2026-09-08
@@ -1260,7 +1272,7 @@ Reference isotherm of the source's larger Helmholtz free-energy model.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_komabayashi_2008_thermal_bm3)
 
-**Source finding:** V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1\*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300\*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced.
+**Source finding:** Coefficients from Table 2 (Equations 1-4). The fit imposes alpha(300 K) = 1.7e-5 K^-1; the independently rounded printed alpha0 and alpha1 give 1.7009e-5, and the record keeps the printed values.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1318,6 +1330,7 @@ V0 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K
     - **Access URL:** https://doi.org/10.1016/j.epsl.2007.10.036
     - **DOI:** 10.1016/j.epsl.2007.10.036
     - **Locations:** Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522
+    - **Finding:** V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1\*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300\*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-08

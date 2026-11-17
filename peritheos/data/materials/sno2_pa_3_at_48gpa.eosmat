@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The stored record is only the 300 K reference isotherm. The paper's separate 25 GPa thermal-expansion result is documented but is not silently turned into a full thermal EOS. The notation V0=130.6(3) means an uncertainty of 0.3 A^3, not 3 A^3.",
+        "source_note": "Coefficients from the 300 K fit on page 621; the printed V0 error (3) means 0.3 Å³, not 3 Å³. The separate 25 GPa thermal-expansion result is not part of this record.",
         "audit": "../audits/sno2_pa_3_at_48gpa.audit.json#sno2_pa_3_at_48gpa_ono_2000_bm3_1"
       },
       "model": "BM3",

@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgal0125si0875o29375_post_perovskite.md#record-mgal0125si0875o29375_post_perovskite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.
+**Source finding:** Coefficients from the Table 1 post-perovskite OVM 6.25 mol.% row; V0 = 42.33 Å³ on the normalized, approximately five-atom basis is multiplied by four for the conventional cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -106,6 +106,7 @@ Static 0 K GGA model-crystal fit, not an experimental result.
     - **Access URL:** https://authors.library.caltech.edu/records/ac43h-2q991
     - **DOI:** 10.1029/2005GL023192
     - **Locations:** Section 2, paragraphs 6-8; Table 1
+    - **Finding:** The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05

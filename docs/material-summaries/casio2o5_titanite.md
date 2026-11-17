@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/casio2o5_titanite.md#record-casio2o5_titanite_sagatova_2021_gga_300k_vinet)
 
-**Source finding:** Complete source-owned GGA room-temperature Vinet fit.
+**Source finding:** Coefficients from the Table 2 this-work GGA CaSi2O5-titanite row (Vinet form, Methods); the calculated P-V points are not tabulated, only plotted as relative volumes in Figure 6.
 
 Automatic selection for equilibrium calculations.
 
@@ -103,6 +103,7 @@ Automatic selection for equilibrium calculations.
     - **Access URL:** https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&amp;j=geokhim&amp;n=8&amp;v=66&amp;y=2021
     - **DOI:** 10.1134/s0016702921080073
     - **Locations:** Methods; Table 2; Phase relations; Conclusions
+    - **Finding:** Complete source-owned GGA room-temperature Vinet fit.
 - **Primary data check:**
     - **Status:** parameterization\_and\_plot\_only
     - **Audit date:** 2026-09-05

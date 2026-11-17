@@ -143,7 +143,7 @@ Room-temperature BM3 fit to single-crystal data, with all three parameters free.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/magnesite.md#record-magnesite_vocadlo_1999_bm3_2)
 
-**Source finding:** The published BM3 parameters reproduce every Table 1 pressure to 0.00011 GPa or better. An independent four-parameter fit of the printed energy-volume rows on their internally required 30-atom-cell basis gives V0=287.492 A^3, K0=98.921 GPa, and K0\_prime=4.27911, within the published precision and coefficient errors.
+**Source finding:** V0 from the Results (p. 1628); K0 and K0' from the Abstract and Table 2 (pp. 1627 and 1629), the unconstrained third-order fit.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -176,6 +176,7 @@ Static-lattice GGA pseudopotential BM3 fit to nine relaxed volumes of the 30-ato
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.2138/am-1999-1017
     - **Locations:** Abstract, page 1627; Simulation techniques, page 1628; Results and printed energy equation, page 1628; Table 1 and Figure 1, page 1628; Table 2, page 1629; phase-transition qualification, page 1630
+    - **Finding:** The published BM3 parameters reproduce every Table 1 pressure to 0.00011 GPa or better. An independent four-parameter fit of the printed energy-volume rows on their internally required 30-atom-cell basis gives V0=287.492 A^3, K0=98.921 GPa, and K0\_prime=4.27911, within the published precision and coefficient errors.
     - **DOI:** 10.2138/am-1999-1017
 - **Primary data check:**
     - **Status:** bundled
@@ -225,7 +226,7 @@ Static-lattice GGA pseudopotential BM3 fit to nine relaxed volumes of the 30-ato
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/magnesite.md#record-magnesite_yu_2024_bm3_mgd_3)
 
-**Source finding:** The preferred published model is an executable BM3-MGD EOS for nominal MgCO3 magnesite with V0=280.71 A^3 fixed, a 300 K reference isotherm, and n=5. Its integrated-Gruneisen Debye-temperature relation is fully supported by Peritheos. The separate Pt pressure calibration uses Fei et al.'s distinct variable-exponent relation.
+**Source finding:** Coefficients from the preferred Mie-Grüneisen fit in Table 1 (p. 5), with V0 from Yang et al. (2014); Equations 7-8 give the integrated-Grüneisen Debye law, whereas the Pt pressure calibration uses Fei et al.'s variable-exponent law.
 
 Automatic selection for equilibrium calculations.
 
@@ -278,6 +279,7 @@ The preferred thermal EOS of Table 1: 300 K BM3 reference isotherm + quasi-harmo
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/2023JB028026
     - **Locations:** Experiments, pages 2-3; Results, Equations 1 and 4-8, pages 4-6; Table 1, page 5; Data Availability Statement; official author data deposit, doi:10.5281/zenodo.8399354, Table S1
+    - **Finding:** The preferred published model is an executable BM3-MGD EOS for nominal MgCO3 magnesite with V0=280.71 A^3 fixed, a 300 K reference isotherm, and n=5. Its integrated-Gruneisen Debye-temperature relation is fully supported by Peritheos. The separate Pt pressure calibration uses Fei et al.'s distinct variable-exponent relation.
     - **DOI:** 10.1029/2023JB028026
 - **Primary data check:**
     - **Status:** bundled

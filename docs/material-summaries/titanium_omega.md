@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/titanium_omega.md#record-titanium_omega_dewaele_2015_vinet_1)
 
-**Source finding:** Per-atom V0 values were converted to conventional-cell volumes.
+**Source finding:** Coefficients from the Table III experimental omega Vinet row (Section IV); the printed per-atom V0 is converted to the conventional cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,6 +91,7 @@ V0 is a metastably extrapolated omega-phase reference volume.
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1103/PhysRevB.91.134108
     - **Locations:** Section IV; Table III, experimental alpha and omega Vinet rows
+    - **Finding:** Per-atom V0 values were converted to conventional-cell volumes.
     - **DOI:** 10.1103/physrevb.91.134108
 - **Migration source:**
     - **Project:** Dioptas

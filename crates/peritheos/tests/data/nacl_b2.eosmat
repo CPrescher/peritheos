@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+        "source_note": "Coefficients from Table 2 with Equation (1); they match every corresponding value in the 26-row compression grid of Supplementary Data 1, Table S9.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_sakai_2025_rydberg_stacey_1"
       },
       "model": "RydbergStacey",
@@ -63,7 +63,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The reported B2/B1 zero-pressure volume ratio was converted using the ambient B1 formula-unit volume; the second-order fit fixes K0'=4.",
+        "source_note": "Coefficients from the second-order finite-strain fit on page 6048 (Equations (1)-(5)) to the Table I B2 compression data.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_heinz_1984_bm2_1"
       },
       "model": "BM2",
@@ -95,7 +95,7 @@
         "warning_reason": "All 125 DAC-2 observations above 35 GPa have negative residuals against the published curve; the cause is unresolved.",
         "source_check": "unresolved",
         "source_checked_on": "2026-10-17",
-        "source_note": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+        "source_note": "Coefficients from Table II (pages 9-12) for Equation (4). Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I. The author-used fit table, row mask and weights are unavailable.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_shen_2026_vinet_2"
       },
       "model": "Vinet",
@@ -128,7 +128,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-10",
-        "source_note": "New Yokoo-Pt calibration of Sakai (2011a) NaCl-B2 observations. V0=38.34(4.69) A³ from g-G analysis, then fixed. The unusually large printed V0 uncertainty is retained verbatim. Exact new calibration pressure extrema and original paired NaCl/Pt rows are not given in this article; the validity envelope is approximate.",
+        "source_note": "Coefficients from Section 2, journal p. 115; the large V0 error is the printed value. The original paired NaCl/Pt rows of Sakai (2011a) are not given in this article.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_sakai_2014_yokoo_pt_bm3"
       },
       "model": "BM3",
@@ -169,7 +169,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md.",
+        "source_note": "K0 and K0' from Table II (p. 084912-4), Matsui et al. (2009) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_sakai_2011_matsui_pt_bm3"
       },
       "model": "BM3",
@@ -220,7 +220,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md.",
+        "source_note": "K0 and K0' from Table II (p. 084912-4), Matsui et al. (2009) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_sakai_2011_matsui_pt_vinet"
       },
       "model": "Vinet",
@@ -271,7 +271,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md.",
+        "source_note": "K0 and K0' from Table II (p. 084912-4), Fei et al. (2007) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_sakai_2011_fei_pt_bm3"
       },
       "model": "BM3",
@@ -323,7 +323,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md.",
+        "source_note": "K0 and K0' from Table II, Fei et al. (2007) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B, fixed in the fit.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_sakai_2011_fei_pt_vinet"
       },
       "model": "Vinet",
@@ -375,7 +375,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md.",
+        "source_note": "K0 and K0' from Table II (p. 084912-4), Dorogokupets and Oganov (2007) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_sakai_2011_do_pt_bm3"
       },
       "model": "BM3",
@@ -427,7 +427,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md.",
+        "source_note": "K0 and K0' from Table II (p. 084912-4), Dorogokupets and Oganov (2007) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_sakai_2011_do_pt_vinet"
       },
       "model": "Vinet",
@@ -479,7 +479,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md.",
+        "source_note": "K0 and K0' from Table II (p. 084912-4), Holmes et al. (1989) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_sakai_2011_holmes_pt_bm3"
       },
       "model": "BM3",
@@ -531,7 +531,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-19",
-        "source_note": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md.",
+        "source_note": "K0 and K0' from Table II (p. 084912-4), Holmes et al. (1989) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_sakai_2011_holmes_pt_vinet"
       },
       "model": "Vinet",
@@ -584,7 +584,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-09",
-        "source_note": "Vinet 26.86/5.25; adopted V0=41.35, gamma0=1.70, theta0=290; q=0.5(3); 300 K subtraction and two-atom formula-unit normalization. Printed variable-exponent and integrated-law curves both agree within one graphical stroke width.",
+        "source_note": "Coefficients from Table 1 (Vinet fit; the BM3 coefficients 30.69 and 4.33 are a separate parameterization). V0, gamma0 and theta0 are adopted from Bukowinski and Aidun (1985) per the Table 1 footnote; Equation 3 subtracts the 300 K Debye energy.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_fei_2007"
       },
       "model": "Vinet",
@@ -634,7 +634,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-16",
-        "source_note": "Source authority applies to the digitized markers and inherited equation/fixed parameters. K0, K0-prime and q are independently refitted Peritheos values, not published Fei coefficients.",
+        "source_note": "V0, theta0 and gamma0 are from the Table 1 footnote (adopted from Bukowinski and Aidun (1985)) and the Debye law from Equation 3; K0, K0' and q are Peritheos fits to markers digitized from Figures 3 and 4.",
         "audit": "../audits/nacl_b2.audit.json#nacl_b2_fei_2007_staged_thermal_refit"
       },
       "model": "Vinet",

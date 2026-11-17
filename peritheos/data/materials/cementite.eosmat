@@ -15,7 +15,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "The stored record is the reported 300 K third-order Birch-Murnaghan fit. V0 is the independently measured ambient reference volume; the paper reports no fit covariance or confidence convention for the printed +/- values. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum.",
+        "source_note": "K0 and K0' from the weighted least-squares EOS paragraph (p. 1876); V0 is the ambient volume of the Experimental section (p. 1875).",
         "audit": "../audits/cementite.audit.json#cementite_scott_2001_bm3_1"
       },
       "model": "BM3",
@@ -49,7 +49,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-30",
-        "source_note": "Published K coefficients/errors preserved. Unprinted V0 supplied by explicit Figure 1 full-curve adoption; source constraint and original workflow unresolved. See docs/literature-reproductions/prescher-2012-recovery.md",
+        "source_note": "K0 and K0' from Section III and Figure 1 (p. 140402-2); the adopted V0 is read from the full-range curve drawn in Figure 1.",
         "audit": "../audits/cementite.audit.json#cementite_prescher_2012_full_range_bm3"
       },
       "model": "BM3",
@@ -85,7 +85,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-10-30",
-        "source_note": "Published BM3 coefficients preserved with measured V0 fixed; direct source-equation and conditional coefficient checks pass. See docs/literature-reproductions/li-2002-fe3c.md",
+        "source_note": "K0 and K0' from p. 168, after Equation (2), and the abstract; V0 is the measured ambient row of Table 1.",
         "audit": "../audits/cementite.audit.json#cementite_li_2002_bm3"
       },
       "model": "BM3",
@@ -124,7 +124,7 @@
         "warning_reason": "Fitted only to 34.3 GPa at 300 K; the V0 constraint, fit weights and coefficient errors are not reported.",
         "source_check": "verified",
         "source_checked_on": "2026-11-01",
-        "source_note": "Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted.",
+        "source_note": "K0 and K0' from Table 3, experimental row e (p. 5); the Table 1 ambient V0 agrees with the Figure 4 curve.",
         "audit": "../audits/cementite.audit.json#cementite_ono_mibe_2010_bm3"
       },
       "model": "BM3",

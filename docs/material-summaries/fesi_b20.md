@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fesi_b20.md#record-fesi_b20_fischer_2014_bm3_1)
 
-**Source finding:** Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.
+**Source finding:** Coefficients from Table 2 and Section 4.2; V0 = 6.803 cm³/mol of atoms is converted to the Z = 4 cell (×8/0.602214076).
 
 Automatic selection for equilibrium calculations.
 
@@ -100,6 +100,7 @@ The authors' preferred fit; the Vinet record is their published alternative. Roo
     - **DOI:** 10.1002/2013JB010898
     - **Access URL:** https://doi.org/10.1002/2013JB010898
     - **Locations:** Table 2 and Section 4.2; 2014 official Table S2, source worksheet row numbers retained
+    - **Finding:** Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19
@@ -166,7 +167,7 @@ The authors' preferred fit; the Vinet record is their published alternative. Roo
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fesi_b20.md#record-fesi_b20_fischer_2014_vinet_2)
 
-**Source finding:** Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.
+**Source finding:** Coefficients from Table S6 and Text S1, page 2; V0 = 6.803 cm³/mol of atoms is converted to the Z = 4 cell (×8/0.602214076).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -202,6 +203,7 @@ Published alternative to the authors' preferred BM3 fit. Room-temperature compre
     - **DOI:** 10.1002/2013JB010898
     - **Access URL:** https://doi.org/10.1002/2013JB010898
     - **Locations:** Table S6 and Text S1, page 2; 2014 official Table S2, source worksheet row numbers retained
+    - **Finding:** Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-19

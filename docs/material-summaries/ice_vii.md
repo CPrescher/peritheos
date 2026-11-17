@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ice_vii.md#record-ice_vii_bezacier_2014_bm2_1)
 
-**Source finding:** Molar volumes were converted with Z=10 for ice VI and Z=2 for ice VII.
+**Source finding:** Coefficients from the abstract and the paper's BM2 P-V-T fit for ice VII.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,6 +94,7 @@ Joint P-V-T fit for pure H2O ice VII. Published molar V0 = 12.49(1) cm³/mol; st
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1063/1.4894421
     - **Locations:** Primary abstract; BM2 P-V-T fits for ice VI and ice VII
+    - **Finding:** Molar volumes were converted with Z=10 for ice VI and Z=2 for ice VII.
     - **DOI:** 10.1063/1.4894421
 - **Migration source:**
     - **Project:** Dioptas
@@ -137,7 +138,7 @@ Joint P-V-T fit for pure H2O ice VII. Published molar V0 = 12.49(1) cm³/mol; st
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ice_vii.md#record-ice_vii_frank_2004_bm3_2)
 
-**Source finding:** The stored record is the simultaneous three-parameter 300 K BM3 fit; its molar V0 is converted to the two-formula-unit cubic cell.
+**Source finding:** Coefficients from Section 3.1 (pp. 2782-2783): the simultaneous three-parameter fit of Equation (2) to the 300 K data.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -168,6 +169,7 @@ Independent 300 K compression fit. Published molar V0 = 12.4(1) cm³/mol; stored
 - **Primary source check:**
     - **Access URL:** https://lweb.cfa.harvard.edu/~lzeng/papers/frank\_fei\_hu\_2004.pdf
     - **Locations:** Equation (2), pages 2782-2783; section 3.1, pages 2782-2783; Table 1; Figure 2
+    - **Finding:** The stored record is the simultaneous three-parameter 300 K BM3 fit; its molar V0 is converted to the two-formula-unit cubic cell.
     - **DOI:** 10.1016/j.gca.2003.12.007
 - **Migration source:**
     - **Project:** Dioptas

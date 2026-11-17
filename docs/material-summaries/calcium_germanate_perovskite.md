@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/calcium_germanate_perovskite.md#record-calcium_germanate_perovskite_ross_1999_bm3_1)
 
-**Source finding:** The source defines a 9-observation, room-temperature, conventional-cell, three-free-parameter BM3 fit. Standard BM3 reproduces the source's 0.03 GPa maximum residual and weighted chi-square of 1.1.
+**Source finding:** Coefficients from the abstract and Results (p. 279): a weighted BM3 fit to all nine Table 1 rows (p. 278).
 
 Automatic selection for equilibrium calculations.
 
@@ -107,6 +107,7 @@ BM3 fit with all three parameters free. V0 is one conventional orthorhombic Pbnm
 - **Primary source check:**
     - **Access URL:** https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html
     - **Locations:** Abstract; Experimental methods, journal page 278; Table 1, journal page 278; Results, journal page 279; Figure 1
+    - **Finding:** The source defines a 9-observation, room-temperature, conventional-cell, three-free-parameter BM3 fit. Standard BM3 reproduces the source's 0.03 GPa maximum residual and weighted chi-square of 1.1.
     - **DOI:** 10.2138/am-1999-0309
 - **Primary data check:**
     - **Status:** bundled

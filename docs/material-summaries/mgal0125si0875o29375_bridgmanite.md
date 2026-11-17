@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgal0125si0875o29375_bridgmanite.md#record-mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.
+**Source finding:** Coefficients from the Table 1 perovskite OVM 6.25 mol.% row (Section 2); the printed V0 = 42.36 Å³ on the normalized five-atom basis is multiplied by four.
 
 Automatic selection for equilibrium calculations.
 
@@ -106,6 +106,7 @@ Static 0 K GGA fit to the calculated energies of a model crystal, whose E(V) val
     - **Access URL:** https://authors.library.caltech.edu/records/ac43h-2q991
     - **DOI:** 10.1029/2005GL023192
     - **Locations:** Section 2, paragraphs 6-8; Table 1
+    - **Finding:** The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis.
 - **Primary data check:**
     - **Status:** parameterization\_only
     - **Audit date:** 2026-09-05

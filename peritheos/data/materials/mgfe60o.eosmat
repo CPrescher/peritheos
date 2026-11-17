@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.",
+        "source_note": "K0 from the Table 1 MW60 fit (pages 3038-3039); V0 is a0³ of the page 3037 ambient measurement, and K0' = 4 follows equation (1), page 3041.",
         "audit": "../audits/mgfe60o.audit.json#mgfe60o_richet_1989_bm2_1"
       },
       "model": "BM2",
@@ -48,7 +48,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "source_note": "Coefficients from the Table 7 high-spin values; the underlying compression data are from Lin et al. (2005).",
         "audit": "../audits/mgfe60o.audit.json#mgfe60o_solomatova_2016_hs_bm3_reference_1"
       },
       "model": "BM3",
@@ -92,7 +92,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit.",
+        "source_note": "Coefficients from the Table 7 low-spin values; the underlying compression data are from Lin et al. (2005).",
         "audit": "../audits/mgfe60o.audit.json#mgfe60o_solomatova_2016_ls_bm3_reference_2"
       },
       "model": "BM3",

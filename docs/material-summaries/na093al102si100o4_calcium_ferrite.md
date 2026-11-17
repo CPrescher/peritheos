@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/na093al102si100o4_calcium_ferrite.md#record-na093al102si100o4_calcium_ferrite_qin_2023_bm3_1)
 
-**Source finding:** The source fully defines a room-temperature, three-free-parameter standard Eulerian BM3 fit for the Fe-free Na0.93Al1.02Si1.00O4 sample. Volumes are Pbnm conventional-cell values with Z=4.
+**Source finding:** Coefficients from p. 2333 and the Fe-free column of Online Materials Table S5; observations in Table S3, whose 38.7 GPa row prints an a lattice parameter inconsistent with its V, so the V column is used.
 
 Automatic selection for equilibrium calculations.
 
@@ -103,6 +103,7 @@ Eulerian BM3 fit at room temperature with V0, K0 and K0' all fitted (EosFit7c pr
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.2138/am-2022-8432
     - **Locations:** article Materials and methods, pages 2332-2333; article EOS discussion, page 2333; official Online Materials Tables S3 and S5; official deposit AM-23-128432, 8432qin.cif
+    - **Finding:** The source fully defines a room-temperature, three-free-parameter standard Eulerian BM3 fit for the Fe-free Na0.93Al1.02Si1.00O4 sample. Volumes are Pbnm conventional-cell values with Z=4.
     - **DOI:** 10.2138/am-2022-8432
     - **Official deposit sha256:** 465ff9b139fba3c60539f4bf1e0a86d877a716ab4522cefca682dd1f4fa1f07d
     - **Supplement sha256:** f78e80d89fb11bb070cc3757c554e01adab3d4dcbf1ace93c2fc166aa5f3d1c7

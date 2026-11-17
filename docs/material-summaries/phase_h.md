@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_h.md#record-phase_h_tsuchiya_mookherjee_2015_gga_static_bm3)
 
-**Source finding:** One complete BM3 fit for ordered model-1 phase H at static 0 K.
+**Source finding:** Coefficients from the Results paragraph preceding Figure 2 (page 2). The Results identify a finite-strain Birch-Murnaghan form; the freely fitted K0' makes it third order.
 
 Automatic selection for equilibrium calculations.
 
@@ -104,6 +104,7 @@ Ordered P2/m model-1 branch. The metastable symmetric-hydrogen-bond extension pl
     - **Access URL:** https://www.nature.com/articles/srep15534.pdf
     - **DOI:** 10.1038/srep15534
     - **Locations:** Results, page 2; Figure 2; Table 1; Methods, page 5
+    - **Finding:** One complete BM3 fit for ordered model-1 phase H at static 0 K.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/geo2_rutile.md#record-geo2_rutile_hazen_1981_bm3_1)
 
-**Source finding:** The author-uploaded primary article reports K0 with K0'=7 assumed. The SnO2 and GeO2 V0 values are calculated from the Table 3 ambient lattice constants; no EOS-fit covariance or V0 error is published.
+**Source finding:** K0 from the EOS fit discussion on page 144; V0 from the Table 3 ambient lattice constants on page 147. The GeO2 compression data are in Table 1 (page 145).
 
 Automatic selection for equilibrium calculations.
 
@@ -89,6 +89,7 @@ BM3 at 20 °C with K0' = 7 assumed. V0 is calculated from the ambient a0 and c0 
 - **Primary source check:**
     - **Access URL:** https://www.researchgate.net/publication/256267527\_Bulk\_Moduli\_and\_High-Pressure\_Crystal\_Structures\_of\_Rutile-Type\_Compounds
     - **Locations:** EOS fit discussion, journal page 144; Tables 1 and 2, journal pages 145-146; Table 3, journal page 147
+    - **Finding:** The author-uploaded primary article reports K0 with K0'=7 assumed. The SnO2 and GeO2 V0 values are calculated from the Table 3 ambient lattice constants; no EOS-fit covariance or V0 error is published.
     - **DOI:** 10.1016/0022-3697(81)90074-3
 - **Migration source:**
     - **Project:** Dioptas

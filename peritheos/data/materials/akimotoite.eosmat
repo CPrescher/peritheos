@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source explicitly identifies a fourth-order finite-strain fit and prints all four zero-pressure static coefficients.",
+        "source_note": "All four zero-pressure coefficients of the static-lattice fit are printed in Table 3; Section 3.2 identifies the fourth-order finite-strain form.",
         "audit": "../audits/akimotoite.audit.json#akimotoite_karki_2002_static_bm4_1"
       },
       "model": "BM4",
@@ -151,7 +151,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "All four zero-pressure coefficients of the 2000 K BM4 isotherm are printed in Table 3, with the source's general QHA limitation stated in the surrounding text.",
+        "source_note": "All four zero-pressure coefficients of the 2000 K BM4 isotherm are printed in Table 3.",
         "audit": "../audits/akimotoite.audit.json#akimotoite_karki_2002_2000k_bm4_4"
       },
       "model": "BM4",
@@ -199,7 +199,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=7.5(10) on the ruby-pressure assignment. At V=239.13 A^3 the stored curve gives 27.53 GPa, consistent with the Table 1 ruby value 27.8[5] GPa.",
+        "source_note": "V0 and K0' from Figure 3e (p. 48), with K0 fixed to the Weidner and Ito (1985) Brillouin value. At 239.13 Å³ the record gives 27.53 GPa, consistent with the Table 1 ruby pressure of 27.8 GPa.",
         "audit": "../audits/akimotoite.audit.json#akimotoite_reynard_1996_bm3_ruby_2"
       },
       "model": "BM3",
@@ -236,7 +236,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-04",
-        "source_note": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=5.6(10) on the ice-VII pressure assignment. At V=239.13 A^3 the stored curve gives 25.39 GPa, consistent with the Table 1 ice-VII value 25.2[14] GPa.",
+        "source_note": "V0 and K0' from Figure 3f (p. 48), with K0 fixed to the Weidner and Ito (1985) Brillouin value. At 239.13 Å³ the record gives 25.39 GPa, consistent with the Table 1 ice-VII pressure of 25.2 GPa.",
         "audit": "../audits/akimotoite.audit.json#akimotoite_reynard_1996_bm3_ice_vii_3"
       },
       "model": "BM3",
@@ -305,7 +305,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "The primary paper supplies a complete k=5 generalized Rydberg isotherm; the discovery ledger's Birch label is incorrect.",
+        "source_note": "Coefficients from Table 1 (V0 = 26.35 cm³/mol, stored per Z = 6 cell). Equation (2) is a generalized Rydberg form with k = 5, i.e. Rydberg-Stacey with K_infinity_prime = 5/3, not the Birch-Murnaghan form listed in the discovery compilation.",
         "audit": "../audits/akimotoite.audit.json#akimotoite_dorogokupets_2015_298k_rydberg_stacey"
       },
       "model": "RydbergStacey",
@@ -351,7 +351,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset.",
+        "source_note": "Coefficients from Section 3.2 (p. 61) for run T0133 on the Au pressure scale; the observations are in Table 1 (pp. 62-63).",
         "audit": "../audits/akimotoite.audit.json#akimotoite_wang_2004_t0133_bm3"
       },
       "model": "BM3",
@@ -395,7 +395,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here.",
+        "source_note": "Coefficients from Section 3.2 (p. 61) for run T0150 on the NaCl pressure scale; the observations are in Table 2 (pp. 64-65).",
         "audit": "../audits/akimotoite.audit.json#akimotoite_wang_2004_t0150_bm3"
       },
       "model": "BM3",
@@ -439,7 +439,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations.",
+        "source_note": "Coefficients from Section 3.1 (p. 99), fitted to the akimotoite rows of Table 1 (pp. 100-101).",
         "audit": "../audits/akimotoite.audit.json#akimotoite_zhou_2014_300k_bm3"
       },
       "model": "BM3",

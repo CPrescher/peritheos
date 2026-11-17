@@ -66,7 +66,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mggeo3_post_perovskite.md#record-mggeo3_post_perovskite_kubo_2006_bm3_1)
 
-**Source finding:** The source selects a constrained room-temperature BM3 fit for CaIrO3-type Cmcm MgGeO3 post-perovskite, fixes K0'=4.4, and excludes only its three rows below 47 GPa.
+**Source finding:** Coefficients from paragraph 17 and Table 2; K0 is fitted under the paper's K\*V = constant elasticity-systematics constraint, with MgSiO3 post-perovskite reference values.
 
 Automatic selection for equilibrium calculations.
 
@@ -109,6 +109,7 @@ The authors' preferred 300 K fit. V0 is per conventional Cmcm cell (four formula
     - **Source version:** author-hosted copy of the final published GRL article plus publisher Supporting Information
     - **DOI:** 10.1029/2006gl025686
     - **Locations:** Abstract; Experimental method, paragraphs 4-9; Results and discussion, paragraphs 10-19; Tables 1-2; Figure 3; Supporting Information Table S1 and readme
+    - **Finding:** The source selects a constrained room-temperature BM3 fit for CaIrO3-type Cmcm MgGeO3 post-perovskite, fixes K0'=4.4, and excludes only its three rows below 47 GPa.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -166,7 +167,7 @@ The authors' preferred 300 K fit. V0 is per conventional Cmcm cell (four formula
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mggeo3_post_perovskite.md#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2)
 
-**Source finding:** The source reports V0=175.9(6) A^3 and K0=245(5) GPa when K0'=4 specifically to demonstrate parameter trade-off; it does not select this curve over the fixed-4.4 result.
+**Source finding:** Coefficients from Results and discussion paragraph 17, where the paper reports the K0' = 4 alternative to its selected fit.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -205,6 +206,7 @@ Nonpreferred sensitivity fit with K0' = 4, reported to show the parameter trade-
     - **Source version:** author-hosted copy of the final published GRL article plus publisher Supporting Information
     - **DOI:** 10.1029/2006gl025686
     - **Locations:** Results and discussion, paragraph 17; Figure 3; Supporting Information Table S1
+    - **Finding:** The source reports V0=175.9(6) A^3 and K0=245(5) GPa when K0'=4 specifically to demonstrate parameter trade-off; it does not select this curve over the fixed-4.4 result.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -259,7 +261,7 @@ Nonpreferred sensitivity fit with K0' = 4, reported to show the parameter trade-
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mggeo3_post_perovskite.md#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1)
 
-**Source finding:** The fixed BM3 coefficients are explicitly source-reported for the Cmcm MgGeO3 post-perovskite data.
+**Source finding:** Coefficients from page 264 (fit with K0' fixed) for the printed Birch-Murnaghan equation; Table 1 gives Z = 4 for the Cmcm cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -304,6 +306,7 @@ Fit with K0' fixed at 4 to all nine Table 3 decompression observations; the abst
     - **Source sha256:** a0c0584d4d82a731b7912af429b37a93cf6c84b88f21b72181f21bd0be609ae9
     - **DOI:** 10.2138/am.2005.1702
     - **Locations:** Experimental procedures; Table 1; Equation and coefficients, page 264; Table 3; Figure 4
+    - **Finding:** The fixed BM3 coefficients are explicitly source-reported for the Cmcm MgGeO3 post-perovskite data.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -354,7 +357,7 @@ Fit with K0' fixed at 4 to all nine Table 3 decompression observations; the abst
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mggeo3_post_perovskite.md#record-mggeo3_post_perovskite_hirose_2005_bm3_free_2)
 
-**Source finding:** The free BM3 coefficients are explicitly source-reported for the Cmcm MgGeO3 post-perovskite data.
+**Source finding:** Coefficients from page 264 (free three-parameter fit) for the printed Birch-Murnaghan equation; Table 3 volumes and V0 are conventional Cmcm cell volumes.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -399,6 +402,7 @@ Source-reported free BM3 alternative, fitted to all nine Table 3 decompression o
     - **Source sha256:** a0c0584d4d82a731b7912af429b37a93cf6c84b88f21b72181f21bd0be609ae9
     - **DOI:** 10.2138/am.2005.1702
     - **Locations:** Experimental procedures; Table 1; Equation and coefficients, page 264; Table 3; Figure 4
+    - **Finding:** The free BM3 coefficients are explicitly source-reported for the Cmcm MgGeO3 post-perovskite data.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

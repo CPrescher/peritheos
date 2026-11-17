@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/sro.md#record-sro_liu_1973_bm3_1)
 
-**Source finding:** The first printed Birch formulation is the BM3 form represented by the record. The fixed ambient V0 error uses the paper's stated 0.3% volume accuracy. The fit spans a small reversible tetragonal distortion without a volume discontinuity.
+**Source finding:** Coefficients from the first Birch formulation on p. 8472; V0 = a0³ from the Table 2 a0 = 5.160 Å (p. 8471).
 
 Automatic selection for equilibrium calculations.
 
@@ -93,6 +93,7 @@ Volumetric BM3 fit to all SrO data at 23 ± 3 °C, with one-standard-deviation e
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1029/JB078i035p08470
     - **Locations:** page 8471, Table 2, 23+/-3 degC P-V observations; page 8472, first Birch formulation and fitted coefficients; page 8472, stated one-standard-deviation fit errors
+    - **Finding:** The first printed Birch formulation is the BM3 form represented by the record. The fixed ambient V0 error uses the paper's stated 0.3% volume accuracy. The fit spans a small reversible tetragonal distortion without a volume discontinuity.
     - **DOI:** 10.1029/jb078i035p08470
 - **Migration source:**
     - **Project:** Dioptas

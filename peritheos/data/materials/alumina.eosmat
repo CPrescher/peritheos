@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
-        "source_note": "All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.",
+        "source_note": "Coefficients from Section IV (p. 064107-2) and Figure 3; observations in Table I.",
         "audit": "../audits/alumina.audit.json#alumina_dewaele_2013_vinet_1"
       },
       "model": "Vinet",
@@ -49,7 +49,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
-        "source_note": "The source reports one selected BM3-MGD corundum parameterization, not three interchangeable BM3 records. Model 3 fixes the conventional-cell V0, K0', and theta0 and fits K0, gamma0, and q. The complete Table S1 reproduces those coefficients under an unweighted pressure-residual refit.",
+        "source_note": "Coefficients from the selected-model Table 1 (p. 4) with Equations 1-6; observations in Table S1. Table 2 prints the K0 error of the same model as 1 GPa; the Table 1 error is stored.",
         "audit": "../audits/alumina.audit.json#alumina_shi_2022_bm3_mgd_2"
       },
       "model": "BM3",

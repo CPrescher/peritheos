@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/fe_bearing_al_phase_d.md#record-fe_bearing_al_phase_d_criniti_2023_bm3_1)
 
-**Source finding:** The article's abstract, plotted curves, and phase-D comparison table privilege the freely fitted BM3 record, while Table 2 also reports a freely fitted Vinet alternative and ambient-volume-fixed variants. The BM3 and Vinet curves are stated to overlap over 0.0001-38 GPa. BM3 is therefore the canonical record and Vinet is retained as a published non-default alternative.
+**Source finding:** Coefficients from the abstract and Table 2 (first BM3 row), fitted with the EosFit7 program. Table 2 heads the 0-38 GPa group 'Low-spin state EOS', but the text describes compression before the spin crossover, which the record follows.
 
 Automatic selection for equilibrium calculations.
 
@@ -105,6 +105,7 @@ Room-temperature fit of the first BM3 row of Table 2, with V0, K0 and K0' all fr
     - **Access URL:** https://doi.org/10.2138/am-2022-8559
     - **DOI:** 10.2138/am-2022-8559
     - **Locations:** final article, pages 1764-1772, especially Experimental methods, Table 1, Equation of state section, Figure 3, and Table 2; official American Mineralogist Online Materials AM-23-98559, Figures S1-S2; author-provided Figshare CIF, data\_AlPhaseD\_P6322
+    - **Finding:** The article's abstract, plotted curves, and phase-D comparison table privilege the freely fitted BM3 record, while Table 2 also reports a freely fitted Vinet alternative and ambient-volume-fixed variants. The BM3 and Vinet curves are stated to overlap over 0.0001-38 GPa. BM3 is therefore the canonical record and Vinet is retained as a published non-default alternative.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05
@@ -170,7 +171,7 @@ Room-temperature fit of the first BM3 row of Table 2, with V0, K0 and K0' all fr
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/fe_bearing_al_phase_d.md#record-fe_bearing_al_phase_d_criniti_2023_vinet_2)
 
-**Source finding:** This freely fitted Vinet parameterization is a genuine published alternative over the same 21 observations as BM3. The source states that the curves overlap over 0.0001-38 GPa but displays and summarizes BM3 preferentially, so Vinet is intentionally non-default.
+**Source finding:** Coefficients from Table 2, first Vinet row, fitted with the EosFit7 program to the 21 Table 1 rows at or below 38 GPa. The Table 2 heading 'Low-spin state EOS' conflicts with the text's pre-crossover reading, which the record follows.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -211,6 +212,7 @@ Published alternative to the BM3 record over the same room-temperature pre-cross
     - **Access URL:** https://doi.org/10.2138/am-2022-8559
     - **DOI:** 10.2138/am-2022-8559
     - **Locations:** final article, Equation of state section and Table 2; final article, Table 1; author-provided Figshare CIF, data\_AlPhaseD\_P6322
+    - **Finding:** This freely fitted Vinet parameterization is a genuine published alternative over the same 21 observations as BM3. The source states that the curves overlap over 0.0001-38 GPa but displays and summarizes BM3 preferentially, so Vinet is intentionally non-default.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-09-05

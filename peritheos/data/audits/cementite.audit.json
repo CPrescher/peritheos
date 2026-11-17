@@ -86,6 +86,7 @@
               "Figure 3 and caption, page 1877"
             ],
             "finding": "The stored record is the reported 300 K third-order Birch-Murnaghan fit. V0 is the independently measured ambient reference volume; the paper reports no fit covariance or confidence convention for the printed +/- values. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum.",
+            "record_note": "K0 and K0' from the weighted least-squares EOS paragraph (p. 1876); V0 is the ambient volume of the Experimental section (p. 1875).",
             "doi": "10.1029/2000gl012606"
           },
           "migration_source": {
@@ -280,7 +281,8 @@
               "Figure 1, drawn full-range curve (adopted V0)",
               "Final supplementary Table S1, pages 1-2"
             ],
-            "finding": "Published K coefficients/errors preserved. Unprinted V0 supplied by explicit Figure 1 full-curve adoption; source constraint and original workflow unresolved. See docs/literature-reproductions/prescher-2012-recovery.md"
+            "finding": "Published K coefficients/errors preserved. Unprinted V0 supplied by explicit Figure 1 full-curve adoption; source constraint and original workflow unresolved. See docs/literature-reproductions/prescher-2012-recovery.md",
+            "record_note": "K0 and K0' from Section III and Figure 1 (p. 140402-2); the adopted V0 is read from the full-range curve drawn in Figure 1."
           },
           "primary_data_check": {
             "status": "primary_table",
@@ -484,7 +486,8 @@
             "access_url": "https://doi.org/10.1007/s00269-001-0224-4",
             "locations": ["pp. 166-168, abstract, Table 1, Eq. (1)-(2), Figure 2"],
             "source_pdf_sha256": "3b4761baa81a3e4bd419f8e93d5e453d7c5d7c2b64b400514d0f468dbcb211af",
-            "finding": "Published BM3 coefficients preserved with measured V0 fixed; direct source-equation and conditional coefficient checks pass. See docs/literature-reproductions/li-2002-fe3c.md"
+            "finding": "Published BM3 coefficients preserved with measured V0 fixed; direct source-equation and conditional coefficient checks pass. See docs/literature-reproductions/li-2002-fe3c.md",
+            "record_note": "K0 and K0' from p. 168, after Equation (2), and the abstract; V0 is the measured ambient row of Table 1."
           },
           "primary_data_check": {
             "status": "primary_table",
@@ -614,7 +617,8 @@
               "Table 3, experimental row e, p. 5",
               "Methods/Results, p. 2"
             ],
-            "finding": "Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted."
+            "finding": "Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted.",
+            "record_note": "K0 and K0' from Table 3, experimental row e (p. 5); the Table 1 ambient V0 agrees with the Figure 4 curve."
           },
           "verified_fields": [
             "original_experimental_coefficients",
