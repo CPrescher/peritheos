@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/breyite.md#record-breyite_sagatova_2021_gga_300k_vinet)
 
-**Source finding:** Coefficients from the Table 2 this-work GGA breyite row; the Vinet form is named in Methods.
+**Source check:** Coefficients from the Table 2 this-work GGA breyite row; the Vinet form is named in Methods.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

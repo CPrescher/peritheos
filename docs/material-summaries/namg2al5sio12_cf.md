@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/namg2al5sio12_cf.md#record-namg2al5sio12_cf_kawai_2012_bm3_1)
 
-**Source finding:** V0 is the Table 1 value of 35.2 cm³/mol on an unstated O4 basis, ×4 per Pbnm cell; K0 and K0' from Table 1 (page 308), where K0 carries a superscript b with no matching footnote.
+**Source check:** V0 is the Table 1 value of 35.2 cm³/mol on an unstated O4 basis, ×4 per Pbnm cell; K0 and K0' from Table 1 (page 308), where K0 carries a superscript b with no matching footnote.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.7085889564, 1.0\]
     - **Notes:** Bounded by the Figure 2d and Figure 5 calculation interval for the CF phase.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published static-LDA parameterization with no thermal correction and no pressure calibration.
 

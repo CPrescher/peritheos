@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/pbs_b1.md#record-pbs_b1_knorr_2003_bm3_1)
 
-**Source finding:** Coefficients from the table of BM EOS parameters in the authors' preprint; V0 and its error follow from the cubic a of its ambient-structure paragraph.
+**Source check:** Coefficients from the table of BM EOS parameters in the authors' preprint; V0 and its error follow from the cubic a of its ambient-structure paragraph.
 
 Automatic selection for equilibrium calculations.
 

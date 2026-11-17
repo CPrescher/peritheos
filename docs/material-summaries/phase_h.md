@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_h.md#record-phase_h_tsuchiya_mookherjee_2015_gga_static_bm3)
 
-**Source finding:** Coefficients from the Results paragraph preceding Figure 2 (page 2). The Results identify a finite-strain Birch-Murnaghan form; the freely fitted K0' makes it third order.
+**Source check:** Coefficients from the Results paragraph preceding Figure 2 (page 2). The Results identify a finite-strain Birch-Murnaghan form; the freely fitted K0' makes it third order.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 118.399
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Ordered P2/m model-1 branch. The metastable symmetric-hydrogen-bond extension plotted in the source is not an independently fitted EOS.
 

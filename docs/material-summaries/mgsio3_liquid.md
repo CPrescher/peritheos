@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgsio3_liquid.md#record-mgsio3_liquid_akins_2004_adiabatic_bm3)
 
-**Source finding:** Coefficients from paragraph 4 (rho0 = 3.68 g/cm³, K0S, K0S'). Akins (2003) thesis Table 4.2 confirms that shock states are compared with Mie-Grüneisen offsets from this isentrope rather than fitted as P-V data.
+**Source check:** Coefficients from paragraph 4 (rho0 = 3.68 g/cm³, K0S, K0S'). Akins (2003) thesis Table 4.2 confirms that shock states are compared with Mie-Grüneisen offsets from this isentrope rather than fitted as P-V data.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS; not an ambient liquid isotherm, a direct P-rho fit or a complete thermal Hugoniot. V0 is computed from the source's rho0. The source's Grüneisen, heat-capacity and transition-energy terms are not included.
 

@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/feh2.md#record-feh2_p_pin_2014_vinet_1)
 
-**Source finding:** Coefficients from the Table I experimental FeH2 row and the Vinet discussion; the compression data are shown only in Figure 3.
+**Source check:** Coefficients from the Table I experimental FeH2 row and the Vinet discussion; the compression data are shown only in Figure 3.
 
 Automatic selection for equilibrium calculations.
 

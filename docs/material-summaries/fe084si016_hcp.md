@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fe084si016_hcp.md#record-fe084si016_hcp_fischer_2014_bm3_1)
 
-**Source finding:** Coefficients from Table 1 and Section 4.1; the printed V0 = 7.203 cm³/mol atoms is stored per two-atom hcp cell. Observations from the official 2014 Table S1.
+**Source check:** Coefficients from Table 1 and Section 4.1; the printed V0 = 7.203 cm³/mol atoms is stored per two-atom hcp cell. Observations from the official 2014 Table S1.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[46.46991151576709, 197.0644255148494\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1128.7150000000001, 2566.255\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -174,7 +174,7 @@ The authors' preferred fit; the Vinet record is their published alternative. Do 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fe084si016_hcp.md#record-fe084si016_hcp_fischer_2014_vinet_2)
 
-**Source finding:** Coefficients from Table S4 and Text S1 (p. 1), where Vinet replaces BM3 in Equations (1)-(2); the printed V0 = 7.283 cm³/mol atoms is stored per two-atom hcp cell.
+**Source check:** Coefficients from Table S4 and Text S1 (p. 1), where Vinet replaces BM3 in Equations (1)-(2); the printed V0 = 7.283 cm³/mol atoms is stored per two-atom hcp cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -202,7 +202,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[46.46991151576709, 197.0644255148494\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1128.7150000000001, 2566.255\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

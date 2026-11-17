@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/aragonite.md#record-aragonite_martinez_1996_bm2_2)
 
-**Source finding:** V0 and K0 from the 298 K isotherm of Table 6 (pages 618-619); alpha0 from Table 7 (page 620).
+**Source check:** V0 and K0 from the 298 K isotherm of Table 6 (pages 618-619); alpha0 from Table 7 (page 620).
 
 Automatic selection for equilibrium calculations.
 
@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 8.18\]
 - **Reported temperature coverage (K):** \[298.0, 973.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

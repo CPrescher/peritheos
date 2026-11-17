@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/iceviii.md#record-iceviii_besson_1994_bm3_1)
 
-**Source finding:** Coefficients from the Table I 300 K row with Equation (1) (p. 12543); the authors state that no pressure-volume error can be quoted because it depends on the adopted EOS.
+**Source check:** Coefficients from the Table I 300 K row with Equation (1) (p. 12543); the authors state that no pressure-volume error can be quoted because it depends on the adopted EOS.
 
 Automatic selection for equilibrium calculations.
 

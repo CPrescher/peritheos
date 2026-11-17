@@ -75,7 +75,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_campbell_1991_bm2_1)
 
-**Source finding:** The V0 ratio and K0 are from the Campbell and Heinz abstract (BM2, K0' = 4); the B1 V0 is from Dewaele et al. (2012) Table III. Pressures use the Mao et al. (1978) ruby calibration with a five-position mean.
+**Source check:** The V0 ratio and K0 are from the Campbell and Heinz abstract (BM2, K0' = 4); the B1 V0 is from Dewaele et al. (2012) Table III. Pressures use the Mao et al. (1978) ruby calibration with a five-position mean.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -163,7 +163,7 @@ Composite B2 isotherm: Campbell and Heinz report V0(B2)/V0(B1) = 0.8483 ± 0.005
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_walker_2002_bm3_2)
 
-**Source finding:** Coefficients from the bold Table 3 row with Equation BE1 (pages 807-810); alpha\_KT is the printed alpha0\*K0 = 0.0275 ± 0.0009 kbar/K converted to GPa/K.
+**Source check:** Coefficients from the bold Table 3 row with Equation BE1 (pages 807-810); alpha\_KT is the printed alpha0\*K0 = 0.0275 ± 0.0009 kbar/K converted to GPa/K.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -252,7 +252,7 @@ Preferred staged B2 result of Table 3 (bold row): K0 and K0' are fitted to the r
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_dewaele_2012_vinet_3)
 
-**Source finding:** Reference isotherm from the experimental B2 Vinet fit of Table III and Table V; alpha\_KT from the molecular-dynamics thermal-pressure fit of Equation (2) and Table V. The paper recommends this equation for pressure calibration.
+**Source check:** Reference isotherm from the experimental B2 Vinet fit of Table III and Table V; alpha\_KT from the molecular-dynamics thermal-pressure fit of Equation (2) and Table V. The paper recommends this equation for pressure calibration.
 
 Automatic selection for equilibrium calculations.
 
@@ -345,7 +345,7 @@ Vinet fit to helium-medium 298 K data, written as a 300 K term in Equation (2), 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_vinet_4)
 
-**Source finding:** Coefficients from the Table 1 Sokolova-Pt fit of the final article; Equation 6 is the integrated-Grüneisen Debye law. Observations come from the official Supplemental Table S1 workbook; the accepted-manuscript transcription mismatched the Pt and KCl rows for runs 3 and 4.
+**Source check:** Coefficients from the Table 1 Sokolova-Pt fit of the final article; Equation 6 is the integrated-Grüneisen Debye law. Observations come from the official Supplemental Table S1 workbook; the accepted-manuscript transcription mismatched the Pt and KCl rows for runs 3 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -440,7 +440,7 @@ Preferred final-publication fit on the Sokolova Pt scale. The accepted manuscrip
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_chidester_2021_bm3_5)
 
-**Source finding:** Coefficients from the preferred Table I Birch-Murnaghan row with Equations 1-4. Equations 3-4 leave theta(V) implicit; the stored record uses the integrated constant-q Grüneisen relation.
+**Source check:** Coefficients from the preferred Table I Birch-Murnaghan row with Equations 1-4. Equations 3-4 leave theta(V) implicit; the stored record uses the integrated constant-q Grüneisen relation.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -536,7 +536,7 @@ The preferred Birch-Murnaghan EOS of Table I, fitted jointly to 155 new high-tem
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_holmes_vinet_mgd)
 
-**Source finding:** Coefficients from the Holmes MGD row of final Table 1 (page 721) with Equations 2-6; V0 is fixed from Dewaele (2012). The article does not say whether Holmes Equation 12 or the full thermodynamic form was used.
+**Source check:** Coefficients from the Holmes MGD row of final Table 1 (page 721) with Equations 2-6; V0 is fixed from Dewaele (2012). The article does not say whether Holmes Equation 12 or the full thermodynamic form was used.
 
 Published pressure-scale alternative of [kcl\_b2\_tateno\_2019\_vinet\_4](#record-kcl_b2_tateno_2019_vinet_4); it is not an independent EOS choice.
 
@@ -645,7 +645,7 @@ Final-publication Table 1 alternative with pressures on the Holmes (1989) Pt sca
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_holmes_vinet_linear_thermal)
 
-**Source finding:** Coefficients from the Holmes linear row of final Table 1 (page 721), with the alpha\_KT\*(T-300) term of Equation 7; V0 is fixed from Dewaele (2012). The article does not say whether Holmes Equation 12 or the full thermodynamic form was used.
+**Source check:** Coefficients from the Holmes linear row of final Table 1 (page 721), with the alpha\_KT\*(T-300) term of Equation 7; V0 is fixed from Dewaele (2012). The article does not say whether Holmes Equation 12 or the full thermodynamic form was used.
 
 Published pressure-scale alternative of [kcl\_b2\_tateno\_2019\_sokolova\_vinet\_linear\_thermal](#record-kcl_b2_tateno_2019_sokolova_vinet_linear_thermal); it is not an independent EOS choice.
 
@@ -741,7 +741,7 @@ Final-publication Table 1 alternative with pressures on the Holmes (1989) Pt sca
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_sokolova_vinet_linear_thermal)
 
-**Source finding:** Coefficients from the Sokolova linear row of final Table 1 (page 721), with the alpha\_KT\*(T-300) term of Equation 7; V0 is fixed from Dewaele (2012).
+**Source check:** Coefficients from the Sokolova linear row of final Table 1 (page 721), with the alpha\_KT\*(T-300) term of Equation 7; V0 is fixed from Dewaele (2012).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -833,7 +833,7 @@ Final-publication Table 1 alternative with a linear thermal-pressure term, on th
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_chidester_2021_vinet_mgd)
 
-**Source finding:** Coefficients from the Table I Rydberg-Vinet row. Equations 3-4 do not define theta(V); the integrated-Grüneisen law used here was identified by fitting the complete data set.
+**Source check:** Coefficients from the Table I Rydberg-Vinet row. Equations 3-4 do not define theta(V); the integrated-Grüneisen law used here was identified by fitting the complete data set.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -936,7 +936,7 @@ Vinet alternative of Table I, fitted jointly to the 123 room-temperature rows of
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_ma_2024_bm3_mgd)
 
-**Source finding:** Coefficients from Table 1 with Equations 4-16 and 18-20; V0 is printed as 32.48(9) cm³/mol. Printed Equation 9 differs from the two-atom acoustic Debye convention used for the deposited Table S1 values.
+**Source check:** Coefficients from Table 1 with Equations 4-16 and 18-20; V0 is printed as 32.48(9) cm³/mol. Printed Equation 9 differs from the two-atom acoustic Debye convention used for the deposited Table S1 values.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

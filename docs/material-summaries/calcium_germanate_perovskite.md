@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/calcium_germanate_perovskite.md#record-calcium_germanate_perovskite_ross_1999_bm3_1)
 
-**Source finding:** Coefficients from the abstract and Results (p. 279): a weighted BM3 fit to all nine Table 1 rows (p. 278).
+**Source check:** Coefficients from the abstract and Results (p. 279): a weighted BM3 fit to all nine Table 1 rows (p. 278).
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 160.705
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 BM3 fit with all three parameters free. V0 is one conventional orthorhombic Pbnm cell of four CaGeO3 formula units.
 

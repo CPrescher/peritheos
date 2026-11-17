@@ -67,7 +67,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_dewaele_2008_table4_vinet)
 
-**Source finding:** Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per four-atom cell (Z = 4).
+**Source check:** Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per four-atom cell (Z = 4).
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 156.6\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 V0 was fixed from a fit to the low-pressure (0-5 GPa) data. Run-2 Ag/Mo rows with revised pressure above 100 GPa are excluded, as stated in Section III. The input pressures are not on the paper's new 2008 ruby scale, which is an output of its later cross-calibration.
 
@@ -155,7 +155,7 @@ V0 was fixed from a fit to the low-pressure (0-5 GPa) data. Run-2 Ag/Mo rows wit
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_dewaele_2008_vinet_1)
 
-**Source finding:** Coefficients from the Mao ruby-scale row of Dewaele (2019) Table 1, Equation (1); this identifier formerly attributed them to the 2008 paper.
+**Source check:** Coefficients from the Mao ruby-scale row of Dewaele (2019) Table 1, Equation (1); this identifier formerly attributed them to the 2008 paper.
 
 Published pressure-scale alternative of [nickel\_dewaele\_2019\_mao\_vinet](#record-nickel_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -174,7 +174,7 @@ Published pressure-scale alternative of [nickel\_dewaele\_2019\_mao\_vinet](#rec
     - **DOI:** 10.3390/min9110684
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 157.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Compatibility identifier for the Dewaele (2019) Mao-scale Vinet fit of Table 1, with the same coefficients; not an additional experiment. The 2008 paper's own Table IV fits are separate records.
 
@@ -244,7 +244,7 @@ Compatibility identifier for the Dewaele (2019) Mao-scale Vinet fit of Table 1, 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_dewaele_2019_mao_vinet)
 
-**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -267,7 +267,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 157.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static DAC X-ray compression data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -332,7 +332,7 @@ Vinet fit to static DAC X-ray compression data in helium or neon, with pressures
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_dewaele_2019_dor_vinet)
 
-**Source finding:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [nickel\_dewaele\_2019\_mao\_vinet](#record-nickel_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -357,7 +357,7 @@ Published pressure-scale alternative of [nickel\_dewaele\_2019\_mao\_vinet](#rec
 - **Validity:**
     - **Pressure gpa:** \[0.0, 157.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static DAC X-ray compression data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -422,7 +422,7 @@ Vinet fit to static DAC X-ray compression data in helium or neon, with pressures
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_campbell_2009_bm3_mgd)
 
-**Source finding:** Coefficients from Table 1 (page 560) with Equation (5); italic Table 1 values are held fixed. V0 = 6.587 cm³/mol is the source's JCPDS value (card not identified), and theta0 is from Knacke et al. (1991).
+**Source check:** Coefficients from Table 1 (page 560) with Equation (5); italic Table 1 values are held fixed. V0 = 6.587 cm³/mol is the source's JCPDS value (card not identified), and theta0 is from Knacke et al. (1991).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -447,7 +447,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/nic
 - **Reference temperature (K):** 295.0
 - **Reported pressure coverage (GPa):** \[2.336174779961698, 65.9\]
 - **Reported temperature coverage (K):** \[298.0, 2457.07\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -542,7 +542,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/nic
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel.md#record-nickel_dewaele_2008_table4_us_k0_183_vinet)
 
-**Source finding:** Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per four-atom cell (Z = 4).
+**Source check:** Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per four-atom cell (Z = 4).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -564,7 +564,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 156.6\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 V0 was fixed from a fit to the low-pressure (0-5 GPa) data, and K0 is adopted from ultrasonic measurements, not fitted. Run-2 Ag/Mo rows with revised pressure above 100 GPa are excluded, as stated in Section III. The input pressures are not on the paper's new 2008 ruby scale, which is an output of its later cross-calibration.
 

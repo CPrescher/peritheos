@@ -131,7 +131,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_sakai_2025_rydberg_stacey_1)
 
-**Source finding:** Stored parameters match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).
+**Source check:** Stored parameters match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -157,7 +157,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 are fixed (the source takes most ambient V0 and K0 values from cited primary measurements), K0' is fitted to the internally consistent compression network, and K∞' is fixed at 5/3. Parameter covariance and the confidence convention for printed errors are not reported.
 
@@ -220,7 +220,7 @@ Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 a
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_b1_tange_2009_vinet)
 
-**Source finding:** Fit3 of Tables 1-5 (Equations 2-5, 10-16 and 20-23). Fit3 fixes V0, KS0, alpha0, CP0 and n; K0 and theta0 depend on the trial gamma0, so K0', gamma0, a and b are the only independent least-squares variables.
+**Source check:** Fit3 of Tables 1-5 (Equations 2-5, 10-16 and 20-23). Fit3 fixes V0, KS0, alpha0, CP0 and n; K0 and theta0 depend on the trial gamma0, so K0', gamma0, a and b are the only independent least-squares variables.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -303,7 +303,7 @@ Pressure-scale-free Vinet + Mie-Grüneisen-Debye EOS (Fit3 in the paper), fitted
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_duffy_1995_bm3_1)
 
-**Source finding:** The represented record is the authors' nonhydrostatic static-compression fit, not their preferred combined fourth-order hydrostatic isotherm.
+**Source check:** The represented record is the authors' nonhydrostatic static-compression fit, not their preferred combined fourth-order hydrostatic isotherm.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -375,7 +375,7 @@ Static BM3 fit to nonhydrostatic compression data. Published V0 = 11.253 cm³/mo
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_speziale_2001_bm3_2)
 
-**Source finding:** Reference isotherm from the constrained BM3 fit of Section 4.2; theta0 and gamma0 from Section 5.1, q0 and q1 from Section 5.4 (Equations 10-11).
+**Source check:** Reference isotherm from the constrained BM3 fit of Section 4.2; theta0 and gamma0 from Section 5.1, q0 and q1 from Section 5.4 (Equations 10-11).
 
 Automatic selection for equilibrium calculations.
 
@@ -526,7 +526,7 @@ Published BM3 reference isotherm with the final variable-q Mie-Grüneisen-Debye 
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_li_2006_bm3_absolute_acoustic)
 
-**Source finding:** V0 from the Table 1 footnote; K0 and K0' are converted with Equation 4 from the preferred decompression acoustic fit, using K0S = 163.5 GPa from the abstract and Section 4 rather than the 163.6 GPa printed in Table 2.
+**Source check:** V0 from the Table 1 footnote; K0 and K0' are converted with Equation 4 from the preferred decompression acoustic fit, using K0S = 163.5 GPa from the abstract and Section 4 rather than the 163.6 GPa printed in Table 2.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -552,7 +552,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo
     - **Pressure gpa:** \[0.0, 10.95\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The upper bound is the largest calculated sample pressure in Table 1; the title rounds it to 11 GPa.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The paper's 300 K absolute-pressure scale, not a direct BM3 fit to independent P-V observations. Table 1 pressures are outputs of this EOS, not independent observations for a P-V refit. The V0 error is one standard deviation; K0 and K0' have no error because the source does not propagate one.
 
@@ -669,7 +669,7 @@ The paper's 300 K absolute-pressure scale, not a direct BM3 fit to independent P
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_jacobsen_2008_bm3_kcl_mao1978)
 
-**Source finding:** Coefficients from the preferred three-parameter KCl-medium fit (Results, p. 1825), not the sensitivity fits that omit the ambient anchor or fix K0'.
+**Source check:** Coefficients from the preferred three-parameter KCl-medium fit (Results, p. 1825), not the sensitivity fits that omit the ambient anchor or fix K0'.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -693,7 +693,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 86.6\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 BM3 fit to the non-hydrostatic KCl-medium series, with pressures from the Mao et al. (1978) non-hydrostatic ruby scale. The data are the Table 2 high-pressure observations plus the ambient V0 anchor printed in Table 1, from Jacobsen et al. (2002).
 
@@ -788,7 +788,7 @@ BM3 fit to the non-hydrostatic KCl-medium series, with pressures from the Mao et
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_jacobsen_2008_bm3_helium_mao1986)
 
-**Source finding:** Coefficients from the all-three-runs fit in the Results (p. 1826). The abstract prints V0 = 74.697(6) Å³, an isolated inconsistency; the Results value is used.
+**Source check:** Coefficients from the all-three-runs fit in the Results (p. 1826). The abstract prints V0 = 74.697(6) Å³, an isolated inconsistency; the Results value is used.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -813,7 +813,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0, 111.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The upper bound is the Mao-1986/Sun pressure of the last row; the 118.1 GPa in the paper is the same volume on the Zha et al. (2000) scale.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 BM3 fit to all three helium-medium runs. Pressures from the Mao et al. (1986) ruby scale to 85 GPa and, above that, from six Sun et al. (2005) diamond-Raman points calibrated to the same ruby scale. The authors attribute the low K0' either to a change in MgO compression above 40 GPa or to the Mao-1986 ruby gauge in helium; this record takes no position.
 
@@ -930,7 +930,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The Table II fit is not reproduced from the published data; the published curve leaves residuals up to about +2.8 GPa.
 
-**Source finding:** Coefficients from Table II (Cu-referenced fit, V0 fixed). The Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.
+**Source check:** Coefficients from Table II (Cu-referenced fit, V0 fixed). The Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1018,7 +1018,7 @@ Table II fit to the DAC-2 data, with pressures from the simultaneously measured 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_b1_luo_2023_vinet_thermal_5)
 
-**Source finding:** Cold coefficients from Section III (p. 6), with V0 = 0.2767 cm³/g converted to the Z = 4 cell; thermal coefficients from Equation (B2) (p. 10). The Appendix B surrogate is stored because the Kono velocity-density coefficients the full quasi-Debye model needs are not printed.
+**Source check:** Cold coefficients from Section III (p. 6), with V0 = 0.2767 cm³/g converted to the Z = 4 cell; thermal coefficients from Equation (B2) (p. 10). The Appendix B surrogate is stored because the Kono velocity-density coefficients the full quasi-Debye model needs are not printed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1142,7 +1142,7 @@ The complete empirical pressure scale of Appendix B, not a standalone 300 K Vine
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_sokolova_2013_holzapfel_4)
 
-**Source finding:** Stored coefficients match the MgO columns of Tables 1 and 4; n and Z come from the model definitions of Sokolova et al. (2016), Equations (1)-(3) and Table 2.
+**Source check:** Stored coefficients match the MgO columns of Tables 1 and 4; n and Z come from the model definitions of Sokolova et al. (2016), Equations (1)-(3) and Table 2.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1244,7 +1244,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_dewaele_2000_bm3_mgd_5)
 
-**Source finding:** Coefficients from Table 5 with Equations 2-8. V0 (average of prior ambient measurements) and K0 (adopted acoustic value) are fixed in the room-temperature fit, as stated before Table 3.
+**Source check:** Coefficients from Table 5 with Equations 2-8. V0 (average of prior ambient measurements) and K0 (adopted acoustic value) are fixed in the room-temperature fit, as stated before Table 3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1349,7 +1349,7 @@ The authors' preferred P-V-T EOS (Table 5): 300 K BM3 reference isotherm + quasi
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_dewaele_2000_bm2_sensitivity_1)
 
-**Source finding:** BM2 row of Table 3 (Section 3), with V0 fixed at the adopted ambient average.
+**Source check:** BM2 row of Table 3 (Section 3), with V0 fixed at the adopted ambient average.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1377,7 +1377,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 sensitivity fit with K0' fixed at 4, to the same combined 300 K data as the authors' preferred BM3 reference isotherm. Not the preferred fit, not a separate experiment and not a thermal EOS.
 
@@ -1433,7 +1433,7 @@ Table 3 sensitivity fit with K0' fixed at 4, to the same combined 300 K data as 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_dewaele_2000_murnaghan_sensitivity_2)
 
-**Source finding:** Murnaghan row of Table 3 (Section 3), with V0 fixed at the adopted ambient average and K0 at the adopted acoustic value.
+**Source check:** Murnaghan row of Table 3 (Section 3), with V0 fixed at the adopted ambient average and K0 at the adopted acoustic value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1462,7 +1462,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 Murnaghan fit to the combined 300 K data, a nonpreferred functional-form sensitivity fit. Not a separate experiment or a thermal EOS.
 
@@ -1518,7 +1518,7 @@ Table 3 Murnaghan fit to the combined 300 K data, a nonpreferred functional-form
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_dewaele_2000_vinet_sensitivity_3)
 
-**Source finding:** Vinet row of Table 3 (Section 3), with V0 fixed at the adopted ambient average and K0 at the adopted acoustic value.
+**Source check:** Vinet row of Table 3 (Section 3), with V0 fixed at the adopted ambient average and K0 at the adopted acoustic value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1547,7 +1547,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 Vinet fit to the combined 300 K data, a nonpreferred functional-form sensitivity fit. Not a separate experiment or a thermal EOS.
 
@@ -1603,7 +1603,7 @@ Table 3 Vinet fit to the combined 300 K data, a nonpreferred functional-form sen
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_dewaele_2000_natural_strain3_sensitivity_4)
 
-**Source finding:** Logarithmic-EOS row of Table 3 (Section 3), with V0 fixed at the adopted ambient average and K0 at the adopted acoustic value.
+**Source check:** Logarithmic-EOS row of Table 3 (Section 3), with V0 fixed at the adopted ambient average and K0 at the adopted acoustic value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1632,7 +1632,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit to the combined 300 K data, a nonpreferred functional-form sensitivity fit. The paper calls it the logarithmic EOS (after Poirier-Tarantola); it is stored as the equivalent third-order natural-strain model.
 
@@ -1688,7 +1688,7 @@ Table 3 fit to the combined 300 K data, a nonpreferred functional-form sensitivi
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_b1_duffy_ahrens_1995_hugoniot_5)
 
-**Source finding:** Linear Us-up relation from the abstract and Table 4 (p. 533), fitted to the four Table 3 polycrystalline shock states; rho0 is the measured average bulk density (p. 530).
+**Source check:** Linear Us-up relation from the abstract and Table 4 (p. 533), fitted to the four Table 3 polycrystalline shock states; rho0 is the measured average bulk density (p. 530).
 
 Automatic selection for hugoniot calculations.
 
@@ -1739,7 +1739,7 @@ Automatic selection for hugoniot calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Principal Hugoniot of untransformed B1 MgO only; not the equilibrium 300 K isotherm or a general P(V,T) surface. The c0, s and rho0 errors are one standard deviation. V0 is computed from rho0 and has no separate error.
 
@@ -1803,7 +1803,7 @@ Principal Hugoniot of untransformed B1 MgO only; not the equilibrium 300 K isoth
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_ecp_large_core_static_bm3)
 
-**Source finding:** Coefficients from the ECP large-core Mg row of Table I (unshifted static GGA, Ne-core Mg pseudopotential), BM3 as in Equation (3).
+**Source check:** Coefficients from the ECP large-core Mg row of Table I (unshifted static GGA, Ne-core Mg pseudopotential), BM3 as in Equation (3).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1834,7 +1834,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1887,7 +1887,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_ecp_small_core_static_bm3)
 
-**Source finding:** Coefficients from the ECP small-core Mg row of Table I (unshifted static GGA, Mg 2p treated as semicore), BM3 as in Equations (3)-(4).
+**Source check:** Coefficients from the ECP small-core Mg row of Table I (unshifted static GGA, Mg 2p treated as semicore), BM3 as in Equations (3)-(4).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1970,7 +1970,7 @@ Static GGA theoretical comparison branch.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_paw_large_core_static_bm3)
 
-**Source finding:** Coefficients from the PAW large-core Mg row of Table I (unshifted static GGA, Ne-core Mg potential), BM3 as in Equations (3)-(4).
+**Source check:** Coefficients from the PAW large-core Mg row of Table I (unshifted static GGA, Ne-core Mg potential), BM3 as in Equations (3)-(4).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2053,7 +2053,7 @@ Static GGA theoretical comparison branch.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_paw_small_core_static_bm3)
 
-**Source finding:** Coefficients from the PAW small-core Mg row of Table I (unshifted static GGA), BM3 as in Equations (3)-(4); checked against eight Table III pressures.
+**Source check:** Coefficients from the PAW small-core Mg row of Table I (unshifted static GGA), BM3 as in Equations (3)-(4); checked against eight Table III pressures.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2137,7 +2137,7 @@ Static GGA theoretical branch.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_static_bm3)
 
-**Source finding:** Coefficients from the Static row of Table V (Section VI, Figure 5); the pressure shift is stated on p. 224110-7.
+**Source check:** Coefficients from the Static row of Table V (Section VI, Figure 5); the pressure shift is stated on p. 224110-7.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2221,7 +2221,7 @@ Static small-core PAW pressures shifted by -7.736 GPa to match the experimental 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_0k_bm3)
 
-**Source finding:** Coefficients from the 0 K row of Table V (Section VI): the quasiharmonic Debye model at zero temperature, with the -7.736 GPa pressure correction.
+**Source check:** Coefficients from the 0 K row of Table V (Section VI): the quasiharmonic Debye model at zero temperature, with the -7.736 GPa pressure correction.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2304,7 +2304,7 @@ Pressure-corrected 0 K isotherm including zero-point energy; do not conflate wit
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_298k_bm3)
 
-**Source finding:** Coefficients from the 298 K row of Table V (Section VI, Figure 5), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.
+**Source check:** Coefficients from the 298 K row of Table V (Section VI, Figure 5), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2386,7 +2386,7 @@ A single theoretical isotherm, not the paper's full thermal model.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_1000k_bm3)
 
-**Source finding:** Coefficients from the 1000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.
+**Source check:** Coefficients from the 1000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2466,7 +2466,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_2000k_bm3)
 
-**Source finding:** Coefficients from the 2000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.
+**Source check:** Coefficients from the 2000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2546,7 +2546,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_3000k_bm3)
 
-**Source finding:** Coefficients from the 3000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa; Figure 5 compares this isotherm with experimental extrapolation.
+**Source check:** Coefficients from the 3000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa; Figure 5 compares this isotherm with experimental extrapolation.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2626,7 +2626,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_4000k_bm3)
 
-**Source finding:** Coefficients from the 4000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.
+**Source check:** Coefficients from the 4000 K row of Table V (Section VI), from GGA/phonon calculations shifted by -7.736 GPa to match the measured ambient volume.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2707,7 +2707,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_lee_wan_2008_lda_static_bm3)
 
-**Source finding:** Coefficients from Section IV.A, below Figure 1; the printed V0 = 3782.30 bohr³ for the 32-formula-unit supercell is converted to the Z = 4 cell.
+**Source check:** Coefficients from Section IV.A, below Figure 1; the printed V0 = 3782.30 bohr³ for the 32-formula-unit supercell is converted to the Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2737,7 +2737,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Uncorrected LDA branch, used by the authors to quantify exchange-correlation pressure differences. The paper does not designate it as a preferred physical EOS.
 
@@ -2792,7 +2792,7 @@ Uncorrected LDA branch, used by the authors to quantify exchange-correlation pre
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_lee_wan_2008_gga_static_bm3)
 
-**Source finding:** Coefficients from Section IV.A, below Figure 1; the printed V0 = 4046.43 bohr³ for the 32-formula-unit supercell is converted to the Z = 4 cell.
+**Source check:** Coefficients from Section IV.A, below Figure 1; the printed V0 = 4046.43 bohr³ for the 32-formula-unit supercell is converted to the Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2822,7 +2822,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Uncorrected GGA branch. The authors find it more compatible than their LDA branch with the external Karki and Isaak comparisons, but they study exchange-correlation differences rather than recommend a pressure standard.
 
@@ -2877,7 +2877,7 @@ Uncorrected GGA branch. The authors find it more compatible than their LDA branc
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_holland_2013_per_modified_tait)
 
-**Source finding:** Coefficients from Table 1 and the official tc-ds62 per block, printed as V0 = 1.125 J/bar/mol, K0 = 1616 kbar and K0'' = -0.00240 kbar^-1, converted to GPa and the Z = 4 cell.
+**Source check:** Coefficients from Table 1 and the official tc-ds62 per block, printed as V0 = 1.125 J/bar/mol, K0 = 1616 kbar and K0'' = -0.00240 kbar^-1, converted to GPa and the Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2964,7 +2964,7 @@ Periclase (per) thermodynamic endmember.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_b1_zhang_bukowinski_1991_mpib_bm3)
 
-**Source finding:** Coefficients from the B1 room-temperature row of Table IV (Birch-Murnaghan fit, Section III.B); the printed 18.65 Å³ per MgO is multiplied by Z = 4.
+**Source check:** Coefficients from the B1 room-temperature row of Table IV (Birch-Murnaghan fit, Section III.B); the printed 18.65 Å³ per MgO is multiplied by Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3041,7 +3041,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_karki_1997_lda_static_bm4)
 
-**Source finding:** Coefficients from Table 1 and the text following Equation (11), the fourth-order fit to the 0-150 GPa calculated states plotted in Figure 1.
+**Source check:** Coefficients from Table 1 and the text following Equation (11), the fourth-order fit to the 0-150 GPa calculated states plotted in Figure 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3072,7 +3072,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static LDA calculation for B1 MgO. V0 is computed as a0³ from the published a0 = 4.2506 Å (conventional cell, Z = 4).
 
@@ -3126,7 +3126,7 @@ Static LDA calculation for B1 MgO. V0 is computed as a0³ from the published a0 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_karki_1997_lda_static_bm3)
 
-**Source finding:** K0 and K0' from the text following Equation (11), the paper's third-order fit, for which it states the fourth-order term is negligible; a0 from Table 1.
+**Source check:** K0 and K0' from the text following Equation (11), the paper's third-order fit, for which it states the fourth-order term is negligible; a0 from Table 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3156,7 +3156,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Model-order sensitivity fit reported by the source: BM3 fitted to the same static LDA B1 pressure-volume states as the preferred BM4 fit.
 
@@ -3210,7 +3210,7 @@ Model-order sensitivity fit reported by the source: BM3 fitted to the same stati
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_belmonte_2017_b3lyp_static_bm3)
 
-**Source finding:** K0 from Table 1, K0' from Table 2 and V0 from Table 4; Section 3.3 identifies the static branch as BM3. Table 1's zero-point and finite-temperature moduli are FPMG-EOS outputs, not further BM3 coefficients.
+**Source check:** K0 from Table 1, K0' from Table 2 and V0 from Table 4; Section 3.3 identifies the static branch as BM3. Table 1's zero-point and finite-temperature moduli are FPMG-EOS outputs, not further BM3 coefficients.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3240,7 +3240,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static-lattice B3LYP branch only. Zero-point and finite-temperature contributions belong to the paper's first-principles Mie-Grüneisen model and are not included in this BM3 record.
 
@@ -3295,7 +3295,7 @@ Static-lattice B3LYP branch only. Zero-point and finite-temperature contribution
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_hama_suito_1996_qsm_static_vinet)
 
-**Source finding:** Coefficients from the Table 1 QSM row, with the Vinet equation of Section 1 as applied in Section 2 and Figure 2b; not the paper's later modified high-compression proposal.
+**Source check:** Coefficients from the Table 1 QSM row, with the Vinet equation of Section 1 as applied in Section 2 and Figure 2b; not the paper's later modified high-compression proposal.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3327,7 +3327,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static-lattice reference values from Table 1, used in the paper's Vinet comparison. V0 is converted from the atomic-unit volume printed in Table 1.
 
@@ -3382,7 +3382,7 @@ Static-lattice reference values from Table 1, used in the paper's Vinet comparis
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_ye_2017_vinet_300k)
 
-**Source finding:** K0' from Table 1, fitted to the corrected Au+MgO Data Set S1 (erratum) with Au-D07 as pressure standard; V0 and K0 are fixed to Dorogokupets-Dewaele (2007).
+**Source check:** K0' from Table 1, fitted to the corrected Au+MgO Data Set S1 (erratum) with Au-D07 as pressure standard; V0 and K0 are fixed to Dorogokupets-Dewaele (2007).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3412,7 +3412,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Ye et al.'s fitted 300 K co-compression isotherm. Zhu et al. later fixed this isotherm as the static branch of their separate thermal P-V-T model.
 
@@ -3476,7 +3476,7 @@ Ye et al.'s fitted 300 K co-compression isotherm. Zhu et al. later fixed this is
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_zhu_2025_pvt)
 
-**Source finding:** Thermal form from Equations (2)-(8): Debye thermal energy plus a volume-dependent T-squared excess term, referenced to 300 K. Thermal coefficients are the Mendeley Data v3 values, not Table 1; beta0 is converted from J g^-1 K^-2 to J mol^-1 K^-2.
+**Source check:** Thermal form from Equations (2)-(8): Debye thermal energy plus a volume-dependent T-squared excess term, referenced to 300 K. Thermal coefficients are the Mendeley Data v3 values, not Table 1; beta0 is converted from J g^-1 K^-2 to J mol^-1 K^-2.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3514,7 +3514,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Temperature-dependent P-V-T model whose 300 K Vinet isotherm is fixed from the Ye et al. co-compression fit. The coefficients follow the v3 optimizer and property script (gamma0 = 1.53 after rounding); the separate v3 pressure calculator hard-codes gamma0 = 1.52.
 

@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fesio3_liquid.md#record-fesio3_liquid_sun_2019_2500k_bm4_1)
 
-**Source finding:** Coefficients from Section 3.1 (Equations (4)-(9)), with V0 printed as 47.25 cm³/mol. At the Table 1 V/Vx = 1 state the stored BM4 gives 1.08485 GPa against the printed 1.07(12) GPa.
+**Source check:** Coefficients from Section 3.1 (Equations (4)-(9)), with V0 printed as 47.25 cm³/mol. At the Table 1 V/Vx = 1 state the stored BM4 gives 1.08485 GPa against the printed 1.07(12) GPa.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 131.928
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Only the 2500 K BM4 reference isotherm of the source EOS. The full model adds a thermal term built from a Gaussian heat-capacity function and a volume-dependent Grüneisen parameter, which EOSMAT cannot yet represent. The fit uses the 40 liquid states; the six nonliquid states of Table 1 are excluded.
 

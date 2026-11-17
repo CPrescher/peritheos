@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/magnesiowustite_fe75.md#record-magnesiowustite_fe75_jacobsen_2002_bm3_1)
 
-**Source finding:** Coefficients from paragraph 25 and Table 6, an error-weighted EoSFIT fit to the 7 Fe75 rows of Table 5; pressures are from simultaneously measured quartz volumes (paragraph 23).
+**Source check:** Coefficients from paragraph 25 and Table 6, an error-weighted EoSFIT fit to the 7 Fe75 rows of Table 5; pressures are from simultaneously measured quartz volumes (paragraph 23).
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 61.873065
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The printed errors are standard deviations.
 

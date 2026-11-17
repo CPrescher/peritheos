@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fe3o4.md#record-fe3o4_mao_1974_bm3_1)
 
-**Source finding:** Birch-Murnaghan equation and Table 3 data on page 1167; K0, its error budget and the assumed K0' on pages 1167-1168; V0 from the ambient a0 on page 1165.
+**Source check:** Birch-Murnaghan equation and Table 3 data on page 1167; K0, its error budget and the assumed K0' on pages 1167-1168; V0 from the ambient a0 on page 1165.
 
 Automatic selection for equilibrium calculations.
 

@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fesio3_bridgmanite.md#record-fesio3_bridgmanite_cohen_lin_2014_vinet_1)
 
-**Source finding:** Coefficients from Table III, a Vinet fit to the static E(V) data; the printed V0 = 44.31 Å³ per FeSiO3 is multiplied by Z = 4.
+**Source check:** Coefficients from Table III, a Vinet fit to the static E(V) data; the printed V0 = 44.31 Å³ per FeSiO3 is multiplied by Z = 4.
 
 Automatic selection for equilibrium calculations.
 
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 131.928
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published static 0 K GGA+U Vinet fit; the numerical E(V) grid was not deposited.
 
@@ -184,7 +184,7 @@ Published static 0 K GGA+U Vinet fit; the numerical E(V) grid was not deposited.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fesio3_bridgmanite.md#record-fesio3_bridgmanite_holland_2013_fpv_modified_tait)
 
-**Source finding:** Coefficients from Table 1 and the official tc-ds62 fpv block, printed as V0 = 2.548 J/bar/mol, K0 = 2810 kbar and K0'' = -0.00160 kbar^-1, converted to GPa and Z = 4.
+**Source check:** Coefficients from Table 1 and the official tc-ds62 fpv block, printed as V0 = 2.548 J/bar/mol, K0 = 2810 kbar and K0'' = -0.00160 kbar^-1, converted to GPa and Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

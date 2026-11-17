@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/namg2al5sio12_nal.md#record-namg2al5sio12_nal_kawai_2012_bm3_1)
 
-**Source finding:** Coefficients from Table 1 (page 308). V0 is printed as 35.8 cm³/mol on an unstated four-oxygen basis (Figure 2c is three times this scale) and stored ×3 for the Z = 1 12-oxygen cell. The BM3 formula is not printed; the standard Eulerian form matches Figure 2c.
+**Source check:** Coefficients from Table 1 (page 308). V0 is printed as 35.8 cm³/mol on an unstated four-oxygen basis (Figure 2c is three times this scale) and stored ×3 for the Z = 1 12-oxygen cell. The BM3 formula is not printed; the standard Eulerian form matches Figure 2c.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.8485974231, 1.0\]
     - **Notes:** Bounded to the NAL calculation interval of Figures 2c and 5.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static LDA calculation; no thermal correction is included.
 

@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/klb1_mg_perovskite.md#record-klb1_mg_perovskite_ricolleau_2009_bm2_alphakt)
 
-**Source finding:** Coefficients from the Table 1 Mg-perovskite row: the Section 3 high-temperature Birch-Murnaghan form with K0' fixed and alpha(T) = alpha0 + alpha1\*T. The observations are in Supporting Information Table S1; the paper does not publish row exclusions.
+**Source check:** Coefficients from the Table 1 Mg-perovskite row: the Section 3 high-temperature Birch-Murnaghan form with K0' fixed and alpha(T) = alpha0 + alpha1\*T. The observations are in Supporting Information Table S1; the paper does not publish row exclusions.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[30.0, 112.0\]
     - **Temperature k:** \[300.0, 2569.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

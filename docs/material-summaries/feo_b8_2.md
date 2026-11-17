@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/feo_b8_2.md#record-feo_b8_2_fischer_2011_bm3_1)
 
-**Source finding:** Coefficients from Table 1 and Equation (1) (pp. 12-14); the printed V0 = 11.997 cm³/mol is stored per conventional B8 cell (Z = 2). The fit data combine Supplementary Table S1 with Ozawa's Table 2 P-V-T rows.
+**Source check:** Coefficients from Table 1 and Equation (1) (pp. 12-14); the printed V0 = 11.997 cm³/mol is stored per conventional B8 cell (Z = 2). The fit data combine Supplementary Table S1 with Ozawa's Table 2 P-V-T rows.
 
 Automatic selection for equilibrium calculations.
 

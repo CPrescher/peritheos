@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/seifertite.md#record-seifertite_sun_2019_bm2_1)
 
-**Source finding:** Coefficients from the Table 1 seifertite row and the paper's thermal EOS formulation; the BM2 is the 300 K reference isotherm of that MGD fit.
+**Source check:** Coefficients from the Table 1 seifertite row and the paper's thermal EOS formulation; the BM2 is the 300 K reference isotherm of that MGD fit.
 
 Automatic selection for equilibrium calculations.
 
@@ -140,7 +140,7 @@ Laser-heated diamond-anvil-cell thermal EOS; the BM2 reference isotherm implies 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/seifertite.md#record-seifertite_driver_2010_qmc_300k_vinet)
 
-**Source finding:** Coefficients from the Table 1 alpha-PbO2 QMC column; V0 = 154.8(1) bohr³ per SiO2 is converted to Å³ and multiplied by Z = 4.
+**Source check:** Coefficients from the Table 1 alpha-PbO2 QMC column; V0 = 154.8(1) bohr³ per SiO2 is converted to Å³ and multiplied by Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

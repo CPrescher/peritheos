@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/srsio3_6h_perovskite.md#record-srsio3_6h_xiao_2013_gga_bm2_1)
 
-**Source finding:** Coefficients from the static-GGA 6H fit in Results (Figure 5), distinct from the paper's cubic experimental fit.
+**Source check:** Coefficients from the static-GGA 6H fit in Results (Figure 5), distinct from the paper's cubic experimental fit.
 
 Automatic selection for equilibrium calculations.
 
@@ -88,7 +88,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 163.702
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

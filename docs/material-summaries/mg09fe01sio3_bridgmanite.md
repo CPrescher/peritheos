@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg09fe01sio3_bridgmanite.md#record-mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1)
 
-**Source finding:** Coefficients from Results (p. 4337) and the Table S2 low-spin row; observations in Table S1. The high-spin branch was used to model the transition, but its fitted coefficients are not printed.
+**Source check:** Coefficients from Results (p. 4337) and the Table S2 low-spin row; observations in Table S1. The high-spin branch was used to model the transition, but its fitted coefficients are not printed.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.7691266913, 0.9257687577\]
     - **Notes:** Only for the fully post-transition branch: the authors fit observations above 25 GPa. Do not apply it to high-spin or 18-25 GPa mixed-spin data.; V0 is an ambient-pressure extrapolation of the low-spin branch, not the measured ambient high-spin cell volume.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published 300 K post-transition branch with low-spin B-site Fe3+. Stored as BM3 because the source calls the fit third-order Birch-Murnaghan; with K0' = 4 fixed it reduces to the second-order form.
 
@@ -191,7 +191,7 @@ Published 300 K post-transition branch with low-spin B-site Fe3+. Stored as BM3 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg09fe01sio3_bridgmanite.md#record-mg09fe01sio3_bridgmanite_mao_1991_bm2_2)
 
-**Source finding:** V0 from the Table 1 Fe10 entry; K0 from the equation-of-state fit paragraph, fitted to the Fe10 rows of Table 2 on the gold pressure scale.
+**Source check:** V0 from the Table 1 Fe10 entry; K0 from the equation-of-state fit paragraph, fitted to the Fe10 rows of Table 2 on the gold pressure scale.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -218,7 +218,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.541
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Second-order fit stored as BM3 with K0' = 4 fixed, which is algebraically identical. K0 is fitted to the Fe10 data only; the authors apply the same compression curve to all three compositions with their own ambient volumes.
 

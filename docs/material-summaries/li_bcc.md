@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/li_bcc.md#record-li_hanfland_1999_vinet_1)
 
-**Source finding:** Coefficients from the Table 2 this-work Vinet row (page 125); the fixed atomic V0 = 21.6225 Å³ is doubled for the two-atom bcc cell.
+**Source check:** Coefficients from the Table 2 this-work Vinet row (page 125); the fixed atomic V0 = 21.6225 Å³ is doubled for the two-atom bcc cell.
 
 Automatic selection for equilibrium calculations.
 

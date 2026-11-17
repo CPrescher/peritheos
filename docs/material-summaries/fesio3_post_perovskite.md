@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/fesio3_post_perovskite.md#record-fesio3_post_perovskite_cohen_lin_2014_vinet_1)
 
-**Source finding:** Coefficients from Table III, a Vinet fit to static E(V) data; the printed V0 = 44.90 Å³ per FeSiO3 is stored per Z = 4 cell. No numerical E(V) data were deposited.
+**Source check:** Coefficients from Table III, a Vinet fit to static E(V) data; the printed V0 = 44.90 Å³ per FeSiO3 is stored per Z = 4 cell. No numerical E(V) data were deposited.
 
 Automatic selection for equilibrium calculations.
 
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 131.928
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

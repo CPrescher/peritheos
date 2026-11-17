@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/lif_b1.md#record-lif_b1_dewaele_2019_vinet_1)
 
-**Source finding:** Coefficients from the Table 1 Mao ruby-scale column, chosen because it reports parameter uncertainties; Table 4 lists the 60 measured P-V points.
+**Source check:** Coefficients from the Table 1 Mao ruby-scale column, chosen because it reports parameter uncertainties; Table 4 lists the 60 measured P-V points.
 
 Automatic selection for equilibrium calculations.
 
@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 109.0\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table 1 fit on the Mao ruby scale. Published V0 = 16.371(30) Å³ per formula unit; stored per conventional B1 cell (×4).
 

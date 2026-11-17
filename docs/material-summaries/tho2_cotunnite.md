@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/tho2_cotunnite.md#record-tho2_cotunnite_chidester_2018_bm3_linear_thermal)
 
-**Source finding:** Coefficients from Table 1 (page 750; K0' fixed in bold) with Equations 1-3 (page 754); V0 is printed as 24.75(0.06) cm³/mol, and alpha\_KT is the fitted constant alpha\*K\_T of Equation 3.
+**Source check:** Coefficients from Table 1 (page 750; K0' fixed in bold) with Equations 1-3 (page 754); V0 is printed as 24.75(0.06) cm³/mol, and alpha\_KT is the fitted constant alpha\*K\_T of Equation 3.
 
 Automatic selection for equilibrium calculations.
 

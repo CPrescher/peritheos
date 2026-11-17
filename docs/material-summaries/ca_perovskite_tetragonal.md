@@ -69,7 +69,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_sun_2022_bm3_1)
 
-**Source finding:** Coefficients from the fixed-K0' row of Table 2 (p. 112), with the Birch-Murnaghan form and Z normalization of pp. 111-112; the P-V data are in Table 1.
+**Source check:** Coefficients from the fixed-K0' row of Table 2 (p. 112), with the Birch-Murnaghan form and Z normalization of pp. 111-112; the P-V data are in Table 1.
 
 Automatic selection for equilibrium calculations.
 
@@ -159,7 +159,7 @@ Fixed-K0' fit of Table 2. Published V0 = 45.6(2) Å³ per formula unit (Z = 1); 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_sagatova_2021_lda_300k_vinet)
 
-**Source finding:** Coefficients from the this-work LDA Ca-pv row of Table 2, with the Vinet form given in Methods.
+**Source check:** Coefficients from the this-work LDA Ca-pv row of Table 2, with the Vinet form given in Methods.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -190,7 +190,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 2 gives V0 per formula unit (Z = 1); stored per conventional I4/mcm cell (×4).
 
@@ -243,7 +243,7 @@ Table 2 gives V0 per formula unit (Z = 1); stored per conventional I4/mcm cell (
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet)
 
-**Source finding:** Coefficients from the this-work GGA Ca-pv row of Table 2, with the Vinet form given in Methods.
+**Source check:** Coefficients from the this-work GGA Ca-pv row of Table 2, with the Vinet form given in Methods.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -274,7 +274,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 2 gives V0 per formula unit (Z = 1); stored per conventional I4/mcm cell (×4).
 
@@ -327,7 +327,7 @@ Table 2 gives V0 per formula unit (Z = 1); stored per conventional I4/mcm cell (
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_caracas_2005_bm3_1)
 
-**Source finding:** Coefficients from the BM3 fit in the I4/mcm column of Table 2 (Section 4); the source V0 per formula unit is multiplied by Z = 4.
+**Source check:** Coefficients from the BM3 fit in the I4/mcm column of Table 2 (Section 4); the source V0 per formula unit is multiplied by Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -357,7 +357,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 116.161
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K calculation of the I4/mcm (a0a0c-) octahedral-tilt branch; the source also fits BM4 to the same series. The source's energy accuracy of about 20 meV/molecule is not a coefficient error.
 
@@ -418,7 +418,7 @@ Static 0 K calculation of the I4/mcm (a0a0c-) octahedral-tilt branch; the source
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_caracas_2005_bm4_2)
 
-**Source finding:** Coefficients from the BM4 fit in the I4/mcm column of Table 2 (Section 4); the source V0 per formula unit is multiplied by Z = 4.
+**Source check:** Coefficients from the BM4 fit in the I4/mcm column of Table 2 (Section 4); the source V0 per formula unit is multiplied by Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -449,7 +449,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 116.161
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K calculation of the I4/mcm (a0a0c-) octahedral-tilt branch; the source also fits BM3 to the same series. The source's energy accuracy of about 20 meV/molecule is not a coefficient error.
 
@@ -510,7 +510,7 @@ Static 0 K calculation of the I4/mcm (a0a0c-) octahedral-tilt branch; the source
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_chen_2018_vinet)
 
-**Source finding:** Coefficients from Table 2 (p. 467) and Figure 5 (p. 466); only the I4/mcm refinements of Table 1 enter the fit, not the parallel P4/mmm refinements.
+**Source check:** Coefficients from Table 2 (p. 467) and Figure 5 (p. 466); only the I4/mcm refinements of Table 1 enter the fit, not the parallel P4/mmm refinements.
 
 **Usage qualification:** Use the unchanged published 300 K Vinet parameterization for qualified comparison in its measured 28.824-62.477 GPa range. V0 is an extrapolation and K0' is fixed at 4. Retain the reported 2-sigma lattice and parameter errors without inventing pressure errors or source weights. P4/mmm refinements are parallel structural diagnostics, not additional independent fit observations.
 
@@ -543,7 +543,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 116.161
-- **Reported error confidence level:** 0.9544997361036416
+- **Printed parameter errors:** 2 sigma
 
 Vinet fit to seven observations (Table 1) of thermally stress-annealed tetragonal I4/mcm CaSiO3 in a neon pressure medium. V0 is an extrapolated fit parameter because CaSiO3 perovskite is unstable at one bar.
 

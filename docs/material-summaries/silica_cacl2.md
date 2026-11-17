@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/silica_cacl2.md#record-silica_cacl2_sun_2019_bm2_1)
 
-**Source finding:** Coefficients from the Table 1 CaCl2 row; the BM2 isotherm is the 300 K reference of the MGD thermal fit.
+**Source check:** Coefficients from the Table 1 CaCl2 row; the BM2 isotherm is the 300 K reference of the MGD thermal fit.
 
 Automatic selection for equilibrium calculations.
 

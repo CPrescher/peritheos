@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cao.md#record-cao_richet_1988_bm3_1)
 
-**Source finding:** Coefficients from the B1 fit of Table 4 with Equation (5) (pages 15283-15285).
+**Source check:** Coefficients from the B1 fit of Table 4 with Equation (5) (pages 15283-15285).
 
 Automatic selection for equilibrium calculations.
 

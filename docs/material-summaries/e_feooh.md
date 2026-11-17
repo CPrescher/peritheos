@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/e_feooh.md#record-e_feooh_gleason_2008_bm2_1)
 
-**Source finding:** K0 from manuscript page 7 and Figure 3b, V0 from the page 7 G-versus-g extrapolation; observations from depository Table 2. Reducing the hot volumes to 300 K with the paper's goethite alpha0 = 2.3e-5 K^-1 is a numerically recovered step.
+**Source check:** K0 from manuscript page 7 and Figure 3b, V0 from the page 7 G-versus-g extrapolation; observations from depository Table 2. Reducing the hot volumes to 300 K with the paper's goethite alpha0 = 2.3e-5 K^-1 is a numerically recovered step.
 
 Automatic selection for equilibrium calculations.
 
@@ -187,7 +187,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/e_feooh.md#record-e_feooh_suzuki_2016_bm3_thermal_2)
 
-**Source finding:** Coefficients from Table 2 (page 422) with Equation 1 and alpha(T) = a0 + a1(T - T0) about T0 = 300 K; the Table 2 footnote gives the errors as standard deviations.
+**Source check:** Coefficients from Table 2 (page 422) with Equation 1 and alpha(T) = a0 + a1(T - T0) about T0 = 300 K; the Table 2 footnote gives the errors as standard deviations.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -219,7 +219,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Temperature k:** \[300.0, 700.0\]
     - **Volume ratio:** \[0.93832, 1.0\]
     - **Notes:** The authors note a possible change in compression slope at 3-7 GPa (possibly deviatoric stress or hydrogen-bond symmetrization); the fit is one smooth curve.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

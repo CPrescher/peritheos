@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/naalsi2o6.md#record-naalsi2o6_zhao_1997_bm3_1)
 
-**Source finding:** Coefficients from the preferred K0' = 5 column of Table 2 with Equation (1); Table 2 prints K0 = 125(4) GPa, and the stored value follows the fit prose on page 6. The fixed V0 is not the Table 1 measurement of 403.32(8) Å³.
+**Source check:** Coefficients from the preferred K0' = 5 column of Table 2 with Equation (1); Table 2 prints K0 = 125(4) GPa, and the stored value follows the fit prose on page 6. The fixed V0 is not the Table 1 measurement of 403.32(8) Å³.
 
 Automatic selection for equilibrium calculations.
 
@@ -87,7 +87,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 8.16\]
     - **Temperature k:** \[300.0, 1280.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

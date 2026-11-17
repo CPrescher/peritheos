@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/e_feooh_hc_low_spin.md#record-e_feooh_hc_low_spin_thompson_2017_bm3_1)
 
-**Source finding:** Coefficients from the Table 2 hydrogen-centered self-consistent-U row (30-140 GPa, page 5041); they agree with the 12 rounded Table S1 rows and the Table 3 densities at 60 and 90 GPa.
+**Source check:** Coefficients from the Table 2 hydrogen-centered self-consistent-U row (30-140 GPa, page 5041); they agree with the 12 rounded Table S1 rows and the Table 3 densities at 60 and 90 GPa.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[30.0, 140.0\]
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.7233026270897305, 0.89798703514159\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Volumetric BM3 fit for the hydrogen-centered, low-spin ferromagnetic Pnnm branch from static 0 K first-principles calculations. The self-consistent Hubbard U varies with pressure as part of the computational protocol and is not an EOS coefficient. The Table 3 elastic moduli come from stress-strain elastic tensors and are not substitutes for the volumetric K0 or K0'. The confidence level and covariance of the published errors are unavailable.
 

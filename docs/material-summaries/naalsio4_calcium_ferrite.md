@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/naalsio4_calcium_ferrite.md#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1)
 
-**Source finding:** Coefficients from the EOS discussion (p. 498). The 23 observations are published only in Figure 2; nineteen marker centers are separable and digitized.
+**Source check:** Coefficients from the EOS discussion (p. 498). The 23 observations are published only in Figure 2; nineteen marker centers are separable and digitized.
 
 Automatic selection for equilibrium calculations.
 

@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fesi_b2.md#record-fesi_b2_fischer_2014_bm3_refit)
 
-**Source finding:** V0 (6.414 cm³/mol of atoms), K0' and theta0 (adopted from iron) are the Table 2/S6 fixed values. K0, gamma0 and q are Peritheos fits with the BM3 cold curve.
+**Source check:** V0 (6.414 cm³/mol of atoms), K0' and theta0 (adopted from iron) are the Table 2/S6 fixed values. K0, gamma0 and q are Peritheos fits with the BM3 cold curve.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[42.74768265572292, 146.9148894617161\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1162.665, 3146.8\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
@@ -172,7 +172,7 @@ Peritheos refit of the B2 observations of Fischer et al. (2014, Table S2), not t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fesi_b2.md#record-fesi_b2_fischer_2014_vinet_refit)
 
-**Source finding:** V0 (6.414 cm³/mol of atoms), K0' and theta0 (adopted from iron) are the Table 2/S6 fixed values. K0, gamma0 and q are Peritheos fits with the Vinet cold curve.
+**Source check:** V0 (6.414 cm³/mol of atoms), K0' and theta0 (adopted from iron) are the Table 2/S6 fixed values. K0, gamma0 and q are Peritheos fits with the Vinet cold curve.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -200,7 +200,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[42.74768265572292, 146.9148894617161\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1162.665, 3146.8\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">

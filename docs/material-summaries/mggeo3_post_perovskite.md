@@ -66,7 +66,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mggeo3_post_perovskite.md#record-mggeo3_post_perovskite_kubo_2006_bm3_1)
 
-**Source finding:** Coefficients from paragraph 17 and Table 2; K0 is fitted under the paper's K\*V = constant elasticity-systematics constraint, with MgSiO3 post-perovskite reference values.
+**Source check:** Coefficients from paragraph 17 and Table 2; K0 is fitted under the paper's K\*V = constant elasticity-systematics constraint, with MgSiO3 post-perovskite reference values.
 
 Automatic selection for equilibrium calculations.
 
@@ -95,7 +95,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[47.3, 196.3\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The three Table S1 rows below 47 GPa are excluded, as in the source, because their weak, broad peaks gave anomalously large volumes.; V0 is an extrapolation far below the experimental pressure range.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The authors' preferred 300 K fit. V0 is per conventional Cmcm cell (four formula units). K0' was fixed, with V0 and K0 fitted under an external elasticity-systematics constraint.
 
@@ -167,7 +167,7 @@ The authors' preferred 300 K fit. V0 is per conventional Cmcm cell (four formula
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mggeo3_post_perovskite.md#record-mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2)
 
-**Source finding:** Coefficients from Results and discussion paragraph 17, where the paper reports the K0' = 4 alternative to its selected fit.
+**Source check:** Coefficients from Results and discussion paragraph 17, where the paper reports the K0' = 4 alternative to its selected fit.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -192,7 +192,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[47.3, 196.3\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Nonpreferred sensitivity fit with K0' = 4, reported to show the parameter trade-off; same data as the preferred BM3 record, not an independent EOS. The source calls it a third-order fit with K0' = 4, which is equivalent to BM2.
 
@@ -261,7 +261,7 @@ Nonpreferred sensitivity fit with K0' = 4, reported to show the parameter trade-
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mggeo3_post_perovskite.md#record-mggeo3_post_perovskite_hirose_2005_bm3_fixed_1)
 
-**Source finding:** Coefficients from page 264 (fit with K0' fixed) for the printed Birch-Murnaghan equation; Table 1 gives Z = 4 for the Cmcm cell.
+**Source check:** Coefficients from page 264 (fit with K0' fixed) for the printed Birch-Murnaghan equation; Table 1 gives Z = 4 for the Cmcm cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -292,7 +292,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 145.916
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Fit with K0' fixed at 4 to all nine Table 3 decompression observations; the abstract reports this better-constrained result.
 
@@ -357,7 +357,7 @@ Fit with K0' fixed at 4 to all nine Table 3 decompression observations; the abst
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mggeo3_post_perovskite.md#record-mggeo3_post_perovskite_hirose_2005_bm3_free_2)
 
-**Source finding:** Coefficients from page 264 (free three-parameter fit) for the printed Birch-Murnaghan equation; Table 3 volumes and V0 are conventional Cmcm cell volumes.
+**Source check:** Coefficients from page 264 (free three-parameter fit) for the printed Birch-Murnaghan equation; Table 3 volumes and V0 are conventional Cmcm cell volumes.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -388,7 +388,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgg
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 145.916
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Source-reported free BM3 alternative, fitted to all nine Table 3 decompression observations; a same-data sensitivity fit.
 

@@ -131,7 +131,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2025_rydberg_stacey_1)
 
-**Source finding:** Coefficients from Table 2 with Equation (1); the curve from the stored parameters matches every corresponding value of the official 26-row Table S9 compression grid (derived output, not measurements).
+**Source check:** Coefficients from Table 2 with Equation (1); the curve from the stored parameters matches every corresponding value of the official 26-row Table S9 compression grid (derived output, not measurements).
 
 Automatic selection for equilibrium calculations.
 
@@ -159,7 +159,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 2 parameterization. The authors adopt most ambient V0 and K0 values from cited primary measurements and fit K0' to their internally consistent compression network. K\_infinity\_prime is fixed at 5/3 for every material except Cu.
 
@@ -221,7 +221,7 @@ Table 2 parameterization. The authors adopt most ambient V0 and K0 values from c
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_mao_1990_bm3_1)
 
-**Source finding:** Coefficients from Table 3 (journal pages 21739-21740). The published fit also used earlier hcp-Fe data identified in the Table 3 footnote, besides the 32 new Table 1 observations.
+**Source check:** Coefficients from Table 3 (journal pages 21739-21740). The published fit also used earlier hcp-Fe data identified in the Table 3 footnote, besides the 32 new Table 1 observations.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -302,7 +302,7 @@ Coefficients as published for the two-atom hcp cell. The legacy volume was corre
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_shen_2026_vinet_2)
 
-**Source finding:** Coefficients from Table II (pages 9-12). The Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I.
+**Source check:** Coefficients from Table II (pages 9-12). The Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -384,7 +384,7 @@ Table II fit combining the DAC-1 and DAC-2 data, with pressures from the Cu volu
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2019_mao_vinet)
 
-**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -407,7 +407,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[17.0, 204.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Mao (1986) ruby scale. The Dorogokupets (2007) ruby-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -466,7 +466,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2019_dor_vinet)
 
-**Source finding:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [iron\_dewaele\_2019\_mao\_vinet](#record-iron_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -491,7 +491,7 @@ Published pressure-scale alternative of [iron\_dewaele\_2019\_mao\_vinet](#recor
 - **Validity:**
     - **Pressure gpa:** \[17.0, 204.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Dorogokupets (2007) ruby scale. The Mao (1986) ruby-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -550,7 +550,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_zhang_2025_fit1_birch_murnaghan_3_mgd)
 
-**Source finding:** Coefficients from Fit #1 in Table 2 and Supplementary Table S6, with the molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.
+**Source check:** Coefficients from Fit #1 in Table 2 and Supplementary Table S6, with the molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -585,7 +585,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
@@ -680,7 +680,7 @@ Mixed-input thermal EOS (Fit #1 in the paper), the authors' preferred solution w
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_zhang_2025_fit2_birch_murnaghan_3_mgd)
 
-**Source finding:** Coefficients from Fit #2 in Table 2 and Supplementary Table S6, with the fixed molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.
+**Source check:** Coefficients from Fit #2 in Table 2 and Supplementary Table S6, with the fixed molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -715,7 +715,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
@@ -810,7 +810,7 @@ Mixed-input thermal EOS (Fit #2 in the paper); not the authors' preferred fit, w
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_zhang_2025_fit5_vinet_mgd)
 
-**Source finding:** Coefficients from Fit #5 (Vinet) in Table 2 and Supplementary Table S6, with the fixed molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.
+**Source check:** Coefficients from Fit #5 (Vinet) in Table 2 and Supplementary Table S6, with the fixed molar V0 converted to the two-atom hcp cell; the Supplementary Table S5 covariance is converted to the same volume basis.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -845,7 +845,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
@@ -940,7 +940,7 @@ Mixed-input thermal EOS (Fit #5 in the paper); not the authors' preferred fit, w
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2006_vinet_thermal)
 
-**Source finding:** Vinet coefficients from the Table III row for this study; thermal coefficients from the text after Equation (2), with theta0 a fixed ambient value from the paper's reference 24 and beta derived as gamma0/(gamma0-gamma\_inf).
+**Source check:** Vinet coefficients from the Table III row for this study; thermal coefficients from the text after Equation (2), with theta0 a fixed ambient value from the paper's reference 24 and beta derived as gamma0/(gamma0-gamma\_inf).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -981,7 +981,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -1073,7 +1073,7 @@ Equations (1)-(2) of the paper: a 300 K Vinet reference isotherm plus single-Deb
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_fei_2016_bm3)
 
-**Source finding:** Coefficients from Section 3.1, Equation (1), p. 6840, with V0 from rho0 = 8.2695 g/cm³. The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.
+**Source check:** Coefficients from Section 3.1, Equation (1), p. 6840, with V0 from rho0 = 8.2695 g/cm³. The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1104,7 +1104,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published combined fit to this study's 74 Table S1 rows and intercalibrated earlier literature data; Mao (1990) data were excluded.
 
@@ -1174,7 +1174,7 @@ Published combined fit to this study's 74 Table S1 rows and intercalibrated earl
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_fei_2016_free_density_bm3)
 
-**Source finding:** Coefficients from Section 3.1, Equation (1), p. 6840, with V0 from rho0 = 8.3602 g/cm³ (error 0.0241 g/cm³). The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.
+**Source check:** Coefficients from Section 3.1, Equation (1), p. 6840, with V0 from rho0 = 8.3602 g/cm³ (error 0.0241 g/cm³). The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1205,7 +1205,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published combined fit to this study's 74 Table S1 rows and intercalibrated earlier literature data; Mao (1990) data were excluded.
 
@@ -1275,7 +1275,7 @@ Published combined fit to this study's 74 Table S1 rows and intercalibrated earl
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_fei_2016_bm3_debye_quadratic)
 
-**Source finding:** Cold terms from Section 3.1, Equation (1), p. 6840; thermal terms from Section 3.2, Equation (2), with A from the fitted beta0 = 0.07 J/kg/K². The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.
+**Source check:** Cold terms from Section 3.1, Equation (1), p. 6840; thermal terms from Section 3.2, Equation (2), with A from the fitted beta0 = 0.07 J/kg/K². The Figure 1 caption pairs MgO with Fei (2007), but the methods use Tange (2009); the methods are followed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1313,7 +1313,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Combined fit with intercalibrated earlier literature data, excluding Mao (1990). Thermal pressure is MGD with integrated gamma(V) plus A\*(V/V0)^m\*(T^2-300^2), and Table S2 holds only the static subset of the thermal data. With independent gamma\_e = 2 and k = 1.34 this is an empirical pressure surface, not a thermodynamically consistent caloric potential, so do not infer caloric observables.
 
@@ -1390,7 +1390,7 @@ Combined fit with intercalibrated earlier literature data, excluding Mao (1990).
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_bm3)
 
-**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P1.
+**Source check:** Coefficients from the Table 3 BM3 fit on pressure scale P1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1418,7 +1418,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -1481,7 +1481,7 @@ Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_vinet)
 
-**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P1.
+**Source check:** Coefficients from the Table 3 Vinet fit on pressure scale P1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1509,7 +1509,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -1572,7 +1572,7 @@ Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_mao_bm3)
 
-**Source finding:** Coefficients from Table 3: the authors' alternative P1-scale BM3 fit with V0 fixed at the Mao value rather than their g-G plot value.
+**Source check:** Coefficients from Table 3: the authors' alternative P1-scale BM3 fit with V0 fixed at the Mao value rather than their g-G plot value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1600,7 +1600,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value instead of the preliminary g-G plot value. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -1663,7 +1663,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value ins
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_mao_vinet)
 
-**Source finding:** Coefficients from Table 3: the authors' alternative P1-scale Vinet fit with V0 fixed at the Mao value rather than their g-G plot value.
+**Source check:** Coefficients from Table 3: the authors' alternative P1-scale Vinet fit with V0 fixed at the Mao value rather than their g-G plot value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1691,7 +1691,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value instead of the preliminary g-G plot value. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -1754,7 +1754,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value ins
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_dewaele_bm3)
 
-**Source finding:** Coefficients from Table 3: the authors' alternative P1-scale BM3 fit with V0 fixed at the Dewaele value rather than their g-G plot value.
+**Source check:** Coefficients from Table 3: the authors' alternative P1-scale BM3 fit with V0 fixed at the Dewaele value rather than their g-G plot value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1782,7 +1782,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value instead of the preliminary g-G plot value. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -1845,7 +1845,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_dewaele_vinet)
 
-**Source finding:** Coefficients from Table 3: the authors' alternative P1-scale Vinet fit with V0 fixed at the Dewaele value rather than their g-G plot value.
+**Source check:** Coefficients from Table 3: the authors' alternative P1-scale Vinet fit with V0 fixed at the Dewaele value rather than their g-G plot value.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1873,7 +1873,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value instead of the preliminary g-G plot value. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -1936,7 +1936,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p2_bm3)
 
-**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P2.
+**Source check:** Coefficients from the Table 3 BM3 fit on pressure scale P2.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -1967,7 +1967,7 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iro
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -2030,7 +2030,7 @@ Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p2_vinet)
 
-**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P2.
+**Source check:** Coefficients from the Table 3 Vinet fit on pressure scale P2.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -2061,7 +2061,7 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-i
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -2124,7 +2124,7 @@ Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p3_bm3)
 
-**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P3.
+**Source check:** Coefficients from the Table 3 BM3 fit on pressure scale P3.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -2155,7 +2155,7 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iro
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -2218,7 +2218,7 @@ Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p3_vinet)
 
-**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P3.
+**Source check:** Coefficients from the Table 3 Vinet fit on pressure scale P3.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -2249,7 +2249,7 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-i
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -2312,7 +2312,7 @@ Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p4_bm3)
 
-**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P4.
+**Source check:** Coefficients from the Table 3 BM3 fit on pressure scale P4.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -2342,7 +2342,7 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iro
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -2405,7 +2405,7 @@ Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p4_vinet)
 
-**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P4.
+**Source check:** Coefficients from the Table 3 Vinet fit on pressure scale P4.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -2435,7 +2435,7 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-i
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -2498,7 +2498,7 @@ Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p5_bm3)
 
-**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P5.
+**Source check:** Coefficients from the Table 3 BM3 fit on pressure scale P5.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -2529,7 +2529,7 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iro
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -2592,7 +2592,7 @@ Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p5_vinet)
 
-**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P5.
+**Source check:** Coefficients from the Table 3 Vinet fit on pressure scale P5.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -2623,7 +2623,7 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-i
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -2686,7 +2686,7 @@ Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p6_bm3)
 
-**Source finding:** Coefficients from the Table 3 BM3 fit on pressure scale P6.
+**Source check:** Coefficients from the Table 3 BM3 fit on pressure scale P6.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
@@ -2716,7 +2716,7 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iro
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -2779,7 +2779,7 @@ Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p6_vinet)
 
-**Source finding:** Coefficients from the Table 3 Vinet fit on pressure scale P6.
+**Source check:** Coefficients from the Table 3 Vinet fit on pressure scale P6.
 
 Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
@@ -2809,7 +2809,7 @@ Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-i
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is held fixed while K0 and K0' are fitted. Low-pressure NaCl-B1 rows use Brown (1999); the NaCl-B2 reduction differs between the scale variants.
 
@@ -2872,7 +2872,7 @@ Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is he
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_yamazaki_2012_bm3_thermal)
 
-**Source finding:** Coefficients from the Table 1 BM3 fit with the thermal pressure of Equations (1)–(4); theta0, gamma0 and beta are fitted in the paper, the other thermal constants are fixed.
+**Source check:** Coefficients from the Table 1 BM3 fit with the thermal pressure of Equations (1)–(4); theta0, gamma0 and beta are fitted in the paper, the other thermal constants are fixed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -2910,7 +2910,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** 0.682689492137
+- **Printed parameter errors:** 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -2992,7 +2992,7 @@ Debye, anharmonic and electronic thermal pressures, subtracted at 300 K. The pap
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_yamazaki_2012_vinet_thermal)
 
-**Source finding:** Coefficients from the Table 1 Vinet fit with the thermal pressure of Equations (1)–(4); theta0, gamma0 and beta are fitted in the paper, the other thermal constants are fixed.
+**Source check:** Coefficients from the Table 1 Vinet fit with the thermal pressure of Equations (1)–(4); theta0, gamma0 and beta are fitted in the paper, the other thermal constants are fixed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3030,7 +3030,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** 0.682689492137
+- **Printed parameter errors:** 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -3112,7 +3112,7 @@ Debye, anharmonic and electronic thermal pressures, subtracted at 300 K. The pap
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_dubrovinsky_2000_bm3_thermal)
 
-**Source finding:** Coefficients from Table II with Equation (1). The paper does not tabulate the 109+79 P-V-T observations behind the fit.
+**Source check:** Coefficients from Table II with Equation (1). The paper does not tabulate the 109+79 P-V-T observations behind the fit.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3146,7 +3146,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -3225,7 +3225,7 @@ K0 is computed from the published compressibility coefficients as 1/(b1 + b2\*30
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2006_bm3)
 
-**Source finding:** Coefficients from the Table I BM row; the printed atomic V0 = 11.234(12) Å³ and its error are doubled for the two-atom cell, not taken from later secondary tables.
+**Source check:** Coefficients from the Table I BM row; the printed atomic V0 = 11.234(12) Å³ and its error are doubled for the two-atom cell, not taken from later secondary tables.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3253,7 +3253,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table I BM3 alternative to the separate Vinet thermal record. The published atomic-volume error is doubled for the two-atom hcp cell.
 
@@ -3316,7 +3316,7 @@ Table I BM3 alternative to the separate Vinet thermal record. The published atom
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_brown_2000_linear_hugoniot)
 
-**Source finding:** c0 and s from the Table III linear fit to all 37 points of Tables I–II. The quadratic fit and the full data range to 442.1 GPa are kept as source information, not as the executable EOS.
+**Source check:** c0 and s from the Table III linear fit to all 37 points of Tables I–II. The quadratic fit and the full data range to 442.1 GPa are kept as source information, not as the executable EOS.
 
 Automatic selection for hugoniot calculations.
 
@@ -3363,7 +3363,7 @@ Automatic selection for hugoniot calculations.
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 55.845
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published full-range linear Us-up fit, used only for the solid-iron subset below 200 GPa that Fei (2016) used; the high-pressure mixed-phase path is not represented. Samples are about 99% low-carbon steel (up to 0.7% Mn), not pure iron, so the density 7.850 g/cm³ must not be replaced by the pure-Fe density.
 
@@ -3430,7 +3430,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Never chosen automatically; select it explicitly. The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.
 
-**Source finding:** Coefficients from the Table 1 BM3 row (Equation (3)); volumes are per conventional two-atom hcp cell, as in the source.
+**Source check:** Coefficients from the Table 1 BM3 row (Equation (3)); volumes are per conventional two-atom hcp cell, as in the source.
 
 **Usage qualification:** Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
 
@@ -3455,7 +3455,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reported pressure coverage (GPa):** \[10.7, 117.8322\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[298, 300\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The published fit does not reproduce the authors' supplied observations under the standard equation mapping, and the cause is unresolved. Do not use for pressure calibration or core-condition prediction until this is resolved.
 
@@ -3536,7 +3536,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Never chosen automatically; select it explicitly. The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.
 
-**Source finding:** Coefficients from the Table 1 Vinet row (page 7), the current-study alternative to the BM3 of Equation (3); Table 1 prints no V0 error for this fit.
+**Source check:** Coefficients from the Table 1 Vinet row (page 7), the current-study alternative to the BM3 of Equation (3); Table 1 prints no V0 error for this fit.
 
 **Usage qualification:** Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
 
@@ -3561,7 +3561,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reported pressure coverage (GPa):** \[10.7, 117.8322\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[298, 300\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The published fit does not reproduce the authors' supplied observations under the standard equation mapping, and the cause is unresolved. Do not use for pressure calibration or core-condition prediction until this is resolved.
 
@@ -3642,7 +3642,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Never chosen automatically; select it explicitly. Uses MGD with n = 2 at the per-mole-Fe volume, unlike the physical per-Fe n = 1; full reproduction of the fit is unresolved.
 
-**Source finding:** Coefficients from Section 3.3 with Equations (3), (4), (6) and (8); malformed printed Equations (5) and (7) are mapped to standard MGD. V0 follows Section 3.3, not the 22.80(2) Å³ of Table 1 and Figure 4; Section 3.3 calls V0 fixed, but the authors said in personal communication it was free.
+**Source check:** Coefficients from Section 3.3 with Equations (3), (4), (6) and (8); malformed printed Equations (5) and (7) are mapped to standard MGD. V0 follows Section 3.3, not the 22.80(2) Å³ of Table 1 and Figure 4; Section 3.3 calls V0 fixed, but the authors said in personal communication it was free.
 
 **Usage qualification:** Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved.
 
@@ -3672,7 +3672,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reported pressure coverage (GPa):** \[10.7, 127.9736\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[298, 3399\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -3780,7 +3780,7 @@ Published coefficients with full MGD, n = 2, applied at the per-mole-Fe volume (
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_tange_2009_bm3_mgd_refit)
 
-**Source finding:** Observations from the official Miozzi supplementary Fe-He and Fe-MgO datasets; MgO pressures from Tange (2009) Table 4 and Equations (2)-(5). theta0 is adopted from Miozzi Section 3.3; V0, K0, K0', gamma0 and q are Peritheos fits.
+**Source check:** Observations from the official Miozzi supplementary Fe-He and Fe-MgO datasets; MgO pressures from Tange (2009) Table 4 and Equations (2)-(5). theta0 is adopted from Miozzi Section 3.3; V0, K0, K0', gamma0 and q are Peritheos fits.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3814,7 +3814,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[10.7, 129.3071497589813\]
     - **Temperature k:** \[298.0, 3399.0\]
     - **Notes:** Zero-pressure coefficients are extrapolated from compressed hcp Fe.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
@@ -3909,7 +3909,7 @@ Independent Peritheos refit with equal pressure weights, not Miozzi's published 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit)
 
-**Source finding:** Observations from the Miozzi supplementary data; MgO pressures recalculated with the Speziale (2001) model of its Sections 2.1 and 5.4. V0, K0, K0', gamma0 and q are Peritheos fits.
+**Source check:** Observations from the Miozzi supplementary data; MgO pressures recalculated with the Speziale (2001) model of its Sections 2.1 and 5.4. V0, K0, K0', gamma0 and q are Peritheos fits.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -3939,7 +3939,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[10.7, 126.47120445384469\]
 - **Coverage provenance:** reference\_parameterization
 - **Reported temperature coverage (K):** \[298.0, 3399.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">

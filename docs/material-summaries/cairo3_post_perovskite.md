@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cairo3_post_perovskite.md#record-cairo3_post_perovskite_boffa_ballaran_2007_bm3_1)
 
-**Source finding:** Coefficients from the Abstract and Table 2, fitted with the EosFit52 program to the ten Table 1 compression rows; the decompression row is excluded, as stated in Results on page 1761.
+**Source check:** Coefficients from the Abstract and Table 2, fitted with the EosFit52 program to the ten Table 1 compression rows; the decompression row is excluded, as stated in Results on page 1761.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 7.79\]
     - **Notes:** The authors caution that extrapolation beyond 15-20 GPa reverses the relative compressibilities of the two low-pressure fits.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Limited to the Cmcm CaIrO3 post-perovskite polymorph; do not use it for the Pbnm perovskite. V0 is the four-formula-unit conventional-cell volume. The printed errors are standard deviations.
 
@@ -186,7 +186,7 @@ Limited to the Cmcm CaIrO3 post-perovskite polymorph; do not use it for the Pbnm
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cairo3_post_perovskite.md#record-cairo3_post_perovskite_martin_2007_bm2)
 
-**Source finding:** Coefficients from Table 1b (Table 7.1 in Chapter 7 of the author's dissertation, which contains the in-press American Mineralogist article); the printed second-order Birch-Murnaghan fit is stored as BM3 with K0' fixed.
+**Source check:** Coefficients from Table 1b (Table 7.1 in Chapter 7 of the author's dissertation, which contains the in-press American Mineralogist article); the printed second-order Birch-Murnaghan fit is stored as BM3 with K0' fixed.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -217,7 +217,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 280.292
-- **Reported error confidence level:** 0.6827
+- **Printed parameter errors:** 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

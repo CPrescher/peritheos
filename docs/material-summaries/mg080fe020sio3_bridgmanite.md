@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg080fe020sio3_bridgmanite.md#record-mg080fe020sio3_bridgmanite_mao_1991_bm2_1)
 
-**Source finding:** V0 from the Fe20 entry of Table 1; K0 from the equation-of-state fit paragraph, whose fit uses the nine 300 K Fe10 rows of Table 2.
+**Source check:** V0 from the Fe20 entry of Table 1; K0 from the equation-of-state fit paragraph, whose fit uses the nine 300 K Fe10 rows of Table 2.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 106.695
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 BM2 stored as an algebraically identical BM3 with K0' = 4 fixed. K0 is fitted to the Fe10 data only; the authors apply the same compression curve to all three compositions, each with its own ambient V0.
 

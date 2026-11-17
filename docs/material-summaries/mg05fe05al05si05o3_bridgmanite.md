@@ -65,7 +65,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg05fe05al05si05o3_bridgmanite.md#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1)
 
-**Source finding:** V0 and K0 from the article's EOS discussion and Figure 3, fitted to all 23 sample-1 rows of the official Zenodo lattice-parameter workbook.
+**Source check:** V0 and K0 from the article's EOS discussion and Figure 3, fitted to all 23 sample-1 rows of the official Zenodo lattice-parameter workbook.
 
 Automatic selection for equilibrium calculations.
 
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[26.8, 102.2\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.7660564497, 0.9056263335\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The authors' preferred room-temperature BM2, chosen for its denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. It averages states before and after each current-step anneal and describes a mixed-spin sample, not a pure low-spin branch. V0 is extrapolated because this bridgmanite is not retained at ambient pressure.
 
@@ -175,7 +175,7 @@ The authors' preferred room-temperature BM2, chosen for its denser coverage and 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg05fe05al05si05o3_bridgmanite.md#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2)
 
-**Source finding:** V0 and K0 from the article's EOS discussion and Figure 3, fitted to the 11 red-font (after-anneal) sample-1 rows of the official Zenodo lattice-parameter workbook.
+**Source check:** V0 and K0 from the article's EOS discussion and Figure 3, fitted to the 11 red-font (after-anneal) sample-1 rows of the official Zenodo lattice-parameter workbook.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -201,7 +201,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[29.0, 102.2\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.7665018314, 0.9019469477\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Comparison fit by the authors to the 11 observations collected after each current pressure-step anneal. It is a subset of the same sample-1 data, not a separate thermodynamic or fully low-spin branch. V0 is a high-pressure bridgmanite extrapolation.
 
@@ -283,7 +283,7 @@ Comparison fit by the authors to the 11 observations collected after each curren
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg05fe05al05si05o3_bridgmanite.md#record-mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3)
 
-**Source finding:** V0 and K0 from the article's EOS discussion and Figure 3, fitted to all 21 sample-2 rows of the official Zenodo lattice-parameter workbook.
+**Source check:** V0 and K0 from the article's EOS discussion and Figure 3, fitted to all 21 sample-2 rows of the official Zenodo lattice-parameter workbook.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -309,7 +309,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[27.5, 103.6\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.7724757411, 0.9077366315\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Metastable comparison fit to cold-compressed sample 2, which keeps a kinetically retained cation ordering. The authors use it as the high-spin original-ordering reference; it does not define an equilibrium branch outside its measured range. V0 is a high-pressure bridgmanite extrapolation.
 
@@ -391,7 +391,7 @@ Metastable comparison fit to cold-compressed sample 2, which keeps a kinetically
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg05fe05al05si05o3_bridgmanite.md#record-mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4)
 
-**Source finding:** V0 and K0 from the Figure 4 caption; a later general discussion prints K0 = 212(3) GPa, but the caption, plotted curve and Table S3 data support the stored value. Observations from Supplementary Table S3.
+**Source check:** V0 and K0 from the Figure 4 caption; a later general discussion prints K0 = 212(3) GPa, but the caption, plotted curve and Table S3 data support the stored value. Observations from Supplementary Table S3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -418,7 +418,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Temperature k:** \[293.0, 293.0\]
     - **Volume ratio:** \[0.8306074766, 0.9571845794\]
     - **Notes:** The 7.5 and 8.6 GPa measurements lie in the reported structural-transition interval and are outside this fit.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Single-crystal BM2 fit to the Pnma perovskite only (Pnma is an alternative setting of this material's Pbnm, space group 62); the low-pressure R3c and the FeMg0.5Si0.5O3 P21/n candidates are not included. V0 is extrapolated because the Pnma perovskite is not retained at ambient pressure.
 

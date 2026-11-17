@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_egg.md#record-phase_egg_schulze_2018_bm3_1)
 
-**Source finding:** Coefficients from the this-study column of Table 2. The abstract and EOS prose print the K0' error as 1.3 instead of the tabulated 1.2; the tabulated error is stored.
+**Source check:** Coefficients from the this-study column of Table 2. The abstract and EOS prose print the K0' error as 1.3 instead of the tabulated 1.2; the tabulated error is stored.
 
 Automatic selection for equilibrium calculations.
 
@@ -166,7 +166,7 @@ Room-temperature BM3 in the Eulerian finite-strain convention, fitted with the E
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_egg.md#record-phase_egg_mookherjee_2019_bm3_lp_1)
 
-**Source finding:** Coefficients from the equation-of-state section (pp. 132-133) with the BM3 energy form of equations (1)-(2); at V = 196 Å³ they agree with the 14.7 GPa of Supplementary Table 1.
+**Source check:** Coefficients from the equation-of-state section (pp. 132-133) with the BM3 energy form of equations (1)-(2); at V = 196 Å³ they agree with the 14.7 GPa of Supplementary Table 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -194,7 +194,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Temperature k:** \[0.0, 0.0\]
     - **Volume ratio:** \[0.9324009, 1.0465725\]
     - **Notes:** The authors define LP below the proton transfer at about 15 GPa; LP calculations above it, to 43.7 GPa, are a metastable continuation.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K first-principles BM3 for the low-pressure (LP) proton configuration, not an experimental room-temperature EOS. The high-pressure (HP) configuration is a separate record. The source reports no E0 value.
 
@@ -264,7 +264,7 @@ Static 0 K first-principles BM3 for the low-pressure (LP) proton configuration, 
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/phase_egg.md#record-phase_egg_mookherjee_2019_bm3_hp_1)
 
-**Source finding:** Coefficients from the EOS discussion (p. 133) with the BM3 energy form of equations (1)-(2); volumes refer to the primitive monoclinic P21/c calculation cell, equivalent to the conventional Z = 4 cell.
+**Source check:** Coefficients from the EOS discussion (p. 133) with the BM3 energy form of equations (1)-(2); volumes refer to the primitive monoclinic P21/c calculation cell, equivalent to the conventional Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -295,7 +295,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/pha
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 120.071
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K first-principles BM3 for the proton-transferred high-pressure (HP) configuration, fitted by the authors to unpublished total energies versus volume.
 

@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_e_fe0072.md#record-phase_e_fe0072_crichton_ross_2000_bm3)
 
-**Source finding:** Coefficients from the Results, p. 563, all freely refined; the fitted V0 differs from the Table 1 ambient observation of 105.633(16) Å³.
+**Source check:** Coefficients from the Results, p. 563, all freely refined; the fitted V0 differs from the Table 1 ambient observation of 105.633(16) Å³.
 
 Automatic selection for equilibrium calculations.
 
@@ -88,7 +88,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Validity:**
     - **Pressure gpa:** \[0.0, 6.671\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

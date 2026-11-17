@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgal0125si0875o29375_post_perovskite.md#record-mgal0125si0875o29375_post_perovskite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** Coefficients from the Table 1 post-perovskite OVM 6.25 mol.% row; V0 = 42.33 Å³ on the normalized, approximately five-atom basis is multiplied by four for the conventional cell.
+**Source check:** Coefficients from the Table 1 post-perovskite OVM 6.25 mol.% row; V0 = 42.33 Å³ on the normalized, approximately five-atom basis is multiplied by four for the conventional cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 99.2491
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K GGA model-crystal fit, not an experimental result.
 

@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgfe60o.md#record-mgfe60o_richet_1989_bm2_1)
 
-**Source finding:** K0 from the Table 1 MW60 fit (pages 3038-3039); V0 is a0³ of the page 3037 ambient measurement, and K0' = 4 follows equation (1), page 3041.
+**Source check:** K0 from the Table 1 MW60 fit (pages 3038-3039); V0 is a0³ of the page 3037 ambient measurement, and K0' = 4 follows equation (1), page 3041.
 
 Automatic selection for equilibrium calculations.
 
@@ -143,7 +143,7 @@ Fit-specific room-temperature BM2 for MW60 (60 mol% FeO), distinct from the pape
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgfe60o.md#record-mgfe60o_solomatova_2016_hs_bm3_reference_1)
 
-**Source finding:** Coefficients from the Table 7 high-spin values; the underlying compression data are from Lin et al. (2005).
+**Source check:** Coefficients from the Table 7 high-spin values; the underlying compression data are from Lin et al. (2005).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -223,7 +223,7 @@ High-spin reference branch of a coupled spin-crossover fit to the Lin data (MINU
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgfe60o.md#record-mgfe60o_solomatova_2016_ls_bm3_reference_2)
 
-**Source finding:** Coefficients from the Table 7 low-spin values; the underlying compression data are from Lin et al. (2005).
+**Source check:** Coefficients from the Table 7 low-spin values; the underlying compression data are from Lin et al. (2005).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

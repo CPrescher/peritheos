@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/geo2_rutile.md#record-geo2_rutile_hazen_1981_bm3_1)
 
-**Source finding:** K0 from the EOS fit discussion on page 144; V0 from the Table 3 ambient lattice constants on page 147. The GeO2 compression data are in Table 1 (page 145).
+**Source check:** K0 from the EOS fit discussion on page 144; V0 from the Table 3 ambient lattice constants on page 147. The GeO2 compression data are in Table 1 (page 145).
 
 Automatic selection for equilibrium calculations.
 

@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/silicon.md#record-silicon_anzellini_2019_vinet_1)
 
-**Source finding:** Coefficients from Table 8 and the equation-of-state discussion.
+**Source check:** Coefficients from Table 8 and the equation-of-state discussion.
 
 Automatic selection for equilibrium calculations.
 

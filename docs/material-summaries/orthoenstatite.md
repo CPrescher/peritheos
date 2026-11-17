@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/orthoenstatite.md#record-orthoenstatite_angel_2002_bm3_1)
 
-**Source finding:** Recommended coefficients from the Abstract, Table 1 and the Summary (page 561), combining two compression experiments with Brillouin and high-pressure ultrasonic data.
+**Source check:** Recommended coefficients from the Abstract, Table 1 and the Summary (page 561), combining two compression experiments with Brillouin and high-pressure ultrasonic data.
 
 Automatic selection for equilibrium calculations.
 

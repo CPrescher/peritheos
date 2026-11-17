@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/indium_nitride.md#record-indium_nitride_munoz_1993_murnaghan_1)
 
-**Source finding:** K0 and K0' from the Table 1 wurtzite pseudopotential row (section 3, pages 6016-6018); the paper's 40/70-Ryd cutoff comparison is a convergence estimate, not a fit error.
+**Source check:** K0 and K0' from the Table 1 wurtzite pseudopotential row (section 3, pages 6016-6018); the paper's 40/70-Ryd cutoff comparison is a convergence estimate, not a fit error.
 
 Automatic selection for equilibrium calculations.
 

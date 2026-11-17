@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/cerium_dioxide.md#record-cerium_dioxide_gerward_2005_bm3_1)
 
-**Source finding:** Coefficients from the room-temperature experimental BM3 fit (Equation (1), Section 4, Tables 1 and 2), not from the paper's SIC-LSD calculations.
+**Source check:** Coefficients from the room-temperature experimental BM3 fit (Equation (1), Section 4, Tables 1 and 2), not from the paper's SIC-LSD calculations.
 
 Automatic selection for equilibrium calculations.
 

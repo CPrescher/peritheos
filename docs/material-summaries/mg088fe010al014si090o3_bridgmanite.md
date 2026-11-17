@@ -66,7 +66,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg088fe010al014si090o3_bridgmanite.md#record-mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1)
 
-**Source finding:** Coefficients from Table 1, unit-cell first row (page 874), fitted with the EosFit7-GUI program. The article does not say whether the fit used the merged Table S1/CIF series or the separate platelet volumes of Figure S2.
+**Source check:** Coefficients from Table 1, unit-cell first row (page 874), fitted with the EosFit7-GUI program. The article does not say whether the fit used the merged Table S1/CIF series or the separate platelet volumes of Figure S2.
 
 Automatic selection for equilibrium calculations.
 
@@ -95,7 +95,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[293.0, 293.0\]
     - **Volume ratio:** \[0.83179737564845, 0.98687824229479\]
     - **Notes:** Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Eulerian BM2 fit at 293 K, co-reported with the BM3 fit; neither is designated preferred.
 
@@ -201,7 +201,7 @@ Eulerian BM2 fit at 293 K, co-reported with the BM3 fit; neither is designated p
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg088fe010al014si090o3_bridgmanite.md#record-mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2)
 
-**Source finding:** Coefficients from Table 1, unit-cell second row (page 874), fitted with the EosFit7-GUI program. Table S1 and the deposited CIF print slightly different lattice values and errors; both versions are kept.
+**Source check:** Coefficients from Table 1, unit-cell second row (page 874), fitted with the EosFit7-GUI program. Table S1 and the deposited CIF print slightly different lattice values and errors; both versions are kept.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -229,7 +229,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Temperature k:** \[293.0, 293.0\]
     - **Volume ratio:** \[0.82780612244897, 0.98214285714287\]
     - **Notes:** Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Eulerian BM3 fit at 293 K, co-reported with the BM2 fit; neither is designated preferred.
 
@@ -337,7 +337,7 @@ Eulerian BM3 fit at 293 K, co-reported with the BM2 fit; neither is designated p
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg088fe010al014si090o3_bridgmanite.md#record-mg088fe010al014si090o3_bridgmanite_fu_2023_bm2)
 
-**Source finding:** K0 from main-article Table 3 and Online Materials Text S1 (Equation 1), fitted to the Table S2 pressure-volume series.
+**Source check:** K0 from main-article Table 3 and Online Materials Text S1 (Equation 1), fitted to the Table S2 pressure-volume series.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -367,7 +367,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg0
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 104.024
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 V0 is fixed at the measured ambient cell volume (Text S1). The 0.01 Å³ printed with it in Table S2 is the uncertainty of that ambient observation, not a fitted parameter error.
 
@@ -421,7 +421,7 @@ V0 is fixed at the measured ambient cell volume (Text S1). The 0.01 Å³ printed
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg088fe010al014si090o3_bridgmanite.md#record-mg088fe010al014si090o3_bridgmanite_fu_2023_bm3)
 
-**Source finding:** Coefficients from the third-order sensitivity fit in Online Materials Text S1 (Equation 1), with V0 fixed at the Table S2 ambient cell volume.
+**Source check:** Coefficients from the third-order sensitivity fit in Online Materials Text S1 (Equation 1), with V0 fixed at the Table S2 ambient cell volume.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -452,7 +452,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg0
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 104.024
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

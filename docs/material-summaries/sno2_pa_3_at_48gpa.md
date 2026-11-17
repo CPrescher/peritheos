@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/sno2_pa_3_at_48gpa.md#record-sno2_pa_3_at_48gpa_ono_2000_bm3_1)
 
-**Source finding:** Coefficients from the 300 K fit on page 621; the printed V0 error (3) means 0.3 Å³, not 3 Å³. The separate 25 GPa thermal-expansion result is not part of this record.
+**Source check:** Coefficients from the 300 K fit on page 621; the printed V0 error (3) means 0.3 Å³, not 3 Å³. The separate 25 GPa thermal-expansion result is not part of this record.
 
 Automatic selection for equilibrium calculations.
 

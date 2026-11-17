@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b1.md#record-nacl_b1_shen_2026_vinet_1)
 
-**Source finding:** Coefficients from Table II (pp. 9-12) with Equation (4); the Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.
+**Source check:** Coefficients from Table II (pp. 9-12) with Equation (4); the Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.
 
 Automatic selection for equilibrium calculations.
 

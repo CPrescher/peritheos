@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/magnesiowustite_fe56.md#record-magnesiowustite_fe56_jacobsen_2002_bm3_1)
 
-**Source finding:** Coefficients from paragraph 25 and Table 6: an EoSFIT error-weighted fit to all 11 Fe56 rows of Table 4, with quartz pressure calibration.
+**Source check:** Coefficients from paragraph 25 and Table 6: an EoSFIT error-weighted fit to all 11 Fe56 rows of Table 4, with quartz pressure calibration.
 
 Automatic selection for equilibrium calculations.
 
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 56.49216
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 V0 is one conventional Fm-3m rocksalt cell of four oxygen-normalized formula units, and all three parameters are fitted. The printed errors are standard deviations.
 

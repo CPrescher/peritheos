@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_d.md#record-phase_d_ant_a_shieh_2000_bm2_1)
 
-**Source finding:** V0 from the AntA-D entry of Table 2 (p. 71); K0 from the joint second-order Birch-Murnaghan fit on pp. 78-79 (Figure 10).
+**Source check:** V0 from the AntA-D entry of Table 2 (p. 71); K0 from the joint second-order Birch-Murnaghan fit on pp. 78-79 (Figure 10).
 
 Automatic selection for equilibrium calculations.
 
@@ -138,7 +138,7 @@ Reference-volume variant for run AntA, with V0 from Table 2. The paper fits one 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/phase_d.md#record-phase_d_ant_b_shieh_2000_bm2_1)
 
-**Source finding:** V0 from the AntB-D entry of Table 2 (p. 71); K0 from the joint second-order Birch-Murnaghan fit on pp. 78-79 (Figure 10).
+**Source check:** V0 from the AntB-D entry of Table 2 (p. 71); K0 from the joint second-order Birch-Murnaghan fit on pp. 78-79 (Figure 10).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

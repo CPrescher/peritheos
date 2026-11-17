@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/majorite.md#record-majorite_yagi_1992_bm3_1)
 
-**Source finding:** K0 from the Figure 3 fit paragraph on page 4; V0 from the Table 1 footnote and the Table 2 this-study one-bar cell (page 5).
+**Source check:** K0 from the Figure 3 fit paragraph on page 4; V0 from the Table 1 footnote and the Table 2 this-study one-bar cell (page 5).
 
 Automatic selection for equilibrium calculations.
 

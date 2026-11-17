@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/thorianite.md#record-thorianite_chidester_2018_bm3_linear_thermal)
 
-**Source finding:** Coefficients from Table 1 (p. 750) and Equations 1-3 (p. 754), where alpha\_KT is a constant alpha\*K\_T product; the printed V0 = 26.379 cm³/mol is stored per Z = 4 cell. Other Table 1 rows are literature comparisons.
+**Source check:** Coefficients from Table 1 (p. 750) and Equations 1-3 (p. 754), where alpha\_KT is a constant alpha\*K\_T product; the printed V0 = 26.379 cm³/mol is stored per Z = 4 cell. Other Table 1 rows are literature comparisons.
 
 Automatic selection for equilibrium calculations.
 

@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/na093al102si100o4_calcium_ferrite.md#record-na093al102si100o4_calcium_ferrite_qin_2023_bm3_1)
 
-**Source finding:** Coefficients from p. 2333 and the Fe-free column of Online Materials Table S5; observations in Table S3, whose 38.7 GPa row prints an a lattice parameter inconsistent with its V, so the V column is used.
+**Source check:** Coefficients from p. 2333 and the Fe-free column of Online Materials Table S5; observations in Table S3, whose 38.7 GPa row prints an a lattice parameter inconsistent with its V, so the V column is used.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[293.0, 293.0\]
     - **Volume ratio:** \[0.8580298013, 0.9995860927\]
     - **Notes:** Measurements are described as room temperature; 293 K is the temperature stated in the official 1.7 GPa CIF block. No row-wise temperatures are published.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Eulerian BM3 fit at room temperature with V0, K0 and K0' all fitted (EosFit7c program).
 

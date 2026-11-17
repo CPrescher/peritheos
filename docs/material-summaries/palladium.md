@@ -78,7 +78,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_baty_2024_bm3_dft_2)
 
-**Source finding:** The cold curve is the 'This work' column of Supplementary Table S3 and the green curve in Figure 3; Table S3 lists pressures calculated from this fit, not fit input.
+**Source check:** The cold curve is the 'This work' column of Supplementary Table S3 and the green curve in Figure 3; Table S3 lists pressures calculated from this fit, not fit input.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -153,7 +153,7 @@ Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values; not the 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_guigue_2020_vinet_1)
 
-**Source finding:** Coefficients from the pure-Pd compression discussion and EOS figure, reported separately from the hydride results; the pure-Pd observations are plotted, not tabulated.
+**Source check:** Coefficients from the pure-Pd compression discussion and EOS figure, reported separately from the hydride results; the pure-Pd observations are plotted, not tabulated.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -237,7 +237,7 @@ Room-temperature Vinet fit to pure Pd compressed in neon, from a Pd-hydride stud
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/palladium.md#record-palladium_fedotenko_2020_bm3_1)
 
-**Source finding:** Coefficients from Section 3.1 and Figure 1 (Equation 1). Table 2 prints V0 as 58.863(2) Å³, which conflicts with three other occurrences of the stored value and is treated as a typographical error.
+**Source check:** Coefficients from Section 3.1 and Figure 1 (Equation 1). Table 2 prints V0 as 58.863(2) Å³, which conflicts with three other occurrences of the stored value and is treated as a typographical error.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -318,7 +318,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 **Warning (source review):** Do not use this fixed-Kprime=4 fit for quantitative predictions or pressure calibration. Coefficient parity reproduces the published poor fit; it does not establish adequate data agreement.
 
-**Source finding:** K0 from the second-order result in Table 2. V0 follows Table 1, the BM3 fit paragraph and Figure 1 rather than Table 2's isolated 58.863(2) Å³.
+**Source check:** K0 from the second-order result in Table 2. V0 follows Table 1, the BM3 fit paragraph and Figure 1 rather than Table 2's isolated 58.863(2) Å³.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -403,7 +403,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/pal
 
 **Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly. The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.
 
-**Source finding:** Vinet coefficients from Table I, fitted with pressure and volume uncertainties. Pressures come from tungsten markers in Runs 1 and 2 and gold in Run 3 (Supplementary Tables I-III).
+**Source check:** Vinet coefficients from Table I, fitted with pressure and volume uncertainties. Pressures come from tungsten markers in Runs 1 and 2 and gold in Run 3 (Supplementary Tables I-III).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -497,7 +497,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/pal
 
 **Warning:** Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly. The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.
 
-**Source finding:** BM3 coefficients from Table I, fitted by Marquardt-Levenberg least squares with 0.1 GPa pressure and Le Bail volume uncertainties (Methods, page 035901-2); observations from Supplementary Tables I-III.
+**Source check:** BM3 coefficients from Table I, fitted by Marquardt-Levenberg least squares with 0.1 GPa pressure and Le Bail volume uncertainties (Methods, page 035901-2); observations from Supplementary Tables I-III.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -591,7 +591,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. The verified Table S1 observations and source equation do not recover the published experimental BM3 fit.
 
-**Source finding:** BM3 coefficients from the text with Equation 1; the 300 K observations plotted in Figure 3 are tabulated in the official Supplementary Table S1.
+**Source check:** BM3 coefficients from the text with Equation 1; the 300 K observations plotted in Figure 3 are tabulated in the official Supplementary Table S1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

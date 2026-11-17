@@ -73,7 +73,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_sakai_2025_rydberg_stacey_1)
 
-**Source finding:** Equation (1) with Table 2 coefficients; the stored parameters match every corresponding value in the official 26-row Table S9 compression grid, which is derived output, not measurements.
+**Source check:** Equation (1) with Table 2 coefficients; the stored parameters match every corresponding value in the official 26-row Table S9 compression grid, which is derived output, not measurements.
 
 Automatic selection for equilibrium calculations.
 
@@ -101,7 +101,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 95.95
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 2 parameterization. The authors fix most ambient V0 and K0 values from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.
 
@@ -163,7 +163,7 @@ Table 2 parameterization. The authors fix most ambient V0 and K0 values from cit
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_shen_2026_vinet_1)
 
-**Source finding:** Coefficients from Table II (pages 9-12), Equation (4). The Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.
+**Source check:** Coefficients from Table II (pages 9-12), Equation (4). The Cu pressures follow Fratanduono et al. (2020) Supplemental Eq. (2) with the 298 K coefficients of its Table I.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -245,7 +245,7 @@ Table II fit to the combined DAC-1 and DAC-2 data, with pressures from the simul
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_sokolova_2013_holzapfel_2)
 
-**Source finding:** Stored coefficients match the Mo columns of Tables 1 and 4.
+**Source check:** Stored coefficients match the Mo columns of Tables 1 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -347,7 +347,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2019_mao_vinet)
 
-**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -370,7 +370,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 124.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 record is an alternative reduction of the same data, not an independent experiment.
 
@@ -435,7 +435,7 @@ Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressu
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2019_dor_vinet)
 
-**Source finding:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [molybdenum\_dewaele\_2019\_mao\_vinet](#record-molybdenum_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -460,7 +460,7 @@ Published pressure-scale alternative of [molybdenum\_dewaele\_2019\_mao\_vinet](
 - **Validity:**
     - **Pressure gpa:** \[0.0, 124.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986 record is an alternative reduction of the same data, not an independent experiment.
 
@@ -525,7 +525,7 @@ Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressu
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet)
 
-**Source finding:** Coefficients from the Table 2 K0-fixed solution of the coupled pressure-difference fit (Equations (2)-(3), Section 3.2). Run AN012 is listed in Table 1 but absent from the official auxiliary PDF.
+**Source check:** Coefficients from the Table 2 K0-fixed solution of the coupled pressure-difference fit (Equations (2)-(3), Section 3.2). Run AN012 is listed in Table 1 but absent from the official auxiliary PDF.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -549,7 +549,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Pressure gpa:** \[0.0, 207.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The range is that of the published Table 2 pressure-standard parameterization, not the observation envelope.; The available Mo data rows span 43.1-214.6 GPa (printed derived pressures).
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Pressure-standard fit to co-compression data, with pressures from the Tange et al. (2009) MgO Vinet EOS (their Fit 3) as fixed 300 K anchor. This K0-fixed solution and the K0-free record are correlated alternatives from the same data, not independent experiments.
 
@@ -630,7 +630,7 @@ Pressure-standard fit to co-compression data, with pressures from the Tange et a
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet)
 
-**Source finding:** Coefficients from the Table 2 K0-free solution of the coupled pressure-difference fit (Equations (2)-(3), Section 3.2). Run AN012 is listed in Table 1 but absent from the official auxiliary PDF.
+**Source check:** Coefficients from the Table 2 K0-free solution of the coupled pressure-difference fit (Equations (2)-(3), Section 3.2). Run AN012 is listed in Table 1 but absent from the official auxiliary PDF.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -654,7 +654,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Pressure gpa:** \[0.0, 207.0\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The range is that of the published Table 2 pressure-standard parameterization, not the observation envelope.; The available Mo data rows span 43.1-214.6 GPa (printed derived pressures).
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Pressure-standard fit to co-compression data, with pressures from the Tange et al. (2009) MgO Vinet EOS (their Fit 3) as fixed 300 K anchor. This K0-free solution and the K0-fixed record are correlated alternatives from the same data, not independent experiments.
 
@@ -740,7 +740,7 @@ Pressure-standard fit to co-compression data, with pressures from the Tange et a
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_table4_vinet)
 
-**Source finding:** Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
+**Source check:** Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -762,7 +762,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 97.9\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data; run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
 
@@ -818,7 +818,7 @@ Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_table4_us_k0_261_vinet)
 
-**Source finding:** Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
+**Source check:** Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -840,7 +840,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 97.9\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table IV fit with V0 fixed from a separate fit to the 0-5 GPa data and K0 adopted from ultrasound; it is distinct from the later 2019 all-free-parameter recalibration. Run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
 

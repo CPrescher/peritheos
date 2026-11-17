@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/pseudowollastonite.md#record-pseudowollastonite_sagatova_2021_gga_300k_vinet)
 
-**Source finding:** Coefficients from the this-work GGA pseudowollastonite row of Table 2, a PBE-GGA quasi-harmonic free-energy calculation with the Vinet form of Methods.
+**Source check:** Coefficients from the this-work GGA pseudowollastonite row of Table 2, a PBE-GGA quasi-harmonic free-energy calculation with the Vinet form of Methods.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 12.0
     - **Molar mass g mol:** 116.162
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

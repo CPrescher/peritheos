@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/fe_bearing_al_phase_d.md#record-fe_bearing_al_phase_d_criniti_2023_bm3_1)
 
-**Source finding:** Coefficients from the abstract and Table 2 (first BM3 row), fitted with the EosFit7 program. Table 2 heads the 0-38 GPa group 'Low-spin state EOS', but the text describes compression before the spin crossover, which the record follows.
+**Source check:** Coefficients from the abstract and Table 2 (first BM3 row), fitted with the EosFit7 program. Table 2 heads the 0-38 GPa group 'Low-spin state EOS', but the text describes compression before the spin crossover, which the record follows.
 
 Automatic selection for equilibrium calculations.
 
@@ -171,7 +171,7 @@ Room-temperature fit of the first BM3 row of Table 2, with V0, K0 and K0' all fr
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/fe_bearing_al_phase_d.md#record-fe_bearing_al_phase_d_criniti_2023_vinet_2)
 
-**Source finding:** Coefficients from Table 2, first Vinet row, fitted with the EosFit7 program to the 21 Table 1 rows at or below 38 GPa. The Table 2 heading 'Low-spin state EOS' conflicts with the text's pre-crossover reading, which the record follows.
+**Source check:** Coefficients from Table 2, first Vinet row, fitted with the EosFit7 program to the 21 Table 1 rows at or below 38 GPa. The Table 2 heading 'Low-spin state EOS' conflicts with the text's pre-crossover reading, which the record follows.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

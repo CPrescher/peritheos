@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/cementite.md#record-cementite_scott_2001_bm3_1)
 
-**Source finding:** K0 and K0' from the weighted least-squares EOS paragraph (p. 1876); V0 is the ambient volume of the Experimental section (p. 1875).
+**Source check:** K0 and K0' from the weighted least-squares EOS paragraph (p. 1876); V0 is the ambient volume of the Experimental section (p. 1875).
 
 Automatic selection for equilibrium calculations.
 
@@ -86,7 +86,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 73.2\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Weighted BM3 fit to 300 K compression data, with V0 fixed at the separately measured ambient unit-cell volume. The highest diffraction pattern is at 73.2 GPa (Figure 1); the title and abstract round this to 73 GPa.
 
@@ -142,7 +142,7 @@ Weighted BM3 fit to 300 K compression data, with V0 fixed at the separately meas
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cementite.md#record-cementite_prescher_2012_full_range_bm3)
 
-**Source finding:** K0 and K0' from Section III and Figure 1 (p. 140402-2); the adopted V0 is read from the full-range curve drawn in Figure 1.
+**Source check:** K0 and K0' from Section III and Figure 1 (p. 140402-2); the adopted V0 is read from the full-range curve drawn in Figure 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -163,7 +163,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0, 47.4\]
 - **Coverage provenance:** reported\_qualitatively
 - **Reported temperature coverage (K):** \[293, 293\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Full-range BM3 fit; the primary dataset is the 19 Table S1 points with ruby pressures (1.8-47.4 GPa); the main text rounds the upper limit to 47 GPa. V0 is not printed in the paper: it is adopted from the published calculated full-range curve, not from the ambient measurement, and held fixed. Its error and whether the authors fixed V0 are unknown.
 
@@ -235,7 +235,7 @@ Full-range BM3 fit; the primary dataset is the 19 Table S1 points with ruby pres
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cementite.md#record-cementite_li_2002_bm3)
 
-**Source finding:** K0 and K0' from p. 168, after Equation (2), and the abstract; V0 is the measured ambient row of Table 1.
+**Source check:** K0 and K0' from p. 168, after Equation (2), and the abstract; V0 is the measured ambient row of Table 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -258,7 +258,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0001, 30.5\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[299, 301\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 300 K BM3 fit with V0 fixed, as in the source, at the measured ambient volume of the conventional Pnma cell (Z = 4). Coefficients are on the original pressure scale, not the Litasov (2013) recalibration. No crystallographic transition was observed to 30.5 GPa; the magnetic state was not measured.
 
@@ -339,7 +339,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 **Warning:** Qualified use only; see the audit. Fitted only to 34.3 GPa at 300 K; the V0 constraint, fit weights and coefficient errors are not reported.
 
-**Source finding:** K0 and K0' from Table 3, experimental row e (p. 5); the Table 1 ambient V0 agrees with the Figure 4 curve.
+**Source check:** K0 and K0' from Table 3, experimental row e (p. 5); the Table 1 ambient V0 agrees with the Figure 4 curve.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -365,7 +365,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Pressure gpa:** \[0, 34.3\]
     - **Temperature k:** \[300, 300\]
     - **Notes:** Measurements reach 66.5 GPa, but this fit uses only those to 34.3 GPa (Table 3: ≤ 35 GPa).; Low-pressure ferromagnetic branch as assigned by the source; no magnetic transition is modelled.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Original experimental 300 K BM3 fit below 35 GPa (Table 3), on the original pressure scale, not the Litasov recalibration. V0 is the measured ambient cell of Table 1; the paper does not explicitly state its V0 fitting constraint.
 

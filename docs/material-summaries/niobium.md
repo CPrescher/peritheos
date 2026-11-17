@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/niobium.md#record-niobium_takemura_2006_bm3_1)
 
-**Source finding:** Coefficients from Table II and section III.B (pages 224119-5 to -6); the adopted fit is limited to the quasihydrostatic helium data through 71.5 GPa.
+**Source check:** Coefficients from Table II and section III.B (pages 224119-5 to -6); the adopted fit is limited to the quasihydrostatic helium data through 71.5 GPa.
 
 Automatic selection for equilibrium calculations.
 
@@ -142,7 +142,7 @@ Adopted 300 K BM3 fit to the quasihydrostatic helium data. V0 is fixed from a = 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/niobium.md#record-niobium_sokolova_2013_holzapfel_2)
 
-**Source finding:** Stored coefficients match the niobium columns of Tables 1 and 4.
+**Source check:** Stored coefficients match the niobium columns of Tables 1 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

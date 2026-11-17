@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zircon.md#record-zircon_hazen_1979_bm3_1)
 
-**Source finding:** V0 and K0 from Table 1 and the zircon compressibility section, p. 198.
+**Source check:** V0 and K0 from Table 1 and the zircon compressibility section, p. 198.
 
 Automatic selection for equilibrium calculations.
 

@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zirconium_omega.md#record-zirconium_omega_mchardy_2026_vinet_1)
 
-**Source finding:** Coefficients from Table II, omega row, with the authors' fixed V0 and its error converted from Å³/atom to the three-atom cell.
+**Source check:** Coefficients from Table II, omega row, with the authors' fixed V0 and its error converted from Å³/atom to the three-atom cell.
 
 Automatic selection for equilibrium calculations.
 

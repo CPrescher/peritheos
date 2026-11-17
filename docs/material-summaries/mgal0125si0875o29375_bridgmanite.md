@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgal0125si0875o29375_bridgmanite.md#record-mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** Coefficients from the Table 1 perovskite OVM 6.25 mol.% row (Section 2); the printed V0 = 42.36 Å³ on the normalized, approximately five-atom basis is multiplied by four.
+**Source check:** Coefficients from the Table 1 perovskite OVM 6.25 mol.% row (Section 2); the printed V0 = 42.36 Å³ on the normalized, approximately five-atom basis is multiplied by four.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 99.2491
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K GGA fit to the calculated energies of a model crystal, whose E(V) values are not published.
 

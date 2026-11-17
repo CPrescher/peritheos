@@ -68,7 +68,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 **Warning:** Not recommended for quantitative use. A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use.
 
-**Source finding:** V0 and K0 from Section 3.3; K0 is calculated from the in-situ run-2 cell at 33.4 GPa, and the authors state that more points would be needed for a robust modulus and an estimate of K0'. The K0 error is calculated from the ruby-Pt pressure difference.
+**Source check:** V0 and K0 from Section 3.3; K0 is calculated from the in-situ run-2 cell at 33.4 GPa, and the authors state that more points would be needed for a robust modulus and an estimate of K0'. The K0 error is calculated from the ruby-Pt pressure difference.
 
 Automatic selection for equilibrium calculations.
 
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 33.4\]
     - **Notes:** The range spans only the two observations that define the EOS, not a continuous stability field.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 CaFe2O4-type run-2 product only, distinct from the higher-pressure CaTi2O4-type phase of runs 3 and 4. A one-point construction, not a multi-point fit: the only compressed volume is the in-situ run-2 observation after laser heating, and V0 was measured after recovery.
 
@@ -180,7 +180,7 @@ CaFe2O4-type run-2 product only, distinct from the higher-pressure CaTi2O4-type 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_irifune_2002_bm2_2)
 
-**Source finding:** V0 and K0 from p. 652, where the printed BM3 with dK/dP = 4 is algebraically BM2; V0 is the averaged recovered volume. Figure 6 open circles are this study's states at 27 °C; filled symbols are earlier studies.
+**Source check:** V0 and K0 from p. 652, where the printed BM3 with dK/dP = 4 is algebraically BM2; V0 is the averaged recovered volume. Figure 6 open circles are this study's states at 27 °C; filled symbols are earlier studies.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -203,7 +203,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_exactly
 - **Validity:**
     - **Pressure gpa:** \[0.0, 34.7\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Only three compressed states plus the recovered ambient state: do not infer a free K0', covariance or thermal coefficients.
 
@@ -287,7 +287,7 @@ Only three compressed states plus the recovered ambient state: do not infer a fr
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_sueda_2009_htbm_2)
 
-**Source finding:** Coefficients from Table 2 with Equations (1)-(4). The printed a0 is the T = 0 intercept of alpha(T), not alpha(300 K), and 'partial K' in the denominator of Equation (4) is a typographical error for partial T.
+**Source check:** Coefficients from Table 2 with Equations (1)-(4). The printed a0 is the T = 0 intercept of alpha(T), not alpha(300 K), and 'partial K' in the denominator of Equation (4) is a typographical error for partial T.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -318,7 +318,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0001, 41.5\]
     - **Temperature k:** \[298.0, 2400.0\]
     - **Notes:** Data: KMA 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.; Section 3.1 gives 28.7-41.5 GPa for the room-temperature KMA data, but Table 1 also has observations at 24.8 and 26.6 GPa.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -436,7 +436,7 @@ Published thermal parameterization, with the 300 K BM3 coefficients fixed at the
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_sueda_2009_mgd_3)
 
-**Source finding:** Coefficients from Table 2 with Equations (1) and (6)-(8). Equation (6) misprints the energy difference in the denominator and the first Equation (7) prints the Debye lower limit as theta; the standard forms are used.
+**Source check:** Coefficients from Table 2 with Equations (1) and (6)-(8). Equation (6) misprints the energy difference in the denominator and the first Equation (7) prints the Debye lower limit as theta; the standard forms are used.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -468,7 +468,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0001, 41.5\]
     - **Temperature k:** \[298.0, 2400.0\]
     - **Notes:** Data: KMA 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.; Section 3.1 gives 28.7-41.5 GPa for the room-temperature KMA data, but Table 1 also has observations at 24.8 and 26.6 GPa.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

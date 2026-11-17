@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/praseodymium_dioxide.md#record-praseodymium_dioxide_gerward_2005_bm3_1)
 
-**Source finding:** Coefficients from the experimental BM3 fit in section 4 (pages 58-59) and Tables 1 and 2 with Equation (1), not the separate SIC-LSD calculations.
+**Source check:** Coefficients from the experimental BM3 fit in section 4 (pages 58-59) and Tables 1 and 2 with Equation (1), not the separate SIC-LSD calculations.
 
 Automatic selection for equilibrium calculations.
 

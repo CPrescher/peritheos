@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_bm3)
 
-**Source finding:** K0 and K0' from the 300 K abstract (manuscript and publication of record); V0 is the measured ambient mean (Section 3). Table 1 gives the K0 error as 2 GPa for the P-V-T fit; the record follows the abstract.
+**Source check:** K0 and K0' from the 300 K abstract (manuscript and publication of record); V0 is the measured ambient mean (Section 3). Table 1 gives the K0 error as 2 GPa for the P-V-T fit; the record follows the abstract.
 
 Automatic selection for equilibrium calculations.
 
@@ -84,7 +84,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 33.01\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeCO3), on the printed Au pressure scale, whose exact realization is unresolved. The published thermal parameters are not used because Table 1 and the abstract disagree on a0. No extension across the cited spin transition near 45 GPa or a decomposition boundary is claimed.
 
@@ -159,7 +159,7 @@ Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeC
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit)
 
-**Source finding:** Observations are all 111 rows of Table 2 (pp. 13-15), fitted with the Section 3 HTBM model and the integrated-expansivity convention of Litasov (2007) Equations (1)-(4). V0 is from the published 300 K record; the other coefficients are Peritheos fits.
+**Source check:** Observations are all 111 rows of Table 2 (pp. 13-15), fitted with the Section 3 HTBM model and the integrated-expansivity convention of Litasov (2007) Equations (1)-(4). V0 is from the published 300 K record; the other coefficients are Peritheos fits.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -185,7 +185,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 33.01\]
 - **Reported temperature coverage (K):** \[300.0, 1673.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">

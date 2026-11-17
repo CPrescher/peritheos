@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg7si2o8.md#record-mg7si2o8_crichton_2002_bm3_1)
 
-**Source finding:** Coefficients from Table 2 and the EOS discussion (page 335); Table 1 gives the complete P, a, c and V series with estimated standard deviations.
+**Source check:** Coefficients from Table 2 and the EOS discussion (page 335); Table 1 gives the complete P, a, c and V series with estimated standard deviations.
 
 Automatic selection for equilibrium calculations.
 

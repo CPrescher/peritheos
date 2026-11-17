@@ -84,7 +84,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_mosenfelder_2009_bm3_1)
 
-**Source finding:** Coefficients from Table 4 with Equations (2)-(12); the static observations are from Guignot et al. (2007) Table 1. Shock states constrain the fit in pressure-density space only; the source's shock temperatures are not used.
+**Source check:** Coefficients from Table 4 with Equations (2)-(12); the static observations are from Guignot et al. (2007) Table 1. Shock states constrain the fit in pressure-density space only; the source's shock temperatures are not used.
 
 Automatic selection for equilibrium calculations.
 
@@ -259,7 +259,7 @@ BM3 (fit 1 in the paper) to laser-heated DAC data from this study and Guignot et
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3)
 
-**Source finding:** K0 from Table 3 and the Results prose (p. 477), Anderson et al. (1989) gold scale; V0 is the 0 K LDA value of Oganov and Ono (2004). Figure 2 captions this curve as K0 = 236(1) GPa; the table value is stored.
+**Source check:** K0 from Table 3 and the Results prose (p. 477), Anderson et al. (1989) gold scale; V0 is the 0 K LDA value of Oganov and Ono (2004). Figure 2 captions this curve as K0 = 236(1) GPa; the table value is stored.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -285,7 +285,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[116.1, 144.4\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The source reports the phase stable over 116-144 GPa and metastable, and hard to measure, below 110 GPa.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Pure MgSiO3 with the CaIrO3-type structure, not CaIrO3 composition or bridgmanite; the conventional Cmcm cell holds four formula units. Pressures are on the Anderson et al. gold scale.
 
@@ -377,7 +377,7 @@ Pure MgSiO3 with the CaIrO3-type structure, not CaIrO3 composition or bridgmanit
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_ono_2006_jamieson_bm2_4)
 
-**Source finding:** K0 from Table 3 and the Results prose (p. 477), Jamieson et al. (1982) gold scale; V0 is the 0 K LDA value of Oganov and Ono (2004). Figure 2 captions this curve as K0 = 225(1) GPa; the table value is stored.
+**Source check:** K0 from Table 3 and the Results prose (p. 477), Jamieson et al. (1982) gold scale; V0 is the 0 K LDA value of Oganov and Ono (2004). Figure 2 captions this curve as K0 = 225(1) GPa; the table value is stored.
 
 Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_anderson\_bm2\_3](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3); it is not an independent EOS choice.
 
@@ -404,7 +404,7 @@ Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_an
 - **Validity:**
     - **Pressure gpa:** \[111.5, 137.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The same six observations as the Anderson-scale record, with pressures on the Jamieson et al. gold scale; not a separate sample. The conventional Cmcm cell has Z = 4.
 
@@ -493,7 +493,7 @@ The same six observations as the Anderson-scale record, with pressures on the Ja
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_ono_2006_dewaele_bm2_5)
 
-**Source finding:** K0 from Table 3 and the Results prose (p. 477), Dewaele et al. (2004) gold scale; V0 is the 0 K LDA value of Oganov and Ono (2004). The Results prose says Z = 2; the Table 1 note and site multiplicities give Z = 4, used here.
+**Source check:** K0 from Table 3 and the Results prose (p. 477), Dewaele et al. (2004) gold scale; V0 is the 0 K LDA value of Oganov and Ono (2004). The Results prose says Z = 2; the Table 1 note and site multiplicities give Z = 4, used here.
 
 Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_anderson\_bm2\_3](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3); it is not an independent EOS choice.
 
@@ -521,7 +521,7 @@ Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_an
     - **Pressure gpa:** \[121.4, 151.1\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The paper title's 144 GPa upper bound uses the Anderson scale; the same highest-pressure observation is 151.1 GPa on the Dewaele scale.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The same six observations as the Anderson-scale record, with pressures on the Dewaele et al. gold scale; not a separate sample. The conventional Cmcm cell has Z = 4.
 
@@ -615,7 +615,7 @@ The same six observations as the Anderson-scale record, with pressures on the De
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** Coefficients from the Table 1 pure post-perovskite row (Section 2); the printed V0 = 41.83 Å³ per normalized five-atom formula unit is multiplied by four.
+**Source check:** Coefficients from the Table 1 pure post-perovskite row (Section 2); the printed V0 = 41.83 Å³ per normalized five-atom formula unit is multiplied by four.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -645,7 +645,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -706,7 +706,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3)
 
-**Source finding:** Coefficients from the Table I PPv LDA row at 300 K; the printed V0 = 40.02 Å³ per MgSiO3 is multiplied by Z = 4.
+**Source check:** Coefficients from the Table I PPv LDA row at 300 K; the printed V0 = 40.02 Å³ per MgSiO3 is multiplied by Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -789,7 +789,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3)
 
-**Source finding:** Coefficients from the Table I PPv PBE row at 300 K; the printed V0 = 42.56 Å³ per MgSiO3 is multiplied by Z = 4.
+**Source check:** Coefficients from the Table I PPv PBE row at 300 K; the printed V0 = 42.56 Å³ per MgSiO3 is multiplied by Z = 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -872,7 +872,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_li_zeng_2009_gga_bm3)
 
-**Source finding:** Coefficients from Table 1, this-study post-perovskite row, third-order Birch-Murnaghan column.
+**Source check:** Coefficients from Table 1, this-study post-perovskite row, third-order Birch-Murnaghan column.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -947,7 +947,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_li_zeng_2009_gga_vinet)
 
-**Source finding:** Coefficients from Table 1, this-study post-perovskite row, Vinet column: the authors' alternative fit to the same energy-volume calculation.
+**Source check:** Coefficients from Table 1, this-study post-perovskite row, Vinet column: the authors' alternative fit to the same energy-volume calculation.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1022,7 +1022,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_li_zeng_2009_gga_natural_strain3)
 
-**Source finding:** Coefficients from Table 1, this-study post-perovskite row, third-order natural-strain column: the authors' alternative fit to the same energy-volume calculation.
+**Source check:** Coefficients from Table 1, this-study post-perovskite row, third-order natural-strain column: the authors' alternative fit to the same energy-volume calculation.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1097,7 +1097,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_liu_2010_lda_static_bm3)
 
-**Source finding:** Coefficients from Section 3 and the Table 1 'This work' row; the other Table 1 rows are earlier studies. V is the Cmcm unit-cell volume (Z = 4).
+**Source check:** Coefficients from Section 3 and the Table 1 'This work' row; the other Table 1 rows are earlier studies. V is the Cmcm unit-cell volume (Z = 4).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1127,7 +1127,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static LDA calculation. The article's separate quasi-harmonic Debye results, which extend to 2000 K, are not represented by this record.
 
@@ -1181,7 +1181,7 @@ Static LDA calculation. The article's separate quasi-harmonic Debye results, whi
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey)
 
-**Source finding:** Coefficients from Table 1 (V0 = 24.2 cm³/mol, stored per Z = 4 cell). Equation (2) is a generalized Rydberg form; Table 1 fixes k = 5, which maps exactly to Rydberg-Stacey with K\_infinity\_prime = k/3, not a Birch-Murnaghan form.
+**Source check:** Coefficients from Table 1 (V0 = 24.2 cm³/mol, stored per Z = 4 cell). Equation (2) is a generalized Rydberg form; Table 1 fixes k = 5, which maps exactly to Rydberg-Stacey with K\_infinity\_prime = k/3, not a Birch-Murnaghan form.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1213,7 +1213,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Reference isotherm of the source's larger Helmholtz free-energy model.
 
@@ -1272,7 +1272,7 @@ Reference isotherm of the source's larger Helmholtz free-energy model.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_komabayashi_2008_thermal_bm3)
 
-**Source finding:** Coefficients from Table 2 (Equations 1-4). The fit imposes alpha(300 K) = 1.7e-5 K^-1; the independently rounded printed alpha0 and alpha1 give 1.7009e-5, and the record keeps the printed values.
+**Source check:** Coefficients from Table 2 (Equations 1-4). The fit imposes alpha(300 K) = 1.7e-5 K^-1; the independently rounded printed alpha0 and alpha1 give 1.7009e-5, and the record keeps the printed values.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1306,7 +1306,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

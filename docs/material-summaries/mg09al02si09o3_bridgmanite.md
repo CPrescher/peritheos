@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg09al02si09o3_bridgmanite.md#record-mg09al02si09o3_bridgmanite_kubo_2000_bm3_1)
 
-**Source finding:** K0 from the abstract and page 106 (fixed-derivative fit to all ten Table I rows); V0 from the Table I atmospheric row of the ap run. The paper names the third-order Birch-Murnaghan form but does not print the formula.
+**Source check:** K0 from the abstract and page 106 (fixed-derivative fit to all ten Table I rows); V0 from the Table I atmospheric row of the ap run. The paper names the third-order Birch-Murnaghan form but does not print the formula.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 8.71\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.9645476773, 1.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The authors' preferred fit. The source calls it BM3, but with K0' = 4 fixed it reduces algebraically to BM2. The two decompression runs (ap and ku) were normalized to their own measured ambient volumes, 163.6 and 163.5 Å³, and this record uses the more precise ap value, 163.6(4) Å³.
 
@@ -173,7 +173,7 @@ The authors' preferred fit. The source calls it BM3, but with K0' = 4 fixed it r
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg09al02si09o3_bridgmanite.md#record-mg09al02si09o3_bridgmanite_kubo_2000_bm3_2)
 
-**Source finding:** K0 and K0' from the unconstrained fit on page 106 to all ten Table I rows; V0 from the Table I atmospheric row of the ap run. The paper names the third-order Birch-Murnaghan form but does not print the formula.
+**Source check:** K0 and K0' from the unconstrained fit on page 106 to all ten Table I rows; V0 from the Table I atmospheric row of the ap run. The paper names the third-order Birch-Murnaghan form but does not print the formula.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -200,7 +200,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0, 8.71\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.9645476773, 1.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Not the authors' preferred fit: they state that less than 4% compression cannot determine K0' accurately. V0 comes from the measured run-specific ambient volumes, not from a shared three-parameter fit.
 

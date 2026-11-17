@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/molybenum_carbide_mo2c.md#record-molybenum_carbide_mo2c_haines_2001_bm3_1)
 
-**Source finding:** K0 and K0' from section 4.1 (pp. 2449-2450) and the Figure 2 Birch-Murnaghan fit through 46 GPa; the ambient lattice constants used for V0 are from section 2.
+**Source check:** K0 and K0' from section 4.1 (pp. 2449-2450) and the Figure 2 Birch-Murnaghan fit through 46 GPa; the ambient lattice constants used for V0 are from section 2.
 
 Automatic selection for equilibrium calculations.
 
@@ -135,7 +135,7 @@ Room-temperature BM3 fit to relative-volume (V/V0) X-ray data; the paper does no
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/molybenum_carbide_mo2c.md#record-molybenum_carbide_mo2c_haines_2001_bm3_refit)
 
-**Source finding:** Observations are the 16 markers digitized from Figure 2 (section 4.1, pp. 2449-2450). K0 and K0' are Peritheos fits, not the paper's own BM3 curve.
+**Source check:** Observations are the 16 markers digitized from Figure 2 (section 4.1, pp. 2449-2450). K0 and K0' are Peritheos fits, not the paper's own BM3 curve.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

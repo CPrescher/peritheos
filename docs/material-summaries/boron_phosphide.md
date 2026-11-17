@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/boron_phosphide.md#record-boron_phosphide_le_godec_2014_vinet_1)
 
-**Source finding:** Coefficients from the Vinet row of the EOS comparison table; the author manuscript states that V0 was fixed. The observations appear only in Figure 2.
+**Source check:** Coefficients from the Vinet row of the EOS comparison table; the author manuscript states that V0 was fixed. The observations appear only in Figure 2.
 
 Automatic selection for equilibrium calculations.
 

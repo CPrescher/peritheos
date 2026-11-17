@@ -59,7 +59,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Not recommended for quantitative use. Neither the 65 deposited P-V-T rows nor the 47 plotted points reproduce the published K0 and K0'.
 
-**Source finding:** Coefficients from Table 1 (manuscript p. 15) with the EOS discussion on manuscript pages 6-7; row 32 of the deposited Table 1 (AM-08-056) is an isolated anomaly, kept verbatim.
+**Source check:** Coefficients from Table 1 (manuscript p. 15) with the EOS discussion on manuscript pages 6-7; row 32 of the deposited Table 1 (AM-08-056) is an isolated anomaly, kept verbatim.
 
 Automatic selection for equilibrium calculations.
 

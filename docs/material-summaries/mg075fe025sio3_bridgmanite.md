@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg075fe025sio3_bridgmanite.md#record-mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3)
 
-**Source finding:** Coefficients from the text following Table 1 for x = 0.25, derived from the equation of state; not the Table 1 aggregate elastic modulus and derivative.
+**Source check:** Coefficients from the text following Table 1 for x = 0.25, derived from the equation of state; not the Table 1 aggregate elastic modulus and derivative.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 108.272
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -145,7 +145,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg075fe025sio3_bridgmanite.md#record-mg075fe025sio3_bridgmanite_wu_2013_gga_bm3)
 
-**Source finding:** Coefficients from the Fe25 calculation column of Table 1 (printed as B0 and B0'), for the BM3 form of Equation (10).
+**Source check:** Coefficients from the Fe25 calculation column of Table 1 (printed as B0 and B0'), for the BM3 form of Equation (10).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -176,7 +176,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 108.272
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

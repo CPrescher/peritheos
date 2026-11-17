@@ -131,7 +131,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/pyrope.md#record-pyrope_angel_2022_bm3_q_compromise_debye)
 
-**Source finding:** Coefficients from official supplementary EOS file 2, which carries the full 59x59 covariance; the printed molar V0 = 113.13 cm³/mol is converted to the eight-formula-unit cell.
+**Source check:** Coefficients from official supplementary EOS file 2, which carries the full 59x59 covariance; the printed molar V0 = 113.13 cm³/mol is converted to the eight-formula-unit cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -155,7 +155,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 33.4\]
 - **Reported temperature coverage (K):** \[100.0, 1700.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 Published q-compromise pressure approximation: theta0 and gamma/V are constant, and there is no q parameter. V0 is adopted from Holland and Powell (2011). The model gives P-V-T, pressure derivatives and parameter uncertainty, not a caloric potential or a mixing model.

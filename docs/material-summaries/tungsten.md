@@ -69,7 +69,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/tungsten.md#record-tungsten_sakai_2025_rydberg_stacey_1)
 
-**Source finding:** Stored parameters match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).
+**Source check:** Stored parameters match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -95,7 +95,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 2
     - **Molar mass g mol:** 183.84
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 2 parameterization. The authors fix most ambient V0 and K0 values from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.
 
@@ -157,7 +157,7 @@ Table 2 parameterization. The authors fix most ambient V0 and K0 values from cit
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/tungsten.md#record-tungsten_dewaele_2004_vinet_2)
 
-**Source finding:** Coefficients from the Table II revised-ruby-scale fit, with Equation (1) and the Figure 2 caption; bold Table II values are fixed.
+**Source check:** Coefficients from the Table II revised-ruby-scale fit, with Equation (1) and the Figure 2 caption; bold Table II values are fixed.
 
 Automatic selection for equilibrium calculations.
 
@@ -182,7 +182,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 153.0\]
     - **Temperature k:** \[298.0, 298.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Static 298 K Vinet fit to all Table I observations, with pressures on the revised ruby scale (P'\_R in the paper). Published atomic V0 is stored per conventional cell (×2).
 
@@ -246,7 +246,7 @@ Static 298 K Vinet fit to all Table I observations, with pressures on the revise
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/tungsten.md#record-tungsten_shen_2026_vinet_3)
 
-**Source finding:** Coefficients from Table II (pages 9-12) with Equation (4); the Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I.
+**Source check:** Coefficients from Table II (pages 9-12) with Equation (4); the Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -328,7 +328,7 @@ Table II fit to the combined DAC-1 and DAC-2 data, with pressures from the simul
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/tungsten.md#record-tungsten_sokolova_2013_holzapfel_4)
 
-**Source finding:** Stored coefficients match the tungsten columns of Tables 1 and 4.
+**Source check:** Stored coefficients match the tungsten columns of Tables 1 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -430,7 +430,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/tungsten.md#record-tungsten_dewaele_2019_mao_vinet)
 
-**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -453,7 +453,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 155.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 record is an alternative reduction of the same data, not an independent experiment.
 
@@ -518,7 +518,7 @@ Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressu
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/tungsten.md#record-tungsten_dewaele_2019_dor_vinet)
 
-**Source finding:** Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [tungsten\_dewaele\_2019\_mao\_vinet](#record-tungsten_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -543,7 +543,7 @@ Published pressure-scale alternative of [tungsten\_dewaele\_2019\_mao\_vinet](#r
 - **Validity:**
     - **Pressure gpa:** \[0.0, 155.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986 record is an alternative reduction of the same data, not an independent experiment.
 
@@ -608,7 +608,7 @@ Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressu
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/tungsten.md#record-tungsten_dewaele_2004_mao_ruby_vinet)
 
-**Source finding:** Coefficients from the Table II classical Mao ruby-scale fit; bold Table II values are fixed, and the Vinet form is given in the Figure 2 caption.
+**Source check:** Coefficients from the Table II classical Mao ruby-scale fit; bold Table II values are fixed, and the Vinet form is given in the Figure 2 caption.
 
 Published pressure-scale alternative of [tungsten\_dewaele\_2004\_vinet\_2](#record-tungsten_dewaele_2004_vinet_2); it is not an independent EOS choice.
 
@@ -633,7 +633,7 @@ Published pressure-scale alternative of [tungsten\_dewaele\_2004\_vinet\_2](#rec
 - **Validity:**
     - **Pressure gpa:** \[0.0, 144.3\]
     - **Temperature k:** \[298.0, 298.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Static 298 K synchrotron X-ray fit to all Table I observations, with pressures on the classical Mao ruby scale. V0 is fixed from the authors' 0-5 GPa determination. The revised-ruby record is an alternative reduction of the same data, not an independent experiment.
 

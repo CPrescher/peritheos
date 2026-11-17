@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgfe94o_rhombohedral.md#record-mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1)
 
-**Source finding:** Coefficients from Table 1 and Section 3.2, fitted with the MINUTI 2.0.0 program to the 12 rows of Table S1; the printed V0 = 9.59(10) Å³/atom is stored ×2 for one formula unit.
+**Source check:** Coefficients from Table 1 and Section 3.2, fitted with the MINUTI 2.0.0 program to the 12 rows of Table S1; the printed V0 = 9.59(10) Å³/atom is stored ×2 for one formula unit.
 
 Automatic selection for equilibrium calculations.
 
@@ -88,7 +88,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.721794, 0.869343\]
     - **Notes:** V0 is a zero-pressure extrapolation for the high-pressure phase, not evidence that rhombohedral Mw94 is stable at ambient pressure.; The observed branch begins at 34.5 GPa, after the B1-to-rhombohedral transition bracket of 30.1-34.5 GPa.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published rhombohedral parameterization on the Dewaele-2008 ruby scale. V0 is stored on a two-atom, one-formula-unit primitive basis because the source does not publish a complete conventional-cell metric. It is a structural branch, not a pure-spin phase-stability field.
 

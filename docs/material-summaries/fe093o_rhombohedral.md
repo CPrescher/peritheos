@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fe093o_rhombohedral.md#record-fe093o_rhombohedral_jacobsen_2005_bm3_1)
 
-**Source finding:** Coefficients from Results section 3.1 (p. 580), the ambient-reference fit of Figure 5; Table 1 gives equivalent-hexagonal-cell volumes.
+**Source check:** Coefficients from Results section 3.1 (p. 580), the ambient-reference fit of Figure 5; Table 1 gives equivalent-hexagonal-cell volumes.
 
 Automatic selection for equilibrium calculations.
 
@@ -85,7 +85,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[27.7, 51.1\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** Composition-specific to Fe0.93O in the rhombohedrally distorted B1 phase.; The source first observes the phase at 27.7 GPa.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The authors' preferred cross-check fit to all nine rhombohedral observations of Table 1, referenced to 1 atm without an artificial P0 data point. V0 is a metastable zero-pressure extrapolation for a phase observed only above 23 GPa.
 

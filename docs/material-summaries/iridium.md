@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/iridium.md#record-iridium_anzellini_2025_bm3_1)
 
-**Source finding:** Coefficients from the Table 1 experimental BM3 + HP row with Equations 1-3; the Einstein temperature is fixed in the text following Equation 2.
+**Source check:** Coefficients from the Table 1 experimental BM3 + HP row with Equations 1-3; the Einstein temperature is fixed in the text following Equation 2.
 
 Automatic selection for equilibrium calculations.
 

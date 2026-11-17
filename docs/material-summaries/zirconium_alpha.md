@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zirconium_alpha.md#record-zirconium_alpha_mchardy_2026_vinet_1)
 
-**Source finding:** Coefficients from Table II, alpha row, with the authors' fixed V0 converted from Å³/atom to the two-atom cell.
+**Source check:** Coefficients from Table II, alpha row, with the authors' fixed V0 converted from Å³/atom to the two-atom cell.
 
 Automatic selection for equilibrium calculations.
 

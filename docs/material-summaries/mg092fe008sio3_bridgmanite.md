@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg092fe008sio3_bridgmanite.md#record-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3)
 
-**Source finding:** K0S and K0S' from Section 3.3, a BM3 isentrope reduced from the porosity-corrected shock states of Table 1 with a Mie-Grüneisen reduction; V0 follows from rho0 = 4.19 g/cm³ and Z = 4.
+**Source check:** K0S and K0S' from Section 3.3, a BM3 isentrope reduced from the porosity-corrected shock states of Table 1 with a Mie-Grüneisen reduction; V0 follows from rho0 = 4.19 g/cm³ and Z = 4.
 
 Automatic selection for equilibrium calculations.
 
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 102.9102
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The source's shock-reduced reference isentrope; not the directly measured principal Hugoniot and not an independently fitted 298 K isotherm.
 

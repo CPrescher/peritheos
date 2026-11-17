@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/alumina_rh2o3_ii.md#record-alumina_rh2o3_ii_shi_2022_bm3_mgd_1)
 
-**Source finding:** Coefficients from Table 1 (page 4) and model 2 of the five q-sensitivity fits in Table 3 (page 7), with Equations 1-6 (pages 3-4); pressures are on the Pt scale.
+**Source check:** Coefficients from Table 1 (page 4) and model 2 of the five q-sensitivity fits in Table 3 (page 7), with Equations 1-6 (pages 3-4); pressures are on the Pt scale.
 
 Automatic selection for equilibrium calculations.
 

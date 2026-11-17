@@ -79,7 +79,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_karki_2002_static_bm4_1)
 
-**Source finding:** All four zero-pressure coefficients of the static-lattice fit are printed in Table 3; Section 3.2 identifies the fourth-order finite-strain form.
+**Source check:** All four zero-pressure coefficients of the static-lattice fit are printed in Table 3; Section 3.2 identifies the fourth-order finite-strain form.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -109,7 +109,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K LDA calculation. Published volume per MgSiO3 formula unit; stored per conventional hexagonal cell (×6).
 
@@ -167,7 +167,7 @@ Static 0 K LDA calculation. Published volume per MgSiO3 formula unit; stored per
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_karki_2002_300k_bm4_2)
 
-**Source finding:** All four zero-pressure coefficients of the 300 K BM4 isotherm are printed in Table 3.
+**Source check:** All four zero-pressure coefficients of the 300 K BM4 isotherm are printed in Table 3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -198,7 +198,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Quasiharmonic LDA 300 K isotherm, not an experimental fit; do not substitute it for the experimental equilibrium default. Published volume per formula unit; stored per conventional cell (×6).
 
@@ -255,7 +255,7 @@ Quasiharmonic LDA 300 K isotherm, not an experimental fit; do not substitute it 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_karki_2002_1000k_bm4_3)
 
-**Source finding:** All four zero-pressure coefficients of the 1000 K BM4 isotherm are printed in Table 3.
+**Source check:** All four zero-pressure coefficients of the 1000 K BM4 isotherm are printed in Table 3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -286,7 +286,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Quasiharmonic LDA 1000 K isotherm, not an experimental fit. Published volume per formula unit; stored per conventional cell (×6).
 
@@ -343,7 +343,7 @@ Quasiharmonic LDA 1000 K isotherm, not an experimental fit. Published volume per
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_karki_2002_2000k_bm4_4)
 
-**Source finding:** All four zero-pressure coefficients of the 2000 K BM4 isotherm are printed in Table 3.
+**Source check:** All four zero-pressure coefficients of the 2000 K BM4 isotherm are printed in Table 3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -375,7 +375,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Theoretical 2000 K quasiharmonic LDA isotherm.
 
@@ -433,7 +433,7 @@ Theoretical 2000 K quasiharmonic LDA isotherm.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_reynard_1996_bm3_ruby_2)
 
-**Source finding:** V0 and K0' from Figure 3e (p. 48), with K0 fixed to the Weidner and Ito (1985) Brillouin value. At 239.13 Å³ the record gives 27.53 GPa, consistent with the Table 1 ruby pressure of 27.8 GPa.
+**Source check:** V0 and K0' from Figure 3e (p. 48), with K0 fixed to the Weidner and Ito (1985) Brillouin value. At 239.13 Å³ the record gives 27.53 GPa, consistent with the Table 1 ruby pressure of 27.8 GPa.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -455,7 +455,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0, 27.8\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[298.0, 298.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Ruby-pressure fit to the same 16-row compression/decompression experiment as the ice-VII-scale record, with K0 fixed at the adopted Brillouin value; V0 stayed within 0.01% of the measured in-cell value. Ruby-line broadening above 15 GPa showed increasing nonhydrostatic stress, so the authors regard K0' = 7.5 as less realistic than the ice-VII result. The ruby calibration equation is not specified.
 
@@ -521,7 +521,7 @@ Ruby-pressure fit to the same 16-row compression/decompression experiment as the
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_reynard_1996_bm3_ice_vii_3)
 
-**Source finding:** V0 and K0' from Figure 3f (p. 48), with K0 fixed to the Weidner and Ito (1985) Brillouin value. At 239.13 Å³ the record gives 25.39 GPa, consistent with the Table 1 ice-VII pressure of 25.2 GPa.
+**Source check:** V0 and K0' from Figure 3f (p. 48), with K0 fixed to the Weidner and Ito (1985) Brillouin value. At 239.13 Å³ the record gives 25.39 GPa, consistent with the Table 1 ice-VII pressure of 25.2 GPa.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -543,7 +543,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0, 25.2\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[298.0, 298.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Fit to ice-VII (110) pressures measured on the same 50 micrometer X-ray spot as the sample, in the experiment also used by the ruby-scale record; K0 is fixed at the adopted Brillouin value. Above 15 GPa the medium developed nonhydrostatic stress and pressure gradients. The bracketed ice pressures in Table 1 are maximum gradient estimates, not stated one-sigma errors.
 
@@ -689,7 +689,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_dorogokupets_2015_298k_rydberg_stacey)
 
-**Source finding:** Coefficients from Table 1 (V0 = 26.35 cm³/mol, stored per Z = 6 cell). Equation (2) is a generalized Rydberg form with k = 5, i.e. Rydberg-Stacey with K\_infinity\_prime = 5/3, not the Birch-Murnaghan form listed in the discovery compilation.
+**Source check:** Coefficients from Table 1 (V0 = 26.35 cm³/mol, stored per Z = 6 cell). Equation (2) is a generalized Rydberg form with k = 5, i.e. Rydberg-Stacey with K\_infinity\_prime = 5/3, not the Birch-Murnaghan form listed in the discovery compilation.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -720,7 +720,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 298 K reference isotherm of the source's larger Helmholtz model.
 
@@ -779,7 +779,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_wang_2004_t0133_bm3)
 
-**Source finding:** Coefficients from Section 3.2 (p. 61) for run T0133 on the Au pressure scale; the observations are in Table 1 (pp. 62-63).
+**Source check:** Coefficients from Section 3.2 (p. 61) for run T0133 on the Au pressure scale; the observations are in Table 1 (pp. 62-63).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -809,7 +809,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 6
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Secondary Au-scale fit, not the authors' preferred NaCl result. K0 is fixed at the adopted Brillouin value, and only the 13 room-temperature observations are fitted.
 
@@ -873,7 +873,7 @@ Secondary Au-scale fit, not the authors' preferred NaCl result. K0 is fixed at t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_wang_2004_t0150_bm3)
 
-**Source finding:** Coefficients from Section 3.2 (p. 61) for run T0150 on the NaCl pressure scale; the observations are in Table 2 (pp. 64-65).
+**Source check:** Coefficients from Section 3.2 (p. 61) for run T0150 on the NaCl pressure scale; the observations are in Table 2 (pp. 64-65).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -903,7 +903,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 6
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The authors' preferred static fit, using NaCl pressures, from an experiment separate from the T0133 Au run. All ten 298 K observations are fitted, including the printed -0.05 GPa recovered point. The authors' thermal fits, which also use external zero-pressure expansion data, are not included.
 
@@ -966,7 +966,7 @@ The authors' preferred static fit, using NaCl pressures, from an experiment sepa
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_zhou_2014_300k_bm3)
 
-**Source finding:** Coefficients from Section 3.1 (p. 99), fitted to the akimotoite rows of Table 1 (pp. 100-101).
+**Source check:** Coefficients from Section 3.1 (p. 99), fitted to the akimotoite rows of Table 1 (pp. 100-101).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -996,7 +996,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 6
     - **Molar mass g mol:** 100.387
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 K0 is the static isothermal value, not the acoustic K0S = 219.4(7) GPa; K0' is fixed by the acoustic derivative approximation stated in the paper. Volumes are converted from the 17 printed 300 K densities with Z = 6 and M = 100.387 g/mol; rounding of the densities limits recovery of the diffraction volumes.
 

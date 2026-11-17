@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/sno2.md#record-sno2_hazen_1981_bm3_1)
 
-**Source finding:** K0 from the EOS fit discussion, journal page 144, with K0' assumed; Table 1 (page 145) prints four SnO2 compression observations.
+**Source check:** K0 from the EOS fit discussion, journal page 144, with K0' assumed; Table 1 (page 145) prints four SnO2 compression observations.
 
 Automatic selection for equilibrium calculations.
 

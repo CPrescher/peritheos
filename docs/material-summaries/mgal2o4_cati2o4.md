@@ -64,7 +64,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 **Warning:** Not recommended for quantitative use. A one-point construction from a single compressed volume; later multi-point measurements are preferred for quantitative use.
 
-**Source finding:** V0 from Section 3.3 and Table 2 (recovered run-4 cell); K0 from Section 3.3, computed from the in-situ run-4 cell at 64.3 GPa. Its error comes from the difference between ruby- and Pt-derived pressures.
+**Source check:** V0 from Section 3.3 and Table 2 (recovered run-4 cell); K0 from Section 3.3, computed from the in-situ run-4 cell at 64.3 GPa. Its error comes from the difference between ruby- and Pt-derived pressures.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 64.3\]
     - **Notes:** The range spans only the two observations that define the EOS, not a continuous stability field.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 CaTi2O4-type product established by runs 3 and 4, distinct from the lower-pressure CaFe2O4-type run-2 phase. A one-point construction, not a multi-point fit: the only compressed volume is the in-situ run-4 observation after laser heating, and V0 was measured after recovery.
 
@@ -176,7 +176,7 @@ CaTi2O4-type product established by runs 3 and 4, distinct from the lower-pressu
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgal2o4_cati2o4.md#record-mgal2o4_cati2o4_ono_2006_bm2_2)
 
-**Source finding:** Coefficients from Results, p. 203, for the unnumbered Birch-Murnaghan equation with K0' = 4; the body resolves the abstract's V0 error notation as 0.9 Å³.
+**Source check:** Coefficients from Results, p. 203, for the unnumbered Birch-Murnaghan equation with K0' = 4; the body resolves the abstract's V0 error notation as 0.9 Å³.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -202,7 +202,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0, 91.2\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The compressed Table 3 data span 42.7-91.2 GPa. The 0 GPa bound comes from two recovered ambient cells.; The approximately 45-117 GPa high-temperature phase-stability observations are not part of this 300 K EOS.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

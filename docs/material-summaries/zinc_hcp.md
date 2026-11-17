@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2019_mao_vinet)
 
-**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 Automatic selection for equilibrium calculations.
 
@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0, 157.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 ruby-scale record is the same data on the other scale, not an independent experiment.
 
@@ -154,7 +154,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2019_dor_vinet)
 
-**Source finding:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Dorogokupets ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [zinc\_hcp\_dewaele\_2019\_mao\_vinet](#record-zinc_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -179,7 +179,7 @@ Published pressure-scale alternative of [zinc\_hcp\_dewaele\_2019\_mao\_vinet](#
 - **Validity:**
     - **Pressure gpa:** \[0.0, 157.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, with pressures on the Dorogokupets-2007 ruby scale. The Mao-1986 ruby-scale record is the same data on the other scale, not an independent experiment.
 
@@ -244,7 +244,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2008_table4_vinet)
 
-**Source finding:** Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
+**Source check:** Coefficients from Table IV, third column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -266,7 +266,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 156.6\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table IV fit. V0 is fixed from a separate fit to the 0-5 GPa data. Run-2 Ag/Mo points with revised pressure above 100 GPa are excluded (Section III); the 2008 ruby calibration derived later in the paper is not the pressure scale of these fits.
 
@@ -330,7 +330,7 @@ Table IV fit. V0 is fixed from a separate fit to the 0-5 GPa data. Run-2 Ag/Mo p
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2008_table4_us_k0_60_vinet)
 
-**Source finding:** Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
+**Source check:** Coefficients from Table IV, fourth column (p. 104102-5); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -352,7 +352,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 156.6\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table IV fit. V0 is fixed from a separate fit to the 0-5 GPa data; K0 is adopted from ultrasonic data and fixed. Run-2 Ag/Mo points with revised pressure above 100 GPa are excluded (Section III); the 2008 ruby calibration derived later in the paper is not the pressure scale of these fits.
 

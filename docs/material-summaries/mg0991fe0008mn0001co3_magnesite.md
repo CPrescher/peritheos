@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg0991fe0008mn0001co3_magnesite.md#record-mg0991fe0008mn0001co3_redfern_1993_bm2_1)
 
-**Source finding:** Coefficients from the Equation-of-State section (p. 2100): a least-squares reduced Birch fit to all 18 Table 1 rows, normalized to the Table 1 ambient V0.
+**Source check:** Coefficients from the Equation-of-State section (p. 2100): a least-squares reduced Birch fit to all 18 Table 1 rows, normalized to the Table 1 ambient V0.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 84.595953
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -173,7 +173,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg0991fe0008mn0001co3_magnesite.md#record-mg0991fe0008mn0001co3_redfern_1993_bm3_2)
 
-**Source finding:** Coefficients from Equation (2) and the Figure 2 caption (p. 2100): a weighted finite-strain regression of the nine Table 1 rows with fV &gt; 0.01. Yu et al. (2024) list K0' as fixed, but the source fitted it.
+**Source check:** Coefficients from Equation (2) and the Figure 2 caption (p. 2100): a weighted finite-strain regression of the nine Table 1 rows with fV &gt; 0.01. Yu et al. (2024) list K0' as fixed, but the source fitted it.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -200,7 +200,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mg0
     - **Kind:** formula\_units
     - **Formula units:** 6.0
     - **Molar mass g mol:** 84.595953
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

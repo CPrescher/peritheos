@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fes_vi.md#record-fes_vi_morard_2026_bm3_mgd)
 
-**Source finding:** Coefficients from Section III.D (pages 063605-6 to 063605-7); V0 is converted from 15.40 ± 0.45 cm³/mol of FeS to the Z = 4 cell. The author-supplied FeS6.eos file has a different V0, gamma0 and Tref; the printed values are used.
+**Source check:** Coefficients from Section III.D (pages 063605-6 to 063605-7); V0 is converted from 15.40 ± 0.45 cm³/mol of FeS to the Z = 4 cell. The author-supplied FeS6.eos file has a different V0, gamma0 and Tref; the printed values are used.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[29.59643816464321, 149.9480701694589\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[300, 2590.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

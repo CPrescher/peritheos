@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/nickel_oxide.md#record-nickel_oxide_noguchi_1999_bm3_1)
 
-**Source finding:** K0 and K0' from the Noguchi et al. (1999) abstract (147.6 GPa isotherm). The shock-to-300 K reduction (theta0 = 390 K, gamma0 = 1.38, Us = 5.36 + 1.19up) and a0 = 4.177(1) Å are from Noguchi et al. (1998), pages 832-834.
+**Source check:** K0 and K0' from the Noguchi et al. (1999) abstract (147.6 GPa isotherm). The shock-to-300 K reduction (theta0 = 390 K, gamma0 = 1.38, Us = 5.36 + 1.19up) and a0 = 4.177(1) Å are from Noguchi et al. (1998), pages 832-834.
 
 Automatic selection for equilibrium calculations.
 
@@ -181,7 +181,7 @@ BM3 isotherm reduced from shock data with a 300 K Mie-Grüneisen-Debye correctio
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nickel_oxide.md#record-nickel_oxide_noguchi_1999_linear_hugoniot_2)
 
-**Source finding:** c0 and s are a Peritheos least-squares fit to the eight final-state Us-up pairs of Table 1 (journal page 510); rho0 is the measured bulk density. The paper gives no row-wise velocity errors, so the stored errors are residual-scaled.
+**Source check:** c0 and s are a Peritheos least-squares fit to the eight final-state Us-up pairs of Table 1 (journal page 510); rho0 is the measured bulk density. The paper gives no row-wise velocity errors, so the stored errors are residual-scaled.
 
 Automatic selection for hugoniot calculations.
 
@@ -234,7 +234,7 @@ Automatic selection for hugoniot calculations.
     - **Kind:** formula\_units
     - **Formula units:** 3.0
     - **Molar mass g mol:** 74.6928
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 Principal Hugoniot of the untransformed rhombohedral B1 branch only; not the paper's separate 300 K Mie-Grüneisen-reduced isotherm or a general P(V,T) EOS. V0 is computed from rho0 and has no separate error.

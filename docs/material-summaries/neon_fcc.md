@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/neon_fcc.md#record-neon_fcc_fei_2007_bm3_1)
 
-**Source finding:** Cold coefficients and the thermal set from Table 1 with the Equation 3 variable-exponent Debye law. Table 1 gives one thermal set for both cold equations and no BM3-specific q, so pairing it with BM3 is a reconstruction.
+**Source check:** Cold coefficients and the thermal set from Table 1 with the Equation 3 variable-exponent Debye law. Table 1 gives one thermal set for both cold equations and no BM3-specific q, so pairing it with BM3 is a reconstruction.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -87,7 +87,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[4.7, 115.0\]
 - **Coverage provenance:** reported\_qualitatively
 - **Reported temperature coverage (K):** \[300.0, 1000.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -197,7 +197,7 @@ Cold BM3 branch with the single Table 1 Mie-Grüneisen-Debye parameter set that 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/neon_fcc.md#record-neon_fcc_fei_2007_vinet_2)
 
-**Source finding:** Cold coefficients and the thermal set from Table 1 with the Equation 3 variable-exponent Debye law. theta0 is adopted from Finger et al. (1981), whose Table II gives the same gamma value as gamma1 of a different gamma(V) law; Fei's definition is used.
+**Source check:** Cold coefficients and the thermal set from Table 1 with the Equation 3 variable-exponent Debye law. theta0 is adopted from Finger et al. (1981), whose Table II gives the same gamma value as gamma1 of a different gamma(V) law; Fei's definition is used.
 
 Automatic selection for equilibrium calculations.
 
@@ -225,7 +225,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[4.7, 115.0\]
 - **Coverage provenance:** reported\_qualitatively
 - **Reported temperature coverage (K):** \[300.0, 1000.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -335,7 +335,7 @@ Cold Vinet branch with the single Table 1 Mie-Grüneisen-Debye parameter set tha
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/neon_fcc.md#record-neon_fcc_hemley_1989_bm3_refit)
 
-**Source finding:** Observations from Table I (p. 11823); V0 is the paper's fixed low-temperature value (p. 11824).
+**Source check:** Observations from Table I (p. 11823); V0 is the paper's fixed low-temperature value (p. 11824).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

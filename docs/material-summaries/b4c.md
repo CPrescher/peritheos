@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/b4c.md#record-b4c_somayazulu_2023_bm3_1)
 
-**Source finding:** Coefficients from the article and supplement. Source conflicts resolved: BM3, not the BM2 of the Figure 1 caption; theta0 as in the Figure 4 caption and supplement, not 1450 K (Table 1); gamma0 and q from the article, not the supplement; Tr from the supplement, not 300 K.
+**Source check:** Coefficients from the article and supplement. Source conflicts resolved: BM3, not the BM2 of the Figure 1 caption; theta0 as in the Figure 4 caption and supplement, not 1450 K (Table 1); gamma0 and q from the article, not the supplement; Tr from the supplement, not 300 K.
 
 Automatic selection for equilibrium calculations.
 
@@ -178,7 +178,7 @@ BM3 reference isotherm from the room-temperature quench-data fit, held fixed in 
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/b4c.md#record-b4c_somayazulu_2023_berman_2)
 
-**Source finding:** Coefficients from Table 2 (Equations 3.8-3.9). The article's displayed exponential-integral formula matches the EosFit Fei-style law, not its Berman label; the stored curve is the truncated quadratic law that EosFit7 uses for Berman.
+**Source check:** Coefficients from Table 2 (Equations 3.8-3.9). The article's displayed exponential-integral formula matches the EosFit Fei-style law, not its Berman label; the stored curve is the truncated quadratic law that EosFit7 uses for Berman.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -268,7 +268,7 @@ The paper's Berman P-V-T fit, made with the EosFit7c program: V0(T) = V0\*\[1 + 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/b4c.md#record-b4c_somayazulu_2023_berman_refit)
 
-**Source finding:** Observations from supplementary Table 4. V0, K0 and K0' are the published 300 K BM3 values and alpha1 the published Berman-fit value; Tr is the EosFit7 Berman default.
+**Source check:** Observations from supplementary Table 4. V0, K0 and K0' are the published 300 K BM3 values and alpha1 the published Berman-fit value; Tr is the EosFit7 Berman default.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

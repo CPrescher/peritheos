@@ -63,7 +63,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/magnesite.md#record-magnesite_ross_1997_bm3_1)
 
-**Source finding:** The unconstrained BM3 fit is represented. The alternative fit with K0'=4 fixed is not stored in this record.
+**Source check:** The unconstrained BM3 fit is represented. The alternative fit with K0'=4 fixed is not stored in this record.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -143,7 +143,7 @@ Room-temperature BM3 fit to single-crystal data, with all three parameters free.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/magnesite.md#record-magnesite_vocadlo_1999_bm3_2)
 
-**Source finding:** V0 from the Results (p. 1628); K0 and K0' from the Abstract and Table 2 (pp. 1627 and 1629), the unconstrained third-order fit.
+**Source check:** V0 from the Results (p. 1628); K0 and K0' from the Abstract and Table 2 (pp. 1627 and 1629), the unconstrained third-order fit.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -226,7 +226,7 @@ Static-lattice GGA pseudopotential BM3 fit to nine relaxed volumes of the 30-ato
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/magnesite.md#record-magnesite_yu_2024_bm3_mgd_3)
 
-**Source finding:** Coefficients from the preferred Mie-Grüneisen fit in Table 1 (p. 5), with V0 from Yang et al. (2014); Equations 7-8 give the integrated-Grüneisen Debye law, whereas the Pt pressure calibration uses Fei et al.'s variable-exponent law.
+**Source check:** Coefficients from the preferred Mie-Grüneisen fit in Table 1 (p. 5), with V0 from Yang et al. (2014); Equations 7-8 give the integrated-Grüneisen Debye law, whereas the Pt pressure calibration uses Fei et al.'s variable-exponent law.
 
 Automatic selection for equilibrium calculations.
 
@@ -259,7 +259,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[300.0, 2200.0\]
     - **Volume ratio:** \[0.667094154109223, 1.0\]
     - **Notes:** Rhombohedral R-3c magnesite only. Measurements showing the high-temperature transformation to magnesite-II were not used in the fit.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

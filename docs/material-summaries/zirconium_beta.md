@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/zirconium_beta.md#record-zirconium_beta_mchardy_2026_vinet_1)
 
-**Source finding:** Coefficients from Table I, beta row; the fit data are the 71 beta-Zr observations of supplementary Table S8.
+**Source check:** Coefficients from Table I, beta row; the fit data are the 71 beta-Zr observations of supplementary Table S8.
 
 Automatic selection for equilibrium calculations.
 

@@ -67,7 +67,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_dewaele_2008_table4_vinet)
 
-**Source finding:** Coefficients from Table IV, third column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per four-atom cell (Z = 4).
+**Source check:** Coefficients from Table IV, third column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per four-atom cell (Z = 4).
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 97.9\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a fit to the 0-5 GPa data, and run-2 rows with revised pressure above 100 GPa are excluded (Section III). The paper's new 2008 ruby upgrade is an output of its later cross-calibration, not the pressure scale of these fits.
 
@@ -147,7 +147,7 @@ Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_dewaele_2008_vinet_1)
 
-**Source finding:** Coefficients from the Mao ruby-scale reduction in Dewaele (2019) Table 1 with Equation (1), stored under an identifier that names the 2008 paper.
+**Source check:** Coefficients from the Mao ruby-scale reduction in Dewaele (2019) Table 1 with Equation (1), stored under an identifier that names the 2008 paper.
 
 Published pressure-scale alternative of [silver\_dewaele\_2019\_mao\_vinet](#record-silver_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -166,7 +166,7 @@ Published pressure-scale alternative of [silver\_dewaele\_2019\_mao\_vinet](#rec
     - **DOI:** 10.3390/min9110684
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 124.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Compatibility identifier for the Mao-scale Vinet fit of Dewaele (2019, Table 1), not a fit from the 2008 paper or an additional experiment. The 2008 Table IV fits are separate records.
 
@@ -236,7 +236,7 @@ Compatibility identifier for the Mao-scale Vinet fit of Dewaele (2019, Table 1),
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_sokolova_2013_holzapfel_2)
 
-**Source finding:** Stored coefficients match the Ag columns of Tables 1 and 4.
+**Source check:** Stored coefficients match the Ag columns of Tables 1 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -338,7 +338,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_dewaele_2019_mao_vinet)
 
-**Source finding:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Mao ruby-scale reduction) for the Vinet form of Equation (1).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -361,7 +361,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 124.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The Mao-1986 and Dorogokupets-2007 ruby-scale records are alternative reductions of the same data, not independent experiments.
 
@@ -426,7 +426,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_dewaele_2019_dor_vinet)
 
-**Source finding:** Coefficients from Table 1 (Dorogokupets (2007) ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Dorogokupets (2007) ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [silver\_dewaele\_2019\_mao\_vinet](#record-silver_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -451,7 +451,7 @@ Published pressure-scale alternative of [silver\_dewaele\_2019\_mao\_vinet](#rec
 - **Validity:**
     - **Pressure gpa:** \[0.0, 124.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The Mao-1986 and Dorogokupets-2007 ruby-scale records are alternative reductions of the same data, not independent experiments.
 
@@ -516,7 +516,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/silver.md#record-silver_dewaele_2008_table4_us_k0_101_vinet)
 
-**Source finding:** Coefficients from Table IV, fourth column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per four-atom cell (Z = 4).
+**Source check:** Coefficients from Table IV, fourth column (p. 104102-5), for Equation (1); the printed per-atom V0 is stored per four-atom cell (Z = 4).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -538,7 +538,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 97.9\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table IV fit with K0 adopted from ultrasound and fixed, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a fit to the 0-5 GPa data, and run-2 rows with revised pressure above 100 GPa are excluded (Section III). The paper's new 2008 ruby upgrade is an output of its later cross-calibration, not the pressure scale of these fits.
 

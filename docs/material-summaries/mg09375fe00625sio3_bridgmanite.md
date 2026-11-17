@@ -69,7 +69,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3)
 
-**Source finding:** Coefficients from Table 1(a), high-spin model 1, with the BM3 form of Section 3.2; the printed V0 = 24.3325 cm³/mol is stored per Z = 4 cell.
+**Source check:** Coefficients from Table 1(a), high-spin model 1, with the BM3 form of Section 3.2; the printed V0 = 24.3325 cm³/mol is stored per Z = 4 cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -101,7 +101,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K LSDA+U calculation. The authors prefer this configuration among the six Fe-bearing fits of Table 1 and use it for their thermodynamic calculations.
 
@@ -159,7 +159,7 @@ Static 0 K LSDA+U calculation. The authors prefer this configuration among the s
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3)
 
-**Source finding:** Coefficients from Table 1(a), high-spin model 2, with the BM3 form of Section 3.2; the printed V0 = 24.3326 cm³/mol is stored per Z = 4 cell.
+**Source check:** Coefficients from Table 1(a), high-spin model 2, with the BM3 form of Section 3.2; the printed V0 = 24.3326 cm³/mol is stored per Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -188,7 +188,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K calculation for an alternative supercell configuration (model 2). It shows configuration sensitivity and is not an independent composition.
 
@@ -244,7 +244,7 @@ Static 0 K calculation for an alternative supercell configuration (model 2). It 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3)
 
-**Source finding:** Coefficients from Table 1(a), high-spin model 3, with the BM3 form of Section 3.2; the printed V0 = 24.3317 cm³/mol is stored per Z = 4 cell.
+**Source check:** Coefficients from Table 1(a), high-spin model 3, with the BM3 form of Section 3.2; the printed V0 = 24.3317 cm³/mol is stored per Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -273,7 +273,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K calculation for an alternative supercell configuration (model 3). It shows configuration sensitivity and is not an independent composition.
 
@@ -329,7 +329,7 @@ Static 0 K calculation for an alternative supercell configuration (model 3). It 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3)
 
-**Source finding:** Coefficients from Table 1(b), low-spin model 1, with the BM3 form of Section 3.2; the printed V0 = 24.2583 cm³/mol is stored per Z = 4 cell.
+**Source check:** Coefficients from Table 1(b), low-spin model 1, with the BM3 form of Section 3.2; the printed V0 = 24.2583 cm³/mol is stored per Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -358,7 +358,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Metastable low-spin comparison branch; do not use it as the equilibrium spin branch. The authors find low-spin Fe thermodynamically unstable through lower-mantle pressures and dynamically unstable at 0 GPa.
 
@@ -414,7 +414,7 @@ Metastable low-spin comparison branch; do not use it as the equilibrium spin bra
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3)
 
-**Source finding:** Coefficients from Table 1(b), low-spin model 2, with the BM3 form of Section 3.2; the printed V0 = 24.2605 cm³/mol is stored per Z = 4 cell.
+**Source check:** Coefficients from Table 1(b), low-spin model 2, with the BM3 form of Section 3.2; the printed V0 = 24.2605 cm³/mol is stored per Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -443,7 +443,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Metastable low-spin branch for an alternative supercell configuration (model 2), showing configuration sensitivity. Do not use it as the equilibrium spin branch.
 
@@ -499,7 +499,7 @@ Metastable low-spin branch for an alternative supercell configuration (model 2),
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3)
 
-**Source finding:** Coefficients from Table 1(b), low-spin model 3, with the BM3 form of Section 3.2; the printed V0 = 24.2596 cm³/mol is stored per Z = 4 cell.
+**Source check:** Coefficients from Table 1(b), low-spin model 3, with the BM3 form of Section 3.2; the printed V0 = 24.2596 cm³/mol is stored per Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -528,7 +528,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 103.8586
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Metastable low-spin branch for an alternative supercell configuration (model 3), showing configuration sensitivity. Do not use it as the equilibrium spin branch.
 

@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nis.md#record-nis_campbell_1993_bm3_1)
 
-**Source finding:** K0 and K0' from the BM3 fit paragraph on p. 6 (Figure 1); V0 is computed from the ambient a0 = 3.4395(2) Å and c0 = 5.3514(7) Å on the same page.
+**Source check:** K0 and K0' from the BM3 fit paragraph on p. 6 (Figure 1); V0 is computed from the ambient a0 = 3.4395(2) Å and c0 = 5.3514(7) Å on the same page.
 
 Automatic selection for equilibrium calculations.
 

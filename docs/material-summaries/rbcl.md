@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/rbcl.md#record-rbcl_b2_campbell_1994_bm3_1)
 
-**Source finding:** K0 and K0' from pp. 11767-11768 and Figure 3 (third-order Eulerian finite-strain fit); observations in the RbCl block of Table 1, which prints the CsCl observations separately.
+**Source check:** K0 and K0' from pp. 11767-11768 and Figure 3 (third-order Eulerian finite-strain fit); observations in the RbCl block of Table 1, which prints the CsCl observations separately.
 
 Automatic selection for equilibrium calculations.
 
@@ -145,7 +145,7 @@ BM3 fit to all 24 RbCl-B2 observations of Table 1. V0 is converted from the auth
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/rbcl.md#record-rbcl_b2_farla_2025_bm3_mgd_cscl)
 
-**Source finding:** Coefficients from Table I, case 1, with Equations (1) and (6)-(9) of the accepted manuscript; data in supplement Tables S1, S2 and S5. theta0 is from DFT elastic constants of Haddadi et al. (2009), per the supplement; main-text reference 41 cites Kumara Swamy et al. (1996).
+**Source check:** Coefficients from Table I, case 1, with Equations (1) and (6)-(9) of the accepted manuscript; data in supplement Tables S1, S2 and S5. theta0 is from DFT elastic constants of Haddadi et al. (2009), per the supplement; main-text reference 41 cites Kumara Swamy et al. (1996).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -177,7 +177,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.54, 26.05\]
     - **Temperature k:** \[300.0, 1800.0\]
     - **Notes:** B2 solid only; the B1 transition and melting curves are not encoded, so confirm the phase before using it as a marker.; High-temperature data reach only about 21 GPa; higher pressures are 300 K DAC data. The 0 GPa B2 reference is hypothetical.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

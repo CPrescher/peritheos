@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/casio2o5_titanite.md#record-casio2o5_titanite_sagatova_2021_gga_300k_vinet)
 
-**Source finding:** Coefficients from the Table 2 this-work GGA CaSi2O5-titanite row (Vinet form, Methods); the calculated P-V points are not tabulated, only plotted as relative volumes in Figure 6.
+**Source check:** Coefficients from the Table 2 this-work GGA CaSi2O5-titanite row (Vinet form, Methods); the calculated P-V points are not tabulated, only plotted as relative volumes in Figure 6.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 176.243
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

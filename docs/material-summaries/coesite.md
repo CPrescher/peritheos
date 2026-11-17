@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/coesite.md#record-coesite_levien_1981_bm3_1)
 
-**Source finding:** K0 and K0' from the unweighted Birch-Murnaghan fit on p. 328 to the Table 7 data; V0 is calculated from the paper's ambient lattice parameters for the conventional cell.
+**Source check:** K0 and K0' from the unweighted Birch-Murnaghan fit on p. 328 to the Table 7 data; V0 is calculated from the paper's ambient lattice parameters for the conventional cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -133,7 +133,7 @@ V0 is the volume of the cited ambient structure; no V0 error was reported.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/coesite.md#record-coesite_i_iii_bykova_2018_300k_bm3)
 
-**Source finding:** Coefficients from the Results paragraph and Figure 1 caption, printed per formula unit and stored per Z = 16 cell. The author supplied the fit inputs, including one derived Cernok ambient anchor, and reports pressure-only inverse-variance weights.
+**Source check:** Coefficients from the Results paragraph and Figure 1 caption, printed per formula unit and stored per Z = 16 cell. The author supplied the fit inputs, including one derived Cernok ambient anchor, and reports pressure-only inverse-variance weights.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -164,7 +164,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 16.0
     - **Molar mass g mol:** 60.083
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

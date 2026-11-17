@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cao_b2.md#record-cao_b2_richet_1988_bm3_1)
 
-**Source finding:** Coefficients from the B2 fit on pp. 15283-15285 with Equation (5); the printed K0 = 1.3 Mbar is converted to GPa.
+**Source check:** Coefficients from the B2 fit on pp. 15283-15285 with Equation (5); the printed K0 = 1.3 Mbar is converted to GPa.
 
 Automatic selection for equilibrium calculations.
 

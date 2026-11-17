@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg087fe013sio3_bridgmanite.md#record-mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1)
 
-**Source finding:** Coefficients from the Table 3 13% Fe column (Equations 1-6), fitted with priors V0 = 163.2 ± 0.2 Å³ and gamma0, q = 1 ± 1; theta0 is fixed (Section 3.3) after a preliminary Fe-free fit gave 991 ± 77 K.
+**Source check:** Coefficients from the Table 3 13% Fe column (Equations 1-6), fitted with priors V0 = 163.2 ± 0.2 Å³ and gamma0, q = 1 ± 1; theta0 is fixed (Section 3.3) after a preliminary Fe-free fit gave 991 ± 77 K.
 
 Automatic selection for equilibrium calculations.
 
@@ -95,7 +95,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[300.0, 2455.0\]
     - **Volume ratio:** \[0.75030645, 0.89844325\]
     - **Notes:** The authors report that every experimental state followed a path within the bridgmanite stability field and found no H-phase exsolution.
-- **Reported error confidence level:** 0.68
+- **Printed parameter errors:** 68% half-widths (0.994 sigma)
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">

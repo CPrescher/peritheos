@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ice_vii.md#record-ice_vii_bezacier_2014_bm2_1)
 
-**Source finding:** Coefficients from the abstract and the paper's BM2 P-V-T fit for ice VII.
+**Source check:** Coefficients from the abstract and the paper's BM2 P-V-T fit for ice VII.
 
 Automatic selection for equilibrium calculations.
 
@@ -138,7 +138,7 @@ Joint P-V-T fit for pure H2O ice VII. Published molar V0 = 12.49(1) cm³/mol; st
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ice_vii.md#record-ice_vii_frank_2004_bm3_2)
 
-**Source finding:** Coefficients from Section 3.1 (pp. 2782-2783): the simultaneous three-parameter fit of Equation (2) to the 300 K data.
+**Source check:** Coefficients from Section 3.1 (pp. 2782-2783): the simultaneous three-parameter fit of Equation (2) to the 300 K data.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

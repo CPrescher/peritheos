@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ferrous_ringwoodite.md#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction)
 
-**Source finding:** K0 from p. 1005, printed as 1.96(6) Mbar, for the second-order Birch-Murnaghan form of p. 1004 (called first-order Birch in the source); V0 is the measured ambient volume of Table 2.
+**Source check:** K0 from p. 1005, printed as 1.96(6) Mbar, for the second-order Birch-Murnaghan form of p. 1004 (called first-order Birch in the source); V0 is the measured ambient volume of Table 2.
 
 Automatic selection for equilibrium calculations.
 

@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/vanadium_bcc.md#record-vanadium_bcc_crichton_2016_bm3_thermal)
 
-**Source finding:** Coefficients from Results, p. 5, of the accepted manuscript; the modulus and thermal coefficients agree with the publisher abstract. V0 corresponds to the fitted relative volume 1.005(1), equal to the recovered volume (Figure 2 caption); alpha0 is the intercept at T = 0, not alpha(300 K).
+**Source check:** Coefficients from Results, p. 5, of the accepted manuscript; the modulus and thermal coefficients agree with the publisher abstract. V0 corresponds to the fitted relative volume 1.005(1), equal to the recovered volume (Figure 2 caption); alpha0 is the intercept at T = 0, not alpha(300 K).
 
 Automatic selection for equilibrium calculations.
 
@@ -87,7 +87,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 11.5\]
 - **Coverage provenance:** reported\_qualitatively
 - **Reported temperature coverage (K):** \[300.0, 1000.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

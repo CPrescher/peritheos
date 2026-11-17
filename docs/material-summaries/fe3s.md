@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/fe3s.md#record-fe3s_fei_2000_bm3_1)
 
-**Source finding:** Coefficients from the constrained BM3 fit in the EOS discussion (pp. 1832-1833); the 13 compression markers of Figure 2 are digitized.
+**Source check:** Coefficients from the constrained BM3 fit in the EOS discussion (pp. 1832-1833); the 13 compression markers of Figure 2 are digitized.
 
 Automatic selection for equilibrium calculations.
 

@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/casio3_perovskite_tetragonal.md#record-casio3_perovskite_tetragonal_shim_2002_bm3_1)
 
-**Source finding:** Coefficients from paragraph 10 and the abstract; V0 is adopted from Wang et al. (1996). The fit uses six diffraction images, whose volumes are plotted in Figure 2a.
+**Source check:** Coefficients from paragraph 10 and the abstract; V0 is adopted from Wang et al. (1996). The fit uses six diffraction images, whose volumes are plotted in Figure 2a.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.161
-- **Reported error confidence level:** 0.6826894921370859
+- **Printed parameter errors:** 1 sigma
 
 Volumes are per the source's P4/mmm pseudocell (Z = 1); the phase is identified only as tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals. V0 is an adopted zero-pressure extrapolation, since this phase is not recovered at ambient conditions. The 19.7 GPa refinement is cubic.
 

@@ -1098,7 +1098,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[1.23188372, 26.06236454\]
     - **Temperature k:** \[290, 290\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Diagnostic standard-BM3 reconstruction from Chen's rounded constants at 2 GPa, not a verified author equation. It misfits the digitized density observations. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.
 
@@ -1189,7 +1189,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[1.23188372, 26.06236454\]
     - **Temperature k:** \[290, 290\]
     - **Notes:** Digitized room-temperature data; 290 K is taken from Table I.; V0, K0 and K0' are extrapolations to zero pressure; do not extrapolate the curve beyond the fitted range.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nominal error-in-variables weighting; Chen's published EOS is not reproduced. Near-coincident digitized points are not statistically independent.
 
@@ -1275,7 +1275,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Pressure gpa:** \[0, 16\]
     - **Temperature k:** \[0, 300\]
     - **Notes:** Volume inversion searches 8–26 cm³/mol only.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The Peritheos implementation does not reproduce the paper's Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa); the cause is unresolved. The article does not specify the lattice cutoff; this record assumes squared cutoff 64 with geometric fcc shells. The source gives no DAC-confinement or fluid-reference free-energy offsets.
 
@@ -1328,7 +1328,7 @@ The Peritheos implementation does not reproduce the paper's Table 8 sample (23.8
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/argon_fcc.md#record-argon_fcc_ross_1986_errandonea_2006_bm3_refit)
 
-**Source finding:** Observations from Ross et al. (1986) Table I and a partial digitization of Errandonea et al. (2006) Figure 5; no coefficient is taken from either paper.
+**Source check:** Observations from Ross et al. (1986) Table I and a partial digitization of Errandonea et al. (2006) Figure 5; no coefficient is taken from either paper.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

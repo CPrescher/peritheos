@@ -133,7 +133,7 @@ BM3 fit to 22 single-crystal measurements at room temperature.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/alpha_quartz.md#record-alpha_quartz_driver_2010_qmc_300k_vinet)
 
-**Source finding:** Coefficients from the quartz QMC column of Table 1, Vinet fits to thermal Helmholtz free-energy isotherms; the printed V0 = 254(2) bohr³ per SiO2 is converted to the Z = 3 cell.
+**Source check:** Coefficients from the quartz QMC column of Table 1, Vinet fits to thermal Helmholtz free-energy isotherms; the printed V0 = 254(2) bohr³ per SiO2 is converted to the Z = 3 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

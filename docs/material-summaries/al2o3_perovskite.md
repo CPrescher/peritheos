@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/al2o3_perovskite.md#record-al2o3_perovskite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** Coefficients from the Table 1 perovskite CCM 100 mol.% row; the printed V0 = 42.83 Å³ on the normalized, approximately five-atom basis is multiplied by four for the stored cell.
+**Source check:** Coefficients from the Table 1 perovskite CCM 100 mol.% row; the printed V0 = 42.83 Å³ on the normalized, approximately five-atom basis is multiplied by four for the stored cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 101.9601
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -158,7 +158,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/al2o3_perovskite.md#record-al2o3_perovskite_holland_2013_apv_modified_tait)
 
-**Source finding:** Coefficients from Table 1 and the official tc-ds62 apv block, printed as V0 = 2.540 J/bar/mol, K0 = 2030 kbar and K0'' = -0.00200 kbar^-1, and converted to GPa, Å³ and the Z = 4 cell.
+**Source check:** Coefficients from Table 1 and the official tc-ds62 apv block, printed as V0 = 2.540 J/bar/mol, K0 = 2030 kbar and K0'' = -0.00200 kbar^-1, and converted to GPa, Å³ and the Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/alumina.md#record-alumina_dewaele_2013_vinet_1)
 
-**Source finding:** Coefficients from Section IV (p. 064107-2) and Figure 3; observations in Table I.
+**Source check:** Coefficients from Section IV (p. 064107-2) and Figure 3; observations in Table I.
 
 Automatic selection for equilibrium calculations.
 
@@ -83,7 +83,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1103/PhysRevB.88.064107
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.56, 165.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Quasihydrostatic 300 K Vinet fit to corundum data, with all three parameters free.
 
@@ -146,7 +146,7 @@ Quasihydrostatic 300 K Vinet fit to corundum data, with all three parameters fre
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/alumina.md#record-alumina_shi_2022_bm3_mgd_2)
 
-**Source finding:** Coefficients from the selected-model Table 1 (p. 4) with Equations 1-6; observations in Table S1. Table 2 prints the K0 error of the same model as 1 GPa; the Table 1 error is stored.
+**Source check:** Coefficients from the selected-model Table 1 (p. 4) with Equations 1-6; observations in Table S1. Table 2 prints the K0 error of the same model as 1 GPa; the Table 1 error is stored.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

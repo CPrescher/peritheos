@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/al_bearing_phase_d.md#record-al_bearing_phase_d_xu_2020_bm3_300k)
 
-**Source finding:** Coefficients from Section 3.1 and Table 1; Table 1 prints the K0 error as 4 GPa, while the stored error follows Section 3.1. Observations from Table 3 of the EarthChem workbook (all eight 300 K rows).
+**Source check:** Coefficients from Section 3.1 and Table 1; Table 1 prints the K0 error as 4 GPa, while the stored error follows Section 3.1. Observations from Table 3 of the EarthChem workbook (all eight 300 K rows).
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.8996655518394651, 1.0\]
     - **Notes:** The lower volume-ratio bound is the smallest 300 K observation, 78.01/86.71.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Room-temperature BM3 on the Tsuchiya (2003) gold pressure scale (Table 1); the experiment also used Au and NaCl pressure standards. V0 is fixed to the in situ 300 K zero-pressure observation. The paper's high-temperature BM3 and pressure-scale-free elastic parameterizations are not represented because its text and Table 1 disagree on them.
 

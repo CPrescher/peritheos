@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/lead_fcc.md#record-lead_fcc_fortes_2019_bm4_1)
 
-**Source finding:** Coefficients are the constant terms of Table 1 (report pages 8-9; Equations 1-5), which refer to Delta T = 0, i.e. 300 K, not absolute zero.
+**Source check:** Coefficients are the constant terms of Table 1 (report pages 8-9; Equations 1-5), which refer to Delta T = 0, i.e. 300 K, not absolute zero.
 
 Automatic selection for equilibrium calculations.
 
@@ -172,7 +172,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/lead_fcc.md#record-lead_fcc_kuznetsov_2002_bm3_2)
 
-**Source finding:** Coefficients from the fcc entries of Table 2 (Equation 1), with V0 printed as 30.307 Å³/atom and stored per four-atom cell; Equations 2-3 put the reference at T0 = 296 K.
+**Source check:** Coefficients from the fcc entries of Table 2 (Equation 1), with V0 printed as 30.307 Å³/atom and stored per four-atom cell; Equations 2-3 put the reference at T0 = 296 K.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

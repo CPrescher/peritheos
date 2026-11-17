@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/sro.md#record-sro_liu_1973_bm3_1)
 
-**Source finding:** Coefficients from the first Birch formulation on p. 8472; V0 = a0³ from the Table 2 a0 = 5.160 Å (p. 8471).
+**Source check:** Coefficients from the first Birch formulation on p. 8472; V0 = a0³ from the Table 2 a0 = 5.160 Å (p. 8471).
 
 Automatic selection for equilibrium calculations.
 

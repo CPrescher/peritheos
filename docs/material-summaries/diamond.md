@@ -162,7 +162,7 @@ Reanalysis of the Occelli et al. diamond data. Published V0 = 5.6733 Å³/atom; 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_dewaele_2008_vinet_2)
 
-**Source finding:** Coefficients from Table III (298 K diamond Vinet fit); the Table I observations and the fit are on the Holzapfel (2005) H05 ruby scale of Section II.
+**Source check:** Coefficients from Table III (298 K diamond Vinet fit); the Table I observations and the fit are on the Holzapfel (2005) H05 ruby scale of Section II.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -181,7 +181,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **DOI:** 10.1103/PhysRevB.77.094106
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 80.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Single-crystal XRD fit in neon, with K0 fixed to the isothermal ultrasonic value. Published V0 = 5.6693 Å³/atom; stored per conventional cell (×8).
 
@@ -245,7 +245,7 @@ Single-crystal XRD fit in neon, with K0 fixed to the isothermal ultrasonic value
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_sokolova_2013_holzapfel_3)
 
-**Source finding:** Stored coefficients match the diamond columns of Tables 1 and 4.
+**Source check:** Stored coefficients match the diamond columns of Tables 1 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -347,7 +347,7 @@ Self-consistent pressure-scale fit of Sokolova et al. (2013), fitted jointly to 
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_correa_2008_double_debye_log_moment_5)
 
-**Source finding:** Coefficients from the Table I diamond row with Equations 2-7 and 13-18. The source does not tabulate the cold-energy and phonon grids behind the fit; Figure 8 gives 57 DFT-MD pressure markers.
+**Source check:** Coefficients from the Table I diamond row with Equations 2-7 and 13-18. The source does not tabulate the cold-energy and phonon grids behind the fit; Figure 8 gives 57 DFT-MD pressure markers.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -449,7 +449,7 @@ Complete diamond free-energy model of Equations 2-18, with a motionless-ion DFT-
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_benedict_2014_double_debye_4)
 
-**Source finding:** Coefficients from the Table I diamond column with Equations 3-7. The source does not supply the cold-energy and phonon grids behind the fit; the Supplemental Material gives a 96-row solid DFT-MD table.
+**Source check:** Coefficients from the Table I diamond column with Equations 3-7. The source does not supply the cold-energy and phonon grids behind the fit; the Supplemental Material gives a 96-row solid DFT-MD table.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -553,7 +553,7 @@ Complete Helmholtz model of Equations 3-7, not a Vinet curve plus a generic Mie-
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_correa_2008_dewaele_anchored)
 
-**Source finding:** Reference isotherm from Dewaele et al. (2008) Table III; thermal increment from Correa et al. (2008) Equations 2-7 and 13-18 and Table I. Peritheos composes the two; no coefficient is fitted.
+**Source check:** Reference isotherm from Dewaele et al. (2008) Table III; thermal increment from Correa et al. (2008) Equations 2-7 and 13-18 and Table I. Peritheos composes the two; no coefficient is fitted.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -593,7 +593,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Temperature k:** \[1.0, 10000.0\]
     - **Volume ratio:** \[0.4092215970225601, 1.0204081632653061\]
     - **Notes:** The Dewaele 298 K isotherm was measured to 80 GPa. Above that the Vinet form is evaluated beyond its calibration coverage.; The Correa thermal contribution uses the simulation range recorded by the unanchored source record.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 P(V,T) = P\_Dewaele(V, 298 K) + P\_Correa(V,T) - P\_Correa(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Correa's simulated logarithmic-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.
 
@@ -674,7 +674,7 @@ P(V,T) = P\_Dewaele(V, 298 K) + P\_Correa(V,T) - P\_Correa(V, 298 K): exactly th
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/diamond.md#record-diamond_benedict_2014_dewaele_anchored)
 
-**Source finding:** Reference isotherm from Dewaele et al. (2008) Table III; thermal increment from Benedict et al. (2014) Equations 3-7 and Table I. Peritheos composes the two; no coefficient is fitted.
+**Source check:** Reference isotherm from Dewaele et al. (2008) Table III; thermal increment from Benedict et al. (2014) Equations 3-7 and Table I. Peritheos composes the two; no coefficient is fitted.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -716,7 +716,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Temperature k:** \[298.0, 9000.0\]
     - **Volume ratio:** \[0.44097154851568976, 1.2347203358439314\]
     - **Notes:** The Dewaele 298 K isotherm was measured to 80 GPa. Above that the Vinet form is evaluated beyond its calibration coverage.; The Benedict thermal contribution uses the simulation range recorded by the unanchored source record.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 P(V,T) = P\_Dewaele(V, 298 K) + P\_Benedict(V,T) - P\_Benedict(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Benedict's simulated first-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.
 

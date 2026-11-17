@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/titanium_alpha.md#record-titanium_alpha_dewaele_2015_vinet_1)
 
-**Source finding:** Coefficients from the Table III experimental alpha Vinet row (Section IV), with the per-atom V0 converted to the two-atom cell.
+**Source check:** Coefficients from the Table III experimental alpha Vinet row (Section IV), with the per-atom V0 converted to the two-atom cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 10.0\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Low-pressure alpha-phase Vinet fit.
 

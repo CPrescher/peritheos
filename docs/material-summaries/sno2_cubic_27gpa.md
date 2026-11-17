@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/sno2_cubic_27gpa.md#record-sno2_cubic_27gpa_ono_2000_bm3_1)
 
-**Source finding:** Coefficients from the 300 K third-order Birch-Murnaghan fit on p. 621; Table 2 holds the P-V-T data. The printed V0 error, (3), is in the last digit: 0.3 Å³.
+**Source check:** Coefficients from the 300 K third-order Birch-Murnaghan fit on p. 621; Table 2 holds the P-V-T data. The printed V0 error, (3), is in the last digit: 0.3 Å³.
 
 Automatic selection for equilibrium calculations.
 

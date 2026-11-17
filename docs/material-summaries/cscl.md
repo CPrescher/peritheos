@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cscl.md#record-cscl_campbell_1994_bm3_1)
 
-**Source finding:** K0 and K0' from p. 11767 and Figure 2, an Eulerian finite-strain fit with linear normalized stress; the new data are the 13-row CsCl block of Table 1.
+**Source check:** K0 and K0' from p. 11767 and Figure 2, an Eulerian finite-strain fit with linear normalized stress; the new data are the 13-row CsCl block of Table 1.
 
 Automatic selection for equilibrium calculations.
 

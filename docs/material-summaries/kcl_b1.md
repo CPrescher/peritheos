@@ -140,7 +140,7 @@ Published V0 = 62.36 Å³/formula unit; stored per conventional B1 cell (×4).
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/kcl_b1.md#record-kcl_b1_walker_2002_bm3_linear_thermal)
 
-**Source finding:** V0 follows Figure 1, not the 249.53 Å³ printed in Tables 1 and 3. The Table 1 volume heading says B2-KCl, but the volumes and Z = 4 identify B1. Equation BE1's printed signs conflict with its strain definition; the compression-positive BM3 convention is used.
+**Source check:** V0 follows Figure 1, not the 249.53 Å³ printed in Tables 1 and 3. The Table 1 volume heading says B2-KCl, but the volumes and Z = 4 identify B1. Equation BE1's printed signs conflict with its strain definition; the compression-positive BM3 convention is used.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

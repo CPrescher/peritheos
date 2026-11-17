@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/rbbr.md#record-rbbr_b2_farla_2025_bm3_mgd_cscl)
 
-**Source finding:** Coefficients from Table I, case 1, with Equations (1) and (6)-(9) of the accepted manuscript; data in supplement Tables S1, S3 and S6. theta0 is from DFT elastic constants of Haddadi et al. (2009), per the supplement; main-text reference 41 cites Kumara Swamy et al. (1996).
+**Source check:** Coefficients from Table I, case 1, with Equations (1) and (6)-(9) of the accepted manuscript; data in supplement Tables S1, S3 and S6. theta0 is from DFT elastic constants of Haddadi et al. (2009), per the supplement; main-text reference 41 cites Kumara Swamy et al. (1996).
 
 Automatic selection for equilibrium calculations.
 
@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[1.19, 26.47\]
     - **Temperature k:** \[300.0, 1800.0\]
     - **Notes:** Only the B2 solid branch. B1 transition and melting curves are not encoded; confirm phase before using as a marker.; Bounds describe marginal coverage; high-temperature data reach about 21 GPa, not 26 GPa.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

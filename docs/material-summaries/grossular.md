@@ -58,7 +58,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/grossular.md#record-grossular_angel_2022_bm3_q_compromise_debye)
 
-**Source finding:** Coefficients from official supplementary EOS file 1, which carries the full 59x59 covariance; the printed molar V0 = 125.35 cm³/mol is converted to the eight-formula-unit cell.
+**Source check:** Coefficients from official supplementary EOS file 1, which carries the full 59x59 covariance; the printed molar V0 = 125.35 cm³/mol is converted to the eight-formula-unit cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -84,7 +84,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 16.9\]
 - **Reported temperature coverage (K):** \[20.0, 1650.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 Published q-compromise approximation: theta0 and gamma/V are constant and there is no q parameter. V0 is adopted and fixed from Holland and Powell (2011), not refitted or measured; the other coefficients carry more digits than Table 1, as in the source files. The model gives P-V-T and pressure derivatives, not a caloric potential or mixing model.

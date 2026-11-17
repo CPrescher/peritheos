@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mg090fe009al0005ca0005sio3_bridgmanite.md#record-mg090fe009al0005ca0005sio3_bridgmanite_shieh_2006_bm3_1)
 
-**Source finding:** Coefficients from Table 1 and Results (p. 3040), fitted to the coexisting-perovskite observations of Figure 2; V0 is measured on the recovered sample.
+**Source check:** Coefficients from Table 1 and Results (p. 3040), fitted to the coexisting-perovskite observations of Figure 2; V0 is measured on the recovered sample.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.771164, 1.0\]
     - **Notes:** Only the recovered V0 and the 83-106 GPa coexisting-phase observations constrain this fit, so pressures between them are interpolated.
-- **Reported error confidence level:** 0.6826894921370859
+- **Printed parameter errors:** 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

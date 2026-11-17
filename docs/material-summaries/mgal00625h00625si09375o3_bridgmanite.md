@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgal00625h00625si09375o3_bridgmanite.md#record-mgal00625h00625si09375o3_bridgmanite_akber_knutson_2005_gga_bm3)
 
-**Source finding:** Coefficients from the perovskite AlHM 3.125 mol.% row of Table 1; the printed V0 = 42.2 Å³ on the normalized, approximately five-atom basis is multiplied by four for the conventional cell.
+**Source check:** Coefficients from the perovskite AlHM 3.125 mol.% row of Table 1; the printed V0 = 42.2 Å³ on the normalized, approximately five-atom basis is multiplied by four for the conventional cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 100.381
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

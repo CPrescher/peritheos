@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/coesite_iv.md#record-coesite_iv_bykova_2018_am05_static_bm3_refit)
 
-**Source finding:** Supplementary Table 11 prints K0 and K0' but no V0, so V0 is the Peritheos fit; the calculated markers of Supplementary Figure 6 were used only as a check.
+**Source check:** Supplementary Table 11 prints K0 and K0' but no V0, so V0 is the Peritheos fit; the calculated markers of Supplementary Figure 6 were used only as a check.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 16.0
     - **Molar mass g mol:** 60.083
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. V0 is fitted to the three calculated Table 10 states, whose pressures are printed as whole GPa and so are not exact, with K0 and K0' adopted from Supplementary Table 11. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding or systematic error budget.
 
@@ -156,7 +156,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 **Warning:** Not recommended for use. A joint coesite-IV/V fit, not a pure-phase EOS, with large observation residuals and an unresolved fitting protocol.
 
-**Source finding:** Coefficients from the Figure 1 caption and Supplementary Figure 9, which print the volume per formula unit, 23.44(3) Å³, stored ×16. With P0 as the reference pressure the BM2 matches the red vector curve of Figure 1.
+**Source check:** Coefficients from the Figure 1 caption and Supplementary Figure 9, which print the volume per formula unit, 23.44(3) Å³, stored ×16. With P0 as the reference pressure the BM2 matches the red vector curve of Figure 1.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -185,7 +185,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[29.9, 70.4\]
     - **Notes:** Do not extrapolate to ambient pressure or use as a pressure calibrant.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published joint empirical fit to the Table 2 coesite-IV and coesite-V room-temperature observations, with the reference state at 32.7 GPa; not a pure-phase EOS. The source acknowledges significant between-run scatter.
 

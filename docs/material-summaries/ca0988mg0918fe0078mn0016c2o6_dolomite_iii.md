@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ca0988mg0918fe0078mn0016c2o6_dolomite_iii.md#record-ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1)
 
-**Source finding:** Coefficients from Discussion paragraph 11, high-spin (larger-volume) branch of Figure 3b. The authors warn that V0 is unknown and trades off strongly with K0 and K0'.
+**Source check:** Coefficients from Discussion paragraph 11, high-spin (larger-volume) branch of Figure 3b. The authors warn that V0 is unknown and trades off strongly with K0 and K0'.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 3.0
     - **Molar mass g mol:** 187.159972
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -173,7 +173,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ca0988mg0918fe0078mn0016c2o6_dolomite_iii.md#record-ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2)
 
-**Source finding:** Coefficients from Discussion paragraph 11, low-spin (lower-volume) branch of Figure 3b on compression and decompression. The authors warn of the high-pressure extrapolation tradeoff.
+**Source check:** Coefficients from Discussion paragraph 11, low-spin (lower-volume) branch of Figure 3b on compression and decompression. The authors warn of the high-pressure extrapolation tradeoff.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -205,7 +205,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/ca0
     - **Kind:** formula\_units
     - **Formula units:** 3.0
     - **Molar mass g mol:** 187.159972
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

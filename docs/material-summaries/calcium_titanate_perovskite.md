@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/calcium_titanate_perovskite.md#record-calcium_titanate_perovskite_ross_1999_bm3_1)
 
-**Source finding:** Coefficients from the abstract and Results (page 279), fitted to the 11 Table 1 observations with pressures from quartz volumes (Angel et al. (1997)). The standard Eulerian convention is confirmed by the source's 0.03 GPa maximum residual and weighted chi-square of 1.4.
+**Source check:** Coefficients from the abstract and Results (page 279), fitted to the 11 Table 1 observations with pressures from quartz volumes (Angel et al. (1997)). The standard Eulerian convention is confirmed by the source's 0.03 GPa maximum residual and weighted chi-square of 1.4.
 
 Automatic selection for equilibrium calculations.
 
@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 135.942
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Source review</summary>

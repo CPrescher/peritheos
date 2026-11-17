@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cementite_nonmagnetic.md#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd)
 
-**Source finding:** V0, K0 and K0' from Table 1, gamma0 and q from Table 2 (page 6), with Equations 1-6; KBr B2 pressures follow Dewaele et al. (2012). The equations agree with the calculated density benchmarks at 329 GPa and 5000 K.
+**Source check:** V0, K0 and K0' from Table 1, gamma0 and q from Table 2 (page 6), with Equations 1-6; KBr B2 pressures follow Dewaele et al. (2012). The equations agree with the calculated density benchmarks at 329 GPa and 5000 K.
 
 Automatic selection for equilibrium calculations.
 
@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[70.8, 326.4\]
 - **Reported temperature coverage (K):** \[300, 2600\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -185,7 +185,7 @@ Published five-parameter fit on the KBr pressure scale, with theta0 fixed to the
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cementite_nonmagnetic.md#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd)
 
-**Source finding:** V0, K0 and K0' from Table 1, gamma0 and q from Table 2 (page 6), with Equations 1-6; MgO pressures follow Kono et al. (2010). The equations agree with the calculated density benchmarks at 329 GPa and 5000 K.
+**Source check:** V0, K0 and K0' from Table 1, gamma0 and q from Table 2 (page 6), with Equations 1-6; MgO pressures follow Kono et al. (2010). The equations agree with the calculated density benchmarks at 329 GPa and 5000 K.
 
 Published pressure-scale alternative of [cementite\_nonmagnetic\_takahashi\_2019\_kbr\_bm3\_mgd](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd); it is not an independent EOS choice.
 
@@ -213,7 +213,7 @@ Published pressure-scale alternative of [cementite\_nonmagnetic\_takahashi\_2019
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[69.3, 326.4\]
 - **Reported temperature coverage (K):** \[300, 2600\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -309,7 +309,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 **Warning (source review):** Some quoted point errors are smaller than the overall experimental scatter. Retain the published EOS within 300 K and 27.2–186.6 GPa; the separate refit is diagnostic.
 
-**Source finding:** Coefficients from Table 6 and paragraph 15, checked against the 2009 manuscript; Equation 1 at Pr = 0 is the BM3 of Equation 2. The per-atom V0 is stored per 16-atom cell. The Table 4 heading says 193 GPa; the text and Figure 3 give 187 GPa.
+**Source check:** Coefficients from Table 6 and paragraph 15, checked against the 2009 manuscript; Equation 1 at Pr = 0 is the BM3 of Equation 2. The per-atom V0 is stored per 16-atom cell. The Table 4 heading says 193 GPa; the text and Figure 3 give 187 GPa.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -335,7 +335,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[27.2, 186.6\]
     - **Temperature k:** \[300, 300\]
     - **Notes:** Below 49.87 GPa the range rests only on the three Li (2002) points; Sata's nine new states span 49.87-186.60 GPa.; Minor Fe7C3 and Re peaks occur at the highest pressure; Fe3C peaks were refined separately.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published 300 K BM3 based on the nine Table 1 states and three Li (2002) states above 25 GPa, on their original MgO and ruby/neon pressure bases (exact MgO reduction unverified). Published V0 = 9.341 Å³/atom, an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell; no thermal extrapolation or magnetic-phase diagram. Scatter exceeds some tabulated coordinate errors, and Litasov's later 298 K Vinet recalibration is a different EOS.
 
@@ -551,7 +551,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 **Warning (source review):** Possible melting at higher pressures; density data do not resolve the phase state.
 
-**Source finding:** c0 and s from the Abstract, Results and Figure 1; rho0 is the Methods mean Archimedes density and V0 = 4M/(rho0 NA) with M = 179.546 g/mol. The source's separate thermal model (7.982 g/cm³ reference) is not this record.
+**Source check:** c0 and s from the Abstract, Results and Figure 1; rho0 is the Methods mean Archimedes density and V0 = 4M/(rho0 NA) with M = 179.546 g/mol. The source's separate thermal model (7.982 g/cm³ reference) is not this record.
 
 Automatic selection for hugoniot calculations.
 
@@ -604,7 +604,7 @@ Automatic selection for hugoniot calculations.
     - **Formula units:** 4
     - **Molar mass g mol:** 179.546
     - **Notes:** Operational four-formula mass basis including pore volume, not the Pnma crystal lattice. Standard Fe=55.845 and C=12.011 g/mol; exact Avogadro constant.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published linear Us-up fit to all six shots on an approximately 2% porous precursor, normalized to the adopted mean precursor density 7.525(0.010) g/cm³. V0 is a mass-equivalent bulk volume including the porosity, not a diffraction lattice volume or the Sata nonmagnetic V0; do not use it as a dense-crystal lattice volume.
 

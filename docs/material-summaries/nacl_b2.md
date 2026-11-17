@@ -84,7 +84,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2025_rydberg_stacey_1)
 
-**Source finding:** Coefficients from Table 2 with Equation (1); they match every corresponding value in the 26-row compression grid of Supplementary Data 1, Table S9.
+**Source check:** Coefficients from Table 2 with Equation (1); they match every corresponding value in the 26-row compression grid of Supplementary Data 1, Table S9.
 
 Automatic selection for equilibrium calculations.
 
@@ -111,7 +111,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table 2 parameterization of a joint pressure-scale network. For most materials the source fixes V0 and K0 from cited primary measurements and fits K0' to the internally consistent compression network. K\_infinity' is fixed at 5/3 except for Cu.
 
@@ -172,7 +172,7 @@ Table 2 parameterization of a joint pressure-scale network. For most materials t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_heinz_1984_bm2_1)
 
-**Source finding:** Coefficients from the second-order finite-strain fit on page 6048 (Equations (1)-(5)) to the Table I B2 compression data.
+**Source check:** Coefficients from the second-order finite-strain fit on page 6048 (Equations (1)-(5)) to the Table I B2 compression data.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -246,7 +246,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 
 **Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. All 125 DAC-2 observations above 35 GPa have negative residuals against the published curve; the cause is unresolved.
 
-**Source finding:** Coefficients from Table II (pages 9-12) for Equation (4). Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I. The author-used fit table, row mask and weights are unavailable.
+**Source check:** Coefficients from Table II (pages 9-12) for Equation (4). Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I. The author-used fit table, row mask and weights are unavailable.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -334,7 +334,7 @@ Table II Cu-referenced fit to the DAC-2 data. The published curve gives negative
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2014_yokoo_pt_bm3)
 
-**Source finding:** Coefficients from Section 2, journal p. 115; the large V0 error is the printed value. The original paired NaCl/Pt rows of Sakai (2011a) are not given in this article.
+**Source check:** Coefficients from Section 2, journal p. 115; the large V0 error is the printed value. The original paired NaCl/Pt rows of Sakai (2011a) are not given in this article.
 
 Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3](#record-nacl_b2_sakai_2011_matsui_pt_bm3); it is not an independent EOS choice.
 
@@ -364,7 +364,7 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3]
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Sakai (2011a) NaCl-B2 observations recalculated on the Yokoo et al. (2009) Pt scale. V0 was determined by a g-G analysis and then fixed.
 
@@ -427,7 +427,7 @@ Sakai (2011a) NaCl-B2 observations recalculated on the Yokoo et al. (2009) Pt sc
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_matsui_pt_bm3)
 
-**Source finding:** K0 and K0' from Table II (p. 084912-4), Matsui et al. (2009) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.
+**Source check:** K0 and K0' from Table II (p. 084912-4), Matsui et al. (2009) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -458,7 +458,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
@@ -523,7 +523,7 @@ Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_matsui_pt_vinet)
 
-**Source finding:** K0 and K0' from Table II (p. 084912-4), Matsui et al. (2009) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B.
+**Source check:** K0 and K0' from Table II (p. 084912-4), Matsui et al. (2009) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -554,7 +554,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
@@ -619,7 +619,7 @@ Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_fei_pt_bm3)
 
-**Source finding:** K0 and K0' from Table II (p. 084912-4), Fei et al. (2007) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.
+**Source check:** K0 and K0' from Table II (p. 084912-4), Fei et al. (2007) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.
 
 Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3](#record-nacl_b2_sakai_2011_matsui_pt_bm3); it is not an independent EOS choice.
 
@@ -652,7 +652,7 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3]
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
@@ -717,7 +717,7 @@ Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_fei_pt_vinet)
 
-**Source finding:** K0 and K0' from Table II, Fei et al. (2007) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B, fixed in the fit.
+**Source check:** K0 and K0' from Table II, Fei et al. (2007) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B, fixed in the fit.
 
 Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_vinet](#record-nacl_b2_sakai_2011_matsui_pt_vinet); it is not an independent EOS choice.
 
@@ -750,7 +750,7 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_vine
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
@@ -815,7 +815,7 @@ Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_do_pt_bm3)
 
-**Source finding:** K0 and K0' from Table II (p. 084912-4), Dorogokupets and Oganov (2007) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.
+**Source check:** K0 and K0' from Table II (p. 084912-4), Dorogokupets and Oganov (2007) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.
 
 Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3](#record-nacl_b2_sakai_2011_matsui_pt_bm3); it is not an independent EOS choice.
 
@@ -848,7 +848,7 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3]
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
@@ -913,7 +913,7 @@ Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_do_pt_vinet)
 
-**Source finding:** K0 and K0' from Table II (p. 084912-4), Dorogokupets and Oganov (2007) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B.
+**Source check:** K0 and K0' from Table II (p. 084912-4), Dorogokupets and Oganov (2007) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B.
 
 Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_vinet](#record-nacl_b2_sakai_2011_matsui_pt_vinet); it is not an independent EOS choice.
 
@@ -946,7 +946,7 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_vine
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
@@ -1011,7 +1011,7 @@ Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_holmes_pt_bm3)
 
-**Source finding:** K0 and K0' from Table II (p. 084912-4), Holmes et al. (1989) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.
+**Source check:** K0 and K0' from Table II (p. 084912-4), Holmes et al. (1989) Pt-scale row, BM3 column; V0 is the g-G zero-pressure extrapolation of Section III.B.
 
 Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3](#record-nacl_b2_sakai_2011_matsui_pt_bm3); it is not an independent EOS choice.
 
@@ -1044,7 +1044,7 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_bm3]
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
@@ -1108,7 +1108,7 @@ Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in t
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_holmes_pt_vinet)
 
-**Source finding:** K0 and K0' from Table II (p. 084912-4), Holmes et al. (1989) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B.
+**Source check:** K0 and K0' from Table II (p. 084912-4), Holmes et al. (1989) Pt-scale row, Vinet column; V0 is the g-G zero-pressure extrapolation of Section III.B.
 
 Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_vinet](#record-nacl_b2_sakai_2011_matsui_pt_vinet); it is not an independent EOS choice.
 
@@ -1141,7 +1141,7 @@ Published pressure-scale alternative of [nacl\_b2\_sakai\_2011\_matsui\_pt\_vine
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in the label. V0 is fixed in the fit; its quoted error includes the extrapolation and the B1 reference-volume error. The estimated Pt stress \|t\| = 2.4 GPa at 304 GPa (assuming alpha = 1) is a lower bound, not proof of hydrostaticity or an error to add to every pressure.
 
@@ -1205,7 +1205,7 @@ Table II fit to the new data plus Sata et al. (2002), on the Pt scale named in t
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_fei_2007)
 
-**Source finding:** Coefficients from the Table 1 Vinet fit, not its separate BM3 parameterization. V0, gamma0 and theta0 are adopted from Bukowinski and Aidun (1985) per the Table 1 footnote; Equation 3 subtracts the 300 K Debye energy.
+**Source check:** Coefficients from the Table 1 Vinet fit, not its separate BM3 parameterization. V0, gamma0 and theta0 are adopted from Bukowinski and Aidun (1985) per the Table 1 footnote; Equation 3 subtracts the 300 K Debye energy.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1236,7 +1236,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -1322,7 +1322,7 @@ Vinet + Mie-Grüneisen-Debye fit to room-temperature data up to 107 GPa and a 10
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_fei_2007_staged_thermal_refit)
 
-**Source finding:** V0, theta0 and gamma0 are from the Table 1 footnote (adopted from Bukowinski and Aidun (1985)) and the Debye law from Equation 3; K0, K0' and q are Peritheos fits to markers digitized from Figures 3 and 4.
+**Source check:** V0, theta0 and gamma0 are from the Table 1 footnote (adopted from Bukowinski and Aidun (1985)) and the Debye law from Equation 3; K0, K0' and q are Peritheos fits to markers digitized from Figures 3 and 4.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -1361,7 +1361,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fesi_b20.md#record-fesi_b20_fischer_2014_bm3_1)
 
-**Source finding:** Coefficients from Table 2 and Section 4.2; V0 = 6.803 cm³/mol of atoms is converted to the Z = 4 cell (×8/0.602214076).
+**Source check:** Coefficients from Table 2 and Section 4.2; V0 = 6.803 cm³/mol of atoms is converted to the Z = 4 cell (×8/0.602214076).
 
 Automatic selection for equilibrium calculations.
 
@@ -87,7 +87,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 36.27929763454465\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 The authors' preferred fit; the Vinet record is their published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.
 
@@ -167,7 +167,7 @@ The authors' preferred fit; the Vinet record is their published alternative. Roo
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fesi_b20.md#record-fesi_b20_fischer_2014_vinet_2)
 
-**Source finding:** Coefficients from Table S6 and Text S1, page 2; V0 = 6.803 cm³/mol of atoms is converted to the Z = 4 cell (×8/0.602214076).
+**Source check:** Coefficients from Table S6 and Text S1, page 2; V0 = 6.803 cm³/mol of atoms is converted to the Z = 4 cell (×8/0.602214076).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -190,7 +190,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0, 36.27929763454465\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Published alternative to the authors' preferred BM3 fit. Room-temperature compression can retain metastable phases because of slow kinetics.
 

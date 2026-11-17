@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/mgfe94o_b1.md#record-mgfe94o_b1_dobrosavljevic_2019_bm3_1)
 
-**Source finding:** Coefficients from Section 3.1 and Table 1 (V0 printed as 9.860(7) Å³/atom). The fit uses 14 rows of Supplementary Table S1 with a K0' prior of 3.8 ± 0.3 and excludes two pre-transition B1 rows.
+**Source check:** Coefficients from Section 3.1 and Table 1 (V0 printed as 9.860(7) Å³/atom). The fit uses 14 rows of Supplementary Table S1 with a K0' prior of 3.8 ± 0.3 and excludes two pre-transition B1 rows.
 
 Automatic selection for equilibrium calculations.
 
@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.888134, 1.0\]
     - **Notes:** The EOS was fitted through 23.3 GPa; it is not extended across the anomalous 26.7 and 30.1 GPa pre-transition observations.; The B1-to-rhombohedral transition is bracketed between 30.1 and 34.5 GPa and is not represented by this single-phase curve.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 B1 fit on the Dewaele (2008) ruby pressure scale, with V0 per conventional eight-atom cell. K0' was constrained by a finite prior and is therefore stored as free, not fixed. This is a structural branch, not a pure-spin phase-stability field.
 

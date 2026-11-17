@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe_fcc.md#record-fe_fcc_campbell_2009_bm3_mgd)
 
-**Source finding:** Coefficients from Table 1 and Equation (5) (p. 560); V0 = 7.076 cm³/mol is fixed from a JCPDS card the source does not identify, and K0' from Funamori et al. (1996). The exact Seagle et al. (2008) pressure reduction and the authors' regression inputs are unresolved.
+**Source check:** Coefficients from Table 1 and Equation (5) (p. 560); V0 = 7.076 cm³/mol is fixed from a JCPDS card the source does not identify, and K0' from Funamori et al. (1996). The exact Seagle et al. (2008) pressure reduction and the authors' regression inputs are unresolved.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -84,7 +84,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reference temperature (K):** 295.0
 - **Reported pressure coverage (GPa):** \[3.9954833425198, 27.0\]
 - **Reported temperature coverage (K):** \[873.0, 2160.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

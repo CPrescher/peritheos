@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/na088al099fe013si094o4_calcium_ferrite.md#record-na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1)
 
-**Source finding:** Coefficients from the abstract, page 2333 and Online Materials Table S5 (this-study Fe-bearing column), fitted to the 10 rows of Table S4. The superscript a on the 1.7 GPa row of Table S4 is not defined in the source.
+**Source check:** Coefficients from the abstract, page 2333 and Online Materials Table S5 (this-study Fe-bearing column), fitted to the 10 rows of Table S4. The superscript a on the 1.7 GPa row of Table S4 is not defined in the source.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0001, 44.0\]
     - **Temperature k:** \[293.0, 293.0\]
     - **Volume ratio:** \[0.846027846, 0.9991809992\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Fitted with the EosFit7c program. The source gives only room temperature; 293 K is the temperature of its companion CIF measurement, and no row-wise temperatures are published.
 

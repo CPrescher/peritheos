@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fe.md#record-fe_shen_2026_vinet_1)
 
-**Source finding:** Coefficients from Table II (pages 9-12) with Equation (4); the Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I.
+**Source check:** Coefficients from Table II (pages 9-12) with Equation (4); the Cu pressures follow Fratanduono et al. (2020) Supplemental Equation (2) with the 298 K coefficients of its Table I.
 
 Automatic selection for equilibrium calculations.
 
@@ -146,7 +146,7 @@ Table II fit to the combined DAC-1 and DAC-2 data, with pressures from the simul
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fe.md#record-fe_dewaele_2008_table4_vinet)
 
-**Source finding:** Coefficients from Table IV, third column (p. 104102-5), with Equation (1); the printed per-atom V0 is stored per two-atom cell (Z = 2).
+**Source check:** Coefficients from Table IV, third column (p. 104102-5), with Equation (1); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -168,7 +168,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 14.6\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data; run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
 
@@ -224,7 +224,7 @@ Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/fe.md#record-fe_dewaele_2008_table4_us_k0_165_vinet)
 
-**Source finding:** Coefficients from Table IV, fourth column (p. 104102-5), with Equation (1); the printed per-atom V0 is stored per two-atom cell (Z = 2).
+**Source check:** Coefficients from Table IV, fourth column (p. 104102-5), with Equation (1); the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -246,7 +246,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 14.6\]
 - **Coverage provenance:** reported\_qualitatively
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Table IV fit with V0 fixed from a separate fit to the 0-5 GPa data and K0 adopted from ultrasound; it is distinct from the later 2019 all-free-parameter recalibration. Run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
 

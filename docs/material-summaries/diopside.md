@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/diopside.md#record-diopside_thompson_2008_bm3)
 
-**Source finding:** Coefficients from the Results and discussion (p. 179) and Table 3 (p. 180), a weighted fit to all Table 1 data.
+**Source check:** Coefficients from the Results and discussion (p. 179) and Table 3 (p. 180), a weighted fit to all Table 1 data.
 
 Automatic selection for equilibrium calculations.
 
@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 10.16\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static room-temperature diffraction EOS with pressures on the Mao (1978) ruby scale, independent of the Zhao thermal coefficients. The source also reports an alternative fit with K0' fixed at 4, not stored here.
 
@@ -169,7 +169,7 @@ Static room-temperature diffraction EOS with pressures on the Mao (1978) ruby sc
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/diopside.md#record-diopside_zhao_1998_thermal_bm3)
 
-**Source finding:** K0 and K0' from the abstract and Figure 2, with errors from the rounded prose values 109(4) GPa and 4.8(6); thermal coefficients from the final paragraph of p. 26, for Equation (1); V0 is the Table 1 ambient volume.
+**Source check:** K0 and K0' from the abstract and Figure 2, with errors from the rounded prose values 109(4) GPa and 4.8(6); thermal coefficients from the final paragraph of p. 26, for Equation (1); V0 is the Table 1 ambient volume.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -199,7 +199,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Validity:**
     - **Pressure gpa:** \[0.0, 8.18\]
     - **Temperature k:** \[300.0, 1280.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

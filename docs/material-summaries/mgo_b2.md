@@ -60,7 +60,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo_b2.md#record-mgo_b2_zhang_bukowinski_1991_mpib_bm3)
 
-**Source finding:** Coefficients from the Table IV B2 room-temperature row (MPIB with Debye vibrational free energy, Sections II-III).
+**Source check:** Coefficients from the Table IV B2 room-temperature row (MPIB with Debye vibrational free energy, Sections II-III).
 
 Automatic selection for equilibrium calculations.
 

@@ -66,7 +66,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/feo.md#record-feo_fischer_2011_bm3_2)
 
-**Source finding:** Coefficients from Table 1 with Equation (1) (pages 12-13); V0 = 12.256 cm³/mol is fixed from McCammon and Liu (1984) and converted to the Z = 4 cell. The K0' error is the Table 1 value; the abstract prints 0.4.
+**Source check:** Coefficients from Table 1 with Equation (1) (pages 12-13); V0 = 12.256 cm³/mol is fixed from McCammon and Liu (1984) and converted to the Z = 4 cell. The K0' error is the Table 1 value; the abstract prints 0.4.
 
 Automatic selection for equilibrium calculations.
 
@@ -189,7 +189,7 @@ Thermal EOS for iron-saturated FeO, not a standalone 300 K BM3; the pressure ran
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/feo.md#record-fe093o_b1_jacobsen_2005_bm3_1)
 
-**Source finding:** V0 and K0 from Results section 3.1, page 579 (EOS-FIT 5.2 program); K0' was fixed because relatively few points lie below 20 GPa.
+**Source check:** V0 and K0 from Results section 3.1, page 579 (EOS-FIT 5.2 program); K0' was fixed because relatively few points lie below 20 GPa.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -214,7 +214,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.0, 22.8\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The last cubic observation is at 22.8 GPa; the rhombohedral phase is observed from 27.7 GPa onward.
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Fit for non-stoichiometric Fe0.93O in the cubic B1 phase, to the seven Table 1 observations. The source calls it third-order Birch-Murnaghan although fixing K0' = 4 reduces it numerically to BM2.
 
@@ -296,7 +296,7 @@ Fit for non-stoichiometric Fe0.93O in the cubic B1 phase, to the seven Table 1 o
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/feo.md#record-feo_leonov_2017_hs_bm3_1)
 
-**Source finding:** Coefficients from the Table I high-spin column; V0 = 144.1 bohr³ per formula unit is converted to the Z = 4 cell. The paper gives no low-spin V0.
+**Source check:** Coefficients from the Table I high-spin column; V0 = 144.1 bohr³ per formula unit is converted to the Z = 4 cell. The paper gives no low-spin V0.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -324,7 +324,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 71.844
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static-ion DFT+DMFT EOS for the high-spin paramagnetic B1 branch, at electronic temperature 1160 K.
 
@@ -382,7 +382,7 @@ Static-ion DFT+DMFT EOS for the high-spin paramagnetic B1 branch, at electronic 
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/feo.md#record-feo_holland_2013_fper_modified_tait)
 
-**Source finding:** Coefficients from Table 1 and the official tc-ds62 fper block, converted from V0 = 1.206 J/bar/mol, K0 = 1520 kbar and K0'' = -0.00320 kbar^-1 to GPa and the Z = 4 cell.
+**Source check:** Coefficients from Table 1 and the official tc-ds62 fper block, converted from V0 = 1.206 J/bar/mol, K0 = 1520 kbar and K0'' = -0.00320 kbar^-1 to GPa and the Z = 4 cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -469,7 +469,7 @@ Ideal FeO B1 (fper) thermodynamic endmember; not a stoichiometry claim for natur
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/feo.md#record-feo_campbell_2009_bm3_mgd)
 
-**Source finding:** Coefficients from Equation (5) and Table 1, page 560; italic Table 1 values are held fixed. The exact Seagle pressure reduction Campbell used and the authors' regression inputs and row selection are unresolved.
+**Source check:** Coefficients from Equation (5) and Table 1, page 560; italic Table 1 values are held fixed. The exact Seagle pressure reduction Campbell used and the authors' regression inputs and row selection are unresolved.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -494,7 +494,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reference temperature (K):** 295.0
 - **Reported pressure coverage (GPa):** \[3.9954833425198, 93.0\]
 - **Reported temperature coverage (K):** \[873.0, 2590.0\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

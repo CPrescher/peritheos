@@ -61,7 +61,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/qandilite.md#record-qandilite_lv_2016_bm2)
 
-**Source finding:** V0 and K0 from page 303 and Table 2, with K0' fixed as stated in footnote b; V0 is the fitted value, not the measured ambient 602.58(49) Å³ of Table 1.
+**Source check:** V0 and K0 from page 303 and Table 2, with K0' fixed as stated in footnote b; V0 is the fitted value, not the measured ambient 602.58(49) Å³ of Table 1.
 
 Automatic selection for equilibrium calculations.
 
@@ -153,7 +153,7 @@ The observed cubic phase persists kinetically; the pressure range is not an equi
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/qandilite.md#record-qandilite_lv_2016_bm3)
 
-**Source finding:** Coefficients from page 303 and Table 2 (K0' free), a least-squares fit with the EoS fit 5.2 program to Table 1; V0 is the fitted value, not the measured ambient 602.58(49) Å³.
+**Source check:** Coefficients from page 303 and Table 2 (K0' free), a least-squares fit with the EoS fit 5.2 program to Table 1; V0 is the fitted value, not the measured ambient 602.58(49) Å³.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/lead_hcp.md#record-lead_hcp_dewaele_2019_mao_vinet)
 
-**Source finding:** Coefficients from Table 1 (Mao-1986 ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Mao-1986 ruby-scale reduction) for the Vinet form of Equation (1).
 
 Automatic selection for equilibrium calculations.
 
@@ -87,7 +87,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[13.0, 131.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Mao-1986 ruby scale. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -144,7 +144,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/lead_hcp.md#record-lead_hcp_dewaele_2019_dor_vinet)
 
-**Source finding:** Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1).
+**Source check:** Coefficients from Table 1 (Dorogokupets-2007 ruby-scale reduction) for the Vinet form of Equation (1).
 
 Published pressure-scale alternative of [lead\_hcp\_dewaele\_2019\_mao\_vinet](#record-lead_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
@@ -169,7 +169,7 @@ Published pressure-scale alternative of [lead\_hcp\_dewaele\_2019\_mao\_vinet](#
 - **Validity:**
     - **Pressure gpa:** \[13.0, 131.0\]
     - **Temperature k:** \[300.0, 300.0\]
-- **Reported error confidence level:** 0.95
+- **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Dorogokupets-2007 ruby scale. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.
 
@@ -226,7 +226,7 @@ Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon,
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/lead_hcp.md#record-lead_hcp_kuznetsov_2002_bm3_3)
 
-**Source finding:** Coefficients from the hcp entries of Table 2 at T0 = 296 K (Equations 1-3); the printed V0 = 29.908 Å³/atom is stored per two-atom hcp cell.
+**Source check:** Coefficients from the hcp entries of Table 2 at T0 = 296 K (Equations 1-3); the printed V0 = 29.908 Å³/atom is stored per two-atom hcp cell.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |

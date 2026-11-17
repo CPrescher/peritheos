@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/ice_vi.md#record-ice_vi_bezacier_2014_bm2_1)
 
-**Source finding:** Coefficients from Table II with Equations (1)-(3) (p. 104505-4): BM2 with T0 = 300 K and exponential constant-alpha scaling of the reference volume.
+**Source check:** Coefficients from Table II with Equations (1)-(3) (p. 104505-4): BM2 with T0 = 300 K and exponential constant-alpha scaling of the reference volume.
 
 Automatic selection for equilibrium calculations.
 

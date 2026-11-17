@@ -57,7 +57,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/coo.md#record-coo_clendenen_1966_murnaghan_1)
 
-**Source finding:** Coefficients from Table VI with the Murnaghan form of Equation (4) (p. 4226), not a Birch-Murnaghan fit; K0 is printed as 1905 kbar. V0 = a0³ from the Table II ambient a0 = 4.258 Å.
+**Source check:** Coefficients from Table VI with the Murnaghan form of Equation (4) (p. 4226), not a Birch-Murnaghan fit; K0 is printed as 1905 kbar. V0 = a0³ from the Table II ambient a0 = 4.258 Å.
 
 Automatic selection for equilibrium calculations.
 

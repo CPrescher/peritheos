@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/sro_b2.md#record-sro_b2_sato_1981_bm2_1)
 
-**Source finding:** rho0 and K0 from the second-order fit on p. 11776 (Equations (1)-(7)); the density data are the B2 rows of Table 1 (p. 11774).
+**Source check:** rho0 and K0 from the second-order fit on p. 11776 (Equations (1)-(7)); the density data are the B2 rows of Table 1 (p. 11774).
 
 Automatic selection for equilibrium calculations.
 

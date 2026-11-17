@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/nickel_oxide_b1.md#record-nickel_oxide_b1_campbell_2009_bm3_mgd)
 
-**Source finding:** Coefficients from Table 1 and Equation (5); italic Table 1 values are held fixed. V0 = 10.973 cm³/mol is the source's JCPDS value (card not identified), converted to the Z = 4 cell.
+**Source check:** Coefficients from Table 1 and Equation (5); italic Table 1 values are held fixed. V0 = 10.973 cm³/mol is the source's JCPDS value (card not identified), converted to the Z = 4 cell.
 
 Automatic selection for equilibrium calculations.
 
@@ -86,7 +86,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 295.0
 - **Reported pressure coverage (GPa):** \[2.336174779961698, 65.9\]
 - **Reported temperature coverage (K):** \[298.0, 2457.07\]
-- **Reported error confidence level:** Not specified
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
