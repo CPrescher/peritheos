@@ -82,10 +82,12 @@ def test_independent_weighted_fit_and_fresh_official_receipt(weight):
         weighted_rows(expanded_rows(True), weight),
         [baseline["published_parameters"][key] for key in EXPANDED_NAMES],
     )
+    # One part per million allows finite-difference fit resolution across
+    # NumPy/SciPy versions; it is not a parameter uncertainty or parity claim.
     np.testing.assert_allclose(
         list(fit["parameters"].values()),
         list(case["fit_from_published_start"]["parameters"].values()),
-        rtol=1e-9,
+        rtol=1e-6,
     )
     native = json.loads(
         (DATA / "hartwig-weight-eosfit" / str(weight) / "checks.json").read_text()

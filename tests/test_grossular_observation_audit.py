@@ -5,6 +5,7 @@ import json
 from collections import Counter
 
 import numpy as np
+import pytest
 
 from scripts.audit_garnet_angel_2022 import FOLDER, independent_pressure, source
 from scripts.audit_grossular_angel_2022_observations import (
@@ -63,8 +64,17 @@ def test_grossular_source_and_equation_checks_remain_independent_of_subset_fit()
     receipt = json.loads((DATA / "eosfit-properties/checks.json").read_text())
     assert receipt["all_within_tolerances"]
     replay = check_output((DATA / "eosfit-properties/stdout.txt").read_text())
-    assert replay["states"] == receipt["states"]
-    assert len(replay["states"]) == 9
+    assert len(replay["states"]) == len(receipt["states"]) == 9
+    for actual, expected in zip(replay["states"], receipt["states"]):
+        assert actual.keys() == expected.keys()
+        for key in expected:
+            if key in {"independent", "official_minus_independent"}:
+                # Property evaluation has cross-library roundoff, including
+                # cancellation in near-zero differences. These bounds remain
+                # well below the receipt's declared property tolerances.
+                assert actual[key] == pytest.approx(expected[key], rel=1e-10, abs=1e-12)
+            else:
+                assert actual[key] == expected[key]
     result = audit()
     assert result["source_nonzero_covariance_parameters"] == [2, 3, 11, 18, 53, 54]
     assert not result["source_coefficients_changed"]

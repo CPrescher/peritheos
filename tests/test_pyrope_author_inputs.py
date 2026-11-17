@@ -65,8 +65,10 @@ def test_fit_replay_covariance_and_residual_rescaling():
         lower=np.array([50, 2, 50, 0.05, 0.9]),
         upper=np.array([350, 10, 3000, 4, 1.1]),
     )
+    # One part per million allows finite-difference fit resolution across
+    # NumPy/SciPy versions; it is not a parameter uncertainty or parity claim.
     np.testing.assert_allclose(
-        list(replay["parameters"].values()), list(a["parameters"].values()), rtol=1e-8
+        list(replay["parameters"].values()), list(a["parameters"].values()), rtol=1e-6
     )
     check = check_covariance(rows, a)
     assert check["covariance_positive_definite"]

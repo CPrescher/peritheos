@@ -114,10 +114,12 @@ def test_expanded_fit_replay_and_nonparity_receipts():
         )
         assert fit["numerically_converged"] and not fit["at_parameter_bound"]
         assert fit["scaled_jacobian_rank"] == 7
+        # One part per million allows finite-difference fit resolution across
+        # NumPy/SciPy versions; it is not a parameter uncertainty or parity claim.
         np.testing.assert_allclose(
             list(fit["parameters"].values()),
             list(saved["parameters"].values()),
-            rtol=1e-9,
+            rtol=1e-6,
         )
         native = json.loads(
             (DATA / "expanded-eosfit" / str(len(rows)) / "checks.json").read_text()
