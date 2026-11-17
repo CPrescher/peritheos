@@ -108,7 +108,7 @@ last.
 | `parameters` | yes | object | Coefficients with errors and fixed flags; see [Parameters](#parameters). |
 | `equation_options` | no | object | Extra settings of the reference component (the v3 `eos` object); may not contain `type`, `model` or `parameters`. |
 | `thermal` | no | object | Thermal-pressure component; see [Thermal component](#thermal-component). |
-| `parameter_error_confidence` | no | number in (0, 1) or `null` | Two-sided confidence of the printed error half-widths, for example `0.95` (1.96 sigma) or `0.6826894921370859` (1 sigma). `null` or absent: the source did not state a confidence level, and Peritheos uses the errors as standard errors (1 sigma). See [Parameters](#parameters). |
+| `parameter_error_confidence` | no | number in (0, 1) or `null` | Two-sided confidence of the printed error half-widths; see [Parameters](#parameters). |
 | `parameter_covariance` | no | object or `null` | `parameter_order` and square `matrix`; see [Covariance](#covariance). |
 | `validity` | no | object | The stated envelope of the record: `pressure_gpa` (GPa), `temperature_k` (K), `volume_ratio` (V/V0), each `[low, high]`, and `notes` (array of text). |
 | `experimental_pressure_range_gpa` | no | `[low, high]` GPa | Pressure span of the data behind the fit. |
@@ -194,11 +194,15 @@ parameter the equation does not store.
 of the record, read as half-widths of a normal interval. An absent or `null`
 value means the source did not state a confidence level; Peritheos then uses
 the errors as standard errors (1 sigma). A value of `0.95` means 95%
-half-widths, which are 1.96 sigma; `0.9545` is 2 sigma, and `0.6827` (stored
-exactly as `0.6826894921370859`) is 1 sigma. The file keeps the published
+half-widths, which are 1.96 sigma; `0.9545` is 2 sigma, and the 1-sigma level
+is `0.6826894921370859`. Bundled records use that value or a printed rounding
+of it (`0.682689492137`, `0.6827`, `0.68`). The file keeps the published
 numbers. When Peritheos propagates parameter uncertainty from the errors, it
-divides each error by the normal factor of the stated confidence (1.96 for
-`0.95`), so the calculation works in 1 sigma. A stored `parameter_covariance`
+divides each error by the normal factor computed from the stored value (1.96
+for `0.95`; 0.9945 for `0.68`), so the calculation works in 1 sigma.
+`record.summary()` prints this factor: "1 sigma" or "2 sigma" only for a value
+equal to that level to four decimals, otherwise the percentage and the factor
+(`0.68`: "68% half-widths (0.994 sigma)"). A stored `parameter_covariance`
 is propagated as given; the confidence is not applied to it. In a curated
 record, an absent or `null` `parameter_covariance` means the source did not
 report one; records do not repeat this.

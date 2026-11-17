@@ -895,20 +895,36 @@ _TWO_SIGMA = 0.9544997361036416
 def error_convention_text(confidence: float | None) -> str:
     """How the printed parameter errors relate to a standard deviation.
 
-    The 1-sigma spellings 0.68, 0.6827 and 0.682689... all read "1 sigma";
-    0.95 reads as 1.96 sigma and 0.9545 as 2 sigma. Any other level is printed
-    with the normal factor computed from it.
+    A stored level equal to the 1-sigma or 2-sigma level to four decimals
+    (0.6827, 0.682689..., 0.9545) reads "1 sigma" or "2 sigma"; any other
+    level is printed with the normal factor computed from the stored value,
+    the factor uncertainty propagation divides by (0.95: 1.96 sigma, 0.68:
+    0.994 sigma). The percentage never rounds to 0% or 100%.
     """
     if confidence is None:
         return "confidence level not stated; used as 1 sigma"
-    if abs(confidence - _ONE_SIGMA) < 3e-3:
+    if round(confidence, 4) == round(_ONE_SIGMA, 4):
         return "1 sigma"
-    if abs(confidence - _TWO_SIGMA) < 1e-4:
+    if round(confidence, 4) == round(_TWO_SIGMA, 4):
         return "2 sigma"
-    if confidence == 0.95:
-        return "95% half-widths (1.96 sigma)"
-    factor = NormalDist().inv_cdf(0.5 * (1.0 + confidence))
-    return f"{confidence * 100:.4g}% half-widths ({factor:.3g} sigma)"
+    # ndtri(0.5 * (1 + c)); the upper tail keeps it finite for c near 1.
+    factor = (
+        NormalDist().inv_cdf(0.5 * (1.0 + confidence))
+        if confidence < 0.5
+        else -NormalDist().inv_cdf(0.5 * (1.0 - confidence))
+    )
+    percent = confidence * 100
+    for digits in range(4, 18):
+        text = f"{percent:.{digits}g}"
+        if 0.0 < float(text) < 100.0:
+            break
+    else:
+        text = repr(percent)
+    # A level near but not at 1 or 2 sigma never prints the round factor.
+    digits = 3
+    while digits < 17 and float(f"{factor:.{digits}g}") in (1.0, 2.0):
+        digits += 1
+    return f"{text}% half-widths ({factor:.{digits}g} sigma)"
 
 
 def record_summary(overview: Mapping[str, Any]) -> str:
