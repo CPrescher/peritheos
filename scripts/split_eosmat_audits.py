@@ -26,6 +26,14 @@ replaced original in the record's ``superseded_record_text`` sidecar block. Its
 binding lists those records under ``superseded_record_text``; recovery first
 puts the stored originals back and removes the block (:func:`restore`), then
 undoes the split as before.
+
+The two curated ``check`` texts (``scripts/apply_check_text.py``) live in the
+sidecar evidence: ``scientific_validation.primary_source_check.record_note``
+and ``scientific_validation.warning_reason``. Written after the split, their
+binding lists ``check_text`` entries ``[index, {field: original}]`` holding
+each field's value before the first post-split change (``null``: absent).
+Recovery puts those originals back before anything else; ``finding`` itself is
+never changed.
 """
 
 from __future__ import annotations
@@ -49,7 +57,9 @@ from peritheos._eosmat_audit import (  # noqa: E402
     SUPERSEDED_TEXT_FIELDS,
     audit_is_external,
     merge_audit,
+    source_note,
     split_document,
+    warning_reason,
 )
 from peritheos._eosmat_format import (  # noqa: E402
     V4_LAYOUT,
@@ -150,12 +160,109 @@ def restore_record_text(record: dict) -> None:
             set_record_text(record, field, block[field])
 
 
+#: Curated sidecar texts copied into ``check`` (``source_note`` and
+#: ``warning_reason``): ``record_note`` sits in
+#: ``scientific_validation.primary_source_check`` directly after ``finding``,
+#: ``warning_reason`` in ``scientific_validation`` directly after
+#: ``usage_recommendation`` (or last).
+CHECK_TEXT_FIELDS = ("record_note", "warning_reason")
+_CHECK_TEXT_AFTER = {"record_note": "finding", "warning_reason": "usage_recommendation"}
+
+
+def _check_text_container(record: dict, field: str, create: bool) -> dict | None:
+    """The object holding ``field`` in a native or flattened v3 record."""
+    evidence = record.get("evidence", record)
+    if not isinstance(evidence, dict):
+        return None
+    validation = evidence.get("scientific_validation")
+    if not isinstance(validation, dict):
+        if not create:
+            return None
+        raise ValueError(f"Record {record.get('identifier')!r} has no source check")
+    if field == "warning_reason":
+        return validation
+    source = validation.get("primary_source_check")
+    if not isinstance(source, dict):
+        if not create:
+            return None
+        raise ValueError(
+            f"Record {record.get('identifier')!r} has no primary_source_check"
+        )
+    return source
+
+
+def check_text(record: dict, field: str) -> str | None:
+    """Current value of one curated check text (``None`` when absent)."""
+    if field not in CHECK_TEXT_FIELDS:
+        raise ValueError(f"Unknown check text field {field!r}")
+    container = _check_text_container(record, field, create=False)
+    return None if container is None else container.get(field)
+
+
+def set_check_text(record: dict, field: str, value: str | None) -> None:
+    """Write one curated check text into a record's evidence; ``None`` removes it.
+
+    A new value is placed directly after ``finding`` (``record_note``) or
+    ``usage_recommendation`` (``warning_reason``), or last; an existing one
+    keeps its position. ``finding`` is never touched. A stored ``check``
+    block is not changed here (see :func:`refresh_check_text`).
+    """
+    if field not in CHECK_TEXT_FIELDS:
+        raise ValueError(f"Unknown check text field {field!r}")
+    container = _check_text_container(record, field, create=value is not None)
+    if container is None:
+        return
+    if value is None:
+        container.pop(field, None)
+        return
+    if field in container:
+        container[field] = value
+        return
+    after = _CHECK_TEXT_AFTER[field]
+    items = list(container.items())
+    position = next(
+        (i + 1 for i, (key, _) in enumerate(items) if key == after), len(items)
+    )
+    items.insert(position, (field, value))
+    container.clear()
+    container.update(items)
+
+
+def refresh_check_text(record: dict) -> None:
+    """Set a stored ``check`` block's ``source_note`` and ``warning_reason``.
+
+    Both are copied from the record's evidence exactly as
+    :func:`peritheos._eosmat_audit.check_block` derives them; a record without
+    a ``check`` block is left alone.
+    """
+    check = record.get("check")
+    if not isinstance(check, dict):
+        return
+    for key, value in (
+        ("source_note", source_note(record)),
+        ("warning_reason", warning_reason(record)),
+    ):
+        if value is None:
+            check.pop(key, None)
+        else:
+            check[key] = value
+
+
+def restore_check_text(record: dict, originals: dict) -> None:
+    """Put the pre-revision curated check texts back and refresh ``check``."""
+    for field in CHECK_TEXT_FIELDS:
+        if field in originals:
+            set_check_text(record, field, originals[field])
+    refresh_check_text(record)
+
+
 def restore(document: dict, binding: dict) -> dict:
     """Undo the split changes listed in one material's receipt binding.
 
     ``superseded_record_text`` names records whose free text was revised after
     the split; their stored originals are restored and the block removed
-    before anything else.
+    before anything else. ``check_text`` entries ``[index, {field:
+    original}]`` then restore the curated check texts written after the split.
     ``added_check`` names records whose ``check`` block was added.
     ``added_default_records`` marks a ``default_records`` map made from the
     per-record flags; ``default_flags`` restores each record's original
@@ -169,6 +276,8 @@ def restore(document: dict, binding: dict) -> dict:
     records = result["eos_records"]
     for index in binding.get("superseded_record_text", []):
         restore_record_text(records[index])
+    for index, originals in binding.get("check_text", []):
+        restore_check_text(records[index], originals)
     for index in binding.get("added_check", []):
         del records[index]["check"]
     if binding.get("added_default_records"):
@@ -289,7 +398,8 @@ def pre_split_view(document: dict, root: Path = ROOT) -> dict:
     restores the original per-record default flags in place of
     ``default_records`` and re-inserts the generic statements recorded in the
     receipt. Text revised after the split is restored from the
-    ``superseded_record_text`` blocks the receipt binds. Documents without a
+    ``superseded_record_text`` blocks and ``check_text`` originals the
+    receipt binds. Documents without a
     receipt binding are returned unchanged.
     """
     receipt_path = root / RECEIPT.relative_to(ROOT)
@@ -316,6 +426,10 @@ def pre_split_view(document: dict, root: Path = ROOT) -> dict:
         record = records.get(order[index])
         if record is not None and "superseded_record_text" in record:
             restore_record_text(record)
+    for index, originals in binding.get("check_text", []):
+        record = records.get(order[index])
+        if record is not None:
+            restore_check_text(record, originals)
     for record in records.values():
         record.pop("check", None)
     # Bindings record every pre-split default flag; exports and the
@@ -507,6 +621,55 @@ def bind_record_text_revision(revised: dict[str, list[int]], root: Path = ROOT) 
         pre_split_bytes(material, root=root)
 
 
+CHECK_TEXT_REVISION = (
+    "Curated check texts written after the split "
+    "(scientific_validation.primary_source_check.record_note and "
+    "scientific_validation.warning_reason, copied into check.source_note and "
+    "check.warning_reason) are bound as check_text entries [index, {field: "
+    "original}], original null meaning absent; recovery restores them before "
+    "removing the check blocks. finding is never changed. after_record_sha256 "
+    "and after_audit_sha256 bind the revised files; before_sha256 values are "
+    "unchanged."
+)
+
+
+def bind_check_text_revision(revised: dict[str, list], root: Path = ROOT) -> None:
+    """Bind curated check-text revisions of split materials in the receipt.
+
+    ``revised`` maps a material to its complete ``check_text`` list of
+    ``[index, {field: original}]`` (an empty list removes the entry). The
+    after-hashes are refreshed from the written files, and the unchanged
+    pre-split file must still be recovered exactly.
+    """
+    receipt_path = root / RECEIPT.relative_to(ROOT)
+    receipt = json.loads(receipt_path.read_bytes())
+    changed = []
+    for material, entries in sorted(revised.items()):
+        binding = receipt["materials"].get(material)
+        if binding is None:
+            continue
+        if entries:
+            binding["check_text"] = sorted(
+                [[index, dict(originals)] for index, originals in entries],
+                key=lambda entry: entry[0],
+            )
+        else:
+            binding.pop("check_text", None)
+        binding["after_record_sha256"] = _sha(
+            (root / f"peritheos/data/materials/{material}.eosmat").read_bytes()
+        )
+        binding["after_audit_sha256"] = _sha(
+            (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
+        )
+        changed.append(material)
+    if not changed:
+        return
+    receipt.setdefault("check_text_revision", CHECK_TEXT_REVISION)
+    receipt_path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+    for material in changed:
+        pre_split_bytes(material, root=root)
+
+
 def holds_inline_audit(material: str, root: Path = ROOT) -> bool:
     """Whether a bundled file still needs the split: inline audit or no sidecar."""
     document = json.loads(
@@ -618,11 +781,17 @@ if __name__ == "__main__":
 
 
 __all__ = [
+    "CHECK_TEXT_FIELDS",
+    "bind_check_text_revision",
     "bind_record_text_revision",
+    "check_text",
     "merged_document",
     "pre_split_bytes",
     "record_text",
+    "refresh_check_text",
+    "restore_check_text",
     "restore_record_text",
+    "set_check_text",
     "set_record_text",
     "split_added_materials",
     "split_material",
