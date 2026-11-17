@@ -541,3 +541,85 @@ def test_sentence_count_ignores_abbreviations_and_decimals():
         "10",
         "17",
     ]
+
+
+def test_text_numbers_read_signs_exponents_and_locators():
+    assert tool.text_numbers(
+        "p.750, pp.2449-2450, Eq.12, ca.25, 1e-5, 1.5e-3, −0.02, K0' = -4.5, "
+        "0-80 GPa, 15.40 +/-0.45, 240.3(12), 195.0(2.5), e.g.12"
+    ) == [
+        "750",
+        "2449",
+        "2450",
+        "12",
+        "25",
+        "1e-5",
+        "1.5e-3",
+        "-0.02",
+        "-4.5",
+        "80",
+        "15.40",
+        "0.45",
+        "240.3",
+        "195.0",
+        "2.5",
+    ]
+    assert tool.known_number("162.37", [162.373], rounding=True)
+    assert not tool.known_number("162.37", [162.373])
+    assert tool.known_number("6.9", [6.880], rounding=True)
+    assert tool.known_number("1.4", [1.438559], rounding=True)
+    assert tool.known_number("23.89", [23.89043], rounding=True)
+    # One significant digit, a wrong rounding or a sign change never match.
+    assert not tool.known_number("0.5", [0.48], rounding=True)
+    assert not tool.known_number("6.8", [6.880], rounding=True)
+    assert not tool.known_number("-0.02", [0.02], rounding=True)
+    assert tool.known_number("1e-5", [0.00001])
+
+
+def test_a_rewrite_rounds_nothing_and_keeps_signs(tmp_path):
+    root = _catalog_copy(tmp_path, ["akimotoite"])
+    record = _record(root, "akimotoite", AKIMOTOITE)
+    volume = record["parameters"]["V0"]
+    volume = volume["value"] if isinstance(volume, dict) else volume
+    for notes in (f"V0 = -{volume} Å³.", f"V0 = {round(volume)} Å³."):
+        refusals, _ = _refusals(
+            root, _change(root, "akimotoite", AKIMOTOITE, notes=notes)
+        )
+        assert (AKIMOTOITE, "numbers") in refusals, notes
+
+
+def _tree(root):
+    return {
+        path.relative_to(root): path.read_bytes()
+        for path in sorted(root.rglob("*"))
+        if path.is_file()
+    }
+
+
+def test_a_failure_on_a_later_material_writes_nothing(tmp_path):
+    root = _catalog_copy(tmp_path, ["akimotoite", "larnite"])
+    shutil.copy2(ROOT / tool.LEDGER, root / tool.LEDGER)
+    receipt_path = root / RECEIPT.relative_to(ROOT)
+    receipt = json.loads(receipt_path.read_bytes())
+    receipt["materials"]["larnite"]["before_sha256"] = "0" * 64
+    receipt_path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+    before = _tree(root)
+    batches = {
+        **_change(root, "akimotoite", AKIMOTOITE, notes="Static-lattice LDA BM4."),
+        **_change(root, "larnite", LARNITE, validity_notes=["Range note."]),
+    }
+    plan = tool.plan_changes(batches, {}, root=root)
+    assert plan.refusals == [] and list(plan.changes) == ["akimotoite", "larnite"]
+    with pytest.raises(ValueError, match="predecessor changed"):
+        tool.apply_plan(plan, "2026-11-16", root)
+    assert _tree(root) == before
+
+
+def test_dry_run_refuses_a_file_outside_the_canonical_layout(tmp_path):
+    root = _catalog_copy(tmp_path, ["akimotoite"])
+    path = root / "peritheos/data/materials/akimotoite.eosmat"
+    path.write_text(json.dumps(json.loads(path.read_bytes()), indent=4) + "\n")
+    refusals, plan = _refusals(
+        root, _change(root, "akimotoite", AKIMOTOITE, notes="Static LDA BM4.")
+    )
+    assert refusals == {(AKIMOTOITE, "not_canonical")} and not plan.changes

@@ -43,6 +43,7 @@ import copy
 import hashlib
 import json
 import sys
+from collections.abc import Callable, Iterable, Mapping
 from pathlib import Path
 from typing import Any
 
@@ -379,12 +380,20 @@ def pre_split_bytes(material: str, *, root: Path | None = None) -> bytes:
     if binding is None:
         return data
     audit = (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
-    if _sha(data) != binding["after_record_sha256"]:
+    return recover_pre_split(material, data, audit, binding)
+
+
+def recover_pre_split(
+    material: str, record_bytes: bytes, audit_bytes: bytes, binding: dict
+) -> bytes:
+    """Recover a pre-split file from given file bytes and their binding."""
+    relative = f"peritheos/data/materials/{material}.eosmat"
+    if _sha(record_bytes) != binding["after_record_sha256"]:
         raise ValueError(f"EOSMAT audit split record file changed: {relative}")
-    if _sha(audit) != binding["after_audit_sha256"]:
+    if _sha(audit_bytes) != binding["after_audit_sha256"]:
         raise ValueError(f"EOSMAT audit split sidecar changed: {material}")
-    restored = restore(merged_document(material, root), binding)
-    original = _render(restored, binding)
+    merged = merge_audit(json.loads(record_bytes), json.loads(audit_bytes))
+    original = _render(restore(merged, binding), binding)
     if _sha(original) != binding["before_sha256"]:
         raise ValueError(f"EOSMAT audit split predecessor changed: {relative}")
     return original
@@ -587,38 +596,91 @@ RECORD_TEXT_REVISION = (
 )
 
 
+def receipt_text(receipt: dict) -> str:
+    """The receipt file's text."""
+    return json.dumps(receipt, indent=2, ensure_ascii=False) + "\n"
+
+
+def _revised_receipt(
+    receipt: dict,
+    revised: Mapping[str, Any],
+    files: Mapping[str, tuple[bytes, bytes]],
+    update: Callable[[dict, Any], None],
+    statement: tuple[str, str],
+) -> dict | None:
+    """A copy of ``receipt`` binding revised files, verified in memory.
+
+    ``files`` maps each revised material to its new record and sidecar bytes.
+    ``update`` writes one material's revision into its binding. Every changed
+    binding must still recover its pre-split file exactly from those bytes;
+    ``None`` means no split material was revised. Nothing is written.
+    """
+    result = copy.deepcopy(receipt)
+    changed = []
+    for material, revision in sorted(revised.items()):
+        binding = result["materials"].get(material)
+        if binding is None:
+            continue
+        update(binding, revision)
+        record_bytes, audit_bytes = files[material]
+        binding["after_record_sha256"] = _sha(record_bytes)
+        binding["after_audit_sha256"] = _sha(audit_bytes)
+        changed.append(material)
+    if not changed:
+        return None
+    result.setdefault(*statement)
+    for material in changed:
+        recover_pre_split(material, *files[material], result["materials"][material])
+    return result
+
+
+def _disk_files(materials: Iterable[str], root: Path) -> dict[str, tuple[bytes, bytes]]:
+    return {
+        material: (
+            (root / f"peritheos/data/materials/{material}.eosmat").read_bytes(),
+            (root / f"peritheos/data/audits/{material}.audit.json").read_bytes(),
+        )
+        for material in materials
+    }
+
+
+def _set_record_text_indices(binding: dict, indices: list[int]) -> None:
+    if indices:
+        binding["superseded_record_text"] = sorted(set(indices))
+    else:
+        binding.pop("superseded_record_text", None)
+
+
+def record_text_receipt(
+    receipt: dict,
+    revised: Mapping[str, list[int]],
+    files: Mapping[str, tuple[bytes, bytes]],
+) -> dict | None:
+    """``receipt`` binding free-text revisions of ``files`` (see below)."""
+    return _revised_receipt(
+        receipt,
+        revised,
+        files,
+        _set_record_text_indices,
+        ("record_text_revision", RECORD_TEXT_REVISION),
+    )
+
+
 def bind_record_text_revision(revised: dict[str, list[int]], root: Path = ROOT) -> None:
     """Bind text revisions of split materials in the receipt and verify them.
 
     ``revised`` maps a material to the complete list of indices of records
     whose ``superseded_record_text`` block was added after the split (an empty
     list removes the entry). The after-hashes are refreshed from the written
-    files, and the unchanged pre-split file must still be recovered exactly.
+    files, and the unchanged pre-split file must still be recovered exactly
+    before the receipt is written.
     """
     receipt_path = root / RECEIPT.relative_to(ROOT)
     receipt = json.loads(receipt_path.read_bytes())
-    changed = []
-    for material, indices in sorted(revised.items()):
-        binding = receipt["materials"].get(material)
-        if binding is None:
-            continue
-        if indices:
-            binding["superseded_record_text"] = sorted(set(indices))
-        else:
-            binding.pop("superseded_record_text", None)
-        binding["after_record_sha256"] = _sha(
-            (root / f"peritheos/data/materials/{material}.eosmat").read_bytes()
-        )
-        binding["after_audit_sha256"] = _sha(
-            (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
-        )
-        changed.append(material)
-    if not changed:
-        return
-    receipt.setdefault("record_text_revision", RECORD_TEXT_REVISION)
-    receipt_path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
-    for material in changed:
-        pre_split_bytes(material, root=root)
+    files = _disk_files([m for m in revised if m in receipt["materials"]], root)
+    result = record_text_receipt(receipt, revised, files)
+    if result is not None:
+        receipt_path.write_text(receipt_text(result), encoding="utf-8")
 
 
 CHECK_TEXT_REVISION = (
@@ -633,41 +695,50 @@ CHECK_TEXT_REVISION = (
 )
 
 
+def _set_check_text_entries(binding: dict, entries: list) -> None:
+    if entries:
+        binding["check_text"] = sorted(
+            [[index, dict(originals)] for index, originals in entries],
+            key=lambda entry: entry[0],
+        )
+    else:
+        binding.pop("check_text", None)
+
+
+def check_text_receipt(
+    receipt: dict,
+    revised: Mapping[str, list],
+    files: Mapping[str, tuple[bytes, bytes]],
+) -> dict | None:
+    """``receipt`` binding curated check-text revisions of ``files``.
+
+    Computed and verified in memory (see :func:`bind_check_text_revision`);
+    ``None`` when no split material is revised.
+    """
+    return _revised_receipt(
+        receipt,
+        revised,
+        files,
+        _set_check_text_entries,
+        ("check_text_revision", CHECK_TEXT_REVISION),
+    )
+
+
 def bind_check_text_revision(revised: dict[str, list], root: Path = ROOT) -> None:
     """Bind curated check-text revisions of split materials in the receipt.
 
     ``revised`` maps a material to its complete ``check_text`` list of
     ``[index, {field: original}]`` (an empty list removes the entry). The
     after-hashes are refreshed from the written files, and the unchanged
-    pre-split file must still be recovered exactly.
+    pre-split file must still be recovered exactly before the receipt is
+    written.
     """
     receipt_path = root / RECEIPT.relative_to(ROOT)
     receipt = json.loads(receipt_path.read_bytes())
-    changed = []
-    for material, entries in sorted(revised.items()):
-        binding = receipt["materials"].get(material)
-        if binding is None:
-            continue
-        if entries:
-            binding["check_text"] = sorted(
-                [[index, dict(originals)] for index, originals in entries],
-                key=lambda entry: entry[0],
-            )
-        else:
-            binding.pop("check_text", None)
-        binding["after_record_sha256"] = _sha(
-            (root / f"peritheos/data/materials/{material}.eosmat").read_bytes()
-        )
-        binding["after_audit_sha256"] = _sha(
-            (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
-        )
-        changed.append(material)
-    if not changed:
-        return
-    receipt.setdefault("check_text_revision", CHECK_TEXT_REVISION)
-    receipt_path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
-    for material in changed:
-        pre_split_bytes(material, root=root)
+    files = _disk_files([m for m in revised if m in receipt["materials"]], root)
+    result = check_text_receipt(receipt, revised, files)
+    if result is not None:
+        receipt_path.write_text(receipt_text(result), encoding="utf-8")
 
 
 def holds_inline_audit(material: str, root: Path = ROOT) -> bool:

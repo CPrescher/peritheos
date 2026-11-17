@@ -27,17 +27,20 @@ object left empty is removed. Labels come only from ``--labels`` (CSV columns
 ``material, record, current_label, proposed_label, flag``); only rows flagged
 ``mechanical`` are applied.
 
-A record is refused, and reported, when a ``before`` text or the CSV's current
-label differs from the file, when a validity note would create or remove the
+A record is refused, and reported, when its material's files are not in
+canonical layout (``not_canonical``; the dry run reports this too), when a
+``before`` text or the CSV's current label differs from the file, when a
+validity note would create or remove the
 record's ``validity`` object (``validity_scope``: a ``validity`` object replaces
 the experimental ranges as the enforced envelope, so this would change the
 record's behaviour; returning to a stored original is accepted), or when one
 of these guards fails:
 
 ``numbers``
-    an after text contains a number (decimals, or integers of two or more
-    digits) found neither in the record's current text fields nor in its
-    structured fields;
+    an after text contains a number (decimals, numbers with an exponent, or
+    integers of two or more digits; sign, mantissa and exponent read as one
+    number) that does not equal, sign included, a number in the record's
+    current text fields or its structured fields (a rewrite rounds nothing);
 ``notes_length``
     notes over 400 characters or 3 sentences;
 ``validity_length``
@@ -54,7 +57,9 @@ of these guards fails:
 
 ``--allow RECORD:GUARD`` overrides one guard for one named record; every
 override is listed in the output. A refused record is left unchanged; the
-others are applied and the exit status is 1.
+others are applied and the exit status is 1. Every file, the receipt binding
+and the ledger are computed and verified before anything is written, so an
+error leaves the tree untouched.
 
 Usage::
 
@@ -75,11 +80,13 @@ import copy
 import csv
 import datetime
 import json
+import math
 import re
 import subprocess
 import sys
 from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass, field
+from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
@@ -96,8 +103,9 @@ from peritheos._eosmat_format import format_audit, format_eosmat  # noqa: E402
 from peritheos.eosmat import validate_eosmat_document  # noqa: E402
 from scripts.split_eosmat_audits import (  # noqa: E402
     RECEIPT,
-    bind_record_text_revision,
+    receipt_text,
     record_text,
+    record_text_receipt,
     restore_record_text,
     set_record_text,
 )
@@ -143,7 +151,87 @@ ABBREVIATIONS = (
     "Tab.",
     "Suppl.",
 )
-_NUMBER = re.compile(r"(?<![0-9.])[0-9]+(?:\.[0-9]+)?")
+#: One printed number: optional minus (``-`` or Unicode ``−``) or plus, the
+#: mantissa and an optional exponent, read as one token ("-1.5e-3").
+_NUMBER = re.compile(
+    r"(?<![0-9])(?P<sign>[-+−]?)(?P<mantissa>[0-9]+(?:\.[0-9]+)?)"
+    r"(?:[eE](?P<exponent>[-+−]?[0-9]+))?(?![0-9])"
+)
+#: A sign counts only at the start of a number, never in "0-80", "B2-12" or
+#: "+/-0.45".
+_SIGN_AFTER = frozenset(" \t\n\u00a0([{=,;:<>~≈≤≥")
+#: Locators whose full stop is followed directly by a number ("p.750").
+_LOCATORS = ("p.", "pp.", "Eq.", "Eqs.", "Fig.", "Figs.", "Table.", "Tab.", "ca.")
+
+
+def _numbers(text: str) -> Iterable[tuple[str, bool]]:
+    """Each number in ``text`` as a normalized token and whether it is checked.
+
+    A token joins sign, mantissa and exponent (``"-1.5e-3"``; a Unicode minus
+    reads as ``-``). A number directly after a full stop is part of a decimal
+    or a code and skipped, except after a locator such as ``p.`` or ``Eq.``
+    ("p.750"). The digits of a printed error directly after a number
+    (``58.868(2)``) belong to the printed form and are not a number of their
+    own; an error with a decimal point (``195.0(2.5)``) is. Checked are
+    numbers with a decimal point or an exponent and integers of 2+ digits.
+    """
+    for match in _NUMBER.finditer(text):
+        start = match.start()
+        sign = match["sign"]
+        if sign and start > 0 and text[start - 1] not in _SIGN_AFTER:
+            # A hyphen inside a range or a name, not a sign.
+            sign = ""
+            start += 1
+        before = text[:start]
+        if before.endswith("."):
+            word = re.search(r"(?:^|[^A-Za-z])([A-Za-z]+\.)$", before)
+            if word is None or word.group(1) not in _LOCATORS:
+                continue
+        mantissa = match["mantissa"]
+        exponent = match["exponent"]
+        if (
+            before.endswith("(")
+            and re.search(r"[0-9]\($", before)
+            and "." not in mantissa
+            and exponent is None
+            and text[match.end() : match.end() + 1] == ")"
+        ):
+            continue
+        token = ("-" if sign in ("-", "−") else "") + mantissa
+        if exponent is not None:
+            token += "e" + exponent.replace("−", "-")
+        checked = "." in mantissa or exponent is not None or len(mantissa) >= 2
+        yield token, checked
+
+
+def significant_digits(token: str) -> int:
+    """Significant digits written in a number token's mantissa."""
+    mantissa = re.split("[eE]", token.lstrip("-+"))[0]
+    return len(mantissa.replace(".", "").lstrip("0")) or 1
+
+
+def known_number(
+    token: str, allowed: Iterable[float], *, rounding: bool = False
+) -> bool:
+    """Whether a number token equals an allowed number (signs compared).
+
+    With ``rounding``, a token of at least two significant digits also
+    matches a number it is a correct rounding of at the precision written
+    (``6.9`` for ``6.880``, ``23.89`` for ``23.89043``).
+    """
+    value = Decimal(token)
+    numbers = [
+        Decimal(repr(float(number))) for number in allowed if math.isfinite(number)
+    ]
+    if any(value == number for number in numbers):
+        return True
+    if not rounding or significant_digits(token) < 2:
+        return False
+    half = Decimal(1).scaleb(value.as_tuple().exponent) / 2
+    return any(
+        abs(number - value) <= half and (number < 0) == (value < 0)
+        for number in numbers
+    )
 
 
 def _absent(value: Any) -> bool:
@@ -168,17 +256,19 @@ def sentence_count(text: str) -> int:
 
 
 def text_numbers(text: str) -> list[str]:
-    """Number tokens the guard checks: decimals and integers of 2+ digits."""
-    return [t for t in _NUMBER.findall(text) if "." in t or len(t) >= 2]
+    """Number tokens the guard checks (signed, with exponent; see ``_numbers``)."""
+    return [token for token, checked in _numbers(text) if checked]
 
 
 def _values(value: Any) -> Iterable[float]:
+    """Every number in a value, signed: JSON numbers and numbers in text."""
     if isinstance(value, bool):
         return
     if isinstance(value, (int, float)):
-        yield abs(float(value))
+        if math.isfinite(value):
+            yield float(value)
     elif isinstance(value, str):
-        for token in _NUMBER.findall(value):
+        for token, _ in _numbers(value):
             yield float(token)
     elif isinstance(value, Mapping):
         for key, item in value.items():
@@ -311,6 +401,24 @@ def _receipt(root: Path) -> dict:
     return json.loads(path.read_bytes()) if path.exists() else {"materials": {}}
 
 
+def _read(root: Path, material: str) -> tuple[dict, dict]:
+    """A material's record file and sidecar; both must be in canonical layout."""
+    record_text_before = (
+        root / f"peritheos/data/materials/{material}.eosmat"
+    ).read_text(encoding="utf-8")
+    audit_text_before = (
+        root / f"peritheos/data/audits/{material}.audit.json"
+    ).read_text(encoding="utf-8")
+    document = json.loads(record_text_before)
+    sidecar = json.loads(audit_text_before)
+    if (
+        format_eosmat(document) != record_text_before
+        or format_audit(sidecar) != audit_text_before
+    ):
+        raise ValueError(f"{material}: files are not in canonical layout")
+    return document, sidecar
+
+
 def _guards(
     record: Mapping[str, Any],
     new: Mapping[str, Any],
@@ -330,7 +438,7 @@ def _guards(
             token
             for _, text in texts
             for token in text_numbers(text)
-            if float(token) not in allowed
+            if not known_number(token, allowed)
         }
     )
     if unknown:
@@ -386,10 +494,15 @@ def plan_changes(
                     Refusal(material, record, "unknown_material", "no file")
                 )
             continue
-        document = json.loads(record_path.read_bytes())
-        sidecar = json.loads(
-            (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
-        )
+        try:
+            document, sidecar = _read(root, material)
+        except ValueError as error:
+            # The real run would rewrite the whole layout; refuse instead.
+            for record in sorted(requested):
+                plan.refusals.append(
+                    Refusal(material, record, "not_canonical", str(error))
+                )
+            continue
         records = {r["identifier"]: r for r in document["eos_records"]}
         order = [r["identifier"] for r in document["eos_records"]]
         bound = set(bindings.get(material, {}).get("superseded_record_text", []))
@@ -544,22 +657,19 @@ def revise_record(record: dict, entry: dict, new: Mapping[str, Any], date: str) 
 
 
 def apply_plan(plan: Plan, date: str, root: Path = ROOT) -> None:
-    """Write the planned changes, bind them in the receipt and verify."""
+    """Write the planned changes, bind them in the receipt and verify.
+
+    Every material's new files, the receipt binding and the ledger copies are
+    computed and verified in memory first; files are written only when the
+    whole plan is valid, so a failure leaves the tree untouched.
+    """
     revised: dict[str, list[int]] = {}
     copies: dict[str, dict[str, Any]] = {}
-    bindings = _receipt(root).get("materials", {})
+    files: dict[str, tuple[bytes, bytes]] = {}
+    receipt = _receipt(root)
+    bindings = receipt.get("materials", {})
     for material, changes in plan.changes.items():
-        record_path = root / f"peritheos/data/materials/{material}.eosmat"
-        audit_path = root / f"peritheos/data/audits/{material}.audit.json"
-        record_text_before = record_path.read_text(encoding="utf-8")
-        audit_text_before = audit_path.read_text(encoding="utf-8")
-        document = json.loads(record_text_before)
-        sidecar = json.loads(audit_text_before)
-        if (
-            format_eosmat(document) != record_text_before
-            or format_audit(sidecar) != audit_text_before
-        ):
-            raise ValueError(f"{material}: files are not in canonical layout")
+        document, sidecar = _read(root, material)
         order = [r["identifier"] for r in document["eos_records"]]
         entries = sidecar["records"]
         for record in document["eos_records"]:
@@ -576,8 +686,7 @@ def apply_plan(plan: Plan, date: str, root: Path = ROOT) -> None:
         merged = merge_audit(json.loads(record_bytes), json.loads(audit_bytes))
         validate_eosmat_document(json.loads(record_bytes))
         validate_eosmat_document(merged)
-        record_path.write_text(record_bytes, encoding="utf-8")
-        audit_path.write_text(audit_bytes, encoding="utf-8")
+        files[material] = (record_bytes.encode("utf-8"), audit_bytes.encode("utf-8"))
         bound = set(bindings.get(material, {}).get("superseded_record_text", []))
         for identifier in changes:
             index = order.index(identifier)
@@ -592,32 +701,51 @@ def apply_plan(plan: Plan, date: str, root: Path = ROOT) -> None:
                     "label": record.get("label"),
                     "source_notes": record.get("notes"),
                 }
-    bind_record_text_revision(revised, root)
-    sync_ledger(copies, root)
+    # Raises before anything is written if a pre-split file would be lost.
+    new_receipt = record_text_receipt(receipt, revised, files) if bindings else None
+    ledger = ledger_files(copies, root)
+    for material, (record_bytes, audit_bytes) in files.items():
+        (root / f"peritheos/data/materials/{material}.eosmat").write_bytes(record_bytes)
+        (root / f"peritheos/data/audits/{material}.audit.json").write_bytes(audit_bytes)
+    if new_receipt is not None:
+        (root / RECEIPT.relative_to(ROOT)).write_text(
+            receipt_text(new_receipt), encoding="utf-8"
+        )
+    for path, text in ledger.items():
+        path.write_text(text, encoding="utf-8")
 
 
-def sync_ledger(copies: Mapping[str, Mapping[str, Any]], root: Path = ROOT) -> None:
-    """Copy revised labels and notes into the registered refit ledger.
+def ledger_files(
+    copies: Mapping[str, Mapping[str, Any]], root: Path = ROOT
+) -> dict[Path, str]:
+    """The registered refit ledger with revised labels and notes, as file texts.
 
     ``docs/data/primary-eos-refits.json`` keeps each record's ``label`` and
     ``notes`` (as ``source_notes``), and ``validate_primary_eos_refits.py``
     requires them to equal the catalog. Only these two fields of the revised
     records change; ``docs/primary-eos-refits.md`` is re-rendered from the
-    saved ledger by that script's own renderer. Nothing is recomputed.
+    updated ledger by that script's own renderer. Nothing is recomputed or
+    written here.
     """
     path = root / LEDGER
     if not copies or not path.exists():
-        return
+        return {}
     ledger = json.loads(path.read_text(encoding="utf-8"))
     for entry in ledger["records"]:
         if entry["record_identifier"] in copies:
             entry.update(copies[entry["record_identifier"]])
-    path.write_text(
-        json.dumps(ledger, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
-    )
     from scripts.validate_primary_eos_refits import render_markdown
 
-    (root / LEDGER_MARKDOWN).write_text(render_markdown(ledger), encoding="utf-8")
+    return {
+        path: json.dumps(ledger, indent=2, ensure_ascii=False) + "\n",
+        root / LEDGER_MARKDOWN: render_markdown(ledger),
+    }
+
+
+def sync_ledger(copies: Mapping[str, Mapping[str, Any]], root: Path = ROOT) -> None:
+    """Copy revised labels and notes into the registered refit ledger."""
+    for path, text in ledger_files(copies, root).items():
+        path.write_text(text, encoding="utf-8")
 
 
 def _git_file(revision: str, relative: str, root: Path) -> bytes | None:

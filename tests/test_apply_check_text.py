@@ -19,6 +19,7 @@ from scripts.apply_record_text import Plan
 from scripts.check_record_text import current_cases, record_cases
 from scripts.split_eosmat_audits import (
     RECEIPT,
+    check_text,
     pre_split_bytes,
     split_added_materials,
     verify_catalog,
@@ -343,3 +344,80 @@ def test_check_record_text_counts_notes_and_reasons(root):
     assert record_cases({"check": check}) == ["warning_reason_length"]
     check["warning_reason"] = "x" * 140
     assert record_cases({"check": check}) == []
+
+
+def _tree(root):
+    return {
+        path.relative_to(root): path.read_bytes()
+        for path in sorted(root.rglob("*"))
+        if path.is_file()
+    }
+
+
+def test_a_failure_on_a_later_material_writes_nothing(root):
+    # coesite_iv is applied first; a broken binding of mgal2o4_cati2o4 makes
+    # its pre-split file unrecoverable. Nothing may be written: neither
+    # material's files nor the receipt.
+    receipt_path = root / RECEIPT.relative_to(ROOT)
+    receipt = json.loads(receipt_path.read_bytes())
+    receipt["materials"]["mgal2o4_cati2o4"]["before_sha256"] = "0" * 64
+    receipt_path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+    before = _tree(root)
+    result = plan(BATCH, root)
+    assert list(result.changes) == ["coesite_iv", "mgal2o4_cati2o4"]
+    with pytest.raises(ValueError, match="predecessor changed"):
+        tool.apply_plan(result, root)
+    assert _tree(root) == before
+
+
+def test_dry_run_refuses_a_file_outside_the_canonical_layout(root, capsys):
+    audit = root / "peritheos/data/audits/coesite_iv.audit.json"
+    audit.write_text(json.dumps(json.loads(audit.read_bytes()), indent=4) + "\n")
+    result = plan(BATCH, root)
+    assert refusals(result) == {(BYKOVA_REF, "not_canonical")}
+    assert list(result.changes) == ["mgal2o4_cati2o4"]
+
+
+@pytest.mark.parametrize(
+    ("note", "unknown"),
+    [
+        # A correct rounding at the precision written is accepted.
+        ("Table 1 prints V0 = 240 Å³ and K0 = 206 GPa.", None),
+        ("Table 1 prints V0 = 240.30 Å³.", None),
+        # A wrong rounding, a changed sign or an exponent are numbers too.
+        ("Table 1 prints V0 = 241 Å³.", "241"),
+        ("Table 1 prints V0 = -240.3 Å³.", "-240.3"),
+        ("Table 1 prints V0 = −240.3 Å³.", "-240.3"),
+        ("Table 1 prints a = 2.403e2 Å³.", None),
+        ("Table 1 prints a = 2.41e2 Å³.", "2.41e2"),
+        ("Table 1 prints 1e-5 per K.", "1e-5"),
+        # A locator's full stop does not hide the number after it.
+        ("See p.750 of the paper.", "750"),
+        ("See Eq.12 and Fig.3.", "12"),
+    ],
+)
+def test_number_guard_reads_signs_exponents_locators_and_roundings(root, note, unknown):
+    result = plan({"mgal2o4_cati2o4": {FUNAMORI: {"source_note": note}}}, root)
+    details = [r.detail for r in result.refusals]
+    assert details == ([] if unknown is None else [f"not in the record: {unknown}"])
+
+
+def test_bundled_check_texts_pass_every_guard_without_overrides():
+    """Every bundled record_note and warning_reason passes the guards as is."""
+    failed = []
+    for path in sorted(MATERIALS.glob("*.eosmat")):
+        merged = merge_audit(
+            json.loads(path.read_bytes()),
+            json.loads((AUDITS / f"{path.stem}.audit.json").read_bytes()),
+        )
+        for record in merged["eos_records"]:
+            new = {
+                key: check_text(record, field)
+                for key, field in tool.INPUT_FIELDS.items()
+                if check_text(record, field) is not None
+            }
+            if new:
+                failed += [
+                    (record["identifier"], guard) for guard in tool._guards(record, new)
+                ]
+    assert failed == []

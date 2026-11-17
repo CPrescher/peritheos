@@ -29,21 +29,28 @@ post-split change is kept as a ``check_text`` entry, so
 ``scripts/split_eosmat_audits.py --verify`` still recovers every pre-split
 file byte for byte.
 
-A record is refused, and reported, when its material or record is unknown, a
-value is neither text nor ``null``, the record has no
-``primary_source_check`` (for ``source_note``), or a ``warning_reason`` is
-given for a record whose ``check.warning`` is ``null`` (the library rejects
-such a record, so this cannot be overridden). These guards refuse it too:
+A record is refused, and reported, when its material or record is unknown,
+its material's files are not in canonical layout (``not_canonical``; the
+dry run reports this too), a value is neither text nor ``null``, the record
+has no ``primary_source_check`` (for ``source_note``), or a
+``warning_reason`` is given for a record whose ``check.warning`` is ``null``
+(the library rejects such a record, so this cannot be overridden). These
+guards refuse it too:
 
 ``source_note_length``
     a source note over 300 characters;
 ``warning_reason_length``
     a warning reason over 140 characters;
 ``numbers``
-    a number (decimals, or integers of two or more digits; the value of a
-    printed form such as ``58.868(2)``) found neither in the record's
-    ``finding`` and other sidecar evidence, nor in its record fields or its
-    stored ``superseded_record_text``;
+    a number (decimals, numbers with an exponent, or integers of two or more
+    digits; sign, mantissa and exponent read as one number, ``−`` as minus;
+    the value of a printed form such as ``58.868(2)``; also directly after
+    ``p.``, ``pp.``, ``Eq.``, ``Eqs.``, ``Fig.``, ``Table.`` or ``ca.``) that
+    neither equals, sign included, a number in the record's ``finding`` and
+    other sidecar evidence, its record fields or its stored
+    ``superseded_record_text``, nor is a correct rounding of one at the
+    precision written with at least two significant digits (``6.9`` for
+    ``6.880``, ``23.89`` for ``23.89043``);
 ``forbidden_text``
     a repository path (``docs/``, ``.json``, ``scripts/``) or the words
     ``LitCurate`` or ``Audit 20``;
@@ -54,7 +61,9 @@ such a record, so this cannot be overridden). These guards refuse it too:
 
 ``--allow RECORD:GUARD`` overrides one guard for one named record; every
 override is listed in the output. A refused record is left unchanged; the
-others are applied and the exit status is 1.
+others are applied and the exit status is 1. Every file and the receipt
+binding are computed and verified before anything is written, so an error
+leaves the tree untouched.
 
 Usage::
 
@@ -99,13 +108,16 @@ from scripts.apply_record_text import (  # noqa: E402
     Refusal,
     _receipt,
     _values,
+    known_number,
     text_numbers,
 )
 from scripts.split_eosmat_audits import (  # noqa: E402
     CHECK_TEXT_FIELDS,
-    bind_check_text_revision,
+    RECEIPT,
     check_text,
+    check_text_receipt,
     pre_split_bytes,
+    receipt_text,
     set_check_text,
 )
 
@@ -165,6 +177,18 @@ def _paths(root: Path, material: str) -> tuple[Path, Path]:
     )
 
 
+def _read(root: Path, material: str) -> tuple[dict, dict]:
+    """A material's record file and sidecar; both must be in canonical layout."""
+    record_path, audit_path = _paths(root, material)
+    record_text = record_path.read_text(encoding="utf-8")
+    audit_text = audit_path.read_text(encoding="utf-8")
+    document = json.loads(record_text)
+    sidecar = json.loads(audit_text)
+    if format_eosmat(document) != record_text or format_audit(sidecar) != audit_text:
+        raise ValueError(f"{material}: files are not in canonical layout")
+    return document, sidecar
+
+
 def allowed_numbers(record: Mapping[str, Any]) -> set[float]:
     """Numbers in a merged record: evidence, record fields and stored originals.
 
@@ -194,7 +218,7 @@ def _guards(
             token
             for _, value in texts
             for token in text_numbers(value)
-            if float(token) not in allowed
+            if not known_number(token, allowed, rounding=True)
         }
     )
     if unknown:
@@ -235,8 +259,16 @@ def plan_changes(
                     Refusal(material, identifier, "unknown_material", "no file")
                 )
             continue
-        document = json.loads(record_path.read_bytes())
-        merged = merge_audit(document, json.loads(audit_path.read_bytes()))
+        try:
+            document, sidecar = _read(root, material)
+        except ValueError as error:
+            # The real run would rewrite the whole layout; refuse instead.
+            for identifier in sorted(requested):
+                plan.refusals.append(
+                    Refusal(material, identifier, "not_canonical", str(error))
+                )
+            continue
+        merged = merge_audit(document, sidecar)
         records = {r["identifier"]: r for r in merged["eos_records"]}
         order = [r["identifier"] for r in merged["eos_records"]]
         proposals: dict[str, dict[str, str | None]] = {}
@@ -333,20 +365,18 @@ def plan_changes(
 
 
 def apply_plan(plan: Plan, root: Path = ROOT) -> None:
-    """Write the planned changes, regenerate ``check``, bind and verify."""
-    bindings = _receipt(root).get("materials", {})
+    """Write the planned changes, regenerate ``check``, bind and verify.
+
+    Every material's new files and the receipt binding are computed and
+    verified in memory first; files are written only when the whole plan is
+    valid, so a failure leaves the tree untouched.
+    """
+    receipt = _receipt(root)
+    bindings = receipt.get("materials", {})
     revised: dict[str, list] = {}
+    files: dict[str, tuple[bytes, bytes]] = {}
     for material, changes in plan.changes.items():
-        record_path, audit_path = _paths(root, material)
-        record_before = record_path.read_text(encoding="utf-8")
-        audit_before = audit_path.read_text(encoding="utf-8")
-        document = json.loads(record_before)
-        sidecar = json.loads(audit_before)
-        if (
-            format_eosmat(document) != record_before
-            or format_audit(sidecar) != audit_before
-        ):
-            raise ValueError(f"{material}: files are not in canonical layout")
+        document, sidecar = _read(root, material)
         order = [r["identifier"] for r in document["eos_records"]]
         originals = {
             index: dict(values)
@@ -387,16 +417,24 @@ def apply_plan(plan: Plan, root: Path = ROOT) -> None:
                     "evidence beyond source_note and warning_reason"
                 )
             record["check"] = derived
-        record_bytes = format_eosmat(document)
-        audit_bytes = format_audit(sidecar)
-        validate_eosmat_document(json.loads(record_bytes))
+        record_text = format_eosmat(document)
+        audit_text = format_audit(sidecar)
+        validate_eosmat_document(json.loads(record_text))
         validate_eosmat_document(
-            merge_audit(json.loads(record_bytes), json.loads(audit_bytes))
+            merge_audit(json.loads(record_text), json.loads(audit_text))
         )
-        record_path.write_text(record_bytes, encoding="utf-8")
-        audit_path.write_text(audit_bytes, encoding="utf-8")
+        files[material] = (record_text.encode("utf-8"), audit_text.encode("utf-8"))
         revised[material] = [[index, originals[index]] for index in sorted(originals)]
-    bind_check_text_revision(revised, root)
+    # Raises before anything is written if a pre-split file would be lost.
+    new_receipt = check_text_receipt(receipt, revised, files) if bindings else None
+    for material, (record_bytes, audit_bytes) in files.items():
+        record_path, audit_path = _paths(root, material)
+        record_path.write_bytes(record_bytes)
+        audit_path.write_bytes(audit_bytes)
+    if new_receipt is not None:
+        (root / RECEIPT.relative_to(ROOT)).write_text(
+            receipt_text(new_receipt), encoding="utf-8"
+        )
 
 
 def verify(root: Path = ROOT) -> tuple[int, list[str]]:
