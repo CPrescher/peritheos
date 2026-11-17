@@ -421,3 +421,24 @@ def test_bundled_check_texts_pass_every_guard_without_overrides():
                     (record["identifier"], guard) for guard in tool._guards(record, new)
                 ]
     assert failed == []
+
+
+@pytest.mark.parametrize(
+    ("material", "identifier"),
+    [
+        # Both rebuild primary_source_check from the script's own tables.
+        ("neon_fcc", "neon_fcc_hemley_1989_bm3_refit"),
+        ("aragonite", "aragonite_martinez_1996_bm2_2"),
+    ],
+)
+def test_primary_source_audit_keeps_the_record_note(material, identifier):
+    from peritheos import get_material_document
+    from scripts.apply_primary_source_audit import audit_record
+
+    document = get_material_document(material)
+    record = next(r for r in document["eos_records"] if r["identifier"] == identifier)
+    note = record["scientific_validation"]["primary_source_check"]["record_note"]
+    rebuilt = audit_record(json.loads(json.dumps(record)), f"{material}.eosmat")
+    check = rebuilt["scientific_validation"]["primary_source_check"]
+    assert check["record_note"] == note
+    assert list(check).index("record_note") == list(check).index("finding") + 1

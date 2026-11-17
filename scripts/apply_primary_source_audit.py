@@ -3679,6 +3679,20 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
             }
         ]
 
+    # ``record_note`` (shown as check.source_note) is curated per record with
+    # scripts/apply_check_text.py and is in none of this script's tables; a
+    # rebuilt ``primary_source_check`` keeps it, directly after ``finding``.
+    note = (previous.get("primary_source_check") or {}).get("record_note")
+    rebuilt = result["scientific_validation"].get("primary_source_check")
+    if note is not None and isinstance(rebuilt, dict) and "record_note" not in rebuilt:
+        items = list(rebuilt.items())
+        position = next(
+            (i + 1 for i, (key, _) in enumerate(items) if key == "finding"),
+            len(items),
+        )
+        items.insert(position, ("record_note", note))
+        result["scientific_validation"]["primary_source_check"] = dict(items)
+
     return result
 
 
