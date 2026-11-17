@@ -19,7 +19,8 @@ mod native_v4;
 mod uncertainty_units;
 
 pub use audit::{
-    Compared, Reproduction, SourceCheck, AUDIT_RECORD_KEYS, EOSMAT_AUDIT_FORMAT, WHY_MAX_LENGTH,
+    Compared, Reproduction, SourceCheck, AUDIT_RECORD_KEYS, EOSMAT_AUDIT_FORMAT,
+    RECORD_NOTE_MAX_LENGTH, WARNING_REASON_MAX_LENGTH, WHY_MAX_LENGTH,
 };
 
 use std::collections::HashMap;
@@ -1095,6 +1096,15 @@ impl EosRecord {
         self.headline.warning.as_deref()
     }
 
+    /// Why [`Self::warning`] applies (`check.warning_reason`), or `None`.
+    ///
+    /// One curated clause copied from the audit's
+    /// `scientific_validation.warning_reason`; only given with a warning.
+    #[must_use]
+    pub fn warning_reason(&self) -> Option<&str> {
+        self.headline.warning_reason.as_deref()
+    }
+
     /// Primary-source review (`check.source_check`), or `None` when not recorded.
     ///
     /// A fixed renaming of the stored `scientific_validation.status`.
@@ -1103,7 +1113,11 @@ impl EosRecord {
         self.headline.source_check
     }
 
-    /// The primary-source check's finding (`check.source_note`), or `None`.
+    /// What the primary-source check found for this record, or `None`.
+    ///
+    /// `check.source_note`: the curated per-record note
+    /// (`primary_source_check.record_note`) when one is written, otherwise the
+    /// check's verbatim `finding`.
     #[must_use]
     pub fn source_note(&self) -> Option<&str> {
         self.headline.source_note.as_deref()
@@ -1690,8 +1704,10 @@ pub fn merge_referenced_eosmat_audits(
 /// v3 record. `material` supplies a material-level `recommendation_hold`. The
 /// result contains `reproduction`, `compared` and `warning`, plus `why` (for
 /// `close` or `disagrees`, generated from the stored comparison table),
-/// `source_check`, `source_checked_on` and `source_note` when the evidence
-/// records them; it has no `audit` link. This reproduces the derivation that
+/// `warning_reason` (copied from `scientific_validation.warning_reason`),
+/// `source_check`, `source_checked_on` and `source_note` (the per-record
+/// `primary_source_check.record_note`, else the verbatim finding) when the
+/// evidence records them; it has no `audit` link. This reproduces the derivation that
 /// wrote the bundled `check` blocks.
 #[must_use]
 pub fn derive_eosmat_check(record: &Value, material: Option<&Value>) -> Value {

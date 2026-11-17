@@ -10,6 +10,10 @@
 //! `check.why` is composed only from the stored coefficient comparison table,
 //! `check.source_check` is a fixed renaming of the stored source-validation
 //! status and `check.warning` is built only from stored coded restrictions.
+//! Two curated texts are copied, never composed: `check.source_note` is the
+//! per-record `primary_source_check.record_note` when one is written and the
+//! verbatim `primary_source_check.finding` otherwise, and
+//! `check.warning_reason` copies `scientific_validation.warning_reason`.
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::fmt::{self, Display, Formatter};
@@ -51,6 +55,7 @@ const CHECK_KEYS: &[&str] = &[
     "compared",
     "why",
     "warning",
+    "warning_reason",
     "source_check",
     "source_checked_on",
     "source_note",
@@ -61,6 +66,12 @@ const RENAMED_CHECK_KEYS: &[(&str, &str)] =
     &[("finding", "source_note"), ("source", "source_check")];
 /// Maximum length of a `check.why` line, in characters.
 pub const WHY_MAX_LENGTH: usize = 160;
+/// Maximum length, in characters, of the curated per-record source note
+/// `scientific_validation.primary_source_check.record_note`.
+pub const RECORD_NOTE_MAX_LENGTH: usize = 300;
+/// Maximum length, in characters, of `scientific_validation.warning_reason`
+/// and its copy `check.warning_reason`.
+pub const WARNING_REASON_MAX_LENGTH: usize = 140;
 
 const REPORT_LEDGER: &str = "docs/data/primary-eos-refits.json";
 
@@ -691,13 +702,26 @@ fn validation(record: &Value) -> Option<&Map<String, Value>> {
     section(evidence(record), "scientific_validation")
 }
 
-fn source_finding(validation: Option<&Map<String, Value>>) -> Option<&str> {
+fn source_text<'a>(validation: Option<&'a Map<String, Value>>, key: &str) -> Option<&'a str> {
     validation?
         .get("primary_source_check")?
         .as_object()?
-        .get("finding")?
+        .get(key)?
         .as_str()
-        .filter(|finding| !finding.is_empty())
+        .filter(|text| !text.is_empty())
+}
+
+/// `check.source_note`: the per-record `record_note`, else the verbatim finding.
+fn source_note(validation: Option<&Map<String, Value>>) -> Option<&str> {
+    source_text(validation, "record_note").or_else(|| source_text(validation, "finding"))
+}
+
+/// The stored `scientific_validation.warning_reason`, if any.
+fn warning_reason(validation: Option<&Map<String, Value>>) -> Option<&str> {
+    validation?
+        .get("warning_reason")?
+        .as_str()
+        .filter(|text| !text.is_empty())
 }
 
 /// Derive a record's `check` block from its inline evidence.
@@ -719,6 +743,11 @@ pub(super) fn check_block(record: &Value, material: Option<&Value>, audit: Optio
         "warning".into(),
         usage_warning(record, material).map_or(Value::Null, Value::String),
     );
+    // Copied whenever stored: a reason without a warning is invalid and is
+    // reported by validation, never silently dropped.
+    if let Some(reason) = warning_reason(validation) {
+        result.insert("warning_reason".into(), Value::String(reason.to_owned()));
+    }
     if let Some(validation) = validation {
         if let Some(check) = validation
             .get("status")
@@ -731,8 +760,8 @@ pub(super) fn check_block(record: &Value, material: Option<&Value>, audit: Optio
             result.insert("source_checked_on".into(), date.clone());
         }
     }
-    if let Some(finding) = source_finding(validation) {
-        result.insert("source_note".into(), Value::String(finding.to_owned()));
+    if let Some(note) = source_note(validation) {
+        result.insert("source_note".into(), Value::String(note.to_owned()));
     }
     if let Some(audit) = audit {
         result.insert("audit".into(), Value::String(audit.to_owned()));
@@ -747,6 +776,7 @@ pub(super) struct Headline {
     pub(super) compared: Compared,
     pub(super) why: Option<String>,
     pub(super) warning: Option<String>,
+    pub(super) warning_reason: Option<String>,
     pub(super) source_check: Option<SourceCheck>,
     pub(super) source_note: Option<String>,
 }
@@ -758,6 +788,7 @@ impl Default for Headline {
             compared: Compared::Nothing,
             why: None,
             warning: None,
+            warning_reason: None,
             source_check: None,
             source_note: None,
         }
@@ -778,6 +809,15 @@ pub(super) fn headline(record: &Value, material: Option<&Value>) -> Headline {
             .filter(|value| !value.is_empty())
     };
     let validation = validation(record);
+    let warning = match check.and_then(|check| check.get("warning")) {
+        Some(value) => value.as_str().map(str::to_owned),
+        None => usage_warning(record, material),
+    };
+    let reason = warning.as_ref().and_then(|_| {
+        stored("warning_reason")
+            .or_else(|| warning_reason(validation))
+            .map(str::to_owned)
+    });
     Headline {
         reproduction: stored("reproduction")
             .and_then(Reproduction::from_check)
@@ -789,10 +829,8 @@ pub(super) fn headline(record: &Value, material: Option<&Value>) -> Headline {
             Some(value) => value.as_str().map(str::to_owned),
             None => reproduction_why(record),
         },
-        warning: match check.and_then(|check| check.get("warning")) {
-            Some(value) => value.as_str().map(str::to_owned),
-            None => usage_warning(record, material),
-        },
+        warning,
+        warning_reason: reason,
         source_check: stored("source_check")
             .and_then(SourceCheck::from_check)
             .or_else(|| {
@@ -802,7 +840,7 @@ pub(super) fn headline(record: &Value, material: Option<&Value>) -> Headline {
                     .and_then(SourceCheck::from_status_code)
             }),
         source_note: stored("source_note")
-            .or_else(|| source_finding(validation))
+            .or_else(|| source_note(validation))
             .map(str::to_owned),
     }
 }
@@ -888,13 +926,31 @@ pub(super) fn validate_check(check: &Value, location: &str) -> Result<(), Eosmat
             )));
         }
     }
-    for key in ["why", "source_note", "source_checked_on", "audit"] {
+    for key in [
+        "why",
+        "warning_reason",
+        "source_note",
+        "source_checked_on",
+        "audit",
+    ] {
         if let Some(value) = check.get(key) {
             if value.as_str().is_none_or(str::is_empty) {
                 return Err(invalid_document(format!(
                     "{location}.check.{key} must be a non-empty string"
                 )));
             }
+        }
+    }
+    if let Some(reason) = check.get("warning_reason").and_then(Value::as_str) {
+        if reason.chars().count() > WARNING_REASON_MAX_LENGTH {
+            return Err(invalid_document(format!(
+                "{location}.check.warning_reason must be at most {WARNING_REASON_MAX_LENGTH} characters"
+            )));
+        }
+        if check.get("warning").is_none_or(Value::is_null) {
+            return Err(invalid_document(format!(
+                "{location}.check.warning_reason is only given with a warning"
+            )));
         }
     }
     if let Some(why) = check.get("why").and_then(Value::as_str) {
@@ -965,6 +1021,60 @@ pub(super) fn validate_check_consistency(
                 "{location}.check.source_check {stored} contradicts scientific_validation.status {status}"
             )));
         }
+    }
+    Ok(())
+}
+
+/// Validate the curated texts a record's `check` copies from its evidence.
+///
+/// `scientific_validation.primary_source_check.record_note` and
+/// `scientific_validation.warning_reason` are optional non-empty strings of at
+/// most [`RECORD_NOTE_MAX_LENGTH`] and [`WARNING_REASON_MAX_LENGTH`]
+/// characters. A `warning_reason` needs a warning: it is an error on a record
+/// whose derived `check.warning` is null. Records without inline evidence are
+/// not checked here.
+pub(super) fn validate_check_text(
+    record: &Value,
+    material: Option<&Value>,
+    location: &str,
+) -> Result<(), EosmatError> {
+    let Some(evidence) = record.get("evidence").filter(|value| value.is_object()) else {
+        return Ok(());
+    };
+    let validation = section(evidence, "scientific_validation");
+    let source = validation
+        .and_then(|validation| validation.get("primary_source_check"))
+        .and_then(Value::as_object);
+    let place = format!("{location}.evidence.scientific_validation");
+    for (container, key, limit, prefix) in [
+        (
+            source,
+            "record_note",
+            RECORD_NOTE_MAX_LENGTH,
+            "primary_source_check.",
+        ),
+        (validation, "warning_reason", WARNING_REASON_MAX_LENGTH, ""),
+    ] {
+        let Some(value) = container.and_then(|container| container.get(key)) else {
+            continue;
+        };
+        let Some(text) = value.as_str().filter(|text| !text.trim().is_empty()) else {
+            return Err(invalid_document(format!(
+                "{place}.{prefix}{key} must be a non-empty string"
+            )));
+        };
+        if text.chars().count() > limit {
+            return Err(invalid_document(format!(
+                "{place}.{prefix}{key} must be at most {limit} characters"
+            )));
+        }
+    }
+    if validation.is_some_and(|validation| validation.contains_key("warning_reason"))
+        && usage_warning(record, material).is_none()
+    {
+        return Err(invalid_document(format!(
+            "{place}.warning_reason is given but the record has no warning (no coded restriction)"
+        )));
     }
     Ok(())
 }

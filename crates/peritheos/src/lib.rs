@@ -126,7 +126,7 @@ pub use eosmat::{
     HugoniotLoadingPath, HugoniotModel, HugoniotRecord, HugoniotRecordMetadata, HugoniotState,
     HugoniotVolumeBasis, IsothermalModel, LoadedEos, Material, Reproduction, SourceCheck,
     ThermalModel, AUDIT_RECORD_KEYS, EOSMAT_AUDIT_FORMAT, EOSMAT_FORMAT, EOSMAT_FORMAT_VERSION,
-    WHY_MAX_LENGTH,
+    RECORD_NOTE_MAX_LENGTH, WARNING_REASON_MAX_LENGTH, WHY_MAX_LENGTH,
 };
 pub use error::{EosError, EosErrorKind};
 pub use pressure_calibration::{

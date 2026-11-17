@@ -20,7 +20,10 @@ and scope, ``check.why`` is composed only from the stored coefficient
 comparison table, ``check.source_check`` is a fixed renaming of the stored
 source-validation status and ``check.warning`` is built only from stored coded
 restrictions (see :func:`usage_warning`). The audit sidecar keeps the original
-codes.
+codes. Two curated texts are copied, never composed: ``check.source_note`` is
+the per-record ``primary_source_check.record_note`` when one is written and the
+verbatim ``primary_source_check.finding`` otherwise, and
+``check.warning_reason`` copies ``scientific_validation.warning_reason``.
 """
 
 from __future__ import annotations
@@ -104,6 +107,7 @@ CHECK_KEYS = (
     "compared",
     "why",
     "warning",
+    "warning_reason",
     "source_check",
     "source_checked_on",
     "source_note",
@@ -112,6 +116,12 @@ CHECK_KEYS = (
 #: Earlier names of v5 ``check`` fields. They are rejected, never reinterpreted.
 RENAMED_CHECK_KEYS = {"finding": "source_note", "source": "source_check"}
 WHY_MAX_LENGTH = 160
+#: Limits of the two curated sidecar texts copied into ``check``:
+#: ``scientific_validation.primary_source_check.record_note`` (shown as
+#: ``check.source_note``) and ``scientific_validation.warning_reason`` (shown as
+#: ``check.warning_reason``).
+RECORD_NOTE_MAX_LENGTH = 300
+WARNING_REASON_MAX_LENGTH = 140
 
 #: Statements that apply to every assessment of their kind. They are defined
 #: once in docs/eos-labels.md and are not repeated in bundled sidecars.
@@ -426,6 +436,29 @@ def usage_warning(
     return " ".join(phrases) or None
 
 
+def _text(value: Any) -> str | None:
+    return value if isinstance(value, str) and value else None
+
+
+def source_note(record: Mapping[str, Any]) -> str | None:
+    """``check.source_note``: the per-record note, else the verbatim finding.
+
+    ``scientific_validation.primary_source_check.record_note`` is a curated
+    statement of what was checked for this record; without one the check's
+    ``finding`` is copied unchanged. Neither is ever composed or shortened.
+    """
+    source = _section(
+        _section(_evidence(record), "scientific_validation"), "primary_source_check"
+    )
+    return _text(source.get("record_note")) or _text(source.get("finding"))
+
+
+def warning_reason(record: Mapping[str, Any]) -> str | None:
+    """The stored ``scientific_validation.warning_reason``, or ``None``."""
+    validation = _section(_evidence(record), "scientific_validation")
+    return _text(validation.get("warning_reason"))
+
+
 def check_block(
     record: Mapping[str, Any],
     material: Mapping[str, Any] | None = None,
@@ -442,13 +475,18 @@ def check_block(
     if why is not None:
         result["why"] = why
     result["warning"] = usage_warning(record, material)
+    # Copied whenever stored: a reason without a warning is invalid and is
+    # reported by validation, never silently dropped.
+    reason = warning_reason(record)
+    if reason is not None:
+        result["warning_reason"] = reason
     if validation.get("status") in SOURCE_CHECK_VALUES:
         result["source_check"] = SOURCE_CHECK_VALUES[validation["status"]]
     if "audit_date" in validation:
         result["source_checked_on"] = validation["audit_date"]
-    finding = _section(validation, "primary_source_check").get("finding")
-    if isinstance(finding, str) and finding:
-        result["source_note"] = finding
+    note = source_note(record)
+    if note is not None:
+        result["source_note"] = note
     if audit is not None:
         result["audit"] = audit
     return result
@@ -460,7 +498,8 @@ def headline(
     """Effective ``check`` fields of a record, stored or derived.
 
     Returns ``reproduction``, ``compared``, ``why``, ``warning``,
-    ``source_check``, ``source_checked_on`` and ``source_note``. A stored ``check`` value wins;
+    ``warning_reason``, ``source_check``, ``source_checked_on`` and
+    ``source_note``. A stored ``check`` value wins;
     otherwise the value is derived from inline evidence exactly as
     :func:`check_block` would. No assessment means ``untested``, compared
     ``none``.
@@ -468,21 +507,25 @@ def headline(
     check = record.get("check")
     check = check if isinstance(check, Mapping) else {}
     validation = _section(_evidence(record), "scientific_validation")
-    finding = _section(validation, "primary_source_check").get("finding")
     status = validation.get("status")
+    warning = (
+        check["warning"] if "warning" in check else usage_warning(record, material)
+    )
     return {
         "reproduction": check.get("reproduction") or reproduction_headline(record),
         "compared": check.get("compared") or compared_scope(record),
         "why": check["why"] if "why" in check else reproduction_why(record),
-        "warning": (
-            check["warning"] if "warning" in check else usage_warning(record, material)
+        "warning": warning,
+        "warning_reason": (
+            None
+            if warning is None
+            else check.get("warning_reason") or warning_reason(record)
         ),
         "source_check": check.get("source_check")
         or SOURCE_CHECK_VALUES.get(str(status)),
         "source_checked_on": check.get("source_checked_on")
         or validation.get("audit_date"),
-        "source_note": check.get("source_note")
-        or (finding if isinstance(finding, str) and finding else None),
+        "source_note": check.get("source_note") or source_note(record),
     }
 
 
@@ -535,9 +578,19 @@ def validate_check(check: Any, location: str) -> None:
         not isinstance(check["warning"], str) or not check["warning"].strip()
     ):
         raise EosmatError(f"{location}.check.warning must be null or text")
-    for key in ("why", "source_note", "source_checked_on", "audit"):
+    for key in ("why", "warning_reason", "source_note", "source_checked_on", "audit"):
         if key in check and (not isinstance(check[key], str) or not check[key]):
             raise EosmatError(f"{location}.check.{key} must be a non-empty string")
+    if "warning_reason" in check:
+        if len(check["warning_reason"]) > WARNING_REASON_MAX_LENGTH:
+            raise EosmatError(
+                f"{location}.check.warning_reason must be at most "
+                f"{WARNING_REASON_MAX_LENGTH} characters"
+            )
+        if check.get("warning") is None:
+            raise EosmatError(
+                f"{location}.check.warning_reason is only given with a warning"
+            )
     if "why" in check:
         if len(check["why"]) > WHY_MAX_LENGTH:
             raise EosmatError(
@@ -618,6 +671,46 @@ def validate_check_consistency(record: Mapping[str, Any], location: str) -> None
                 f"{location}.check.source_check {check['source_check']!r} "
                 f"contradicts scientific_validation.status {validation['status']!r}"
             )
+
+
+def validate_check_text(
+    record: Mapping[str, Any],
+    material: Mapping[str, Any] | None,
+    location: str,
+) -> None:
+    """Validate the curated texts ``check`` copies from a record's evidence.
+
+    ``scientific_validation.primary_source_check.record_note`` and
+    ``scientific_validation.warning_reason`` are optional non-empty strings
+    of at most :data:`RECORD_NOTE_MAX_LENGTH` and
+    :data:`WARNING_REASON_MAX_LENGTH` characters. A ``warning_reason`` needs
+    a warning: it is an error on a record whose derived ``check.warning`` is
+    ``null``. Records without inline evidence are not checked here.
+    """
+    evidence = record.get("evidence")
+    if not isinstance(evidence, Mapping):
+        return
+    validation = _section(evidence, "scientific_validation")
+    where = f"{location}.evidence.scientific_validation"
+    source = _section(validation, "primary_source_check")
+    for container, key, limit, place in (
+        (source, "record_note", RECORD_NOTE_MAX_LENGTH, "primary_source_check."),
+        (validation, "warning_reason", WARNING_REASON_MAX_LENGTH, ""),
+    ):
+        if key not in container:
+            continue
+        value = container[key]
+        if not isinstance(value, str) or not value.strip():
+            raise EosmatError(f"{where}.{place}{key} must be a non-empty string")
+        if len(value) > limit:
+            raise EosmatError(
+                f"{where}.{place}{key} must be at most {limit} characters"
+            )
+    if "warning_reason" in validation and usage_warning(record, material) is None:
+        raise EosmatError(
+            f"{where}.warning_reason is given but the record has no warning "
+            "(no coded restriction)"
+        )
 
 
 def audit_is_external(record: Mapping[str, Any]) -> bool:
@@ -880,6 +973,7 @@ __all__ = [
     "SOURCE_CHECK_VALUES",
     "GENERIC_QUALIFICATIONS",
     "GENERIC_VALIDATION_NOTES",
+    "RECORD_NOTE_MAX_LENGTH",
     "REPRODUCTION_HEADLINES",
     "SUPERSEDED_TEXT_FIELDS",
     "audit_entry",
@@ -890,7 +984,11 @@ __all__ = [
     "merge_audit",
     "remove_generic_statements",
     "reproduction_why",
+    "source_note",
     "split_document",
     "usage_warning",
+    "validate_check_text",
     "validate_superseded_record_text",
+    "WARNING_REASON_MAX_LENGTH",
+    "warning_reason",
 ]

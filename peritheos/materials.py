@@ -507,6 +507,16 @@ class EOSRecord:
         return None if value is None else str(value)
 
     @property
+    def warning_reason(self) -> str | None:
+        """Why :attr:`warning` applies (``check.warning_reason``), or ``None``.
+
+        One curated clause copied from the audit's
+        ``scientific_validation.warning_reason``; only given with a warning.
+        """
+        value = self._headline()["warning_reason"]
+        return None if value is None else str(value)
+
+    @property
     def source_check(self) -> str | None:
         """Primary-source review: ``verified``, ``pending``, ``unresolved`` or ``deferred``.
 
@@ -518,7 +528,12 @@ class EOSRecord:
 
     @property
     def source_note(self) -> str | None:
-        """The primary-source check's finding (``check.source_note``), or ``None``."""
+        """What the primary-source check found for this record, or ``None``.
+
+        ``check.source_note``: the curated per-record note
+        (``primary_source_check.record_note``) when one is written, otherwise
+        the check's verbatim ``finding``.
+        """
         value = self._headline()["source_note"]
         return None if value is None else str(value)
 

@@ -123,7 +123,10 @@ def reconstruction(record: Mapping[str, Any], check: Mapping[str, Any]) -> list[
         headline += f" · [Reconstruction report]({link})"
     lines = [f"Reproduction: {headline}", ""]
     if check.get("warning"):
-        lines.extend([f"**Warning:** {text(check['warning'])}", ""])
+        warning = check["warning"]
+        if check.get("warning_reason"):
+            warning += f" {check['warning_reason']}"
+        lines.extend([f"**Warning:** {text(warning)}", ""])
     source_warning = record.get("scientific_validation", {}).get("warning")
     if source_warning:
         lines.extend([f"**Warning (source review):** {text(source_warning)}", ""])
@@ -425,15 +428,25 @@ def render_material(
         review = {
             k: v
             for k, v in validation.items()
-            if k not in {"status", "usage_recommendation", "warning", *status_fields}
+            if k
+            not in {
+                "status",
+                "usage_recommendation",
+                "warning",
+                "warning_reason",
+                *status_fields,
+            }
         }
         source_check = review.get("primary_source_check")
-        if isinstance(source_check, Mapping) and source_check.get("finding") == checks[
-            rid
-        ].get("source_note"):
-            review["primary_source_check"] = {
-                k: v for k, v in source_check.items() if k != "finding"
-            }
+        if isinstance(source_check, Mapping):
+            # The note shown above (record_note, else the finding) is not
+            # repeated; a finding replaced by a record_note stays here.
+            shown = checks[rid].get("source_note")
+            shown_key = "record_note" if "record_note" in source_check else "finding"
+            if source_check.get(shown_key) == shown:
+                review["primary_source_check"] = {
+                    k: v for k, v in source_check.items() if k != shown_key
+                }
         if review:
             lines.extend(details("Source review", review))
         if record.get("pressure_calibration"):

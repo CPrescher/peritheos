@@ -1239,6 +1239,24 @@
             "note": {
               "type": "string"
             },
+            "primary_source_check": {
+              "type": "object",
+              "properties": {
+                "record_note": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300,
+                  "description": "Curated per-record statement of what was checked against the source for this record, shown as check.source_note in place of the verbatim finding. Optional; finding is never modified."
+                }
+              },
+              "additionalProperties": true
+            },
+            "warning_reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 140,
+              "description": "One clause saying why the record's usage restriction applies, shown as check.warning_reason. Only valid on a record whose derived check.warning is not null."
+            },
             "migration_source": {
               "anyOf": [
                 {
@@ -3012,7 +3030,7 @@
     },
     "check": {
       "type": "object",
-      "description": "Optional short headline of the record's checks, generated from stored audit data. reproduction maps the stored reconstruction assessment status (parity: reproduced, similar: close, not_reproduced: disagrees, any other or absent status: untested). compared says what the headline refers to: published_fit (scope parameter_agreement or author_workflow), peritheos_refit (scope independent_refit), source_equation (status source_reconstruction, or scope source_equation with an assessed status) or none (status not_refittable or not_assessed, or no assessment). why, only for close or disagrees, names the coefficients whose stored comparison failed. warning is a short stored usage restriction or null. source_check renames scientific_validation.status (primary_source_validated: verified, pending_primary_source_check: pending, not_reproduced: unresolved, deferred: deferred); source_checked_on is that check's audit date and source_note copies its finding. audit points to the record's entry in an audit sidecar when its evidence is stored there. The earlier names finding and source are rejected.",
+      "description": "Optional short headline of the record's checks, generated from stored audit data. reproduction maps the stored reconstruction assessment status (parity: reproduced, similar: close, not_reproduced: disagrees, any other or absent status: untested). compared says what the headline refers to: published_fit (scope parameter_agreement or author_workflow), peritheos_refit (scope independent_refit), source_equation (status source_reconstruction, or scope source_equation with an assessed status) or none (status not_refittable or not_assessed, or no assessment). why, only for close or disagrees, names the coefficients whose stored comparison failed. warning is a short stored usage restriction or null; warning_reason, only with a warning, copies scientific_validation.warning_reason and says why it applies. source_check renames scientific_validation.status (primary_source_validated: verified, pending_primary_source_check: pending, not_reproduced: unresolved, deferred: deferred); source_checked_on is that check's audit date and source_note copies primary_source_check.record_note when present, otherwise its verbatim finding. audit points to the record's entry in an audit sidecar when its evidence is stored there. The earlier names finding and source are rejected.",
       "properties": {
         "reproduction": {
           "enum": [
@@ -3041,6 +3059,11 @@
             "null"
           ],
           "minLength": 1
+        },
+        "warning_reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 140
         },
         "source_check": {
           "enum": [

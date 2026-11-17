@@ -751,6 +751,7 @@ def record_overview(
             "compared": compared,
             "why": headline["why"],
             "warning": headline["warning"],
+            "warning_reason": headline["warning_reason"],
             "source_check": headline["source_check"],
             "source_checked_on": headline["source_checked_on"],
             "source_note": headline["source_note"],
@@ -921,7 +922,10 @@ def record_summary(overview: Mapping[str, Any]) -> str:
         check_text += f" {explanation}"
     lines.append(f"  Check: {check_text}")
     if check["warning"]:
-        lines.append(f"  Warning: {_line(check['warning'])}")
+        warning = check["warning"]
+        if check["warning_reason"]:
+            warning += f" {check['warning_reason']}"
+        lines.append(f"  Warning: {_line(warning)}")
     confidence = overview["error_confidence"]
     lines.append(
         "  Parameters (errors as published, "
