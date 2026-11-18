@@ -373,7 +373,11 @@ mechanically from the audit's outcome code, scope, coefficient table and
 source-validation status ([fields](eosmat-reference.md#the-check-block); words in
 [EOS labels](eos-labels.md)); the split command below derives them.
 Set `check.warning` only for an explicit usage restriction, such as a
-reproduced fit that describes its data poorly; otherwise leave it null.
+reproduced fit that describes its data poorly; otherwise leave it null. It is
+generated from a coded `scientific_validation.usage_recommendation`
+([codes](eosmat-reference.md#giving-a-bundled-record-a-warning)); on a split
+material set the code with `scripts/apply_check_text.py`, which keeps any
+replaced free text as `recommendation_reason`.
 The material's `default_records` names its default records. Propose default
 changes to the maintainer, following the
 [selection guideline](eos-labels.md#warning).

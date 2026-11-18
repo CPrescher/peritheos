@@ -1134,8 +1134,8 @@
     },
     "argon_hcp": {
       "before_sha256": "b2f43b2fe36fc3e0da65784b068c5e718f6524ef5a746ddc07542a744be11e50",
-      "after_record_sha256": "8b702be92655a30f2fe51e879ea87d0a8059bfdb251d6d404616ddc0831228d6",
-      "after_audit_sha256": "18c610b366e09418c7fac327ca2305db63cde16a9e07b759906a217104766e4f",
+      "after_record_sha256": "4f33558a2beaf08dadda9421ad261484b96fa182e353d79123b14ec929a4494e",
+      "after_audit_sha256": "bb5900797b10bb0e4108ccc62545b190d42e9fb49496ae084fb3fcd8a20d06f7",
       "added_check": [
         0
       ],
@@ -1154,6 +1154,19 @@
       "object_orders": [],
       "superseded_record_text": [
         0
+      ],
+      "check_text": [
+        [
+          0,
+          {
+            "usage_recommendation": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.",
+            "recommendation_reason": null,
+            "assessment_qualifications": [
+              "Usage recommendation: NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard."
+            ],
+            "warning_reason": null
+          }
+        ]
       ]
     },
     "b4c": {
@@ -8765,7 +8778,7 @@
     },
     "iron": {
       "before_sha256": "38526933cd6adfbc2756f83451a5253605f99c288e24dbc6bb7997e699388cc6",
-      "after_record_sha256": "b668617ae2960239850c4e6a980b693e6140e91a48ba860c5e83fcd37ea00f56",
+      "after_record_sha256": "cf279710961af8e9f769dceac41dc555d7d7bd4ab9fd8f35c8c923dd697c74ad",
       "after_audit_sha256": "2e44f844d3a2c54321375cdac54081702453a3cc0cfcab6d391097894c90e132",
       "layout": "v4",
       "added_check": [
@@ -23450,5 +23463,5 @@
     ]
   },
   "record_text_revision": "Free-text revisions after the split (label, notes, validity.notes, thermal.notes) keep every replaced original verbatim in the record's superseded_record_text sidecar block. A binding's superseded_record_text lists those record indices; recovery restores the originals and removes the block first. after_record_sha256 and after_audit_sha256 bind the revised files; before_sha256 values are unchanged.",
-  "check_text_revision": "Curated check texts written after the split (scientific_validation.primary_source_check.record_note and scientific_validation.warning_reason, copied into check.source_note and check.warning_reason) are bound as check_text entries [index, {field: original}], original null meaning absent; recovery restores them before removing the check blocks. finding is never changed. after_record_sha256 and after_audit_sha256 bind the revised files; before_sha256 values are unchanged."
+  "check_text_revision": "Curated check texts written after the split (scientific_validation.primary_source_check.record_note and scientific_validation.warning_reason, copied into check.source_note and check.warning_reason) and coded usage recommendations (scientific_validation.usage_recommendation, the source of check.warning, with the recommendation_reason and assessment qualifications derived from it, field assessment_qualifications) are bound as check_text entries [index, {field: original}], original null meaning absent; recovery restores them before removing the check blocks. finding is never changed. after_record_sha256 and after_audit_sha256 bind the revised files; before_sha256 values are unchanged."
 }

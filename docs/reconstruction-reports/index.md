@@ -24,7 +24,7 @@ after later audits; repository-relative `report_path` links work offline.
 | [Aluminum](aluminum.md) | 5 | 4 |  |  | 1 |  |
 | [Aragonite](aragonite.md) | 1 | 1 |  |  |  |  |
 | [Argon (fcc)](argon_fcc.md) | 15 | 4 | 1 |  | 10 | 2 |
-| [Argon (hcp)](argon_hcp.md) | 1 |  |  |  | 1 |  |
+| [Argon (hcp)](argon_hcp.md) | 1 |  |  |  | 1 | 1 |
 | [B4C](b4c.md) | 3 | 1 | 1 | 1 |  |  |
 | [Beryllium (hcp)](beryllium_hcp.md) | 2 |  |  |  | 2 |  |
 | [Boron Nitride](boron_nitride.md) | 2 | 1 | 1 |  |  |  |
@@ -248,7 +248,7 @@ after later audits; repository-relative `report_path` links work offline.
 | [Zirconium (alpha)](zirconium_alpha.md) | 1 | 1 |  |  |  |  |
 | [Zirconium (beta)](zirconium_beta.md) | 1 | 1 |  |  |  |  |
 | [Zirconium (omega)](zirconium_omega.md) | 1 | 1 |  |  |  |  |
-| **All materials** | **687** | **358** | **72** | **61** | **196** | **33** |
+| **All materials** | **687** | **358** | **72** | **61** | **196** | **34** |
 
 494 of 494 records with a stored coefficient comparison have curve/residual plots, including 3 explicitly partial replays listed below.
 

@@ -3457,7 +3457,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reported temperature coverage (K):** \[298, 300\]
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-The published fit does not reproduce the authors' supplied observations under the standard equation mapping, and the cause is unresolved. Do not use for pressure calibration or core-condition prediction until this is resolved.
+A refit of the authors' supplied observations gives different coefficients than published, and the cause is unresolved. The published thermal EOS is evaluated with the authors' n = 2 convention in the BM3-MGD record.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -3563,7 +3563,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Reported temperature coverage (K):** \[298, 300\]
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-The published fit does not reproduce the authors' supplied observations under the standard equation mapping, and the cause is unresolved. Do not use for pressure calibration or core-condition prediction until this is resolved.
+A refit of the authors' supplied observations gives different coefficients than published, and the cause is unresolved. The published thermal EOS is evaluated with the authors' n = 2 convention in the BM3-MGD record.
 
 <details markdown="1">
 <summary>Source review</summary>

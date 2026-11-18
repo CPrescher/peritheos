@@ -420,6 +420,36 @@ outcome codes in [EOS labels](eos-labels.md#detailed-outcome-codes). How each
 call treats a sidecar is listed under
 [loading and sidecars](eosmat-v5.md#loading-missing-sidecars-and-exports).
 
+### Giving a bundled record a warning
+
+`check.warning` is generated from coded restrictions, never written: in order,
+`evidence.reproduction.do_not_use: true` ("Do not use."), a coded
+`evidence.scientific_validation.usage_recommendation`, a material
+`recommendation_hold` naming the record, and `catalog_access:
+"explicit_selection"`. The codes and their fixed wording:
+
+| `usage_recommendation` | `check.warning` |
+| --- | --- |
+| `not_recommended` | Not recommended for use. |
+| `not_recommended_for_quantitative_use` | Not recommended for quantitative use. |
+| `consult_source_audit_before_quantitative_use` | Consult the source audit before quantitative use. |
+| `qualified_use` | Qualified use only; see the audit. |
+| `on_hold_not_recommended_pending_source_mapping_review` | On hold; not recommended pending source mapping review. |
+
+Another lower_snake_case code is shown capitalized with a full stop; a
+free-text `usage_recommendation` gives no warning. On a split bundled
+material, set the code with the repository tool `scripts/apply_check_text.py`
+(input key `usage_recommendation`, with a `warning_reason` for a first warning;
+format in the [record text standard](record-text-standard.md#6-applying-a-rewrite)).
+Free text replaced by a code is kept verbatim as
+`scientific_validation.recommendation_reason`, and the assessment's
+`Usage recommendation: <text>` qualification becomes that text plus
+`Usage recommendation: <code>`, as in records that already carry a code. The
+tool also updates the registered refit ledger's copies and binds every original
+in the audit-split receipt, so `null` restores the files exactly and older
+receipts still verify. A standalone file simply writes the code in its inline
+evidence.
+
 ## Extension fields
 
 The schema leaves material, record and dataset objects open. Peritheos keeps
