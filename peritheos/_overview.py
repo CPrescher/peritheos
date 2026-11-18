@@ -232,7 +232,7 @@ def parameter_unit(
 # the decimal place of its error, the error to two significant digits when its
 # leading digit is 1 or 2 and otherwise one, or else to six significant digits.
 # In a summary, the error of an adjustable coefficient stored with more than
-# two significant digits is rounded by the same rule, and its value to the
+# three significant digits is rounded by the same rule, and its value to the
 # error's decimal place (``format_fitted_value_error``); fixed coefficients
 # and coefficients without an error keep the rule above.
 
@@ -328,35 +328,31 @@ def _decimal_text(number: Decimal, place: int) -> str:
 def format_fitted_value_error(value: Any, error: Any) -> tuple[str, str | None]:
     """Display texts for an adjustable coefficient and its error.
 
-    An error stored with more than two significant digits is rounded as the
-    authoring guide prescribes (two significant digits when its leading digit
-    is 1 or 2, otherwise one) and the value to the same decimal place; a value
-    already stored more coarsely keeps its stored text. An error with at most
-    two significant digits prints as stored, and a long computed value is
-    rounded to that error's last digit. Without a positive numeric error both print as ``format_value_error``
-    prints them. Display only: the stored numbers are not changed.
+    An error stored with more than three significant digits is a numerical
+    output, not a printed value: it is rounded as the authoring guide
+    prescribes (two significant digits when its leading digit is 1 or 2,
+    otherwise one) and the value to the same decimal place; a value already
+    stored more coarsely keeps its stored text. An error with at most three
+    significant digits, and its value, print as ``format_value_error`` prints
+    them (as stored, so a published pair reads as printed). Display only: the
+    stored numbers are not changed.
     """
-    if not (_is_number(value) and _is_number(error) and float(error) > 0):
+    if not (
+        _is_number(value)
+        and _is_number(error)
+        and float(error) > 0
+        and _significant_digits(float(error)) > 3
+    ):
         return format_value_error(value, error)
     with localcontext() as context:
         context.prec = 50
         stored_error = Decimal(repr(float(error)))
         stored_value = Decimal(repr(float(value)))
-        error_digits = _significant_digits(float(error))
-        if error_digits > 2:
-            exponent = stored_error.adjusted()
-            leading = int(stored_error.scaleb(-exponent))
-            place = exponent - (1 if leading in (1, 2) else 0)
-        elif _is_long(value):
-            place = stored_error.adjusted() - error_digits + 1
-        else:
-            return format_value_error(value, error)
+        exponent = stored_error.adjusted()
+        leading = int(stored_error.scaleb(-exponent))
+        place = exponent - (1 if leading in (1, 2) else 0)
         quantum = Decimal(1).scaleb(place)
-        error_text = (
-            _decimal_text(stored_error.quantize(quantum, ROUND_HALF_UP), place)
-            if error_digits > 2
-            else format_number(error)
-        )
+        error_text = _decimal_text(stored_error.quantize(quantum, ROUND_HALF_UP), place)
         value_digits = _significant_digits(float(value))
         value_place = (
             stored_value.adjusted() - value_digits + 1 if stored_value else place

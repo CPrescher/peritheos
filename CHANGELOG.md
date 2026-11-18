@@ -148,9 +148,10 @@ All notable changes to Peritheos are documented here. The project follows
   record's "errors as stored", and the material table marks refits as
   `Peritheos refit: <reference>`; material summary pages label the error
   convention the same way. An adjustable coefficient's error stored with more
-  than two significant digits is rounded by the authoring-guide rule for
-  display, and its value to that decimal place; stored values and overview
-  numbers are unchanged. A phase taken from the stored crystal system prints in
+  than three significant digits (a numerical output, not a printed value) is
+  rounded by the authoring-guide rule for display, and its value to that
+  decimal place; an error with at most three digits and its value print as
+  stored. Stored values and overview numbers are unchanged. A phase taken from the stored crystal system prints in
   lower case (`cubic`), also in `list` and ambiguous-lookup messages. The
   covariance line uses display names (`V0`, not `rt_eos.V0`), a coefficient
   without a value reads `not stated`, and a derived cell content reads

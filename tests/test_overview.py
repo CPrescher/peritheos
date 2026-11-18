@@ -298,35 +298,36 @@ def test_display_rounds_only_long_computed_numbers():
 @pytest.mark.parametrize(
     ("value", "error", "texts"),
     [
-        # More than two significant digits in the error: the authoring-guide
-        # rule (two digits for a leading 1 or 2, else one), value to match.
+        # More than three significant digits in the error (a numerical
+        # output): the authoring-guide rule (two digits for a leading 1 or 2,
+        # else one), the value to match.
         (1.8112e-05, 2.1554e-06, ("1.81e-05", "2.2e-06")),
-        (-0.01311, 0.00419, ("-0.013", "0.004")),
-        (1162.0, 204.0, ("1160", "200")),
-        (600.0, 474.0, ("600", "500")),
         (25.447259, 0.091348, ("25.45", "0.09")),
         (24.9234, 0.1125, ("24.92", "0.11")),
-        (1.00321, 0.0999, ("1.00", "0.10")),
-        # Errors larger than the value.
-        (1.07, 1.33, ("1.1", "1.3")),
-        (0.003, 0.0123, ("0.003", "0.012")),
-        (4e-06, 2.55e-05, ("4e-06", "2.6e-05")),
-        # A value stored more coarsely keeps its stored text.
-        (3e-05, 1.234e-06, ("3e-05", "1.2e-06")),
-        (0.0, 0.123, ("0", "0.12")),
-        # An error with at most two significant digits prints as stored.
+        (1.00321, 0.09991, ("1.00", "0.10")),
+        (5.3549770536, 0.0531157378, ("5.35", "0.05")),
+        # An error larger than the value; a coarser stored value keeps its text.
+        (4e-06, 2.5512e-05, ("4e-06", "2.6e-05")),
+        (3e-05, 1.2345e-06, ("3e-05", "1.2e-06")),
+        (0.0, 0.12345, ("0", "0.12")),
+        # Three or fewer significant digits: value and error as stored, so a
+        # published pair reads as printed.
+        (-0.01311, 0.00419, ("-0.01311", "0.00419")),
+        (1162.0, 204.0, ("1162", "204")),
+        (1.07, 1.33, ("1.07", "1.33")),
+        (600.0, 474.0, ("600", "474")),
+        (0.003, 0.0123, ("0.003", "0.0123")),
         (45.58, 0.04, ("45.58", "0.04")),
         (1.65, 0.4, ("1.65", "0.4")),
         (232.0, 7.0, ("232", "7")),
-        # A long computed value is rounded to its error's last digit.
+        # A long computed value beside a short error: the stored-number rule.
         (8.62870429904, 0.05, ("8.63", "0.05")),
-        (5.3549770536, 0.0531157378, ("5.35", "0.05")),
         # Without an error the stored-number rule applies.
         (1.09175271088e-06, None, ("1.09175e-06", None)),
         (None, None, ("n/a", None)),
     ],
 )
-def test_fitted_errors_print_with_at_most_two_significant_digits(value, error, texts):
+def test_only_numerical_errors_are_rounded_for_display(value, error, texts):
     assert format_fitted_value_error(value, error) == texts
 
 
@@ -337,7 +338,7 @@ def test_error_rounding_changes_only_the_text():
     assert stored["alpha0"]["error"] == 2.1554e-06
     text = record.summary()
     assert "alpha0 = 1.81e-05 +/- 2.2e-06" in text
-    assert "dK/dT  = -0.013 +/- 0.004" in text
+    assert "dK/dT  = -0.01311 +/- 0.00419" in text
     # Fixed coefficients and coefficients without an error are unchanged.
     assert "alpha1 = 5.73e-10 fixed" in text
     shen = get_eos_record("mgo_shen_2026_vinet_3").summary()
