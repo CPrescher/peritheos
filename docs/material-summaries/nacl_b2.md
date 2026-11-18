@@ -1361,7 +1361,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1
     - **Molar mass g mol:** 58.44277
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Errors from the Peritheos refit:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

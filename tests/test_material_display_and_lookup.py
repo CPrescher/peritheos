@@ -17,6 +17,7 @@ from peritheos import (
     list_materials,
     load_eosmat,
 )
+from peritheos._overview import phase_text
 from peritheos.catalog import _catalog_index, _compatibility_materials
 from peritheos.errors import MaterialLookupError
 from peritheos.materials import _material_from_eosmat
@@ -291,7 +292,9 @@ def test_ambiguous_formula_lists_candidates_and_never_picks(query, matches):
     for identifier in matches:
         assert identifier in message
     material = get_material(matches[0])
-    assert f"{matches[0]} ({' '.join(material.phase.split())})" in message
+    assert f"{matches[0]} ({phase_text(material.phase)})" in message
+    # A phase taken from the stored crystal system prints in lower case.
+    assert material.symmetry is None or material.symmetry not in message
 
 
 def test_uppercase_formula_is_case_sensitive():

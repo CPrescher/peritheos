@@ -142,6 +142,19 @@ All notable changes to Peritheos are documented here. The project follows
   state-only Monte Carlo uncertainty without a parameter covariance block.
 - Reject bounds on unknown or fixed fit parameters instead of silently
   ignoring them, including acoustic and Hugoniot fitting.
+- Summaries (`summary()`, `python -m peritheos show`) no longer call a
+  Peritheos refit's errors published: a `refit` record's parameter heading
+  reads "errors from the Peritheos refit", a `derived` or `diagnostic`
+  record's "errors as stored", and the material table marks refits as
+  `Peritheos refit: <reference>`; material summary pages label the error
+  convention the same way. An adjustable coefficient's error stored with more
+  than two significant digits is rounded by the authoring-guide rule for
+  display, and its value to that decimal place; stored values and overview
+  numbers are unchanged. A phase taken from the stored crystal system prints in
+  lower case (`cubic`), also in `list` and ambiguous-lookup messages. The
+  covariance line uses display names (`V0`, not `rt_eos.V0`), a coefficient
+  without a value reads `not stated`, and a derived cell content reads
+  `1 formula unit`.
 
 ### Changed
 

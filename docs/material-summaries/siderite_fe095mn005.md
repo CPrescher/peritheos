@@ -185,7 +185,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 33.01\]
 - **Reported temperature coverage (K):** \[300.0, 1673.0\]
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Errors from the Peritheos refit:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">

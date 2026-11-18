@@ -234,7 +234,7 @@ Automatic selection for hugoniot calculations.
     - **Kind:** formula\_units
     - **Formula units:** 3.0
     - **Molar mass g mol:** 74.6928
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Stored parameter errors:** confidence level not stated; used as 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 Principal Hugoniot of the untransformed rhombohedral B1 branch only; not the paper's separate 300 K Mie-Grüneisen-reduced isotherm or a general P(V,T) EOS. V0 is computed from rho0 and has no separate error.

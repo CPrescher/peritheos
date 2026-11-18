@@ -2785,7 +2785,8 @@ def _material_from_eosmat(
     cell_contents = str(
         document.get("cell_contents")
         or (
-            f"{formula_units:g} formula units per conventional unit cell"
+            f"{formula_units:g} formula "
+            f"{'unit' if formula_units == 1 else 'units'} per conventional unit cell"
             if formula_units is not None
             else "unspecified conventional unit cell"
         )

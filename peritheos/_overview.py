@@ -231,6 +231,10 @@ def parameter_unit(
 # is rounded as in the reconstruction reports (scripts/report_numbers.py): to
 # the decimal place of its error, the error to two significant digits when its
 # leading digit is 1 or 2 and otherwise one, or else to six significant digits.
+# In a summary, the error of an adjustable coefficient stored with more than
+# two significant digits is rounded by the same rule, and its value to the
+# error's decimal place (``format_fitted_value_error``); fixed coefficients
+# and coefficients without an error keep the rule above.
 
 _STORED_DIGITS = 6
 
@@ -302,6 +306,65 @@ def format_value_error(value: Any, error: Any) -> tuple[str, str | None]:
         if _is_long(error):
             error_text = rounded_error
     return value_text, error_text
+
+
+def _decimal_text(number: Decimal, place: int) -> str:
+    """``number`` (already rounded to ``10**place``) as fixed or e-notation.
+
+    The notation switches where ``format(x, ".6g")`` does, so a rounded number
+    reads like a stored one: ``1.81e-05``, ``0.0131``, ``232``.
+    """
+    if number == 0:
+        number = abs(number)
+        exponent = place
+    else:
+        exponent = number.adjusted()
+    if exponent < -4 or exponent >= 6:
+        digits = max(0, exponent - place)
+        return f"{number.scaleb(-exponent):.{digits}f}e{exponent:+03d}"
+    return f"{number:.{max(0, -place)}f}"
+
+
+def format_fitted_value_error(value: Any, error: Any) -> tuple[str, str | None]:
+    """Display texts for an adjustable coefficient and its error.
+
+    An error stored with more than two significant digits is rounded as the
+    authoring guide prescribes (two significant digits when its leading digit
+    is 1 or 2, otherwise one) and the value to the same decimal place; a value
+    already stored more coarsely keeps its stored text. An error with at most
+    two significant digits prints as stored, and a long computed value is
+    rounded to that error's last digit. Without a positive numeric error both print as ``format_value_error``
+    prints them. Display only: the stored numbers are not changed.
+    """
+    if not (_is_number(value) and _is_number(error) and float(error) > 0):
+        return format_value_error(value, error)
+    with localcontext() as context:
+        context.prec = 50
+        stored_error = Decimal(repr(float(error)))
+        stored_value = Decimal(repr(float(value)))
+        error_digits = _significant_digits(float(error))
+        if error_digits > 2:
+            exponent = stored_error.adjusted()
+            leading = int(stored_error.scaleb(-exponent))
+            place = exponent - (1 if leading in (1, 2) else 0)
+        elif _is_long(value):
+            place = stored_error.adjusted() - error_digits + 1
+        else:
+            return format_value_error(value, error)
+        quantum = Decimal(1).scaleb(place)
+        error_text = (
+            _decimal_text(stored_error.quantize(quantum, ROUND_HALF_UP), place)
+            if error_digits > 2
+            else format_number(error)
+        )
+        value_digits = _significant_digits(float(value))
+        value_place = (
+            stored_value.adjusted() - value_digits + 1 if stored_value else place
+        )
+        if value_place >= place and not _is_long(value):
+            return format_number(value), error_text
+        rounded = stored_value.quantize(quantum, ROUND_HALF_UP)
+        return _decimal_text(rounded, place), error_text
 
 
 def format_range(bounds: Any) -> str | None:
@@ -927,11 +990,49 @@ def error_convention_text(confidence: float | None) -> str:
     return f"{text}% half-widths ({factor:.{digits}g} sigma)"
 
 
+#: What the printed errors are, by stored ``record_kind``; any other kind
+#: (``published`` or none stated) prints "errors as published".
+_ERROR_ORIGINS = {
+    "refit": "errors from the Peritheos refit",
+    "derived": "errors as stored for this derived record",
+    "diagnostic": "errors as stored for this diagnostic record",
+}
+
+#: Crystal systems as EOSMAT stores them in ``symmetry``.
+_CRYSTAL_SYSTEMS = frozenset(
+    {
+        "CUBIC",
+        "HEXAGONAL",
+        "TETRAGONAL",
+        "ORTHORHOMBIC",
+        "TRIGONAL",
+        "RHOMBOHEDRAL",
+        "MONOCLINIC",
+        "TRICLINIC",
+    }
+)
+
+
+def phase_text(phase: str) -> str:
+    """A phase for display on one line.
+
+    A material that states no ``phase`` takes its ``symmetry``, stored in
+    capitals (``CUBIC``); that crystal system prints in lower case.
+    """
+    phase = _line(phase)
+    return phase.lower() if phase in _CRYSTAL_SYSTEMS else phase
+
+
+def error_origin_text(record_kind: Any) -> str:
+    """``errors as published`` or what else the record's errors are."""
+    return _ERROR_ORIGINS.get(str(record_kind), "errors as published")
+
+
 def record_summary(overview: Mapping[str, Any]) -> str:
     """Plain text for one record overview."""
     check = overview["check"]
     material = overview["material"]
-    identity = f"{material['formula']}, {_line(material['phase'])}"
+    identity = f"{material['formula']}, {phase_text(material['phase'])}"
     if material["identifier"]:
         name = material["name"] or material["identifier"]
         identity = f"{name} ({material['identifier']}); {identity}"
@@ -967,18 +1068,23 @@ def record_summary(overview: Mapping[str, Any]) -> str:
             warning += f" {check['warning_reason']}"
         lines.append(f"  Warning: {_line(warning)}")
     lines.append(
-        "  Parameters, errors as published: "
+        f"  Parameters, {error_origin_text(overview['record_kind'])}: "
         + error_convention_text(overview["error_confidence"])
     )
     rows = overview["parameters"]
     width = max((len(row["display_name"]) for row in rows), default=0)
     texts = []
     for row in rows:
-        value, error = format_value_error(row["value"], row["error"])
         if row["fixed"]:
+            value, error = format_value_error(row["value"], row["error"])
             text = f"{value} fixed"
             if error is not None:
                 text += f" (published +/- {error})"
+            texts.append(text)
+            continue
+        value, error = format_fitted_value_error(row["value"], row["error"])
+        if row["value"] is None and error is None:
+            text = "not stated"
         elif error is not None:
             text = f"{value} +/- {error}"
         else:
@@ -1015,10 +1121,10 @@ def record_summary(overview: Mapping[str, Any]) -> str:
             + " (see the model's equation page)."
         )
     if overview["covariance_parameters"]:
-        names = [
-            PARAMETER_DISPLAY_NAMES.get(name.removeprefix("rt_eos."), name)
-            for name in overview["covariance_parameters"]
+        stripped = [
+            name.removeprefix("rt_eos.") for name in overview["covariance_parameters"]
         ]
+        names = [PARAMETER_DISPLAY_NAMES.get(name, name) for name in stripped]
         lines.append(f"    Covariance reported for: {', '.join(names)}.")
     lines.extend(_ranges_text(overview["ranges"]))
     if overview["pressure_scale_variant_of"]:
@@ -1048,7 +1154,7 @@ def material_summary(overview: Mapping[str, Any]) -> str:
         f"{title} ({overview['identifier']})"
         if title != overview["identifier"]
         else title,
-        f"  Formula: {overview['formula']}    Phase: {_line(overview['phase'])}",
+        f"  Formula: {overview['formula']}    Phase: {phase_text(overview['phase'])}",
         f"  Cell contents: {_line(overview['cell_contents'])}",
         f"  Volume unit: {overview['volume_unit']}",
     ]
@@ -1107,7 +1213,12 @@ def material_summary(overview: Mapping[str, Any]) -> str:
                 record["check"]["reproduction"],
             )
         )
-        references.append(record["short_citation"] or "")
+        reference = record["short_citation"] or ""
+        if record["record_kind"] == "refit":
+            reference = (
+                f"Peritheos refit: {reference}" if reference else "Peritheos refit"
+            )
+        references.append(reference)
     widths = [max(len(row[column]) for row in rows) for column in range(6)]
     for row, reference in zip(rows, references):
         cells = [f"{cell:<{width}}" for cell, width in zip(row, widths)]

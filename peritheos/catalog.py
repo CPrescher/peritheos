@@ -209,7 +209,9 @@ def _document_only_materials() -> frozenset[str]:
 
 
 def _material_label(material: Material) -> str:
-    phase = " ".join(material.phase.split())
+    from peritheos._overview import phase_text
+
+    phase = phase_text(material.phase)
     if len(phase) > 40:
         phase = phase[:37].rstrip() + "..."
     return f"{material.identifier} ({phase})"

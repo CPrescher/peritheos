@@ -22,8 +22,10 @@ from peritheos._overview import (
     CHECK_EXPLANATIONS,
     COMPARED_PHRASES,
     error_convention_text,
+    format_fitted_value_error,
     format_range,
     format_value_error,
+    phase_text,
 )
 from peritheos.errors import MaterialError, MaterialLookupError
 from peritheos.materials import _material_from_eosmat
@@ -293,6 +295,112 @@ def test_display_rounds_only_long_computed_numbers():
     assert format_range([-8.834, 220.5]) == "-8.834 to 220.5"
 
 
+@pytest.mark.parametrize(
+    ("value", "error", "texts"),
+    [
+        # More than two significant digits in the error: the authoring-guide
+        # rule (two digits for a leading 1 or 2, else one), value to match.
+        (1.8112e-05, 2.1554e-06, ("1.81e-05", "2.2e-06")),
+        (-0.01311, 0.00419, ("-0.013", "0.004")),
+        (1162.0, 204.0, ("1160", "200")),
+        (600.0, 474.0, ("600", "500")),
+        (25.447259, 0.091348, ("25.45", "0.09")),
+        (24.9234, 0.1125, ("24.92", "0.11")),
+        (1.00321, 0.0999, ("1.00", "0.10")),
+        # Errors larger than the value.
+        (1.07, 1.33, ("1.1", "1.3")),
+        (0.003, 0.0123, ("0.003", "0.012")),
+        (4e-06, 2.55e-05, ("4e-06", "2.6e-05")),
+        # A value stored more coarsely keeps its stored text.
+        (3e-05, 1.234e-06, ("3e-05", "1.2e-06")),
+        (0.0, 0.123, ("0", "0.12")),
+        # An error with at most two significant digits prints as stored.
+        (45.58, 0.04, ("45.58", "0.04")),
+        (1.65, 0.4, ("1.65", "0.4")),
+        (232.0, 7.0, ("232", "7")),
+        # A long computed value is rounded to its error's last digit.
+        (8.62870429904, 0.05, ("8.63", "0.05")),
+        (5.3549770536, 0.0531157378, ("5.35", "0.05")),
+        # Without an error the stored-number rule applies.
+        (1.09175271088e-06, None, ("1.09175e-06", None)),
+        (None, None, ("n/a", None)),
+    ],
+)
+def test_fitted_errors_print_with_at_most_two_significant_digits(value, error, texts):
+    assert format_fitted_value_error(value, error) == texts
+
+
+def test_error_rounding_changes_only_the_text():
+    record = get_eos_record("b4c_somayazulu_2023_berman_refit")
+    stored = {row["name"]: row for row in record.overview()["parameters"]}
+    assert stored["alpha0"]["value"] == 1.8112e-05
+    assert stored["alpha0"]["error"] == 2.1554e-06
+    text = record.summary()
+    assert "alpha0 = 1.81e-05 +/- 2.2e-06" in text
+    assert "dK/dT  = -0.013 +/- 0.004" in text
+    # Fixed coefficients and coefficients without an error are unchanged.
+    assert "alpha1 = 5.73e-10 fixed" in text
+    shen = get_eos_record("mgo_shen_2026_vinet_3").summary()
+    assert "V0  = 74.636 fixed" in shen
+
+
+def test_refit_errors_are_labelled_as_the_refit_s_own():
+    refit = get_eos_record(
+        "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit"
+    )
+    assert refit.overview()["record_kind"] == "refit"
+    text = refit.summary()
+    assert "  Parameters, errors from the Peritheos refit: " in text
+    assert "errors as published" not in text
+    published = get_eos_record("mgo_speziale_2001_bm3_2").summary()
+    assert "  Parameters, errors as published: " in published
+    derived = get_eos_record("nickel_oxide_noguchi_1999_linear_hugoniot_2").summary()
+    assert "  Parameters, errors as stored for this derived record: " in derived
+    lines = get_material("ca_perovskite").summary().splitlines()
+
+    def row(identifier):
+        return next(line for line in lines if f" {identifier} " in line)
+
+    assert row(refit.identifier).endswith("  Peritheos refit: Wang et al. 1996")
+    assert row("ca_perovskite_wang_1996_preferred_bm3").endswith("  Wang et al. 1996")
+
+
+def test_covariance_line_uses_display_names():
+    text = get_eos_record(
+        "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit"
+    ).summary()
+    assert "    Covariance reported for: V0, K0, alpha_KT." in text
+    assert "rt_eos." not in text
+
+
+def test_a_coefficient_without_a_value_reads_not_stated():
+    text = get_eos_record("diamond_correa_2008_double_debye_log_moment_5").summary()
+    assert "n/a" not in text
+    assert any(
+        line.split()[:3] == ["Tr", "=", "not"] and "not stated" in line
+        for line in text.splitlines()
+    )
+
+
+def test_phase_from_the_crystal_system_prints_in_lower_case():
+    assert phase_text("CUBIC") == "cubic"
+    assert phase_text("B1 (periclase)") == "B1 (periclase)"
+    material = get_material("ca_perovskite")
+    assert material.phase == material.symmetry == "CUBIC"  # stored data unchanged
+    assert "  Formula: CaSiO3    Phase: cubic" in material.summary()
+    record = material.eos_records[0]
+    assert "; CaSiO3, cubic\n" in record.summary()
+    assert record.overview()["material"]["phase"] == "CUBIC"
+
+
+def test_one_formula_unit_is_singular():
+    material = get_material("ca_perovskite")
+    assert material.formula_units_per_cell == 1
+    assert "Cell contents: 1 formula unit per conventional unit cell" in (
+        material.summary()
+    )
+
+
 # --- text snapshots -----------------------------------------------------------
 
 
@@ -334,7 +442,7 @@ Section 5.4 (Equations 10-11).
 FROST_CLOSE = """\
 palladium_frost_2023_vinet_1
   Frost et al. (2023), Vinet
-  Material: Palladium (palladium); Pd, CUBIC
+  Material: Palladium (palladium); Pd, cubic
   Model: Vinet; reference temperature 300 K
   Check: close (refit vs published fit). K0': refit 5.6037 vs published 5.473 \
 (+2.4%), outside the combined error.
@@ -368,7 +476,7 @@ data; the published curve leaves residuals up to about +2.8 GPa.
 
 PALLADIUM = """\
 Palladium (palladium)
-  Formula: Pd    Phase: CUBIC
+  Formula: Pd    Phase: cubic
   Cell contents: 4 formula units per conventional unit cell
   Volume unit: angstrom^3/conventional_unit_cell
   Default: none; selection on hold. Frost experimental fit reproduction remains \

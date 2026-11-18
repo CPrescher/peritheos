@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 16.0
     - **Molar mass g mol:** 60.083
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Errors from the Peritheos refit:** confidence level not stated; used as 1 sigma
 
 Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. V0 is fitted to the three calculated Table 10 states, whose pressures are printed as whole GPa and so are not exact, with K0 and K0' adopted from Supplementary Table 11. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding or systematic error budget.
 

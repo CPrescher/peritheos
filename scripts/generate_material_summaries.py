@@ -34,11 +34,21 @@ _LABELS = {
     # A thermal block's own value is kept and not interpreted by the reader.
     "parameter_error_confidence": "Reported error confidence level",
     "printed_parameter_errors": "Printed parameter errors",
+    "peritheos_refit_errors": "Errors from the Peritheos refit",
+    "stored_parameter_errors": "Stored parameter errors",
     "determination_method": "Origin of the parameterization",
     "doi": "DOI",
     "source_url": "Source URL",
     "access_url": "Access URL",
     "used_by_eos_records": "Associated EOS records",
+}
+
+#: Label key for the error convention of records whose errors are not the
+#: published ones, matching ``record.summary()``.
+_ERROR_LABEL_KEYS = {
+    "refit": "peritheos_refit_errors",
+    "derived": "stored_parameter_errors",
+    "diagnostic": "stored_parameter_errors",
 }
 
 
@@ -384,9 +394,12 @@ def render_material(
             metadata(
                 {
                     # The record's confidence level is printed as its relation
-                    # to sigma, as record.summary() prints it.
+                    # to sigma, labelled with the errors' origin, as
+                    # record.summary() prints it.
                     (
-                        "printed_parameter_errors"
+                        _ERROR_LABEL_KEYS.get(
+                            record.get("record_kind"), "printed_parameter_errors"
+                        )
                         if k == "parameter_error_confidence"
                         else k
                     ): (

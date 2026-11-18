@@ -2129,7 +2129,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Temperature k:** \[0, 3000\]
     - **Volume ratio:** \[0.6, 1.0\]
     - **Notes:** Solid Pt is not guaranteed throughout the range. Check the source phase markers, whose first-liquid points were excluded from the fit.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Stored parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
