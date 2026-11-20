@@ -267,8 +267,9 @@ def test_bundled_why_lines_are_short_and_rounded():
             rows = complete["evidence"]["reproduction"]["assessment"]["parameters"]
             for match in re.finditer(r"refit (\S+) vs published (\S+)", check["why"]):
                 refit, published = match.groups()
-                decimals = len(published.partition(".")[2])
-                assert len(refit.partition(".")[2]) <= decimals + 1
+                # Decimals of the mantissa ("6e-10" has none, "1.0e-09" one).
+                decimals = len(published.partition("e")[0].partition(".")[2])
+                assert len(refit.partition("e")[0].partition(".")[2]) <= decimals + 1
                 assert any(printed(r["published"]) == published for r in rows)
     assert without == RECORDS_WITHOUT_WHY
     assert with_why == 127

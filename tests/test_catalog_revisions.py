@@ -286,9 +286,19 @@ def test_zero_revisions_change_no_check(repo):
     for binding in receipt["materials"].values():
         binding.pop("catalog_revision_sha256", None)
         binding.pop(catalog_revisions.HEAD_KEY, None)
+    receipt.pop(catalog_revisions.SPLIT_RECEIPT_STATEMENT[0], None)
+    (repo / RECEIPT_PATH).write_text(
+        json.dumps(receipt, indent=2, ensure_ascii=False) + "\n"
+    )
+    policy = json.loads((repo / tool.POLICY).read_bytes())
+    policy.pop("catalog_revisions", None)
+    (repo / tool.POLICY).write_text(
+        json.dumps(policy, indent=2, ensure_ascii=False) + "\n"
+    )
     data = b"any reference"
     assert prior_revision_bytes(data, SIDERITE, repo) is data
     assert prior_revision_snapshot({"documents": []}, repo) is None
+    assert check_bindings(repo) == []
     assert verify_ledger(repo) == []
 
 
@@ -515,22 +525,26 @@ def test_a_tampered_ledger_is_detected_everywhere(revised, tmp_path, monkeypatch
     snapshot = scientific_snapshot(root)
     ledger = json.loads((root / LEDGER).read_bytes())
     revisions = ledger["revisions"]
+    # The fixture's two revisions are the last two, whatever came before.
+    first, second = len(revisions) - 2, len(revisions) - 1
     if edit == "reverse_value":
-        revisions[1]["reverse"][0]["after"] = 0.95
+        revisions[second]["reverse"][0]["after"] = 0.95
     elif edit == "consistent_value":
-        revisions[1]["forward"][0]["before"] = 0.95
-        revisions[1]["reverse"][0]["after"] = 0.95
-        revisions[1]["content_sha256"] = catalog_revisions.content_sha256(revisions[1])
+        revisions[second]["forward"][0]["before"] = 0.95
+        revisions[second]["reverse"][0]["after"] = 0.95
+        revisions[second]["content_sha256"] = catalog_revisions.content_sha256(
+            revisions[second]
+        )
     elif edit == "hash":
-        revisions[0]["reference_sha256"]["after"] = "0" * 64
+        revisions[first]["reference_sha256"]["after"] = "0" * 64
     elif edit == "metadata_of_latest":
-        revisions[1]["decided_by"] = "Someone else"
+        revisions[second]["decided_by"] = "Someone else"
     elif edit == "reorder":
-        revisions.reverse()
+        revisions[first], revisions[second] = revisions[second], revisions[first]
     elif edit == "delete_first":
-        del revisions[0]
+        del revisions[first]
     else:
-        del revisions[1]
+        del revisions[second]
     (root / LEDGER).write_text(catalog_revisions.ledger_text(ledger))
     assert verify_ledger(root)
     assert tool.main(["--verify"], root=root) == 1
