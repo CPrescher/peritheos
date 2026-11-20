@@ -12,11 +12,12 @@ file byte for byte.
 
 The whole-catalog split ran once (``python scripts/split_eosmat_audits.py``)
 and refuses to run again over an existing receipt. Afterwards, curators who
-add or replace a bundled material as a complete inline-evidence v5 file run
+add a new bundled material as a complete inline-evidence v5 file run
 ``python scripts/split_eosmat_audits.py --add [MATERIAL ...]``. It splits
 every named material, or every bundled file that still holds inline audit
 blocks or has no sidecar, with the same mechanical procedure and adds its
-binding to the receipt; a replaced binding is kept under ``superseded``.
+binding to the receipt. It refuses a material that already has a binding
+(the one earlier replacement, of pyrope, is kept under ``superseded``).
 ``--verify`` re-checks the current catalog. This is not an installed-package
 tool; standalone EOSMAT files keep inline evidence and need no sidecar.
 
@@ -41,14 +42,16 @@ original}]`` holding each field's value before the first post-split change
 
 A change of scientific content after the split (an added EOS record, set or
 corrected structured fields) goes through ``scripts/apply_catalog_revision.py``
-and the ledger ``docs/data/catalog-revisions.json``, not ``--add``: ``--add``
-would move the binding to ``superseded``, where nothing reads it, so the
-original pre-split file and the bound text originals would no longer be
-recovered. A catalog revision keeps the binding; an added record's index joins
-``added_check`` and ``catalog_revision_sha256`` names the revised pre-split
-reference that restoring the current files gives. ``--verify`` walks that
-reference back to ``before_sha256`` (``scripts/catalog_revisions.py``), and
-``--add`` refuses a material that has catalog revisions.
+and the ledger ``docs/data/catalog-revisions.json``. Re-splitting with
+``--add`` would move the binding to ``superseded``, where nothing reads it, so
+the original pre-split file and the bound text originals would no longer be
+recovered; ``--add`` therefore refuses every material that has a binding. A
+catalog revision keeps the binding; an added record's index joins
+``added_check``, ``catalog_revision_sha256`` names the revised pre-split
+reference that restoring the current files gives and
+``catalog_revision_content_sha256`` pins the latest revision's content.
+``--verify`` walks that reference back to ``before_sha256``
+(``scripts/catalog_revisions.py``).
 """
 
 from __future__ import annotations
@@ -447,6 +450,10 @@ def pre_split_bytes(material: str, *, root: Path | None = None) -> bytes:
     binding = json.loads(receipt_path.read_bytes())["materials"].get(material)
     if binding is None:
         return data
+    from scripts.catalog_revisions import check_head
+
+    # A binding naming a catalog revision needs exactly that ledger head.
+    check_head(material, binding, root)
     audit = (root / f"peritheos/data/audits/{material}.audit.json").read_bytes()
     return recover_pre_split(material, data, audit, binding)
 
@@ -654,9 +661,18 @@ def verify_catalog(root: Path = ROOT) -> int:
         raise ValueError("Every material needs exactly one audit sidecar")
     from scripts.catalog_revisions import prior_revision_bytes
 
-    for material in receipt["materials"]:
+    for material, binding in receipt["materials"].items():
         # Revised materials are walked back to the original pre-split file.
-        prior_revision_bytes(pre_split_bytes(material, root=root), material, root)
+        original = prior_revision_bytes(
+            pre_split_bytes(material, root=root), material, root
+        )
+        if _sha(original) != binding["before_sha256"]:
+            raise ValueError(f"EOSMAT audit split predecessor not reached: {material}")
+    from scripts.catalog_revisions import check_bindings
+
+    failures = check_bindings(root)
+    if failures:
+        raise ValueError("; ".join(failures))
     return len(receipt["materials"])
 
 
@@ -846,10 +862,10 @@ def split_added_materials(
     Each file is treated exactly like the original catalog: it must be a
     valid, canonically formatted v5 document, its split must reconstruct it
     byte for byte, and the scientific snapshot must not change. Its receipt
-    binding is added; an earlier binding of the same material moves to
-    ``superseded`` because the new inline file is now its pre-split source.
-    Without names, every bundled file holding inline audit blocks or lacking a
-    sidecar is split; a named material must be such a file.
+    binding is added. A material that already has a binding is refused: change
+    it with the text tools or ``scripts/apply_catalog_revision.py``. Without
+    names, every bundled file holding inline audit blocks or lacking a sidecar
+    is split; a named material must be such a file.
     """
     from scripts.scientific_source_snapshot import scientific_sha256
 
@@ -869,20 +885,10 @@ def split_added_materials(
         already = [m for m in materials if not holds_inline_audit(m, root)]
         if already:
             raise ValueError(
-                f"{already} are already split; write the complete inline file "
-                "first (for example from get_material_document(..., "
-                "format_version=5)) and edit that"
+                f"{already} are already split; --add splits a new material "
+                "written as one complete inline-evidence file"
             )
         selected = sorted(set(materials))
-    from scripts.catalog_revisions import material_revisions
-
-    revised = [m for m in selected if material_revisions(m, root)]
-    if revised:
-        # A new binding would supersede the one that roots their revision chain.
-        raise ValueError(
-            f"{revised} have catalog revisions; change them with "
-            "scripts/apply_catalog_revision.py"
-        )
     if not selected:
         return []
     before_scientific = scientific_sha256(root) if check_snapshot else None
@@ -894,12 +900,19 @@ def split_added_materials(
         prepared.append((material, path, original, record_bytes, audit_bytes, binding))
     if any(path.read_bytes() != original for _, path, original, *_ in prepared):
         raise ValueError("A source file changed while preparing the audit split")
+    existing = [m for m in selected if m in receipt["materials"]]
+    if existing:
+        # A new binding would supersede the existing one, whose original
+        # pre-split file, bound text originals and catalog revisions would no
+        # longer be recovered.
+        raise ValueError(
+            f"{existing} are bundled materials with an audit-split binding; --add "
+            "is only for new materials. Change text with "
+            "scripts/apply_record_text.py, check texts and warnings with "
+            "scripts/apply_check_text.py, and records or fields with "
+            "scripts/apply_catalog_revision.py"
+        )
     for material, path, _, record_bytes, audit_bytes, binding in prepared:
-        previous = receipt["materials"].get(material)
-        if previous is not None:
-            receipt.setdefault("superseded", {}).setdefault(material, []).append(
-                previous
-            )
         receipt["materials"][material] = binding
         path.write_bytes(record_bytes)
         (audit_dir / f"{material}.audit.json").write_bytes(audit_bytes)

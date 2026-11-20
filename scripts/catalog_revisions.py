@@ -20,13 +20,20 @@ between them.
 Invariant (binding): a catalog revision never moves a material's audit-split
 binding to ``superseded``. Its ``before_sha256`` stays the original pre-split
 file and is the first revision's reference ``before``; the binding's
-``catalog_revision_sha256`` names the last revision's reference ``after``, and
-restoring the current files with the binding gives exactly that reference. An
-added record is appended, so the index-based binding entries of the other
-records keep their meaning; its index joins ``added_check``. Text revisions
-(``scripts/apply_record_text.py``, ``scripts/apply_check_text.py``) keep
-updating the same binding, and ``scripts/split_eosmat_audits.py --add``
-refuses a material that has catalog revisions.
+``catalog_revision_sha256`` names the last revision's reference ``after`` and
+``catalog_revision_content_sha256`` its ``content_sha256`` (the digest of its
+decision, metadata and operations), and restoring the current files with the
+binding gives exactly that reference. An added record is appended, so the
+index-based binding entries of the other records keep their meaning; its
+index joins ``added_check``. Text revisions (``scripts/apply_record_text.py``,
+``scripts/apply_check_text.py``) keep updating the same binding, and
+``scripts/split_eosmat_audits.py --add`` refuses every material that has a
+binding. :func:`check_head` makes every recovery of a pre-split file fail when
+the binding and the ledger disagree.
+
+The ledger catches accidental and unexplained changes; a deliberate, fully
+consistent rewrite by someone with commit access is visible only in the git
+history.
 
 :func:`prior_revision_bytes` walks a material's revisions backwards from its
 current reference, verifying every recorded hash, and returns the original
@@ -41,6 +48,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import re
 from collections.abc import Iterable, Mapping
 from pathlib import Path
 from typing import Any
@@ -103,15 +111,102 @@ def read_ledger(root: Path | None = None) -> dict:
     path = (ROOT if root is None else root) / LEDGER
     if not path.exists():
         return empty_ledger()
-    ledger = json.loads(path.read_bytes())
-    if ledger.get("schema") != SCHEMA:
-        raise ValueError(f"{LEDGER}: unknown schema {ledger.get('schema')!r}")
+    try:
+        ledger = json.loads(path.read_bytes())
+    except ValueError as error:
+        raise ValueError(f"{LEDGER} is not valid JSON: {error}") from None
+    if (
+        not isinstance(ledger, dict)
+        or ledger.get("schema") != SCHEMA
+        or not isinstance(ledger.get("revisions"), list)
+        or not all(isinstance(r, dict) for r in ledger["revisions"])
+    ):
+        raise ValueError(f"{LEDGER} is not a {SCHEMA} ledger")
     return ledger
 
 
 def material_revisions(material: str, root: Path | None = None) -> list[dict]:
     """A material's revisions, oldest first."""
-    return [r for r in read_ledger(root)["revisions"] if r["material"] == material]
+    return [r for r in read_ledger(root)["revisions"] if r.get("material") == material]
+
+
+#: Revision fields covered by ``content_sha256``: what was decided, by whom,
+#: why, on which source and rights basis, and the operations themselves.
+CONTENT_KEYS = (
+    "id",
+    "material",
+    "kind",
+    "date",
+    "decided_by",
+    "reason",
+    "source",
+    "rights",
+    "forward",
+    "reverse",
+)
+#: Binding key pinning the content digest of the material's latest revision.
+HEAD_KEY = "catalog_revision_content_sha256"
+
+
+def content_sha256(revision: Mapping[str, Any]) -> str:
+    """Digest of a revision's decision, metadata and operations."""
+    return fingerprint({key: revision.get(key) for key in CONTENT_KEYS})
+
+
+def check_head(
+    material: str, binding: Mapping[str, Any], root: Path | None = None
+) -> None:
+    """Raise unless the binding and the ledger agree on the latest revision.
+
+    A binding naming a revised reference needs the ledger's revisions of
+    that material, and a revised material needs a binding naming its latest
+    revision's reference and content digest. Materials without either pass.
+    """
+    revisions = material_revisions(material, root)
+    named = "catalog_revision_sha256" in binding or HEAD_KEY in binding
+    if not revisions and not named:
+        return
+    if not revisions:
+        raise ValueError(
+            f"The audit-split binding of {material} names a catalog revision, but "
+            f"{LEDGER} has none for it; restore the ledger or undo the revision"
+        )
+    head = revisions[-1]
+    if (
+        binding.get("catalog_revision_sha256") != head["reference_sha256"]["after"]
+        or binding.get(HEAD_KEY) != head.get("content_sha256")
+        or content_sha256(head) != head.get("content_sha256")
+    ):
+        raise ValueError(
+            f"The latest catalog revision of {material} ({head.get('id')}) does not "
+            "match the revision its audit-split binding pins"
+        )
+
+
+def check_bindings(root: Path | None = None) -> list[str]:
+    """Failures of :func:`check_head` over every bound or revised material."""
+    from scripts.split_eosmat_audits import RECEIPT
+    from scripts.split_eosmat_audits import ROOT as SPLIT_ROOT
+
+    root = ROOT if root is None else root
+    receipt = root / RECEIPT.relative_to(SPLIT_ROOT)
+    if not receipt.exists():
+        return []
+    try:
+        bindings = json.loads(receipt.read_bytes())["materials"]
+        revised = {r.get("material") for r in read_ledger(root)["revisions"]}
+    except ValueError as error:
+        return [str(error)]
+    failures = [
+        f"{material}: has catalog revisions but no audit-split binding"
+        for material in sorted(revised - set(bindings), key=str)
+    ]
+    for material, binding in sorted(bindings.items()):
+        try:
+            check_head(material, binding, root)
+        except ValueError as error:
+            failures.append(str(error))
+    return failures
 
 
 def added_record(
@@ -219,7 +314,13 @@ def apply_operations(records: list, operations: Iterable[Mapping], view: str) ->
             record = records[_index(records, operation["record"])]
             projected = view == "snapshot" and len(path) == 1
             before = operation["before"] if operation["before_present"] else ABSENT
+            after = operation["after"]
             after_present = operation["after_present"]
+            if view == "reference" and "reference_after" in operation:
+                # A derived audit value as the split restores it in the
+                # reference (generic statements and bound originals put back).
+                before = operation["reference_before"]
+                after = operation["reference_after"]
             if projected:
                 # The snapshot reads a missing field as null.
                 before = None if before is ABSENT else before
@@ -229,7 +330,7 @@ def apply_operations(records: list, operations: Iterable[Mapping], view: str) ->
                 raise ValueError(
                     f"{operation['record']}/{'.'.join(path)} is not the recorded value"
                 )
-            _write(record, path, after_present, operation["after"])
+            _write(record, path, after_present, after)
         else:
             raise ValueError(f"Unknown operation {kind!r}")
 
@@ -243,17 +344,24 @@ def reverse_operations(forward: list[dict]) -> list[dict]:
                 {"op": "remove_record", "record": operation["record"]["identifier"]}
             )
         elif operation["op"] == "set":
-            result.append(
-                {
-                    "op": "set",
-                    "record": operation["record"],
-                    "path": list(operation["path"]),
-                    "before_present": operation["after_present"],
-                    "before": copy.deepcopy(operation["after"]),
-                    "after_present": operation["before_present"],
-                    "after": copy.deepcopy(operation["before"]),
-                }
-            )
+            inverse = {
+                "op": "set",
+                "record": operation["record"],
+                "path": list(operation["path"]),
+                **({"derived": True} if operation.get("derived") else {}),
+                "before_present": operation["after_present"],
+                "before": copy.deepcopy(operation["after"]),
+                "after_present": operation["before_present"],
+                "after": copy.deepcopy(operation["before"]),
+            }
+            if "reference_after" in operation:
+                inverse["reference_before"] = copy.deepcopy(
+                    operation["reference_after"]
+                )
+                inverse["reference_after"] = copy.deepcopy(
+                    operation["reference_before"]
+                )
+            result.append(inverse)
         else:
             raise ValueError(f"No inverse for operation {operation['op']!r}")
     return result
@@ -287,17 +395,18 @@ def prior_revision_bytes(data: bytes, material: str, root: Path | None = None) -
     revisions = material_revisions(material, root)
     if not revisions:
         return data
+    for revision in revisions:
+        if content_sha256(revision) != revision.get("content_sha256"):
+            raise ValueError(
+                f"Catalog revision {revision.get('id')} differs from its content digest"
+            )
     from peritheos._eosmat_format import format_eosmat
     from scripts.split_eosmat_audits import LAYOUTS
 
     binding = _binding(material, root)
     layout = LAYOUTS[binding.get("layout")]
     head = revisions[-1]["reference_sha256"]["after"]
-    if binding.get("catalog_revision_sha256") != head:
-        raise ValueError(
-            f"Audit-split binding of {material} does not name its latest catalog "
-            "revision"
-        )
+    check_head(material, binding, root)
     if _sha(data) != head:
         raise ValueError(f"Catalog revision reference changed: {material}")
     for revision in reversed(revisions):
@@ -387,15 +496,100 @@ REVISION_KEYS = (
     "rights",
     "forward",
     "reverse",
+    "content_sha256",
     "document_sha256",
     "reference_sha256",
     "scientific",
     "files",
     "split_binding",
     "policy",
+    "refit_rows",
     "derived_files",
     "previous_sha256",
 )
+_HASH = re.compile(r"[0-9a-f]{64}\Z")
+
+
+def _field_failures(revision: Mapping[str, Any]) -> list[str]:
+    """Shape of one revision: metadata, hashes and operations."""
+    import datetime
+
+    name = revision.get("id")
+    failures = []
+
+    def text(value: Any) -> bool:
+        return isinstance(value, str) and bool(value.strip())
+
+    def date(value: Any) -> bool:
+        try:
+            datetime.date.fromisoformat(value)
+        except (TypeError, ValueError):
+            return False
+        return True
+
+    def digest(value: Any, optional: bool = False) -> bool:
+        return (optional and value is None) or (
+            isinstance(value, str) and bool(_HASH.match(value))
+        )
+
+    if not all(
+        text(revision.get(k)) for k in ("id", "material", "decided_by", "reason")
+    ):
+        failures.append(f"{name}: id, material, decided_by and reason must be text")
+    if not date(revision.get("date")):
+        failures.append(f"{name}: date is not YYYY-MM-DD")
+    source = revision.get("source")
+    if (
+        not isinstance(source, dict)
+        or set(source) != {"citation", "location"}
+        or not (all(text(v) for v in source.values()))
+    ):
+        failures.append(f"{name}: source needs citation and location")
+    rights = revision.get("rights")
+    if (
+        not isinstance(rights, dict)
+        or not all(text(rights.get(k)) for k in ("reviewed_by", "statement"))
+        or not date(rights.get("date"))
+        or (
+            revision.get("kind") == "add_record"
+            and not isinstance(rights.get("same_basis"), bool)
+        )
+        or (rights.get("same_basis") is False and not text(rights.get("differences")))
+    ):
+        failures.append(f"{name}: rights statement is incomplete")
+    for key in ("document_sha256", "reference_sha256"):
+        pair = revision.get(key)
+        if not isinstance(pair, dict) or not all(
+            digest(pair.get(k)) for k in ("before", "after")
+        ):
+            failures.append(f"{name}: {key} is not a before/after sha256 pair")
+    scientific = revision.get("scientific") or {}
+    if not all(
+        digest(scientific.get(k))
+        for k in ("records_before", "records_after", "catalog_before", "catalog_after")
+    ) or not all(digest(v) for v in (scientific.get("added_records") or {}).values()):
+        failures.append(f"{name}: scientific fingerprints are malformed")
+    added = [
+        o["record"]["identifier"]
+        for o in revision.get("forward", [])
+        if o.get("op") == "add_record"
+    ]
+    if sorted(scientific.get("added_records") or {}) != sorted(added):
+        failures.append(f"{name}: added_records does not name the added records")
+    for path, pair in (revision.get("files") or {}).items():
+        if not all(digest(pair.get(k)) for k in ("before", "after")):
+            failures.append(f"{name}: files.{path} is malformed")
+    for path, pair in (revision.get("derived_files") or {}).items():
+        if not all(digest(pair.get(k), optional=True) for k in ("before", "after")):
+            failures.append(f"{name}: derived_files.{path} is malformed")
+    binding = revision.get("split_binding") or {}
+    if not isinstance(binding.get("before"), dict) or not digest(
+        binding.get("after_sha256")
+    ):
+        failures.append(f"{name}: split_binding is malformed")
+    if revision.get("kind") == "add_record" and len(added) != 1:
+        failures.append(f"{name}: add_record must add exactly one record")
+    return failures
 
 
 def verify_ledger(
@@ -430,8 +624,18 @@ def verify_ledger(
             continue
         if revision["kind"] not in KINDS:
             failures.append(f"{revision['id']}: unknown kind {revision['kind']!r}")
-        if revision["reverse"] != reverse_operations(revision["forward"]):
+        failures.extend(_field_failures(revision))
+        try:
+            inverse = reverse_operations(revision["forward"])
+        except (KeyError, TypeError, ValueError):
+            inverse = None
+        if revision["reverse"] != inverse:
             failures.append(f"{revision['id']}: reverse is not the inverse of forward")
+        if content_sha256(revision) != revision["content_sha256"]:
+            failures.append(
+                f"{revision['id']}: decision, metadata or operations differ from "
+                "content_sha256"
+            )
         by_material.setdefault(revision["material"], []).append(revision)
     bound = {
         m for m, b in receipt["materials"].items() if "catalog_revision_sha256" in b
@@ -451,8 +655,21 @@ def verify_ledger(
         if binding is None:
             failures.append(f"{material}: revised material has no audit-split binding")
             continue
+        try:
+            check_head(material, binding, root)
+        except ValueError as error:
+            failures.append(str(error))
         previous: dict | None = None
         for revision in revisions:
+            before_binding = revision["split_binding"]["before"]
+            if before_binding.get("before_sha256") != binding["before_sha256"] or (
+                before_binding.get("catalog_revision_sha256")
+                != (None if previous is None else previous["reference_sha256"]["after"])
+            ):
+                failures.append(
+                    f"{revision['id']}: split_binding.before is not the binding the "
+                    "revision started from"
+                )
             expected_previous = None if previous is None else fingerprint(previous)
             if revision["previous_sha256"] != expected_previous:
                 failures.append(f"{revision['id']}: previous_sha256 breaks the chain")
@@ -486,6 +703,28 @@ def verify_ledger(
             failures.append(f"{material}: rights policy pin is not the latest revision")
         if pinned.get(material) != [r["id"] for r in revisions]:
             failures.append(f"{material}: rights policy does not list its revisions")
+        # Hashes of the tree after the latest revision, while nothing has
+        # changed the material since (a later text revision changes them).
+        files = {p: (root / p) for p in last["files"]}
+        if all(
+            path.exists() and _sha(path.read_bytes()) == last["files"][p]["after"]
+            for p, path in files.items()
+        ):
+            from peritheos._eosmat_audit import merge_audit
+            from peritheos._eosmat_format import format_eosmat
+
+            record_path, audit_path = list(last["files"])
+            merged = merge_audit(
+                json.loads((root / record_path).read_bytes()),
+                json.loads((root / audit_path).read_bytes()),
+            )
+            if (
+                _sha(format_eosmat(merged).encode("utf-8"))
+                != last["document_sha256"]["after"]
+            ):
+                failures.append(f"{last['id']}: document_sha256.after differs")
+            if fingerprint(binding) != last["split_binding"]["after_sha256"]:
+                failures.append(f"{last['id']}: split_binding.after_sha256 differs")
     if any(m in selected for m in by_material):
         from scripts.scientific_source_snapshot import scientific_snapshot
 
@@ -505,11 +744,63 @@ def verify_ledger(
             prior_revision_snapshot(snapshot, root)
         except (ValueError, KeyError, IndexError) as error:
             failures.append(str(error))
+    if ledger["revisions"] and materials is None:
+        failures.extend(_latest_tree_failures(ledger["revisions"][-1], root, policy))
+    return failures
+
+
+def _latest_tree_failures(
+    revision: Mapping[str, Any], root: Path, policy: Mapping[str, Any]
+) -> list[str]:
+    """Derived files, refit rows and catalog hash of the newest revision.
+
+    Checked while the tree is still at that revision's result: its record
+    file and sidecar unchanged. Shared derived files (manifest, refit ledger,
+    reports) may change with any later revision, so only the newest one is
+    compared with the tree.
+    """
+    failures: list[str] = []
+    if not all(
+        (root / p).exists() and _sha((root / p).read_bytes()) == pair["after"]
+        for p, pair in revision["files"].items()
+    ):
+        return failures
+    name = revision["id"]
+    for path, pair in revision["derived_files"].items():
+        target = root / path
+        actual = _sha(target.read_bytes()) if target.exists() else None
+        if actual != pair["after"]:
+            failures.append(
+                f"{name}: derived file {path} differs from its recorded hash"
+            )
+    refits = root / "docs/data/primary-eos-refits.json"
+    if refits.exists() and revision["refit_rows"]:
+        rows = {
+            r["record_identifier"]: r
+            for r in json.loads(refits.read_bytes())["records"]
+        }
+        for identifier, pair in revision["refit_rows"].items():
+            if rows.get(identifier) != pair["after"]:
+                failures.append(f"{name}: refit-ledger row of {identifier} differs")
+    from scripts.scientific_source_snapshot import scientific_snapshot
+
+    if policy.get("catalog_scientific_sha256") != revision["scientific"][
+        "catalog_after"
+    ] or (
+        fingerprint(scientific_snapshot(root))
+        != revision["scientific"]["catalog_after"]
+    ):
+        failures.append(f"{name}: catalog scientific hash differs from catalog_after")
     return failures
 
 
 __all__ = [
+    "CONTENT_KEYS",
+    "HEAD_KEY",
     "KINDS",
+    "check_bindings",
+    "check_head",
+    "content_sha256",
     "LEDGER",
     "added_record",
     "apply_operations",

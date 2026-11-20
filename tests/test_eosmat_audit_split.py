@@ -53,6 +53,7 @@ from scripts.split_eosmat_audits import (
     split_material,
     verify_catalog,
 )
+from tests.catalog_state import added_records
 
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos/data/materials"
@@ -171,6 +172,7 @@ def test_warning_uses_only_coded_restrictions():
 
 def test_catalog_checks_equal_their_derivation_from_the_sidecar():
     counts = dict.fromkeys(("reproduced", "close", "disagrees", "untested"), 0)
+    added = added_records()
     for material in list_material_documents():
         stored = json.loads((MATERIALS / f"{material}.eosmat").read_bytes())
         keys = list(stored)
@@ -185,7 +187,9 @@ def test_catalog_checks_equal_their_derivation_from_the_sidecar():
                 audit=f"../audits/{material}.audit.json#{record['identifier']}",
             )
             assert record["check"] == expected
-            counts[record["check"]["reproduction"]] += 1
+            if record["identifier"] not in added:
+                counts[record["check"]["reproduction"]] += 1
+    # Headlines of the records curated before the catalog revision ledger.
     assert counts == {
         "reproduced": 358,
         "close": 72,
@@ -648,6 +652,13 @@ def _split_catalog_copy(tmp_path, materials):
     return target
 
 
+def _forget_binding(receipt_path, material):
+    """Drop a material's binding, so the copy treats it as a new material."""
+    receipt = json.loads(receipt_path.read_bytes())
+    del receipt["materials"][material]
+    receipt_path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+
+
 def test_added_inline_file_is_split_deterministically_and_recovers(tmp_path):
     receipt_path = _split_catalog_copy(tmp_path, ["larnite", "pyrope"])
     larnite = (tmp_path / "peritheos/data/materials/larnite.eosmat").read_bytes()
@@ -657,9 +668,13 @@ def test_added_inline_file_is_split_deterministically_and_recovers(tmp_path):
     (tmp_path / "peritheos/data/materials/grossular.eosmat").write_bytes(inline)
     pyrope = pre_split_bytes("pyrope")
     (tmp_path / "peritheos/data/materials/pyrope.eosmat").write_bytes(pyrope)
-    old_pyrope = json.loads(receipt_path.read_bytes())["materials"]["pyrope"]
     with pytest.raises(ValueError, match="already split"):
         split_added_materials(["larnite"], root=tmp_path, check_snapshot=False)
+    # Re-splitting a material that has a binding would orphan its originals.
+    with pytest.raises(ValueError, match="only for new materials"):
+        split_added_materials(root=tmp_path, check_snapshot=False)
+    assert "superseded" not in json.loads(receipt_path.read_bytes())
+    _forget_binding(receipt_path, "pyrope")
     assert split_added_materials(root=tmp_path, check_snapshot=False) == [
         "grossular",
         "pyrope",
@@ -682,7 +697,7 @@ def test_added_inline_file_is_split_deterministically_and_recovers(tmp_path):
         assert audit_bytes == (AUDITS / f"{material}.audit.json").read_bytes()
     receipt = json.loads(receipt_path.read_bytes())
     assert list(receipt["materials"]) == ["grossular", "larnite", "pyrope"]
-    assert receipt["superseded"] == {"pyrope": [old_pyrope]}
+    assert "superseded" not in receipt
     assert (
         tmp_path / "peritheos/data/materials/larnite.eosmat"
     ).read_bytes() == larnite
@@ -697,12 +712,15 @@ def test_complete_document_of_a_split_material_resplits_to_the_same_files(tmp_pa
     receipt_path = _split_catalog_copy(tmp_path, ["larnite"])
     path = tmp_path / "peritheos/data/materials/larnite.eosmat"
     save_eosmat(path, get_material_document("larnite", format_version=5))
+    with pytest.raises(ValueError, match="only for new materials"):
+        split_added_materials(["larnite"], root=tmp_path, check_snapshot=False)
+    _forget_binding(receipt_path, "larnite")
     assert split_added_materials(["larnite"], root=tmp_path, check_snapshot=False)
     assert path.read_bytes() == (MATERIALS / "larnite.eosmat").read_bytes()
     assert (tmp_path / "peritheos/data/audits/larnite.audit.json").read_bytes() == (
         AUDITS / "larnite.audit.json"
     ).read_bytes()
-    assert "larnite" in json.loads(receipt_path.read_bytes())["superseded"]
+    assert "superseded" not in json.loads(receipt_path.read_bytes())
 
 
 def test_added_split_rejects_mixed_and_noncanonical_files(tmp_path):
@@ -736,6 +754,9 @@ def test_curator_inline_file_with_record_flags_splits_to_the_bundled_layout(tmp_
     path = tmp_path / "peritheos/data/materials/mgo.eosmat"
     save_eosmat(path, complete)
     inline = path.read_bytes()
+    with pytest.raises(ValueError, match="only for new materials"):
+        split_added_materials(["mgo"], root=tmp_path, check_snapshot=False)
+    _forget_binding(receipt_path, "mgo")
     assert split_added_materials(["mgo"], root=tmp_path, check_snapshot=False)
     assert path.read_bytes() == (MATERIALS / "mgo.eosmat").read_bytes()
     assert (tmp_path / "peritheos/data/audits/mgo.audit.json").read_bytes() == (

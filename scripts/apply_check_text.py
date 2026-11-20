@@ -797,7 +797,9 @@ def verify(root: Path = ROOT) -> tuple[int, list[str]]:
     ``recommendation_reason`` copies with the sidecars. Returns the number of
     records holding a curated text and the failures.
     """
-    failures: list[str] = []
+    from scripts.catalog_revisions import check_bindings
+
+    failures: list[str] = check_bindings(root)
     curated = 0
     bound = _receipt(root).get("materials", {})
     rows = _ledger_rows(_ledger(root))

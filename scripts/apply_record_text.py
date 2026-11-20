@@ -777,7 +777,9 @@ def verify(
         def read(relative: str) -> bytes | None:
             return _git_file(revision, relative, root)
 
-    failures: list[str] = []
+    from scripts.catalog_revisions import check_bindings
+
+    failures: list[str] = check_bindings(root)
     checked = 0
     ledger_path = root / LEDGER
     ledger = (
@@ -808,6 +810,10 @@ def verify(
                 checked += 1
                 validate_superseded_record_text(block, identifier)
                 copy_in_ledger = ledger.get(identifier)
+                if copy_in_ledger is None and ledger:
+                    # Every bundled record has a ledger row; its copies of
+                    # label and notes are the stored rewrite.
+                    failures.append(f"{material}/{identifier}: no row in {LEDGER}")
                 if copy_in_ledger is not None and (
                     copy_in_ledger.get("label") != record.get("label")
                     or copy_in_ledger.get("source_notes") != record.get("notes")
