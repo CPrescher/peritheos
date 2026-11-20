@@ -166,13 +166,17 @@ def test_zero_null_and_fixed_annotations_and_extensions_survive_migration():
 def test_catalog_migration_preserves_every_predecessor_and_runtime_uncertainty():
     receipt = json.loads((ROOT / "docs/data/eosmat-v5-migration.json").read_bytes())
     for relative, binding in receipt["materials"].items():
+        from scripts.catalog_revisions import prior_revision_bytes
         from scripts.garnet_dataset_bindings import prior_dataset_bytes
 
         # Undo the later steps first via their own receipts: the record/audit
-        # split, then the garnet dataset additions.
+        # split, any catalog revisions, then the garnet dataset additions.
+        material = Path(relative).stem
         current = json.loads(
             prior_dataset_bytes(
-                pre_split_bytes(Path(relative).stem), Path(relative).stem, ROOT
+                prior_revision_bytes(pre_split_bytes(material), material, ROOT),
+                material,
+                ROOT,
             )
         )
         assert current["format_version"] == 5

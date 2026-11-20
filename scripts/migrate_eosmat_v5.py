@@ -82,6 +82,10 @@ def prior_material_bytes(material: str, *, root: Path | None = None) -> bytes:
     relative = f"peritheos/data/materials/{material}.eosmat"
     # The audit split is the newer step; recover its exact predecessor first.
     data = pre_split_bytes(material, root=root)
+    # Catalog revisions after the split are newer still; reverse them next.
+    from scripts.catalog_revisions import prior_revision_bytes
+
+    data = prior_revision_bytes(data, material, ROOT if root is None else root)
     from scripts.garnet_dataset_bindings import prior_dataset_bytes
 
     data = prior_dataset_bytes(data, material, ROOT)

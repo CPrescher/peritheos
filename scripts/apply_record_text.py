@@ -69,7 +69,9 @@ Usage::
 ``--check`` reports what would change and every refusal without writing.
 ``--verify`` confirms, for every record holding a ``superseded_record_text``
 block, that restoring the stored originals gives the record's text at the
-revision, that no other record's text differs from that revision, and that
+revision (for a record added later by ``scripts/apply_catalog_revision.py``:
+the text it was added with), that no other record's text differs from that
+revision, and that
 the ledger's copies equal the catalog. This is not an installed-package tool.
 """
 
@@ -815,12 +817,19 @@ def verify(
                     )
                 restored["superseded_record_text"] = block
                 restore_record_text(restored)
-            if identifier not in old:
+            reference = old.get(identifier)
+            if reference is None:
+                # A record added later by a catalog revision is compared with
+                # the text it was added with.
+                from scripts.catalog_revisions import added_record
+
+                reference = added_record(material, identifier, root)
+            if reference is None:
                 if block is not None:
                     failures.append(f"{material}/{identifier}: not in {revision}")
                 continue
             for name in SUPERSEDED_TEXT_FIELDS:
-                if record_text(restored, name) != record_text(old[identifier], name):
+                if record_text(restored, name) != record_text(reference, name):
                     what = "restored" if block is not None else "unrecorded change of"
                     failures.append(
                         f"{material}/{identifier}: {what} {name} differs from {revision}"

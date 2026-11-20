@@ -38,6 +38,17 @@ the split, their binding lists ``check_text`` entries ``[index, {field:
 original}]`` holding each field's value before the first post-split change
 (``null``: absent). Recovery puts those originals back before anything else;
 ``finding`` itself is never changed.
+
+A change of scientific content after the split (an added EOS record, set or
+corrected structured fields) goes through ``scripts/apply_catalog_revision.py``
+and the ledger ``docs/data/catalog-revisions.json``, not ``--add``: ``--add``
+would move the binding to ``superseded``, where nothing reads it, so the
+original pre-split file and the bound text originals would no longer be
+recovered. A catalog revision keeps the binding; an added record's index joins
+``added_check`` and ``catalog_revision_sha256`` names the revised pre-split
+reference that restoring the current files gives. ``--verify`` walks that
+reference back to ``before_sha256`` (``scripts/catalog_revisions.py``), and
+``--add`` refuses a material that has catalog revisions.
 """
 
 from __future__ import annotations
@@ -420,7 +431,13 @@ def merged_document(material: str, root: Path = ROOT) -> dict:
 
 
 def pre_split_bytes(material: str, *, root: Path | None = None) -> bytes:
-    """Recover the exact pre-split v5 file, verifying every bound hash."""
+    """Recover the exact pre-split v5 file, verifying every bound hash.
+
+    For a material with catalog revisions this is the pre-split reference
+    after its latest revision (``catalog_revision_sha256``);
+    :func:`scripts.catalog_revisions.prior_revision_bytes` recovers the
+    original file from it.
+    """
     root = ROOT if root is None else root
     relative = f"peritheos/data/materials/{material}.eosmat"
     data = (root / relative).read_bytes()
@@ -445,7 +462,10 @@ def recover_pre_split(
         raise ValueError(f"EOSMAT audit split sidecar changed: {material}")
     merged = merge_audit(json.loads(record_bytes), json.loads(audit_bytes))
     original = _render(restore(merged, binding), binding)
-    if _sha(original) != binding["before_sha256"]:
+    # After a catalog revision the files restore to the revised reference;
+    # scripts/catalog_revisions.py walks it back to before_sha256.
+    expected = binding.get("catalog_revision_sha256", binding["before_sha256"])
+    if _sha(original) != expected:
         raise ValueError(f"EOSMAT audit split predecessor changed: {relative}")
     return original
 
@@ -632,8 +652,11 @@ def verify_catalog(root: Path = ROOT) -> int:
     )
     if records != audits:
         raise ValueError("Every material needs exactly one audit sidecar")
+    from scripts.catalog_revisions import prior_revision_bytes
+
     for material in receipt["materials"]:
-        pre_split_bytes(material, root=root)
+        # Revised materials are walked back to the original pre-split file.
+        prior_revision_bytes(pre_split_bytes(material, root=root), material, root)
     return len(receipt["materials"])
 
 
@@ -851,6 +874,15 @@ def split_added_materials(
                 "format_version=5)) and edit that"
             )
         selected = sorted(set(materials))
+    from scripts.catalog_revisions import material_revisions
+
+    revised = [m for m in selected if material_revisions(m, root)]
+    if revised:
+        # A new binding would supersede the one that roots their revision chain.
+        raise ValueError(
+            f"{revised} have catalog revisions; change them with "
+            "scripts/apply_catalog_revision.py"
+        )
     if not selected:
         return []
     before_scientific = scientific_sha256(root) if check_snapshot else None
