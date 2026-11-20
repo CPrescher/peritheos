@@ -182,7 +182,20 @@ python -m scripts.generate_catalog_coverage
 python -m scripts.generate_reconstruction_reports
 ```
 
-Each command accepts `--check` for read-only verification. See
+Each command accepts `--check` for read-only verification. Bundled materials
+are changed only through the repository tools described under
+[changing a bundled material](adding-materials-and-eos.md#changing-a-bundled-material);
+their receipts are verified with:
+
+```bash
+python scripts/split_eosmat_audits.py --verify
+python scripts/apply_record_text.py --verify
+python scripts/apply_check_text.py --verify
+python scripts/apply_catalog_revision.py --verify
+python scripts/review_eos_structure_rights.py --check
+```
+
+See
 [Reading and editing EOSMAT](eosmat-authoring.md) for the simple authoring template.
 
 ```bash
