@@ -514,6 +514,13 @@ most recent revision and refuses an older one. Later text and check-text
 revisions of the same material are kept (those of a removed record go with
 it); without them every file returns byte for byte.
 
+`--verify` checks each revision's fields and content digest, the chain of a
+material's revisions, the binding's pins, the exact walk back to the original
+pre-split file, the scientific snapshot, the rights pins, the refit-ledger
+rows and the manifest and source-audit counts. The hashes it records for
+generated pages are the trail of what the revision wrote; later changes
+rewrite shared pages, whose generators' `--check` keeps them current.
+
 The ledger catches accidental and unexplained changes: every check of a
 bundled material fails when a stored value, hash, order or decision differs
 from the files. It does not prevent a deliberate, fully consistent rewrite by
