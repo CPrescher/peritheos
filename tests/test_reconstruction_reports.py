@@ -1,6 +1,8 @@
 """Report links resolve exactly, and figures never manufacture scientific data."""
 
 import copy
+import re
+from collections import Counter
 from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree import ElementTree
@@ -36,6 +38,7 @@ from scripts.reconstruction_plot_data import curve_comparison
 from scripts.report_numbers import value_error
 from scripts.report_plot_themes import dark_path, dark_svg, themed_images
 from scripts.standardize_reconstruction_metadata import standardize_document
+from tests.catalog_state import added_records, record_count
 from tests.test_eosmat_reconstruction import sample
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -283,12 +286,47 @@ def test_every_bundled_link_opens_its_record_and_each_graph_matches_its_input():
     records = charts = curves = 0
     outputs = generated_outputs(plots=False)
     index = outputs[Path("index.md")].decode()
-    assert "494 of 494" in index
+    # Every record with a stored coefficient comparison has curve plots; 494
+    # of them were curated before the catalog revision ledger.
+    added = added_records()
+    documents = [
+        load_eosmat(p)
+        for p in sorted((ROOT / "peritheos/data/materials").glob("*.eosmat"))
+    ]
+    replayed = re.search(r"(\d+) of (\d+) records with a stored coefficient", index)
+    assert replayed is not None and replayed[1] == replayed[2]
+    assert (
+        int(replayed[1])
+        - sum(
+            bool(r["evidence"]["reproduction"]["assessment"].get("parameters"))
+            for d in documents
+            for r in d["eos_records"]
+            if r["identifier"] in added
+        )
+        == 494
+    )
     assert "3 explicitly partial replays" in index
     assert "Remaining curve/residual replay gaps" not in index
-    assert (
-        "| **All materials** | **687** | **358** | **72** | **61** | **196** |" in index
+    headlines = Counter(
+        r["check"]["reproduction"] for d in documents for r in d["eos_records"]
     )
+    assert (
+        f"| **All materials** | **{record_count()}** | **{headlines['reproduced']}** | "
+        f"**{headlines['close']}** | **{headlines['disagrees']}** | "
+        f"**{headlines['untested']}** |" in index
+    )
+    historical = Counter(
+        r["check"]["reproduction"]
+        for d in documents
+        for r in d["eos_records"]
+        if r["identifier"] not in added
+    )
+    assert historical == {
+        "reproduced": 358,
+        "close": 72,
+        "disagrees": 61,
+        "untested": 196,
+    }
     for relative, payload in outputs.items():
         assert (ROOT / "docs/reconstruction-reports" / relative).read_bytes() == payload
         page = payload.decode()

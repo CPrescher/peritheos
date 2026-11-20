@@ -20,6 +20,7 @@ from peritheos.materials import (
 from peritheos.materials import (
     search_materials as materials_search_materials,
 )
+from tests.catalog_state import validation_count
 
 
 def identifiers(items):
@@ -194,7 +195,7 @@ def test_validation_status_filter_and_ordering_are_deterministic():
     records = search_eos_records(
         validation_status=("primary_source_validated",), include_reference_variants=True
     )
-    assert len(records) == 666
+    assert len(records) == validation_count("primary_source_validated")
     assert identifiers(records) == tuple(sorted(identifiers(records)))
     assert search_eos_records(validation_status="deferred") == ()
 

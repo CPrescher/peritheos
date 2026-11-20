@@ -18,6 +18,7 @@ from peritheos._eosmat_audit import (
 from peritheos._eosmat_format import format_audit, format_eosmat
 from peritheos.eosmat import list_material_documents, validate_eosmat_document
 from peritheos.errors import EosmatError
+from tests.catalog_state import added_records
 
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos/data/materials"
@@ -109,14 +110,17 @@ def test_compared_is_a_fixed_mapping_of_status_and_scope(status, scope, compared
 def test_bundled_compared_counts_and_source_check_values():
     compared = {}
     source = {}
+    added = added_records()
     for material in list_material_documents():
         for stored in json.loads((MATERIALS / f"{material}.eosmat").read_bytes())[
             "eos_records"
         ]:
             check = stored["check"]
+            assert not {"finding", "source"} & set(check)
+            if stored["identifier"] in added:
+                continue  # counted below: curated before the revision ledger
             compared[check["compared"]] = compared.get(check["compared"], 0) + 1
             source[check["source_check"]] = source.get(check["source_check"], 0) + 1
-            assert not {"finding", "source"} & set(check)
     assert compared == {
         "published_fit": 474,
         "peritheos_refit": 16,
@@ -258,7 +262,7 @@ def test_bundled_why_lines_are_short_and_rounded():
             if "why" not in check:
                 without.add(complete["identifier"])
                 continue
-            with_why += 1
+            with_why += complete["identifier"] not in added_records()
             assert len(check["why"]) <= WHY_MAX_LENGTH
             rows = complete["evidence"]["reproduction"]["assessment"]["parameters"]
             for match in re.finditer(r"refit (\S+) vs published (\S+)", check["why"]):

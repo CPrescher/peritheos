@@ -10,6 +10,7 @@ from scripts.validate_primary_eos_refits import (
     shen_cu_pressure_gpa,
     shen_cu_reference_volume_a3,
 )
+from tests.catalog_state import added_records, record_count
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "docs" / "data" / "primary-eos-refits.json"
@@ -88,7 +89,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 687
+    assert len(identifiers) == len(set(identifiers)) == record_count()
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -96,7 +97,17 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 687, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {
+        "total": record_count(),
+        **dict(sorted(statuses.items())),
+    }
+    # Rows of the records curated before the catalog revision ledger.
+    added = added_records()
+    statuses = Counter(
+        item["status"]
+        for item in ledger["records"]
+        if item["record_identifier"] not in added
+    )
     assert statuses == {
         "not_refittable": 178,
         "parity": 358,

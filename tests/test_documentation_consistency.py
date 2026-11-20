@@ -10,14 +10,17 @@ from peritheos.eos import rt, thermal
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_catalog_landing_summaries_match_scientific_status_counts():
+def test_catalog_landing_summary_links_generated_status_counts():
+    """The README names the statuses and links the generated counts."""
     manifest = json.loads(
         (ROOT / "peritheos/data/materials/manifest.json").read_text(encoding="utf-8")
     )
     counts = manifest["scientific_validation"]["counts"]
     text = " ".join((ROOT / "README.md").read_text(encoding="utf-8").split())
-    assert f"{counts['primary_source_validated']} primary-source-validated" in text
-    assert f"{counts['not_reproduced']} qualified explicit-selection" in text
+    assert "primary-source-validated records and qualified explicit-selection" in text
+    assert "docs/reconstruction-reports/index.md" in text
+    words = set(text.replace("(", " ").split())
+    assert not {str(n) for n in counts.values() if n > 50} & words
 
 
 def test_hand_written_guides_link_generated_counts_instead_of_repeating_them():

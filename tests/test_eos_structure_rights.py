@@ -4,6 +4,7 @@ import csv
 import hashlib
 import json
 import shutil
+from collections import Counter
 
 import pytest
 
@@ -16,6 +17,7 @@ from scripts.review_eos_structure_rights import (
 )
 from scripts.scientific_source_snapshot import scientific_sha256
 from scripts.split_eosmat_audits import pre_split_view
+from tests.catalog_state import added_records, material_count, record_count
 
 
 def test_complete_review_is_source_bound_and_scientific_content_is_unchanged():
@@ -24,7 +26,31 @@ def test_complete_review_is_source_bound_and_scientific_content_is_unchanged():
         assert (ROOT / path).read_bytes() == content, path
     review = json.loads(outputs[REVIEW])
     assert scientific_sha256() == review["catalog_scientific_sha256"]
-    assert review["counts"] == {
+    assert review["counts"]["materials"] == material_count()
+    assert review["counts"]["eos_records"] == record_count()
+    # The review of the catalog curated before the catalog revision ledger;
+    # each added record carries its own rights statement in the ledger.
+    added = {
+        e["key"]
+        for e in review["entries"]
+        if e["kind"] == "eos" and e["identifier"] in added_records()
+    }
+    entries = [e for e in review["entries"] if e["key"] not in added]
+    groups = {
+        e["reference"].get("doi") or digest(e["reference"])
+        for e in entries
+        if e["kind"] == "eos"
+    }
+    assert {
+        "materials": len({e["material"] for e in entries}),
+        "eos_records": sum(e["kind"] == "eos" for e in entries),
+        "structural_components": sum(
+            e["kind"] == "structure_and_diffraction" for e in entries
+        ),
+        "eos_source_groups": len(groups),
+        "migration_records": sum(bool(e.get("migration_source")) for e in entries),
+        "assessments": dict(sorted(Counter(e["assessment"] for e in entries).items())),
+    } == {
         "materials": 235,
         "eos_records": 687,
         "structural_components": 235,
@@ -39,6 +65,8 @@ def test_complete_review_is_source_bound_and_scientific_content_is_unchanged():
             "thermodynamic_collection_review_required": 7,
         },
     }
+    if not added:
+        assert review["counts"]["eos_source_groups"] == 273
     by_key = {e["key"]: e for e in review["entries"]}
     # An unsuccessful ICSD search is not a redistributed ICSD structure.
     assert by_key["structure/coesite_v"]["assessment"] == "no_structural_values"

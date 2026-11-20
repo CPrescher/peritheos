@@ -28,6 +28,12 @@ from peritheos import (
     validate_pressure_calibration_references,
 )
 from scripts.import_dioptas_eos_database import migrate_document
+from tests.catalog_state import (
+    added_records,
+    material_count,
+    record_count,
+    validation_count,
+)
 
 NINETY_FIVE_PERCENT_INTERVAL_RECORDS = (
     ("alumina", "alumina_dewaele_2013_vinet_1"),
@@ -92,9 +98,11 @@ def test_complete_material_library_is_bundled_and_valid():
     identifiers = list_material_documents()
     documents = [get_material_document(identifier) for identifier in identifiers]
 
-    assert len(identifiers) == 235
-    assert len(set(identifiers)) == 235
-    assert sum(len(document["eos_records"]) for document in documents) == 687
+    assert len(identifiers) == material_count()
+    assert len(set(identifiers)) == material_count()
+    assert sum(len(document["eos_records"]) for document in documents) == (
+        record_count()
+    )
     assert {
         document["identifier"] for document in documents if not document["eos_records"]
     } == {"coesite_v"}
@@ -153,14 +161,21 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 687
+    assert len({record["identifier"] for record in records}) == record_count()
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated", "deferred", "not_reproduced"}
-    assert statuses.count("primary_source_validated") == 666
-    assert statuses.count("deferred") == 3
+    assert statuses.count("primary_source_validated") == validation_count(
+        "primary_source_validated"
+    )
+    assert statuses.count("deferred") == validation_count("deferred")
+    # The audit batches below describe the catalog curated before the catalog
+    # revision ledger; records it added carry their own audit dates.
+    added = added_records()
+    assert added <= {record["identifier"] for record in records}
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
+        if record["identifier"] not in added
     }
     assert audit_dates.pop("cementite_prescher_2012_full_range_bm3") == "2026-10-30"
     current_audit_identifiers = {
@@ -306,6 +321,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         record
         for record in records
         if "migration_source" not in record["scientific_validation"]
+        and record["identifier"] not in added
     ]
     legacy_native_identifiers = {
         "akimotoite_reynard_1996_bm3_ruby_2",
@@ -423,10 +439,10 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 687,
-        "not_reproduced": 18,
-        "primary_source_validated": 666,
-        "deferred": 3,
+        "records": record_count(),
+        "not_reproduced": validation_count("not_reproduced"),
+        "primary_source_validated": validation_count("primary_source_validated"),
+        "deferred": validation_count("deferred"),
     }
     assert report["audit_date"] == "2026-09-24"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -907,12 +923,17 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 687
+    assert len(records) == record_count()
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
     assert all("pressure_calibration" in record for record in records)
-    assert {record["pressure_calibration"]["audit_date"] for record in records} == {
+    added = added_records()
+    assert {
+        record["pressure_calibration"]["audit_date"]
+        for record in records
+        if record["identifier"] not in added
+    } == {
         "2026-09-03",
         "2026-09-04",
         "2026-09-05",
@@ -995,7 +1016,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 666
+    assert checked == validation_count("primary_source_validated")
     assert failures == []
 
 
@@ -3041,8 +3062,10 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert manifest["source"]["version"] == "0.10.0"
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
-    assert manifest["materials"] == 235
-    assert manifest["eos_records"] == 687
+    assert manifest["materials"] == len(list_material_documents())
+    assert manifest["eos_records"] == sum(
+        len(get_material_document(m)["eos_records"]) for m in list_material_documents()
+    )
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-24"
 
 
