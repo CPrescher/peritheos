@@ -3892,6 +3892,46 @@ def ledger_source_check(source_check: dict[str, Any]) -> dict[str, Any]:
     return {k: v for k, v in source_check.items() if k != "record_note"}
 
 
+def audit_entry(
+    document: dict[str, Any],
+    file_name: str,
+    record: dict[str, Any],
+    previous: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """One record's entry in the primary-source audit report.
+
+    ``document`` is the v3-shaped maintenance view (``read_material``);
+    ``previous`` is the record's existing entry, whose extra evidence is kept.
+    """
+    previous = previous or {}
+    check = record["scientific_validation"]
+    entry = {
+        **previous,
+        "material": document["identifier"],
+        "file": file_name,
+        "record": record["identifier"],
+        "label": record["label"],
+        "doi": normalized_doi(record.get("reference")),
+        "status": check["status"],
+        "note": check.get("note")
+        or previous.get("note")
+        or check["primary_source_check"]["finding"],
+        "primary_source_check": ledger_source_check(check["primary_source_check"]),
+    }
+    if "usage_recommendation" in check:
+        entry["usage_recommendation"] = check["usage_recommendation"]
+    if "reproduction_status" in check:
+        entry["reproduction_status"] = check["reproduction_status"]
+    for field in (
+        "recommendation_date",
+        "recommendation_audit",
+        "recommendation_reason",
+    ):
+        if field in check:
+            entry[field] = check[field]
+    return entry
+
+
 def aggregate_existing_audits() -> None:
     """Rebuild aggregate audit files without rewriting curated material records."""
     # Some audits retain additional candidate evidence only in this ledger.
@@ -3914,33 +3954,7 @@ def aggregate_existing_audits() -> None:
                     f"{path.name}:{record.get('identifier')} has no existing audit"
                 )
             previous = existing.get(record["identifier"], {})
-            entry = {
-                **previous,
-                "material": document["identifier"],
-                "file": path.name,
-                "record": record["identifier"],
-                "label": record["label"],
-                "doi": normalized_doi(record.get("reference")),
-                "status": check["status"],
-                "note": check.get("note")
-                or previous.get("note")
-                or check["primary_source_check"]["finding"],
-                "primary_source_check": ledger_source_check(
-                    check["primary_source_check"]
-                ),
-            }
-            if "usage_recommendation" in check:
-                entry["usage_recommendation"] = check["usage_recommendation"]
-            if "reproduction_status" in check:
-                entry["reproduction_status"] = check["reproduction_status"]
-            for field in (
-                "recommendation_date",
-                "recommendation_audit",
-                "recommendation_reason",
-            ):
-                if field in check:
-                    entry[field] = check[field]
-            entries.append(entry)
+            entries.append(audit_entry(document, path.name, record, previous))
             pressure_calibrations.append(record["pressure_calibration"])
 
     counts = Counter(entry["status"] for entry in entries)
