@@ -165,6 +165,14 @@ def add_request(root: Path, revision: str = "t-add") -> dict:
                 "status": "primary_source_validated",
                 "audit_date": "2026-11-20",
                 "primary_source_check": {"finding": "Test fixture: Table 1."},
+                # The validator refits the bundled observations.
+                "primary_data_check": {
+                    "status": "bundled",
+                    "dataset_identifiers": [
+                        "siderite_fe095mn005_litasov_2013_table2_pvt"
+                    ],
+                    "finding": "Test fixture: Table 2 observations.",
+                },
             },
             "parameter_provenance": {"parameters": "Test fixture: Table 1."},
         },
@@ -191,21 +199,30 @@ def lacking(root: Path, material: str, field: str) -> list[str]:
 
 
 def confidence_request(root: Path, revision: str = "t-confidence") -> dict:
-    """Set the 1-sigma confidence on a qandilite record that lacks it."""
-    records = lacking(root, "qandilite", "parameter_error_confidence")
-    assert records, "qandilite has no record without parameter_error_confidence"
-    return set_request(
-        revision,
-        "qandilite",
-        [
-            change(
-                records[0],
-                ["parameter_error_confidence"],
-                catalog_revisions.ABSENT,
-                ONE_SIGMA,
-            )
-        ],
+    """Set the 1-sigma confidence on a record that lacks it.
+
+    Prefers qandilite and larnite, whose refit-ledger rows are computed by the
+    validator's generic path, then any material.
+    """
+    materials = sorted(
+        p.stem for p in (root / "peritheos/data/materials").glob("*.eosmat")
     )
+    for material in ["qandilite", "larnite", *materials]:
+        records = lacking(root, material, "parameter_error_confidence")
+        if records:
+            return set_request(
+                revision,
+                material,
+                [
+                    change(
+                        records[0],
+                        ["parameter_error_confidence"],
+                        catalog_revisions.ABSENT,
+                        ONE_SIGMA,
+                    )
+                ],
+            )
+    raise AssertionError("every record has parameter_error_confidence")
 
 
 def fixed_request(root: Path, revision: str = "t-fixed") -> dict:
@@ -342,6 +359,7 @@ def test_add_record_derives_its_content_and_undoes_exactly(repo):
     audit = json.loads((repo / tool.SOURCE_AUDIT).read_bytes())
     assert identifier in {e["record"] for e in audit["records"]}
     assert f"docs/reconstruction-reports/{SIDERITE}.md" in plan.files
+    assert f"docs/reconstruction-reports/figures/{identifier}.svg" in plan.files
     assert f"docs/material-summaries/{SIDERITE}.md" in plan.files
     revision = read_ledger(repo)["revisions"][-1]
     assert set(revision["derived_files"]) >= {
@@ -369,12 +387,13 @@ def test_set_a_snapshot_field_and_a_fixed_flag_on_two_materials(repo):
     fixed = fixed_request(repo)
     apply(repo, confidence)
     apply(repo, fixed)
-    assert_history(repo, ["qandilite", "larnite"])
+    assert_history(repo, sorted({confidence["material"], "larnite"}))
     target = confidence["changes"][0]["record"]
-    reference = json.loads(pre_split_bytes("qandilite", root=repo))
+    material = confidence["material"]
+    reference = json.loads(pre_split_bytes(material, root=repo))
     record = next(r for r in reference["eos_records"] if r["identifier"] == target)
     assert record["parameter_error_confidence"] == ONE_SIGMA
-    original = json.loads(pre_split_bytes("qandilite", root=ROOT))
+    original = json.loads(pre_split_bytes(material, root=ROOT))
     assert "parameter_error_confidence" not in next(
         r for r in original["eos_records"] if r["identifier"] == target
     )
@@ -382,7 +401,7 @@ def test_set_a_snapshot_field_and_a_fixed_flag_on_two_materials(repo):
         repo,
         set_request(
             "t-later",
-            "qandilite",
+            material,
             [change(target, ["parameter_error_confidence"], ONE_SIGMA, 0.95)],
         ),
     )
@@ -821,14 +840,15 @@ def test_bad_input_is_refused_without_a_traceback(repo, tmp_path, capsys):
     (tmp_path / "bad.json").write_text("{")
     assert tool.main([str(tmp_path / "bad.json")], root=repo) == 1
     assert "not valid JSON" in capsys.readouterr().out
-    (tmp_path / "ok.json").write_text(json.dumps(confidence_request(repo)))
+    request = confidence_request(repo)
+    (tmp_path / "ok.json").write_text(json.dumps(request))
     ledger = (repo / LEDGER).read_bytes()
     (repo / LEDGER).write_text("[]")
     assert tool.main([str(tmp_path / "ok.json")], root=repo) == 1
     assert "REFUSED" in capsys.readouterr().out
     (repo / LEDGER).write_bytes(ledger)
     before = _tree(repo)
-    material = repo / "peritheos/data/materials/qandilite.eosmat"
+    material = repo / f"peritheos/data/materials/{request['material']}.eosmat"
     os.chmod(material, 0o444)
     try:
         assert tool.main([str(tmp_path / "ok.json")], root=repo) == 1

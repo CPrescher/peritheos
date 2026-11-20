@@ -1718,6 +1718,17 @@ def plan_undo(revision_id: str, root: Path = ROOT, *, derived: bool = True) -> P
         _fixtures(stage, root, material)
         if derived:
             _generate(stage)
+            # Generated files the revision created for its record and that no
+            # generator removes (coefficient figures) leave with the record.
+            for relative, pair in revision["derived_files"].items():
+                target = stage / relative
+                if (
+                    pair["before"] is None
+                    and target.exists()
+                    and _sha(target.read_bytes()) == pair["after"]
+                    and any(i in relative for i in added)
+                ):
+                    target.unlink()
         _load_catalog(stage, material, _set_records(revision["forward"]))
         records = _material_records(scientific_snapshot(stage), material)
         if fingerprint(records) != revision["scientific"]["records_before"]:
@@ -1785,8 +1796,18 @@ def apply_plan(plan: Plan, root: Path = ROOT) -> None:
 
 
 def verify(root: Path = ROOT) -> list[str]:
-    """The whole ledger against the catalog (see ``verify_ledger``)."""
-    return verify_ledger(root)
+    """The whole ledger against the catalog (see ``verify_ledger``).
+
+    With revisions, also that the manifest and the primary-source audit count
+    the catalog.
+    """
+    failures = verify_ledger(root)
+    if read_ledger(root)["revisions"]:
+        try:
+            _check_bookkeeping(root)
+        except Refused as error:
+            failures.append(str(error))
+    return failures
 
 
 def _report(plan: Plan, check: bool) -> None:

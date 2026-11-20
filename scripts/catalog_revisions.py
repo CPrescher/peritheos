@@ -745,52 +745,55 @@ def verify_ledger(
         except (ValueError, KeyError, IndexError) as error:
             failures.append(str(error))
     if ledger["revisions"] and materials is None:
-        failures.extend(_latest_tree_failures(ledger["revisions"][-1], root, policy))
+        failures.extend(_latest_tree_failures(ledger["revisions"], root, policy))
     return failures
 
 
 def _latest_tree_failures(
-    revision: Mapping[str, Any], root: Path, policy: Mapping[str, Any]
+    revisions: Iterable[Mapping[str, Any]], root: Path, policy: Mapping[str, Any]
 ) -> list[str]:
-    """Derived files, refit rows and catalog hash of the newest revision.
+    """Refit rows of each material's latest revision, and the catalog hash.
 
-    Checked while the tree is still at that revision's result: its record
-    file and sidecar unchanged. Shared derived files (manifest, refit ledger,
-    reports) may change with any later revision, so only the newest one is
-    compared with the tree.
+    A material's refit-ledger rows are compared while its record file and
+    sidecar are still those the revision wrote (a later text revision may
+    rewrite the rows' text copies). The rights policy's catalog hash must be
+    the current scientific snapshot. The hashes of generated documentation
+    recorded in ``derived_files`` are the trail of what the revision wrote;
+    any later revision, undo or generator change rewrites shared pages, so
+    they are not compared with the tree (the generators' ``--check`` keeps
+    those pages current).
     """
     failures: list[str] = []
-    if not all(
-        (root / p).exists() and _sha((root / p).read_bytes()) == pair["after"]
-        for p, pair in revision["files"].items()
-    ):
-        return failures
-    name = revision["id"]
-    for path, pair in revision["derived_files"].items():
-        target = root / path
-        actual = _sha(target.read_bytes()) if target.exists() else None
-        if actual != pair["after"]:
-            failures.append(
-                f"{name}: derived file {path} differs from its recorded hash"
-            )
+    latest: dict[str, Mapping[str, Any]] = {}
+    for revision in revisions:
+        latest[revision["material"]] = revision
     refits = root / "docs/data/primary-eos-refits.json"
-    if refits.exists() and revision["refit_rows"]:
-        rows = {
-            r["record_identifier"]: r
-            for r in json.loads(refits.read_bytes())["records"]
-        }
+    rows = (
+        {r["record_identifier"]: r for r in json.loads(refits.read_bytes())["records"]}
+        if refits.exists()
+        else None
+    )
+    for revision in latest.values():
+        unchanged = all(
+            (root / p).exists() and _sha((root / p).read_bytes()) == pair["after"]
+            for p, pair in revision["files"].items()
+        )
+        if not unchanged or rows is None:
+            continue
         for identifier, pair in revision["refit_rows"].items():
             if rows.get(identifier) != pair["after"]:
-                failures.append(f"{name}: refit-ledger row of {identifier} differs")
-    from scripts.scientific_source_snapshot import scientific_snapshot
+                failures.append(
+                    f"{revision['id']}: refit-ledger row of {identifier} differs"
+                )
+    if latest:
+        from scripts.scientific_source_snapshot import scientific_snapshot
 
-    if policy.get("catalog_scientific_sha256") != revision["scientific"][
-        "catalog_after"
-    ] or (
-        fingerprint(scientific_snapshot(root))
-        != revision["scientific"]["catalog_after"]
-    ):
-        failures.append(f"{name}: catalog scientific hash differs from catalog_after")
+        if policy.get("catalog_scientific_sha256") != fingerprint(
+            scientific_snapshot(root)
+        ):
+            failures.append(
+                "rights policy catalog_scientific_sha256 is not the current snapshot"
+            )
     return failures
 
 
