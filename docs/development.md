@@ -182,8 +182,9 @@ python -m scripts.generate_catalog_coverage
 python -m scripts.generate_reconstruction_reports
 ```
 
-Each command accepts `--check` for read-only verification. Bundled materials
-are changed only through the repository tools described under
+Each command accepts `--check` for read-only verification (the generators run
+by `scripts/apply_catalog_revision.py` itself after a catalog revision). Bundled
+materials are changed only through the repository tools described under
 [changing a bundled material](adding-materials-and-eos.md#changing-a-bundled-material);
 their receipts are verified with:
 

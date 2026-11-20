@@ -401,97 +401,123 @@ Run `python scripts/split_eosmat_audits.py --verify` afterwards.
 
 ### Changing a bundled material
 
-Do not rewrite an existing bundled material as an inline file and split it
-again: `--add` would replace the material's receipt binding, so its original
-pre-split file, the stored text originals and the older receipts that depend
-on them (v5 migration, rights review, scientific snapshots) could no longer be
-verified. Use the repository tool for the kind of change:
+`python scripts/split_eosmat_audits.py --add` refuses a material that is
+already bundled: re-splitting it would replace its receipt binding, so its
+original pre-split file, the stored text originals and the older receipts
+that depend on them (v5 migration, rights review, scientific snapshots) could
+no longer be verified. Use the repository tool for the kind of change:
 
 | Change | Tool |
 | --- | --- |
-| `label`, `notes`, `validity.notes`, `thermal.notes` | `scripts/apply_record_text.py` ([record text standard](record-text-standard.md#6-applying-a-rewrite)) |
-| `record_note`, `warning_reason`, coded `usage_recommendation` | `scripts/apply_check_text.py` |
-| Add an EOS record to an existing material; set or correct structured record fields (for example `parameter_error_confidence`, a `fixed` flag, `catalog_access`, ranges) | `scripts/apply_catalog_revision.py` |
+| `label`, `notes`, `validity.notes`, `thermal.notes` | `python scripts/apply_record_text.py` ([record text standard](record-text-standard.md#6-applying-a-rewrite)) |
+| `record_note`, `warning_reason`, coded `usage_recommendation` | `python scripts/apply_check_text.py` |
+| Add an EOS record to an existing material; set or correct the fields listed below | `python scripts/apply_catalog_revision.py` |
 
 `apply_catalog_revision.py` takes one request file per revision and records it
 in the ledger `docs/data/catalog-revisions.json`: who decided it and why, the
 source and location it rests on, a rights statement, explicit forward and
-reverse operations and the hashes needed to undo it exactly. A field change
-names each field and its current value:
+reverse operations and the hashes needed to verify and undo it. One request
+changes one material; it may change several of its records. A field change
+names each field and its current value (numbers compare numerically, so
+`172` matches a stored `172.0`; setting the current value again is refused):
 
 ```json
 {
-  "id": "2026-11-20-qandilite-lv-2016-bm2-confidence",
+  "id": "2026-11-20-qandilite-lv-2016-confidence",
   "material": "qandilite",
   "kind": "set_fields",
   "date": "2026-11-20",
-  "decided_by": "A. Curator",
+  "decided_by": "<name>",
   "reason": "The source states its errors as one standard deviation.",
-  "source": {"citation": "Lv et al. (2016), Phys. Chem. Miner. 43, 301-306",
-             "location": "Table 2, footnote a"},
-  "rights": {"reviewed_by": "A. Curator", "date": "2026-11-20",
+  "source": {"citation": "<reference>", "location": "<table, page>"},
+  "rights": {"reviewed_by": "<name>", "date": "2026-11-20",
              "statement": "Sets the stated error confidence; no third-party content is added."},
-  "changes": [{"record": "qandilite_lv_2016_bm2",
-               "path": ["parameter_error_confidence"],
-               "expected_absent": true, "value": 0.6826894921370859}]
+  "changes": [
+    {"record": "qandilite_lv_2016_bm2", "path": ["parameter_error_confidence"],
+     "expected_absent": true, "value": 0.6826894921370859},
+    {"record": "qandilite_lv_2016_bm3", "path": ["parameter_error_confidence"],
+     "expected_absent": true, "value": 0.6826894921370859}
+  ]
 }
 ```
 
-Use `"expected": <value>` when the field exists and `"remove": true` instead of
-`"value"` to delete it. An added record uses `"kind": "add_record"` and
-`"record"`: the complete inline record without `check`, with the audit
-`evidence` this guide requires (a `scientific_validation` status and
-`primary_source_check.finding`, a `reproduction.assessment` with status,
-scope and basis, and `parameter_provenance`). The tool writes the record to
-the record file with a generated `check` block and its audit entry to the
-sidecar; it never changes `default_records`.
+Use `"expected": <value>` when the field exists and `"remove": true` instead
+of `"value"` to delete an `error`, a `fixed` flag or the covariance. Only these
+fields are settable: a parameter's `value`, `error` and `fixed` flag (of an
+existing reference-isotherm or thermal parameter), `parameter_error_confidence`,
+`parameter_covariance`, `temperature_ref`, `experimental_pressure_range_gpa`,
+`experimental_temperature_range_k`, `pressure_range_status`, and the
+`pressure_gpa`, `temperature_k` and `volume_ratio` bounds of an existing
+`validity` object. Everything else is refused, among it the identifier, all
+text (use the text tools), `check`, `model`, the thermal model and its laws,
+`record_kind`, `determination_method`, `equation_kind`, `reference`,
+`aliases`, default flags, `catalog_access` and dataset links; a `validity`
+object cannot be created, removed or emptied. The dry run shows each changed
+value and the enforced range before and after; a change of the enforced range
+is refused unless the request changes a range field.
+
+An added record uses `"kind": "add_record"` and `"record"` instead of
+`"changes"`, with `"same_basis"` in `rights`. It is the complete record
+without `check`, with these blocks (unknown keys are refused):
+
+- `identifier` (unused anywhere in the catalog), `label`, `model`,
+  `parameters`, `reference`, `determination_method`, `record_kind`,
+  `experimental_pressure_range_gpa` and `experimental_temperature_range_k`;
+- `pressure_calibration` with `status` (`resolved`, `partially_resolved`,
+  `not_applicable` or `unresolved`), `methods`, `recalculation.status` and
+  `audit_date`;
+- `evidence.scientific_validation` with `status` (`primary_source_validated`,
+  `not_reproduced` or `deferred`), `audit_date` and
+  `primary_source_check.finding`, plus what the refit validator reads, such as
+  `primary_data_check` with its `dataset_identifiers`;
+- `evidence.parameter_provenance`, which the rights review binds.
+
+The reproduction assessment is not written by hand: the tool computes the
+record's row of the registered refit ledger with
+`scripts/validate_primary_eos_refits.py`'s own function for that material,
+derives `evidence.reproduction.assessment` (status and scope included) from
+it and generates `check`. The material's `default_records` never changes.
 
 The **rights statement** is required because the rights review
-(`docs/data/eos-structure-rights-policy.json`) pins the whole reviewed content of each material. It names who reviewed and
-when, and states what was checked. For an added record it says whether the
-record is covered by the same source and redistribution basis as the
-material's existing records (`"same_basis": true`) or, with `"same_basis":
-false`, what differs (`"differences"`). For a field change it says that no
-third-party content is added. The tool stores the statement in the revision,
-moves the material's pin in the policy, lists the revision there and
-regenerates the review outputs with `scripts/review_eos_structure_rights.py`;
-it never writes the statement itself.
+(`docs/data/eos-structure-rights-policy.json`) pins the whole reviewed content
+of each material. It names who reviewed and when, and states what was
+checked. For an added record it says whether the record is covered by the
+same source and redistribution basis as the material's existing records
+(`"same_basis": true`) or, with `"same_basis": false`, what differs
+(`"differences"`). For a field change it says that no third-party content is
+added. The tool stores the statement in the revision, moves the material's
+pin in the policy, lists the revision there and regenerates the review
+outputs; it never writes the statement itself.
 
 ```bash
 python scripts/apply_catalog_revision.py request.json --check   # show the result, write nothing
 python scripts/apply_catalog_revision.py request.json           # apply
-```
-
-The dry run prints the resulting record or fields, the regenerated `check`
-block and every file that would change. The tool refuses a change it was not
-told about (a default flag, an extra request key), a mismatched expected
-value, a protected field (identifier, text fields, `check`, audit blocks), an
-identifier already used in the catalog, an added record without its audit
-evidence or rights statement, and any change the receipts could not reverse
-exactly. Everything is checked in a scratch copy before the files are written.
-It writes the record file, the sidecar, the audit-split receipt, the ledger,
-the rights policy and the rights review outputs. Then regenerate, in this
-order:
-
-```bash
-python scripts/validate_primary_eos_refits.py          # an added record's refit-ledger row
-python -m scripts.generate_reconstruction_reports
-python -m scripts.generate_material_summaries
-python -m scripts.generate_catalog_coverage
 python scripts/apply_catalog_revision.py --verify
 ```
 
-`validate_primary_eos_refits.py` refits every record and rewrites the whole
-ledger; review its diff and keep only the added record's row. An added record
-must also be reflected by hand in the counts of
-`peritheos/data/materials/manifest.json`, the record list of
-`peritheos/data/primary-source-audit.json`, the catalog count in `README.md`
-and the tests that assert catalog counts.
+Everything is computed in a scratch copy first. The tool writes the record
+file, the sidecar, the audit-split receipt, the ledger, the rights policy and
+review, the refit-ledger row and `docs/primary-eos-refits.md`, the
+primary-source audit entry and manifest counts, catalog coverage, the material
+summaries, the reconstruction reports, the paper investigation ledger and Rust
+fixture copies that equal the bundled files. Before writing, it loads the
+staged catalog through the library (every material, the pressure-calibration
+graph and the revised records with primary validation) and runs every
+recovery check; a failure writes nothing. Do not run the full
+`python scripts/validate_primary_eos_refits.py` for a revision: it refits every
+record and rewrites the whole ledger, and its `--check` currently fails on a
+policy text that predates the revision tool. Nothing needs a hand edit, except
+a test that pins a material's record count.
 
 `python scripts/apply_catalog_revision.py --undo <id>` reverses a material's
-most recent revision exactly; it refuses an older revision, and one whose
-files have changed since (undo the later text revision first). Regenerate the
-derived files again afterwards.
+most recent revision and refuses an older one. Later text and check-text
+revisions of the same material are kept (those of a removed record go with
+it); without them every file returns byte for byte.
+
+The ledger catches accidental and unexplained changes: every check of a
+bundled material fails when a stored value, hash, order or decision differs
+from the files. It does not prevent a deliberate, fully consistent rewrite by
+someone with commit access; that is visible only in the git history.
 
 Not supported yet: removing a record, material-level fields
 (`default_records`, structure, datasets), changes to the audit evidence of an
@@ -592,7 +618,11 @@ uv run --group docs mkdocs build --strict
 ```
 
 Also run `uv run python scripts/validate_primary_eos_refits.py --check` when
-the change affects a bundled record or its primary dataset.
+the change affects a bundled record or its primary dataset. Its `--check`
+currently fails on an older policy text in the saved ledger, independent of
+any record; a revision of a bundled material instead gets its rows from
+`python scripts/apply_catalog_revision.py`
+([changing a bundled material](#changing-a-bundled-material)).
 
 ## Pull-request checklist
 

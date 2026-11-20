@@ -50,16 +50,22 @@ All notable changes to Peritheos are documented here. The project follows
   warning a one-clause reason.
 - Add the repository tool `scripts/apply_catalog_revision.py` and the ledger
   `docs/data/catalog-revisions.json` for changing the scientific content of a
-  bundled material after the audit split: adding an EOS record or setting and
-  correcting structured record fields. Each revision records who decided it,
-  why, its source, a rights statement, explicit forward and reverse operations
-  and the hashes to undo it exactly; `--check` shows the result, `--undo`
-  reverses a material's latest revision and `--verify` checks the ledger. The
-  audit-split binding, the v5-migration predecessor, the rights review and the
-  scientific-snapshot lineage keep verifying through the revisions.
-  `scripts/split_eosmat_audits.py --add` now refuses a material with catalog
-  revisions. Removing records and material-level fields are not supported
-  yet. No bundled data changes.
+  bundled material after the audit split: adding an EOS record, or setting a
+  parameter's value, error or fixed flag, the error confidence, covariance,
+  reference temperature, experimental ranges or validity bounds. Each revision
+  records who decided it, why, its source, a rights statement, explicit
+  forward and reverse operations and a content digest pinned by the
+  audit-split binding. The tool derives an added record's refit-ledger row,
+  assessment and `check`, keeps the manifest, primary-source audit, rights
+  review and generated reports current, and loads the staged catalog before
+  writing; `--check` shows the result, `--undo` reverses a material's latest
+  revision and `--verify` checks the ledger. The audit-split binding, the
+  v5-migration predecessor, the rights review and the scientific-snapshot
+  lineage keep verifying through the revisions.
+  `scripts/split_eosmat_audits.py --add` now refuses a material that already
+  has a binding. The README and tests take catalog totals from the manifest
+  instead of hard-coding them. Removing records and material-level fields are
+  not supported yet. No bundled data changes.
 - `scripts/apply_check_text.py` also sets a bundled record's coded
   `usage_recommendation` (the source of `check.warning`), keeping replaced
   free text as `recommendation_reason` and binding the originals so every
