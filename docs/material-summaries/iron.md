@@ -3814,7 +3814,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[10.7, 129.3071497589813\]
     - **Temperature k:** \[298.0, 3399.0\]
     - **Notes:** Zero-pressure coefficients are extrapolated from compressed hcp Fe.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
