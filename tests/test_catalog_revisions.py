@@ -472,6 +472,27 @@ def test_a_headline_change_needs_an_exact_acknowledgement(pristine):
     assert catalog_revisions.content_sha256(altered) != plan.revision["content_sha256"]
 
 
+def test_a_row_that_does_not_take_the_stored_values_is_refused(pristine):
+    """The validator takes this record's published values from a fixed table,
+    so its row and ``why`` would keep the old error; refuse instead."""
+    material, identifier = (
+        "akimotoite",
+        "akimotoite_dorogokupets_2015_298k_rydberg_stacey",
+    )
+    record = next(
+        r for r in _records(pristine, material) if r["identifier"] == identifier
+    )
+    current = record["parameters"]["K0"].get("error", catalog_revisions.ABSENT)
+    request = set_request(
+        "t-row",
+        material,
+        [change(identifier, ["parameters", "K0", "error"], current, 7.0)],
+    )
+    with pytest.raises(tool.Refused, match="row_disagrees") as refusal:
+        tool.plan_revision(request, pristine, derived=False)
+    assert "pinned in scripts/" in str(refusal.value)
+
+
 # Text revisions and undo ----------------------------------------------------
 
 

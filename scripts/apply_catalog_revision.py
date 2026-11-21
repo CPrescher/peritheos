@@ -1005,6 +1005,100 @@ def _validity(record: Mapping[str, Any]) -> Any:
     return _eosmat_validity(record)
 
 
+def _parameter_items(record: Mapping[str, Any]) -> dict[str, dict]:
+    """A record's reference-isotherm and thermal parameters by name."""
+    thermal = record.get("thermal") if isinstance(record.get("thermal"), dict) else {}
+    return {
+        **{
+            k: v
+            for k, v in (thermal.get("parameters") or {}).items()
+            if isinstance(v, dict)
+        },
+        **{
+            k: v
+            for k, v in (record.get("parameters") or {}).items()
+            if isinstance(v, dict)
+        },
+    }
+
+
+def _row_disagreements(
+    record: Mapping[str, Any], row: Mapping[str, Any], names: set[str] | None
+) -> list[str]:
+    """Published values, errors or fixed flags of ``row`` the record does not hold."""
+    items = _parameter_items(record)
+    found = []
+    for entry in row.get("parameters") or []:
+        name = str(entry.get("parameter", "")).split(".")[-1]
+        item = items.get(name)
+        if item is None or (names is not None and name not in names):
+            continue
+        if "published" in entry and not _same(entry["published"], item.get("value")):
+            found.append(
+                f"{name} published {entry['published']} vs {item.get('value')}"
+            )
+        if "published_error" in entry and not _same(
+            entry["published_error"], item.get("error")
+        ):
+            found.append(
+                f"{name} published_error {entry['published_error']} vs {item.get('error')}"
+            )
+    fixed = {str(n).split(".")[-1] for n in row.get("fixed_parameters") or []}
+    for name, item in items.items():
+        if names is not None and name not in names:
+            continue
+        compared = any(
+            str(e.get("parameter", "")).split(".")[-1] == name
+            for e in row.get("parameters") or []
+        )
+        if bool(item.get("fixed")) != (name in fixed) and (compared or name in fixed):
+            found.append(f"{name} fixed {bool(item.get('fixed'))} vs row")
+    return found
+
+
+def _pinning_scripts(identifier: str, stage: Path) -> list[str]:
+    """Repository scripts that name a record (where its row comes from)."""
+    own = {"apply_catalog_revision.py", "catalog_revisions.py"}
+    return sorted(
+        f"scripts/{path.name}"
+        for path in (stage / "scripts").glob("*.py")
+        if path.name not in own and identifier in path.read_text(encoding="utf-8")
+    )
+
+
+def _check_rows(
+    document: dict,
+    forward: list[dict],
+    rows: Mapping[str, dict],
+    kind: str,
+    stage: Path,
+) -> None:
+    """Refuse when a fresh refit-ledger row does not reflect the stored record."""
+    records = {r["identifier"]: r for r in document["eos_records"]}
+    for identifier, row in rows.items():
+        names = None
+        if kind == "set_fields":
+            names = {
+                o["path"][-2]
+                for o in forward
+                if o["op"] == "set"
+                and o["record"] == identifier
+                and o["path"][0] in ("parameters", "thermal")
+            }
+            if not names:
+                continue
+        found = _row_disagreements(records[identifier], row, names)
+        if found:
+            scripts = _pinning_scripts(identifier, stage) or [
+                "scripts/validate_primary_eos_refits.py"
+            ]
+            raise Refused(
+                "row_disagrees",
+                f"{identifier}: the refit-ledger row does not take the stored values "
+                f"({'; '.join(found)}); they are pinned in {', '.join(scripts)}",
+            )
+
+
 def _derive_assessments(
     stage: Path,
     material: str,
@@ -1241,6 +1335,7 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
             if before is None or row is not before:
                 refit_rows[identifier] = {"before": before, "after": row}
             derive[identifier] = row
+        _check_rows(document, forward, derive, kind, stage)
         derived_ops = _derive_assessments(stage, material, document, sidecar, derive)
         if kind == "add_record":
             # The added record carries its derived assessment itself.
