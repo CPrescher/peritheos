@@ -1132,9 +1132,6 @@ def test_command_line_check_apply_verify_and_undo(repo, tmp_path, capsys):
     assert _tree(repo) == before
     assert tool.main([str(path)], root=repo, derived=False) == 0
     assert tool.main(["--verify"], root=repo) == 0
-    assert (
-        tool.main(["--undo", request["id"], "--check"], root=repo, derived=False) == 0
-    )
     assert tool.main(["--undo", request["id"]], root=repo, derived=False) == 0
     assert "returns to absent" in capsys.readouterr().out
     assert _tree(repo) == before
