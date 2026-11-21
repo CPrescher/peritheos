@@ -81,7 +81,7 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 22.747\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 
 Al-free sample whose water content (Table 1: Si0.954O2H0.184) is inferred from volume calibration and whose H retention at high pressure is inferred, not measured. The 28-42 GPa two-phase coexistence interval is excluded from both hydrous EOS fits. V0 = 47.191 Å³ is the fixed Table 3 value, not the Table 2 value of 47.198 or the 47.198696 Å³ implied by the cell axes.
 

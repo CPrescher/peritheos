@@ -90,7 +90,8 @@ def test_suzuki_published_parameters_and_reference_temperature_convention():
         "K0_prime": 0.9,
     }
     assert source["fixed_parameters"] == ["V0"]
-    assert source["parameter_error_confidence"] is None
+    # One standard deviation, stated by catalog revision 2026-11-21.
+    assert source["parameter_error_confidence"] == 0.6826894921370859
     assert source["thermal"] == {
         "type": "AlphaKT",
         "model": "thermal_reference_state",

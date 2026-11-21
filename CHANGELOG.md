@@ -69,6 +69,13 @@ All notable changes to Peritheos are documented here. The project follows
   that already has a binding. The README and tests take catalog totals from the manifest
   instead of hard-coding them. Removing records and material-level fields are
   not supported yet. No bundled data changes.
+- Catalog revisions state `parameter_error_confidence` as one standard
+  deviation on bundled records whose source, or for Peritheos refits whose
+  audit, states the stored errors as one standard deviation, where the
+  revision tool can change the record; some records with such a statement are
+  not yet changed. Error values are unchanged, propagated uncertainties are
+  identical to floating-point rounding, and material summaries now print
+  "1 sigma" for these records.
 - `scripts/apply_check_text.py` also sets a bundled record's coded
   `usage_recommendation` (the source of `check.warning`), keeping replaced
   free text as `recommendation_reason` and binding the originals so every

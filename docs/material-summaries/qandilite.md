@@ -85,6 +85,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0001, 14.9\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
+- **Printed parameter errors:** 1 sigma
 
 The observed cubic phase persists kinetically; the pressure range is not an equilibrium-stability claim.
 
@@ -176,6 +177,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[0.0001, 14.9\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
+- **Printed parameter errors:** 1 sigma
 
 The observed cubic phase persists kinetically; the pressure range is not an equilibrium-stability claim.
 

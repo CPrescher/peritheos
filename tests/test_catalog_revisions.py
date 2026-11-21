@@ -754,9 +754,17 @@ def test_a_change_no_revision_accounts_for_still_fails(revised, tmp_path, monkey
             document["eos_records"][0]["parameters"]["K0"]["value"] += 1
     with pytest.raises(ValueError, match="snapshot changed"):
         assert_snapshot_lineage(snapshot, GARNET["scientific_sha256_before"])
+    # A material no revision touches: its change fails the lineage hash.
+    revised_materials = {r["material"] for r in read_ledger(root)["revisions"]}
     snapshot = scientific_snapshot(root)
+    unrevised = next(
+        d["identifier"]
+        for d in snapshot["documents"]
+        if d["identifier"] not in revised_materials
+        and "K0" in d["eos_records"][0]["parameters"]
+    )
     for document in snapshot["documents"]:
-        if document["identifier"] == "mgo":
+        if document["identifier"] == unrevised:
             document["eos_records"][0]["parameters"]["K0"]["value"] += 1
     with pytest.raises(AssertionError):
         assert_snapshot_lineage(snapshot, GARNET["scientific_sha256_before"])

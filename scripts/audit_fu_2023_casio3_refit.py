@@ -398,9 +398,9 @@ def update_refit_record(document: dict, result: dict) -> None:
     # This audit fits conventional-cell volumes. Keep the legacy view's
     # uncertainty units explicit when copying its unchanged numerical results.
     record["parameter_error_volume_basis"] = "public"
-    record["parameter_error_confidence"] = (
-        None  # Standard errors, not interval half-widths.
-    )
+    # One-standard-error estimates, stated explicitly as one standard deviation
+    # (catalog revision 2026-11-21-ca-perovskite-one-sigma).
+    record["parameter_error_confidence"] = 0.6826894921370859
     provenance = record["fit_provenance"]
     provenance["weighting_description"] = EQUAL_WEIGHTING
     provenance["covariance_scaling"] = COVARIANCE_SCALING

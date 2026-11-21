@@ -176,7 +176,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/bor
     - **Temperature k:** \[295.0, 948.0\]
     - **Volume ratio:** \[0.77125, 1.00844\]
     - **Notes:** Heated data reach only 84.2 GPa, at up to 900 K, and the 948 K point is at ambient pressure. The 295 K data reach 162.5 GPa.; Zinc-blende c-BN only. No transition was observed in the 295 K compression range.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

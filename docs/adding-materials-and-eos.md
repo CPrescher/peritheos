@@ -441,6 +441,10 @@ names each field and its current value (numbers compare numerically, so
 }
 ```
 
+This change is already in the ledger as revision
+`2026-11-21-qandilite-one-sigma`, so the request serves as a worked example
+and would now be refused as written.
+
 Use `"expected": <value>` when the field exists and `"remove": true` instead
 of `"value"` to delete an `error`, a `fixed` flag or the covariance. Only these
 fields are settable: a parameter's `error` and `fixed` flag (of an existing

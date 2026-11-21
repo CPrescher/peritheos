@@ -94,7 +94,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[0.0001, 7.79\]
     - **Notes:** The authors caution that extrapolation beyond 15-20 GPa reverses the relative compressibilities of the two low-pressure fits.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 
 Limited to the Cmcm CaIrO3 post-perovskite polymorph; do not use it for the Pbnm perovskite. V0 is the four-formula-unit conventional-cell volume. The printed errors are standard deviations.
 

@@ -626,7 +626,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 62.934\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 
 Dry reference stishovite synthesized at 10 GPa and 1473 K, co-compressed with the hydrous sample in helium; the authors report the onset of the dry post-stishovite distortion near 60 GPa, inside the fitted range. The data and pressure scale are distinct from Andrault (2003), from which only K0' is adopted. Table 3 V0 = 46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612.
 

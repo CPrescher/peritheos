@@ -94,7 +94,8 @@ def test_cairo3_polymorph_identity_and_published_record(material_identifier, cas
         "parameters": case["parameters"],
     }
     assert record["parameter_errors"] == case["errors"]
-    assert record["parameter_error_confidence"] is None
+    # One standard deviation, stated by catalog revision 2026-11-21.
+    assert record["parameter_error_confidence"] == 0.6826894921370859
     assert record["parameter_covariance"] is None
     assert record["fixed_parameters"] == []
     assert record["experimental_pressure_range_gpa"] == [0.0001, 7.79]

@@ -220,6 +220,7 @@
         "K0": {"value": 236.0, "error": 4.0},
         "K0_prime": {"value": 3.9, "error": 0.2}
       },
+      "parameter_error_confidence": 0.6826894921370859,
       "experimental_pressure_range_gpa": [0.0, 108.0],
       "determination_method": "experimental",
       "notes": "Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite, with V0 fixed in the Table 2 fit. Errors are one standard deviation.",
@@ -1280,7 +1281,7 @@
         "thermal_pressure_reference": "reference_temperature",
         "debye_temperature_law": "integrated_gruneisen"
       },
-      "parameter_error_confidence": null,
+      "parameter_error_confidence": 0.6826894921370859,
       "parameter_covariance": {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "gamma0", "q"],
         "matrix": [
@@ -1340,7 +1341,7 @@
           "alpha_KT": {"value": 0.007557237418777561, "error": 0.0001502197868388134}
         }
       },
-      "parameter_error_confidence": null,
+      "parameter_error_confidence": 0.6826894921370859,
       "parameter_covariance": {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "alpha_KT"],
         "matrix": [

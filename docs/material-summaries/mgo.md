@@ -552,7 +552,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgo
     - **Pressure gpa:** \[0.0, 10.95\]
     - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The upper bound is the largest calculated sample pressure in Table 1; the title rounds it to 11 GPa.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 
 The paper's 300 K absolute-pressure scale, not a direct BM3 fit to independent P-V observations. Table 1 pressures are outputs of this EOS, not independent observations for a P-V refit. The V0 error is one standard deviation; K0 and K0' have no error because the source does not propagate one.
 
@@ -1739,7 +1739,7 @@ Automatic selection for hugoniot calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 40.304
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 
 Principal Hugoniot of untransformed B1 MgO only; not the equilibrium 300 K isotherm or a general P(V,T) surface. The c0, s and rho0 errors are one standard deviation. V0 is computed from rho0 and has no separate error.
 

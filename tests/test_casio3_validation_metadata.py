@@ -8,6 +8,7 @@ import jsonschema
 import pytest
 
 from peritheos import get_material_document
+from scripts.catalog_revisions import apply_operations, material_revisions
 from scripts.run_eosmat_audit import historical_reconstruction_view
 
 ROOT = Path(__file__).parents[1]
@@ -48,6 +49,9 @@ def test_qualification_preserves_all_scientific_payloads_and_schema(
     jsonschema.validate(document, schema)
     assert all("assessment" in row["reproduction"] for row in document["eos_records"])
     # Preserve the reviewed pre-summary payload hash, including all old evidence.
+    # Later catalog revisions are reversed from their ledger entries first.
+    for revision in reversed(material_revisions(material)):
+        apply_operations(document["eos_records"], revision["reverse"], "document")
     document = historical_reconstruction_view(document)
     # Reviewed scientific payload checkpoint, including the 2026-10-08 Wang
     # source recovery, excluded-row corrections and optional 64-point thermal refit. Freezes

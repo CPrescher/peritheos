@@ -219,7 +219,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Temperature k:** \[300.0, 700.0\]
     - **Volume ratio:** \[0.93832, 1.0\]
     - **Notes:** The authors note a possible change in compression slope at 3-7 GPa (possibly deviatoric stress or hydrogen-bond symmetrization); the fit is one smooth curve.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

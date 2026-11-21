@@ -8,6 +8,7 @@ import numpy as np
 import pytest
 
 from peritheos import Material, get_material_document, list_eos_record_documents
+from scripts.catalog_revisions import apply_operations, material_revisions
 from scripts.register_wang_1996_thermal_refit import (
     DATASET_ID as REFIT_DATASET_ID,
 )
@@ -196,6 +197,9 @@ def test_selectable_thermal_record_predictions_inverse_and_covariance():
 def test_thermal_addition_preserves_all_previous_scientific_content():
     doc = get_material_document("ca_perovskite")
     assert all("assessment" in record["reproduction"] for record in doc["eos_records"])
+    # Later catalog revisions are reversed from their ledger entries first.
+    for revision in reversed(material_revisions("ca_perovskite")):
+        apply_operations(doc["eos_records"], revision["reverse"], "document")
     doc = historical_reconstruction_view(doc)
     doc["eos_records"] = [r for r in doc["eos_records"] if r["identifier"] != RECORD_ID]
     doc["datasets"] = [
