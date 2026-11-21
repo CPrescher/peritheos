@@ -22,7 +22,7 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 | Published pressure-scale reference variants | 52 |
 | Materials with an executable thermal EOS | 66 |
 | Executable records with parameter covariance | 19 |
-| Executable records with known parameter-error confidence | 93 |
+| Executable records with known parameter-error confidence | 94 |
 
 ## Scientific validation of stored records
 

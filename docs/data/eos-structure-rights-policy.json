@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "6e22ee75d32bde3a55a425ee5fc75ff1f08dc5d6d268a5025e1b58d6fea2bcb5",
+  "catalog_scientific_sha256": "0dc0e6630d4292fa11ef2a3fcfe813e77689969a869a4f51cc2aadba114430e9",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
@@ -30,7 +30,7 @@
     "peritheos/data/materials/ca_perovskite.eosmat": "4b29d7f3c0a878d0e1eee9f4af35eac6dab6f91d7027b2146c74488eeb56b276",
     "peritheos/data/materials/ca_perovskite_tetragonal.eosmat": "1b87756110d6851eb6496e246a797ef578cfdb3a58f72bf2b511e15399f59d6c",
     "peritheos/data/materials/cairo3_perovskite.eosmat": "6d702f998304e667167c187e8dbf8a5c302b4f9e8beec67e43bb4d2a1366f732",
-    "peritheos/data/materials/cairo3_post_perovskite.eosmat": "7c66a9d98da089fd3b1e76bbd8b658a105d4052b52f31f2f32f8daa54c82a837",
+    "peritheos/data/materials/cairo3_post_perovskite.eosmat": "61c15a31713537b2309f8ea48aea9396dce92c608d3ced74951a86c9012e3538",
     "peritheos/data/materials/calcite.eosmat": "f5a904fe4924d9c5d91ebe004df45c78825d1afd441a9242a75f6a51ab465dc4",
     "peritheos/data/materials/calcium_carbonate_post_aragonite.eosmat": "425ba162a95d3bbb5d4801eb2f9af55c1f84abaaa1a6bb5eb9267b7f7b71ad57",
     "peritheos/data/materials/calcium_germanate_perovskite.eosmat": "dd703cb86703a4b26787323cfe17bb96b18b77e9ae39282319c301046955bf59",
@@ -438,6 +438,9 @@
       ],
       "cairo3_perovskite": [
         "2026-11-21-cairo3-perovskite-one-sigma"
+      ],
+      "cairo3_post_perovskite": [
+        "2026-11-21-cairo3-post-perovskite-one-sigma"
       ],
       "qandilite": [
         "2026-11-21-qandilite-one-sigma"
