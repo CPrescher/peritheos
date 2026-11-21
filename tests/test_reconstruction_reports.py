@@ -38,7 +38,8 @@ from scripts.reconstruction_plot_data import curve_comparison
 from scripts.report_numbers import value_error
 from scripts.report_plot_themes import dark_path, dark_svg, themed_images
 from scripts.standardize_reconstruction_metadata import standardize_document
-from tests.catalog_state import added_records, record_count
+from tests.catalog_state import added_records
+from tests.catalog_state import expected as expected_totals
 from tests.test_eosmat_reconstruction import sample
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -307,13 +308,13 @@ def test_every_bundled_link_opens_its_record_and_each_graph_matches_its_input():
     )
     assert "3 explicitly partial replays" in index
     assert "Remaining curve/residual replay gaps" not in index
-    headlines = Counter(
-        r["check"]["reproduction"] for d in documents for r in d["eos_records"]
-    )
+    # Totals anchored on the pre-ledger catalog plus the ledger's effect.
+    want = expected_totals()
+    headlines = want["reproduction"]
     assert (
-        f"| **All materials** | **{record_count()}** | **{headlines['reproduced']}** | "
+        f"| **All materials** | **{want['records']}** | **{headlines['reproduced']}** | "
         f"**{headlines['close']}** | **{headlines['disagrees']}** | "
-        f"**{headlines['untested']}** |" in index
+        f"**{headlines['untested']}** | **{want['with_warning']}** |" in index
     )
     historical = Counter(
         r["check"]["reproduction"]

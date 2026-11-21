@@ -10,7 +10,7 @@ from scripts.validate_primary_eos_refits import (
     shen_cu_pressure_gpa,
     shen_cu_reference_volume_a3,
 )
-from tests.catalog_state import added_records, record_count
+from tests.catalog_state import added_records, expected, record_count
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "docs" / "data" / "primary-eos-refits.json"
@@ -101,6 +101,7 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
         "total": record_count(),
         **dict(sorted(statuses.items())),
     }
+    assert dict(statuses) == expected()["refit_status"]
     # Rows of the records curated before the catalog revision ledger.
     added = added_records()
     statuses = Counter(

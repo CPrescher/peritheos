@@ -17,7 +17,12 @@ from scripts.review_eos_structure_rights import (
 )
 from scripts.scientific_source_snapshot import scientific_sha256
 from scripts.split_eosmat_audits import pre_split_view
-from tests.catalog_state import added_records, material_count, record_count
+from tests.catalog_state import (
+    added_records,
+    expected,
+    material_count,
+    record_count,
+)
 
 
 def test_complete_review_is_source_bound_and_scientific_content_is_unchanged():
@@ -65,8 +70,20 @@ def test_complete_review_is_source_bound_and_scientific_content_is_unchanged():
             "thermodynamic_collection_review_required": 7,
         },
     }
-    if not added:
-        assert review["counts"]["eos_source_groups"] == 273
+    # With revisions: base plus the source groups the added records open.
+    new_groups = {
+        e["reference"].get("doi") or digest(e["reference"])
+        for e in review["entries"]
+        if e["key"] in added
+    } - groups
+    want = expected()
+    assert review["counts"]["eos_source_groups"] == (
+        want["eos_source_groups"] + len(new_groups)
+    )
+    assert (
+        review["counts"]["assessments"]["numerical_parameter_assessment"]
+        == (want["numerical_parameter_assessment"])
+    )
     by_key = {e["key"]: e for e in review["entries"]}
     # An unsuccessful ICSD search is not a redistributed ICSD structure.
     assert by_key["structure/coesite_v"]["assessment"] == "no_structural_values"

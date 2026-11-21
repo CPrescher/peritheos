@@ -1,31 +1,73 @@
-"""The manifest counts the catalog exactly; other tests take their totals from it."""
+"""The catalog, its manifest and the ledger-anchored expectation agree."""
 
-from collections import Counter
+import json
+import shutil
+from pathlib import Path
 
-from peritheos import get_material_document, list_material_documents
-from tests.catalog_state import manifest
+from tests.catalog_state import ROOT, catalog_counts, expected, manifest
+
+KEYS = (
+    "materials",
+    "records",
+    "validation",
+    "reproduction",
+    "compared",
+    "source_check",
+    "with_warning",
+    "calibration_status",
+    "recalculation",
+)
 
 
-def test_manifest_counts_every_material_record_and_status():
-    documents = [get_material_document(m) for m in list_material_documents()]
-    records = [r for d in documents for r in d["eos_records"]]
-    data = manifest()
-    assert data["materials"] == len(documents)
-    assert data["eos_records"] == len(records)
-    assert len({r["identifier"] for r in records}) == len(records)
-    assert data["scientific_validation"]["counts"] == dict(
-        sorted(Counter(r["scientific_validation"]["status"] for r in records).items())
-    )
+def mismatches(root: Path) -> list[str]:
+    """Totals of the catalog or manifest under ``root`` that differ from BASE
+    plus the ledger's effect."""
+    actual = catalog_counts(root)
+    want = expected()
+    data = manifest(root)
+    found = [key for key in KEYS if actual[key] != want[key]]
+    if actual["identifiers"] != actual["records"]:
+        found.append("duplicate identifiers")
+    if data["materials"] != want["materials"]:
+        found.append("manifest materials")
+    if data["eos_records"] != want["records"]:
+        found.append("manifest eos_records")
+    if data["scientific_validation"]["counts"] != dict(
+        sorted(want["validation"].items())
+    ):
+        found.append("manifest validation counts")
     calibration = data["pressure_calibration"]
-    assert calibration["status_counts"] == {
-        status: sum(r["pressure_calibration"]["status"] == status for r in records)
-        for status in calibration["status_counts"]
-    }
-    assert sum(calibration["status_counts"].values()) == len(records)
-    assert calibration["recalculation_counts"] == dict(
-        sorted(
-            Counter(
-                r["pressure_calibration"]["recalculation"]["status"] for r in records
-            ).items()
-        )
-    )
+    if calibration["status_counts"] != {
+        key: want["calibration_status"].get(key, 0)
+        for key in calibration["status_counts"]
+    }:
+        found.append("manifest calibration counts")
+    if calibration["recalculation_counts"] != dict(
+        sorted(want["recalculation"].items())
+    ):
+        found.append("manifest recalculation counts")
+    return found
+
+
+def test_catalog_manifest_and_ledger_anchored_totals_agree():
+    assert mismatches(ROOT) == []
+
+
+def test_a_record_lost_or_duplicated_without_a_revision_is_caught(tmp_path):
+    for relative in ("peritheos/data/materials", "peritheos/data/audits"):
+        shutil.copytree(ROOT / relative, tmp_path / relative)
+    assert mismatches(tmp_path) == []
+    path = tmp_path / "peritheos/data/materials/qandilite.eosmat"
+    document = json.loads(path.read_bytes())
+    manifest_path = tmp_path / "peritheos/data/materials/manifest.json"
+    # Lost, with the manifest rewritten to count what is left.
+    path.write_text(json.dumps(dict(document, eos_records=document["eos_records"][1:])))
+    rewritten = manifest(tmp_path)
+    rewritten["eos_records"] = catalog_counts(tmp_path)["records"]
+    manifest_path.write_text(json.dumps(rewritten))
+    assert "records" in mismatches(tmp_path)
+    # Duplicated: the same record twice.
+    records = [*document["eos_records"], document["eos_records"][0]]
+    path.write_text(json.dumps(dict(document, eos_records=records)))
+    found = mismatches(tmp_path)
+    assert "records" in found and "duplicate identifiers" in found
