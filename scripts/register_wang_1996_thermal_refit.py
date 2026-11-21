@@ -153,7 +153,9 @@ def register():
             parameters=dict(V0=p["V0_a3"], K0=p["K0_gpa"], K0_prime=4.8),
         ),
         parameter_errors=dict(V0=e["V0_a3"], K0=e["K0_gpa"], K0_prime=None),
-        parameter_error_confidence=None,
+        # One-standard-error estimates, stated explicitly as one standard deviation
+        # (catalog revision 2026-11-21-ca-perovskite-one-sigma).
+        parameter_error_confidence=0.6826894921370859,
         parameter_covariance=dict(
             parameter_order=["rt_eos.V0", "rt_eos.K0", "alpha_KT"],
             matrix=fit["covariance"],
