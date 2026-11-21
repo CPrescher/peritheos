@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "936ddf06c867dd735a26419b5edc177ed404270491fcd342aed4539f74be8620",
+  "catalog_scientific_sha256": "2fcc992be46eb10f9f5addff54489786eaf8de407d5c11b3de84c17741efbda8",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
@@ -89,7 +89,7 @@
     "peritheos/data/materials/gold.eosmat": "4080811e1a7f001c662757a244b0d171f2eb00775651377d20228cd91ed9b13f",
     "peritheos/data/materials/graphite.eosmat": "047575d489710ef8b26d2cc5e5c09d84211e03c6f843c635d9c72972dee8d5f2",
     "peritheos/data/materials/grossular.eosmat": "9b9826055d7a1374ca88409e75de3284cecf6d71c3c0ec18e7cc5f638777be50",
-    "peritheos/data/materials/hydrous_silica_cacl2_nisr_2017.eosmat": "71392994a2472e562b97ea0cb43fd8e420cee6776aad51612865c8549700a29c",
+    "peritheos/data/materials/hydrous_silica_cacl2_nisr_2017.eosmat": "05c525ef077c6aaceed6f33d3afb58facd3b002eb18321d3dab4d0806d8f10ba",
     "peritheos/data/materials/hydrous_stishovite_nisr_2017.eosmat": "ce748d2676ca0cb7a80ebb32ae315fe49cf23be5931a65acd71290932da20df4",
     "peritheos/data/materials/ice_vi.eosmat": "3b6fe5212980c8a959603e21afe99234d53eb46101ee270d013784eabf1ba90c",
     "peritheos/data/materials/ice_vii.eosmat": "1ced13b9457e8fe89367dbdb4501792f814a3df70aa158437a2c2cf2aa15ef55",
@@ -450,6 +450,9 @@
       ],
       "ferropericlase_fe27": [
         "2026-11-21-ferropericlase-fe27-one-sigma"
+      ],
+      "hydrous_silica_cacl2_nisr_2017": [
+        "2026-11-21-hydrous-silica-cacl2-nisr-2017-one-sigma"
       ],
       "hydrous_stishovite_nisr_2017": [
         "2026-11-21-hydrous-stishovite-nisr-2017-one-sigma"
