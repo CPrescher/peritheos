@@ -1052,6 +1052,43 @@ def test_add_on_a_bundled_material_is_a_clean_refusal():
     assert "Traceback" not in result.stderr
 
 
+def test_a_record_another_receipt_pins_is_refused_first(pristine):
+    pinned = json.loads((pristine / tool.PINNED_RECORDS).read_bytes())[
+        "source_record_sha256"
+    ]
+    identifier = sorted(pinned)[0]
+    material = next(
+        p.stem
+        for p in (pristine / "peritheos/data/materials").glob("*.eosmat")
+        if identifier
+        in {r["identifier"] for r in json.loads(p.read_bytes())["eos_records"]}
+    )
+    request = set_request(
+        "t",
+        material,
+        [change(identifier, ["parameter_error_confidence"], None, ONE_SIGMA)],
+    )
+    with pytest.raises(tool.Refused, match="pinned_record") as refusal:
+        tool.plan_revision(request, pristine, derived=False)
+    assert tool.PINNED_RECORDS in str(refusal.value)
+
+
+def test_a_stale_refit_row_is_refused_with_its_difference(repo):
+    from scripts.validate_primary_eos_refits import render_markdown
+
+    request = confidence_request(repo)
+    identifier = request["changes"][0]["record"]
+    ledger = json.loads((repo / tool.REFITS).read_bytes())
+    row = next(r for r in ledger["records"] if r["record_identifier"] == identifier)
+    entry = next(e for e in row["parameters"] if isinstance(e.get("refit"), float))
+    entry["refit"] *= 1.001
+    (repo / tool.REFITS).write_bytes(tool._json_bytes(ledger))
+    (repo / tool.REFITS_PAGE).write_text(render_markdown(ledger), encoding="utf-8")
+    with pytest.raises(tool.Refused, match="refit_ledger_stale") as refusal:
+        tool.plan_revision(request, repo, derived=False)
+    assert "largest relative difference 0.001" in str(refusal.value)
+
+
 def test_requests_need_a_complete_rights_statement(pristine):
     request = add_request(pristine)
     del request["rights"]

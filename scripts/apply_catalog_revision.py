@@ -130,6 +130,9 @@ REFITS_PAGE = "docs/primary-eos-refits.md"
 SOURCE_AUDIT = "peritheos/data/primary-source-audit.json"
 MANIFEST = "peritheos/data/materials/manifest.json"
 FIXTURES = "crates/peritheos/tests"
+#: Reconstruction inputs that pin whole source records by digest; the refit
+#: validator refuses any change to them (scripts/reconstruct_similar_eos_uncertainties.py).
+PINNED_RECORDS = "docs/data/uncertainty-reconstruction-inputs.json"
 COMMON_KEYS = (
     "id",
     "material",
@@ -1057,6 +1060,43 @@ def _check_record(record: Mapping[str, Any], where: str, *, complete: bool) -> N
             )
 
 
+def _check_pins(root: Path, identifiers: list[Any]) -> None:
+    """Refuse records whose whole source record another receipt pins."""
+    path = root / PINNED_RECORDS
+    if not path.exists():
+        return
+    pinned = json.loads(path.read_bytes()).get("source_record_sha256", {})
+    for identifier in identifiers:
+        if identifier in pinned:
+            raise Refused(
+                "pinned_record",
+                f"{identifier}: {PINNED_RECORDS} pins its source record by digest "
+                "for scripts/reconstruct_similar_eos_uncertainties.py, which the "
+                "refit validator runs; a revision of this record is not supported",
+            )
+
+
+def _largest_difference(saved: Any, fresh: Any) -> str:
+    """The largest relative numerical difference between two rows, as text."""
+    largest = [0.0, ""]
+
+    def walk(a: Any, b: Any, path: str) -> None:
+        if _number(a) and _number(b):
+            scale = max(abs(a), abs(b), 1e-300)
+            relative = abs(a - b) / scale
+            if relative > largest[0]:
+                largest[:] = [relative, path]
+        elif isinstance(a, dict) and isinstance(b, dict):
+            for key in a.keys() & b.keys():
+                walk(a[key], b[key], f"{path}.{key}" if path else key)
+        elif isinstance(a, list) and isinstance(b, list):
+            for index, (x, y) in enumerate(zip(a, b)):
+                walk(x, y, f"{path}[{index}]")
+
+    walk(saved, fresh, "")
+    return f"{largest[0]:.2g} at {largest[1]}" if largest[1] else "not numerical"
+
+
 def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
     """Apply declared field changes to the record file; return the operations."""
     records = {r["identifier"]: r for r in document["eos_records"]}
@@ -1477,6 +1517,9 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
     validity_before = {
         r["identifier"]: _validity(r) for r in merged_before["eos_records"]
     }
+    # Records another receipt pins cannot be revised; say so before any work.
+    if kind == "set_fields":
+        _check_pins(root, [c.get("record") for c in request["changes"]])
     # The request against the files, before anything is staged.
     if kind == "add_record":
         record = _new_record(material, request["record"], document, root)
@@ -1501,10 +1544,14 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
                 try:
                     check_ledger_values(saved_rows[identifier], fresh[identifier])
                 except (KeyError, ValueError) as error:
+                    largest = _largest_difference(
+                        saved_rows.get(identifier), fresh.get(identifier)
+                    )
                     raise Refused(
                         "refit_ledger_stale",
-                        f"{identifier}: the saved row differs from the validator "
-                        f"before this change ({error})",
+                        f"{identifier}: the stored row of {REFITS} differs from a "
+                        f"fresh computation on this machine before any change "
+                        f"(largest relative difference {largest}; {error})",
                     ) from None
         _refresh_checks(document, sidecar, set(touched))
         files = _files(document, sidecar)
