@@ -1760,6 +1760,141 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "663f0f90b94469be60c40a572ee7eca403c8a00f8f82319bc27efaf55fad1b1a"
+    },
+    {
+      "id": "2026-11-21-magnesiowustite-fe75-one-sigma",
+      "material": "magnesiowustite_fe75",
+      "kind": "set_fields",
+      "date": "2026-11-21",
+      "decided_by": "Clemens Prescher",
+      "reason": "The source designates the Table 6 coefficient errors as standard deviations and gives no parameter covariance or further confidence convention, as recorded in the audit.",
+      "source": {
+        "citation": "Jacobsen et al. (2002), Structure and elasticity of single-crystal (Mg,Fe)O and a new method of generating shear waves for gigahertz ultrasonic interferometry, Journal of Geophysical Research: Solid Earth 107, 2037; ECV 4-1-ECV 4-14, doi:10.1029/2001JB000490",
+        "location": "Paragraph 25 and Table 6"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-21",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "magnesiowustite_fe75_jacobsen_2002_bm3_1",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "magnesiowustite_fe75_jacobsen_2002_bm3_1",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "caf340c519a4e023813b984d1af130e5295cd5b5ccef12b998c9147e71d23473",
+        "after": "111e3c9d1442970a6919adc4a311bbc30c15d01b5582caf075ad28c9210476b7"
+      },
+      "reference_sha256": {
+        "before": "7f7fcf815d378f4b9c938597790b50c51b3241e4991539af76a87abcd849156e",
+        "after": "391c4dd89ac6b7f24a971b682d21f4ce896d9c408bc41201c8fc63f61c0ec320"
+      },
+      "scientific": {
+        "records_before": "44bc564da1d11159f9e7e7f4c37ee664279ba8e2b12c1de66643010e87dcd4c1",
+        "records_after": "2bd4e5fe675e5b6334161abe8457b253e3376bd906dab10f95ff1c963b096f63",
+        "added_records": {},
+        "catalog_before": "21f8c62888812232fdb7710ae81d7f3e7e1936a91ff2d37f5a10feed7ea8ef5b",
+        "catalog_after": "bdc6ce9aa95a482c2c4b14b8fe473e904b305880b8fbd396647d4677d724b057"
+      },
+      "files": {
+        "peritheos/data/materials/magnesiowustite_fe75.eosmat": {
+          "before": "4c0df97cc1f269532ed5642da12dce70891b953a13641578b2ef54f8c80d2d9a",
+          "after": "92c5eda843f8ba581ba99b248e3950d316980e97de03b310c9ceae20b8781449"
+        },
+        "peritheos/data/audits/magnesiowustite_fe75.audit.json": {
+          "before": "db3e1fb439be183466ffbad7a2d8f19a87a91cdc178a0e480facf6cbf070fe52",
+          "after": "db3e1fb439be183466ffbad7a2d8f19a87a91cdc178a0e480facf6cbf070fe52"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "7f7fcf815d378f4b9c938597790b50c51b3241e4991539af76a87abcd849156e",
+          "after_record_sha256": "4c0df97cc1f269532ed5642da12dce70891b953a13641578b2ef54f8c80d2d9a",
+          "after_audit_sha256": "db3e1fb439be183466ffbad7a2d8f19a87a91cdc178a0e480facf6cbf070fe52",
+          "layout": "v4",
+          "added_check": [
+            0
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default_for": "equilibrium"
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "7f7fcf815d378f4b9c938597790b50c51b3241e4991539af76a87abcd849156e",
+          "after": "391c4dd89ac6b7f24a971b682d21f4ce896d9c408bc41201c8fc63f61c0ec320"
+        },
+        "catalog_scientific_sha256": {
+          "before": "21f8c62888812232fdb7710ae81d7f3e7e1936a91ff2d37f5a10feed7ea8ef5b",
+          "after": "bdc6ce9aa95a482c2c4b14b8fe473e904b305880b8fbd396647d4677d724b057"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/magnesiowustite_fe75.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "c7c7309fa8f36fcfda11b6e1c2a688b65a7468888669b09bfa231fa8fa70ca54"
     }
   ]
 }
