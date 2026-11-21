@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "803cf897c324aa470a7d5acaa5c9133a3598788cdd4f9b2318e1eb337078e311",
+  "catalog_scientific_sha256": "fa9bbf04dc009f84ac87bbd21578b2a079e8d71670a7384dbb7bd5eba89ab45c",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
@@ -118,7 +118,7 @@
     "peritheos/data/materials/majorite.eosmat": "92bc6127d7be29d0faac716ae933f93c89d23a2eb870ce708c455b33711e4058",
     "peritheos/data/materials/manganese_alpha.eosmat": "8858051aafdfdcf1d6e6a8ee7246cc5dcbdb5c78eee091a25c8f070204a0d9a1",
     "peritheos/data/materials/mg0125fe0875o.eosmat": "50b76c2d509764b4a70c893abafde49904fea75847fe02a6bc25f12b4f8df110",
-    "peritheos/data/materials/mg0215fe0762vac0023o_b1.eosmat": "b31ad15521eb23decb37aab58884baae7ef1b0ea0f660bc913774333cc839960",
+    "peritheos/data/materials/mg0215fe0762vac0023o_b1.eosmat": "362dad7785153ab360b75ad37f23debb9c088fc253855813cfbf91304cbb6dc3",
     "peritheos/data/materials/mg025fe075o.eosmat": "72d2403c9789028ae28e36dfd1230e5a807bd64679b6dff643b53caecda54ad1",
     "peritheos/data/materials/mg0375fe0625o.eosmat": "589ff908fdbef63803858a900a295cd8ee732c4839b5ed8d9ceabcc2343cf098",
     "peritheos/data/materials/mg042fe058o.eosmat": "3ad986b1a4198b7fdaabd7bf48e4d809419247bd3a7e63c81d5cd37b4c69b7c0",
@@ -462,6 +462,9 @@
       ],
       "magnesiowustite_fe75": [
         "2026-11-21-magnesiowustite-fe75-one-sigma"
+      ],
+      "mg0215fe0762vac0023o_b1": [
+        "2026-11-21-mg0215fe0762vac0023o-b1-one-sigma"
       ],
       "qandilite": [
         "2026-11-21-qandilite-one-sigma"

@@ -2801,6 +2801,158 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "38852ca3c25c05803196d312ffa539ebe2910e075c39e9116ea6c0734d012e91"
+    },
+    {
+      "id": "2026-11-21-mg0215fe0762vac0023o-b1-one-sigma",
+      "material": "mg0215fe0762vac0023o_b1",
+      "kind": "set_fields",
+      "date": "2026-11-21",
+      "decided_by": "Clemens Prescher",
+      "reason": "The Figure 4 and 7 captions give the EOS errors as 1-sigma fitting uncertainties and print no numerical covariance, as recorded in the audit's parameter_provenance.uncertainties.",
+      "source": {
+        "citation": "Finkelstein et al. (2017), Single-crystal equations of state of magnesiowustite at high pressures, Am. Mineral. 102, 1709-1717, doi:10.2138/am-2017-5966",
+        "location": "Figures 4 and 7 captions (audit evidence.parameter_provenance.uncertainties)"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-21",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "1dc54f680395f9d2fe95797622c12bff861451633fe77902fd74bd92b33fe4b3",
+        "after": "ecaeb2368f8383836cd1b63ec8b03d1becd6b3c778924763c10a79eae71df50d"
+      },
+      "reference_sha256": {
+        "before": "b31ad15521eb23decb37aab58884baae7ef1b0ea0f660bc913774333cc839960",
+        "after": "362dad7785153ab360b75ad37f23debb9c088fc253855813cfbf91304cbb6dc3"
+      },
+      "scientific": {
+        "records_before": "87199305b56f94248dcaa0dfe4f309ac1eac25a8d0e15e782916d697e8b7c6fa",
+        "records_after": "6cea31d66666c9d79b84c9e811b57250b68c013a05be6a10facd3f929fa01f90",
+        "added_records": {},
+        "catalog_before": "803cf897c324aa470a7d5acaa5c9133a3598788cdd4f9b2318e1eb337078e311",
+        "catalog_after": "fa9bbf04dc009f84ac87bbd21578b2a079e8d71670a7384dbb7bd5eba89ab45c"
+      },
+      "files": {
+        "peritheos/data/materials/mg0215fe0762vac0023o_b1.eosmat": {
+          "before": "5a9d1592565913827fa773f2cfaa55a7129e438cc352e85feb014b1f50dea04e",
+          "after": "c504890218d97926ebfe64c56a6153c11dbb0994090ddc03707b2c90d5439ebb"
+        },
+        "peritheos/data/audits/mg0215fe0762vac0023o_b1.audit.json": {
+          "before": "49baae52f0017b07f2535538300faf2ae9f7d88ec54b14eab1a3a38786104fff",
+          "after": "49baae52f0017b07f2535538300faf2ae9f7d88ec54b14eab1a3a38786104fff"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "b31ad15521eb23decb37aab58884baae7ef1b0ea0f660bc913774333cc839960",
+          "after_record_sha256": "5a9d1592565913827fa773f2cfaa55a7129e438cc352e85feb014b1f50dea04e",
+          "after_audit_sha256": "49baae52f0017b07f2535538300faf2ae9f7d88ec54b14eab1a3a38786104fff",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default_for": "equilibrium"
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0,
+            1
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "b31ad15521eb23decb37aab58884baae7ef1b0ea0f660bc913774333cc839960",
+          "after": "362dad7785153ab360b75ad37f23debb9c088fc253855813cfbf91304cbb6dc3"
+        },
+        "catalog_scientific_sha256": {
+          "before": "803cf897c324aa470a7d5acaa5c9133a3598788cdd4f9b2318e1eb337078e311",
+          "after": "fa9bbf04dc009f84ac87bbd21578b2a079e8d71670a7384dbb7bd5eba89ab45c"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/mg0215fe0762vac0023o_b1.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "019a0cff23b4450750016f52a53d94489064cb48bd9926e4ec329c69ad1da140"
     }
   ]
 }
