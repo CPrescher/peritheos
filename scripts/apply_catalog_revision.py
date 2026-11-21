@@ -1289,7 +1289,10 @@ def _derive_assessments(
 
     Returns the derived ``set`` operations (assessment path, complete form).
     """
-    from scripts.standardize_reconstruction_metadata import assessment_for_record
+    from scripts.standardize_reconstruction_metadata import (
+        STATUS,
+        assessment_for_record,
+    )
 
     merged = merge_audit(document, sidecar)
     records = {r["identifier"]: r for r in merged["eos_records"]}
@@ -1297,7 +1300,18 @@ def _derive_assessments(
     for identifier, row in rows.items():
         record = records[identifier]
         current = record.get("evidence", {}).get("reproduction", {}).get("assessment")
-        derived = assessment_for_record(record, row)
+        if row.get("status") not in STATUS:
+            raise Refused(
+                "refit_failed",
+                f"{identifier}: the refit validator gives status "
+                f"{row.get('status')!r} ({row.get('reason', 'no reason given')})",
+            )
+        try:
+            derived = assessment_for_record(record, row)
+        except (KeyError, ValueError, TypeError) as error:
+            raise Refused(
+                "refit_failed", f"{identifier}: no assessment from the row ({error!r})"
+            ) from None
         if set(derived.get("qualifications") or []) & set(GENERIC_QUALIFICATIONS):
             raise Refused(
                 "generic_statement", f"{identifier}: derived assessment is generic"

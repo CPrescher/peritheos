@@ -1015,6 +1015,43 @@ def test_add_record_refuses_what_the_catalog_rejects(pristine, mutation, reason)
         tool.plan_revision(request, pristine, derived=False)
 
 
+@pytest.mark.parametrize(
+    "edit",
+    [
+        lambda r: r["parameters"]["V0"].update(value=-5.0),
+        lambda r: r["parameters"]["K0"].update(value=1e-10),
+        lambda r: r["parameters"]["K0_prime"].update(value=-50.0),
+    ],
+)
+def test_an_unusable_record_is_refused_without_a_traceback(
+    pristine, tmp_path, capsys, edit
+):
+    request = add_request(pristine)
+    edit(request["record"])
+    with pytest.raises(tool.Refused):
+        tool.plan_revision(request, pristine, derived=False)
+    path = tmp_path / "request.json"
+    path.write_text(json.dumps(request))
+    assert tool.main([str(path), "--check"], root=pristine) == 1
+    assert capsys.readouterr().out.startswith("REFUSED ")
+
+
+def test_add_on_a_bundled_material_is_a_clean_refusal():
+    import subprocess
+    import sys
+
+    result = subprocess.run(
+        [sys.executable, "scripts/split_eosmat_audits.py", "--add", "qandilite"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode == 1
+    assert result.stdout.startswith("REFUSED ")
+    assert "Traceback" not in result.stderr
+
+
 def test_requests_need_a_complete_rights_statement(pristine):
     request = add_request(pristine)
     del request["rights"]

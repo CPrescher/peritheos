@@ -940,7 +940,11 @@ def main() -> None:
     if arguments.verify:
         print(f"Verified {verify_catalog()} materials against the split receipt.")
     elif arguments.add is not None:
-        added = split_added_materials(arguments.add or None)
+        try:
+            added = split_added_materials(arguments.add or None)
+        except ValueError as error:
+            print(f"REFUSED {error}")
+            sys.exit(1)
         print(f"Split {len(added)} added materials: {', '.join(added) or 'none'}.")
     else:
         split_catalog()
