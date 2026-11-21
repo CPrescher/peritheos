@@ -1490,6 +1490,141 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "c4702632b323899c09936319f08328c754d237183cfb8f16d13fda614a2fb9a9"
+    },
+    {
+      "id": "2026-11-21-ferropericlase-fe27-one-sigma",
+      "material": "ferropericlase_fe27",
+      "kind": "set_fields",
+      "date": "2026-11-21",
+      "decided_by": "Clemens Prescher",
+      "reason": "The source designates the Table 6 coefficient errors as standard deviations and gives no parameter covariance or further confidence convention, as recorded in the audit.",
+      "source": {
+        "citation": "Jacobsen et al. (2002), Structure and elasticity of single-crystal (Mg,Fe)O and a new method of generating shear waves for gigahertz ultrasonic interferometry, Journal of Geophysical Research: Solid Earth 107, 2037; ECV 4-1-ECV 4-14, doi:10.1029/2001JB000490",
+        "location": "Paragraph 25 and Table 6"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-21",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "ferropericlase_fe27_jacobsen_2002_bm3_1",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "ferropericlase_fe27_jacobsen_2002_bm3_1",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "042d44113aa996db4161d7ac20b33297011a4c87335da29eafedd53fe80ed8ee",
+        "after": "488eb254274050d78a7779e3c38ec1bcd429db3f9164a0670b347a5272f54da2"
+      },
+      "reference_sha256": {
+        "before": "6397c4863972f954266190baca6eb144a6bdb8a66fd5f80e172e03af960baa1b",
+        "after": "b50a846dcb8dbcdfc97ecd95b325fcb0b8e9e0257862b212955f8c7443af5f2d"
+      },
+      "scientific": {
+        "records_before": "aa03d067dc73373c9f7b6ec8538101a79b35a44fad8d3f049ee92199ac63f01c",
+        "records_after": "7dd971aacf3584216b76c105e4900e4de71c7f43d9746103d325204b2b7d1d2c",
+        "added_records": {},
+        "catalog_before": "0dc0e6630d4292fa11ef2a3fcfe813e77689969a869a4f51cc2aadba114430e9",
+        "catalog_after": "a4f16d17ce753f80d9e5c1b716c074911773ce2798516f8ba69326690f428ce0"
+      },
+      "files": {
+        "peritheos/data/materials/ferropericlase_fe27.eosmat": {
+          "before": "7c221638b829f81cdc724821ddb12baba1744f1f38f54be3a0a15ac88149bcd7",
+          "after": "5a8f23969fcc781e7e23afafdb87ef65eb58d5bcd873b836c1db6016915641f4"
+        },
+        "peritheos/data/audits/ferropericlase_fe27.audit.json": {
+          "before": "7ae1a4c97a2a5d9784237b3fa3cdedf2245706a5afa4510cc580fe77a9380aca",
+          "after": "7ae1a4c97a2a5d9784237b3fa3cdedf2245706a5afa4510cc580fe77a9380aca"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "6397c4863972f954266190baca6eb144a6bdb8a66fd5f80e172e03af960baa1b",
+          "after_record_sha256": "7c221638b829f81cdc724821ddb12baba1744f1f38f54be3a0a15ac88149bcd7",
+          "after_audit_sha256": "7ae1a4c97a2a5d9784237b3fa3cdedf2245706a5afa4510cc580fe77a9380aca",
+          "layout": "v4",
+          "added_check": [
+            0
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default_for": "equilibrium"
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "6397c4863972f954266190baca6eb144a6bdb8a66fd5f80e172e03af960baa1b",
+          "after": "b50a846dcb8dbcdfc97ecd95b325fcb0b8e9e0257862b212955f8c7443af5f2d"
+        },
+        "catalog_scientific_sha256": {
+          "before": "0dc0e6630d4292fa11ef2a3fcfe813e77689969a869a4f51cc2aadba114430e9",
+          "after": "a4f16d17ce753f80d9e5c1b716c074911773ce2798516f8ba69326690f428ce0"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/ferropericlase_fe27.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "77ae28bc8819c21905de05b4564ce0c536aec7905c57ccdd73767cb970d8da44"
     }
   ]
 }

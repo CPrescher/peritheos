@@ -93,7 +93,7 @@ Automatic selection for equilibrium calculations.
     - **Kind:** formula\_units
     - **Formula units:** 4.0
     - **Molar mass g mol:** 48.586585
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 
 Volume per conventional Fm-3m rocksalt cell of four oxygen-normalized formula units. The printed errors are standard deviations.
 
