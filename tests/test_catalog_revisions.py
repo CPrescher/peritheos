@@ -79,7 +79,7 @@ def repo(tmp_path, monkeypatch):
     return root
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="session")
 def pristine(tmp_path_factory):
     """A copy for tests that only plan (and are refused); never written."""
     return _copy(tmp_path_factory.mktemp("pristine") / "repo")
@@ -381,8 +381,14 @@ def test_add_record_derives_its_content_and_undoes_exactly(repo):
     assert _tree(repo) == before
 
 
-def test_set_a_snapshot_field_and_a_fixed_flag_on_two_materials(repo):
+def test_set_a_snapshot_field_and_a_fixed_flag_on_two_materials(repo, monkeypatch):
     before = _tree(repo)
+
+    def no_text_writes(*args, **kwargs):
+        raise AssertionError("files are written as bytes with \\n line ends")
+
+    # Every file the tool writes goes out as UTF-8 bytes, never newline-translated.
+    monkeypatch.setattr(Path, "write_text", no_text_writes)
     confidence = confidence_request(repo)
     fixed = fixed_request(repo)
     apply(repo, confidence)
@@ -397,17 +403,6 @@ def test_set_a_snapshot_field_and_a_fixed_flag_on_two_materials(repo):
     assert "parameter_error_confidence" not in next(
         r for r in original["eos_records"] if r["identifier"] == target
     )
-    apply(
-        repo,
-        set_request(
-            "t-later",
-            material,
-            [change(target, ["parameter_error_confidence"], ONE_SIGMA, 0.95)],
-        ),
-    )
-    with pytest.raises(tool.Refused, match="out_of_order"):
-        tool.plan_undo(confidence["id"], repo)
-    undo(repo, "t-later")
     undo(repo, fixed["id"])
     undo(repo, confidence["id"])
     assert _tree(repo) == before
@@ -706,6 +701,12 @@ def test_a_tampered_ledger_is_detected_everywhere(revised, tmp_path, monkeypatch
     if isinstance(edit, str) and edit not in ("hash", "metadata_of_latest"):
         with pytest.raises((ValueError, AssertionError)):
             assert_snapshot_lineage(snapshot, GARNET["scientific_sha256_before"])
+
+
+def test_only_the_latest_revision_of_a_material_is_undone(revised):
+    first = read_ledger(revised)["revisions"][-2]["id"]
+    with pytest.raises(tool.Refused, match="out_of_order"):
+        tool.plan_undo(first, revised)
 
 
 def test_a_binding_without_its_ledger_fails_every_verify(
@@ -1086,7 +1087,8 @@ def test_a_stale_refit_row_is_refused_with_its_difference(repo):
     (repo / tool.REFITS_PAGE).write_text(render_markdown(ledger), encoding="utf-8")
     with pytest.raises(tool.Refused, match="refit_ledger_stale") as refusal:
         tool.plan_revision(request, repo, derived=False)
-    assert "largest relative difference 0.001" in str(refusal.value)
+    assert "calculated value differs" in str(refusal.value)
+    assert "on this machine" in str(refusal.value)
 
 
 def test_requests_need_a_complete_rights_statement(pristine):
@@ -1122,16 +1124,18 @@ def test_command_line_check_apply_verify_and_undo(repo, tmp_path, capsys):
     path = tmp_path / "request.json"
     request = confidence_request(repo)
     path.write_text(json.dumps(request))
-    assert tool.main([str(path), "--check"], root=repo) == 0
+    assert tool.main([str(path), "--check"], root=repo, derived=False) == 0
     output = capsys.readouterr().out
     assert "parameter_error_confidence: absent -> 0.6826894921370859" in output
     assert "check block (record file):" in output
     assert output.count('"reproduction"') == 1
     assert _tree(repo) == before
-    assert tool.main([str(path)], root=repo) == 0
+    assert tool.main([str(path)], root=repo, derived=False) == 0
     assert tool.main(["--verify"], root=repo) == 0
-    assert tool.main(["--undo", request["id"], "--check"], root=repo) == 0
-    assert tool.main(["--undo", request["id"]], root=repo) == 0
+    assert (
+        tool.main(["--undo", request["id"], "--check"], root=repo, derived=False) == 0
+    )
+    assert tool.main(["--undo", request["id"]], root=repo, derived=False) == 0
     assert "returns to absent" in capsys.readouterr().out
     assert _tree(repo) == before
 
@@ -1146,14 +1150,14 @@ def test_bad_input_is_refused_without_a_traceback(repo, tmp_path, capsys):
     (tmp_path / "ok.json").write_text(json.dumps(request))
     ledger = (repo / LEDGER).read_bytes()
     (repo / LEDGER).write_text("[]")
-    assert tool.main([str(tmp_path / "ok.json")], root=repo) == 1
+    assert tool.main([str(tmp_path / "ok.json")], root=repo, derived=False) == 1
     assert "REFUSED" in capsys.readouterr().out
     (repo / LEDGER).write_bytes(ledger)
     before = _tree(repo)
     material = repo / f"peritheos/data/materials/{request['material']}.eosmat"
     os.chmod(material, 0o444)
     try:
-        assert tool.main([str(tmp_path / "ok.json")], root=repo) == 1
+        assert tool.main([str(tmp_path / "ok.json")], root=repo, derived=False) == 1
         assert "REFUSED not_writable" in capsys.readouterr().out
     finally:
         os.chmod(material, 0o644)

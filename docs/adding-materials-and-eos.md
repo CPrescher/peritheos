@@ -452,9 +452,38 @@ reference-isotherm or thermal parameter), `parameter_error_confidence`,
 text (use the text tools), `check`, `model`, the thermal model and its laws,
 `record_kind`, `determination_method`, `equation_kind`, `reference`,
 `aliases`, default flags, `catalog_access` and dataset links; a `validity`
-object cannot be created, removed or emptied. The dry run shows each changed
-value and the enforced range before and after; a change of the enforced range
-is refused unless the request changes a range field.
+object cannot be created, removed or emptied.
+
+Values are checked before anything is staged: an error is a finite number
+`>= 0` or `null`; `parameter_error_confidence` lies strictly between 0 and 1
+or is `null`; a range is two finite numbers, lower first, with pressures
+within -20 to 2000 GPa (the catalog spans -11.3 to 1374 GPa) and
+temperatures above 0 K and at most 20000 K; `pressure_range_status` is one of
+`reported_exactly`, `reported_qualitatively`, `theoretical` and
+`reference_parameterization`; a changed `temperature_ref` is positive, equals
+a thermal `Tr` and lies inside a stated temperature range; a covariance names
+free (not fixed) parameters of the record after the change and is square,
+finite, symmetric and positive semidefinite. Every touched record is then
+loaded as the catalog loads it, evaluated at a state inside its enforced range
+and its parameter uncertainty propagated.
+
+The dry run shows each changed value, the enforced range and the `check`
+block. A change of the enforced range is refused unless the request changes a
+range field. A change of a headline field of `check` (`reproduction`,
+`compared`, `warning`, `source_check`), which a changed error or fixed flag
+can cause through the combined-error criterion, is refused unless the request
+acknowledges exactly that change, for example
+`"acknowledge_check_change": {"<record>": {"reproduction": {"from":
+"disagrees", "to": "close"}}}`; the acknowledgement is stored in the
+revision. A changed `why` line alone needs none.
+
+Some records cannot be revised yet, and the tool says why before any other
+work: records whose whole source record
+`docs/data/uncertainty-reconstruction-inputs.json` pins by digest
+(`pinned_record`); records whose saved refit-ledger row differs from a fresh
+computation on this machine (`refit_ledger_stale`, with the largest
+difference); and records whose refit row takes its published values from a
+script rather than the record (`row_disagrees`, naming the script).
 
 An added record uses `"kind": "add_record"` and `"record"` instead of
 `"changes"`, with `"same_basis"` in `rights`. It is the complete record
@@ -514,12 +543,13 @@ most recent revision and refuses an older one. Later text and check-text
 revisions of the same material are kept (those of a removed record go with
 it); without them every file returns byte for byte.
 
-`--verify` checks each revision's fields and content digest, the chain of a
-material's revisions, the binding's pins, the exact walk back to the original
-pre-split file, the scientific snapshot, the rights pins, the refit-ledger
-rows and the manifest and source-audit counts. The hashes it records for
-generated pages are the trail of what the revision wrote; later changes
-rewrite shared pages, whose generators' `--check` keeps them current.
+`--verify` checks each revision's fields and its content digest, which covers
+every stored field and which the audit-split binding pins for a material's
+latest revision; the chain of a material's revisions; the exact walk back to
+the original pre-split file; the scientific snapshot; the rights pins; the
+refit-ledger rows; and the manifest and source-audit counts. Generated pages a
+revision wrote are listed by path only: later changes rewrite them, and their
+generators' `--check` keeps them current.
 
 The ledger catches accidental and unexplained changes: every check of a
 bundled material fails when a stored value, hash, order or decision differs

@@ -478,8 +478,8 @@ def _run(stage: Path, arguments: list[str], what: str) -> str:
         check=False,
     )
     if result.returncode != 0:
-        tail = (result.stderr or result.stdout).strip().splitlines()[-3:]
-        raise Refused(what, " | ".join(tail) or f"exit status {result.returncode}")
+        lines = (result.stderr or result.stdout).strip().splitlines()
+        raise Refused(what, lines[-1] if lines else f"exit status {result.returncode}")
     return result.stdout
 
 
@@ -592,7 +592,7 @@ def _write_refit_ledger(stage: Path, ledger: dict) -> None:
 
     ledger["summary"] = _refit_summary(ledger["records"])
     (stage / REFITS).write_bytes(_json_bytes(ledger))
-    (stage / REFITS_PAGE).write_text(render_markdown(ledger), encoding="utf-8")
+    (stage / REFITS_PAGE).write_bytes(render_markdown(ledger).encode("utf-8"))
 
 
 def _insert_row(rows: list[dict], row: dict, material: str) -> None:
@@ -688,19 +688,21 @@ def _bookkeeping(stage: Path, material: str) -> None:
     counts = Counter(e["status"] for e in kept)
     report["records"] = kept
     report["summary"] = {"records": len(kept), **dict(sorted(counts.items()))}
-    report_path.write_text(
-        json.dumps(report, indent=2, ensure_ascii=False, allow_nan=False) + "\n",
-        encoding="utf-8",
+    report_path.write_bytes(
+        (
+            json.dumps(report, indent=2, ensure_ascii=False, allow_nan=False) + "\n"
+        ).encode("utf-8")
     )
-    manifest_path.write_text(
-        json.dumps(
-            _manifest_with(manifest, len(entries), validation, calibration),
-            indent=2,
-            ensure_ascii=False,
-            allow_nan=False,
-        )
-        + "\n",
-        encoding="utf-8",
+    manifest_path.write_bytes(
+        (
+            json.dumps(
+                _manifest_with(manifest, len(entries), validation, calibration),
+                indent=2,
+                ensure_ascii=False,
+                allow_nan=False,
+            )
+            + "\n"
+        ).encode("utf-8")
     )
 
 
@@ -1011,8 +1013,18 @@ def _check_covariance(record: Mapping[str, Any], where: str) -> None:
         raise Refused("covariance", f"{where}: matrix is not positive semidefinite")
 
 
-def _check_record(record: Mapping[str, Any], where: str, *, complete: bool) -> None:
-    """Values of a record after the revision (``complete``: an added record)."""
+def _check_record(
+    record: Mapping[str, Any],
+    where: str,
+    *,
+    complete: bool,
+    temperatures: bool = True,
+) -> None:
+    """Values of a record after the revision (``complete``: an added record).
+
+    ``temperatures`` checks temperature_ref against Tr and the stated range;
+    a set_fields revision asks for it only when it changes one of them.
+    """
     for name, item in _parameter_items(record).items():
         error = item.get("error")
         if error is not None and not (_number(error) and error >= 0):
@@ -1039,7 +1051,7 @@ def _check_record(record: Mapping[str, Any], where: str, *, complete: bool) -> N
                     _check_range(key, validity[key], f"{where}/validity.{key}")
     _check_covariance(record, where)
     reference = record.get("temperature_ref")
-    if reference is None:
+    if reference is None or not temperatures:
         return
     if not (_number(reference) and reference > 0):
         raise Refused("value", f"{where}: temperature_ref must be a positive number")
@@ -1074,27 +1086,6 @@ def _check_pins(root: Path, identifiers: list[Any]) -> None:
                 "for scripts/reconstruct_similar_eos_uncertainties.py, which the "
                 "refit validator runs; a revision of this record is not supported",
             )
-
-
-def _largest_difference(saved: Any, fresh: Any) -> str:
-    """The largest relative numerical difference between two rows, as text."""
-    largest = [0.0, ""]
-
-    def walk(a: Any, b: Any, path: str) -> None:
-        if _number(a) and _number(b):
-            scale = max(abs(a), abs(b), 1e-300)
-            relative = abs(a - b) / scale
-            if relative > largest[0]:
-                largest[:] = [relative, path]
-        elif isinstance(a, dict) and isinstance(b, dict):
-            for key in a.keys() & b.keys():
-                walk(a[key], b[key], f"{path}.{key}" if path else key)
-        elif isinstance(a, list) and isinstance(b, list):
-            for index, (x, y) in enumerate(zip(a, b)):
-                walk(x, y, f"{path}[{index}]")
-
-    walk(saved, fresh, "")
-    return f"{largest[0]:.2g} at {largest[1]}" if largest[1] else "not numerical"
 
 
 def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
@@ -1147,7 +1138,17 @@ def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
         apply_operations(document["eos_records"], [operation], "document")
         forward.append(operation)
     for identifier in dict.fromkeys(o["record"] for o in forward):
-        _check_record(records[identifier], identifier, complete=False)
+        paths = [o["path"] for o in forward if o["record"] == identifier]
+        _check_record(
+            records[identifier],
+            identifier,
+            complete=False,
+            temperatures=any(
+                p[0] in ("temperature_ref", "experimental_temperature_range_k")
+                or p[-2:] == ["Tr", "value"]
+                for p in paths
+            ),
+        )
     return forward
 
 
@@ -1542,22 +1543,36 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
 
             for identifier in touched:
                 try:
-                    check_ledger_values(saved_rows[identifier], fresh[identifier])
-                except (KeyError, ValueError) as error:
-                    largest = _largest_difference(
-                        saved_rows.get(identifier), fresh.get(identifier)
+                    # Text copies belong to the text tools (TEXT_ROW_FIELDS).
+                    check_ledger_values(
+                        _without_text(saved_rows[identifier]),
+                        _without_text(fresh[identifier]),
                     )
+                except (KeyError, ValueError) as error:
                     raise Refused(
                         "refit_ledger_stale",
                         f"{identifier}: the stored row of {REFITS} differs from a "
                         f"fresh computation on this machine before any change "
-                        f"(largest relative difference {largest}; {error})",
+                        f"({error})",
                     ) from None
         _refresh_checks(document, sidecar, set(touched))
         files = _files(document, sidecar)
         _merged(files)
         (stage / record_path).write_bytes(files[0])
         (stage / audit_path).write_bytes(files[1])
+        # The validator replays frozen audits through the receipts, so the
+        # staged receipt and ledger bind these files provisionally.
+        _provisional_lineage(
+            stage,
+            request,
+            ledger,
+            receipt,
+            binding,
+            document,
+            forward,
+            files,
+            reference_before,
+        )
         rows = _fresh_rows(stage, material)
         refit_rows: dict[str, dict] = {}
         derive: dict[str, dict] = {}
@@ -1568,10 +1583,16 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
                 from scripts.validate_primary_eos_refits import check_ledger_values
 
                 try:
-                    check_ledger_values(before, row)
+                    check_ledger_values(_without_text(before), _without_text(row))
                     row = before  # unchanged up to solver roundoff
                 except ValueError:
-                    pass
+                    # A new comparison; the text copies stay as the text tools left them.
+                    row = copy.deepcopy(row)
+                    for key in TEXT_ROW_FIELDS:
+                        if key in before:
+                            row[key] = copy.deepcopy(before[key])
+                        else:
+                            row.pop(key, None)
             if before is None or row is not before:
                 refit_rows[identifier] = {"before": before, "after": row}
             derive[identifier] = row
@@ -1679,13 +1700,13 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
         new_receipt = copy.deepcopy(receipt)
         new_receipt["materials"][material] = new_binding
         new_receipt.setdefault(*SPLIT_RECEIPT_STATEMENT)
-        (stage / RECEIPT_PATH).write_text(receipt_text(new_receipt), encoding="utf-8")
+        (stage / RECEIPT_PATH).write_bytes(receipt_text(new_receipt).encode("utf-8"))
         # A provisional ledger entry, so the staged binding's pins resolve
         # while the derived files are built; the complete entry follows.
         provisional = copy.deepcopy(ledger)
         provisional["revisions"].append(revision)
         (stage / LEDGER).parent.mkdir(parents=True, exist_ok=True)
-        (stage / LEDGER).write_text(ledger_text(provisional), encoding="utf-8")
+        (stage / LEDGER).write_bytes(ledger_text(provisional).encode("utf-8"))
         snapshot_after = scientific_snapshot(stage)
         _check_snapshot(snapshot_before, snapshot_after, material, forward)
         policy = json.loads((stage / POLICY).read_bytes())
@@ -1783,7 +1804,7 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
         new_ledger = copy.deepcopy(ledger)
         new_ledger["revisions"].append(revision)
         (stage / LEDGER).parent.mkdir(parents=True, exist_ok=True)
-        (stage / LEDGER).write_text(ledger_text(new_ledger), encoding="utf-8")
+        (stage / LEDGER).write_bytes(ledger_text(new_ledger).encode("utf-8"))
         _verify_stage(stage, root, material, snapshot_before)
         plan = Plan(revision=revision, undo=False)
         plan.files = _changed_files(stage, root)
@@ -1814,6 +1835,53 @@ def _reference_values(
         if (before, after) != (operation["before"], operation["after"]):
             operation["reference_before"] = None if before is ABSENT else before
             operation["reference_after"] = None if after is ABSENT else after
+
+
+def _provisional_lineage(
+    stage: Path,
+    request: Mapping[str, Any],
+    ledger: dict,
+    receipt: dict,
+    binding: dict,
+    document: dict,
+    forward: list[dict],
+    files: tuple[bytes, bytes],
+    reference_before: bytes,
+) -> None:
+    """Bind staged files to a provisional revision of ``forward``."""
+    reference = json.loads(reference_before)
+    try:
+        apply_operations(reference["eos_records"], forward, "reference")
+    except ValueError as error:
+        raise Refused("not_bindable", str(error)) from None
+    layout = LAYOUTS[binding.get("layout")]
+    reference_after = format_eosmat(reference, layout=layout).encode("utf-8")
+    revision: dict[str, Any] = {
+        **{key: copy.deepcopy(request[key]) for key in COMMON_KEYS},
+        ACKNOWLEDGE: copy.deepcopy(request.get(ACKNOWLEDGE, {})),
+        "forward": forward,
+        "reverse": reverse_operations(forward),
+        "reference_sha256": {
+            "before": _sha(reference_before),
+            "after": _sha(reference_after),
+        },
+    }
+    revision["content_sha256"] = content_sha256(revision)
+    provisional = _revised_binding(
+        binding,
+        copy.deepcopy(document),
+        forward,
+        files,
+        (_sha(reference_after), revision["content_sha256"]),
+    )
+    staged = copy.deepcopy(receipt)
+    staged["materials"][request["material"]] = provisional
+    staged.setdefault(*SPLIT_RECEIPT_STATEMENT)
+    (stage / RECEIPT_PATH).write_bytes(receipt_text(staged).encode("utf-8"))
+    entries = copy.deepcopy(ledger)
+    entries["revisions"].append(revision)
+    (stage / LEDGER).parent.mkdir(parents=True, exist_ok=True)
+    (stage / LEDGER).write_bytes(ledger_text(entries).encode("utf-8"))
 
 
 def _headline_changes(before: dict, after: dict, touched: list[str]) -> dict:
@@ -2089,8 +2157,8 @@ def plan_undo(revision_id: str, root: Path = ROOT, *, derived: bool = True) -> P
     with _stage(root) as stage:
         (stage / record_path).write_bytes(files[0])
         (stage / audit_path).write_bytes(files[1])
-        (stage / RECEIPT_PATH).write_text(receipt_text(receipt), encoding="utf-8")
-        (stage / LEDGER).write_text(ledger_text(new_ledger), encoding="utf-8")
+        (stage / RECEIPT_PATH).write_bytes(receipt_text(receipt).encode("utf-8"))
+        (stage / LEDGER).write_bytes(ledger_text(new_ledger).encode("utf-8"))
         refits = _refit_ledger_raw(stage)
         for identifier, pair in revision["refit_rows"].items():
             rows = refits["records"]
@@ -2265,7 +2333,9 @@ def _report(plan: Plan, check: bool) -> None:
     )
 
 
-def main(argv: list[str] | None = None, root: Path = ROOT) -> int:
+def main(
+    argv: list[str] | None = None, root: Path = ROOT, *, derived: bool = True
+) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("request", nargs="?", type=Path, help="request JSON file")
     parser.add_argument("--check", action="store_true", help="dry run")
@@ -2286,9 +2356,9 @@ def main(argv: list[str] | None = None, root: Path = ROOT) -> int:
         if (arguments.request is None) == (arguments.undo is None):
             parser.error("give a request file or --undo ID")
         plan = (
-            plan_undo(arguments.undo, root)
+            plan_undo(arguments.undo, root, derived=derived)
             if arguments.undo
-            else plan_revision(read_request(arguments.request), root)
+            else plan_revision(read_request(arguments.request), root, derived=derived)
         )
         if not arguments.check:
             apply_plan(plan, root)
