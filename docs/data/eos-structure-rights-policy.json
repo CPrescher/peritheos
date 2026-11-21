@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "fbf7fe080504480ab349a423f6b36acdb86a103ae5a16be532dc335b6cc1f9b4",
+  "catalog_scientific_sha256": "d0ce96224a0b0db87af8fbdb967453c77e37f6f2ce39eb888b9a28dea96bd84f",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
@@ -54,7 +54,7 @@
     "peritheos/data/materials/delta_alooh.eosmat": "3c8978f9022dc401e62e8fe6eca5356eaf9cf0e11cfac164155649c9931b3bb5",
     "peritheos/data/materials/diamond.eosmat": "3ce294f6cbc286a22be74205f1004ba250e20166e073426607b8d9f42b9d2b24",
     "peritheos/data/materials/diopside.eosmat": "e376c21e58c89f9139eb914159a3a7645272144596308630c557f7ca11773fda",
-    "peritheos/data/materials/e_feooh.eosmat": "c822e66381e3b0abcd3e0a61629036346a0316dec14ab40d924ade69df6c4c50",
+    "peritheos/data/materials/e_feooh.eosmat": "7f5f2def785abab1863db1511fff7eeab42be737353495d87fdfc2c68973887a",
     "peritheos/data/materials/e_feooh_hc_low_spin.eosmat": "5d995b6c37b6c149b971ce3c8021ae307b71c29d0e01e9e33bcf593a99185623",
     "peritheos/data/materials/fayalite.eosmat": "4d7bde6b417e6c13e3e1c895508d4ac915dd1a395de1f66bfe2c2decde492276",
     "peritheos/data/materials/fe.eosmat": "5114cddfb6c4cf6327cbe9f2c43cb566ad9d041bde276d4a756896a7734cdd90",
@@ -444,6 +444,9 @@
       ],
       "cairo3_post_perovskite": [
         "2026-11-21-cairo3-post-perovskite-one-sigma"
+      ],
+      "e_feooh": [
+        "2026-11-21-e-feooh-one-sigma"
       ],
       "ferropericlase_fe27": [
         "2026-11-21-ferropericlase-fe27-one-sigma"

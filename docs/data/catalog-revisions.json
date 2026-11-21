@@ -2075,6 +2075,149 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "7377a653a93766dafa7ed67e9e932e1371ead896fbdaf0d34cd9b046e145db97"
+    },
+    {
+      "id": "2026-11-21-e-feooh-one-sigma",
+      "material": "e_feooh",
+      "kind": "set_fields",
+      "date": "2026-11-21",
+      "decided_by": "Clemens Prescher",
+      "reason": "The Table 2 footnote defines the parenthetical numbers as standard deviations; no parameter covariance is published (audit evidence.parameter_provenance.uncertainties).",
+      "source": {
+        "citation": "Suzuki (2016), Pressure-volume-temperature equation of state of epsilon-FeOOH to 11 GPa and 700 K, J. Mineral. Petrol. Sci. 111, 420-424, doi:10.2465/jmps.160719c",
+        "location": "Table 2 footnote, page 422"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-21",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "e_feooh_suzuki_2016_bm3_thermal_2",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "e_feooh_suzuki_2016_bm3_thermal_2",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "5482a4326a222430952d67a98dee0595b7bb8334a9db19a52e9d930e1221dffe",
+        "after": "351244d3a8b42ed6f5e73ca5d257af8af47bea32e3c9b8f0f223a11430bd7896"
+      },
+      "reference_sha256": {
+        "before": "c822e66381e3b0abcd3e0a61629036346a0316dec14ab40d924ade69df6c4c50",
+        "after": "7f5f2def785abab1863db1511fff7eeab42be737353495d87fdfc2c68973887a"
+      },
+      "scientific": {
+        "records_before": "f205db55d8912d5c370c61ae96f664b1f8f0e09365822b8b951fd430834c5618",
+        "records_after": "93a55c792d3504adf9bbbb037c5a757828c45a746ffbc79f2a8a24340d9d2b64",
+        "added_records": {},
+        "catalog_before": "fbf7fe080504480ab349a423f6b36acdb86a103ae5a16be532dc335b6cc1f9b4",
+        "catalog_after": "d0ce96224a0b0db87af8fbdb967453c77e37f6f2ce39eb888b9a28dea96bd84f"
+      },
+      "files": {
+        "peritheos/data/materials/e_feooh.eosmat": {
+          "before": "7937c7dac37d6444f0122bda854f9618f1ef3e5f613fa0541c8d41def53a8893",
+          "after": "16f3adefbf9b58c430925cbb66825063aa1fa6e5d7cb72b61f1becc2d99d9109"
+        },
+        "peritheos/data/audits/e_feooh.audit.json": {
+          "before": "4df48753082993b6cd63ff0feec203ac2198ce9284588e58f505f0f826ae6d08",
+          "after": "4df48753082993b6cd63ff0feec203ac2198ce9284588e58f505f0f826ae6d08"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "c822e66381e3b0abcd3e0a61629036346a0316dec14ab40d924ade69df6c4c50",
+          "after_record_sha256": "7937c7dac37d6444f0122bda854f9618f1ef3e5f613fa0541c8d41def53a8893",
+          "after_audit_sha256": "4df48753082993b6cd63ff0feec203ac2198ce9284588e58f505f0f826ae6d08",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0,
+            1
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "c822e66381e3b0abcd3e0a61629036346a0316dec14ab40d924ade69df6c4c50",
+          "after": "7f5f2def785abab1863db1511fff7eeab42be737353495d87fdfc2c68973887a"
+        },
+        "catalog_scientific_sha256": {
+          "before": "fbf7fe080504480ab349a423f6b36acdb86a103ae5a16be532dc335b6cc1f9b4",
+          "after": "d0ce96224a0b0db87af8fbdb967453c77e37f6f2ce39eb888b9a28dea96bd84f"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/e_feooh.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "f7f6490cc36fad1802aa923613b6d28f13d52949a2c3637d97a7a202d55b59b9"
     }
   ]
 }
