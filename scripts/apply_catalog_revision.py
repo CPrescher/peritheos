@@ -160,6 +160,18 @@ RANGE_FIELDS = (
     "pressure_range_status",
 )
 VALIDITY_BOUNDS = ("pressure_gpa", "temperature_k", "volume_ratio")
+#: Allowed pressure bounds of a range, GPa. The bundled catalog spans
+#: -11.3 to 1374 GPa; the window leaves room without admitting typos.
+PRESSURE_WINDOW_GPA = (-20.0, 2000.0)
+#: Upper temperature bound of a range, K (the catalog reaches 8500 K).
+TEMPERATURE_MAX_K = 20000.0
+#: ``pressure_range_status`` values of the EOSMAT v5 schema.
+PRESSURE_RANGE_STATUSES = (
+    "reported_exactly",
+    "reported_qualitatively",
+    "theoretical",
+    "reference_parameterization",
+)
 #: The only paths a ``set_fields`` revision may set, in words.
 ALLOW_LIST = (
     "parameters.<name>.error|fixed and "
@@ -469,12 +481,14 @@ def _run(stage: Path, arguments: list[str], what: str) -> str:
 
 
 _SMOKE = """
-import json, sys
+import json, math, sys
 from peritheos import get_material, list_eos_records, list_materials
 from peritheos.eosmat import (
     get_material_document, list_eos_record_documents, list_material_documents,
     validate_pressure_calibration_references,
 )
+from peritheos.eos import ThermalEOS
+from peritheos.eos.maltby2024 import Maltby2024
 from peritheos.materials import Material
 
 material, touched = sys.argv[1], json.loads(sys.argv[2])
@@ -491,10 +505,34 @@ for identifier in touched:
     status = records[identifier]["scientific_validation"]["status"]
     if status == "deferred":
         continue
-    loaded = Material.from_eosmat(document, record_identifiers=[identifier])
+    loaded = Material.from_eosmat(
+        document,
+        record_identifiers=[identifier],
+        require_primary_validation=status == "primary_source_validated",
+    )
     record = loaded.get_eos_record(identifier)
-    if not record.is_hugoniot:
-        record.pressure(record.reference_volume * 0.95, record.reference_temperature)
+    if record.is_hugoniot:
+        record.pressure(record.reference_volume * 0.95, check_domain=False)
+        continue
+    # A state inside the enforced range, evaluated with uncertainty.
+    validity = record.validity
+    low, high = validity.pressure_gpa
+    pressure = 0.5 * (max(low, -10.0) + min(high, 100.0))
+    if not low <= pressure <= high:
+        pressure = low if math.isfinite(low) else high
+    thermal = isinstance(record.eos, (ThermalEOS, Maltby2024))
+    temperature = None
+    if thermal:
+        t_low, t_high = validity.temperature_k
+        temperature = record.reference_temperature
+        if not t_low <= temperature <= t_high:
+            temperature = 0.5 * (t_low + min(t_high, 4000.0))
+    volume = record.volume(pressure, temperature)
+    record.pressure(volume, temperature)
+    result = record.pressure_with_uncertainty(volume, temperature)
+    values = [result.value] if hasattr(result, "value") else []
+    if not all(math.isfinite(float(v)) for v in values):
+        raise ValueError(f"{identifier}: non-finite pressure with uncertainty")
 print("ok")
 """
 
@@ -783,6 +821,7 @@ def _new_record(material: str, record: dict, document: dict, root: Path) -> dict
         raise Refused(
             "generic_statement", "the generic note is stated once in the docs"
         )
+    _check_record(record, identifier, complete=True)
     labels = [r.get("label") for r in document["eos_records"]]
     cases = record_cases({**record, "check": {}})
     if record["label"] in labels:
@@ -864,6 +903,11 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
             and item[0] <= item[1]
         )
 
+    if kind in RANGE_FIELDS or kind == "bound":
+        _check_range(path[-1], value, joined)
+        return
+    if kind == "parameter_covariance":
+        return  # checked on the record after all changes (_check_record)
     valid = {
         "error": value is None or (_number(value) and value >= 0),
         "fixed": isinstance(value, bool),
@@ -878,6 +922,139 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
     }[kind]
     if not valid:
         raise Refused("value", f"{joined}: {json.dumps(value)} is not a valid value")
+
+
+def _check_range(kind: str, value: Any, where: str) -> None:
+    """A range or status value: two finite numbers inside the sane window."""
+    if kind == "pressure_range_status":
+        if value not in PRESSURE_RANGE_STATUSES:
+            raise Refused(
+                "value",
+                f"{where}: {json.dumps(value)} is not one of {list(PRESSURE_RANGE_STATUSES)}",
+            )
+        return
+    if not (
+        isinstance(value, list)
+        and len(value) == 2
+        and all(map(_number, value))
+        and value[0] <= value[1]
+    ):
+        raise Refused(
+            "range",
+            f"{where}: {json.dumps(value)} is not [lower, upper] finite numbers",
+        )
+    if "pressure" in kind:
+        low, high = PRESSURE_WINDOW_GPA
+        if value[0] < low or value[1] > high:
+            raise Refused(
+                "range", f"{where}: {value} GPa is outside [{low}, {high}] GPa"
+            )
+    elif "temperature" in kind:
+        if value[0] <= 0 or value[1] > TEMPERATURE_MAX_K:
+            raise Refused(
+                "range", f"{where}: {value} K is outside (0, {TEMPERATURE_MAX_K}] K"
+            )
+    elif kind == "volume_ratio" and value[0] <= 0:
+        raise Refused("range", f"{where}: {value} must be positive")
+
+
+def _check_covariance(record: Mapping[str, Any], where: str) -> None:
+    """Covariance of free parameters: square, symmetric, PSD, finite."""
+    import numpy as np
+
+    covariance = record.get("parameter_covariance")
+    if covariance is None:
+        return
+    if not isinstance(covariance, dict):
+        raise Refused("covariance", f"{where}: parameter_covariance must be an object")
+    order = covariance.get("parameter_order")
+    matrix = covariance.get("matrix")
+    if (
+        not isinstance(order, list)
+        or not order
+        or not all(isinstance(n, str) for n in order)
+    ):
+        raise Refused(
+            "covariance", f"{where}: parameter_order must list parameter names"
+        )
+    if len(set(order)) != len(order):
+        raise Refused("covariance", f"{where}: parameter_order repeats a name")
+    items = _parameter_items(record)
+    for name in order:
+        item = items.get(name.split(".")[-1])
+        if item is None:
+            raise Refused(
+                "covariance", f"{where}: {name} is not a parameter of the record"
+            )
+        if item.get("fixed"):
+            raise Refused(
+                "covariance", f"{where}: {name} is fixed, not a free parameter"
+            )
+    if (
+        not isinstance(matrix, list)
+        or len(matrix) != len(order)
+        or not all(isinstance(r, list) and len(r) == len(order) for r in matrix)
+        or not all(_number(v) for r in matrix for v in r)
+    ):
+        raise Refused(
+            "covariance",
+            f"{where}: matrix must be {len(order)}x{len(order)} finite numbers",
+        )
+    array = np.asarray(matrix, dtype=float)
+    scale = max(float(np.max(np.abs(array))), 1e-300)
+    if not np.allclose(array, array.T, rtol=1e-9, atol=1e-12 * scale):
+        raise Refused("covariance", f"{where}: matrix is not symmetric")
+    if float(np.min(np.linalg.eigvalsh((array + array.T) / 2))) < -1e-9 * scale:
+        raise Refused("covariance", f"{where}: matrix is not positive semidefinite")
+
+
+def _check_record(record: Mapping[str, Any], where: str, *, complete: bool) -> None:
+    """Values of a record after the revision (``complete``: an added record)."""
+    for name, item in _parameter_items(record).items():
+        error = item.get("error")
+        if error is not None and not (_number(error) and error >= 0):
+            raise Refused(
+                "value", f"{where}: {name}.error must be a finite number >= 0 or null"
+            )
+        if complete and not _number(item.get("value")):
+            raise Refused("value", f"{where}: {name}.value must be a finite number")
+        if "fixed" in item and not isinstance(item["fixed"], bool):
+            raise Refused("value", f"{where}: {name}.fixed must be true or false")
+    confidence = record.get("parameter_error_confidence")
+    if confidence is not None and not (_number(confidence) and 0 < confidence < 1):
+        raise Refused(
+            "value", f"{where}: parameter_error_confidence must be in (0, 1) or null"
+        )
+    if complete:
+        for key in RANGE_FIELDS:
+            if record.get(key) is not None:
+                _check_range(key, record[key], f"{where}/{key}")
+        validity = record.get("validity")
+        if isinstance(validity, dict):
+            for key in VALIDITY_BOUNDS:
+                if validity.get(key) is not None:
+                    _check_range(key, validity[key], f"{where}/validity.{key}")
+    _check_covariance(record, where)
+    reference = record.get("temperature_ref")
+    if reference is None:
+        return
+    if not (_number(reference) and reference > 0):
+        raise Refused("value", f"{where}: temperature_ref must be a positive number")
+    thermal = record.get("thermal") if isinstance(record.get("thermal"), dict) else {}
+    tr = (thermal.get("parameters") or {}).get("Tr")
+    if isinstance(tr, dict) and _number(tr.get("value")) and tr["value"] != reference:
+        raise Refused(
+            "value",
+            f"{where}: temperature_ref {reference} differs from thermal Tr {tr['value']}",
+        )
+    span = record.get("experimental_temperature_range_k")
+    if isinstance(span, list) and len(span) == 2 and all(map(_number, span)):
+        if not span[0] <= reference <= span[1]:
+            raise Refused(
+                "value",
+                f"{where}: temperature_ref {reference} K is outside the stated "
+                f"temperature range {span}",
+            )
 
 
 def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
@@ -929,6 +1106,8 @@ def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
         }
         apply_operations(document["eos_records"], [operation], "document")
         forward.append(operation)
+    for identifier in dict.fromkeys(o["record"] for o in forward):
+        _check_record(records[identifier], identifier, complete=False)
     return forward
 
 

@@ -804,7 +804,7 @@ def test_a_hand_edited_added_record_text_is_caught(revised, tmp_path, monkeypatc
         (["thermal", "parameters", "Tr", "value"], 298.0, "published_value"),
         (["parameters", "K0", "error"], -1, "value"),
         (["parameter_error_confidence"], 1.5, "value"),
-        (["experimental_pressure_range_gpa"], [5, 1], "value"),
+        (["experimental_pressure_range_gpa"], [5, 1], "range"),
     ],
 )
 def test_set_fields_refuses_paths_outside_the_allow_list(pristine, path, value, reason):
@@ -820,6 +820,103 @@ def test_set_fields_refuses_paths_outside_the_allow_list(pristine, path, value, 
         tool.plan_revision(request, pristine, derived=False)
     if reason == "protected_field" and path[0] not in ("label", "notes", "validity"):
         assert "settable:" in str(refusal.value)
+
+
+def _covariance_record(root: Path) -> tuple[str, dict]:
+    """A record whose covariance names free parameters (picked at run time)."""
+    for path in sorted((root / "peritheos/data/materials").glob("*.eosmat")):
+        for record in json.loads(path.read_bytes())["eos_records"]:
+            covariance = record.get("parameter_covariance")
+            if (
+                isinstance(covariance, dict)
+                and len(covariance.get("parameter_order", [])) == 2
+                and all(
+                    n in record["parameters"] for n in covariance["parameter_order"]
+                )
+                and not record.get("thermal")
+            ):
+                return path.stem, record
+    raise AssertionError("no record with a two-parameter covariance")
+
+
+@pytest.mark.parametrize(
+    ("edit", "reason"),
+    [
+        (lambda c: c.update(parameter_order=["K0", "Q"]), "not a parameter"),
+        (lambda c: c.update(matrix=[[1.0, 0.0]]), "must be 2x2"),
+        (lambda c: c.update(matrix=[[1.0, 0.5], [0.4, 1.0]]), "not symmetric"),
+        (lambda c: c.update(matrix=[[1.0, 2.0], [2.0, 1.0]]), "positive semidefinite"),
+        (lambda c: c.update(matrix=[[1.0, "x"], ["x", 1.0]]), "finite numbers"),
+    ],
+)
+def test_a_covariance_is_checked_before_staging(pristine, edit, reason):
+    material, record = _covariance_record(pristine)
+    covariance = copy.deepcopy(record["parameter_covariance"])
+    edit(covariance)
+    request = set_request(
+        "t",
+        material,
+        [
+            change(
+                record["identifier"],
+                ["parameter_covariance"],
+                record["parameter_covariance"],
+                covariance,
+            )
+        ],
+    )
+    with pytest.raises(tool.Refused, match=reason):
+        tool.plan_revision(request, pristine, derived=False)
+
+
+def test_fixing_a_covariance_parameter_is_refused(pristine):
+    material, record = _covariance_record(pristine)
+    name = record["parameter_covariance"]["parameter_order"][0]
+    current = record["parameters"][name].get("fixed", catalog_revisions.ABSENT)
+    request = set_request(
+        "t",
+        material,
+        [change(record["identifier"], ["parameters", name, "fixed"], current, True)],
+    )
+    with pytest.raises(tool.Refused, match="is fixed, not a free parameter"):
+        tool.plan_revision(request, pristine, derived=False)
+
+
+@pytest.mark.parametrize(
+    ("path", "value", "reason"),
+    [
+        (["experimental_pressure_range_gpa"], [0, 3000], "outside"),
+        (["experimental_pressure_range_gpa"], [0, float("inf")], "finite numbers"),
+        (["experimental_temperature_range_k"], [0, 300], "outside"),
+        (["pressure_range_status"], "approximately", "is not one of"),
+        (["parameters", "K0", "error"], float("nan"), "value"),
+        (["temperature_ref"], 310.0, "outside the stated temperature range"),
+    ],
+)
+def test_ranges_and_values_are_validated(pristine, path, value, reason):
+    record = _records(pristine, "qandilite")[0]
+    try:
+        expected = catalog_revisions.read_path(record, path)
+    except ValueError:
+        expected = catalog_revisions.ABSENT
+    request = set_request(
+        "t", "qandilite", [change(record["identifier"], path, expected, value)]
+    )
+    with pytest.raises(tool.Refused, match=reason):
+        tool.plan_revision(request, pristine, derived=False)
+
+
+def test_an_added_record_is_validated_like_a_change(pristine):
+    for edit, reason in (
+        (lambda r: r.update(temperature_ref=298.0), "differs from thermal Tr"),
+        (lambda r: r.update(experimental_pressure_range_gpa=[0.0, 5000.0]), "outside"),
+        (lambda r: r.update(pressure_range_status="roughly"), "is not one of"),
+        (lambda r: r["parameters"]["K0"].update(error=-2.0), "error must be"),
+    ):
+        request = add_request(pristine)
+        edit(request["record"])
+        with pytest.raises(tool.Refused, match=reason):
+            tool.plan_revision(request, pristine, derived=False)
 
 
 def test_removing_or_emptying_validity_is_refused(pristine):
