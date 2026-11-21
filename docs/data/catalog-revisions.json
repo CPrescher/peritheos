@@ -2218,6 +2218,141 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "f7f6490cc36fad1802aa923613b6d28f13d52949a2c3637d97a7a202d55b59b9"
+    },
+    {
+      "id": "2026-11-21-hydrous-stishovite-nisr-2017-one-sigma",
+      "material": "hydrous_stishovite_nisr_2017",
+      "kind": "set_fields",
+      "date": "2026-11-21",
+      "decided_by": "Clemens Prescher",
+      "reason": "The record's parameter_uncertainty_convention reads \"Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified.\" 0.6827 is the normal-equivalent level of a stated 1 sigma, not a confidence fraction stated by the source.",
+      "source": {
+        "citation": "Nisr et al. (2017), Phase transition and equation of state of dense hydrous silica up to 63 GPa, Journal of Geophysical Research: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055",
+        "location": "Tables 3-4 (cited in the record's parameter_uncertainty_convention)"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-21",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "hydrous_stishovite_nisr_2017_bm3",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "hydrous_stishovite_nisr_2017_bm3",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "882a110108812109ecf996608708a0043c439f8e749cb66dd4b3a4507ce7976e",
+        "after": "110e8c3544c30ad2fda9cd17e2d09055861885eb840bd154c6a9691bd074927e"
+      },
+      "reference_sha256": {
+        "before": "f6ec580aa69c21b4c4015279d74c8daca2fe08927f896762688fb4e567257bda",
+        "after": "ce748d2676ca0cb7a80ebb32ae315fe49cf23be5931a65acd71290932da20df4"
+      },
+      "scientific": {
+        "records_before": "3ad7d3079fad917b9c2b3f9662e8589d26fbde4524c7af82aa15133a63636c0b",
+        "records_after": "becd851a814824d5b810abf7384b914bf60c7b2f7dab6c81651085fda64deb44",
+        "added_records": {},
+        "catalog_before": "d0ce96224a0b0db87af8fbdb967453c77e37f6f2ce39eb888b9a28dea96bd84f",
+        "catalog_after": "936ddf06c867dd735a26419b5edc177ed404270491fcd342aed4539f74be8620"
+      },
+      "files": {
+        "peritheos/data/materials/hydrous_stishovite_nisr_2017.eosmat": {
+          "before": "326ddabfd7c0f30d29890adcd5b1e3c78230253a8293893b8fe2a8102b3ab799",
+          "after": "52aca544d9ce92bd964d993e7935e845b064ff09177d7965f4c51eb218aef806"
+        },
+        "peritheos/data/audits/hydrous_stishovite_nisr_2017.audit.json": {
+          "before": "2bc5ad24c47d51081f82a0887f9a9ab3929f8e06bebdb9d51fcc63ece1623db2",
+          "after": "2bc5ad24c47d51081f82a0887f9a9ab3929f8e06bebdb9d51fcc63ece1623db2"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "f6ec580aa69c21b4c4015279d74c8daca2fe08927f896762688fb4e567257bda",
+          "after_record_sha256": "326ddabfd7c0f30d29890adcd5b1e3c78230253a8293893b8fe2a8102b3ab799",
+          "after_audit_sha256": "2bc5ad24c47d51081f82a0887f9a9ab3929f8e06bebdb9d51fcc63ece1623db2",
+          "layout": "v4",
+          "added_check": [
+            0
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  3,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "f6ec580aa69c21b4c4015279d74c8daca2fe08927f896762688fb4e567257bda",
+          "after": "ce748d2676ca0cb7a80ebb32ae315fe49cf23be5931a65acd71290932da20df4"
+        },
+        "catalog_scientific_sha256": {
+          "before": "d0ce96224a0b0db87af8fbdb967453c77e37f6f2ce39eb888b9a28dea96bd84f",
+          "after": "936ddf06c867dd735a26419b5edc177ed404270491fcd342aed4539f74be8620"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/hydrous_stishovite_nisr_2017.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "805255f2b8493228ad3bb3c8f007c9add7f77189a59cefa25ddeb3fdd6853374"
     }
   ]
 }
