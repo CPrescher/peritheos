@@ -1858,20 +1858,30 @@ def plan_undo(revision_id: str, root: Path = ROOT, *, derived: bool = True) -> P
                 (i for i, r in enumerate(rows) if r["record_identifier"] == identifier),
                 None,
             )
-            if index is None or rows[index] != pair["after"]:
-                if pair["before"] is None and index is not None:
-                    del rows[index]  # later text revisions may have edited it
-                    continue
+            if index is None:
+                raise Refused(
+                    "changed_since", f"the refit-ledger row of {identifier} is gone"
+                )
+            current = rows[index]
+            if pair["before"] is None:
+                del rows[index]  # the record leaves with its row
+                continue
+            if _without_text(current) != _without_text(pair["after"]):
                 raise Refused(
                     "changed_since",
-                    f"the refit-ledger row of {identifier} changed after {revision_id}; "
-                    "return its usage recommendation with scripts/apply_check_text.py "
-                    "first",
+                    f"the refit-ledger row of {identifier} changed after "
+                    f"{revision_id} beyond its text copies",
                 )
-            if pair["before"] is None:
-                del rows[index]
-            else:
-                rows[index] = pair["before"]
+            # Later text revisions keep their copies (label, notes, usage).
+            restored = copy.deepcopy(pair["before"])
+            for key in TEXT_ROW_FIELDS:
+                if key in current:
+                    restored[key] = copy.deepcopy(current[key])
+                else:
+                    restored.pop(key, None)
+            if list(pair["before"]) == sorted(pair["before"]):
+                restored = dict(sorted(restored.items()))
+            rows[index] = restored
         _write_refit_ledger(stage, refits)
         added = _added(revision["forward"])
         if added:
@@ -1908,6 +1918,19 @@ def plan_undo(revision_id: str, root: Path = ROOT, *, derived: bool = True) -> P
         ),
     ]
     return plan
+
+
+#: Refit-ledger row fields the text tools own (copies of record text).
+TEXT_ROW_FIELDS = (
+    "label",
+    "source_notes",
+    "usage_recommendation",
+    "recommendation_reason",
+)
+
+
+def _without_text(row: Mapping[str, Any]) -> dict:
+    return {k: v for k, v in row.items() if k not in TEXT_ROW_FIELDS}
 
 
 def _refit_ledger_raw(stage: Path) -> dict:

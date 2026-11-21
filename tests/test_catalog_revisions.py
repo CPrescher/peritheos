@@ -561,6 +561,47 @@ def test_text_then_content_then_text_then_undo_all(repo):
     assert _tree(repo) == original
 
 
+def test_undo_keeps_a_later_notes_rewrite_of_a_record_whose_row_changed(repo):
+    """A changed comparison rewrites the refit row; a later notes rewrite only
+    touches the row's text copy, so undo goes through and keeps it."""
+    material, identifier = "qandilite", "qandilite_lv_2016_bm3"
+    record = next(r for r in _records(repo, material) if r["identifier"] == identifier)
+    error = record["parameters"]["K0"]["error"]
+    request = set_request(
+        "t-row",
+        material,
+        [change(identifier, ["parameters", "K0", "error"], error, None)],
+    )
+    try:
+        tool.plan_revision(request, repo, derived=False)
+    except tool.Refused as refusal:
+        assert refusal.reason == "check_change"
+        request[tool.ACKNOWLEDGE] = json.loads(
+            refusal.detail.split("changes ", 1)[1].split("; the request", 1)[0]
+        )
+    apply(repo, request)
+    assert identifier in read_ledger(repo)["revisions"][-1]["refit_rows"]
+    _text_change(repo, material, identifier, "notes", "Rewritten after the revision.")
+    plan = undo(repo, "t-row")
+    assert any("later text revisions" in line for line in plan.shown)
+    record = next(r for r in _records(repo, material) if r["identifier"] == identifier)
+    assert record["notes"] == "Rewritten after the revision."
+    assert record["parameters"]["K0"]["error"] == error
+    rows = {
+        r["record_identifier"]: r
+        for r in json.loads((repo / tool.REFITS).read_bytes())["records"]
+    }
+    original = {
+        r["record_identifier"]: r
+        for r in json.loads((ROOT / tool.REFITS).read_bytes())["records"]
+    }
+    assert rows[identifier]["source_notes"] == "Rewritten after the revision."
+    assert tool._without_text(rows[identifier]) == tool._without_text(
+        original[identifier]
+    )
+    assert_history(repo, [])
+
+
 # Tampering ------------------------------------------------------------------
 
 
