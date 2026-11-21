@@ -644,6 +644,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1016/S0031-9201(00)00154-0
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 108.0\]
+- **Printed parameter errors:** 1 sigma
 
 Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite, with V0 fixed in the Table 2 fit. Errors are one standard deviation.
 
@@ -2879,7 +2880,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
@@ -2985,7 +2986,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 1.0
     - **Molar mass g mol:** 116.162
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 Peritheos BM3 + linear thermal-pressure refit with equal pressure weights to 64 Table 1 states, without the two sub-2-GPa states the source flags as amorphizing. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. Not a reproduction of the published thermal fit or a validated pressure standard.

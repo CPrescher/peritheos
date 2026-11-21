@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "f57c65616ccb04feabd8a1bccf6777a869db9ffc7d5c407b952cb41d674b28d7",
+  "catalog_scientific_sha256": "f85704b909ab3a599c8c718a6177ca9fbd0eee8ce1ecd3bc8375ba603d344854",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
@@ -27,7 +27,7 @@
     "peritheos/data/materials/brucite.eosmat": "8366590f85dca9e1b70b60e2edfbb856cbb4f37bc75663843e3fde532ed070ec",
     "peritheos/data/materials/ca0988mg0918fe0078mn0016c2o6_dolomite.eosmat": "e9a3ff6184c4081a16f6b4adbdbc959db0bb253d663abbacd85288851e0fbb6f",
     "peritheos/data/materials/ca0988mg0918fe0078mn0016c2o6_dolomite_iii.eosmat": "ab967f7e0b4237251beba8767fd9a8a71e347f5834da76dbabf4a7a1b9e5994e",
-    "peritheos/data/materials/ca_perovskite.eosmat": "04389255bb6da6c47d24cc171f1f4c94f74f5b82d91f6a0dbc8d5e4b69f10441",
+    "peritheos/data/materials/ca_perovskite.eosmat": "4b29d7f3c0a878d0e1eee9f4af35eac6dab6f91d7027b2146c74488eeb56b276",
     "peritheos/data/materials/ca_perovskite_tetragonal.eosmat": "1b87756110d6851eb6496e246a797ef578cfdb3a58f72bf2b511e15399f59d6c",
     "peritheos/data/materials/cairo3_perovskite.eosmat": "42f0f63e9eccdc078ccc675359c3bd3b63447a405e3cd92e70f36c1cd1952364",
     "peritheos/data/materials/cairo3_post_perovskite.eosmat": "7c66a9d98da089fd3b1e76bbd8b658a105d4052b52f31f2f32f8daa54c82a837",
@@ -433,6 +433,9 @@
   "catalog_revisions": {
     "ledger": "docs/data/catalog-revisions.json",
     "materials": {
+      "ca_perovskite": [
+        "2026-11-21-ca-perovskite-one-sigma"
+      ],
       "qandilite": [
         "2026-11-21-qandilite-one-sigma"
       ]
