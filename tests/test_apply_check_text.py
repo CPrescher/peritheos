@@ -477,6 +477,7 @@ USAGE_BATCH = {
 }
 LEDGER = "docs/data/primary-eos-refits.json"
 LEDGER_MARKDOWN = "docs/primary-eos-refits.md"
+REVISIONS = "docs/data/catalog-revisions.json"
 
 
 @pytest.fixture
@@ -500,6 +501,14 @@ def usage_root(tmp_path):
     target.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
     shutil.copy2(ROOT / LEDGER, tmp_path / LEDGER)
     shutil.copy2(ROOT / LEDGER_MARKDOWN, tmp_path / LEDGER_MARKDOWN)
+    # The catalog revisions of these materials, which their bindings pin.
+    revisions = json.loads((ROOT / REVISIONS).read_bytes())
+    revisions["revisions"] = [
+        r for r in revisions["revisions"] if r["material"] in materials
+    ]
+    (tmp_path / REVISIONS).write_text(
+        json.dumps(revisions, indent=2, ensure_ascii=False) + "\n"
+    )
     # Start argon from its original free-text recommendation, whatever code the
     # bundled record carries now: the tool itself returns the copy to the
     # stored original, and no usage binding remains.
