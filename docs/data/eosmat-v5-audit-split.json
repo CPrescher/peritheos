@@ -19923,7 +19923,9 @@
     },
     "qandilite": {
       "before_sha256": "3951c7be8a42ccceba5c2844dc21ae0c5ee9d0b07dc421211b13ce1405c8a6d0",
-      "after_record_sha256": "19f86074aab8f4254a6cd832cba4cb48f43c880d1f1a3cec011b26a8a3fc0506",
+      "catalog_revision_sha256": "f2fbf76a0ae6dab94d537446cbed9d1ada2ded36df60d62855add4c11edfa75a",
+      "catalog_revision_content_sha256": "b8a0f752cc62516811c5160a3b382d9d9a728a968d362c26ff605b415da0dcba",
+      "after_record_sha256": "f6944ed2bcddda319109265c40cf903713a940a42659073bf70f1ceb8f076ecb",
       "after_audit_sha256": "46de8c5e64ce9aca0e498f043654b22db37f2d6900b90b4d028f51700906eb89",
       "layout": "v4",
       "added_check": [
@@ -19992,7 +19994,8 @@
             "parameter_covariance",
             "reference",
             "pressure_calibration",
-            "evidence"
+            "evidence",
+            "parameter_error_confidence"
           ]
         },
         {
@@ -20020,7 +20023,8 @@
             "parameter_covariance",
             "reference",
             "pressure_calibration",
-            "evidence"
+            "evidence",
+            "parameter_error_confidence"
           ]
         }
       ],
@@ -23463,5 +23467,6 @@
     ]
   },
   "record_text_revision": "Free-text revisions after the split (label, notes, validity.notes, thermal.notes) keep every replaced original verbatim in the record's superseded_record_text sidecar block. A binding's superseded_record_text lists those record indices; recovery restores the originals and removes the block first. after_record_sha256 and after_audit_sha256 bind the revised files; before_sha256 values are unchanged.",
-  "check_text_revision": "Curated check texts written after the split (scientific_validation.primary_source_check.record_note and scientific_validation.warning_reason, copied into check.source_note and check.warning_reason) and coded usage recommendations (scientific_validation.usage_recommendation, the source of check.warning, with the recommendation_reason and assessment qualifications derived from it, field assessment_qualifications) are bound as check_text entries [index, {field: original}], original null meaning absent; recovery restores them before removing the check blocks. finding is never changed. after_record_sha256 and after_audit_sha256 bind the revised files; before_sha256 values are unchanged."
+  "check_text_revision": "Curated check texts written after the split (scientific_validation.primary_source_check.record_note and scientific_validation.warning_reason, copied into check.source_note and check.warning_reason) and coded usage recommendations (scientific_validation.usage_recommendation, the source of check.warning, with the recommendation_reason and assessment qualifications derived from it, field assessment_qualifications) are bound as check_text entries [index, {field: original}], original null meaning absent; recovery restores them before removing the check blocks. finding is never changed. after_record_sha256 and after_audit_sha256 bind the revised files; before_sha256 values are unchanged.",
+  "catalog_revision": "A binding's catalog_revision_sha256 is the sha256 of the pre-split reference after the material's latest revision in docs/data/catalog-revisions.json; restoring the current files with the binding gives that reference, and reversing the material's revisions recovers before_sha256, which is unchanged."
 }

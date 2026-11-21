@@ -1,5 +1,243 @@
 {
   "schema": "peritheos.catalog-revisions.v1",
   "scope": "Changes of the scientific content of bundled materials made after the audit split, one revision per entry, in the order applied. Each revision names who decided it, why, the source it rests on and a rights statement, and stores explicit forward and reverse operations on the complete inline document with the sha256 of the complete canonical document, of the pre-split reference (scripts/split_eosmat_audits.py pre_split_bytes) and of the scientific snapshot of the material's records before and after. previous_sha256 chains the revisions of one material. Reversing every revision of a material recovers its original pre-split file (the audit-split binding's before_sha256) byte for byte. Written by scripts/apply_catalog_revision.py.",
-  "revisions": []
+  "revisions": [
+    {
+      "id": "2026-11-21-qandilite-one-sigma",
+      "material": "qandilite",
+      "kind": "set_fields",
+      "date": "2026-11-21",
+      "decided_by": "Clemens Prescher",
+      "reason": "The records' parameter_error_convention reads \"One standard deviation; Table 2 footnote a and Figure 5 caption.\"",
+      "source": {
+        "citation": "Lv et al. (2016), Equation of state of synthetic qandilite Mg2TiO4 at ambient temperature, Phys. Chem. Minerals 43, 301-306, doi:10.1007/s00269-015-0794-1",
+        "location": "Table 2 footnote a and Figure 5 caption (cited in the records' parameter_error_convention)"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-21",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "qandilite_lv_2016_bm2",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        },
+        {
+          "op": "set",
+          "record": "qandilite_lv_2016_bm3",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "qandilite_lv_2016_bm3",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "qandilite_lv_2016_bm2",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": false,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "fc4325304eb775c5c1cb82f42c978b7a5b9d3a45d9dc4d7cedc5009be001ecab",
+        "after": "630c1d36e00f623cc98a7047094c979a8d6f004ca4673cebc186fb7860b83a74"
+      },
+      "reference_sha256": {
+        "before": "3951c7be8a42ccceba5c2844dc21ae0c5ee9d0b07dc421211b13ce1405c8a6d0",
+        "after": "f2fbf76a0ae6dab94d537446cbed9d1ada2ded36df60d62855add4c11edfa75a"
+      },
+      "scientific": {
+        "records_before": "af64b8e95b9e04a1182e0c16f2cd440d6b22a25624ba6fa984c8dad31d29d21c",
+        "records_after": "8650bfe92ab069578b83dc7657b392fe01855b2524c92f812a8132833897d53d",
+        "added_records": {},
+        "catalog_before": "36de73967d06e0d7a8946710752cef5bc31d26ed491d0b66813deb7f90f6d880",
+        "catalog_after": "f57c65616ccb04feabd8a1bccf6777a869db9ffc7d5c407b952cb41d674b28d7"
+      },
+      "files": {
+        "peritheos/data/materials/qandilite.eosmat": {
+          "before": "19f86074aab8f4254a6cd832cba4cb48f43c880d1f1a3cec011b26a8a3fc0506",
+          "after": "f6944ed2bcddda319109265c40cf903713a940a42659073bf70f1ceb8f076ecb"
+        },
+        "peritheos/data/audits/qandilite.audit.json": {
+          "before": "46de8c5e64ce9aca0e498f043654b22db37f2d6900b90b4d028f51700906eb89",
+          "after": "46de8c5e64ce9aca0e498f043654b22db37f2d6900b90b4d028f51700906eb89"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "3951c7be8a42ccceba5c2844dc21ae0c5ee9d0b07dc421211b13ce1405c8a6d0",
+          "after_record_sha256": "19f86074aab8f4254a6cd832cba4cb48f43c880d1f1a3cec011b26a8a3fc0506",
+          "after_audit_sha256": "46de8c5e64ce9aca0e498f043654b22db37f2d6900b90b4d028f51700906eb89",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true
+              }
+            ],
+            [
+              1,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0
+              ],
+              "keys": [
+                "identifier",
+                "label",
+                "model",
+                "temperature_ref",
+                "parameters",
+                "experimental_pressure_range_gpa",
+                "experimental_temperature_range_k",
+                "pressure_range_status",
+                "determination_method",
+                "record_kind",
+                "equation_kind",
+                "default",
+                "notes",
+                "range_provenance",
+                "parameter_error_convention",
+                "fit_datasets",
+                "parameter_covariance",
+                "reference",
+                "pressure_calibration",
+                "evidence"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                1
+              ],
+              "keys": [
+                "identifier",
+                "label",
+                "model",
+                "temperature_ref",
+                "parameters",
+                "experimental_pressure_range_gpa",
+                "experimental_temperature_range_k",
+                "pressure_range_status",
+                "determination_method",
+                "record_kind",
+                "equation_kind",
+                "default",
+                "notes",
+                "range_provenance",
+                "parameter_error_convention",
+                "fit_datasets",
+                "parameter_covariance",
+                "reference",
+                "pressure_calibration",
+                "evidence"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "3951c7be8a42ccceba5c2844dc21ae0c5ee9d0b07dc421211b13ce1405c8a6d0",
+          "after": "f2fbf76a0ae6dab94d537446cbed9d1ada2ded36df60d62855add4c11edfa75a"
+        },
+        "catalog_scientific_sha256": {
+          "before": "36de73967d06e0d7a8946710752cef5bc31d26ed491d0b66813deb7f90f6d880",
+          "after": "f57c65616ccb04feabd8a1bccf6777a869db9ffc7d5c407b952cb41d674b28d7"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/qandilite.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "b8a0f752cc62516811c5160a3b382d9d9a728a968d362c26ff605b415da0dcba"
+    }
+  ]
 }

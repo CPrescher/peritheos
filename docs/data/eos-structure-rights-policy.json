@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "36de73967d06e0d7a8946710752cef5bc31d26ed491d0b66813deb7f90f6d880",
+  "catalog_scientific_sha256": "f57c65616ccb04feabd8a1bccf6777a869db9ffc7d5c407b952cb41d674b28d7",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
@@ -197,7 +197,7 @@
     "peritheos/data/materials/praseodymium_dioxide.eosmat": "44b95ad839ec1b40667e0b7bdfce3ffc48bb792657127436eef7f12c736a5132",
     "peritheos/data/materials/pseudowollastonite.eosmat": "6bfbf5024cf78c1f79d339eeb8fa298bdc684cfc76ab0629316d3b2c01cc229a",
     "peritheos/data/materials/pyrope.eosmat": "a44a0c49c7194c8664f043a94bcb4df39b1abd9efeb20d04c6fa18167b600e28",
-    "peritheos/data/materials/qandilite.eosmat": "3951c7be8a42ccceba5c2844dc21ae0c5ee9d0b07dc421211b13ce1405c8a6d0",
+    "peritheos/data/materials/qandilite.eosmat": "f2fbf76a0ae6dab94d537446cbed9d1ada2ded36df60d62855add4c11edfa75a",
     "peritheos/data/materials/rbbr.eosmat": "6121881f6386a1033f0286a7197580477ea443414481533afc0a6738dabf9102",
     "peritheos/data/materials/rbcl.eosmat": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
     "peritheos/data/materials/rbi.eosmat": "9da8eee8b9289fd73ce1f74ac74452bc15798d70be5a519e5ce5c862f1956b6a",
@@ -429,5 +429,13 @@
     "notice": "peritheos/data/datasets/garnet-angel-2022.LICENSE.md",
     "scope": "New Angel (2022) EOS parameters/covariance and Wang (2019) grossular structure under their separately attributed CC-BY-4.0 publication grants; source claims and all old qualifications retained.",
     "preservation": "docs/data/garnet-angel-2022/integration-preservation.json"
+  },
+  "catalog_revisions": {
+    "ledger": "docs/data/catalog-revisions.json",
+    "materials": {
+      "qandilite": [
+        "2026-11-21-qandilite-one-sigma"
+      ]
+    }
   }
 }
