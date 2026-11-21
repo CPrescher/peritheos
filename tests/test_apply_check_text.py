@@ -536,7 +536,7 @@ def _usage_tree(root):
         for m in ("argon_hcp", "ca_perovskite")
         for kind, suffix in (("materials", ".eosmat"), ("audits", ".audit.json"))
     ]
-    names += [str(RECEIPT.relative_to(ROOT)), LEDGER, LEDGER_MARKDOWN]
+    names += [str(RECEIPT.relative_to(ROOT)), LEDGER, LEDGER_MARKDOWN, REVISIONS]
     return {name: (root / name).read_bytes() for name in names}
 
 
