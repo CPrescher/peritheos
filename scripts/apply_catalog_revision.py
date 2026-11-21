@@ -142,7 +142,13 @@ COMMON_KEYS = (
 )
 KIND_KEYS = {"add_record": "record", "set_fields": "changes"}
 CHANGE_KEYS = ("record", "path", "expected", "expected_absent", "value", "remove")
-PARAMETER_FIELDS = ("value", "error", "fixed")
+#: Settable fields of an existing reference-isotherm or thermal parameter. A
+#: published coefficient ``value`` is not settable (see ``PUBLISHED_VALUE``).
+PARAMETER_FIELDS = ("error", "fixed")
+PUBLISHED_VALUE = (
+    "correcting a published coefficient value is not supported by this tool "
+    "yet; raise it with the maintainer"
+)
 RANGE_FIELDS = (
     "experimental_pressure_range_gpa",
     "experimental_temperature_range_k",
@@ -151,8 +157,8 @@ RANGE_FIELDS = (
 VALIDITY_BOUNDS = ("pressure_gpa", "temperature_k", "volume_ratio")
 #: The only paths a ``set_fields`` revision may set, in words.
 ALLOW_LIST = (
-    "parameters.<name>.value|error|fixed and "
-    "thermal.parameters.<name>.value|error|fixed (existing parameters); "
+    "parameters.<name>.error|fixed and "
+    "thermal.parameters.<name>.error|fixed (existing parameters); "
     "parameter_error_confidence; parameter_covariance; temperature_ref; "
     "experimental_pressure_range_gpa, experimental_temperature_range_k, "
     "pressure_range_status; validity.pressure_gpa|temperature_k|volume_ratio "
@@ -778,6 +784,11 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
             f"{joined} is text; use scripts/apply_record_text.py (label, notes, "
             "validity.notes, thermal.notes) or scripts/apply_check_text.py",
         )
+    if path[-1] == "value" and (
+        (len(path) == 3 and path[0] == "parameters")
+        or (len(path) == 4 and path[:2] == ["thermal", "parameters"])
+    ):
+        raise Refused("published_value", f"{joined}: {PUBLISHED_VALUE}")
     removal = bool(change.get("remove"))
     value = change.get("value")
     parameters = record.get("parameters")
@@ -834,7 +845,6 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
         )
 
     valid = {
-        "value": _number(value),
         "error": value is None or (_number(value) and value >= 0),
         "fixed": isinstance(value, bool),
         "parameter_error_confidence": value is None

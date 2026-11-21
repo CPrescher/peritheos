@@ -665,8 +665,11 @@ def test_a_hand_edited_added_record_text_is_caught(revised, tmp_path, monkeypatc
         (["notes"], "x", "protected_field"),
         (["validity", "notes"], ["x"], "protected_field"),
         (["thermal", "model"], "MGD", "protected_field"),
-        (["parameters", "Q", "value"], 1.0, "protected_field"),
-        (["parameters", "K0", "value"], "x", "value"),
+        (["parameters", "Q", "error"], 1.0, "protected_field"),
+        # A published coefficient is never replaced by a revision.
+        (["parameters", "K0", "value"], 176.797, "published_value"),
+        (["parameters", "K0_prime", "value"], 5.148, "published_value"),
+        (["thermal", "parameters", "Tr", "value"], 298.0, "published_value"),
         (["parameters", "K0", "error"], -1, "value"),
         (["parameter_error_confidence"], 1.5, "value"),
         (["experimental_pressure_range_gpa"], [5, 1], "value"),
@@ -723,33 +726,29 @@ def test_removing_or_emptying_validity_is_refused(pristine):
 
 
 def test_values_compare_numerically_and_no_ops_are_refused(pristine):
-    record = _records(pristine, "qandilite")[0]
-    k0 = record["parameters"]["K0"]["value"]
-    assert isinstance(k0, float) and k0.is_integer()
+    record = next(
+        r
+        for r in _records(pristine, "qandilite")
+        if isinstance(r["parameters"]["K0"].get("error"), float)
+        and r["parameters"]["K0"]["error"].is_integer()
+    )
+    error = record["parameters"]["K0"]["error"]
+    path = ["parameters", "K0", "error"]
     # An integer expectation matches the stored float...
     request = set_request(
-        "t",
-        "qandilite",
-        [change(record["identifier"], ["parameters", "K0", "value"], int(k0), k0)],
+        "t", "qandilite", [change(record["identifier"], path, int(error), error)]
     )
     # ...and setting the same number again changes nothing.
     with pytest.raises(tool.Refused, match="no_change"):
         tool.plan_revision(request, pristine, derived=False)
-    request["changes"][0]["value"] = int(k0)
+    request["changes"][0]["value"] = int(error)
     with pytest.raises(tool.Refused, match="no_change"):
         tool.plan_revision(request, pristine, derived=False)
-    for expected in (k0 + 1, catalog_revisions.ABSENT):
+    for expected in (error + 1, catalog_revisions.ABSENT):
         request = set_request(
             "t",
             "qandilite",
-            [
-                change(
-                    record["identifier"],
-                    ["parameters", "K0", "value"],
-                    expected,
-                    k0 + 2,
-                )
-            ],
+            [change(record["identifier"], path, expected, error + 2)],
         )
         with pytest.raises(tool.Refused, match="expected_mismatch"):
             tool.plan_revision(request, pristine, derived=False)

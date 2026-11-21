@@ -51,7 +51,7 @@ All notable changes to Peritheos are documented here. The project follows
 - Add the repository tool `scripts/apply_catalog_revision.py` and the ledger
   `docs/data/catalog-revisions.json` for changing the scientific content of a
   bundled material after the audit split: adding an EOS record, or setting a
-  parameter's value, error or fixed flag, the error confidence, covariance,
+  parameter's error or fixed flag, the error confidence, covariance,
   reference temperature, experimental ranges or validity bounds. Each revision
   records who decided it, why, its source, a rights statement, explicit
   forward and reverse operations and a content digest pinned by the

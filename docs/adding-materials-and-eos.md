@@ -443,8 +443,8 @@ names each field and its current value (numbers compare numerically, so
 
 Use `"expected": <value>` when the field exists and `"remove": true` instead
 of `"value"` to delete an `error`, a `fixed` flag or the covariance. Only these
-fields are settable: a parameter's `value`, `error` and `fixed` flag (of an
-existing reference-isotherm or thermal parameter), `parameter_error_confidence`,
+fields are settable: a parameter's `error` and `fixed` flag (of an existing
+reference-isotherm or thermal parameter), `parameter_error_confidence`,
 `parameter_covariance`, `temperature_ref`, `experimental_pressure_range_gpa`,
 `experimental_temperature_range_k`, `pressure_range_status`, and the
 `pressure_gpa`, `temperature_k` and `volume_ratio` bounds of an existing
@@ -526,7 +526,8 @@ bundled material fails when a stored value, hash, order or decision differs
 from the files. It does not prevent a deliberate, fully consistent rewrite by
 someone with commit access; that is visible only in the git history.
 
-Not supported yet: removing a record, material-level fields
+Not supported yet: correcting a published coefficient `value` (raise it with
+the maintainer), removing a record, material-level fields
 (`default_records`, structure, datasets), changes to the audit evidence of an
 existing record other than through the two text tools, and new materials
 (use `--add`). Propose default changes to the maintainer.
