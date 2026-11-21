@@ -326,6 +326,13 @@ def test_added_inline_file_with_the_fields_splits_and_recovers(root, monkeypatch
     path = root / "peritheos/data/materials/mgal2o4_cati2o4.eosmat"
     save_eosmat(path, complete)
     inline = path.read_bytes()
+    receipt_path = root / RECEIPT.relative_to(ROOT)
+    with pytest.raises(ValueError, match="only for new materials"):
+        split_added_materials(["mgal2o4_cati2o4"], root=root, check_snapshot=False)
+    # As a new material (no binding yet) the same file splits and recovers.
+    receipt = json.loads(receipt_path.read_bytes())
+    del receipt["materials"]["mgal2o4_cati2o4"]
+    receipt_path.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
     assert split_added_materials(
         ["mgal2o4_cati2o4"], root=root, check_snapshot=False
     ) == ["mgal2o4_cati2o4"]

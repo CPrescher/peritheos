@@ -450,6 +450,11 @@ in the audit-split receipt, so `null` restores the files exactly and older
 receipts still verify. A standalone file simply writes the code in its inline
 evidence.
 
+The record file and sidecar of a bundled material are not edited by hand:
+text and warnings go through the two tools above, an added record or a
+changed structured field through `scripts/apply_catalog_revision.py`
+([changing a bundled material](adding-materials-and-eos.md#changing-a-bundled-material)).
+
 ## Extension fields
 
 The schema leaves material, record and dataset objects open. Peritheos keeps

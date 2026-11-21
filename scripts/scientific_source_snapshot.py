@@ -144,6 +144,14 @@ def assert_snapshot_lineage(snapshot: dict, historical_sha256: str) -> None:
 
     if fingerprint(snapshot) == historical_sha256:
         return
+    # Catalog revisions are the newest step; each is reversed only where its
+    # recorded fingerprints match exactly (scripts/catalog_revisions.py).
+    from scripts.catalog_revisions import prior_revision_snapshot
+
+    previous = prior_revision_snapshot(snapshot)
+    if previous is not None:
+        assert_snapshot_lineage(previous, historical_sha256)
+        return
     from scripts.garnet_dataset_bindings import prior_dataset_snapshot
 
     previous = prior_dataset_snapshot(snapshot, ROOT)

@@ -96,9 +96,11 @@ A referenced sidecar that does not exist raises `EosmatError` with
 `code="eosmat.audit_missing"`. A record loaded without its sidecar keeps its
 coefficients and `check` headline and can be evaluated; reading
 `EOSRecord.audit` then raises `code="eosmat.audit_not_loaded"`. Bundled records
-load their sidecar on first access to evidence. Maintainers split a bundled
+load their sidecar on first access to evidence. Maintainers split a new bundled
 file with the repository command `python scripts/split_eosmat_audits.py --add`
-([adding materials](adding-materials-and-eos.md#5-create-or-update-the-eosmat-document)).
+([adding materials](adding-materials-and-eos.md#5-create-or-update-the-eosmat-document))
+and change an existing one only through the repository tools listed under
+[changing a bundled material](adding-materials-and-eos.md#changing-a-bundled-material).
 
 ## Old files and compatibility exports
 

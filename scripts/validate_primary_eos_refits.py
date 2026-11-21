@@ -5378,7 +5378,12 @@ def _argon_combined_registered_refit_outcome(record: dict[str, Any]) -> dict[str
     }
 
 
-def validate_all() -> dict[str, Any]:
+def validate_all(materials: list[str] | None = None) -> dict[str, Any]:
+    """The refit ledger; ``materials`` limits it to those materials' rows.
+
+    ``scripts/apply_catalog_revision.py`` computes the rows of one revised
+    material this way instead of rewriting the whole ledger.
+    """
     results = []
     dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text(encoding="utf-8"))[
         "row_level_refits"
@@ -5404,7 +5409,7 @@ def validate_all() -> dict[str, Any]:
 
     diamond_reconstruction = reproduce_diamond_composites()
     zhu_reproduction = runpy.run_path(str(ZHU_REPRODUCTION))["reproduce"]()
-    for material_id in list_material_documents():
+    for material_id in list_material_documents() if materials is None else materials:
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
         for record in document["eos_records"]:
@@ -6560,6 +6565,8 @@ def check_ledger_values(
                     "weighted_sum_squares",
                     "parameter_covariance",
                     "published_max_abs_pressure_residual_gpa",
+                    # Conditional refits and correlations, not source facts.
+                    "coefficient_tradeoff_diagnostic",
                 }
                 or key.startswith("rmse_")
                 or key.endswith("_rmse_gpa")

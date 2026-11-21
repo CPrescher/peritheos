@@ -22,14 +22,15 @@ def test_package_declares_inline_typing_support():
     assert resources.files("peritheos").joinpath("py.typed").is_file()
 
 
-def test_readme_catalog_count_matches_bundled_documents():
+def test_readme_describes_the_catalog_without_hard_coded_counts():
+    """Catalog totals are generated; the README links to them (AGENTS.md)."""
     readme = Path(__file__).parents[1].joinpath("README.md").read_text()
+    documents = peritheos.list_material_documents()
     record_count = sum(
         len(peritheos.get_material_document(identifier)["eos_records"])
-        for identifier in peritheos.list_material_documents()
+        for identifier in documents
     )
-
-    assert (
-        f"{len(peritheos.list_material_documents())}-material-document/"
-        f"{record_count}-record" in readme
-    )
+    words = set(readme.replace("/", " ").replace("-", " ").split())
+    assert not {str(len(documents)), str(record_count)} & words
+    assert "material documents and EOS records" in " ".join(readme.split())
+    assert "docs/reconstruction-reports/index.md" in readme

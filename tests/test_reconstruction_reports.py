@@ -1,6 +1,8 @@
 """Report links resolve exactly, and figures never manufacture scientific data."""
 
 import copy
+import re
+from collections import Counter
 from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree import ElementTree
@@ -36,6 +38,8 @@ from scripts.reconstruction_plot_data import curve_comparison
 from scripts.report_numbers import value_error
 from scripts.report_plot_themes import dark_path, dark_svg, themed_images
 from scripts.standardize_reconstruction_metadata import standardize_document
+from tests.catalog_state import added_records
+from tests.catalog_state import expected as expected_totals
 from tests.test_eosmat_reconstruction import sample
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -283,12 +287,47 @@ def test_every_bundled_link_opens_its_record_and_each_graph_matches_its_input():
     records = charts = curves = 0
     outputs = generated_outputs(plots=False)
     index = outputs[Path("index.md")].decode()
-    assert "494 of 494" in index
+    # Every record with a stored coefficient comparison has curve plots; 494
+    # of them were curated before the catalog revision ledger.
+    added = added_records()
+    documents = [
+        load_eosmat(p)
+        for p in sorted((ROOT / "peritheos/data/materials").glob("*.eosmat"))
+    ]
+    replayed = re.search(r"(\d+) of (\d+) records with a stored coefficient", index)
+    assert replayed is not None and replayed[1] == replayed[2]
+    assert (
+        int(replayed[1])
+        - sum(
+            bool(r["evidence"]["reproduction"]["assessment"].get("parameters"))
+            for d in documents
+            for r in d["eos_records"]
+            if r["identifier"] in added
+        )
+        == 494
+    )
     assert "3 explicitly partial replays" in index
     assert "Remaining curve/residual replay gaps" not in index
+    # Totals anchored on the pre-ledger catalog plus the ledger's effect.
+    want = expected_totals()
+    headlines = want["reproduction"]
     assert (
-        "| **All materials** | **687** | **358** | **72** | **61** | **196** |" in index
+        f"| **All materials** | **{want['records']}** | **{headlines['reproduced']}** | "
+        f"**{headlines['close']}** | **{headlines['disagrees']}** | "
+        f"**{headlines['untested']}** | **{want['with_warning']}** |" in index
     )
+    historical = Counter(
+        r["check"]["reproduction"]
+        for d in documents
+        for r in d["eos_records"]
+        if r["identifier"] not in added
+    )
+    assert historical == {
+        "reproduced": 358,
+        "close": 72,
+        "disagrees": 61,
+        "untested": 196,
+    }
     for relative, payload in outputs.items():
         assert (ROOT / "docs/reconstruction-reports" / relative).read_bytes() == payload
         page = payload.decode()
@@ -322,13 +361,14 @@ def test_every_bundled_link_opens_its_record_and_each_graph_matches_its_input():
             if figure.exists():
                 assert current_figure(figure.read_bytes(), assessment)
                 assert f"figures/{record['identifier']}.svg" in page
-                charts += 1
+                charts += int(record["identifier"] not in added)
                 comparison, reason = curve_comparison(document, record)
                 assert comparison is not None, (record["identifier"], reason)
                 curve = figure.with_stem(figure.stem + "-curves")
                 assert current_curve(curve.read_bytes(), comparison)
-                curves += 1
-            records += 1
+                curves += int(record["identifier"] not in added)
+            records += int(record["identifier"] not in added)
+    # Counts of the records curated before the catalog revision ledger.
     assert records == 687 and charts == curves == 494
     for light in (ROOT / "docs/reconstruction-reports/figures").glob("*.svg"):
         if not light.stem.endswith("-dark"):

@@ -1,0 +1,5 @@
+{
+  "schema": "peritheos.catalog-revisions.v1",
+  "scope": "Changes of the scientific content of bundled materials made after the audit split, one revision per entry, in the order applied. Each revision names who decided it, why, the source it rests on and a rights statement, and stores explicit forward and reverse operations on the complete inline document with the sha256 of the complete canonical document, of the pre-split reference (scripts/split_eosmat_audits.py pre_split_bytes) and of the scientific snapshot of the material's records before and after. previous_sha256 chains the revisions of one material. Reversing every revision of a material recovers its original pre-split file (the audit-split binding's before_sha256) byte for byte. Written by scripts/apply_catalog_revision.py.",
+  "revisions": []
+}
