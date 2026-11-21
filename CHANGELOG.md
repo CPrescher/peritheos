@@ -62,8 +62,11 @@ All notable changes to Peritheos are documented here. The project follows
   revision and `--verify` checks the ledger. The audit-split binding, the
   v5-migration predecessor, the rights review and the scientific-snapshot
   lineage keep verifying through the revisions.
-  `scripts/split_eosmat_audits.py --add` now refuses a material that already
-  has a binding. The README and tests take catalog totals from the manifest
+  Published coefficient values are not settable; values are validated before
+  staging; a changed `check` headline must be acknowledged in the request;
+  records pinned by other receipts or with a stale refit row are refused with
+  the reason. `scripts/split_eosmat_audits.py --add` now refuses a material
+  that already has a binding. The README and tests take catalog totals from the manifest
   instead of hard-coding them. Removing records and material-level fields are
   not supported yet. No bundled data changes.
 - `scripts/apply_check_text.py` also sets a bundled record's coded
