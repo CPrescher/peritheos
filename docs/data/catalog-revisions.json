@@ -2488,6 +2488,319 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "4ea7dba37d551e7ca566ec2a5cb679f4ccab507518c96ec3a08a8d78bece8f56"
+    },
+    {
+      "id": "2026-11-21-sio2-stv-andr-one-sigma",
+      "material": "sio2_stv_andr",
+      "kind": "set_fields",
+      "date": "2026-11-21",
+      "decided_by": "Clemens Prescher",
+      "reason": "The record's parameter_uncertainty_convention reads \"Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified.\" 0.6827 is the normal-equivalent level of a stated 1 sigma, not a confidence fraction stated by the source.",
+      "source": {
+        "citation": "Nisr et al. (2017), Phase transition and equation of state of dense hydrous silica up to 63 GPa, Journal of Geophysical Research: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055",
+        "location": "Tables 3-4 (cited in the record's parameter_uncertainty_convention)"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-21",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "stishovite_nisr_2017_dry_bm3",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "stishovite_nisr_2017_dry_bm3",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "0225239694b7493df58cc737312463b8483c356c4f767ae85c4ab3ca6ddcf404",
+        "after": "9d7a519147d611daf6644ad44c82cc8dd393ae6559fde2a2b44c230cf492633c"
+      },
+      "reference_sha256": {
+        "before": "b27101a5d98e22fadb97f8f377cecf6051b1eba23ee7f9b5c0f18666f16eea36",
+        "after": "3c820a10f95af5a8adab537012036fb08287043d77b271e484794617bbba701e"
+      },
+      "scientific": {
+        "records_before": "12eeb2cdf68b6a7d6baf274b4e813b9b399e3a149f81568f0938580efdeb8086",
+        "records_after": "84c0032ec6548abacc08bf1ad75af4e092b9be3f67a6580483db33ac7749c6fd",
+        "added_records": {},
+        "catalog_before": "2fcc992be46eb10f9f5addff54489786eaf8de407d5c11b3de84c17741efbda8",
+        "catalog_after": "803cf897c324aa470a7d5acaa5c9133a3598788cdd4f9b2318e1eb337078e311"
+      },
+      "files": {
+        "peritheos/data/materials/sio2_stv_andr.eosmat": {
+          "before": "11be7838e77a01704646002c42345e6afd288a41f5c9700697c88425c541f2ec",
+          "after": "127fc60bae8dad1252c39a21ad6532f4d3d00b876aeae345610ff3dcbb3a8268"
+        },
+        "peritheos/data/audits/sio2_stv_andr.audit.json": {
+          "before": "161aad558496d086d103cb41cbbf802af7fe32712cfa410dcfcd718c904cd62b",
+          "after": "161aad558496d086d103cb41cbbf802af7fe32712cfa410dcfcd718c904cd62b"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "b27101a5d98e22fadb97f8f377cecf6051b1eba23ee7f9b5c0f18666f16eea36",
+          "after_record_sha256": "11be7838e77a01704646002c42345e6afd288a41f5c9700697c88425c541f2ec",
+          "after_audit_sha256": "161aad558496d086d103cb41cbbf802af7fe32712cfa410dcfcd718c904cd62b",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              3,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              4,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              5,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              6,
+              [
+                [
+                  3,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "default_flags": [
+            [
+              6,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                4,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                5,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1,
+            3,
+            4,
+            6
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              2,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              3,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              4,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              5,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              6,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "b27101a5d98e22fadb97f8f377cecf6051b1eba23ee7f9b5c0f18666f16eea36",
+          "after": "3c820a10f95af5a8adab537012036fb08287043d77b271e484794617bbba701e"
+        },
+        "catalog_scientific_sha256": {
+          "before": "2fcc992be46eb10f9f5addff54489786eaf8de407d5c11b3de84c17741efbda8",
+          "after": "803cf897c324aa470a7d5acaa5c9133a3598788cdd4f9b2318e1eb337078e311"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/sio2_stv_andr.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "38852ca3c25c05803196d312ffa539ebe2910e075c39e9116ea6c0734d012e91"
     }
   ]
 }
