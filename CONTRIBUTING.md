@@ -35,6 +35,11 @@ manually run the **CI** workflow on the intended commit with **Run the full
 compatibility matrix** enabled and require it to pass. See
 [Development](docs/development.md) for the complete CI policy.
 
+The suite can run in parallel: add `-n auto --dist worksteal` to the pytest
+command, as the routine CI job does. Tests must therefore not depend on running
+in one process or in a fixed order, and parameter lists must have a stable order
+(sort a `set` before passing it to `parametrize`).
+
 Profile test time with `uv run pytest --durations=30`. Unchanged numerical audit
 reports can use the `reproduce_once` fixture to compute once per test session;
 each request receives an isolated copy. Input-mutation, solver-patching, and

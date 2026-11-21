@@ -223,11 +223,11 @@ jobs:
 
       - name: Run compatibility tests
         if: github.event_name != 'schedule' && !(github.event_name == 'workflow_dispatch' && inputs.full)
-        run: uv run --frozen pytest -c .github/pytest-compatibility.ini --rootdir=. -q -W error --durations=30
+        run: uv run --frozen pytest -c .github/pytest-compatibility.ini --rootdir=. -q -W error --durations=30 -n auto --dist worksteal
 
       - name: Run complete tests
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.full)
-        run: uv run --frozen pytest tests -q -W error --durations=30
+        run: uv run --frozen pytest tests -q -W error --durations=30 -n auto --dist worksteal
 
   cross-platform:
     if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.full)
