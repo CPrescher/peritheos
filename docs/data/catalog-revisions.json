@@ -2953,6 +2953,1123 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "019a0cff23b4450750016f52a53d94489064cb48bd9926e4ec329c69ad1da140"
+    },
+    {
+      "id": "2026-11-21-mgo-one-sigma",
+      "material": "mgo",
+      "kind": "set_fields",
+      "date": "2026-11-21",
+      "decided_by": "Clemens Prescher",
+      "reason": "The record notes and audits state every stored error of both records (Duffy and Ahrens c0, s and rho0; Li et al. V0) as one standard deviation; Li et al. give no K0 or K0' error, and Duffy and Ahrens publish no covariance.",
+      "source": {
+        "citation": "Duffy and Ahrens (1995), J. Geophys. Res. Solid Earth 100, 529-542, doi:10.1029/94JB02065; Li, Woody and Kung (2006), J. Geophys. Res. Solid Earth 111, B11206, doi:10.1029/2005JB004251",
+        "location": "Duffy and Ahrens: Tables 3-4, pp. 533-534; Li et al.: Table 1 footnote (V0)"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-21",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "mgo_b1_duffy_ahrens_1995_hugoniot_5",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        },
+        {
+          "op": "set",
+          "record": "mgo_li_2006_bm3_absolute_acoustic",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "mgo_li_2006_bm3_absolute_acoustic",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "mgo_b1_duffy_ahrens_1995_hugoniot_5",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "a7818e14ad4802ec89cd39a7c340cb2d3aca3ec08048f2673dcdcd935e00fb98",
+        "after": "b10bb50c5f3a8ca20a94877504d51973ed540cb613a8aceccfc07265ae6e73cf"
+      },
+      "reference_sha256": {
+        "before": "d6b9993e7dc4f2657ee74678d02b6989486a9d693fade28bfd52e028225d7c35",
+        "after": "551a87058bc2b57540740074aecc95fd6be52e1311f9abf7eb0b276d0ce01253"
+      },
+      "scientific": {
+        "records_before": "24841d86d05d5881349cbdb4bcbf8ad5623a999f610f3775205e6bc8cbc73daa",
+        "records_after": "26b4f9517717ec5533800e8b7afbd365890929f3d3cc13e56182cc4c0add4490",
+        "added_records": {},
+        "catalog_before": "fa9bbf04dc009f84ac87bbd21578b2a079e8d71670a7384dbb7bd5eba89ab45c",
+        "catalog_after": "7ab71e8a034e6912609c55311b5b0b49fb6d536eee22494ba529cd4c6a34ff6a"
+      },
+      "files": {
+        "peritheos/data/materials/mgo.eosmat": {
+          "before": "3aad76c8e9fda9528c9abdebce9f30d47eb396fbcb102c5bef475406d3853016",
+          "after": "5a6323e44bcdc5beec694433691baa797b26d34fe123a85fdead5ccdbc1b0fa8"
+        },
+        "peritheos/data/audits/mgo.audit.json": {
+          "before": "31b9a0978cd17a24ee510fae2590c29f20eba6df357271d46be830d0c68f549c",
+          "after": "31b9a0978cd17a24ee510fae2590c29f20eba6df357271d46be830d0c68f549c"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "d6b9993e7dc4f2657ee74678d02b6989486a9d693fade28bfd52e028225d7c35",
+          "after_record_sha256": "3aad76c8e9fda9528c9abdebce9f30d47eb396fbcb102c5bef475406d3853016",
+          "after_audit_sha256": "31b9a0978cd17a24ee510fae2590c29f20eba6df357271d46be830d0c68f549c",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36
+          ],
+          "generic_notes": [
+            [
+              2,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              12,
+              0
+            ],
+            [
+              13,
+              0
+            ],
+            [
+              14,
+              0
+            ],
+            [
+              30,
+              0
+            ],
+            [
+              31,
+              0
+            ],
+            [
+              32,
+              0
+            ],
+            [
+              33,
+              0
+            ],
+            [
+              34,
+              0
+            ],
+            [
+              35,
+              0
+            ],
+            [
+              36,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              3,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              4,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              5,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              6,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              7,
+              [
+                [
+                  4,
+                  0
+                ]
+              ]
+            ],
+            [
+              8,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              9,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              10,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              11,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              12,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              13,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              14,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              15,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              16,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              17,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              18,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              19,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              20,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              21,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              22,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              23,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              24,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              25,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              26,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              27,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              28,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              29,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              30,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              31,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              32,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              33,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              34,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              35,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              36,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              3,
+              {
+                "default": true
+              }
+            ],
+            [
+              7,
+              {
+                "default": false
+              }
+            ],
+            [
+              15,
+              {
+                "default_for": "hugoniot"
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0
+              ],
+              "keys": [
+                "identifier",
+                "label",
+                "model",
+                "temperature_ref",
+                "parameters",
+                "parameter_error_confidence",
+                "experimental_pressure_range_gpa",
+                "pressure_range_status",
+                "determination_method",
+                "equation_kind",
+                "volume_basis",
+                "notes",
+                "network_reconstruction_audit",
+                "fit_datasets",
+                "reference",
+                "pressure_calibration",
+                "evidence"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                2,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                9,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check",
+                "source_reconstruction"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                12,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                13,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                14,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                30,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                31,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                32,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                33,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                34,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                35,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                36,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check",
+                "reproduction"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              3,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              4,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              5,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              6,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              7,
+              {
+                "warning_reason": null,
+                "record_note": null
+              }
+            ],
+            [
+              8,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              9,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              10,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              11,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              12,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              13,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              14,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              15,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              16,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              17,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              18,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              19,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              20,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              21,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              22,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              23,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              24,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              25,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              26,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              27,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              28,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              29,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              30,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              31,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              32,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              33,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              34,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              35,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              36,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "d6b9993e7dc4f2657ee74678d02b6989486a9d693fade28bfd52e028225d7c35",
+          "after": "551a87058bc2b57540740074aecc95fd6be52e1311f9abf7eb0b276d0ce01253"
+        },
+        "catalog_scientific_sha256": {
+          "before": "fa9bbf04dc009f84ac87bbd21578b2a079e8d71670a7384dbb7bd5eba89ab45c",
+          "after": "7ab71e8a034e6912609c55311b5b0b49fb6d536eee22494ba529cd4c6a34ff6a"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/mgo.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "090a16ec23ae71388b3be09e41c376f12e35de4fd45a27402616c83be463528c"
     }
   ]
 }

@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "fa9bbf04dc009f84ac87bbd21578b2a079e8d71670a7384dbb7bd5eba89ab45c",
+  "catalog_scientific_sha256": "7ab71e8a034e6912609c55311b5b0b49fb6d536eee22494ba529cd4c6a34ff6a",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
@@ -162,7 +162,7 @@
     "peritheos/data/materials/mgfe94o_b1.eosmat": "04fff3e1521e83ccc3ad7c15cff567e180c43a917b570c4362a31b86c338018f",
     "peritheos/data/materials/mgfe94o_rhombohedral.eosmat": "890280ff369accccc9a1760634aee692feb6bdd34bb914b3299787671623de10",
     "peritheos/data/materials/mggeo3_post_perovskite.eosmat": "7c7a6ccb9e9b159af5f9169fd6ee065c6249a922ae447a4c568e4ca6da0ee86b",
-    "peritheos/data/materials/mgo.eosmat": "d6b9993e7dc4f2657ee74678d02b6989486a9d693fade28bfd52e028225d7c35",
+    "peritheos/data/materials/mgo.eosmat": "551a87058bc2b57540740074aecc95fd6be52e1311f9abf7eb0b276d0ce01253",
     "peritheos/data/materials/mgo_b2.eosmat": "d29d1b6ad8ffe563fe7a040f3496da2d492b75d252675a0f0501c8d899411e4f",
     "peritheos/data/materials/mgo_liquid.eosmat": "60a6a3bf7c70564d6e9f9e919da70bb48d264055f8c55de3bf4fdbe013bab3d4",
     "peritheos/data/materials/mgsio3_liquid.eosmat": "482aaf9ba18ef56de0552f6ba3a8d970136dd372aed163cb2b715286624077c0",
@@ -465,6 +465,9 @@
       ],
       "mg0215fe0762vac0023o_b1": [
         "2026-11-21-mg0215fe0762vac0023o-b1-one-sigma"
+      ],
+      "mgo": [
+        "2026-11-21-mgo-one-sigma"
       ],
       "qandilite": [
         "2026-11-21-qandilite-one-sigma"
