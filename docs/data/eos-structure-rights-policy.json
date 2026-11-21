@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "bdc6ce9aa95a482c2c4b14b8fe473e904b305880b8fbd396647d4677d724b057",
+  "catalog_scientific_sha256": "fbf7fe080504480ab349a423f6b36acdb86a103ae5a16be532dc335b6cc1f9b4",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
@@ -19,7 +19,7 @@
     "peritheos/data/materials/argon_hcp.eosmat": "b2f43b2fe36fc3e0da65784b068c5e718f6524ef5a746ddc07542a744be11e50",
     "peritheos/data/materials/b4c.eosmat": "0369c88f1d6bd6b963b1a9cab636eae5d76ed987d782227008337c1d2f2ba395",
     "peritheos/data/materials/beryllium_hcp.eosmat": "3985e308b3b34828f7439f21c28ac7febe3d2f4c80674ac69375871a5019c9f1",
-    "peritheos/data/materials/boron_nitride.eosmat": "3f9409af2a99e1d14091785ec521d9db128cd8b850d28f894a6769a906ccec95",
+    "peritheos/data/materials/boron_nitride.eosmat": "8d173b815f3d8dafaa89b677b0e826441980ea7337c4a358c7a28d50223cc7d5",
     "peritheos/data/materials/boron_nitride_hexagonal.eosmat": "f0113fc3e14815823970f8f4e0543b3cc24a8d802a5d4f17e9a1037d12401ad7",
     "peritheos/data/materials/boron_phosphide.eosmat": "3df9614717c98666dcf96261ca80c539bd0724f1ea11d84c7b4a79dd2688de72",
     "peritheos/data/materials/breyite.eosmat": "546a52629f488517d68781a40a8fee70a601b7cee1cde2b9511bff940451fa25",
@@ -433,6 +433,9 @@
   "catalog_revisions": {
     "ledger": "docs/data/catalog-revisions.json",
     "materials": {
+      "boron_nitride": [
+        "2026-11-21-boron-nitride-one-sigma"
+      ],
       "ca_perovskite": [
         "2026-11-21-ca-perovskite-one-sigma"
       ],

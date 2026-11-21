@@ -1895,6 +1895,186 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "c7c7309fa8f36fcfda11b6e1c2a688b65a7468888669b09bfa231fa8fa70ca54"
+    },
+    {
+      "id": "2026-11-21-boron-nitride-one-sigma",
+      "material": "boron_nitride",
+      "kind": "set_fields",
+      "date": "2026-11-21",
+      "decided_by": "Clemens Prescher",
+      "reason": "uncertainties.reported_as records that the parenthetical parameter errors are standard deviations of the fits, not absolute uncertainties; uncertainties.absolute_scale records the authors' statement that the pressure-scale uncertainty dominates.",
+      "source": {
+        "citation": "Datchi, Dewaele, Le Godec and Loubeyre (2007), Equation of state of cubic boron nitride at high pressures and temperatures, Phys. Rev. B 75, 214104, doi:10.1103/PhysRevB.75.214104",
+        "location": "Table V parameter set; statements recorded in the record's uncertainties.reported_as and uncertainties.absolute_scale"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-21",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "boron_nitride_datchi_2007_vinet_mgd_2",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "boron_nitride_datchi_2007_vinet_mgd_2",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "56723307bcb59b1edd38109ef697ee627a9866b022cfb1d4fc6853f58d09de91",
+        "after": "8b887b623460d220217615241520991b9af761363214552fc015534d2a4c4043"
+      },
+      "reference_sha256": {
+        "before": "3f9409af2a99e1d14091785ec521d9db128cd8b850d28f894a6769a906ccec95",
+        "after": "8d173b815f3d8dafaa89b677b0e826441980ea7337c4a358c7a28d50223cc7d5"
+      },
+      "scientific": {
+        "records_before": "c00049576b5f0e5d3222b518b391363e0e8108eef61dbd57748869190c00dbdc",
+        "records_after": "29b8e5a2248f46aa769b1381e533f5ec9766611e390424c591879a76de95eeec",
+        "added_records": {},
+        "catalog_before": "bdc6ce9aa95a482c2c4b14b8fe473e904b305880b8fbd396647d4677d724b057",
+        "catalog_after": "fbf7fe080504480ab349a423f6b36acdb86a103ae5a16be532dc335b6cc1f9b4"
+      },
+      "files": {
+        "peritheos/data/materials/boron_nitride.eosmat": {
+          "before": "94c477d2591ecda52cd27dc5befb06cd8e3a1ca6b46fe63ccbe93a31a362b004",
+          "after": "8f986c2df230888f52f81a4ad0decf88e5db3d2d580de00896201d38e3bb018c"
+        },
+        "peritheos/data/audits/boron_nitride.audit.json": {
+          "before": "2e3a616a11450306506e9b898dfce313dacda4803fa7de1c5825cb739b2ed658",
+          "after": "2e3a616a11450306506e9b898dfce313dacda4803fa7de1c5825cb739b2ed658"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "3f9409af2a99e1d14091785ec521d9db128cd8b850d28f894a6769a906ccec95",
+          "after_record_sha256": "94c477d2591ecda52cd27dc5befb06cd8e3a1ca6b46fe63ccbe93a31a362b004",
+          "after_audit_sha256": "2e3a616a11450306506e9b898dfce313dacda4803fa7de1c5825cb739b2ed658",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                1
+              ],
+              "keys": [
+                "identifier",
+                "label",
+                "model",
+                "temperature_ref",
+                "parameters",
+                "thermal",
+                "parameter_error_confidence",
+                "experimental_pressure_range_gpa",
+                "experimental_temperature_range_k",
+                "validity",
+                "determination_method",
+                "phase_scope",
+                "volume",
+                "sample_composition",
+                "notes",
+                "uncertainties",
+                "fit_datasets",
+                "reference",
+                "pressure_calibration",
+                "evidence"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "3f9409af2a99e1d14091785ec521d9db128cd8b850d28f894a6769a906ccec95",
+          "after": "8d173b815f3d8dafaa89b677b0e826441980ea7337c4a358c7a28d50223cc7d5"
+        },
+        "catalog_scientific_sha256": {
+          "before": "bdc6ce9aa95a482c2c4b14b8fe473e904b305880b8fbd396647d4677d724b057",
+          "after": "fbf7fe080504480ab349a423f6b36acdb86a103ae5a16be532dc335b6cc1f9b4"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/boron_nitride.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "7377a653a93766dafa7ed67e9e932e1371ead896fbdaf0d34cd9b046e145db97"
     }
   ]
 }
