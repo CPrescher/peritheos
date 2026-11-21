@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "7ab71e8a034e6912609c55311b5b0b49fb6d536eee22494ba529cd4c6a34ff6a",
+  "catalog_scientific_sha256": "c38c3bd51cca8215005f1ce211cdbdf1f6be386ba3d9c5ca5608d1a8a11f64c2",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
@@ -77,7 +77,7 @@
     "peritheos/data/materials/ferrous_ringwoodite.eosmat": "68083ae20b534b7f57b027805f2d83ff44fd1dfe87e1920aee029b50a6f19e86",
     "peritheos/data/materials/fes.eosmat": "f1baf114d619bdfaa2d093cd3ebf234ad9b60f4c846e7f310bc1d33b48ad1df5",
     "peritheos/data/materials/fes_vi.eosmat": "d3bb727f1367cc1d8a0a7855ae85911e711f8b656cbee7463f358fac3a4e22a5",
-    "peritheos/data/materials/fesi_b2.eosmat": "58e29b3256e5acef5fcd91b7807cd0034c00951c2c93dca99fada373f889d9a7",
+    "peritheos/data/materials/fesi_b2.eosmat": "c7f798488bcbab280aa50ec4210f0450ddc2c2335df44f9f844ad4c84491f849",
     "peritheos/data/materials/fesi_b20.eosmat": "ad92a7a53b1bfb1b8696cfccbe27a607eff06f60c1a4de74efec73631ea79279",
     "peritheos/data/materials/fesio3_bridgmanite.eosmat": "39699d951f2c49f97b7840ec39fc4eb2adc7bd75bc387ae2524c7702be6f24ff",
     "peritheos/data/materials/fesio3_liquid.eosmat": "77b9728cf47f0a3cb2d955b734de17319d572ee75de8e388fdb1d976066fc969",
@@ -450,6 +450,9 @@
       ],
       "ferropericlase_fe27": [
         "2026-11-21-ferropericlase-fe27-one-sigma"
+      ],
+      "fesi_b2": [
+        "2026-11-21-fesi-b2-one-sigma"
       ],
       "hydrous_silica_cacl2_nisr_2017": [
         "2026-11-21-hydrous-silica-cacl2-nisr-2017-one-sigma"

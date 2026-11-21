@@ -4070,6 +4070,168 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "090a16ec23ae71388b3be09e41c376f12e35de4fd45a27402616c83be463528c"
+    },
+    {
+      "id": "2026-11-21-fesi-b2-one-sigma",
+      "material": "fesi_b2",
+      "kind": "set_fields",
+      "date": "2026-11-21",
+      "decided_by": "Clemens Prescher",
+      "reason": "The audit gives both refits' errors as conditional local 1-sigma estimates from the residual-scaled covariance, omitting fixed-input uncertainty, run correlations, calibrant systematics and model discrepancy.",
+      "source": {
+        "citation": "Peritheos refits of the Fischer et al. (2014) Table S2 B2 observations, J. Geophys. Res. Solid Earth 119, 2810-2827",
+        "location": "Audit sidecar evidence.parameter_provenance.uncertainties and evidence.fit_provenance.covariance_scaling"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-21",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "fesi_b2_fischer_2014_bm3_refit",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        },
+        {
+          "op": "set",
+          "record": "fesi_b2_fischer_2014_vinet_refit",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "fesi_b2_fischer_2014_vinet_refit",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "fesi_b2_fischer_2014_bm3_refit",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "305004fd8b307ca77c9c4c6b2b664a73e4cb7516c0333e0f3a4dc8843804c03c",
+        "after": "905f83ae16a81734c07e3bf34b172a8bdb213e5aa56631c73358499ffedf89c1"
+      },
+      "reference_sha256": {
+        "before": "58e29b3256e5acef5fcd91b7807cd0034c00951c2c93dca99fada373f889d9a7",
+        "after": "c7f798488bcbab280aa50ec4210f0450ddc2c2335df44f9f844ad4c84491f849"
+      },
+      "scientific": {
+        "records_before": "e744027ed13f0acb9a0508521383c865c4df0a49241dbe4b70cf389d0f790906",
+        "records_after": "87238ce27c63ad6fc32e981b4c30902e404bb8d97e274947f60d54289a746be1",
+        "added_records": {},
+        "catalog_before": "7ab71e8a034e6912609c55311b5b0b49fb6d536eee22494ba529cd4c6a34ff6a",
+        "catalog_after": "c38c3bd51cca8215005f1ce211cdbdf1f6be386ba3d9c5ca5608d1a8a11f64c2"
+      },
+      "files": {
+        "peritheos/data/materials/fesi_b2.eosmat": {
+          "before": "d7510955da2677e7ca6402145253ef9a189d6b6e49653b80a8e6b019b8a08590",
+          "after": "8814807e6723382b972413fa949a9d044c0ba6bef4a931bbcb03f15b73185e3e"
+        },
+        "peritheos/data/audits/fesi_b2.audit.json": {
+          "before": "95addf0cf4a85e3eba7327fb4245a7cff9443f2ec97a6b5e28f9edb20a546d06",
+          "after": "95addf0cf4a85e3eba7327fb4245a7cff9443f2ec97a6b5e28f9edb20a546d06"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "58e29b3256e5acef5fcd91b7807cd0034c00951c2c93dca99fada373f889d9a7",
+          "after_record_sha256": "d7510955da2677e7ca6402145253ef9a189d6b6e49653b80a8e6b019b8a08590",
+          "after_audit_sha256": "95addf0cf4a85e3eba7327fb4245a7cff9443f2ec97a6b5e28f9edb20a546d06",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true,
+                "default_for": "equilibrium"
+              }
+            ],
+            [
+              1,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0,
+            1
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "58e29b3256e5acef5fcd91b7807cd0034c00951c2c93dca99fada373f889d9a7",
+          "after": "c7f798488bcbab280aa50ec4210f0450ddc2c2335df44f9f844ad4c84491f849"
+        },
+        "catalog_scientific_sha256": {
+          "before": "7ab71e8a034e6912609c55311b5b0b49fb6d536eee22494ba529cd4c6a34ff6a",
+          "after": "c38c3bd51cca8215005f1ce211cdbdf1f6be386ba3d9c5ca5608d1a8a11f64c2"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/fesi_b2.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "4376df48da16610bae6d1b376e2c7681b452ad9168cc64e90cdc337187f394f5"
     }
   ]
 }

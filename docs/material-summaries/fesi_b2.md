@@ -92,7 +92,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[42.74768265572292, 146.9148894617161\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1162.665, 3146.8\]
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
@@ -200,7 +200,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[42.74768265572292, 146.9148894617161\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1162.665, 3146.8\]
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">
