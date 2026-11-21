@@ -152,7 +152,7 @@ library interfaces to this module list as part of implementing them.
 Run the same core selection locally from the repository root with:
 
 ```bash
-uv run pytest -c .github/pytest-compatibility.ini --rootdir=. -q -W error --durations=30
+uv run pytest -c .github/pytest-compatibility.ini --rootdir=. -q -W error --durations=30 -n auto --dist worksteal
 ```
 
 Normal discovery is limited to `tests/`, so retained snapshots in temporary

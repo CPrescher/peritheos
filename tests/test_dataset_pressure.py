@@ -104,7 +104,7 @@ def test_migrated_reductions_preserve_rows_scales_and_exports(metal, count, tmp_
             )
 
 
-@pytest.mark.parametrize("metal", set(METALS) - {"gold"})
+@pytest.mark.parametrize("metal", sorted(set(METALS) - {"gold"}))
 @pytest.mark.parametrize("scale", ["mao", "dor"])
 def test_complete_2019_reductions_reproduce_existing_audit(metal, scale):
     document = get_material_document(metal)
