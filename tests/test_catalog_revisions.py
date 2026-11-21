@@ -362,7 +362,7 @@ def test_add_record_derives_its_content_and_undoes_exactly(repo):
     assert f"docs/reconstruction-reports/figures/{identifier}.svg" in plan.files
     assert f"docs/material-summaries/{SIDERITE}.md" in plan.files
     revision = read_ledger(repo)["revisions"][-1]
-    assert set(revision["derived_files"]) >= {
+    assert set(revision["written_files"]) >= {
         tool.MANIFEST,
         tool.SOURCE_AUDIT,
         tool.REFITS,
@@ -429,6 +429,47 @@ def test_one_request_changes_several_records(pristine):
     )
     for record in records:
         assert f"Record {record['identifier']} (changed):" in plan.shown
+
+
+def test_a_headline_change_needs_an_exact_acknowledgement(pristine):
+    """Adding the missing errors moves a published fit inside the combined
+    error criterion; the headline change must be acknowledged exactly."""
+    material, identifier = "coo", "coo_clendenen_1966_murnaghan_1"
+    record = next(
+        r for r in _records(pristine, material) if r["identifier"] == identifier
+    )
+    changes = [
+        change(
+            identifier,
+            ["parameters", name, "error"],
+            record["parameters"][name].get("error"),
+            value,
+        )
+        for name, value in (("K0", 30.0), ("K0_prime", 3.0))
+    ]
+    request = set_request("t-ack", material, changes)
+    with pytest.raises(tool.Refused, match="check_change") as refusal:
+        tool.plan_revision(request, pristine, derived=False)
+    expected = {
+        identifier: {
+            "reproduction": {"from": record["check"]["reproduction"], "to": "close"}
+        }
+    }
+    assert json.dumps(expected) in str(refusal.value)
+    request[tool.ACKNOWLEDGE] = {
+        identifier: {"reproduction": {"from": "x", "to": "close"}}
+    }
+    with pytest.raises(tool.Refused, match="check_change"):
+        tool.plan_revision(request, pristine, derived=False)
+    request[tool.ACKNOWLEDGE] = expected
+    plan = tool.plan_revision(request, pristine, derived=False)
+    assert plan.revision[tool.ACKNOWLEDGE] == expected
+    assert any(
+        line.strip().startswith("CHECK CHANGE reproduction") for line in plan.shown
+    )
+    # The acknowledgement is part of the digest the binding pins.
+    altered = {**plan.revision, tool.ACKNOWLEDGE: {}}
+    assert catalog_revisions.content_sha256(altered) != plan.revision["content_sha256"]
 
 
 # Text revisions and undo ----------------------------------------------------
@@ -535,6 +576,17 @@ def revised(tmp_path_factory):
         "reorder",
         "delete_first",
         "delete_last",
+        # Every stored hash of the latest revision is covered by its digest.
+        ("files", 0, "before"),
+        ("files", 1, "after"),
+        ("document_sha256", "before"),
+        ("scientific", "catalog_before"),
+        ("scientific", "catalog_after"),
+        ("policy", "material_sha256", "before"),
+        ("policy", "catalog_scientific_sha256", "after"),
+        ("written_files",),
+        ("split_binding", "before", "after_record_sha256"),
+        ("refit_rows",),
     ],
 )
 def test_a_tampered_ledger_is_detected_everywhere(revised, tmp_path, monkeypatch, edit):
@@ -562,8 +614,21 @@ def test_a_tampered_ledger_is_detected_everywhere(revised, tmp_path, monkeypatch
         revisions[first], revisions[second] = revisions[second], revisions[first]
     elif edit == "delete_first":
         del revisions[first]
-    else:
+    elif edit == "delete_last":
         del revisions[second]
+    else:
+        node = revisions[second]
+        for key in edit[:-1]:
+            node = node[list(node)[key]] if isinstance(key, int) else node[key]
+        last = edit[-1]
+        if last in ("written_files", "refit_rows"):
+            node[last] = (
+                []
+                if last == "written_files"
+                else {"tampered": {"before": None, "after": None}}
+            )
+        else:
+            node[last] = "0" * 64
     (root / LEDGER).write_text(catalog_revisions.ledger_text(ledger))
     assert verify_ledger(root)
     assert tool.main(["--verify"], root=root) == 1
@@ -571,7 +636,12 @@ def test_a_tampered_ledger_is_detected_everywhere(revised, tmp_path, monkeypatch
         verify_catalog(root)
     with pytest.raises(ValueError):
         prior_material_bytes(SIDERITE, root=root)
-    if edit not in ("hash", "metadata_of_latest"):  # not part of the snapshot
+    from scripts.review_eos_structure_rights import build_review as review
+
+    if edit not in ("hash", "delete_first"):  # the latest revision changed
+        with pytest.raises(ValueError):
+            review(root)
+    if isinstance(edit, str) and edit not in ("hash", "metadata_of_latest"):
         with pytest.raises((ValueError, AssertionError)):
             assert_snapshot_lineage(snapshot, GARNET["scientific_sha256_before"])
 

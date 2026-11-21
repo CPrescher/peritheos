@@ -130,9 +130,11 @@ def material_revisions(material: str, root: Path | None = None) -> list[dict]:
     return [r for r in read_ledger(root)["revisions"] if r.get("material") == material]
 
 
-#: Revision fields covered by ``content_sha256``: what was decided, by whom,
-#: why, on which source and rights basis, and the operations themselves.
-CONTENT_KEYS = (
+#: Every field of a revision, in order. ``content_sha256`` is the digest of
+#: all the others; the audit-split binding pins it for the material's latest
+#: revision and ``previous_sha256`` chains each earlier revision whole, so no
+#: stored field can change without a check failing.
+REVISION_KEYS = (
     "id",
     "material",
     "kind",
@@ -141,15 +143,28 @@ CONTENT_KEYS = (
     "reason",
     "source",
     "rights",
+    "acknowledge_check_change",
     "forward",
     "reverse",
+    "document_sha256",
+    "reference_sha256",
+    "scientific",
+    "files",
+    "split_binding",
+    "policy",
+    "refit_rows",
+    "written_files",
+    "created_files",
+    "previous_sha256",
+    "content_sha256",
 )
+CONTENT_KEYS = REVISION_KEYS[:-1]
 #: Binding key pinning the content digest of the material's latest revision.
 HEAD_KEY = "catalog_revision_content_sha256"
 
 
 def content_sha256(revision: Mapping[str, Any]) -> str:
-    """Digest of a revision's decision, metadata and operations."""
+    """Digest of every field of a revision except the digest itself."""
     return fingerprint({key: revision.get(key) for key in CONTENT_KEYS})
 
 
@@ -485,28 +500,6 @@ def prior_revision_snapshot(snapshot: dict, root: Path | None = None) -> dict | 
 
 # Verification ---------------------------------------------------------------
 
-REVISION_KEYS = (
-    "id",
-    "material",
-    "kind",
-    "date",
-    "decided_by",
-    "reason",
-    "source",
-    "rights",
-    "forward",
-    "reverse",
-    "content_sha256",
-    "document_sha256",
-    "reference_sha256",
-    "scientific",
-    "files",
-    "split_binding",
-    "policy",
-    "refit_rows",
-    "derived_files",
-    "previous_sha256",
-)
 _HASH = re.compile(r"[0-9a-f]{64}\Z")
 
 
@@ -579,14 +572,43 @@ def _field_failures(revision: Mapping[str, Any]) -> list[str]:
     for path, pair in (revision.get("files") or {}).items():
         if not all(digest(pair.get(k)) for k in ("before", "after")):
             failures.append(f"{name}: files.{path} is malformed")
-    for path, pair in (revision.get("derived_files") or {}).items():
-        if not all(digest(pair.get(k), optional=True) for k in ("before", "after")):
-            failures.append(f"{name}: derived_files.{path} is malformed")
-    binding = revision.get("split_binding") or {}
-    if not isinstance(binding.get("before"), dict) or not digest(
-        binding.get("after_sha256")
+    material = revision.get("material")
+    expected_files = {
+        f"peritheos/data/materials/{material}.eosmat",
+        f"peritheos/data/audits/{material}.audit.json",
+    }
+    if set(revision.get("files") or {}) != expected_files:
+        failures.append(
+            f"{name}: files must name the material's record file and sidecar"
+        )
+    written = revision.get("written_files")
+    created = revision.get("created_files")
+    if (
+        not isinstance(written, list)
+        or not all(isinstance(p, str) and p for p in written)
+        or written != sorted(set(written))
+        or not isinstance(created, list)
+        or not set(created) <= set(written)
     ):
+        failures.append(f"{name}: written_files and created_files are malformed")
+    binding = revision.get("split_binding") or {}
+    if set(binding) != {"before"} or not isinstance(binding.get("before"), dict):
         failures.append(f"{name}: split_binding is malformed")
+    acknowledged = revision.get("acknowledge_check_change")
+    if not isinstance(acknowledged, dict):
+        failures.append(f"{name}: acknowledge_check_change must be an object")
+    # Stored values that must agree with each other.
+    policy = revision.get("policy") or {}
+    if policy.get("material_sha256") != revision.get("reference_sha256"):
+        failures.append(f"{name}: policy.material_sha256 differs from reference_sha256")
+    if policy.get("catalog_scientific_sha256") != {
+        "before": scientific.get("catalog_before"),
+        "after": scientific.get("catalog_after"),
+    }:
+        failures.append(
+            f"{name}: policy.catalog_scientific_sha256 differs from the scientific "
+            "catalog fingerprints"
+        )
     if revision.get("kind") == "add_record" and len(added) != 1:
         failures.append(f"{name}: add_record must add exactly one record")
     return failures
@@ -633,8 +655,7 @@ def verify_ledger(
             failures.append(f"{revision['id']}: reverse is not the inverse of forward")
         if content_sha256(revision) != revision["content_sha256"]:
             failures.append(
-                f"{revision['id']}: decision, metadata or operations differ from "
-                "content_sha256"
+                f"{revision['id']}: a stored field differs from content_sha256"
             )
         by_material.setdefault(revision["material"], []).append(revision)
     bound = {
@@ -723,8 +744,14 @@ def verify_ledger(
                 != last["document_sha256"]["after"]
             ):
                 failures.append(f"{last['id']}: document_sha256.after differs")
-            if fingerprint(binding) != last["split_binding"]["after_sha256"]:
-                failures.append(f"{last['id']}: split_binding.after_sha256 differs")
+            if (
+                binding.get("after_record_sha256"),
+                binding.get("after_audit_sha256"),
+            ) != (
+                last["files"][record_path]["after"],
+                last["files"][audit_path]["after"],
+            ):
+                failures.append(f"{last['id']}: the binding does not bind files.after")
     if any(m in selected for m in by_material):
         from scripts.scientific_source_snapshot import scientific_snapshot
 
@@ -757,11 +784,10 @@ def _latest_tree_failures(
     A material's refit-ledger rows are compared while its record file and
     sidecar are still those the revision wrote (a later text revision may
     rewrite the rows' text copies). The rights policy's catalog hash must be
-    the current scientific snapshot. The hashes of generated documentation
-    recorded in ``derived_files`` are the trail of what the revision wrote;
-    any later revision, undo or generator change rewrites shared pages, so
-    they are not compared with the tree (the generators' ``--check`` keeps
-    those pages current).
+    the current scientific snapshot. Generated pages a revision wrote are
+    listed by path (``written_files``) without hashes: any later revision,
+    undo or generator change rewrites them, and the generators' ``--check``
+    keeps them current.
     """
     failures: list[str] = []
     latest: dict[str, Mapping[str, Any]] = {}

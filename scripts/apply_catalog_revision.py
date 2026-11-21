@@ -141,6 +141,11 @@ COMMON_KEYS = (
     "rights",
 )
 KIND_KEYS = {"add_record": "record", "set_fields": "changes"}
+#: Optional request key: the exact changes of the ``check`` headline fields
+#: (:data:`HEADLINE_FIELDS`) a revision causes on existing records,
+#: ``{record: {field: {"from": old, "to": new}}}``.
+ACKNOWLEDGE = "acknowledge_check_change"
+HEADLINE_FIELDS = ("reproduction", "compared", "warning", "source_check")
 CHANGE_KEYS = ("record", "path", "expected", "expected_absent", "value", "remove")
 #: Settable fields of an existing reference-isotherm or thermal parameter. A
 #: published coefficient ``value`` is not settable (see ``PUBLISHED_VALUE``).
@@ -278,7 +283,7 @@ def check_request(request: Any) -> None:
     if kind not in KIND_KEYS:
         raise Refused("request", f"kind must be one of {sorted(KIND_KEYS)}")
     allowed = {*COMMON_KEYS, KIND_KEYS[kind]}
-    extra = sorted(set(request) - allowed)
+    extra = sorted(set(request) - allowed - {ACKNOWLEDGE})
     if extra:
         raise Refused("undeclared_change", f"{kind} does not take {extra}")
     missing = sorted(allowed - set(request))
@@ -318,6 +323,21 @@ def check_request(request: Any) -> None:
     _date(rights["date"], "rights.date")
     if "same_basis" in rights and not isinstance(rights["same_basis"], bool):
         raise Refused("rights", "rights.same_basis must be true or false")
+    acknowledged = request.get(ACKNOWLEDGE, {})
+    if not isinstance(acknowledged, dict) or not all(
+        isinstance(fields, dict)
+        and set(fields) <= set(HEADLINE_FIELDS)
+        and all(
+            isinstance(pair, dict) and set(pair) == {"from", "to"}
+            for pair in fields.values()
+        )
+        for fields in acknowledged.values()
+    ):
+        raise Refused(
+            "request",
+            f"{ACKNOWLEDGE} maps records to {{field: {{from, to}}}} for "
+            f"{list(HEADLINE_FIELDS)}",
+        )
     if kind == "set_fields":
         changes = request["changes"]
         if not isinstance(changes, list) or not changes:
@@ -1235,6 +1255,14 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
         forward += derived_ops
         reverse = reverse_operations(forward)
         _check_declared(merged_before, merged_after, forward, reverse, touched)
+        headline_changes = _headline_changes(merged_before, merged_after, touched)
+        if headline_changes != request.get(ACKNOWLEDGE, {}):
+            raise Refused(
+                "check_change",
+                "the regenerated check block changes "
+                + (json.dumps(headline_changes) if headline_changes else "nothing")
+                + f"; the request must carry exactly this as {ACKNOWLEDGE}",
+            )
         changed_ranges = {
             o["record"]
             for o in forward
@@ -1288,13 +1316,20 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
         )
         revision: dict[str, Any] = {
             **{key: copy.deepcopy(request[key]) for key in COMMON_KEYS},
+            ACKNOWLEDGE: copy.deepcopy(request.get(ACKNOWLEDGE, {})),
             "forward": forward,
             "reverse": reverse,
+            "reference_sha256": {
+                "before": _sha(reference_before),
+                "after": _sha(reference_after),
+            },
         }
+        # Provisional: the complete revision's digest replaces it below.
         revision["content_sha256"] = content_sha256(revision)
+        order_document = copy.deepcopy(document)
         new_binding = _revised_binding(
             binding,
-            document,
+            order_document,
             forward,
             files,
             (_sha(reference_after), revision["content_sha256"]),
@@ -1312,10 +1347,6 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
         (stage / RECEIPT_PATH).write_text(receipt_text(new_receipt), encoding="utf-8")
         # A provisional ledger entry, so the staged binding's pins resolve
         # while the derived files are built; the complete entry follows.
-        revision["reference_sha256"] = {
-            "before": _sha(reference_before),
-            "after": _sha(reference_after),
-        }
         provisional = copy.deepcopy(ledger)
         provisional["revisions"].append(revision)
         (stage / LEDGER).parent.mkdir(parents=True, exist_ok=True)
@@ -1377,10 +1408,7 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
                         "after": _sha(files[1]),
                     },
                 },
-                "split_binding": {
-                    "before": copy.deepcopy(binding),
-                    "after_sha256": fingerprint(new_binding),
-                },
+                "split_binding": {"before": copy.deepcopy(binding)},
                 "policy": {
                     "material_sha256": {
                         "before": _sha(reference_before),
@@ -1392,22 +1420,31 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
                     },
                 },
                 "refit_rows": refit_rows,
-                "derived_files": {
-                    relative: {
-                        "before": _sha((root / relative).read_bytes())
-                        if (root / relative).exists()
-                        else None,
-                        "after": None if content is None else _sha(content),
-                    }
-                    for relative, content in files_changed.items()
-                    if relative not in own
-                },
+                # Generated pages are listed, not hashed: later revisions,
+                # undos and generator changes legitimately rewrite them.
+                "written_files": sorted(r for r in files_changed if r not in own),
+                "created_files": sorted(
+                    r
+                    for r, content in files_changed.items()
+                    if r not in own and content is not None and not (root / r).exists()
+                ),
                 "previous_sha256": fingerprint(previous[-1]) if previous else None,
             }
         )
         from scripts.catalog_revisions import REVISION_KEYS
 
+        revision["content_sha256"] = None
         revision = {key: revision[key] for key in REVISION_KEYS}
+        revision["content_sha256"] = content_sha256(revision)
+        new_binding = _revised_binding(
+            binding,
+            order_document,
+            forward,
+            files,
+            (_sha(reference_after), revision["content_sha256"]),
+        )
+        new_receipt["materials"][material] = new_binding
+        (stage / RECEIPT_PATH).write_bytes(receipt_text(new_receipt).encode("utf-8"))
         new_ledger = copy.deepcopy(ledger)
         new_ledger["revisions"].append(revision)
         (stage / LEDGER).parent.mkdir(parents=True, exist_ok=True)
@@ -1442,6 +1479,27 @@ def _reference_values(
         if (before, after) != (operation["before"], operation["after"]):
             operation["reference_before"] = None if before is ABSENT else before
             operation["reference_after"] = None if after is ABSENT else after
+
+
+def _headline_changes(before: dict, after: dict, touched: list[str]) -> dict:
+    """Changes of the headline fields of existing records' ``check`` blocks."""
+    old = {r["identifier"]: r.get("check", {}) for r in before["eos_records"]}
+    result: dict[str, dict] = {}
+    for record in after["eos_records"]:
+        identifier = record["identifier"]
+        if identifier not in touched or identifier not in old:
+            continue
+        fields = {
+            field: {
+                "from": old[identifier].get(field),
+                "to": record["check"].get(field),
+            }
+            for field in HEADLINE_FIELDS
+            if old[identifier].get(field) != record["check"].get(field)
+        }
+        if fields:
+            result[identifier] = fields
+    return result
 
 
 def _check_declared(
@@ -1577,11 +1635,14 @@ def _show(
                     else "absent"
                 )
                 lines.append(f"  {'.'.join(operation['path'])}: {was} -> {now}")
-            if old[identifier].get("check") != record.get("check"):
-                was = old[identifier].get("check", {}).get("reproduction")
-                lines.append(
-                    f"  reproduction: {was} -> {record['check']['reproduction']}"
-                )
+            before_check = old[identifier].get("check", {})
+            for key in (*HEADLINE_FIELDS, "why"):
+                if before_check.get(key) != record["check"].get(key):
+                    marker = "CHECK CHANGE" if key in HEADLINE_FIELDS else "check"
+                    lines.append(
+                        f"  {marker} {key}: {json.dumps(before_check.get(key))} -> "
+                        f"{json.dumps(record['check'].get(key))}"
+                    )
         else:
             lines.append(f"Record {identifier} (added): {record.get('label')}")
             lines.append(
@@ -1641,12 +1702,9 @@ def plan_undo(revision_id: str, root: Path = ROOT, *, derived: bool = True) -> P
     record_path, audit_path = _paths(material)
     receipt = json.loads((root / RECEIPT_PATH).read_bytes())
     binding = receipt["materials"][material]
-    unchanged = (
-        all(
-            _sha((root / p).read_bytes()) == revision["files"][p]["after"]
-            for p in (record_path, audit_path)
-        )
-        and fingerprint(binding) == revision["split_binding"]["after_sha256"]
+    unchanged = all(
+        _sha((root / p).read_bytes()) == revision["files"][p]["after"]
+        for p in (record_path, audit_path)
     )
     document, sidecar = _read(root, material)
     order_before = copy.deepcopy(document)
@@ -1730,14 +1788,9 @@ def plan_undo(revision_id: str, root: Path = ROOT, *, derived: bool = True) -> P
             _generate(stage)
             # Generated files the revision created for its record and that no
             # generator removes (coefficient figures) leave with the record.
-            for relative, pair in revision["derived_files"].items():
+            for relative in revision["created_files"]:
                 target = stage / relative
-                if (
-                    pair["before"] is None
-                    and target.exists()
-                    and _sha(target.read_bytes()) == pair["after"]
-                    and any(i in relative for i in added)
-                ):
+                if target.exists() and any(i in relative for i in added):
                     target.unlink()
         _load_catalog(stage, material, _set_records(revision["forward"]))
         records = _material_records(scientific_snapshot(stage), material)
