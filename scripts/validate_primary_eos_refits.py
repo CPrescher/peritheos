@@ -6565,8 +6565,8 @@ def check_ledger_values(
                     "weighted_sum_squares",
                     "parameter_covariance",
                     "published_max_abs_pressure_residual_gpa",
-                    # A correlation of the refit covariance, not a source fact.
-                    "K0_K0_prime_correlation",
+                    # Conditional refits and correlations, not source facts.
+                    "coefficient_tradeoff_diagnostic",
                 }
                 or key.startswith("rmse_")
                 or key.endswith("_rmse_gpa")
