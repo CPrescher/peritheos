@@ -64,7 +64,7 @@ extrapolation.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/b4c.md#record-b4c_somayazulu_2023_bm3_1)
 
-**Source check:** Coefficients from the article and supplement. Source conflicts resolved: BM3, not the BM2 of the Figure 1 caption; theta0 as in the Figure 4 caption and supplement, not 1450 K (Table 1); gamma0 and q from the article, not the supplement; Tr from the supplement, not 300 K.
+**Source check:** From the article and supplement. Conflicts resolved: BM3, not BM2 (Figure 1 caption); theta0 per Figure 4 caption and supplement, not 1450 K (Table 1); gamma0, q from the article, not the supplement; Tr from the supplement, not 300 K; K0' error 0.1 per the abstract, not 3.3(5) in the results text.
 
 Automatic selection for equilibrium calculations.
 
@@ -211,7 +211,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/b4c
 
 </details>
 
-The paper's Berman P-V-T fit, made with the EosFit7c program: V0(T) = V0\*\[1 + alpha0\*(T-Tr) + 0.5\*alpha1\*(T-Tr)^2\] and K0(T) = K0 + dK0/dT\*(T-Tr), with the 300 K BM3 parameters fixed.
+The paper's Berman P-V-T fit, made with the EosFit7c program: V0(T) = V0\*\[1 + alpha0\*(T-Tr) + 0.5\*alpha1\*(T-Tr)^2\] and K0(T) = K0 + dK0/dT\*(T-Tr), with the 300 K BM3 parameters fixed. The authors call this parameterization unphysical and offer it as a ready estimate of K(P, T).
 
 <details markdown="1">
 <summary>Source review</summary>
