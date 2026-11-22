@@ -345,6 +345,17 @@ def test_error_rounding_changes_only_the_text():
     assert "V0  = 74.636 fixed" in shen
 
 
+def test_published_errors_are_not_rounded_further():
+    """A published error may be a paper's printed digits, however many."""
+    record = get_eos_record("fes_vi_morard_2026_bm3_mgd")
+    assert record.overview()["record_kind"] in (None, "published")
+    stored = {row["name"]: row for row in record.overview()["parameters"]}
+    assert (stored["K0"]["value"], stored["K0"]["error"]) == (115.5, 27.91)
+    text = record.summary()
+    assert "  Parameters, errors as published: " in text
+    assert "115.5 +/- 27.91" in text
+
+
 def test_refit_errors_are_labelled_as_the_refit_s_own():
     refit = get_eos_record(
         "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit"
@@ -357,6 +368,15 @@ def test_refit_errors_are_labelled_as_the_refit_s_own():
     assert "  Parameters, errors as published: " in published
     derived = get_eos_record("nickel_oxide_noguchi_1999_linear_hugoniot_2").summary()
     assert "  Parameters, errors as stored for this derived record: " in derived
+    diagnostic = get_eos_record("argon_fcc_chen_2010_bm3_reported_constants")
+    assert diagnostic.overview()["record_kind"] == "diagnostic"
+    assert (
+        "  Parameters, errors as stored for this diagnostic record: "
+        in diagnostic.summary()
+    )
+    unstated = get_eos_record("akimotoite_siersch_2021_bm3_1")
+    assert unstated.overview()["record_kind"] is None
+    assert "  Parameters, errors as published: " in unstated.summary()
     lines = get_material("ca_perovskite").summary().splitlines()
 
     def row(identifier):

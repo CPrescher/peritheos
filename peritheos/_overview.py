@@ -231,10 +231,12 @@ def parameter_unit(
 # is rounded as in the reconstruction reports (scripts/report_numbers.py): to
 # the decimal place of its error, the error to two significant digits when its
 # leading digit is 1 or 2 and otherwise one, or else to six significant digits.
-# In a summary, the error of an adjustable coefficient stored with more than
-# three significant digits is rounded by the same rule, and its value to the
-# error's decimal place (``format_fitted_value_error``); fixed coefficients
-# and coefficients without an error keep the rule above.
+# In the summary of a refit, derived or diagnostic record, the error of an
+# adjustable coefficient stored with more than three significant digits is
+# rounded by the same rule, and its value to the error's decimal place
+# (``format_fitted_value_error``). Published records, fixed coefficients and
+# coefficients without an error keep the rule above, so a published pair is
+# never shown with fewer digits than a paper may have printed.
 
 _STORED_DIGITS = 6
 
@@ -328,14 +330,14 @@ def _decimal_text(number: Decimal, place: int) -> str:
 def format_fitted_value_error(value: Any, error: Any) -> tuple[str, str | None]:
     """Display texts for an adjustable coefficient and its error.
 
-    An error stored with more than three significant digits is a numerical
-    output, not a printed value: it is rounded as the authoring guide
-    prescribes (two significant digits when its leading digit is 1 or 2,
-    otherwise one) and the value to the same decimal place; a value already
-    stored more coarsely keeps its stored text. An error with at most three
-    significant digits, and its value, print as ``format_value_error`` prints
-    them (as stored, so a published pair reads as printed). Display only: the
-    stored numbers are not changed.
+    For records whose errors Peritheos computed (refit, derived, diagnostic);
+    a published record uses ``format_value_error``. An error stored with more
+    than three significant digits is rounded as the authoring guide prescribes
+    (two significant digits when its leading digit is 1 or 2, otherwise one)
+    and the value to the same decimal place; a value already stored more
+    coarsely keeps its stored text. An error with at most three significant
+    digits, and its value, print as ``format_value_error`` prints them.
+    Display only: the stored numbers are not changed.
     """
     if not (
         _is_number(value)
@@ -1069,6 +1071,13 @@ def record_summary(overview: Mapping[str, Any]) -> str:
     )
     rows = overview["parameters"]
     width = max((len(row["display_name"]) for row in rows), default=0)
+    # Only errors that Peritheos computed are rounded further; a published
+    # error may be a paper's printed digits.
+    format_adjustable = (
+        format_fitted_value_error
+        if str(overview["record_kind"]) in _ERROR_ORIGINS
+        else format_value_error
+    )
     texts = []
     for row in rows:
         if row["fixed"]:
@@ -1078,7 +1087,7 @@ def record_summary(overview: Mapping[str, Any]) -> str:
                 text += f" (published +/- {error})"
             texts.append(text)
             continue
-        value, error = format_fitted_value_error(row["value"], row["error"])
+        value, error = format_adjustable(row["value"], row["error"])
         if row["value"] is None and error is None:
             text = "not stated"
         elif error is not None:
