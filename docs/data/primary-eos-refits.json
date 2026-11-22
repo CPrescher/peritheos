@@ -4286,7 +4286,7 @@
       "selection": "41 heated rows",
       "solver_message": "`xtol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Peritheos refit of the public rounded data with the EosFit7c 7.60 program, not a published parameter set. The run refined alpha0 and dK0/dT against the 41 heated rows using all reported P, V and T sigmas. The covariance is rebuilt from EosFit's rounded standard errors and printed -95.8% correlation after W-CHI^2 rescaling, and omits uncertainty in the fixed reference-isotherm parameters.",
+      "source_notes": "Peritheos refit of the public rounded data with the EosFit7c 7.60 program, not a published parameter set. The run refined alpha0 and dK0/dT against the 41 heated rows using all reported P, V and T uncertainties. The stored covariance omits the uncertainty of the fixed reference-isotherm parameters.",
       "status": "parity"
     },
     {
@@ -7292,7 +7292,7 @@
       "selection": "Sun Table 1 rows at 1200-2200 K plus all cubic Gréaux Figure 3b rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Peritheos refit to the inferred Fu et al. data selection, with unit weight on every pressure, bulk-modulus and shear-modulus residual. Errors are residual-scaled standard errors from the full seven-parameter joint fit, which also refines mu0, mu0' and eta_s0 against Gréaux elastic data. Not Fu et al.'s published regression, which remains the authoritative literature parameterization.",
+      "source_notes": "Peritheos refit to the inferred Fu et al. data selection, with unit weight on every pressure, bulk-modulus and shear-modulus residual. Errors are residual-scaled standard errors from the full seven-parameter joint fit, which also refines mu0, mu0' and eta_s0 against Gréaux elastic data. Not Fu et al.'s published regression; that is stored as a separate record.",
       "status": "parity",
       "usage_recommendation": "Opt-in independent comparison using unit weight for every scalar pressure, bulk-modulus and shear-modulus residual in GPa. Retain the candidate selection, pressure-scale and measurement-error qualifications. Do not present it as a correction to or reproduction of Fu's original fit; its residual-scaled errors do not establish source measurement covariance."
     },
@@ -8052,7 +8052,7 @@
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Joint BM3 + Mie-Grüneisen-Debye fit (model 1 in Table 2) for cubic Pm-3m CaSiO3. Printed fit rows span 21.2-151.8 GPa; 156 GPa is the paper's overall diffraction range, not a printed Table 1 pressure. The 300 K reference isotherm is an extrapolated, metastable model reference: cubic CaSiO3 is not quenchable, and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors.",
+      "source_notes": "Joint BM3 + Mie-Grüneisen-Debye fit (model 1 in Table 2) for cubic Pm-3m CaSiO3. Printed fit rows span 21.2-151.8 GPa; 156 GPa is the paper's overall diffraction range. The 300 K reference isotherm is an extrapolated, metastable model reference: cubic CaSiO3 is not quenchable, and the record must not be interpreted as a stable cubic phase at 300 K.",
       "status": "parity",
       "usage_recommendation": "Retain the published cubic thermal EOS and all 144 printed observations for qualified comparison within the reported high-temperature range. The 300 K cubic branch is an extrapolated reference. Do not replace observations, uncertainties or the Pt pressure scale from the separately supplied workbook without resolved row correspondence and calibration."
     },

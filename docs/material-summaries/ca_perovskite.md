@@ -880,7 +880,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[21.2, 156.0\]
     - **Temperature k:** \[1200.0, 2600.0\]
 
-Joint BM3 + Mie-Grüneisen-Debye fit (model 1 in Table 2) for cubic Pm-3m CaSiO3. Printed fit rows span 21.2-151.8 GPa; 156 GPa is the paper's overall diffraction range, not a printed Table 1 pressure. The 300 K reference isotherm is an extrapolated, metastable model reference: cubic CaSiO3 is not quenchable, and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors.
+Joint BM3 + Mie-Grüneisen-Debye fit (model 1 in Table 2) for cubic Pm-3m CaSiO3. Printed fit rows span 21.2-151.8 GPa; 156 GPa is the paper's overall diffraction range. The 300 K reference isotherm is an extrapolated, metastable model reference: cubic CaSiO3 is not quenchable, and the record must not be interpreted as a stable cubic phase at 300 K.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2891,7 +2891,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Peritheos refit to the inferred Fu et al. data selection, with unit weight on every pressure, bulk-modulus and shear-modulus residual. Errors are residual-scaled standard errors from the full seven-parameter joint fit, which also refines mu0, mu0' and eta\_s0 against Gréaux elastic data. Not Fu et al.'s published regression, which remains the authoritative literature parameterization.
+Peritheos refit to the inferred Fu et al. data selection, with unit weight on every pressure, bulk-modulus and shear-modulus residual. Errors are residual-scaled standard errors from the full seven-parameter joint fit, which also refines mu0, mu0' and eta\_s0 against Gréaux elastic data. Not Fu et al.'s published regression; that is stored as a separate record.
 
 <details markdown="1">
 <summary>Source review</summary>

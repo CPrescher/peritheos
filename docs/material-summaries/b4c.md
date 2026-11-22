@@ -304,7 +304,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Peritheos refit of the public rounded data with the EosFit7c 7.60 program, not a published parameter set. The run refined alpha0 and dK0/dT against the 41 heated rows using all reported P, V and T sigmas. The covariance is rebuilt from EosFit's rounded standard errors and printed -95.8% correlation after W-CHI^2 rescaling, and omits uncertainty in the fixed reference-isotherm parameters.
+Peritheos refit of the public rounded data with the EosFit7c 7.60 program, not a published parameter set. The run refined alpha0 and dK0/dT against the 41 heated rows using all reported P, V and T uncertainties. The stored covariance omits the uncertainty of the fixed reference-isotherm parameters.
 
 <details markdown="1">
 <summary>Source review</summary>
