@@ -13,6 +13,7 @@ import hashlib
 import json
 import os
 import shutil
+import time
 from pathlib import Path
 
 import pytest
@@ -611,10 +612,50 @@ def test_undo_keeps_a_later_notes_rewrite_of_a_record_whose_row_changed(repo):
 # Tampering ------------------------------------------------------------------
 
 
+def _build_once(tmp_path_factory, name, build) -> Path:
+    """Build a read-only tree once per test run, also across parallel workers.
+
+    Without workers the tree is simply built. With pytest-xdist the workers
+    share the parent of their base temporary directories: the worker that
+    creates the directory builds the tree and the others wait for its marker.
+    """
+    if not os.environ.get("PYTEST_XDIST_WORKER"):
+        root = tmp_path_factory.mktemp(name) / "repo"
+        build(root)
+        return root
+    shared = tmp_path_factory.getbasetemp().parent / name
+    root = shared / "repo"
+    try:
+        shared.mkdir()
+    except FileExistsError:
+        deadline = time.monotonic() + 1800
+        while not (shared / "done").exists():
+            if (shared / "failed").exists():
+                pytest.fail(f"another worker failed to build the shared {name} tree")
+            if time.monotonic() > deadline:
+                pytest.fail(f"timed out waiting for the shared {name} tree")
+            time.sleep(0.5)
+        return root
+    try:
+        build(root)
+    except BaseException:
+        (shared / "failed").touch()
+        raise
+    (shared / "done").touch()
+    return root
+
+
 @pytest.fixture(scope="module")
 def revised(tmp_path_factory):
-    """A copy with two revisions of siderite: an added record, then a field of it."""
-    root = _copy(tmp_path_factory.mktemp("revised") / "repo")
+    """A copy with two revisions of siderite: an added record, then a field of it.
+
+    Tests read it or copy it; none may write into it.
+    """
+    return _build_once(tmp_path_factory, "revised", _build_revised)
+
+
+def _build_revised(root: Path) -> None:
+    _copy(root)
     saved = catalog_revisions.ROOT
     catalog_revisions.ROOT = root
     try:
@@ -631,7 +672,6 @@ def revised(tmp_path_factory):
         )
     finally:
         catalog_revisions.ROOT = saved
-    return root
 
 
 @pytest.mark.parametrize(
