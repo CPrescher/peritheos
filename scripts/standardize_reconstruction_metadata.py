@@ -3,6 +3,12 @@
 Run ``python -m scripts.standardize_reconstruction_metadata [paths ...]``;
 ``--check`` is read-only. No fitting, reclassification or coefficient replacement
 is performed. The common ledger and original record evidence remain intact.
+
+A bundled material keeps its assessments in the audit sidecar
+(``peritheos/data/audits/<id>.audit.json``). Such a file is checked as the
+complete document, record file plus sidecar, and is never written here: its
+assessment changes only through ``scripts/apply_catalog_revision.py``, which
+keeps the receipts. Inline files are checked and written as before.
 """
 
 from __future__ import annotations
@@ -15,7 +21,7 @@ from pathlib import Path
 from typing import Any
 
 from peritheos import validate_eosmat_document
-from peritheos._eosmat_audit import GENERIC_QUALIFICATIONS
+from peritheos._eosmat_audit import GENERIC_QUALIFICATIONS, merge_audit
 from peritheos._eosmat_format import format_eosmat
 from scripts.reconstruction_links import report_links
 
@@ -295,6 +301,12 @@ def standardize_document(
     return result
 
 
+def _sidecar_path(path: Path) -> Path | None:
+    """The audit sidecar of a bundled record file, or ``None`` for an inline file."""
+    sidecar = path.parent.parent / "audits" / f"{path.stem}.audit.json"
+    return sidecar if sidecar.is_file() else None
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("paths", nargs="*", type=Path)
@@ -316,6 +328,19 @@ def main() -> int:
     changed = []
     for path in files:
         original = path.read_bytes()
+        sidecar = _sidecar_path(path)
+        if sidecar is not None:
+            merged = merge_audit(json.loads(original), json.loads(sidecar.read_bytes()))
+            if standardize_document(copy.deepcopy(merged), rows) == merged:
+                continue
+            if not args.check:
+                raise SystemExit(
+                    f"{path}: the assessment in its audit sidecar differs from "
+                    "the ledger. A bundled material is not written here; use "
+                    "scripts/apply_catalog_revision.py."
+                )
+            changed.append(path)
+            continue
         result = standardize_document(json.loads(original), rows)
         rendered = format_eosmat(result).encode("utf-8")
         if rendered == original:
