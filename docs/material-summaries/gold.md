@@ -2255,7 +2255,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Temperature k:** \[0, 3000\]
     - **Volume ratio:** \[0.6, 1.0\]
     - **Notes:** The domain includes first-liquid states of Table III, excluded from the fit; use the source's phase markers.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Stored parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -2378,7 +2378,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Kind:** formula\_units
     - **Formula units:** 4
     - **Molar mass g mol:** 196.96657
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Errors from the Peritheos refit:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

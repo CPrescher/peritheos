@@ -593,7 +593,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Temperature k:** \[1.0, 10000.0\]
     - **Volume ratio:** \[0.4092215970225601, 1.0204081632653061\]
     - **Notes:** The Dewaele 298 K isotherm was measured to 80 GPa. Above that the Vinet form is evaluated beyond its calibration coverage.; The Correa thermal contribution uses the simulation range recorded by the unanchored source record.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Stored parameter errors:** confidence level not stated; used as 1 sigma
 
 P(V,T) = P\_Dewaele(V, 298 K) + P\_Correa(V,T) - P\_Correa(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Correa's simulated logarithmic-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.
 
@@ -716,7 +716,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Temperature k:** \[298.0, 9000.0\]
     - **Volume ratio:** \[0.44097154851568976, 1.2347203358439314\]
     - **Notes:** The Dewaele 298 K isotherm was measured to 80 GPa. Above that the Vinet form is evaluated beyond its calibration coverage.; The Benedict thermal contribution uses the simulation range recorded by the unanchored source record.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Stored parameter errors:** confidence level not stated; used as 1 sigma
 
 P(V,T) = P\_Dewaele(V, 298 K) + P\_Benedict(V,T) - P\_Benedict(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Benedict's simulated first-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.
 

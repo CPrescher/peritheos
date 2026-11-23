@@ -59,6 +59,7 @@ def _render(item: Any, args: argparse.Namespace) -> str:
 
 
 def _list(args: argparse.Namespace) -> str:
+    from peritheos._overview import phase_text
     from peritheos.catalog import list_materials, search_materials
 
     materials = search_materials(args.query) if args.query else list_materials()
@@ -71,7 +72,7 @@ def _list(args: argparse.Namespace) -> str:
                 material.identifier,
                 material.formula,
                 material.name or "",
-                " ".join(material.phase.split()),
+                phase_text(material.phase),
                 f"{count} record{'s' if count != 1 else ''}",
                 "-"
                 if default is None

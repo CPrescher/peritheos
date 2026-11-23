@@ -338,7 +338,7 @@
       "experimental_temperature_range_k": [1200.0, 2600.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Joint BM3 + Mie-Grüneisen-Debye fit (model 1 in Table 2) for cubic Pm-3m CaSiO3. Printed fit rows span 21.2-151.8 GPa; 156 GPa is the paper's overall diffraction range, not a printed Table 1 pressure. The 300 K reference isotherm is an extrapolated, metastable model reference: cubic CaSiO3 is not quenchable, and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors.",
+      "notes": "Joint BM3 + Mie-Grüneisen-Debye fit (model 1 in Table 2) for cubic Pm-3m CaSiO3. Printed fit rows span 21.2-151.8 GPa; 156 GPa is the paper's overall diffraction range. The 300 K reference isotherm is an extrapolated, metastable model reference: cubic CaSiO3 is not quenchable, and the record must not be interpreted as a stable cubic phase at 300 K.",
       "fit_datasets": ["ca_perovskite_sun_2016_table1_pvt"],
       "reference": {
         "authors": ["Sun", "Mao", "Yan", "Wu", "Prakapenka", "Lin"],
@@ -1300,7 +1300,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "refit",
-      "notes": "Peritheos refit to the inferred Fu et al. data selection, with unit weight on every pressure, bulk-modulus and shear-modulus residual. Errors are residual-scaled standard errors from the full seven-parameter joint fit, which also refines mu0, mu0' and eta_s0 against Gréaux elastic data. Not Fu et al.'s published regression, which remains the authoritative literature parameterization.",
+      "notes": "Peritheos refit to the inferred Fu et al. data selection, with unit weight on every pressure, bulk-modulus and shear-modulus residual. Errors are residual-scaled standard errors from the full seven-parameter joint fit, which also refines mu0, mu0' and eta_s0 against Gréaux elastic data. Not Fu et al.'s published regression; that is stored as a separate record.",
       "fit_datasets": ["ca_perovskite_fu_2023_candidate_composite_external"],
       "reference": {
         "authors": ["Fu", "Zhang", "Okuchi", "Lin"],

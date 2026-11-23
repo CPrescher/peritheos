@@ -1052,7 +1052,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.
 
-**Registered source-fit note.** The paper's Berman P-V-T fit, made with the EosFit7c program: V0(T) = V0*[1 + alpha0*(T-Tr) + 0.5*alpha1*(T-Tr)^2] and K0(T) = K0 + dK0/dT*(T-Tr), with the 300 K BM3 parameters fixed.
+**Registered source-fit note.** The paper's Berman P-V-T fit, made with the EosFit7c program: V0(T) = V0*[1 + alpha0*(T-Tr) + 0.5*alpha1*(T-Tr)^2] and K0(T) = K0 + dK0/dT*(T-Tr), with the 300 K BM3 parameters fixed. The authors call this parameterization unphysical and offer it as a ready estimate of K(P, T).
 
 **Assessment and likely origin.**
 - The point estimate exceeds the numerical limit for `dK_dT`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.

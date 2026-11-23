@@ -83,7 +83,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[0.0, 34.0\]
     - **Temperature k:** \[298.15, 298.15\]
     - **Notes:** The data span 1.5-34 GPa; the range starts at 0 GPa because V0 fixes the zero-pressure point.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Errors from the Peritheos refit:** confidence level not stated; used as 1 sigma
 
 Peritheos Vinet refit of the Cu column in AIP Handbook Table 4d-12, separate from the Sun et al. Vinet record. The handbook values are rounded points of a derived isotherm, not raw observations.
 

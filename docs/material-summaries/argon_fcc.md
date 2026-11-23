@@ -1098,7 +1098,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[1.23188372, 26.06236454\]
     - **Temperature k:** \[290, 290\]
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Stored parameter errors:** confidence level not stated; used as 1 sigma
 
 Diagnostic standard-BM3 reconstruction from Chen's rounded constants at 2 GPa, not a verified author equation. It misfits the digitized density observations. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.
 
@@ -1189,7 +1189,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[1.23188372, 26.06236454\]
     - **Temperature k:** \[290, 290\]
     - **Notes:** Digitized room-temperature data; 290 K is taken from Table I.; V0, K0 and K0' are extrapolations to zero pressure; do not extrapolate the curve beyond the fitted range.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Errors from the Peritheos refit:** confidence level not stated; used as 1 sigma
 
 Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nominal error-in-variables weighting; Chen's published EOS is not reproduced. Near-coincident digitized points are not statistically independent.
 
