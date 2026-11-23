@@ -76,6 +76,12 @@ All notable changes to Peritheos are documented here. The project follows
   not yet changed. Error values are unchanged, propagated uncertainties are
   identical to floating-point rounding, and material summaries now print
   "1 sigma" for these records.
+- Add `siderite_fe095mn005_litasov_2013_bm3_thermal`, the published
+  high-temperature Birch-Murnaghan fit of Litasov et al. (2013), Table 1, by
+  catalog revision. It was withheld because the abstract prints a different
+  a0; the Table 1 value is stored by maintainer decision and the record's
+  note states the conflict. It is not a default; the 300 K record remains the
+  default.
 - `scripts/apply_check_text.py` also sets a bundled record's coded
   `usage_recommendation` (the source of `check.warning`), keeping replaced
   free text as `recommendation_reason` and binding the originals so every

@@ -1,35 +1,35 @@
 {
   "format": "peritheos.catalog-coverage",
   "format_version": 1,
-  "material_files_sha256": "a172cc4099add8c6e658ad89217807d89655610f183b0f1cc6c21f70b06307b3",
+  "material_files_sha256": "ca84060e29d910f969d8167fd5a3ec7007108683a37bdb9e00be8996046285fb",
   "summary": {
     "stored_materials": 235,
-    "stored_records": 687,
+    "stored_records": 688,
     "executable_materials": 232,
-    "executable_records": 684,
-    "source_records": 632,
+    "executable_records": 685,
+    "source_records": 633,
     "pressure_scale_reference_variants": 52,
     "materials_with_thermal_eos": 66,
     "executable_equation_kinds": {
       "hugoniot": 4,
       "isothermal": 542,
-      "thermal": 138
+      "thermal": 139
     },
     "stored_validation": {
       "deferred": 3,
       "not_reproduced": 18,
-      "primary_source_validated": 666
+      "primary_source_validated": 667
     },
     "executable_calibration_status": {
       "not_applicable": 164,
-      "partially_resolved": 193,
+      "partially_resolved": 194,
       "resolved": 240,
       "unresolved": 87
     },
     "executable_recalculation_status": {
       "missing_calibrant_observations": 200,
       "not_applicable": 161,
-      "not_possible": 126,
+      "not_possible": 127,
       "ready": 136,
       "reference_eos_not_bundled": 54,
       "reference_model_not_supported": 7
@@ -42,7 +42,7 @@
       "not_refittable": 178,
       "parity": 358,
       "parity_not_achieved": 61,
-      "similar": 72,
+      "similar": 73,
       "source_reconstruction": 18
     },
     "missing_from_refit_ledger": [],
@@ -3281,13 +3281,13 @@
       "formula": "Fe0.95Mn0.05CO3",
       "family_id": null,
       "input_file": "peritheos/data/materials/siderite_fe095mn005.eosmat",
-      "stored_records": 2,
-      "executable_records": 2,
+      "stored_records": 3,
+      "executable_records": 3,
       "isothermal_records": 1,
-      "thermal_records": 1,
+      "thermal_records": 2,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 2
+        "primary_source_validated": 3
       },
       "datasets": 1
     },
@@ -9403,6 +9403,15 @@
     },
     {
       "identifier": "siderite_fe095mn005_litasov_2013_joint_thermal_refit",
+      "material_identifier": "siderite_fe095mn005",
+      "executable": true,
+      "equation_kind": "thermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "siderite_fe095mn005_litasov_2013_bm3_thermal",
       "material_identifier": "siderite_fe095mn005",
       "executable": true,
       "equation_kind": "thermal",

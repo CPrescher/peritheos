@@ -1,9 +1,11 @@
 # Litasov et al. (2013): natural siderite
 
 The 300 K BM3 record **`siderite_fe095mn005_litasov_2013_bm3`** is accepted.
-Both published thermal versions remain non-executable because their expansion
-intercepts disagree. A separate **`siderite_fe095mn005_litasov_2013_joint_thermal_refit`**
-record is executable and explicitly opt-in. The published 300 K record remains
+The published thermal fit is stored as
+**`siderite_fe095mn005_litasov_2013_bm3_thermal`** with the Table 1 value of
+a0, by maintainer decision of 2026-11-23 (see below); the abstract prints a
+different a0. A separate **`siderite_fe095mn005_litasov_2013_joint_thermal_refit`**
+record is a Peritheos refit. Both are opt-in. The published 300 K record remains
 the default. This supersedes the earlier source-access hold.
 
 Primary reference: K. D. Litasov, A. Shatskiy, P. N. Gavryushkin,
@@ -50,7 +52,7 @@ claim a source-specific atomic refinement or use the database as EOS authority.
 | Candidate | Source values | Disposition |
 |---|---|---|
 | 300 K volume BM3 | V0 = 293.4(1) Å³ fixed; K0 = 120(1) GPa; K′ = 3.57(9) | Accepted, published values unchanged |
-| Thermal volume BM3 | Same cold coefficients; dK/dT = −0.015(1) GPa/K; a1 = 0.06(14) × 10⁻⁸ K⁻²; a0 = **3.57(9)** × 10⁻⁵ K⁻¹ in the abstract versus **3.77(9)** × 10⁻⁵ in Table 1 | Withheld; both variants evaluated diagnostically |
+| Thermal volume BM3 | Same cold coefficients; dK/dT = −0.015(1) GPa/K; a1 = 0.06(14) × 10⁻⁸ K⁻²; a0 = **3.57(9)** × 10⁻⁵ K⁻¹ in the abstract versus **3.77(9)** × 10⁻⁵ in Table 1 | Table 1 variant stored as `siderite_fe095mn005_litasov_2013_bm3_thermal`; both variants evaluated diagnostically |
 | a³ axial BM3 | Fixed fictive V0a = 103.4 Å³; Ka = 166(2) GPa, K′a = 14.0(8) | Axial diagnostic, not a physical-volume EOS |
 | c³ axial BM3 | Fixed fictive V0c = 3633.8 Å³; Kc = 59(1) GPa, K′c = 2.7 | Axial diagnostic; K′c error is 0.1 in the abstract versus 0.4 in Section 3 |
 
@@ -84,9 +86,15 @@ Kprime(T) = Kprime.
 Thus a0 is an absolute-temperature intercept and alpha is volumetric.
 Peritheos's existing `ThermalReferenceStateEOS`, `linear_temperature`
 expansivity and `integrated_expansivity` volume law could express it exactly;
-no new model is needed. A source-reported thermal production record is nevertheless withheld
+no new model is needed. A source-reported thermal record was at first withheld
 under the [acceptance protocol](../adding-materials-and-eos.md), because the
-coefficient conflict has not been resolved by an authoritative correction.
+coefficient conflict has not been resolved by an authoritative correction. On
+2026-11-23 the maintainer decided to store the Table 1 set as
+`siderite_fe095mn005_litasov_2013_bm3_thermal`: the abstract's a0 = 3.57(9)
+repeats the digits and error of K′, the Table 1 set gives the lower pressure
+RMS over all 111 rows, and the staged fit of the heated rows gives
+a0 = 3.816 × 10⁻⁵. No author correction is known, the typeset article has not
+been seen, and the record's note says so.
 
 Section 3 explicitly varies K0, K′, dK/dT, a0 and a1 **jointly**, with V0
 fixed. The abstract describes RT fitting followed by thermal analysis.

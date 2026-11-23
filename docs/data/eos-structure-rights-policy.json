@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
-  "catalog_scientific_sha256": "2b8b4ffd55f2985bb9f9ecc5ba3e19cc53c6264d74c645f19ad408f952b9c003",
+  "catalog_scientific_sha256": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a",
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "9e0ad696feedc66584a70850fa2b058ec2aea22013116f9e4fd8a3727d8f7334",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "6a1981f1cc4766644d4c60c99719e76f7dc1fd7deaf04f9c4677f89c978b0b2f",
@@ -206,7 +206,7 @@
     "peritheos/data/materials/ringwoodite.eosmat": "8073b53eefc3cd33fdf9df469aba6d999da465b7569b62eca46d6029cf7c982b",
     "peritheos/data/materials/ruthenium.eosmat": "233e638402d3439076d8fc6de4c83b30f7858573eb49eba58df688e26fb89278",
     "peritheos/data/materials/seifertite.eosmat": "008a0a6c66cd01e610fc29997d96234dccf3d78834b396772eca2bcb3ff5c19d",
-    "peritheos/data/materials/siderite_fe095mn005.eosmat": "5c66a5f258a260e905a14823a7c9e1ac087e641c569dbbd43e52984a90cff786",
+    "peritheos/data/materials/siderite_fe095mn005.eosmat": "b4d0546a3ff13b3d8fe03da15d6e96326ae497e85f198a9877c399ab125203f0",
     "peritheos/data/materials/silica_cacl2.eosmat": "8e211b414489fba0bbde0510b723ebb9b7481fb184bfa05e3f09c7e2b77428f7",
     "peritheos/data/materials/silicon.eosmat": "05e692da1ef2525c55240f89cc80cc87e641c74fcb41cea812ee8bf659d105a0",
     "peritheos/data/materials/silicon_carbide_b1.eosmat": "2fbbc17c670ea4771739ff494359cf543e0410985078560ae4a5a84e21eecb1c",
@@ -477,6 +477,9 @@
       ],
       "qandilite": [
         "2026-11-21-qandilite-one-sigma"
+      ],
+      "siderite_fe095mn005": [
+        "2026-11-23-siderite-litasov-2013-thermal"
       ],
       "sio2_stv_andr": [
         "2026-11-21-sio2-stv-andr-one-sigma"

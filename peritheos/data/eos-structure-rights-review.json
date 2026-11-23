@@ -2,8 +2,8 @@
   "schema": "peritheos.eos-structure-rights-review.v1",
   "reviewed_on": "2026-11-08",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
-  "policy_sha256": "6a86815939d34c3f80c98f5134c1c6f27135c7f532dab2b42e0fb771611a648f",
-  "catalog_scientific_sha256": "2b8b4ffd55f2985bb9f9ecc5ba3e19cc53c6264d74c645f19ad408f952b9c003",
+  "policy_sha256": "72c4927046acb58cca5008be964cfdfabe2b7445e2c0e75a07644daafea3064f",
+  "catalog_scientific_sha256": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
   "limits": [
     "Assessment concerns the existing normalized numerical records and cited lineage; no fresh transcription or legal clearance of every original publication is claimed.",
@@ -16,7 +16,7 @@
   ],
   "counts": {
     "materials": 235,
-    "eos_records": 687,
+    "eos_records": 688,
     "structural_components": 235,
     "eos_source_groups": 273,
     "migration_records": 144,
@@ -24,7 +24,7 @@
       "cod_source_and_numerical_changes": 5,
       "independently_calculated_pattern": 10,
       "no_structural_values": 36,
-      "numerical_parameter_assessment": 680,
+      "numerical_parameter_assessment": 681,
       "numerical_structure_assessment": 184,
       "thermodynamic_collection_review_required": 7
     }
@@ -345,7 +345,7 @@
     "peritheos/data/materials/ringwoodite.eosmat": "8073b53eefc3cd33fdf9df469aba6d999da465b7569b62eca46d6029cf7c982b",
     "peritheos/data/materials/ruthenium.eosmat": "233e638402d3439076d8fc6de4c83b30f7858573eb49eba58df688e26fb89278",
     "peritheos/data/materials/seifertite.eosmat": "008a0a6c66cd01e610fc29997d96234dccf3d78834b396772eca2bcb3ff5c19d",
-    "peritheos/data/materials/siderite_fe095mn005.eosmat": "5c66a5f258a260e905a14823a7c9e1ac087e641c569dbbd43e52984a90cff786",
+    "peritheos/data/materials/siderite_fe095mn005.eosmat": "b4d0546a3ff13b3d8fe03da15d6e96326ae497e85f198a9877c399ab125203f0",
     "peritheos/data/materials/silica_cacl2.eosmat": "8e211b414489fba0bbde0510b723ebb9b7481fb184bfa05e3f09c7e2b77428f7",
     "peritheos/data/materials/silicon.eosmat": "05e692da1ef2525c55240f89cc80cc87e641c74fcb41cea812ee8bf659d105a0",
     "peritheos/data/materials/silicon_carbide_b1.eosmat": "2fbbc17c670ea4771739ff494359cf543e0410985078560ae4a5a84e21eecb1c",
@@ -22697,6 +22697,39 @@
       },
       "parameter_provenance_pointer": "peritheos/data/materials/siderite_fe095mn005.eosmat#/eos_records/1/evidence/parameter_provenance",
       "parameter_provenance_sha256": "13163e3088a1785e640ff3d9629fa32c2b8c5eea3cc1206bd8ad0aab40998f2b",
+      "migration_source": null
+    },
+    {
+      "key": "eos/siderite_fe095mn005/siderite_fe095mn005_litasov_2013_bm3_thermal",
+      "kind": "eos",
+      "material": "siderite_fe095mn005",
+      "identifier": "siderite_fe095mn005_litasov_2013_bm3_thermal",
+      "evidence": "peritheos/data/materials/siderite_fe095mn005.eosmat#/eos_records/2",
+      "source_sha256": "332c311a46897bfb4666e12b75b22d66a6223f28de16dd8efeafb8b9b08b8c1b",
+      "runtime_sha256": "ecb27f58de208cf92190dfcfae13fe94ea388226fab2966df53a4fbf1ae1818b",
+      "assessment": "numerical_parameter_assessment",
+      "source_license": "No new source grant established by this review",
+      "reference": {
+        "authors": [
+          "Litasov",
+          "Shatskiy",
+          "Gavryushkin",
+          "Sharygin",
+          "Dorogokupets",
+          "Dymshits",
+          "Ohtani",
+          "Higo",
+          "Funakoshi"
+        ],
+        "year": 2013,
+        "title": "P–V–T equation of state of siderite to 33 GPa and 1673 K",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "224",
+        "locator": "83-87",
+        "doi": "10.1016/j.pepi.2013.07.011"
+      },
+      "parameter_provenance_pointer": "peritheos/data/materials/siderite_fe095mn005.eosmat#/eos_records/2/evidence/parameter_provenance",
+      "parameter_provenance_sha256": "bdd8932e69f713b9eba8ce01be24e9548bb9efe9ee6026a666824f80934c726f",
       "migration_source": null
     },
     {

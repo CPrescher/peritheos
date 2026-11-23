@@ -5193,6 +5193,574 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "1120925c3f1bd9743267dbd6e82238c9fe7bc585abcb84cb716bf76114d9258c"
+    },
+    {
+      "id": "2026-11-23-siderite-litasov-2013-thermal",
+      "material": "siderite_fe095mn005",
+      "kind": "add_record",
+      "date": "2026-11-23",
+      "decided_by": "Clemens Prescher",
+      "reason": "Adds the published high-temperature Birch-Murnaghan fit of Litasov et al. (2013), Table 1, which the catalog withheld because the abstract and Table 1 disagree on a0. Maintainer decision to store the Table 1 value: the abstract value repeats the digits and error of K0', the Table 1 set describes the Table 2 observations better (pressure RMS 0.23256 against 0.29937 GPa), and a fit of the heated rows gives a0 = 3.816e-5. No author correction is known.",
+      "source": {
+        "citation": "Litasov et al. (2013), P-V-T equation of state of siderite to 33 GPa and 1673 K, Phys. Earth Planet. Inter. 224, 83-87, doi:10.1016/j.pepi.2013.07.011",
+        "location": "Accepted manuscript, Table 1 ('This work'), page 12; abstract"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-23",
+        "same_basis": true,
+        "statement": "Coefficients transcribed from Table 1 of the published article; no text, figure or data table is reproduced."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "add_record",
+          "record": {
+            "identifier": "siderite_fe095mn005_litasov_2013_bm3_thermal",
+            "label": "Litasov et al. (2013), natural Fe0.95Mn0.05CO3, thermal BM3 (Table 1)",
+            "check": {
+              "reproduction": "close",
+              "compared": "published_fit",
+              "why": "alpha1: refit 1.0e-09 vs published 6e-10 (+68.4%), beyond the agreement limit.",
+              "warning": null,
+              "source_check": "verified",
+              "source_checked_on": "2026-11-23",
+              "source_note": "Coefficients as printed in Table 1 of the accepted manuscript (P-V-T fit). The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value 3.77(9)e-5 is stored because it fits the Table 2 rows better. The typeset article was not seen.",
+              "audit": "../audits/siderite_fe095mn005.audit.json#siderite_fe095mn005_litasov_2013_bm3_thermal"
+            },
+            "model": "BM3",
+            "temperature_ref": 300.0,
+            "parameters": {
+              "V0": {
+                "value": 293.4,
+                "error": 0.1,
+                "fixed": true
+              },
+              "K0": {
+                "value": 120.0,
+                "error": 2.0
+              },
+              "K0_prime": {
+                "value": 3.57,
+                "error": 0.09
+              }
+            },
+            "thermal": {
+              "model": "AlphaKT",
+              "parameters": {
+                "Tr": {
+                  "value": 300.0,
+                  "error": null,
+                  "fixed": true
+                },
+                "alpha0": {
+                  "value": 3.77e-05,
+                  "error": 9e-07
+                },
+                "alpha1": {
+                  "value": 6e-10,
+                  "error": 1.4e-09
+                },
+                "dK_dT": {
+                  "value": -0.015,
+                  "error": 0.001
+                }
+              },
+              "thermal_expansion_law": "linear_temperature",
+              "reference_volume_law": "integrated_expansivity"
+            },
+            "parameter_error_confidence": null,
+            "experimental_pressure_range_gpa": [
+              0.0,
+              33.01
+            ],
+            "experimental_temperature_range_k": [
+              300.0,
+              1673.0
+            ],
+            "range_provenance": "Extrema of all 111 Table 2 rows, not a rectangular phase-stability domain.",
+            "determination_method": "experimental",
+            "record_kind": "published",
+            "notes": "Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept. The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value is stored because it fits the Table 2 rows better. Only the accepted manuscript and the publisher's abstract were seen.",
+            "fit_datasets": [
+              "siderite_fe095mn005_litasov_2013_table2_pvt"
+            ],
+            "reference": {
+              "authors": [
+                "Litasov",
+                "Shatskiy",
+                "Gavryushkin",
+                "Sharygin",
+                "Dorogokupets",
+                "Dymshits",
+                "Ohtani",
+                "Higo",
+                "Funakoshi"
+              ],
+              "year": 2013,
+              "title": "P–V–T equation of state of siderite to 33 GPa and 1673 K",
+              "source": "Physics of the Earth and Planetary Interiors",
+              "volume": "224",
+              "locator": "83-87",
+              "doi": "10.1016/j.pepi.2013.07.011"
+            },
+            "pressure_calibration": {
+              "status": "partially_resolved",
+              "methods": [
+                {
+                  "kind": "equation_of_state",
+                  "reference": {
+                    "authors": [
+                      "Sokolova",
+                      "Dorogokupets",
+                      "Litasov"
+                    ],
+                    "year": 2013,
+                    "source": "Russian Geology and Geophysics",
+                    "volume": "54",
+                    "locator": "181-199",
+                    "doi": "10.1016/j.rgg.2013.01.005"
+                  },
+                  "source_location": "Section 2, manuscript page 3, lines 81-86; Au EOS also attributed to Litasov et al. (2013a), Journal of Applied Physics 113, 093507.",
+                  "calibrant": "Au (5 wt%), cubic conventional-cell volume",
+                  "notes": "Exact 2013 numerical realization is not interchangeable with the catalog corrected Sokolova implementation; comparison in the source audit. Dorogokupets and Dewaele (2007) is only a comparison, not the adopted scale."
+                }
+              ],
+              "recalculation": {
+                "status": "not_possible",
+                "notes": "All 111 paired Au volumes and temperatures are bundled, but the exact 2013 pressure realization remains unresolved. The related corrected catalog record gives up to 0.716 GPa discrepancy. No exact reference_eos_record link or recalibrated pressure is asserted."
+              },
+              "audit_date": "2026-09-19"
+            },
+            "evidence": {
+              "reproduction": {
+                "assessment": {
+                  "status": "similar",
+                  "scope": "parameter_agreement",
+                  "source_status": "similar",
+                  "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+                  "parameters": [
+                    {
+                      "parameter": "rt_eos.K0",
+                      "published": 120.0,
+                      "published_error": 2.0,
+                      "refit": 121.90233222158449,
+                      "refit_error": 1.3389386840585457e-11,
+                      "difference": 1.9023322215844871,
+                      "relative_difference": 0.01585276851320406,
+                      "similar": true,
+                      "within_combined_2sigma": true
+                    },
+                    {
+                      "parameter": "rt_eos.K0_prime",
+                      "published": 3.57,
+                      "published_error": 0.09,
+                      "refit": 3.4276738886259945,
+                      "refit_error": 7.154508725380017e-05,
+                      "difference": -0.1423261113740053,
+                      "relative_difference": 0.03986725808795667,
+                      "similar": true,
+                      "within_combined_2sigma": true
+                    },
+                    {
+                      "parameter": "alpha0",
+                      "published": 3.77e-05,
+                      "published_error": 9e-07,
+                      "refit": 3.5879841178170935e-05,
+                      "refit_error": 4.830333769887359e-06,
+                      "difference": -1.820158821829067e-06,
+                      "relative_difference": 0.04828007484957737,
+                      "similar": true,
+                      "within_combined_2sigma": true
+                    },
+                    {
+                      "parameter": "alpha1",
+                      "published": 6e-10,
+                      "published_error": 1.4e-09,
+                      "refit": 1.0106689724102132e-09,
+                      "refit_error": 6.969074671452191e-09,
+                      "difference": 4.106689724102132e-10,
+                      "relative_difference": 0.6844482873503553,
+                      "similar": false,
+                      "within_combined_2sigma": true
+                    },
+                    {
+                      "parameter": "dK_dT",
+                      "published": -0.015,
+                      "published_error": 0.001,
+                      "refit": -0.014597124302792835,
+                      "refit_error": 0.0032044506931429564,
+                      "difference": 0.000402875697207164,
+                      "relative_difference": 0.026858379813810934,
+                      "similar": true,
+                      "within_combined_2sigma": true
+                    }
+                  ],
+                  "fit": {
+                    "fit_kind": "joint_pvt",
+                    "objective": "errors_in_variables",
+                    "selection": "all rows",
+                    "columns": {
+                      "pressure": "pressure_gpa",
+                      "temperature": "temperature_k",
+                      "volume": "volume_a3"
+                    },
+                    "absolute_sigma": true,
+                    "free_parameters": [
+                      "rt_eos.K0",
+                      "rt_eos.K0_prime",
+                      "alpha0",
+                      "alpha1",
+                      "dK_dT"
+                    ],
+                    "fixed_parameters": [
+                      "V0",
+                      "Tr"
+                    ],
+                    "observations": 111,
+                    "observed_pressure_range_gpa": [
+                      0.0,
+                      33.01
+                    ],
+                    "observed_temperature_range_k": [
+                      300.0,
+                      1673.0
+                    ],
+                    "observed_volume_range": [
+                      241.54,
+                      293.56
+                    ],
+                    "degrees_of_freedom": 106,
+                    "solver_success": true,
+                    "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+                    "rmse_gpa": 0.22112403868536867,
+                    "published_rmse_gpa": 0.23256318537159204,
+                    "reduced_chi_square": 0.05122253831555014,
+                    "dataset_identifiers": [
+                      "siderite_fe095mn005_litasov_2013_table2_pvt"
+                    ]
+                  },
+                  "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/siderite_fe095mn005/#record-siderite_fe095mn005_litasov_2013_bm3_thermal",
+                  "report_path": "docs/reconstruction-reports/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_bm3_thermal",
+                  "report": "docs/data/primary-eos-refits.json"
+                }
+              },
+              "scientific_validation": {
+                "status": "primary_source_validated",
+                "audit_date": "2026-11-23",
+                "verified_fields": [
+                  "equation",
+                  "parameters",
+                  "units",
+                  "reference_state",
+                  "phase",
+                  "published_uncertainties",
+                  "validity"
+                ],
+                "primary_source_check": {
+                  "access_url": "https://doi.org/10.1016/j.pepi.2013.07.011",
+                  "doi": "10.1016/j.pepi.2013.07.011",
+                  "locations": [
+                    "Publication-of-record abstract",
+                    "User-supplied Accepted Manuscript: Section 3, pages 4-5; Table 1, page 12; Table 2, pages 13-15"
+                  ],
+                  "finding": "Table 1 ('This work') of the accepted manuscript gives the high-temperature Birch-Murnaghan fit: V0 = 293.4(1) A^3 fixed, K0 = 120(2) GPa, K0' = 3.57(9), a0 = 3.77(9)e-5 K^-1, a1 = 0.06(14)e-8 K^-2, dK/dT = -0.015(1) GPa/K, stored as printed. The abstract (manuscript and publication of record) prints a0 = 3.57(9)e-5, the same digits and error as K0'. The Table 1 value is stored by maintainer decision: over all 111 Table 2 rows the Table 1 set gives a pressure RMS of 0.23256 GPa and the abstract variant 0.29937 GPa, and a fit of the 84 heated rows with the published cold values fixed gives a0 = 3.816e-5. No author correction is known. The paper's stated misfit of 0.11-0.17 GPa is reproduced by neither. The typeset article was not seen.",
+                  "record_note": "Coefficients as printed in Table 1 of the accepted manuscript (P-V-T fit). The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value 3.77(9)e-5 is stored because it fits the Table 2 rows better. The typeset article was not seen."
+                },
+                "primary_data_check": {
+                  "status": "bundled",
+                  "audit_date": "2026-11-23",
+                  "dataset_identifiers": [
+                    "siderite_fe095mn005_litasov_2013_table2_pvt"
+                  ],
+                  "source_locations": [
+                    "Accepted Manuscript Table 2, pages 13-15 (PDF pages 14-16)"
+                  ],
+                  "finding": "All 111 original Table 2 rows are bundled, 27 at 300 K and 84 heated, with paired Au volumes and printed errors. Source weighting and row exclusions are not specified."
+                },
+                "reported_inconsistencies": [
+                  {
+                    "field": "thermal.alpha0",
+                    "abstract": 3.57e-05,
+                    "manuscript_table_1": 3.77e-05,
+                    "resolution": "This record stores the Table 1 value. The abstract value repeats the digits and error of K0' and describes the Table 2 rows worse. Both printed values are retained as source evidence; the typeset article was not seen."
+                  },
+                  {
+                    "field": "parameter_errors.K0",
+                    "abstract": 1.0,
+                    "manuscript_table_1": 2.0,
+                    "resolution": "This record is the P-V-T fit that Table 1 summarizes and stores its error of 2 GPa. The 300 K record keeps the abstract's 1 GPa."
+                  }
+                ]
+              },
+              "parameter_provenance": {
+                "determination_method": "Measurements or their experimental reduction determine this EOS; source: accepted manuscript, Section 3 and Table 1.",
+                "V0": "Table 1: 293.4(1) A^3, the measured ambient mean, fixed during fitting; conventional hexagonal cell.",
+                "K0": "Table 1: 120(2) GPa.",
+                "K0_prime": "Table 1: 3.57(9).",
+                "Tr": "Section 3: reference temperature 300 K.",
+                "alpha0": "Table 1: 3.77(9)e-5 K^-1; the abstract prints 3.57(9)e-5.",
+                "alpha1": "Table 1: 0.06(14)e-8 K^-2.",
+                "dK_dT": "Table 1: -0.015(1) GPa/K.",
+                "temperature_ref": "Section 3 and the 300 K rows in Table 2."
+              }
+            }
+          }
+        }
+      ],
+      "reverse": [
+        {
+          "op": "remove_record",
+          "record": "siderite_fe095mn005_litasov_2013_bm3_thermal"
+        }
+      ],
+      "document_sha256": {
+        "before": "4b7c8ce8a18034428c9d97478c3e61659b0f4cf5c425419a55717c455a56092d",
+        "after": "22ac6e0b34cef83b993682243dab85b670f50342e0fc8adade009f9fa6a1d229"
+      },
+      "reference_sha256": {
+        "before": "5c66a5f258a260e905a14823a7c9e1ac087e641c569dbbd43e52984a90cff786",
+        "after": "b4d0546a3ff13b3d8fe03da15d6e96326ae497e85f198a9877c399ab125203f0"
+      },
+      "scientific": {
+        "records_before": "8d48bb55399288e7cfb099f2732651a0c67a4dc07c468e16fe7a7257503e41da",
+        "records_after": "2b8e02b10ea68d155a8f5e5286b3fe8d790a9e0a6b4aad02a7e3e652a90e61b4",
+        "added_records": {
+          "siderite_fe095mn005_litasov_2013_bm3_thermal": "9d0ab638d17478607780186fe2674a67db6c0ad283a92e3a81413f9066c78c7d"
+        },
+        "catalog_before": "2b8b4ffd55f2985bb9f9ecc5ba3e19cc53c6264d74c645f19ad408f952b9c003",
+        "catalog_after": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a"
+      },
+      "files": {
+        "peritheos/data/materials/siderite_fe095mn005.eosmat": {
+          "before": "eae9d45dd2f3da5525fe033ee2641b304d708c5efd8da233279b711738be7b95",
+          "after": "5b3301d9b72871cdbab6c58fe335e1a175b601ebc3c680e7eb7a3df0a1843479"
+        },
+        "peritheos/data/audits/siderite_fe095mn005.audit.json": {
+          "before": "ea4271d63e747cc04f8441562899d9cf287ff7064d5bfe66b368448e9dafcf04",
+          "after": "65acafffb023a8bdff77288e5b0fd5248abe6b7fd4b40a8fc98545c272eb2c32"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "5c66a5f258a260e905a14823a7c9e1ac087e641c569dbbd43e52984a90cff786",
+          "after_record_sha256": "eae9d45dd2f3da5525fe033ee2641b304d708c5efd8da233279b711738be7b95",
+          "after_audit_sha256": "ea4271d63e747cc04f8441562899d9cf287ff7064d5bfe66b368448e9dafcf04",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true
+              }
+            ],
+            [
+              1,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0,
+            1
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "5c66a5f258a260e905a14823a7c9e1ac087e641c569dbbd43e52984a90cff786",
+          "after": "b4d0546a3ff13b3d8fe03da15d6e96326ae497e85f198a9877c399ab125203f0"
+        },
+        "catalog_scientific_sha256": {
+          "before": "2b8b4ffd55f2985bb9f9ecc5ba3e19cc53c6264d74c645f19ad408f952b9c003",
+          "after": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a"
+        }
+      },
+      "refit_rows": {
+        "siderite_fe095mn005_litasov_2013_bm3_thermal": {
+          "before": null,
+          "after": {
+            "absolute_sigma": true,
+            "columns": {
+              "pressure": "pressure_gpa",
+              "temperature": "temperature_k",
+              "volume": "volume_a3"
+            },
+            "dataset_identifiers": [
+              "siderite_fe095mn005_litasov_2013_table2_pvt"
+            ],
+            "degrees_of_freedom": 106,
+            "experimental_pressure_range_gpa": [
+              0.0,
+              33.01
+            ],
+            "experimental_temperature_range_k": [
+              300.0,
+              1673.0
+            ],
+            "fit_kind": "joint_pvt",
+            "fixed_parameters": [
+              "V0",
+              "Tr"
+            ],
+            "free_parameters": [
+              "rt_eos.K0",
+              "rt_eos.K0_prime",
+              "alpha0",
+              "alpha1",
+              "dK_dT"
+            ],
+            "label": "Litasov et al. (2013), natural Fe0.95Mn0.05CO3, thermal BM3 (Table 1)",
+            "material_identifier": "siderite_fe095mn005",
+            "model": "BM3",
+            "objective": "errors_in_variables",
+            "observations": 111,
+            "observed_pressure_range_gpa": [
+              0.0,
+              33.01
+            ],
+            "observed_temperature_range_k": [
+              300.0,
+              1673.0
+            ],
+            "observed_volume_range": [
+              241.54,
+              293.56
+            ],
+            "parameters": [
+              {
+                "difference": 1.9023322215844871,
+                "parameter": "rt_eos.K0",
+                "published": 120.0,
+                "published_error": 2.0,
+                "refit": 121.90233222158449,
+                "refit_error": 1.3389386840585457e-11,
+                "relative_difference": 0.01585276851320406,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "difference": -0.1423261113740053,
+                "parameter": "rt_eos.K0_prime",
+                "published": 3.57,
+                "published_error": 0.09,
+                "refit": 3.4276738886259945,
+                "refit_error": 7.154508725380017e-05,
+                "relative_difference": 0.03986725808795667,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "difference": -1.820158821829067e-06,
+                "parameter": "alpha0",
+                "published": 3.77e-05,
+                "published_error": 9e-07,
+                "refit": 3.5879841178170935e-05,
+                "refit_error": 4.830333769887359e-06,
+                "relative_difference": 0.04828007484957737,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "difference": 4.106689724102132e-10,
+                "parameter": "alpha1",
+                "published": 6e-10,
+                "published_error": 1.4e-09,
+                "refit": 1.0106689724102132e-09,
+                "refit_error": 6.969074671452191e-09,
+                "relative_difference": 0.6844482873503553,
+                "similar": false,
+                "within_combined_2sigma": true
+              },
+              {
+                "difference": 0.000402875697207164,
+                "parameter": "dK_dT",
+                "published": -0.015,
+                "published_error": 0.001,
+                "refit": -0.014597124302792835,
+                "refit_error": 0.0032044506931429564,
+                "relative_difference": 0.026858379813810934,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "primary_data_finding": "All 111 original Table 2 rows are bundled, 27 at 300 K and 84 heated, with paired Au volumes and printed errors. Source weighting and row exclusions are not specified.",
+            "primary_data_status": "bundled",
+            "primary_source": "https://doi.org/10.1016/j.pepi.2013.07.011",
+            "published_rmse_gpa": 0.23256318537159204,
+            "record_identifier": "siderite_fe095mn005_litasov_2013_bm3_thermal",
+            "reduced_chi_square": 0.05122253831555014,
+            "rmse_gpa": 0.22112403868536867,
+            "selection": "all rows",
+            "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+            "solver_success": true,
+            "source_notes": "Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept. The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value is stored because it fits the Table 2 rows better. Only the accepted manuscript and the publisher's abstract were seen.",
+            "status": "similar"
+          }
+        }
+      },
+      "written_files": [
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-source-groups.csv",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/data/primary-eos-refits.json",
+        "docs/material-summaries/index.md",
+        "docs/material-summaries/siderite_fe095mn005.md",
+        "docs/paper-investigation-ledger.md",
+        "docs/primary-eos-refits.md",
+        "docs/reconstruction-reports/figures/siderite_fe095mn005_litasov_2013_bm3_thermal-curves-dark.svg",
+        "docs/reconstruction-reports/figures/siderite_fe095mn005_litasov_2013_bm3_thermal-curves.svg",
+        "docs/reconstruction-reports/figures/siderite_fe095mn005_litasov_2013_bm3_thermal-dark.svg",
+        "docs/reconstruction-reports/figures/siderite_fe095mn005_litasov_2013_bm3_thermal.svg",
+        "docs/reconstruction-reports/index.md",
+        "docs/reconstruction-reports/siderite_fe095mn005.md",
+        "peritheos/data/eos-structure-rights-review.json",
+        "peritheos/data/materials/manifest.json",
+        "peritheos/data/primary-source-audit.json"
+      ],
+      "created_files": [
+        "docs/reconstruction-reports/figures/siderite_fe095mn005_litasov_2013_bm3_thermal-curves-dark.svg",
+        "docs/reconstruction-reports/figures/siderite_fe095mn005_litasov_2013_bm3_thermal-curves.svg",
+        "docs/reconstruction-reports/figures/siderite_fe095mn005_litasov_2013_bm3_thermal-dark.svg",
+        "docs/reconstruction-reports/figures/siderite_fe095mn005_litasov_2013_bm3_thermal.svg"
+      ],
+      "previous_sha256": null,
+      "content_sha256": "4fee332e18834303530a8f491299ae594058714326d21222256231ec7f4e769f"
     }
   ]
 }

@@ -458,6 +458,166 @@
         "notes": "Explicit opt-in Peritheos joint thermal refit, not either parameter set published by Litasov et al. All five coefficients were fitted together; V0=293.4 A^3 and Tr=300 K remain fixed. alpha0 is the absolute-temperature intercept. The observed pressure RMSE is 0.22121 GPa. The full conditional covariance is supplied; standard errors omit fixed-reference-volume uncertainty and pressure-scale systematics. The original 300 K EOS remains the default. Use within the measured paths; extrema do not guarantee phase stability throughout a rectangle. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa outside these measurements. Both conflicting published thermal sets are non-executable under source.thermal_parameterizations.",
         "superseded_on": "2026-11-16"
       }
+    },
+    "siderite_fe095mn005_litasov_2013_bm3_thermal": {
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Sokolova", "Dorogokupets", "Litasov"],
+              "year": 2013,
+              "source": "Russian Geology and Geophysics",
+              "volume": "54",
+              "locator": "181-199",
+              "doi": "10.1016/j.rgg.2013.01.005"
+            },
+            "source_location": "Section 2, manuscript page 3, lines 81-86; Au EOS also attributed to Litasov et al. (2013a), Journal of Applied Physics 113, 093507.",
+            "calibrant": "Au (5 wt%), cubic conventional-cell volume",
+            "notes": "Exact 2013 numerical realization is not interchangeable with the catalog corrected Sokolova implementation; comparison in the source audit. Dorogokupets and Dewaele (2007) is only a comparison, not the adopted scale."
+          }
+        ],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "All 111 paired Au volumes and temperatures are bundled, but the exact 2013 pressure realization remains unresolved. The related corrected catalog record gives up to 0.716 GPa discrepancy. No exact reference_eos_record link or recalibrated pressure is asserted."
+        },
+        "audit_date": "2026-09-19"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 120.0,
+                "published_error": 2.0,
+                "refit": 121.90233222158449,
+                "refit_error": 1.3389386840585457e-11,
+                "difference": 1.9023322215844871,
+                "relative_difference": 0.01585276851320406,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 3.57,
+                "published_error": 0.09,
+                "refit": 3.4276738886259945,
+                "refit_error": 7.154508725380017e-05,
+                "difference": -0.1423261113740053,
+                "relative_difference": 0.03986725808795667,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 3.77e-05,
+                "published_error": 9e-07,
+                "refit": 3.5879841178170935e-05,
+                "refit_error": 4.830333769887359e-06,
+                "difference": -1.820158821829067e-06,
+                "relative_difference": 0.04828007484957737,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha1",
+                "published": 6e-10,
+                "published_error": 1.4e-09,
+                "refit": 1.0106689724102132e-09,
+                "refit_error": 6.969074671452191e-09,
+                "difference": 4.106689724102132e-10,
+                "relative_difference": 0.6844482873503553,
+                "similar": false,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.015,
+                "published_error": 0.001,
+                "refit": -0.014597124302792835,
+                "refit_error": 0.0032044506931429564,
+                "difference": 0.000402875697207164,
+                "relative_difference": 0.026858379813810934,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "alpha0", "alpha1", "dK_dT"],
+              "fixed_parameters": ["V0", "Tr"],
+              "observations": 111,
+              "observed_pressure_range_gpa": [0.0, 33.01],
+              "observed_temperature_range_k": [300.0, 1673.0],
+              "observed_volume_range": [241.54, 293.56],
+              "degrees_of_freedom": 106,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.22112403868536867,
+              "published_rmse_gpa": 0.23256318537159204,
+              "reduced_chi_square": 0.05122253831555014,
+              "dataset_identifiers": ["siderite_fe095mn005_litasov_2013_table2_pvt"]
+            }
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-11-23",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.pepi.2013.07.011",
+            "doi": "10.1016/j.pepi.2013.07.011",
+            "locations": [
+              "Publication-of-record abstract",
+              "User-supplied Accepted Manuscript: Section 3, pages 4-5; Table 1, page 12; Table 2, pages 13-15"
+            ],
+            "finding": "Table 1 ('This work') of the accepted manuscript gives the high-temperature Birch-Murnaghan fit: V0 = 293.4(1) A^3 fixed, K0 = 120(2) GPa, K0' = 3.57(9), a0 = 3.77(9)e-5 K^-1, a1 = 0.06(14)e-8 K^-2, dK/dT = -0.015(1) GPa/K, stored as printed. The abstract (manuscript and publication of record) prints a0 = 3.57(9)e-5, the same digits and error as K0'. The Table 1 value is stored by maintainer decision: over all 111 Table 2 rows the Table 1 set gives a pressure RMS of 0.23256 GPa and the abstract variant 0.29937 GPa, and a fit of the 84 heated rows with the published cold values fixed gives a0 = 3.816e-5. No author correction is known. The paper's stated misfit of 0.11-0.17 GPa is reproduced by neither. The typeset article was not seen.",
+            "record_note": "Coefficients as printed in Table 1 of the accepted manuscript (P-V-T fit). The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value 3.77(9)e-5 is stored because it fits the Table 2 rows better. The typeset article was not seen."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-11-23",
+            "dataset_identifiers": ["siderite_fe095mn005_litasov_2013_table2_pvt"],
+            "source_locations": ["Accepted Manuscript Table 2, pages 13-15 (PDF pages 14-16)"],
+            "finding": "All 111 original Table 2 rows are bundled, 27 at 300 K and 84 heated, with paired Au volumes and printed errors. Source weighting and row exclusions are not specified."
+          },
+          "reported_inconsistencies": [
+            {
+              "field": "thermal.alpha0",
+              "abstract": 3.57e-05,
+              "manuscript_table_1": 3.77e-05,
+              "resolution": "This record stores the Table 1 value. The abstract value repeats the digits and error of K0' and describes the Table 2 rows worse. Both printed values are retained as source evidence; the typeset article was not seen."
+            },
+            {
+              "field": "parameter_errors.K0",
+              "abstract": 1.0,
+              "manuscript_table_1": 2.0,
+              "resolution": "This record is the P-V-T fit that Table 1 summarizes and stores its error of 2 GPa. The 300 K record keeps the abstract's 1 GPa."
+            }
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: accepted manuscript, Section 3 and Table 1.",
+          "V0": "Table 1: 293.4(1) A^3, the measured ambient mean, fixed during fitting; conventional hexagonal cell.",
+          "K0": "Table 1: 120(2) GPa.",
+          "K0_prime": "Table 1: 3.57(9).",
+          "Tr": "Section 3: reference temperature 300 K.",
+          "alpha0": "Table 1: 3.77(9)e-5 K^-1; the abstract prints 3.57(9)e-5.",
+          "alpha1": "Table 1: 0.06(14)e-8 K^-2.",
+          "dK_dT": "Table 1: -0.015(1) GPa/K.",
+          "temperature_ref": "Section 3 and the 300 K rows in Table 2."
+        }
+      }
     }
   }
 }

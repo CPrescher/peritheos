@@ -37,6 +37,7 @@ stays in EOSMAT and the ledger.
 | --- | --- | --- |
 | [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3](#record-siderite_fe095mn005_litasov_2013_bm3) | **reproduced** |  |
 | [Peritheos refit of Litasov et al. (2013), joint thermal BM3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | **reproduced** |  |
+| [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, thermal BM3 (Table 1)](#record-siderite_fe095mn005_litasov_2013_bm3_thermal) | **close** |  |
 
 <a id="record-siderite_fe095mn005_litasov_2013_bm3"></a>
 
@@ -165,3 +166,70 @@ Both fits use the same 111 recovered audit input rows. **Volume coordinate:** vo
 - **Published rmse gpa:** 0.221212
 
 </details>
+
+<a id="record-siderite_fe095mn005_litasov_2013_bm3_thermal"></a>
+
+## Litasov et al. (2013), natural Fe0.95Mn0.05CO3, thermal BM3 (Table 1)
+
+**close** · `siderite_fe095mn005_litasov_2013_bm3_thermal` · `BM3` · [Coefficients and source](../material-summaries/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_bm3_thermal)
+
+**Scope:** Comparison with the source parameterization. **Basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+### Method
+
+- **Dataset identifiers:** siderite\_fe095mn005\_litasov\_2013\_table2\_pvt
+- **Observations:** 111
+- **Fit kind:** joint\_pvt
+- **Selection:** all rows
+- **Objective:** errors\_in\_variables
+- **Absolute sigma:** True
+- **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; alpha0; alpha1; dK\_dT
+- **Fixed parameters:** V0; Tr
+
+### Curves and residuals
+
+![Original/source and refitted curves with pressure residuals for siderite_fe095mn005_litasov_2013_bm3_thermal](figures/siderite_fe095mn005_litasov_2013_bm3_thermal-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for siderite_fe095mn005_litasov_2013_bm3_thermal](figures/siderite_fe095mn005_litasov_2013_bm3_thermal-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.233 |
+| Reconstruction / refit | 0.221 |
+
+Both fits use the same 111 recovered audit input rows. **Volume coordinate:** volume\_a3. **Row selection:** all rows.
+
+### Coefficients
+
+![Source/target and reconstructed central values for siderite_fe095mn005_litasov_2013_bm3_thermal](figures/siderite_fe095mn005_litasov_2013_bm3_thermal.svg#only-light)
+![Source/target and reconstructed central values for siderite_fe095mn005_litasov_2013_bm3_thermal](figures/siderite_fe095mn005_litasov_2013_bm3_thermal-dark.svg#only-dark)
+
+| Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 120.0 | 2.0 | 12190233222158.4e-11 | 1.3e-11 | Free |
+| rt\_eos.K0\_prime | 3.57 | 0.09 | 342767e-5 | 7e-5 | Free |
+| alpha0 | 377e-7 | 9e-7 | 36e-6 | 5e-6 | Free |
+| alpha1 | 0.6e-9 | 1.4e-9 | 1e-9 | 7e-9 | Free |
+| dK\_dT | -0.0150 | 0.0010 | -0.015 | 0.003 | Free |
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Observed pressure range gpa:** 0; 33.01
+- **Observed temperature range k:** 300; 1673
+- **Observed volume range:** 241.54; 293.56
+- **Degrees of freedom:** 106
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.221124
+- **Published rmse gpa:** 0.232563
+- **Reduced chi square:** 0.0512225
+
+</details>
+
+### More evidence
+
+- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-siderite_fe095mn005_litasov_2013_bm3_thermal).

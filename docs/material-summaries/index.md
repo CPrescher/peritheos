@@ -208,7 +208,7 @@ detects drift). See [Reading and editing EOSMAT](../eosmat-authoring.md).
 | [Rubidium iodide (B2)](rbi.md) | RbI | 1 | 2 |
 | [Ruthenium](ruthenium.md) | Ru | 1 | 1 |
 | [Seifertite](seifertite.md) | SiO2 | 2 | 1 |
-| [Siderite (Fe0.95Mn0.05CO3)](siderite_fe095mn005.md) | Fe0.95Mn0.05CO3 | 2 | 1 |
+| [Siderite (Fe0.95Mn0.05CO3)](siderite_fe095mn005.md) | Fe0.95Mn0.05CO3 | 3 | 1 |
 | [Silica (CaCl2-type)](silica_cacl2.md) | SiO2 | 1 | 1 |
 | [Silicon (Si-I, diamond cubic)](silicon.md) | Si | 1 | 1 |
 | [Silicon (Si-V, simple hexagonal)](silicon_v.md) | Si | 1 | 1 |
