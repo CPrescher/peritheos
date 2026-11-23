@@ -538,8 +538,10 @@ staged catalog through the library (every material, the pressure-calibration
 graph and the revised records with primary validation) and runs every
 recovery check; a failure writes nothing. Do not run the full
 `python scripts/validate_primary_eos_refits.py` for a revision: it refits every
-record and rewrites the whole ledger, and its `--check` currently fails on a
-policy text that predates the revision tool. Nothing needs a hand edit, except
+record and rewrites the whole ledger, and its `--check` currently fails: the
+saved ledger lacks one policy sentence the script generates, and many saved
+rows differ from a fresh computation in copied record text and in the last
+digits of fitted numbers. Nothing needs a hand edit, except
 a test that pins a material's record count.
 
 `python scripts/apply_catalog_revision.py --undo <id>` reverses a material's
