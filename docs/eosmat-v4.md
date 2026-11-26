@@ -323,6 +323,9 @@ material summaries together.
 Repository maintainers can run
 `python -m scripts.standardize_reconstruction_metadata --check` to detect drift.
 Without `--check`, the tool adds missing assessments from the existing ledger.
+For a bundled material, whose assessments live in the audit sidecar, the check
+compares the record file together with its sidecar and the tool writes nothing;
+such a material changes only through `scripts/apply_catalog_revision.py`.
 It refuses to replace a differing assessment: review existing findings explicitly.
 Update the ledger and affected assessment together when a scientific audit changes.
 This repository tool does not add assessments to arbitrary user files or infer
