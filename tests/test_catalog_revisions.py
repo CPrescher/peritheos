@@ -863,6 +863,8 @@ def test_a_hand_edited_added_record_text_is_caught(revised, tmp_path, monkeypatc
         (["thermal", "parameters", "Tr", "value"], 298.0, "published_value"),
         (["parameters", "K0", "error"], -1, "value"),
         (["parameter_error_confidence"], 1.5, "value"),
+        # The convention text is settable only where a record carries it.
+        (["parameter_uncertainty_convention"], "1 sigma.", "protected_field"),
         (["experimental_pressure_range_gpa"], [5, 1], "range"),
     ],
 )
@@ -879,6 +881,23 @@ def test_set_fields_refuses_paths_outside_the_allow_list(pristine, path, value, 
         tool.plan_revision(request, pristine, derived=False)
     if reason == "protected_field" and path[0] not in ("label", "notes", "validity"):
         assert "settable:" in str(refusal.value)
+
+
+def test_convention_text_is_settable_where_a_record_carries_it(pristine):
+    material = "ferrous_ringwoodite"
+    path = ["parameter_uncertainty_convention"]
+    record = next(r for r in _records(pristine, material) if path[0] in r)
+
+    def request(value):
+        return set_request(
+            "t", material, [change(record["identifier"], path, record[path[0]], value)]
+        )
+
+    tool.plan_revision(
+        request("Printed error; level not stated."), pristine, derived=False
+    )
+    with pytest.raises(tool.Refused, match="value"):
+        tool.plan_revision(request("  "), pristine, derived=False)
 
 
 def _covariance_record(root: Path) -> tuple[str, dict]:

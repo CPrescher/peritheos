@@ -5761,6 +5761,589 @@
       ],
       "previous_sha256": null,
       "content_sha256": "4fee332e18834303530a8f491299ae594058714326d21222256231ec7f4e769f"
+    },
+    {
+      "id": "2026-11-26-hydrous-silica-cacl2-nisr-2017-convention-text",
+      "material": "hydrous_silica_cacl2_nisr_2017",
+      "kind": "set_fields",
+      "date": "2026-11-26",
+      "decided_by": "Clemens Prescher",
+      "reason": "The convention text said the confidence fraction is not specified, beside a stated level of 0.6827 set by the earlier one-sigma revision. The text now says where that level comes from.",
+      "source": {
+        "citation": "Nisr et al. (2017), Phase transition and equation of state of dense hydrous silica up to 63 GPa, Journal of Geophysical Research: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055",
+        "location": "Tables 3-4"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-26",
+        "statement": "Rewords the record's uncertainty convention; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "hydrous_silica_cacl2_nisr_2017_bm2",
+          "path": [
+            "parameter_uncertainty_convention"
+          ],
+          "before_present": true,
+          "before": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified.",
+          "after_present": true,
+          "after": "Estimated 1 sigma (Tables 3-4); the 0.683 confidence level assumes a normal distribution, which the source does not state."
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "hydrous_silica_cacl2_nisr_2017_bm2",
+          "path": [
+            "parameter_uncertainty_convention"
+          ],
+          "before_present": true,
+          "before": "Estimated 1 sigma (Tables 3-4); the 0.683 confidence level assumes a normal distribution, which the source does not state.",
+          "after_present": true,
+          "after": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified."
+        }
+      ],
+      "document_sha256": {
+        "before": "85ae8a0ded1b764cd1838bbe0fda1efa377ca4c5da486b504c259d5144c1345e",
+        "after": "ba6868ad359733e5f08f2867c33c03d10e75bebdb7039e0c255e268521a58543"
+      },
+      "reference_sha256": {
+        "before": "05c525ef077c6aaceed6f33d3afb58facd3b002eb18321d3dab4d0806d8f10ba",
+        "after": "1802d6f805cc15b11da3fe25f9f16657354eee6f193648ced8b756d39c39c37c"
+      },
+      "scientific": {
+        "records_before": "a46bfe0a27863cd553ad10708ab044f674d1a5c3a2eaca73e9df2ac5dd76cf2b",
+        "records_after": "a46bfe0a27863cd553ad10708ab044f674d1a5c3a2eaca73e9df2ac5dd76cf2b",
+        "added_records": {},
+        "catalog_before": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a",
+        "catalog_after": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a"
+      },
+      "files": {
+        "peritheos/data/materials/hydrous_silica_cacl2_nisr_2017.eosmat": {
+          "before": "810fe0833bde6106422b584cf79de900d22a0ebc66eb68faa094b18e0ca91387",
+          "after": "1269b2775da6c58153c9676e734a84de228e4b3cc346b682aa0bf52a8800b290"
+        },
+        "peritheos/data/audits/hydrous_silica_cacl2_nisr_2017.audit.json": {
+          "before": "9debfaae28def25cbf5340d3772f6b74e99d63fe030c1904f9e4f88f04acdd1c",
+          "after": "9debfaae28def25cbf5340d3772f6b74e99d63fe030c1904f9e4f88f04acdd1c"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "71392994a2472e562b97ea0cb43fd8e420cee6776aad51612865c8549700a29c",
+          "catalog_revision_sha256": "05c525ef077c6aaceed6f33d3afb58facd3b002eb18321d3dab4d0806d8f10ba",
+          "catalog_revision_content_sha256": "4ea7dba37d551e7ca566ec2a5cb679f4ccab507518c96ec3a08a8d78bece8f56",
+          "after_record_sha256": "810fe0833bde6106422b584cf79de900d22a0ebc66eb68faa094b18e0ca91387",
+          "after_audit_sha256": "9debfaae28def25cbf5340d3772f6b74e99d63fe030c1904f9e4f88f04acdd1c",
+          "layout": "v4",
+          "added_check": [
+            0
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  3,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "05c525ef077c6aaceed6f33d3afb58facd3b002eb18321d3dab4d0806d8f10ba",
+          "after": "1802d6f805cc15b11da3fe25f9f16657354eee6f193648ced8b756d39c39c37c"
+        },
+        "catalog_scientific_sha256": {
+          "before": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a",
+          "after": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": "5941fc0c79e3d31285603a21c626b548a26e14c810c1582d9638c2cb67087f0a",
+      "content_sha256": "baa8f075d856eb157375c376140afea982a42c778ebff756a7cf6b6b15dba796"
+    },
+    {
+      "id": "2026-11-26-hydrous-stishovite-nisr-2017-convention-text",
+      "material": "hydrous_stishovite_nisr_2017",
+      "kind": "set_fields",
+      "date": "2026-11-26",
+      "decided_by": "Clemens Prescher",
+      "reason": "The convention text said the confidence fraction is not specified, beside a stated level of 0.6827 set by the earlier one-sigma revision. The text now says where that level comes from.",
+      "source": {
+        "citation": "Nisr et al. (2017), Phase transition and equation of state of dense hydrous silica up to 63 GPa, Journal of Geophysical Research: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055",
+        "location": "Tables 3-4"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-26",
+        "statement": "Rewords the record's uncertainty convention; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "hydrous_stishovite_nisr_2017_bm3",
+          "path": [
+            "parameter_uncertainty_convention"
+          ],
+          "before_present": true,
+          "before": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified.",
+          "after_present": true,
+          "after": "Estimated 1 sigma (Tables 3-4); the 0.683 confidence level assumes a normal distribution, which the source does not state."
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "hydrous_stishovite_nisr_2017_bm3",
+          "path": [
+            "parameter_uncertainty_convention"
+          ],
+          "before_present": true,
+          "before": "Estimated 1 sigma (Tables 3-4); the 0.683 confidence level assumes a normal distribution, which the source does not state.",
+          "after_present": true,
+          "after": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified."
+        }
+      ],
+      "document_sha256": {
+        "before": "110e8c3544c30ad2fda9cd17e2d09055861885eb840bd154c6a9691bd074927e",
+        "after": "17b69ac73fac582ec103d219fb808299f1392fcd73bea8966511ce2cba037cdc"
+      },
+      "reference_sha256": {
+        "before": "ce748d2676ca0cb7a80ebb32ae315fe49cf23be5931a65acd71290932da20df4",
+        "after": "69387db8d67bb595389c2b0c324db4b20b8c20635b65d4e2deba06eb3a5623aa"
+      },
+      "scientific": {
+        "records_before": "becd851a814824d5b810abf7384b914bf60c7b2f7dab6c81651085fda64deb44",
+        "records_after": "becd851a814824d5b810abf7384b914bf60c7b2f7dab6c81651085fda64deb44",
+        "added_records": {},
+        "catalog_before": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a",
+        "catalog_after": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a"
+      },
+      "files": {
+        "peritheos/data/materials/hydrous_stishovite_nisr_2017.eosmat": {
+          "before": "52aca544d9ce92bd964d993e7935e845b064ff09177d7965f4c51eb218aef806",
+          "after": "a067e23105cf78b188a2c23495763a11d6c6128fa386018376e8779429253d53"
+        },
+        "peritheos/data/audits/hydrous_stishovite_nisr_2017.audit.json": {
+          "before": "2bc5ad24c47d51081f82a0887f9a9ab3929f8e06bebdb9d51fcc63ece1623db2",
+          "after": "2bc5ad24c47d51081f82a0887f9a9ab3929f8e06bebdb9d51fcc63ece1623db2"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "f6ec580aa69c21b4c4015279d74c8daca2fe08927f896762688fb4e567257bda",
+          "catalog_revision_sha256": "ce748d2676ca0cb7a80ebb32ae315fe49cf23be5931a65acd71290932da20df4",
+          "catalog_revision_content_sha256": "805255f2b8493228ad3bb3c8f007c9add7f77189a59cefa25ddeb3fdd6853374",
+          "after_record_sha256": "52aca544d9ce92bd964d993e7935e845b064ff09177d7965f4c51eb218aef806",
+          "after_audit_sha256": "2bc5ad24c47d51081f82a0887f9a9ab3929f8e06bebdb9d51fcc63ece1623db2",
+          "layout": "v4",
+          "added_check": [
+            0
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  3,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "ce748d2676ca0cb7a80ebb32ae315fe49cf23be5931a65acd71290932da20df4",
+          "after": "69387db8d67bb595389c2b0c324db4b20b8c20635b65d4e2deba06eb3a5623aa"
+        },
+        "catalog_scientific_sha256": {
+          "before": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a",
+          "after": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": "bcf6937ca41b76fb1c40074404ed0404396d820f429f7e098d241e3d09e56cce",
+      "content_sha256": "fca38f9d3b1a219d9c2d5df8f928d903a4b4d66738775218d1c76324cd3c3104"
+    },
+    {
+      "id": "2026-11-26-sio2-stv-andr-convention-text",
+      "material": "sio2_stv_andr",
+      "kind": "set_fields",
+      "date": "2026-11-26",
+      "decided_by": "Clemens Prescher",
+      "reason": "The convention text said the confidence fraction is not specified, beside a stated level of 0.6827 set by the earlier one-sigma revision. The text now says where that level comes from.",
+      "source": {
+        "citation": "Nisr et al. (2017), Phase transition and equation of state of dense hydrous silica up to 63 GPa, Journal of Geophysical Research: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055",
+        "location": "Tables 3-4"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-26",
+        "statement": "Rewords the record's uncertainty convention; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "stishovite_nisr_2017_dry_bm3",
+          "path": [
+            "parameter_uncertainty_convention"
+          ],
+          "before_present": true,
+          "before": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified.",
+          "after_present": true,
+          "after": "Estimated 1 sigma (Tables 3-4); the 0.683 confidence level assumes a normal distribution, which the source does not state."
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "stishovite_nisr_2017_dry_bm3",
+          "path": [
+            "parameter_uncertainty_convention"
+          ],
+          "before_present": true,
+          "before": "Estimated 1 sigma (Tables 3-4); the 0.683 confidence level assumes a normal distribution, which the source does not state.",
+          "after_present": true,
+          "after": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified."
+        }
+      ],
+      "document_sha256": {
+        "before": "9d7a519147d611daf6644ad44c82cc8dd393ae6559fde2a2b44c230cf492633c",
+        "after": "008e6cd6f3403e106ce8c201373b81b7bf3a5160b8045a638803d0bfa5db8c0a"
+      },
+      "reference_sha256": {
+        "before": "3c820a10f95af5a8adab537012036fb08287043d77b271e484794617bbba701e",
+        "after": "c231a3460d9e8d0821e390f102e032bd076814dcb252dce361becf1b565132fa"
+      },
+      "scientific": {
+        "records_before": "84c0032ec6548abacc08bf1ad75af4e092b9be3f67a6580483db33ac7749c6fd",
+        "records_after": "84c0032ec6548abacc08bf1ad75af4e092b9be3f67a6580483db33ac7749c6fd",
+        "added_records": {},
+        "catalog_before": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a",
+        "catalog_after": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a"
+      },
+      "files": {
+        "peritheos/data/materials/sio2_stv_andr.eosmat": {
+          "before": "127fc60bae8dad1252c39a21ad6532f4d3d00b876aeae345610ff3dcbb3a8268",
+          "after": "03c4e7e0f4ecd8108642d1e0e3978cf01fdbb00d1f5c54b36d8f9a6315540f43"
+        },
+        "peritheos/data/audits/sio2_stv_andr.audit.json": {
+          "before": "161aad558496d086d103cb41cbbf802af7fe32712cfa410dcfcd718c904cd62b",
+          "after": "161aad558496d086d103cb41cbbf802af7fe32712cfa410dcfcd718c904cd62b"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "b27101a5d98e22fadb97f8f377cecf6051b1eba23ee7f9b5c0f18666f16eea36",
+          "catalog_revision_sha256": "3c820a10f95af5a8adab537012036fb08287043d77b271e484794617bbba701e",
+          "catalog_revision_content_sha256": "38852ca3c25c05803196d312ffa539ebe2910e075c39e9116ea6c0734d012e91",
+          "after_record_sha256": "127fc60bae8dad1252c39a21ad6532f4d3d00b876aeae345610ff3dcbb3a8268",
+          "after_audit_sha256": "161aad558496d086d103cb41cbbf802af7fe32712cfa410dcfcd718c904cd62b",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              3,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              4,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              5,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              6,
+              [
+                [
+                  3,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "default_flags": [
+            [
+              6,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                4,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                5,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1,
+            3,
+            4,
+            6
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              2,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              3,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              4,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              5,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              6,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "3c820a10f95af5a8adab537012036fb08287043d77b271e484794617bbba701e",
+          "after": "c231a3460d9e8d0821e390f102e032bd076814dcb252dce361becf1b565132fa"
+        },
+        "catalog_scientific_sha256": {
+          "before": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a",
+          "after": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": "be9a91cef6545954f50ed1f6ca8e2e46db9275845d01556906c629fec451ce68",
+      "content_sha256": "58db8f154b2642e06a23ce91f687c2c5012350c508653c841fe2b782f7dcfea3"
     }
   ]
 }

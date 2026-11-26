@@ -449,18 +449,20 @@ Use `"expected": <value>` when the field exists and `"remove": true` instead
 of `"value"` to delete an `error`, a `fixed` flag or the covariance. Only these
 fields are settable: a parameter's `error` and `fixed` flag (of an existing
 reference-isotherm or thermal parameter), `parameter_error_confidence`,
-`parameter_covariance`, `temperature_ref`, `experimental_pressure_range_gpa`,
+`parameter_covariance`, `parameter_uncertainty_convention` (only on a record
+that already carries it), `temperature_ref`, `experimental_pressure_range_gpa`,
 `experimental_temperature_range_k`, `pressure_range_status`, and the
 `pressure_gpa`, `temperature_k` and `volume_ratio` bounds of an existing
 `validity` object. Everything else is refused, among it the identifier, all
-text (use the text tools), `check`, `model`, the thermal model and its laws,
+other text (use the text tools), `check`, `model`, the thermal model and its laws,
 `record_kind`, `determination_method`, `equation_kind`, `reference`,
 `aliases`, default flags, `catalog_access` and dataset links; a `validity`
 object cannot be created, removed or emptied.
 
 Values are checked before anything is staged: an error is a finite number
 `>= 0` or `null`; `parameter_error_confidence` lies strictly between 0 and 1
-or is `null`; a range is two finite numbers, lower first, with pressures
+or is `null`; `parameter_uncertainty_convention` is non-empty text; a range is
+two finite numbers, lower first, with pressures
 within -20 to 2000 GPa (the catalog spans -11.3 to 1374 GPa) and
 temperatures above 0 K and at most 20000 K; `pressure_range_status` is one of
 `reported_exactly`, `reported_qualitatively`, `theoretical` and

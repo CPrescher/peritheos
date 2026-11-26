@@ -82,6 +82,11 @@ All notable changes to Peritheos are documented here. The project follows
   a0; the Table 1 value is stored by maintainer decision and the record's
   note states the conflict. It is not a default; the 300 K record remains the
   default.
+- `scripts/apply_catalog_revision.py` can set `parameter_uncertainty_convention`
+  on a record that already carries it. The three Nisr et al. (2017) records
+  now say that their 0.683 confidence level assumes a normal distribution,
+  where the text said the confidence fraction is not specified. Values and
+  errors are unchanged.
 - `scripts/apply_check_text.py` also sets a bundled record's coded
   `usage_recommendation` (the source of `check.warning`), keeping replaced
   free text as `recommendation_reason` and binding the originals so every
