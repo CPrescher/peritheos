@@ -54503,7 +54503,7 @@
         111
       ],
       "solver_success": true,
-      "source_notes": "Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeCO3), on the printed Au pressure scale, whose exact realization is unresolved. The published thermal parameters are not used because Table 1 and the abstract disagree on a0. No extension across the cited spin transition near 45 GPa or a decomposition boundary is claimed.",
+      "source_notes": "Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeCO3), on the printed Au pressure scale, whose exact realization is unresolved. The published thermal fit (Table 1) is a separate record. No extension across the cited spin transition near 45 GPa or a decomposition boundary is claimed.",
       "status": "parity",
       "weighting": "Existing reconstructed errors retained; no source confidence convention inferred."
     },
@@ -54726,6 +54726,124 @@
       "solver_success": true,
       "source_notes": "Peritheos joint thermal refit of the Litasov et al. (2013) data, not either published parameter set, with alpha0 as the absolute-temperature intercept. The errors omit the uncertainty of the fixed V0 and pressure-scale systematics. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa, outside these data.",
       "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "siderite_fe095mn005_litasov_2013_table2_pvt"
+      ],
+      "degrees_of_freedom": 106,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        33.01
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        1673.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "Tr"
+      ],
+      "free_parameters": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "alpha0",
+        "alpha1",
+        "dK_dT"
+      ],
+      "label": "Litasov et al. (2013), natural Fe0.95Mn0.05CO3, thermal BM3 (Table 1)",
+      "material_identifier": "siderite_fe095mn005",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 111,
+      "observed_pressure_range_gpa": [
+        0.0,
+        33.01
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        1673.0
+      ],
+      "observed_volume_range": [
+        241.54,
+        293.56
+      ],
+      "parameters": [
+        {
+          "difference": 1.9023322215844871,
+          "parameter": "rt_eos.K0",
+          "published": 120.0,
+          "published_error": 2.0,
+          "refit": 121.90233222158449,
+          "refit_error": 1.3389386840585457e-11,
+          "relative_difference": 0.01585276851320406,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.1423261113740053,
+          "parameter": "rt_eos.K0_prime",
+          "published": 3.57,
+          "published_error": 0.09,
+          "refit": 3.4276738886259945,
+          "refit_error": 7.154508725380017e-05,
+          "relative_difference": 0.03986725808795667,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -1.820158821829067e-06,
+          "parameter": "alpha0",
+          "published": 3.77e-05,
+          "published_error": 9e-07,
+          "refit": 3.5879841178170935e-05,
+          "refit_error": 4.830333769887359e-06,
+          "relative_difference": 0.04828007484957737,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 4.106689724102132e-10,
+          "parameter": "alpha1",
+          "published": 6e-10,
+          "published_error": 1.4e-09,
+          "refit": 1.0106689724102132e-09,
+          "refit_error": 6.969074671452191e-09,
+          "relative_difference": 0.6844482873503553,
+          "similar": false,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.000402875697207164,
+          "parameter": "dK_dT",
+          "published": -0.015,
+          "published_error": 0.001,
+          "refit": -0.014597124302792835,
+          "refit_error": 0.0032044506931429564,
+          "relative_difference": 0.026858379813810934,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 111 original Table 2 rows are bundled, 27 at 300 K and 84 heated, with paired Au volumes and printed errors. Source weighting and row exclusions are not specified.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1016/j.pepi.2013.07.011",
+      "published_rmse_gpa": 0.23256318537159204,
+      "record_identifier": "siderite_fe095mn005_litasov_2013_bm3_thermal",
+      "reduced_chi_square": 0.05122253831555014,
+      "rmse_gpa": 0.22112403868536867,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept. The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value is stored because it fits the Table 2 rows better. Only the accepted manuscript and the publisher's abstract were seen.",
+      "status": "similar"
     },
     {
       "absolute_sigma": true,
@@ -61499,11 +61617,11 @@
     }
   ],
   "summary": {
-    "total": 687,
+    "total": 688,
     "not_refittable": 178,
     "parity": 358,
     "parity_not_achieved": 61,
-    "similar": 72,
+    "similar": 73,
     "source_reconstruction": 18
   }
 }

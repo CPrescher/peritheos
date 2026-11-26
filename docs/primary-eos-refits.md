@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **687** EOS records. **358** achieve numerical parity under their stated comparison criteria, **72** are numerically similar, **18** have a source reconstruction without an independent EOS refit, **[61](#parity-not-achieved)** do not achieve parity, **178** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **688** EOS records. **358** achieve numerical parity under their stated comparison criteria, **73** are numerically similar, **18** have a source reconstruction without an independent EOS refit, **[61](#parity-not-achieved)** do not achieve parity, **178** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -723,6 +723,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`seifertite_sun_2019_bm2_1`](https://doi.org/10.1029/2019JB017853) | `seifertite_sun_2019_dataset_s2_pvt` | 20 | `rt_eos.V0` 92.3 → 91.5099; `rt_eos.K0` 290 → 307.595; `theta0` 1600 → 2329.4; `gamma0` 1.6 → 1.84248 | 1.13964/0.13741 | [similar](#investigation-seifertite_sun_2019_bm2_1) |
 | [`siderite_fe095mn005_litasov_2013_bm3`](https://doi.org/10.1016/j.pepi.2013.07.011) | `siderite_fe095mn005_litasov_2013_table2_pvt` | 27 | `K0` 120 → 120.224; `K0_prime` 3.57 → 3.57221 | 0.229585/0.227309 | parity — Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Agreement concerns K0 and K0-prime on all 27 printed 300 K rows, conditional on source-fixed V0=293.4 A^3, original printed Au pressures and equal pressure-residual weights. The published-curve pressure RMS remains 0.22958 GPa, outside the manuscript's reported 0.11-0.17 GPa range; that source-data agreement finding is unresolved separately. Exact pressure-scale realization, original objective/weights and author workflow remain unrecovered. No thermal-coefficient conflict or use restriction is resolved by this parameter comparison. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget. |
 | [`siderite_fe095mn005_litasov_2013_joint_thermal_refit`](https://doi.org/10.1016/j.pepi.2013.07.011) | `siderite_fe095mn005_litasov_2013_table2_pvt` | 111 | `rt_eos.K0` 121.903 → 121.903; `rt_eos.K0_prime` 3.42764 → 3.42764; `alpha0` 3.58784e-05 → 3.58784e-05; `alpha1` 1.01323e-09 → 1.01331e-09; `dK_dT` -0.0145979 → -0.0145979 | 0.221212/0.221212 | parity — Reproduces the separately labelled Peritheos refit, not either published thermal coefficient set. All 111 printed states enter an unweighted joint pressure-residual fit; V0 and Tr are fixed. The ledger's published column contains the stored refit values for this comparison. Formal covariance excludes fixed V0 uncertainty and calibration systematics. Both source thermal variants remain non-executable evidence. |
+| [`siderite_fe095mn005_litasov_2013_bm3_thermal`](https://doi.org/10.1016/j.pepi.2013.07.011) | `siderite_fe095mn005_litasov_2013_table2_pvt` | 111 | `rt_eos.K0` 120 → 121.902; `rt_eos.K0_prime` 3.57 → 3.42767; `alpha0` 3.77e-05 → 3.58798e-05; `alpha1` 6e-10 → 1.01067e-09; `dK_dT` -0.015 → -0.0145971 | 0.232563/0.221124 | [similar](#investigation-siderite_fe095mn005_litasov_2013_bm3_thermal) |
 | [`silica_cacl2_sun_2019_bm2_1`](https://doi.org/10.1029/2019JB017853) | `sio2_cacl2_sun_2019_dataset_s1_pvt` | 48 | `rt_eos.V0` 48.1 → 48.4852; `rt_eos.K0` 245 → 235.509; `theta0` 1100 → 2594.23; `gamma0` 1.3 → 1.68494 | 1.90716/1.50457 | [similar](#investigation-silica_cacl2_sun_2019_bm2_1) |
 | [`silicon_anzellini_2019_vinet_1`](https://doi.org/10.1038/s41598-019-51931-1) | `silicon_anzellini_2019_tables1_4_6_7_compression` | 44 | `V0` 160.248 → 160.212; `K0` 97.89 → 96.4318 | 0.252289/0.182164 | [similar](#investigation-silicon_anzellini_2019_vinet_1) |
 | [`silicon_carbide_b1_miozzi_2018_bm3_1`](https://doi.org/10.1029/2018JE005582) | `silicon_carbide_b1_miozzi_2018_data_set_s1_eos` | 67 | `V0` 66.3 → 65.7771; `K0` 323 → 340.65; `K0_prime` 3.1 → 3.06285 | 1.62197/0.0588426 | [similar](#investigation-silicon_carbide_b1_miozzi_2018_bm3_1) |
@@ -966,7 +967,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **133** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **134** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests, a dedicated partial-source reconstruction does
@@ -3539,6 +3540,29 @@ the missing source fit detail is recovered.
 - The point estimate exceeds the numerical limit for `theta0`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
 - The lowest checked pressure is 111.8 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-siderite_fe095mn005_litasov_2013_bm3_thermal"></a>
+
+### `siderite_fe095mn005_litasov_2013_bm3_thermal`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `siderite_fe095mn005_litasov_2013_table2_pvt` with 111 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `rt_eos.K0` | 120 | 121.902 ± 1.33894e-11 | 1.59% | yes | yes |
+| `rt_eos.K0_prime` | 3.57 | 3.42767 ± 7.15451e-05 | 3.99% | yes | yes |
+| `alpha0` | 3.77e-05 | 3.58798e-05 ± 4.83033e-06 | 4.83% | yes | yes |
+| `alpha1` | 6e-10 | 1.01067e-09 ± 6.96907e-09 | 68.44% | yes | no |
+| `dK_dT` | -0.015 | -0.0145971 ± 0.00320445 | 2.69% | yes | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-33.01 GPa; source-declared range: 0-33.01 GPa; fit kind: `joint_pvt`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.232563/0.221124 GPa; reduced chi-square: 0.0512225; free parameters: `rt_eos.K0, rt_eos.K0_prime, alpha0, alpha1, dK_dT`; source-fixed parameters: `V0, Tr`.
+
+**Source/data scope.** All 111 original Table 2 rows are bundled, 27 at 300 K and 84 heated, with paired Au volumes and printed errors. Source weighting and row exclusions are not specified.
+
+**Registered source-fit note.** Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept. The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value is stored because it fits the Table 2 rows better. Only the accepted manuscript and the publisher's abstract were seen.
+
+**Assessment and likely origin.**
+- The point estimate exceeds the numerical limit for `alpha1`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
 
 <a id="investigation-silica_cacl2_sun_2019_bm2_1"></a>
 

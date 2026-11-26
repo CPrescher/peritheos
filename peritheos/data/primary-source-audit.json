@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 687,
+    "records": 688,
     "deferred": 3,
     "not_reproduced": 18,
-    "primary_source_validated": 666
+    "primary_source_validated": 667
   },
   "records": [
     {
@@ -12449,6 +12449,24 @@
           "Section 3, pages 4-5; Tables 1 and 2, pages 12-15"
         ],
         "finding": "All 111 Table 2 observations are fitted with the Section 3 HTBM model, using the integrated-expansivity convention in cited Litasov (2007) Equations (1)-(4). The refit and residuals are independently reproduced; the source alpha0 conflict is retained rather than corrected."
+      }
+    },
+    {
+      "material": "siderite_fe095mn005",
+      "file": "siderite_fe095mn005.eosmat",
+      "record": "siderite_fe095mn005_litasov_2013_bm3_thermal",
+      "label": "Litasov et al. (2013), natural Fe0.95Mn0.05CO3, thermal BM3 (Table 1)",
+      "doi": "10.1016/j.pepi.2013.07.011",
+      "status": "primary_source_validated",
+      "note": "Table 1 ('This work') of the accepted manuscript gives the high-temperature Birch-Murnaghan fit: V0 = 293.4(1) A^3 fixed, K0 = 120(2) GPa, K0' = 3.57(9), a0 = 3.77(9)e-5 K^-1, a1 = 0.06(14)e-8 K^-2, dK/dT = -0.015(1) GPa/K, stored as printed. The abstract (manuscript and publication of record) prints a0 = 3.57(9)e-5, the same digits and error as K0'. The Table 1 value is stored by maintainer decision: over all 111 Table 2 rows the Table 1 set gives a pressure RMS of 0.23256 GPa and the abstract variant 0.29937 GPa, and a fit of the 84 heated rows with the published cold values fixed gives a0 = 3.816e-5. No author correction is known. The paper's stated misfit of 0.11-0.17 GPa is reproduced by neither. The typeset article was not seen.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.07.011",
+        "doi": "10.1016/j.pepi.2013.07.011",
+        "locations": [
+          "Publication-of-record abstract",
+          "User-supplied Accepted Manuscript: Section 3, pages 4-5; Table 1, page 12; Table 2, pages 13-15"
+        ],
+        "finding": "Table 1 ('This work') of the accepted manuscript gives the high-temperature Birch-Murnaghan fit: V0 = 293.4(1) A^3 fixed, K0 = 120(2) GPa, K0' = 3.57(9), a0 = 3.77(9)e-5 K^-1, a1 = 0.06(14)e-8 K^-2, dK/dT = -0.015(1) GPa/K, stored as printed. The abstract (manuscript and publication of record) prints a0 = 3.57(9)e-5, the same digits and error as K0'. The Table 1 value is stored by maintainer decision: over all 111 Table 2 rows the Table 1 set gives a pressure RMS of 0.23256 GPa and the abstract variant 0.29937 GPa, and a fit of the 84 heated rows with the published cold values fixed gives a0 = 3.816e-5. No author correction is known. The paper's stated misfit of 0.11-0.17 GPa is reproduced by neither. The typeset article was not seen."
       }
     },
     {

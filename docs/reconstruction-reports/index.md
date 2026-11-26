@@ -214,7 +214,7 @@ after later audits; repository-relative `report_path` links work offline.
 | [Ringwoodite](ringwoodite.md) | 1 | 1 |  |  |  |  |
 | [Ruthenium](ruthenium.md) | 1 |  | 1 |  |  |  |
 | [Seifertite](seifertite.md) | 2 |  | 1 |  | 1 |  |
-| [Siderite (Fe0.95Mn0.05CO3)](siderite_fe095mn005.md) | 2 | 2 |  |  |  |  |
+| [Siderite (Fe0.95Mn0.05CO3)](siderite_fe095mn005.md) | 3 | 2 | 1 |  |  |  |
 | [Silica (CaCl2-type)](silica_cacl2.md) | 1 |  | 1 |  |  |  |
 | [Silicon (Si-I, diamond cubic)](silicon.md) | 1 |  | 1 |  |  |  |
 | [Silicon carbide (B1 rock salt)](silicon_carbide_b1.md) | 1 |  | 1 |  |  |  |
@@ -248,9 +248,9 @@ after later audits; repository-relative `report_path` links work offline.
 | [Zirconium (alpha)](zirconium_alpha.md) | 1 | 1 |  |  |  |  |
 | [Zirconium (beta)](zirconium_beta.md) | 1 | 1 |  |  |  |  |
 | [Zirconium (omega)](zirconium_omega.md) | 1 | 1 |  |  |  |  |
-| **All materials** | **687** | **358** | **72** | **61** | **196** | **34** |
+| **All materials** | **688** | **358** | **73** | **61** | **196** | **34** |
 
-494 of 494 records with a stored coefficient comparison have curve/residual plots, including 3 explicitly partial replays listed below.
+495 of 495 records with a stored coefficient comparison have curve/residual plots, including 3 explicitly partial replays listed below.
 
 ## Partial replays
 

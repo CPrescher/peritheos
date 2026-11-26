@@ -21,7 +21,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Pressure unit | GPa |
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
-| Stored EOS records | 2 |
+| Stored EOS records | 3 |
 | Observation datasets | 1 |
 
 Diffraction model combines the EOS sample first ambient a/c measurement with separately sourced occupied sites of matching composition. It is not a source-specific atomic refinement of the Panasqueira crystal. The resulting lattice volume 293.4853 A^3 agrees with the printed row 293.49(3), and differs legitimately from the averaged, fixed EOS V0=293.4(1). No pure-end-member substitution or synthetic peaks are used.
@@ -37,6 +37,7 @@ Diffraction model combines the EOS sample first ambient a/c measurement with sep
 | --- | --- | --- | --- | --- | --- | --- |
 | [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3](#record-siderite_fe095mn005_litasov_2013_bm3) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
 | [Peritheos refit of Litasov et al. (2013), joint thermal BM3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | BM3 + AlphaKT | 300.0 | reproduced |  | primary source validated | Executable |
+| [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, thermal BM3 (Table 1)](#record-siderite_fe095mn005_litasov_2013_bm3_thermal) | BM3 + AlphaKT | 300.0 | close |  | primary source validated | Executable |
 
 ### Reference coefficients
 
@@ -44,6 +45,7 @@ Diffraction model combines the EOS sample first ambient a/c measurement with sep
 | --- | --- | --- | --- |
 | [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3](#record-siderite_fe095mn005_litasov_2013_bm3) | 293.4 ± 0.1 (fixed) | 120.0 ± 1.0 | 3.57 ± 0.09 |
 | [Peritheos refit of Litasov et al. (2013), joint thermal BM3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | 293.4 (fixed) | 121.90288040577286 ± 0.8855927629328301 | 3.427642322450656 ± 0.08617420289324854 |
+| [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, thermal BM3 (Table 1)](#record-siderite_fe095mn005_litasov_2013_bm3_thermal) | 293.4 ± 0.1 (fixed) | 120.0 ± 2.0 | 3.57 ± 0.09 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -86,7 +88,7 @@ Automatic selection for equilibrium calculations.
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeCO3), on the printed Au pressure scale, whose exact realization is unresolved. The published thermal parameters are not used because Table 1 and the abstract disagree on a0. No extension across the cited spin transition near 45 GPa or a decomposition boundary is claimed.
+Published 300 K isotherm of natural high-spin R-3c Fe0.95Mn0.05CO3 (not pure FeCO3), on the printed Au pressure scale, whose exact realization is unresolved. The published thermal fit (Table 1) is a separate record. No extension across the cited spin transition near 45 GPa or a decomposition boundary is claimed.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -255,6 +257,117 @@ Peritheos joint thermal refit of the Litasov et al. (2013) data, not either publ
 - **Alpha0:** Joint independent refit of all 111 Table 2 observations; scripts/reproduce\_litasov\_2013\_siderite.py, thermal\_joint\_refit.
 - **Alpha1:** Joint independent refit of all 111 Table 2 observations; scripts/reproduce\_litasov\_2013\_siderite.py, thermal\_joint\_refit.
 - **Dk dt:** Joint independent refit of all 111 Table 2 observations; scripts/reproduce\_litasov\_2013\_siderite.py, thermal\_joint\_refit.
+
+</details>
+
+<a id="record-siderite_fe095mn005_litasov_2013_bm3_thermal"></a>
+
+## Litasov et al. (2013), natural Fe0.95Mn0.05CO3, thermal BM3 (Table 1)
+
+`siderite_fe095mn005_litasov_2013_bm3_thermal` · Executable
+
+Reproduction: **close** · [Reconstruction report](../reconstruction-reports/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_bm3_thermal)
+
+**Source check:** Coefficients as printed in Table 1 of the accepted manuscript (P-V-T fit). The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value 3.77(9)e-5 is stored because it fits the Table 2 rows better. The typeset article was not seen.
+
+| Component | Parameter | Value | Reported error | Fixed |
+| --- | --- | --- | --- | --- |
+| Primary | V0 | 293.4 | 0.1 | Yes |
+| Primary | K0 | 120.0 | 2.0 | Not listed |
+| Primary | K0\_prime | 3.57 | 0.09 | Not listed |
+| Thermal | Tr | 300.0 | Not reported | Yes |
+| Thermal | alpha0 | 3.77e-05 | 9e-07 | Not listed |
+| Thermal | alpha1 | 6e-10 | 1.4e-09 | Not listed |
+| Thermal | dK\_dT | -0.015 | 0.001 | Not listed |
+
+- **Record kind:** published
+- **Origin of the parameterization:** experimental
+- **Reference:**
+    - **Authors:** Litasov; Shatskiy; Gavryushkin; Sharygin; Dorogokupets; Dymshits; Ohtani; Higo; Funakoshi
+    - **Year:** 2013
+    - **Title:** P–V–T equation of state of siderite to 33 GPa and 1673 K
+    - **Source:** Physics of the Earth and Planetary Interiors
+    - **Volume:** 224
+    - **Locator:** 83-87
+    - **DOI:** 10.1016/j.pepi.2013.07.011
+- **Reference temperature (K):** 300.0
+- **Reported pressure coverage (GPa):** \[0.0, 33.01\]
+- **Reported temperature coverage (K):** \[300.0, 1673.0\]
+- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+
+<details markdown="1">
+<summary>Thermal equation choices</summary>
+
+- **Thermal expansion law:** linear\_temperature
+- **Reference volume law:** integrated\_expansivity
+
+</details>
+
+Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept. The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value is stored because it fits the Table 2 rows better. Only the accepted manuscript and the publisher's abstract were seen.
+
+<details markdown="1">
+<summary>Source review</summary>
+
+- **Audit date:** 2026-11-23
+- **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; validity
+- **Primary source check:**
+    - **Access URL:** https://doi.org/10.1016/j.pepi.2013.07.011
+    - **DOI:** 10.1016/j.pepi.2013.07.011
+    - **Locations:** Publication-of-record abstract; User-supplied Accepted Manuscript: Section 3, pages 4-5; Table 1, page 12; Table 2, pages 13-15
+    - **Finding:** Table 1 ('This work') of the accepted manuscript gives the high-temperature Birch-Murnaghan fit: V0 = 293.4(1) A^3 fixed, K0 = 120(2) GPa, K0' = 3.57(9), a0 = 3.77(9)e-5 K^-1, a1 = 0.06(14)e-8 K^-2, dK/dT = -0.015(1) GPa/K, stored as printed. The abstract (manuscript and publication of record) prints a0 = 3.57(9)e-5, the same digits and error as K0'. The Table 1 value is stored by maintainer decision: over all 111 Table 2 rows the Table 1 set gives a pressure RMS of 0.23256 GPa and the abstract variant 0.29937 GPa, and a fit of the 84 heated rows with the published cold values fixed gives a0 = 3.816e-5. No author correction is known. The paper's stated misfit of 0.11-0.17 GPa is reproduced by neither. The typeset article was not seen.
+- **Primary data check:**
+    - **Status:** bundled
+    - **Audit date:** 2026-11-23
+    - **Dataset identifiers:** siderite\_fe095mn005\_litasov\_2013\_table2\_pvt
+    - **Source locations:** Accepted Manuscript Table 2, pages 13-15 (PDF pages 14-16)
+    - **Finding:** All 111 original Table 2 rows are bundled, 27 at 300 K and 84 heated, with paired Au volumes and printed errors. Source weighting and row exclusions are not specified.
+- **Reported inconsistencies:**
+    - **Field:** thermal.alpha0
+    - **Abstract:** 3.57e-05
+    - **Manuscript table 1:** 3.77e-05
+    - **Resolution:** This record stores the Table 1 value. The abstract value repeats the digits and error of K0' and describes the Table 2 rows worse. Both printed values are retained as source evidence; the typeset article was not seen.
+    - **Field:** parameter\_errors.K0
+    - **Abstract:** 1.0
+    - **Manuscript table 1:** 2.0
+    - **Resolution:** This record is the P-V-T fit that Table 1 summarizes and stores its error of 2 GPa. The 300 K record keeps the abstract's 1 GPa.
+
+</details>
+
+<details markdown="1">
+<summary>Pressure calibration</summary>
+
+- **Status:** partially\_resolved
+- **Methods:**
+    - **Kind:** equation\_of\_state
+    - **Reference:**
+        - **Authors:** Sokolova; Dorogokupets; Litasov
+        - **Year:** 2013
+        - **Source:** Russian Geology and Geophysics
+        - **Volume:** 54
+        - **Locator:** 181-199
+        - **DOI:** 10.1016/j.rgg.2013.01.005
+    - **Source location:** Section 2, manuscript page 3, lines 81-86; Au EOS also attributed to Litasov et al. (2013a), Journal of Applied Physics 113, 093507.
+    - **Calibrant:** Au (5 wt%), cubic conventional-cell volume
+    - **Notes:** Exact 2013 numerical realization is not interchangeable with the catalog corrected Sokolova implementation; comparison in the source audit. Dorogokupets and Dewaele (2007) is only a comparison, not the adopted scale.
+- **Recalculation:**
+    - **Status:** not\_possible
+    - **Notes:** All 111 paired Au volumes and temperatures are bundled, but the exact 2013 pressure realization remains unresolved. The related corrected catalog record gives up to 0.716 GPa discrepancy. No exact reference\_eos\_record link or recalibrated pressure is asserted.
+- **Audit date:** 2026-09-19
+
+</details>
+
+<details markdown="1">
+<summary>Parameter provenance</summary>
+
+- **Origin of the parameterization:** Measurements or their experimental reduction determine this EOS; source: accepted manuscript, Section 3 and Table 1.
+- **V0:** Table 1: 293.4(1) A^3, the measured ambient mean, fixed during fitting; conventional hexagonal cell.
+- **K0:** Table 1: 120(2) GPa.
+- **K0 prime:** Table 1: 3.57(9).
+- **Tr:** Section 3: reference temperature 300 K.
+- **Alpha0:** Table 1: 3.77(9)e-5 K^-1; the abstract prints 3.57(9)e-5.
+- **Alpha1:** Table 1: 0.06(14)e-8 K^-2.
+- **Dk dt:** Table 1: -0.015(1) GPa/K.
+- **Reference temperature (K):** Section 3 and the 300 K rows in Table 2.
 
 </details>
 

@@ -15,10 +15,10 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 | Measure | Count |
 |---|---:|
 | Stored material documents | 235 |
-| Stored EOS records | 687 |
+| Stored EOS records | 688 |
 | Executable materials | 232 |
-| Executable EOS records, including references and qualified explicit-selection records | 684 |
-| Source EOS choices in normal discovery | 632 |
+| Executable EOS records, including references and qualified explicit-selection records | 685 |
+| Source EOS choices in normal discovery | 633 |
 | Published pressure-scale reference variants | 52 |
 | Materials with an executable thermal EOS | 66 |
 | Executable records with parameter covariance | 19 |
@@ -30,7 +30,7 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `deferred` | 3 |
 | `not_reproduced` | 18 |
-| `primary_source_validated` | 666 |
+| `primary_source_validated` | 667 |
 
 ## Executable equation kinds
 
@@ -38,14 +38,14 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `hugoniot` | 4 |
 | `isothermal` | 542 |
-| `thermal` | 138 |
+| `thermal` | 139 |
 
 ## Pressure-calibration provenance of executable records
 
 | Status | Records |
 |---|---:|
 | `not_applicable` | 164 |
-| `partially_resolved` | 193 |
+| `partially_resolved` | 194 |
 | `resolved` | 240 |
 | `unresolved` | 87 |
 
@@ -55,7 +55,7 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `missing_calibrant_observations` | 200 |
 | `not_applicable` | 161 |
-| `not_possible` | 126 |
+| `not_possible` | 127 |
 | `ready` | 136 |
 | `reference_eos_not_bundled` | 54 |
 | `reference_model_not_supported` | 7 |
@@ -75,7 +75,7 @@ of records missing from that ledger. No scientific classifications are changed h
 | `not_refittable` | 178 |
 | `parity` | 358 |
 | `parity_not_achieved` | 61 |
-| `similar` | 72 |
+| `similar` | 73 |
 | `source_reconstruction` | 18 |
 
 **Catalog records absent from the refit ledger:** none.
@@ -296,7 +296,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `ringwoodite` | Mg2SiO4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `ruthenium` | Ru | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `seifertite` | SiO2 | 2 | 2 | 1 | 1 | 0 | 0 | 0 | 1 |
-| `siderite_fe095mn005` | Fe0.95Mn0.05CO3 | 2 | 2 | 1 | 1 | 0 | 0 | 0 | 1 |
+| `siderite_fe095mn005` | Fe0.95Mn0.05CO3 | 3 | 3 | 1 | 2 | 0 | 0 | 0 | 1 |
 | `silica_cacl2` | SiO2 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
 | `silicon` | Si | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `silicon_carbide_b1` | SiC | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |

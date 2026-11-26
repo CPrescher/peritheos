@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **377 primary papers**: **273** support the 687 audited catalog records and **104** were investigated without adding a production record.
+The register covers **377 primary papers**: **273** support the 688 audited catalog records and **104** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -1263,7 +1263,7 @@ the primary-source and refit ledgers.
 | [Li et al. (2006)](https://doi.org/10.1029/2005jb004251) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Li-and-Zhang-data elastic refit (2010)](https://doi.org/10.1016/j.pnsc.2009.09.002) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Litasov et al. (2007)](https://doi.org/10.1016/j.pepi.2007.06.003) | Reproduced | 7 | 7 parity | 7 bundled |
-| [Litasov et al. (2013)](https://doi.org/10.1016/j.pepi.2013.07.011) | Reproduced | 2 | 2 parity | 2 bundled |
+| [Litasov et al. (2013)](https://doi.org/10.1016/j.pepi.2013.07.011) | Reproduced | 3 | 2 parity; 1 similar | 3 bundled |
 | [Liu (2008), MgO bulk modulus method](https://doi.org/10.1515/zna-2008-1-209) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Liu (2011), two-parameter MgO EOS analysis](https://doi.org/10.1139/p11-040) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
 | [Liu and Bassett (1973)](https://doi.org/10.1029/jb078i035p08470) | Reproduced | 1 | 1 parity | 1 bundled |

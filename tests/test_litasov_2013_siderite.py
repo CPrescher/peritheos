@@ -83,7 +83,7 @@ def test_composition_structure_and_source_parameters():
     assert np.sqrt(3) / 2 * lattice["a"] ** 2 * lattice["c"] == pytest.approx(
         293.49, abs=0.005
     )
-    assert len(document["eos_records"]) == 2
+    assert len(document["eos_records"]) == 3
     record = document["eos_records"][0]
     assert record["eos"]["parameters"] == {"V0": 293.4, "K0": 120, "K0_prime": 3.57}
     assert record["parameter_errors"] == {"V0": 0.1, "K0": 1, "K0_prime": 0.09}
@@ -95,6 +95,32 @@ def test_composition_structure_and_source_parameters():
     assert all(
         "reference_eos_record" not in method
         for method in record["pressure_calibration"]["methods"]
+    )
+
+
+def test_published_thermal_record_stores_the_table_1_values():
+    """Added by catalog revision 2026-11-23; a0 is Table 1's, not the abstract's."""
+    material = get_material("siderite_fe095mn005")
+    record = material.get_eos_record("siderite_fe095mn005_litasov_2013_bm3_thermal")
+    assert not record.is_default
+    rows = {row["name"]: row for row in record.overview()["parameters"]}
+    stored = {name: (row["value"], row["error"]) for name, row in rows.items()}
+    assert stored == {
+        "V0": (293.4, 0.1),
+        "K0": (120.0, 2.0),
+        "K0_prime": (3.57, 0.09),
+        "Tr": (300.0, None),
+        "alpha0": (3.77e-05, 9e-07),
+        "alpha1": (6e-10, 1.4e-09),
+        "dK_dT": (-0.015, 0.001),
+    }
+    assert rows["V0"]["fixed"] and rows["Tr"]["fixed"]
+    assert record.overview()["record_kind"] == "published"
+    assert record.overview()["check"]["reproduction"] == "close"
+    # At 300 K it is the cold curve of the Table 1 fit.
+    volumes = np.linspace(245.0, 293.4, 12)
+    np.testing.assert_allclose(
+        record.pressure(volumes, 300), bm3(volumes, 293.4, 120, 3.57), atol=1e-9
     )
 
 
