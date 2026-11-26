@@ -31,7 +31,7 @@ jobs:
           ref: refs/tags/${{ env.RELEASE_TAG }}
 
       - name: Install uv and Python
-        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           enable-cache: false
           python-version: "3.13"
@@ -148,7 +148,7 @@ jobs:
         run: python scripts/generate_rust_notices.py --check --verify-toolchain
 
       - name: Install uv for wheel validation
-        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           enable-cache: false
           python-version: ${{ matrix.python-version }}
@@ -217,7 +217,7 @@ jobs:
         with:
           persist-credentials: false
           ref: refs/tags/${{ env.RELEASE_TAG }}
-      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           enable-cache: false
           python-version: "3.13"
@@ -242,7 +242,7 @@ jobs:
           ref: refs/tags/${{ env.RELEASE_TAG }}
 
       - name: Install uv and Python
-        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           enable-cache: false
           python-version: "3.13"
