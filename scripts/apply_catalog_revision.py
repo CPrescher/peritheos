@@ -179,7 +179,9 @@ PRESSURE_RANGE_STATUSES = (
 ALLOW_LIST = (
     "parameters.<name>.error|fixed and "
     "thermal.parameters.<name>.error|fixed (existing parameters); "
-    "parameter_error_confidence; parameter_covariance; temperature_ref; "
+    "parameter_error_confidence; parameter_covariance; "
+    "parameter_uncertainty_convention (where the record carries it); "
+    "temperature_ref; "
     "experimental_pressure_range_gpa, experimental_temperature_range_k, "
     "pressure_range_status; validity.pressure_gpa|temperature_k|volume_ratio "
     "(existing bounds of an existing validity object)"
@@ -882,6 +884,10 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
         *RANGE_FIELDS,
     ):
         kind = path[0]
+    elif path == ["parameter_uncertainty_convention"] and path[0] in record:
+        # The one text a revision may set: it says what the errors mean, so it
+        # has to change together with ``parameter_error_confidence``.
+        kind = path[0]
     elif (
         len(path) == 2
         and path[0] == "validity"
@@ -919,6 +925,7 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
         "parameter_error_confidence": value is None
         or (_number(value) and 0 < value < 1),
         "parameter_covariance": value is None or isinstance(value, dict),
+        "parameter_uncertainty_convention": _text(value),
         "temperature_ref": _number(value) and value > 0,
         "experimental_pressure_range_gpa": pair(value),
         "experimental_temperature_range_k": pair(value),

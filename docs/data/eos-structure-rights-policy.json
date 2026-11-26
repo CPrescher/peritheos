@@ -89,8 +89,8 @@
     "peritheos/data/materials/gold.eosmat": "4080811e1a7f001c662757a244b0d171f2eb00775651377d20228cd91ed9b13f",
     "peritheos/data/materials/graphite.eosmat": "047575d489710ef8b26d2cc5e5c09d84211e03c6f843c635d9c72972dee8d5f2",
     "peritheos/data/materials/grossular.eosmat": "9b9826055d7a1374ca88409e75de3284cecf6d71c3c0ec18e7cc5f638777be50",
-    "peritheos/data/materials/hydrous_silica_cacl2_nisr_2017.eosmat": "05c525ef077c6aaceed6f33d3afb58facd3b002eb18321d3dab4d0806d8f10ba",
-    "peritheos/data/materials/hydrous_stishovite_nisr_2017.eosmat": "ce748d2676ca0cb7a80ebb32ae315fe49cf23be5931a65acd71290932da20df4",
+    "peritheos/data/materials/hydrous_silica_cacl2_nisr_2017.eosmat": "1802d6f805cc15b11da3fe25f9f16657354eee6f193648ced8b756d39c39c37c",
+    "peritheos/data/materials/hydrous_stishovite_nisr_2017.eosmat": "69387db8d67bb595389c2b0c324db4b20b8c20635b65d4e2deba06eb3a5623aa",
     "peritheos/data/materials/ice_vi.eosmat": "3b6fe5212980c8a959603e21afe99234d53eb46101ee270d013784eabf1ba90c",
     "peritheos/data/materials/ice_vii.eosmat": "1ced13b9457e8fe89367dbdb4501792f814a3df70aa158437a2c2cf2aa15ef55",
     "peritheos/data/materials/iceviii.eosmat": "f39ace4247af35608cbe94cad405fe1f1f0e4dd32085ac93f7e3a68265813bc6",
@@ -215,7 +215,7 @@
     "peritheos/data/materials/silicon_vii.eosmat": "dbc0c75fc788effd0654ee3fbb851c7a91e59e853d3911989474962c2be55a3f",
     "peritheos/data/materials/silicon_x.eosmat": "eacb3d6bc2e3c0ac5dea0ee30f4371697f6741cb6c70ef378beb9f14b4f78503",
     "peritheos/data/materials/silver.eosmat": "32760aa6f737b7f34302bbd01ea58bddba4b014c6f7d5ef7e62e26ab8130a721",
-    "peritheos/data/materials/sio2_stv_andr.eosmat": "3c820a10f95af5a8adab537012036fb08287043d77b271e484794617bbba701e",
+    "peritheos/data/materials/sio2_stv_andr.eosmat": "c231a3460d9e8d0821e390f102e032bd076814dcb252dce361becf1b565132fa",
     "peritheos/data/materials/sno2.eosmat": "c22895c23fa961e3183eace79dc52e6bb6f7fda6c191ab034fcfa3a7d3c11118",
     "peritheos/data/materials/sno2_cubic_27gpa.eosmat": "0fc023934773e9700cfa6cc1556a0cdb9ed8e70e754292254c282f31e9345dc4",
     "peritheos/data/materials/sno2_pa_3_at_48gpa.eosmat": "704592c779da232eaef973406358f19ebdc5d17fb4ea4fadd7dfe7c477582de2",
@@ -455,10 +455,12 @@
         "2026-11-21-fesi-b2-one-sigma"
       ],
       "hydrous_silica_cacl2_nisr_2017": [
-        "2026-11-21-hydrous-silica-cacl2-nisr-2017-one-sigma"
+        "2026-11-21-hydrous-silica-cacl2-nisr-2017-one-sigma",
+        "2026-11-26-hydrous-silica-cacl2-nisr-2017-convention-text"
       ],
       "hydrous_stishovite_nisr_2017": [
-        "2026-11-21-hydrous-stishovite-nisr-2017-one-sigma"
+        "2026-11-21-hydrous-stishovite-nisr-2017-one-sigma",
+        "2026-11-26-hydrous-stishovite-nisr-2017-convention-text"
       ],
       "iron": [
         "2026-11-21-iron-one-sigma"
@@ -482,7 +484,8 @@
         "2026-11-23-siderite-litasov-2013-thermal"
       ],
       "sio2_stv_andr": [
-        "2026-11-21-sio2-stv-andr-one-sigma"
+        "2026-11-21-sio2-stv-andr-one-sigma",
+        "2026-11-26-sio2-stv-andr-convention-text"
       ]
     }
   }
