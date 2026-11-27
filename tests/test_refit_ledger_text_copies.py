@@ -69,3 +69,11 @@ def test_ledger_check_tolerates_roundoff_except_in_source_facts():
         check_ledger_values(saved, changed(published=184.5000001))
     with pytest.raises(ValueError, match="source/assessment value differs"):
         check_ledger_values(saved, changed(observations=20))
+    # So do source facts stored under other names.
+    for key, old, new in (
+        ("fixed_values", {"V0": 60.19454118505194}, {"V0": 60.1945}),
+        ("published_sigma", 0.2, 0.2000001),
+        ("observed_pressure_range_gpa", [0.0, 16.2], [0.0, 16.20001]),
+    ):
+        with pytest.raises(ValueError, match="source/assessment value differs"):
+            check_ledger_values({key: old}, {key: new})

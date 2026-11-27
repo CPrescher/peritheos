@@ -6346,212 +6346,6 @@
       "content_sha256": "58db8f154b2642e06a23ce91f687c2c5012350c508653c841fe2b782f7dcfea3"
     },
     {
-      "id": "2026-11-27-rbcl-farla-2025-one-sigma",
-      "material": "rbcl",
-      "kind": "set_fields",
-      "date": "2026-11-27",
-      "decided_by": "Clemens Prescher",
-      "reason": "The record's original notes read \"Parameter errors retain printed estimated standard deviations\". 0.6827 is the normal-equivalent level of an estimated standard deviation, not a confidence fraction stated by the source.",
-      "source": {
-        "citation": "Farla, Néri, Pöppelbaum and Glazyrin (2025), Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI, Journal of Applied Physics 137, 115901, doi:10.1063/5.0248905",
-        "location": "Printed estimated standard deviations, as stated in the record's original notes (audit superseded_record_text)"
-      },
-      "rights": {
-        "reviewed_by": "Clemens Prescher",
-        "date": "2026-11-27",
-        "statement": "Sets the stated error confidence; no third-party content is added."
-      },
-      "acknowledge_check_change": {},
-      "forward": [
-        {
-          "op": "set",
-          "record": "rbcl_b2_farla_2025_bm3_mgd_cscl",
-          "path": [
-            "parameter_error_confidence"
-          ],
-          "before_present": true,
-          "before": null,
-          "after_present": true,
-          "after": 0.6826894921370859
-        }
-      ],
-      "reverse": [
-        {
-          "op": "set",
-          "record": "rbcl_b2_farla_2025_bm3_mgd_cscl",
-          "path": [
-            "parameter_error_confidence"
-          ],
-          "before_present": true,
-          "before": 0.6826894921370859,
-          "after_present": true,
-          "after": null
-        }
-      ],
-      "document_sha256": {
-        "before": "560e4400896f73dc2de513e17aeb6a0fa965f17851c53426e30782966a8a24fb",
-        "after": "6154278aab9bf4a6be5704434b36ad85b9ae0b5b7b77dac3f9ca2fbf33102232"
-      },
-      "reference_sha256": {
-        "before": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
-        "after": "2a23f135f7a092539bb8379fc531b1e794b0a1991d43b186f1d9c121cc206bc3"
-      },
-      "scientific": {
-        "records_before": "d3a1f138d46e6dcac15d7d9c31a0ceb735076cbf232cfc6e9283bf2bba772416",
-        "records_after": "918068e6229f504f5fc5780e1f946959b9b0e73c8d8b3e1a130ec35aac3b060c",
-        "added_records": {},
-        "catalog_before": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a",
-        "catalog_after": "f4f418d54e778716a97cc3cca7b4b793ca51e295dd3f625ee54c5e02529d15e6"
-      },
-      "files": {
-        "peritheos/data/materials/rbcl.eosmat": {
-          "before": "7dd32ed559203ee6026bf06bd850fe6d5978e2278832648e9fcecd579ac87232",
-          "after": "7087c1a88f12df344fcd0e6af90bc658b0c36988b6e34ca23bc288c1ced8f909"
-        },
-        "peritheos/data/audits/rbcl.audit.json": {
-          "before": "3a32d48cb37751c1f94405429f8002856561b46df7c9b3ac109bd7a6c86c69ec",
-          "after": "3a32d48cb37751c1f94405429f8002856561b46df7c9b3ac109bd7a6c86c69ec"
-        }
-      },
-      "split_binding": {
-        "before": {
-          "before_sha256": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
-          "after_record_sha256": "7dd32ed559203ee6026bf06bd850fe6d5978e2278832648e9fcecd579ac87232",
-          "after_audit_sha256": "3a32d48cb37751c1f94405429f8002856561b46df7c9b3ac109bd7a6c86c69ec",
-          "layout": "v4",
-          "added_check": [
-            0,
-            1
-          ],
-          "generic_notes": [
-            [
-              0,
-              0
-            ]
-          ],
-          "generic_qualifications": [
-            [
-              0,
-              [
-                [
-                  1,
-                  0
-                ]
-              ]
-            ],
-            [
-              1,
-              [
-                [
-                  2,
-                  0
-                ]
-              ]
-            ]
-          ],
-          "default_flags": [
-            [
-              1,
-              {
-                "default": false
-              }
-            ]
-          ],
-          "object_orders": [
-            {
-              "path": [
-                "eos_records",
-                0,
-                "evidence",
-                "scientific_validation"
-              ],
-              "keys": [
-                "status",
-                "note",
-                "audit_date",
-                "verified_fields",
-                "primary_source_check",
-                "primary_data_check"
-              ]
-            },
-            {
-              "path": [
-                "eos_records",
-                1
-              ],
-              "keys": [
-                "identifier",
-                "label",
-                "model",
-                "temperature_ref",
-                "parameters",
-                "thermal",
-                "parameter_error_confidence",
-                "experimental_pressure_range_gpa",
-                "experimental_temperature_range_k",
-                "pressure_range_status",
-                "validity",
-                "determination_method",
-                "record_kind",
-                "equation_kind",
-                "default",
-                "notes",
-                "range_provenance",
-                "source_parameters",
-                "fit_datasets",
-                "fit_data_sources",
-                "parameter_covariance",
-                "reference",
-                "pressure_calibration",
-                "evidence"
-              ]
-            }
-          ],
-          "superseded_record_text": [
-            0,
-            1
-          ],
-          "check_text": [
-            [
-              0,
-              {
-                "record_note": null
-              }
-            ],
-            [
-              1,
-              {
-                "record_note": null
-              }
-            ]
-          ]
-        }
-      },
-      "policy": {
-        "material_sha256": {
-          "before": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
-          "after": "2a23f135f7a092539bb8379fc531b1e794b0a1991d43b186f1d9c121cc206bc3"
-        },
-        "catalog_scientific_sha256": {
-          "before": "ce4df08bf3d35bca749e5ca621317754093a67a98f8f6ecdf3cbb4be52deb99a",
-          "after": "f4f418d54e778716a97cc3cca7b4b793ca51e295dd3f625ee54c5e02529d15e6"
-        }
-      },
-      "refit_rows": {},
-      "written_files": [
-        "crates/peritheos/tests/data/rbcl.eosmat",
-        "docs/catalog-coverage.md",
-        "docs/data/catalog-coverage.json",
-        "docs/data/eos-structure-rights-policy.json",
-        "docs/data/license-inventory/eos-structure-review.csv",
-        "docs/material-summaries/rbcl.md",
-        "peritheos/data/eos-structure-rights-review.json"
-      ],
-      "created_files": [],
-      "previous_sha256": null,
-      "content_sha256": "a8c21d26742158faaba6e834c821f1df6e60b37582aa76c457b6ffa787a32e70"
-    },
-    {
       "id": "2026-11-27-argon-fcc-ono-2020-one-sigma",
       "material": "argon_fcc",
       "kind": "set_fields",
@@ -6898,6 +6692,212 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "4ade54bbe766193c937b277550ba315644330af826856a84706263d50745e80a"
+    },
+    {
+      "id": "2026-11-27-rbcl-farla-2025-one-sigma",
+      "material": "rbcl",
+      "kind": "set_fields",
+      "date": "2026-11-27",
+      "decided_by": "Clemens Prescher",
+      "reason": "The record's original notes read \"Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable.\" The source states no confidence fraction; 0.6827 is the normal-equivalent level of an estimated standard deviation. V0 is fixed in the fit; its stored error is converted from the printed molar value and is not covered by a separate statement.",
+      "source": {
+        "citation": "Farla, Néri, Pöppelbaum and Glazyrin (2025), Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI, Journal of Applied Physics 137, 115901, doi:10.1063/5.0248905",
+        "location": "Table I, case 1 (printed estimated standard deviations, per the record's original notes in the audit's superseded_record_text)"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-27",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "rbcl_b2_farla_2025_bm3_mgd_cscl",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "rbcl_b2_farla_2025_bm3_mgd_cscl",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "560e4400896f73dc2de513e17aeb6a0fa965f17851c53426e30782966a8a24fb",
+        "after": "6154278aab9bf4a6be5704434b36ad85b9ae0b5b7b77dac3f9ca2fbf33102232"
+      },
+      "reference_sha256": {
+        "before": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
+        "after": "2a23f135f7a092539bb8379fc531b1e794b0a1991d43b186f1d9c121cc206bc3"
+      },
+      "scientific": {
+        "records_before": "d3a1f138d46e6dcac15d7d9c31a0ceb735076cbf232cfc6e9283bf2bba772416",
+        "records_after": "918068e6229f504f5fc5780e1f946959b9b0e73c8d8b3e1a130ec35aac3b060c",
+        "added_records": {},
+        "catalog_before": "915d6051fdc146da8790c699deac6ed1a2fffb5ba20d40de937bcbeefd18c725",
+        "catalog_after": "31798267fbcd5124728627782923744d7ac3ce5b9f6b2311503414b8e540bfef"
+      },
+      "files": {
+        "peritheos/data/materials/rbcl.eosmat": {
+          "before": "7dd32ed559203ee6026bf06bd850fe6d5978e2278832648e9fcecd579ac87232",
+          "after": "7087c1a88f12df344fcd0e6af90bc658b0c36988b6e34ca23bc288c1ced8f909"
+        },
+        "peritheos/data/audits/rbcl.audit.json": {
+          "before": "3a32d48cb37751c1f94405429f8002856561b46df7c9b3ac109bd7a6c86c69ec",
+          "after": "3a32d48cb37751c1f94405429f8002856561b46df7c9b3ac109bd7a6c86c69ec"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
+          "after_record_sha256": "7dd32ed559203ee6026bf06bd850fe6d5978e2278832648e9fcecd579ac87232",
+          "after_audit_sha256": "3a32d48cb37751c1f94405429f8002856561b46df7c9b3ac109bd7a6c86c69ec",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "default_flags": [
+            [
+              1,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                1
+              ],
+              "keys": [
+                "identifier",
+                "label",
+                "model",
+                "temperature_ref",
+                "parameters",
+                "thermal",
+                "parameter_error_confidence",
+                "experimental_pressure_range_gpa",
+                "experimental_temperature_range_k",
+                "pressure_range_status",
+                "validity",
+                "determination_method",
+                "record_kind",
+                "equation_kind",
+                "default",
+                "notes",
+                "range_provenance",
+                "source_parameters",
+                "fit_datasets",
+                "fit_data_sources",
+                "parameter_covariance",
+                "reference",
+                "pressure_calibration",
+                "evidence"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
+          "after": "2a23f135f7a092539bb8379fc531b1e794b0a1991d43b186f1d9c121cc206bc3"
+        },
+        "catalog_scientific_sha256": {
+          "before": "915d6051fdc146da8790c699deac6ed1a2fffb5ba20d40de937bcbeefd18c725",
+          "after": "31798267fbcd5124728627782923744d7ac3ce5b9f6b2311503414b8e540bfef"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "crates/peritheos/tests/data/rbcl.eosmat",
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/rbcl.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "690efd5398c7df0887066663d10371854e87fd83a2d4780d7547e2fd2bc1bce8"
     }
   ]
 }

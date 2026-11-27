@@ -94,8 +94,9 @@ All notable changes to Peritheos are documented here. The project follows
   errors as 1 sigma.
 - `scripts/validate_primary_eos_refits.py --check` compares every calculated
   number with its 1e-5 relative tolerance, not only those under listed keys.
-  Published values and errors, source and fixed parameters, experimental
-  ranges, text, counts and classifications still must match exactly.
+  The source facts named in its `SOURCE_FACT_KEYS` (published, printed,
+  fixed and observed values, their errors and ranges), text, counts and
+  classifications still must match exactly.
 - A freshly computed refit-ledger row takes its label, notes and coded
   recommendation from the current record. Rows of the reviewed
   parameter-scope cohort took them from an older snapshot, so
