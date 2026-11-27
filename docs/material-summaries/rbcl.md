@@ -177,7 +177,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Pressure gpa:** \[0.54, 26.05\]
     - **Temperature k:** \[300.0, 1800.0\]
     - **Notes:** B2 solid only; the B1 transition and melting curves are not encoded, so confirm the phase before using it as a marker.; High-temperature data reach only about 21 GPa; higher pressures are 300 K DAC data. The 0 GPa B2 reference is hypothetical.
-- **Printed parameter errors:** confidence level not stated; used as 1 sigma
+- **Printed parameter errors:** 1 sigma
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

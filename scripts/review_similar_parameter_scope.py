@@ -481,6 +481,11 @@ def saved_review():
     return {r["record_identifier"]: r for r in report["records"]}
 
 
+#: Ledger row fields that copy record text (label, notes and the coded
+#: recommendation); scripts/apply_record_text.py and apply_check_text.py set them.
+TEXT_COPIES = ("label", "source_notes", "usage_recommendation", "recommendation_reason")
+
+
 def augment_outcome(record, outcome):
     case = saved_review().get(record["identifier"])
     if case is None:
@@ -521,7 +526,10 @@ def augment_outcome(record, outcome):
                 )
         # Preserve the reviewed snapshot, including its qualifications and diagnostics;
         # insignificant platform roundoff does not create a new scientific finding.
-        return {**copy.deepcopy(outcome), **copy.deepcopy(baseline)}
+        # The text tools own the row's copies of record text; the current
+        # record supplies them, not the snapshot.
+        snapshot = {k: v for k, v in baseline.items() if k not in TEXT_COPIES}
+        return {**copy.deepcopy(outcome), **copy.deepcopy(snapshot)}
     if outcome["status"] not in {"similar", "parity"}:
         raise ValueError(
             "Original numerical assessment changed scope: " + record["identifier"]

@@ -58,8 +58,12 @@ def semantic_digest(value):
 def verify_preserved_sources():
     inputs = json.loads(INPUT.read_text(encoding="utf-8"))
     for material, digest in inputs["source_dataset_declarations_sha256"].items():
+        from scripts.catalog_revisions import (
+            material_revisions,
+            prior_revision_bytes,
+        )
         from scripts.merge_source_bindings import accepts_merge_binding
-        from scripts.split_eosmat_audits import pre_split_view
+        from scripts.split_eosmat_audits import pre_split_bytes, pre_split_view
 
         # Frozen source fingerprints predate the record/audit split.
         document = pre_split_view(
@@ -71,7 +75,14 @@ def verify_preserved_sources():
             "uncertainty_datasets", material, digest, actual
         ):
             raise ValueError("Source dataset declarations changed: " + material)
-        for record in document["eos_records"]:
+        records = document["eos_records"]
+        if material_revisions(material, ROOT):
+            # A catalog revision may change a pinned record. The pin is checked
+            # on the content before any revision, recovered through the ledger.
+            records = json.loads(
+                prior_revision_bytes(pre_split_bytes(material), material, ROOT)
+            )["eos_records"]
+        for record in records:
             expected = inputs["source_record_sha256"].get(record["identifier"])
             if expected is not None:
                 source = copy.deepcopy(record)

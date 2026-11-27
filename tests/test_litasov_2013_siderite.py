@@ -165,6 +165,9 @@ def test_refit_and_unresolved_source_differences(reproduce_once):
     assert (
         audit["candidates"][1]["disposition"] == "withheld_source_coefficient_conflict"
     )
+    assert [d["record"] for d in audit["later_decisions"]] == [
+        "siderite_fe095mn005_litasov_2013_bm3_thermal"
+    ]
     assert audit["candidates"][1]["alpha0_abstract"] == 3.57e-5
     assert audit["candidates"][1]["alpha0_table1"] == 3.77e-5
 

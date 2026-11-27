@@ -130,9 +130,6 @@ REFITS_PAGE = "docs/primary-eos-refits.md"
 SOURCE_AUDIT = "peritheos/data/primary-source-audit.json"
 MANIFEST = "peritheos/data/materials/manifest.json"
 FIXTURES = "crates/peritheos/tests"
-#: Reconstruction inputs that pin whole source records by digest; the refit
-#: validator refuses any change to them (scripts/reconstruct_similar_eos_uncertainties.py).
-PINNED_RECORDS = "docs/data/uncertainty-reconstruction-inputs.json"
 COMMON_KEYS = (
     "id",
     "material",
@@ -1079,22 +1076,6 @@ def _check_record(
             )
 
 
-def _check_pins(root: Path, identifiers: list[Any]) -> None:
-    """Refuse records whose whole source record another receipt pins."""
-    path = root / PINNED_RECORDS
-    if not path.exists():
-        return
-    pinned = json.loads(path.read_bytes()).get("source_record_sha256", {})
-    for identifier in identifiers:
-        if identifier in pinned:
-            raise Refused(
-                "pinned_record",
-                f"{identifier}: {PINNED_RECORDS} pins its source record by digest "
-                "for scripts/reconstruct_similar_eos_uncertainties.py, which the "
-                "refit validator runs; a revision of this record is not supported",
-            )
-
-
 def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
     """Apply declared field changes to the record file; return the operations."""
     records = {r["identifier"]: r for r in document["eos_records"]}
@@ -1525,9 +1506,6 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
     validity_before = {
         r["identifier"]: _validity(r) for r in merged_before["eos_records"]
     }
-    # Records another receipt pins cannot be revised; say so before any work.
-    if kind == "set_fields":
-        _check_pins(root, [c.get("record") for c in request["changes"]])
     # The request against the files, before anything is staged.
     if kind == "add_record":
         record = _new_record(material, request["record"], document, root)
