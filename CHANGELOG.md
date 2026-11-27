@@ -90,7 +90,12 @@ All notable changes to Peritheos are documented here. The project follows
 - A catalog revision can change a record that
   `docs/data/uncertainty-reconstruction-inputs.json` pins by digest: the pin
   is checked on the record as it was before any revision. The RbCl record of
-  Farla et al. (2025) now states its errors as 1 sigma.
+  Farla et al. (2025) and the argon record of Ono (2020) now state their
+  errors as 1 sigma.
+- `scripts/validate_primary_eos_refits.py --check` compares every calculated
+  number with its 1e-5 relative tolerance, not only those under listed keys.
+  Published values and errors, source and fixed parameters, experimental
+  ranges, text, counts and classifications still must match exactly.
 - A freshly computed refit-ledger row takes its label, notes and coded
   recommendation from the current record. Rows of the reviewed
   parameter-scope cohort took them from an older snapshot, so

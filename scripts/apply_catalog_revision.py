@@ -718,6 +718,15 @@ def _check_bookkeeping(stage: Path) -> None:
         raise Refused("bookkeeping", f"{MANIFEST} does not count the catalog")
 
 
+def _v4_export(base: Path, material: str) -> bytes:
+    """The material's EOSMAT v4 compatibility export, as formatted text."""
+    from peritheos.eosmat import convert_eosmat
+
+    merged = merge_audit(*_read(base, material))
+    exported = convert_eosmat(merged, version=4, legacy_uncertainty_units=False)
+    return format_eosmat(exported).encode("utf-8")
+
+
 def _fixtures(stage: Path, root: Path, material: str) -> None:
     """Keep Rust fixture copies that equal the bundled files equal to them."""
     record_path, audit_path = _paths(material)
@@ -729,6 +738,12 @@ def _fixtures(stage: Path, root: Path, material: str) -> None:
             root / bundled
         ).read_bytes():
             shutil.copy2(stage / bundled, stage / fixture)
+    # A fixture may instead be the material's v4 compatibility export.
+    fixture = f"{FIXTURES}/data/{material}.eosmat"
+    if (root / fixture).is_file() and (root / fixture).read_bytes() == _v4_export(
+        root, material
+    ):
+        (stage / fixture).write_bytes(_v4_export(stage, material))
 
 
 def _generate(stage: Path) -> None:

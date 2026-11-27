@@ -38,3 +38,34 @@ def test_a_reviewed_snapshot_does_not_override_current_record_text():
     )
     for key in TEXT_COPIES:
         assert row.get(key) == saved.get(key)
+
+
+def test_ledger_check_tolerates_roundoff_except_in_source_facts():
+    import pytest
+
+    from scripts.validate_primary_eos_refits import check_ledger_values
+
+    saved = {
+        "reproduction": {"refits": {"parameters": [211.74492423778685]}},
+        "parameters": [{"published": 184.5, "refit": 184.5}],
+        "observations": 19,
+    }
+
+    def changed(**edits):
+        row = json.loads(json.dumps(saved))
+        row["reproduction"]["refits"]["parameters"][0] = edits.get(
+            "nested", 211.74492423778685
+        )
+        row["parameters"][0]["published"] = edits.get("published", 184.5)
+        row["observations"] = edits.get("observations", 19)
+        return row
+
+    # A calculated number under any other key may differ by solver roundoff.
+    check_ledger_values(saved, changed(nested=211.74500162186482))
+    with pytest.raises(ValueError, match="calculated value differs"):
+        check_ledger_values(saved, changed(nested=211.76))
+    # Source facts and counts stay exact.
+    with pytest.raises(ValueError, match="source/assessment value differs"):
+        check_ledger_values(saved, changed(published=184.5000001))
+    with pytest.raises(ValueError, match="source/assessment value differs"):
+        check_ledger_values(saved, changed(observations=20))

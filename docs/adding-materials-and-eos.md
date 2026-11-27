@@ -666,9 +666,12 @@ uv run --group docs mkdocs build --strict
 
 Also run `uv run python scripts/validate_primary_eos_refits.py --check` when
 the change affects a bundled record or its primary dataset. Its `--check`
+compares numbers with a 1e-5 relative tolerance, except published values,
+published errors, source and fixed parameters and the experimental ranges,
+which must match exactly, as must text, counts and classifications. It
 currently fails independent of any record: the saved ledger lacks one policy
-sentence, and calculated diagnostics in some rows differ from a fresh
-computation in their last digits. A revision of a bundled material instead
+sentence, and some rows differ from a fresh computation by more than the
+tolerance or in an iteration count. A revision of a bundled material instead
 gets its rows from
 `python scripts/apply_catalog_revision.py`
 ([changing a bundled material](#changing-a-bundled-material)).

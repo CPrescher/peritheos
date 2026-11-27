@@ -6527,15 +6527,44 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     return "\n".join(line.rstrip() for line in lines)
 
 
+#: Keys whose numbers are source facts and must match exactly.
+SOURCE_FACT_KEYS = frozenset(
+    {
+        "published",
+        "published_error",
+        "source_parameters",
+        "fixed_parameters",
+        "experimental_pressure_range_gpa",
+        "experimental_temperature_range_k",
+    }
+)
+#: Calculated keys; they are compared with tolerance even inside a source-fact block.
+CALCULATED_KEYS = frozenset(
+    {
+        "refit",
+        "refit_error",
+        "difference",
+        "relative_difference",
+        "reduced_chi_square",
+        "weighted_sum_squares",
+        "parameter_covariance",
+        "published_max_abs_pressure_residual_gpa",
+        # Conditional refits and correlations, not source facts.
+        "coefficient_tradeoff_diagnostic",
+    }
+)
+
+
 def check_ledger_values(
-    saved, current, *, path="ledger", calculated=False, absolute_tolerance=1e-10
+    saved, current, *, path="ledger", calculated=True, absolute_tolerance=1e-10
 ):
     """Keep source facts exact while allowing optimizer/BLAS output roundoff.
 
-    Only explicitly calculated fields use a 1e-5 relative / 1e-10 absolute
-    tolerance (coefficient-scaled for differences). Published coefficients,
-    source strings, row counts, booleans,
-    classifications and dictionary/list structure must match exactly.
+    Floating-point numbers use a 1e-5 relative / 1e-10 absolute tolerance
+    (coefficient-scaled for differences), except under the source-fact keys
+    of ``SOURCE_FACT_KEYS``, which must match exactly. Source strings, row
+    counts and other integers, booleans, classifications and dictionary/list
+    structure must match exactly everywhere.
     """
     if isinstance(current, dict):
         if not isinstance(saved, dict) or saved.keys() != current.keys():
@@ -6555,28 +6584,11 @@ def check_ledger_values(
                 continue
             derived = (
                 calculated
-                or key
-                in {
-                    "refit",
-                    "refit_error",
-                    "difference",
-                    "relative_difference",
-                    "reduced_chi_square",
-                    "weighted_sum_squares",
-                    "parameter_covariance",
-                    "published_max_abs_pressure_residual_gpa",
-                    # Conditional refits and correlations, not source facts.
-                    "coefficient_tradeoff_diagnostic",
-                }
+                or key in CALCULATED_KEYS
                 or key.startswith("rmse_")
                 or key.endswith("_rmse_gpa")
             )
-            if key in {
-                "published",
-                "published_error",
-                "source_parameters",
-                "fixed_parameters",
-            }:
+            if key in SOURCE_FACT_KEYS:
                 derived = False
             tolerance = absolute_tolerance
             # Subtracting nearly equal coefficients amplifies relative roundoff

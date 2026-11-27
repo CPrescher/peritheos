@@ -6550,6 +6550,354 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "a8c21d26742158faaba6e834c821f1df6e60b37582aa76c457b6ffa787a32e70"
+    },
+    {
+      "id": "2026-11-27-argon-fcc-ono-2020-one-sigma",
+      "material": "argon_fcc",
+      "kind": "set_fields",
+      "date": "2026-11-27",
+      "decided_by": "Clemens Prescher",
+      "reason": "The record's notes read \"Errors are one standard deviation.\" 0.6827 is the normal-equivalent level of a stated 1 sigma, not a confidence fraction stated by the source.",
+      "source": {
+        "citation": "Ono (2020), Fate of subducted argon in the deep mantle, Scientific Reports 10, 1393, doi:10.1038/s41598-020-58252-8",
+        "location": "Source one-sigma errors, as stated in the record's notes and its audit"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-27",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "argon_fcc_ono_2020_vinet",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "argon_fcc_ono_2020_vinet",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": false,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "1df46a3044211c955260a217bb6ea2335b9e48f71c58605714034a359bb45a2e",
+        "after": "a2befe5087c5b5629f43c0cc8a0a55c49c0df5f982157e848045ef28cffdf6eb"
+      },
+      "reference_sha256": {
+        "before": "1185c326c0a7bc1efdae33ee5945c6ed7ef8569dd5f52f2ec76fa003a2e5a469",
+        "after": "6341ecb1fc132c51aace7542cf308a437ef074204878aa1db3b1d56f72800d3d"
+      },
+      "scientific": {
+        "records_before": "0c9b487e470aa9c92c1cb2374c0dc7654d731dd960c9943d21f9825e70bfa4c1",
+        "records_after": "7631eb099c923c03a65c95fb1afdced8ece4aaba293ecd9745044999c44422b1",
+        "added_records": {},
+        "catalog_before": "f4f418d54e778716a97cc3cca7b4b793ca51e295dd3f625ee54c5e02529d15e6",
+        "catalog_after": "31798267fbcd5124728627782923744d7ac3ce5b9f6b2311503414b8e540bfef"
+      },
+      "files": {
+        "peritheos/data/materials/argon_fcc.eosmat": {
+          "before": "738a34aea630f199277a6268122f6d54ec8021895ab5174858094f8d191b5123",
+          "after": "475ed96de63034bb8282e9594e5fffd57c3d7438e987f632be67e5afb5d8480f"
+        },
+        "peritheos/data/audits/argon_fcc.audit.json": {
+          "before": "c5ed6ee838fa096d7476f067f1cc7d88d29c30cb96a003873064a8dc8b01cd14",
+          "after": "c5ed6ee838fa096d7476f067f1cc7d88d29c30cb96a003873064a8dc8b01cd14"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "1185c326c0a7bc1efdae33ee5945c6ed7ef8569dd5f52f2ec76fa003a2e5a469",
+          "after_record_sha256": "738a34aea630f199277a6268122f6d54ec8021895ab5174858094f8d191b5123",
+          "after_audit_sha256": "c5ed6ee838fa096d7476f067f1cc7d88d29c30cb96a003873064a8dc8b01cd14",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              3,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              4,
+              [
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1
+                ]
+              ]
+            ],
+            [
+              5,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ],
+            [
+              6,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              7,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              8,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              9,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              10,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              11,
+              [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            [
+              13,
+              [
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true
+              }
+            ],
+            [
+              11,
+              {
+                "default": false
+              }
+            ],
+            [
+              12,
+              {
+                "default": false
+              }
+            ],
+            [
+              13,
+              {
+                "default": false
+              }
+            ],
+            [
+              14,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "check_text": [
+            [
+              11,
+              {
+                "warning_reason": null
+              }
+            ],
+            [
+              13,
+              {
+                "warning_reason": null
+              }
+            ],
+            [
+              14,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "1185c326c0a7bc1efdae33ee5945c6ed7ef8569dd5f52f2ec76fa003a2e5a469",
+          "after": "6341ecb1fc132c51aace7542cf308a437ef074204878aa1db3b1d56f72800d3d"
+        },
+        "catalog_scientific_sha256": {
+          "before": "f4f418d54e778716a97cc3cca7b4b793ca51e295dd3f625ee54c5e02529d15e6",
+          "after": "31798267fbcd5124728627782923744d7ac3ce5b9f6b2311503414b8e540bfef"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "crates/peritheos/tests/data/argon_fcc.eosmat",
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/argon_fcc.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "4ade54bbe766193c937b277550ba315644330af826856a84706263d50745e80a"
     }
   ]
 }
