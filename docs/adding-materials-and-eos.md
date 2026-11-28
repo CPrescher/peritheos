@@ -452,13 +452,48 @@ fields are settable: a parameter's `error` and `fixed` flag (of an existing
 reference-isotherm or thermal parameter), `parameter_error_confidence`,
 `parameter_covariance`, `parameter_uncertainty_convention` (only on a record
 that already carries it), `temperature_ref`, `experimental_pressure_range_gpa`,
-`experimental_temperature_range_k`, `pressure_range_status`, and the
-`pressure_gpa`, `temperature_k` and `volume_ratio` bounds of an existing
-`validity` object. Everything else is refused, among it the identifier, all
+`experimental_temperature_range_k`, `pressure_range_status`, the
+`pressure_gpa`, `temperature_k` and `volume_ratio` bounds of a `validity`
+object, and `volume_basis.molar_mass_g_mol` (only on a record that already
+carries it). Everything else is refused, among it the identifier, all
 other text (use the text tools), `check`, `model`, the thermal model and its laws,
 `record_kind`, `determination_method`, `equation_kind`, `reference`,
-`aliases`, default flags, `catalog_access` and dataset links; a `validity`
-object cannot be created, removed or emptied.
+`aliases`, default flags, the material's `default_records`, `catalog_access`
+and dataset links.
+
+A parameter stored as a bare number (`"K0": 444.5`) takes an `error` or
+`fixed` flag like any other: the revision writes the object form with the same
+value (`"K0": {"value": 444.5, "fixed": true}`), and removing its last field or
+undoing the revision writes the bare number again. Its `value` stays
+untouchable. A bare number already means no error and not fixed, so
+`"error": null` or `"fixed": false` on it is refused as `no_change`. An added
+or re-added field takes its usual place in the object (`value`, `error`,
+`fixed`), which keeps every removal exactly undoable.
+
+A `validity` object, when present, is the only enforced range (the
+experimental ranges are then not enforced). A revision may add a missing bound
+to an existing object (`"expected_absent": true`), for example to enforce a
+stated pressure range on a record whose object holds only notes. It may also
+create the object on a record that has none: the same request must then set
+`pressure_gpa` if the record states `experimental_pressure_range_gpa` and
+`temperature_k` if it states `experimental_temperature_range_k`;
+`volume_ratio` is optional. An added bound, in a new or an existing object,
+must contain the matching experimental range where the record states one
+(refused as `validity_narrower` otherwise), so adding a bound never silently
+leaves data outside the enforced range. This is how a record gets an enforced
+range slightly wider than its data (for example down to its reference
+temperature) while the experimental ranges keep describing the data behind
+the fit. Changing an existing bound is how a wrong bound is corrected, so it
+is not refused; the dry run says when the changed bound no longer contains the
+experimental range. A bound cannot be removed by a request, and an existing
+object cannot be removed or emptied; undo removes what the revision added.
+
+`volume_basis.molar_mass_g_mol` is a convenience value stating the amount of
+material behind each volume, not a published coefficient: it is not
+interpreted except on Hugoniot records, where V0, `rho0` and M must agree
+([EOSMAT reference](eosmat-reference.md#units-and-volume)). A correction must
+be a finite number above 0 and at most 10000 g/mol; there is no chemistry
+check.
 
 Values are checked before anything is staged: an error is a finite number
 `>= 0` or `null`; `parameter_error_confidence` lies strictly between 0 and 1
