@@ -79,7 +79,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1107/S0108768197005739
 - **Reported pressure coverage (GPa):** \[1.2, 8.5\]
 
-BM2 fit to hcp argon only; V0 is a fitted reference volume because ambient hcp argon could not be measured. The published fit could not be independently reproduced; the published curve has a 0.772 GPa RMS residual on the nine digitized observations. Not recommended as a general argon pressure standard or for high-pressure extrapolation.
+BM2 fit to hcp argon only; V0 is a fitted reference volume because ambient hcp argon could not be measured. Not recommended as a general argon pressure standard or for high-pressure extrapolation.
 
 <details markdown="1">
 <summary>Source review</summary>

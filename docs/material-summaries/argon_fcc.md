@@ -306,7 +306,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Reported pressure coverage (GPa):** \[0.0, 6.3\]
 - **Reported temperature coverage (K):** \[0.0, 760.0\]
 
-Helmholtz model: a 0 K cold curve that includes zero-point energy plus a Debye-anharmonic thermal term that excludes it. temperature\_ref = 70 K is the evaluation temperature, not the cold-curve reference (0 K). Use only for the solid below melting; the new data cover 7.96-50.02 K only.
+Helmholtz model: a 0 K cold curve that includes zero-point energy plus a Debye-anharmonic thermal term that excludes it. temperature\_ref = 70 K is the evaluation temperature, not the cold-curve reference (0 K). Use only for the solid below melting; the 0-760 K, 0-6.3 GPa envelope is that of the paper's global fit, which draws on earlier studies; its own new neutron data cover 7.96-50.02 K only.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -580,7 +580,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Second-order Murnaghan (quadratic K(P), not BM2) static term with offset P0, plus zero-point and absolute Debye thermal terms. V0 and K0 are adopted low-temperature constraints, not room-temperature zero-pressure values of the solid. With the printed gamma1 and theta0, the printed P\_z0 does not exactly cancel Equation (2) at V0; uncertainty confidence level and covariance are unspecified.
+Second-order Murnaghan (quadratic K(P), not BM2) static term with offset P0, plus zero-point and absolute Debye thermal terms. V0 and K0 are adopted low-temperature constraints, not room-temperature zero-pressure values of the solid. With the stored theta0 and gamma0, the printed P0 does not exactly cancel the paper's Equation (2) at V0; uncertainty confidence level and covariance are unspecified.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1278,7 +1278,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Notes:** Volume inversion searches 8–26 cm³/mol only.
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-The Peritheos implementation does not reproduce the paper's Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa); the cause is unresolved. The article does not specify the lattice cutoff; this record assumes squared cutoff 64 with geometric fcc shells. The source gives no DAC-confinement or fluid-reference free-energy offsets.
+The article does not specify the lattice cutoff; this record assumes squared cutoff 64 with geometric fcc shells. The source gives no DAC-confinement or fluid-reference free-energy offsets.
 
 <details markdown="1">
 <summary>Source review</summary>

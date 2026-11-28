@@ -176,7 +176,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Recommended thermal option: the full-precision coefficient vector in the author's deposited geotherm code; the rounded final Table 2 version is a separate record. This vector has no published uncertainties, and the Table 2 bootstrap errors are not assigned to it. Peritheos uses exact Debye quadrature where the author code uses a polynomial approximation.
+Recommended thermal option: full-precision coefficients of the author's deposited geotherm code (theta0 = 760 K), without published uncertainties; Table 2 bootstrap errors are not assigned to them. The Table 2 record uses a different theta0 and rounded values. Peritheos uses exact Debye quadrature, not the code's polynomial approximation; the negative lower pressure bound is near-ambient noise.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -293,7 +293,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Final Table 2 coefficients; no 2022 geotherm or olivine Cp reproduction is claimed: the paper uses a separate empirical ambient Cp in Equation (12). The material's ambient diffraction cell is from a different sample and differs from this V0. The negative lower pressure bound is near-ambient noise in the data, not a tensile stability claim.
+Final Table 2 coefficients, fixing theta0 = 768 K; the author's scripts use another value. No 2022 geotherm or olivine Cp reproduction is claimed; the paper uses a separate empirical ambient Cp in Equation (12). The material's ambient diffraction cell is from a different sample and differs from this V0; the negative lower pressure bound is near-ambient data noise, not a tensile stability claim.
 
 <details markdown="1">
 <summary>Source review</summary>

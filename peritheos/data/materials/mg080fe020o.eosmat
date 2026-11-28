@@ -188,7 +188,10 @@
       "validity": {
         "pressure_gpa": [40.95, 95.48],
         "temperature_k": [300, 300],
-        "notes": ["V0 is an extrapolated zero-pressure parameter; extrapolation outside 40.95-95.48 GPa is not recommended."]
+        "notes": [
+          "V0 is an extrapolated zero-pressure parameter; extrapolation outside 40.95-95.48 GPa is not recommended.",
+          "Extrapolated below 40.95 GPa, the curve reaches a V0 larger than both high-spin V0 values of this composition."
+        ]
       },
       "experimental_pressure_range_gpa": [40.95, 95.48],
       "experimental_temperature_range_k": [300, 300],

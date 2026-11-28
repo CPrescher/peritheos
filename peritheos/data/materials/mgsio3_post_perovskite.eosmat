@@ -74,7 +74,7 @@
       },
       "experimental_pressure_range_gpa": [100.0, 265.0],
       "determination_method": "experimental",
-      "notes": "BM3 (fit 1 in the paper) to laser-heated DAC data from this study and Guignot et al. Only the 300 K curve is stored, because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. The authors prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range, not extrapolated.",
+      "notes": "BM3 (fit 1 in the paper) to laser-heated DAC data from this study and Guignot et al. Only the 300 K curve is stored, because Peritheos does not implement the Al'tshuler gamma(V) function of the published thermal fit. The authors prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range, not extrapolated.",
       "reference": {
         "authors": ["Sakai", "Dekura", "Hirao"],
         "year": 2016,

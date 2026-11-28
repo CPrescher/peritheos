@@ -32,7 +32,9 @@
         "pressure_gpa": [-10.12429088, 225.12123021],
         "temperature_k": [0, 0],
         "volume_ratio": [0.65, 1.05],
-        "notes": ["The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa."]
+        "notes": [
+          "Pressure bounds are this BM3 at 65% and 105% of V0, the approximate source energy-grid limits; the paper puts the high-pressure end just above 200 GPa."
+        ]
       },
       "experimental_pressure_range_gpa": [-10.12429088, 225.12123021],
       "pressure_range_status": "theoretical",

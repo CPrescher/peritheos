@@ -197,7 +197,7 @@ Cold BM3 branch with the single Table 1 Mie-Grüneisen-Debye parameter set that 
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/neon_fcc.md#record-neon_fcc_fei_2007_vinet_2)
 
-**Source check:** Cold coefficients and the thermal set from Table 1 with the Equation 3 variable-exponent Debye law. theta0 is adopted from Finger et al. (1981), whose Table II gives the same gamma value as gamma1 of a different gamma(V) law; Fei's definition is used.
+**Source check:** Cold coefficients and the thermal set from Table 1 with the Equation 3 variable-exponent Debye law. theta0 is adopted from Finger et al. (1981) Table II, which gives Fei's gamma0 = 2.05 as gamma1 of a different gamma(V) law; Fei's gamma0 definition is used.
 
 Automatic selection for equilibrium calculations.
 

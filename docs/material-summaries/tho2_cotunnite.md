@@ -85,7 +85,7 @@ Automatic selection for equilibrium calculations.
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1018, 2553\]
 
-Fit to high-temperature data only: there are no reliable room-temperature volumes, so the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Phase coexistence and kinetic inhibition occur. For thorianite, the fixed V0 keeps its measurement error.
+Fit to high-temperature data only: there are no reliable room-temperature volumes, so the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Phase coexistence and kinetic inhibition occur.
 
 <details markdown="1">
 <summary>Source review</summary>

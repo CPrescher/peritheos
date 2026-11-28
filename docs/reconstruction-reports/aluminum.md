@@ -39,7 +39,7 @@ stays in EOSMAT and the ledger.
 | [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-aluminum_sokolova_2013_holzapfel_2) | **untested** (source calculation reconstructed) |  |
 | [Dewaele (2019), Al MAO-scale Vinet](#record-aluminum_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), Al DOR-scale Vinet](#record-aluminum_dewaele_2019_dor_vinet) | **reproduced** |  |
-| [Dewaele et al. (2004), Al mao ruby Vinet](#record-aluminum_dewaele_2004_mao_ruby_vinet) | **reproduced** |  |
+| [Dewaele et al. (2004), Mao-ruby Vinet](#record-aluminum_dewaele_2004_mao_ruby_vinet) | **reproduced** |  |
 
 <a id="record-aluminum_dewaele_2004_vinet_1"></a>
 
@@ -308,7 +308,7 @@ Both fits use the same 40 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-aluminum_dewaele_2004_mao_ruby_vinet"></a>
 
-## Dewaele et al. (2004), Al mao ruby Vinet
+## Dewaele et al. (2004), Mao-ruby Vinet
 
 **reproduced** · `aluminum_dewaele_2004_mao_ruby_vinet` · `Vinet` · [Coefficients and source](../material-summaries/aluminum.md#record-aluminum_dewaele_2004_mao_ruby_vinet)
 

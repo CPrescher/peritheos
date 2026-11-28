@@ -555,7 +555,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1380.3, 1914.5\]
 
-Continuous Equation (6) thermal EOS of Table III, not the authors' preferred fixed-V0 isotherms of Tables IV and V; pressures rest on the cited Anderson gold calibration. Data cover only V &gt; Va (the source Va differs from this material's structural cell); application to 20% compression and 3000 K is a large source extrapolation. Table III gives K0' = 4.5; the text's 4.53 is 4.5 plus citation 3.
+Continuous Equation (6) thermal EOS of Table III, not the authors' preferred fixed-V0 isotherms of Tables IV and V; pressures rest on the cited Anderson gold calibration. Data cover only V &gt; Va (the source Va differs from this material's structural cell); application to 20% compression and 3000 K is a large source extrapolation. K0' = 4.5 (Table III); the text's 4.53 is 4.5 with citation mark 3.
 
 <details markdown="1">
 <summary>Source review</summary>

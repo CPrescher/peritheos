@@ -35,31 +35,31 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Sakai et al. (2014), p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet) | **disagrees** |  |
-| [Sakai et al. (2014), p1\_v0\_mao\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), p1\_v0\_mao\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet) | **disagrees** |  |
-| [Sakai et al. (2014), p1\_v0\_dewaele\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), p1\_v0\_dewaele\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet) | **disagrees** |  |
-| [Sakai et al. (2014), p2\_bm3](#record-fe09ni01_hcp_sakai_2014_p2_bm3) | **untested** (not refittable) |  |
-| [Sakai et al. (2014), p2\_vinet](#record-fe09ni01_hcp_sakai_2014_p2_vinet) | **untested** (not refittable) |  |
-| [Sakai et al. (2014), p3\_bm3](#record-fe09ni01_hcp_sakai_2014_p3_bm3) | **untested** (not refittable) |  |
-| [Sakai et al. (2014), p3\_vinet](#record-fe09ni01_hcp_sakai_2014_p3_vinet) | **untested** (not refittable) |  |
-| [Sakai et al. (2014), p4\_bm3](#record-fe09ni01_hcp_sakai_2014_p4_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), p4\_vinet](#record-fe09ni01_hcp_sakai_2014_p4_vinet) | **disagrees** |  |
-| [Sakai et al. (2014), p5\_bm3](#record-fe09ni01_hcp_sakai_2014_p5_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | **reproduced** |  |
-| [Sakai et al. (2014), p6\_bm3](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), p6\_vinet](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | **disagrees** |  |
-| [Sakai et al. (2014), BM3 + constant-gamma thermal](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_3 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_3_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Sakai et al. (2014), BM3, Matsui Pt scale](#record-fe09ni01_hcp_sakai_2014_p1_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale](#record-fe09ni01_hcp_sakai_2014_p1_vinet) | **disagrees** |  |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet) | **disagrees** |  |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet) | **disagrees** |  |
+| [Sakai et al. (2014), BM3, Fei Pt scale](#record-fe09ni01_hcp_sakai_2014_p2_bm3) | **untested** (not refittable) |  |
+| [Sakai et al. (2014), Vinet, Fei Pt scale](#record-fe09ni01_hcp_sakai_2014_p2_vinet) | **untested** (not refittable) |  |
+| [Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale](#record-fe09ni01_hcp_sakai_2014_p3_bm3) | **untested** (not refittable) |  |
+| [Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale](#record-fe09ni01_hcp_sakai_2014_p3_vinet) | **untested** (not refittable) |  |
+| [Sakai et al. (2014), BM3, Tange MgO scale](#record-fe09ni01_hcp_sakai_2014_p4_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Tange MgO scale](#record-fe09ni01_hcp_sakai_2014_p4_vinet) | **disagrees** |  |
+| [Sakai et al. (2014), BM3, Yokoo Pt scale](#record-fe09ni01_hcp_sakai_2014_p5_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Yokoo Pt scale](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | **reproduced** |  |
+| [Sakai et al. (2014), BM3, Holmes Pt scale](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Holmes Pt scale](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | **disagrees** |  |
+| [Sakai et al. (2014), BM3 + Type 1 constant-gamma thermal](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Sakai et al. (2014), BM3 + Type 2 thermal](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Sakai et al. (2014), BM3 + Type 4 thermal, beta fixed](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Sakai et al. (2014), BM3 + Type 4 thermal, theta0 and beta fixed](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
+| [Sakai et al. (2014), BM3 + Type 4 thermal, only beta fitted](#record-fe09ni01_hcp_sakai_2014_type4_3_thermal) | **disagrees** | Not recommended for quantitative use. Never chosen automatically; select it explicitly. |
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_bm3"></a>
 
-## Sakai et al. (2014), p1\_bm3
+## Sakai et al. (2014), BM3, Matsui Pt scale
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p1_bm3` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_bm3)
 
@@ -116,7 +116,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_vinet"></a>
 
-## Sakai et al. (2014), p1\_vinet
+## Sakai et al. (2014), Vinet, Matsui Pt scale
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p1_vinet` · `Vinet` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_vinet)
 
@@ -173,7 +173,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3"></a>
 
-## Sakai et al. (2014), p1\_v0\_mao\_bm3
+## Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3)
 
@@ -230,7 +230,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet"></a>
 
-## Sakai et al. (2014), p1\_v0\_mao\_vinet
+## Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet` · `Vinet` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet)
 
@@ -287,7 +287,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3"></a>
 
-## Sakai et al. (2014), p1\_v0\_dewaele\_bm3
+## Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3)
 
@@ -344,7 +344,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet"></a>
 
-## Sakai et al. (2014), p1\_v0\_dewaele\_vinet
+## Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet` · `Vinet` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet)
 
@@ -401,7 +401,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p2_bm3"></a>
 
-## Sakai et al. (2014), p2\_bm3
+## Sakai et al. (2014), BM3, Fei Pt scale
 
 **untested** (not refittable) · `fe09ni01_hcp_sakai_2014_p2_bm3` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p2_bm3)
 
@@ -427,7 +427,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p2_vinet"></a>
 
-## Sakai et al. (2014), p2\_vinet
+## Sakai et al. (2014), Vinet, Fei Pt scale
 
 **untested** (not refittable) · `fe09ni01_hcp_sakai_2014_p2_vinet` · `Vinet` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p2_vinet)
 
@@ -453,7 +453,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p3_bm3"></a>
 
-## Sakai et al. (2014), p3\_bm3
+## Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale
 
 **untested** (not refittable) · `fe09ni01_hcp_sakai_2014_p3_bm3` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p3_bm3)
 
@@ -479,7 +479,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p3_vinet"></a>
 
-## Sakai et al. (2014), p3\_vinet
+## Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale
 
 **untested** (not refittable) · `fe09ni01_hcp_sakai_2014_p3_vinet` · `Vinet` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p3_vinet)
 
@@ -505,7 +505,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p4_bm3"></a>
 
-## Sakai et al. (2014), p4\_bm3
+## Sakai et al. (2014), BM3, Tange MgO scale
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p4_bm3` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p4_bm3)
 
@@ -562,7 +562,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p4_vinet"></a>
 
-## Sakai et al. (2014), p4\_vinet
+## Sakai et al. (2014), Vinet, Tange MgO scale
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p4_vinet` · `Vinet` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p4_vinet)
 
@@ -619,7 +619,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p5_bm3"></a>
 
-## Sakai et al. (2014), p5\_bm3
+## Sakai et al. (2014), BM3, Yokoo Pt scale
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p5_bm3` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p5_bm3)
 
@@ -676,7 +676,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p5_vinet"></a>
 
-## Sakai et al. (2014), p5\_vinet
+## Sakai et al. (2014), Vinet, Yokoo Pt scale
 
 **reproduced** · `fe09ni01_hcp_sakai_2014_p5_vinet` · `Vinet` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p5_vinet)
 
@@ -762,7 +762,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p6_bm3"></a>
 
-## Sakai et al. (2014), p6\_bm3
+## Sakai et al. (2014), BM3, Holmes Pt scale
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p6_bm3` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p6_bm3)
 
@@ -819,7 +819,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_p6_vinet"></a>
 
-## Sakai et al. (2014), p6\_vinet
+## Sakai et al. (2014), Vinet, Holmes Pt scale
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_p6_vinet` · `Vinet` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p6_vinet)
 
@@ -876,7 +876,7 @@ Both fits use the same 45 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_type1_thermal"></a>
 
-## Sakai et al. (2014), BM3 + constant-gamma thermal
+## Sakai et al. (2014), BM3 + Type 1 constant-gamma thermal
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type1_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type1_thermal)
 
@@ -944,7 +944,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_type2_thermal"></a>
 
-## Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)
+## Sakai et al. (2014), BM3 + Type 2 thermal
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type2_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type2_thermal)
 
@@ -1011,7 +1011,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_type4_1_thermal"></a>
 
-## Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)
+## Sakai et al. (2014), BM3 + Type 4 thermal, beta fixed
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type4_1_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_1_thermal)
 
@@ -1078,7 +1078,7 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_type4_2_thermal"></a>
 
-## Sakai et al. (2014), Fe0.9Ni0.1 type4\_2 thermal EOS (P4 + P7)
+## Sakai et al. (2014), BM3 + Type 4 thermal, theta0 and beta fixed
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type4_2_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_2_thermal)
 
@@ -1144,11 +1144,11 @@ Both fits use the same 32 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-fe09ni01_hcp_sakai_2014_type4_3_thermal"></a>
 
-## Sakai et al. (2014), Fe0.9Ni0.1 type4\_3 thermal EOS (P4 + P7)
+## Sakai et al. (2014), BM3 + Type 4 thermal, only beta fitted
 
 **disagrees** · `fe09ni01_hcp_sakai_2014_type4_3_thermal` · `BM3` · [Coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_3_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.2 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
 **Scope:** Comparison with the source parameterization. **Basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 

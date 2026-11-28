@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.2138/am-2003-2-307
 - **Reported pressure coverage (GPa):** \[0.0, 53.0\]
 
-Published V0 = 46.51(61) Å³; the stored V0 is the more precise product of the ambient lattice parameters.
+Published V0 = 46.51(61) Å³; the stored V0 is the product of the ambient lattice parameters and keeps the published error.
 
 <details markdown="1">
 <summary>Source review</summary>

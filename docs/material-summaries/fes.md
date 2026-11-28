@@ -34,13 +34,13 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [(VI) Ono 2006](#record-fes_ono_2006_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
+| [Ono and Kikegawa (2006), BM3](#record-fes_ono_2006_bm3_1) | BM3 | Not specified | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [(VI) Ono 2006](#record-fes_ono_2006_bm3_1) | 99.5 ± 0.7 | 156.0 ± 6.0 | 4.0 (fixed) |
+| [Ono and Kikegawa (2006), BM3](#record-fes_ono_2006_bm3_1) | 99.5 ± 0.7 | 156.0 ± 6.0 | 4.0 (fixed) |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -52,7 +52,7 @@ extrapolation.
 
 <a id="record-fes_ono_2006_bm3_1"></a>
 
-## (VI) Ono 2006
+## Ono and Kikegawa (2006), BM3
 
 `fes_ono_2006_bm3_1` · Executable
 

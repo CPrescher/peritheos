@@ -92,6 +92,7 @@ Automatic selection for equilibrium calculations.
 - **Validity:**
     - **Pressure gpa:** \[30.0, 112.0\]
     - **Temperature k:** \[300.0, 2569.0\]
+    - **Notes:** At 300 K, data above the high-spin to low-spin volume contraction follow the low-spin branch; use the low-spin 300 K record there.
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">

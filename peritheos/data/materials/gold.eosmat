@@ -457,7 +457,7 @@
     },
     {
       "identifier": "gold_dewaele_2004_mao_ruby_vinet",
-      "label": "Dewaele et al. (2004), Au mao ruby Vinet",
+      "label": "Dewaele et al. (2004), Mao-ruby Vinet",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -735,7 +735,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. beta0 is the printed value adjusted slightly so that K(300) = 167 GPa.",
+      "notes": "The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. The printed beta0 (0.005639 GPa⁻¹) is not a stored parameter: the record uses beta0 = 1/K0 with K(300) = 167 GPa, which the printed value reproduces only to rounding.",
       "fit_datasets": ["gold_hirose_2008_table1", "gold_fei_2004_table1"],
       "reference": {
         "authors": ["Hirose", "Sata", "Komabayashi", "Ohishi"],
@@ -1329,7 +1329,7 @@
       "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "refit",
-      "notes": "Peritheos staged refit, not a Hirose or Fei author fit. Pressures come from the author-confirmed Speziale (2001) variable-q MgO EOS; 300 K Hirose rows fix K0', then Fei and hot Hirose rows fit the thermal coefficients with equal pressure weights. Parameter errors are unset because calibrant, fixed-anchor and inter-stage uncertainties are not propagated.",
+      "notes": "Peritheos staged refit, not a Hirose or Fei author fit. Pressures come from the author-confirmed Speziale (2001) variable-q MgO EOS; 300 K Hirose rows determine K0', which is then held fixed while Fei and hot Hirose rows fit the thermal coefficients with equal pressure weights. Parameter errors are unset because calibrant, fixed-anchor and inter-stage uncertainties are not propagated.",
       "fit_datasets": ["gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt"],
       "reference": {
         "authors": ["Hirose", "Sata", "Komabayashi", "Ohishi"],

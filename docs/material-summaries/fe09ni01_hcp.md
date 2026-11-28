@@ -34,53 +34,53 @@ Sakai et al. (2014) Fe0.9Ni0.1 hcp alloy. Mixed Fe/Ni occupancy on the hcp 2c si
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Sakai et al. (2014), p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet) | Vinet | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_v0\_mao\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_v0\_mao\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet) | Vinet | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_v0\_dewaele\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_v0\_dewaele\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet) | Vinet | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p2\_bm3](#record-fe09ni01_hcp_sakai_2014_p2_bm3) | BM3 | 300 | untested |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p2\_vinet](#record-fe09ni01_hcp_sakai_2014_p2_vinet) | Vinet | 300 | untested |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p3\_bm3](#record-fe09ni01_hcp_sakai_2014_p3_bm3) | BM3 | 300 | untested |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p3\_vinet](#record-fe09ni01_hcp_sakai_2014_p3_vinet) | Vinet | 300 | untested |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p4\_bm3](#record-fe09ni01_hcp_sakai_2014_p4_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p4\_vinet](#record-fe09ni01_hcp_sakai_2014_p4_vinet) | Vinet | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p5\_bm3](#record-fe09ni01_hcp_sakai_2014_p5_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p6\_bm3](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p6\_vinet](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | Vinet | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), BM3 + constant-gamma thermal](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_3 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_3_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Sakai et al. (2014), BM3, Matsui Pt scale](#record-fe09ni01_hcp_sakai_2014_p1_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale](#record-fe09ni01_hcp_sakai_2014_p1_vinet) | Vinet | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet) | Vinet | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet) | Vinet | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), BM3, Fei Pt scale](#record-fe09ni01_hcp_sakai_2014_p2_bm3) | BM3 | 300 | untested |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), Vinet, Fei Pt scale](#record-fe09ni01_hcp_sakai_2014_p2_vinet) | Vinet | 300 | untested |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale](#record-fe09ni01_hcp_sakai_2014_p3_bm3) | BM3 | 300 | untested |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale](#record-fe09ni01_hcp_sakai_2014_p3_vinet) | Vinet | 300 | untested |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), BM3, Tange MgO scale](#record-fe09ni01_hcp_sakai_2014_p4_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), Vinet, Tange MgO scale](#record-fe09ni01_hcp_sakai_2014_p4_vinet) | Vinet | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), BM3, Yokoo Pt scale](#record-fe09ni01_hcp_sakai_2014_p5_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), Vinet, Yokoo Pt scale](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), BM3, Holmes Pt scale](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), Vinet, Holmes Pt scale](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | Vinet | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), BM3 + Type 1 constant-gamma thermal](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Sakai et al. (2014), BM3 + Type 2 thermal](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Sakai et al. (2014), BM3 + Type 4 thermal, beta fixed](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Sakai et al. (2014), BM3 + Type 4 thermal, theta0 and beta fixed](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
+| [Sakai et al. (2014), BM3 + Type 4 thermal, only beta fitted](#record-fe09ni01_hcp_sakai_2014_type4_3_thermal) | BM3 + Dewaele2006 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Sakai et al. (2014), p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3) | 22.18 ± 0.13 (fixed) | 195.3 ± 1.6 | 4.37 ± 0.05 |
-| [Sakai et al. (2014), p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet) | 22.18 ± 0.13 (fixed) | 189.6 ± 1.7 | 4.81 ± 0.06 |
-| [Sakai et al. (2014), p1\_v0\_mao\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3) | 22.36 (fixed) | 179.8 ± 1.6 | 4.59 ± 0.05 |
-| [Sakai et al. (2014), p1\_v0\_mao\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet) | 22.36 (fixed) | 173.9 ± 1.6 | 5.07 ± 0.06 |
-| [Sakai et al. (2014), p1\_v0\_dewaele\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3) | 22.468 (fixed) | 171.0 ± 1.7 | 4.73 ± 0.06 |
-| [Sakai et al. (2014), p1\_v0\_dewaele\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet) | 22.468 (fixed) | 165.2 ± 1.5 | 5.23 ± 0.06 |
-| [Sakai et al. (2014), p2\_bm3](#record-fe09ni01_hcp_sakai_2014_p2_bm3) | 22.16 ± 0.13 (fixed) | 199.4 ± 1.6 | 4.28 ± 0.05 |
-| [Sakai et al. (2014), p2\_vinet](#record-fe09ni01_hcp_sakai_2014_p2_vinet) | 22.16 ± 0.13 (fixed) | 193.9 ± 1.7 | 4.7 ± 0.06 |
-| [Sakai et al. (2014), p3\_bm3](#record-fe09ni01_hcp_sakai_2014_p3_bm3) | 22.14 ± 0.13 (fixed) | 200.5 ± 1.7 | 4.42 ± 0.05 |
-| [Sakai et al. (2014), p3\_vinet](#record-fe09ni01_hcp_sakai_2014_p3_vinet) | 22.14 ± 0.13 (fixed) | 194.7 ± 1.7 | 4.86 ± 0.06 |
-| [Sakai et al. (2014), p4\_bm3](#record-fe09ni01_hcp_sakai_2014_p4_bm3) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
-| [Sakai et al. (2014), p4\_vinet](#record-fe09ni01_hcp_sakai_2014_p4_vinet) | 22.04 ± 0.13 (fixed) | 207.0 ± 1.8 | 4.85 ± 0.06 |
-| [Sakai et al. (2014), p5\_bm3](#record-fe09ni01_hcp_sakai_2014_p5_bm3) | 22.1 ± 0.14 (fixed) | 211.5 ± 1.8 | 4.42 ± 0.05 |
-| [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | 22.1 ± 0.14 (fixed) | 205.4 ± 1.9 | 4.86 ± 0.06 |
-| [Sakai et al. (2014), p6\_bm3](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | 22.17 ± 0.15 (fixed) | 191.2 ± 1.8 | 4.82 ± 0.06 |
-| [Sakai et al. (2014), p6\_vinet](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | 22.17 ± 0.15 (fixed) | 185.1 ± 1.7 | 5.31 ± 0.06 |
-| [Sakai et al. (2014), BM3 + constant-gamma thermal](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
-| [Sakai et al. (2014), Fe0.9Ni0.1 type4\_3 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_3_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
+| [Sakai et al. (2014), BM3, Matsui Pt scale](#record-fe09ni01_hcp_sakai_2014_p1_bm3) | 22.18 ± 0.13 (fixed) | 195.3 ± 1.6 | 4.37 ± 0.05 |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale](#record-fe09ni01_hcp_sakai_2014_p1_vinet) | 22.18 ± 0.13 (fixed) | 189.6 ± 1.7 | 4.81 ± 0.06 |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3) | 22.36 (fixed) | 179.8 ± 1.6 | 4.59 ± 0.05 |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet) | 22.36 (fixed) | 173.9 ± 1.6 | 5.07 ± 0.06 |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3) | 22.468 (fixed) | 171.0 ± 1.7 | 4.73 ± 0.06 |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet) | 22.468 (fixed) | 165.2 ± 1.5 | 5.23 ± 0.06 |
+| [Sakai et al. (2014), BM3, Fei Pt scale](#record-fe09ni01_hcp_sakai_2014_p2_bm3) | 22.16 ± 0.13 (fixed) | 199.4 ± 1.6 | 4.28 ± 0.05 |
+| [Sakai et al. (2014), Vinet, Fei Pt scale](#record-fe09ni01_hcp_sakai_2014_p2_vinet) | 22.16 ± 0.13 (fixed) | 193.9 ± 1.7 | 4.7 ± 0.06 |
+| [Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale](#record-fe09ni01_hcp_sakai_2014_p3_bm3) | 22.14 ± 0.13 (fixed) | 200.5 ± 1.7 | 4.42 ± 0.05 |
+| [Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale](#record-fe09ni01_hcp_sakai_2014_p3_vinet) | 22.14 ± 0.13 (fixed) | 194.7 ± 1.7 | 4.86 ± 0.06 |
+| [Sakai et al. (2014), BM3, Tange MgO scale](#record-fe09ni01_hcp_sakai_2014_p4_bm3) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
+| [Sakai et al. (2014), Vinet, Tange MgO scale](#record-fe09ni01_hcp_sakai_2014_p4_vinet) | 22.04 ± 0.13 (fixed) | 207.0 ± 1.8 | 4.85 ± 0.06 |
+| [Sakai et al. (2014), BM3, Yokoo Pt scale](#record-fe09ni01_hcp_sakai_2014_p5_bm3) | 22.1 ± 0.14 (fixed) | 211.5 ± 1.8 | 4.42 ± 0.05 |
+| [Sakai et al. (2014), Vinet, Yokoo Pt scale](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | 22.1 ± 0.14 (fixed) | 205.4 ± 1.9 | 4.86 ± 0.06 |
+| [Sakai et al. (2014), BM3, Holmes Pt scale](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | 22.17 ± 0.15 (fixed) | 191.2 ± 1.8 | 4.82 ± 0.06 |
+| [Sakai et al. (2014), Vinet, Holmes Pt scale](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | 22.17 ± 0.15 (fixed) | 185.1 ± 1.7 | 5.31 ± 0.06 |
+| [Sakai et al. (2014), BM3 + Type 1 constant-gamma thermal](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
+| [Sakai et al. (2014), BM3 + Type 2 thermal](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
+| [Sakai et al. (2014), BM3 + Type 4 thermal, beta fixed](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
+| [Sakai et al. (2014), BM3 + Type 4 thermal, theta0 and beta fixed](#record-fe09ni01_hcp_sakai_2014_type4_2_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
+| [Sakai et al. (2014), BM3 + Type 4 thermal, only beta fitted](#record-fe09ni01_hcp_sakai_2014_type4_3_thermal) | 22.04 ± 0.13 (fixed) | 213.0 ± 1.8 | 4.41 ± 0.05 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -92,7 +92,7 @@ extrapolation.
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_bm3"></a>
 
-## Sakai et al. (2014), p1\_bm3
+## Sakai et al. (2014), BM3, Matsui Pt scale
 
 `fe09ni01_hcp_sakai_2014_p1_bm3` · Executable
 
@@ -130,7 +130,7 @@ Automatic selection for equilibrium calculations.
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -185,7 +185,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_vinet"></a>
 
-## Sakai et al. (2014), p1\_vinet
+## Sakai et al. (2014), Vinet, Matsui Pt scale
 
 `fe09ni01_hcp_sakai_2014_p1_vinet` · Executable
 
@@ -221,7 +221,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -276,7 +276,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3"></a>
 
-## Sakai et al. (2014), p1\_v0\_mao\_bm3
+## Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0
 
 `fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3` · Executable
 
@@ -312,7 +312,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -367,7 +367,7 @@ Alternative Table 4 fit with V0 fixed at the Mao choice instead of the prelimina
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet"></a>
 
-## Sakai et al. (2014), p1\_v0\_mao\_vinet
+## Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0
 
 `fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet` · Executable
 
@@ -403,7 +403,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -458,7 +458,7 @@ Alternative Table 4 fit with V0 fixed at the Mao choice instead of the prelimina
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3"></a>
 
-## Sakai et al. (2014), p1\_v0\_dewaele\_bm3
+## Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0
 
 `fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3` · Executable
 
@@ -494,7 +494,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -549,7 +549,7 @@ Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preli
 
 <a id="record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet"></a>
 
-## Sakai et al. (2014), p1\_v0\_dewaele\_vinet
+## Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0
 
 `fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet` · Executable
 
@@ -585,7 +585,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -640,7 +640,7 @@ Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preli
 
 <a id="record-fe09ni01_hcp_sakai_2014_p2_bm3"></a>
 
-## Sakai et al. (2014), p2\_bm3
+## Sakai et al. (2014), BM3, Fei Pt scale
 
 `fe09ni01_hcp_sakai_2014_p2_bm3` · Pressure-scale reference variant
 
@@ -679,7 +679,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -734,7 +734,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p2_vinet"></a>
 
-## Sakai et al. (2014), p2\_vinet
+## Sakai et al. (2014), Vinet, Fei Pt scale
 
 `fe09ni01_hcp_sakai_2014_p2_vinet` · Pressure-scale reference variant
 
@@ -773,7 +773,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -828,7 +828,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p3_bm3"></a>
 
-## Sakai et al. (2014), p3\_bm3
+## Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale
 
 `fe09ni01_hcp_sakai_2014_p3_bm3` · Pressure-scale reference variant
 
@@ -867,7 +867,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -922,7 +922,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p3_vinet"></a>
 
-## Sakai et al. (2014), p3\_vinet
+## Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale
 
 `fe09ni01_hcp_sakai_2014_p3_vinet` · Pressure-scale reference variant
 
@@ -961,7 +961,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1016,7 +1016,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p4_bm3"></a>
 
-## Sakai et al. (2014), p4\_bm3
+## Sakai et al. (2014), BM3, Tange MgO scale
 
 `fe09ni01_hcp_sakai_2014_p4_bm3` · Pressure-scale reference variant
 
@@ -1054,7 +1054,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1109,7 +1109,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p4_vinet"></a>
 
-## Sakai et al. (2014), p4\_vinet
+## Sakai et al. (2014), Vinet, Tange MgO scale
 
 `fe09ni01_hcp_sakai_2014_p4_vinet` · Pressure-scale reference variant
 
@@ -1147,7 +1147,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1202,7 +1202,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p5_bm3"></a>
 
-## Sakai et al. (2014), p5\_bm3
+## Sakai et al. (2014), BM3, Yokoo Pt scale
 
 `fe09ni01_hcp_sakai_2014_p5_bm3` · Pressure-scale reference variant
 
@@ -1241,7 +1241,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1296,7 +1296,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p5_vinet"></a>
 
-## Sakai et al. (2014), p5\_vinet
+## Sakai et al. (2014), Vinet, Yokoo Pt scale
 
 `fe09ni01_hcp_sakai_2014_p5_vinet` · Pressure-scale reference variant
 
@@ -1335,7 +1335,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1390,7 +1390,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p6_bm3"></a>
 
-## Sakai et al. (2014), p6\_bm3
+## Sakai et al. (2014), BM3, Holmes Pt scale
 
 `fe09ni01_hcp_sakai_2014_p6_bm3` · Pressure-scale reference variant
 
@@ -1428,7 +1428,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#r
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1483,7 +1483,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_p6_vinet"></a>
 
-## Sakai et al. (2014), p6\_vinet
+## Sakai et al. (2014), Vinet, Holmes Pt scale
 
 `fe09ni01_hcp_sakai_2014_p6_vinet` · Pressure-scale reference variant
 
@@ -1521,7 +1521,7 @@ Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](
     - **Molar mass g mol:** 56.12984
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1576,7 +1576,7 @@ Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were
 
 <a id="record-fe09ni01_hcp_sakai_2014_type1_thermal"></a>
 
-## Sakai et al. (2014), BM3 + constant-gamma thermal
+## Sakai et al. (2014), BM3 + Type 1 constant-gamma thermal
 
 `fe09ni01_hcp_sakai_2014_type1_thermal` · Explicit diagnostic selection; not recommended
 
@@ -1703,7 +1703,7 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
 
 <a id="record-fe09ni01_hcp_sakai_2014_type2_thermal"></a>
 
-## Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)
+## Sakai et al. (2014), BM3 + Type 2 thermal
 
 `fe09ni01_hcp_sakai_2014_type2_thermal` · Explicit diagnostic selection; not recommended
 
@@ -1830,7 +1830,7 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
 
 <a id="record-fe09ni01_hcp_sakai_2014_type4_1_thermal"></a>
 
-## Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)
+## Sakai et al. (2014), BM3 + Type 4 thermal, beta fixed
 
 `fe09ni01_hcp_sakai_2014_type4_1_thermal` · Explicit diagnostic selection; not recommended
 
@@ -1957,7 +1957,7 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
 
 <a id="record-fe09ni01_hcp_sakai_2014_type4_2_thermal"></a>
 
-## Sakai et al. (2014), Fe0.9Ni0.1 type4\_2 thermal EOS (P4 + P7)
+## Sakai et al. (2014), BM3 + Type 4 thermal, theta0 and beta fixed
 
 `fe09ni01_hcp_sakai_2014_type4_2_thermal` · Explicit diagnostic selection; not recommended
 
@@ -2084,13 +2084,13 @@ Thermal fit (Tables 6–8) to P7 MgO thermal pressures on the P4 BM3 reference i
 
 <a id="record-fe09ni01_hcp_sakai_2014_type4_3_thermal"></a>
 
-## Sakai et al. (2014), Fe0.9Ni0.1 type4\_3 thermal EOS (P4 + P7)
+## Sakai et al. (2014), BM3 + Type 4 thermal, only beta fitted
 
 `fe09ni01_hcp_sakai_2014_type4_3_thermal` · Explicit diagnostic selection; not recommended
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_3_thermal)
 
-**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.1 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
+**Warning:** Not recommended for quantitative use. Never chosen automatically; select it explicitly. With the published coefficients the 32 hot observations give about 7.2 GPa pressure RMS, versus 1.1 GPa reported in Table 7.
 
 **Source check:** Type 4 thermal coefficients from Tables 6–8 (Section 3.5), the variant with only beta fitted, on the Table 4 P4 BM3 isotherm; P7 thermal pressures are on the Tange (2009) MgO scale.
 

@@ -129,7 +129,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 record is an alternative reduction of the same data, not an independent experiment.",
+      "notes": "Vinet fit to the Dewaele et al. (2004) static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The 2004 Mao-ruby and revised-ruby records and the Dorogokupets-2007-scale record are reductions of the same data, not independent experiments.",
       "fit_datasets": ["aluminum_dewaele_2004_table1_compression"],
       "reference": {
         "authors": ["Dewaele"],
@@ -183,7 +183,7 @@
     },
     {
       "identifier": "aluminum_dewaele_2004_mao_ruby_vinet",
-      "label": "Dewaele et al. (2004), Al mao ruby Vinet",
+      "label": "Dewaele et al. (2004), Mao-ruby Vinet",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",

@@ -35,17 +35,17 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [Litasov et al. (2007), bm3 a89](#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89) | **reproduced** |  |
-| [Litasov et al. (2007), bm3 t03](#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03) | **reproduced** |  |
-| [Litasov et al. (2007), htbm a89](#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89) | **reproduced** |  |
-| [Litasov et al. (2007), htbm t03](#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03) | **reproduced** |  |
-| [Litasov et al. (2007), thermal pressure a89](#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89) | **reproduced** |  |
-| [Litasov et al. (2007), mgd free debye a89](#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89) | **reproduced** |  |
-| [Litasov et al. (2007), mgd elastic debye a89](#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89) | **reproduced** |  |
+| [Litasov et al. (2007), 300 K BM3, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89) | **reproduced** |  |
+| [Litasov et al. (2007), 300 K BM3, Tsuchiya Au scale](#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03) | **reproduced** |  |
+| [Litasov et al. (2007), high-T BM3, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89) | **reproduced** |  |
+| [Litasov et al. (2007), high-T BM3, Tsuchiya Au scale](#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03) | **reproduced** |  |
+| [Litasov et al. (2007), thermal pressure, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89) | **reproduced** |  |
+| [Litasov et al. (2007), MGD free theta0, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89) | **reproduced** |  |
+| [Litasov et al. (2007), MGD fixed theta0, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89) | **reproduced** |  |
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_bm3_a89"></a>
 
-## Litasov et al. (2007), bm3 a89
+## Litasov et al. (2007), 300 K BM3, Anderson Au scale
 
 **reproduced** · `superhydrous_phase_b_lt_litasov_2007_bm3_a89` · `BM3` · [Coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89)
 
@@ -116,7 +116,7 @@ Both fits use the same 20 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_bm3_t03"></a>
 
-## Litasov et al. (2007), bm3 t03
+## Litasov et al. (2007), 300 K BM3, Tsuchiya Au scale
 
 **reproduced** · `superhydrous_phase_b_lt_litasov_2007_bm3_t03` · `BM3` · [Coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03)
 
@@ -187,7 +187,7 @@ Both fits use the same 20 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_htbm_a89"></a>
 
-## Litasov et al. (2007), htbm a89
+## Litasov et al. (2007), high-T BM3, Anderson Au scale
 
 **reproduced** · `superhydrous_phase_b_lt_litasov_2007_htbm_a89` · `BM3` · [Coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89)
 
@@ -264,7 +264,7 @@ Both fits use the same 69 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_htbm_t03"></a>
 
-## Litasov et al. (2007), htbm t03
+## Litasov et al. (2007), high-T BM3, Tsuchiya Au scale
 
 **reproduced** · `superhydrous_phase_b_lt_litasov_2007_htbm_t03` · `BM3` · [Coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03)
 
@@ -341,7 +341,7 @@ Both fits use the same 69 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89"></a>
 
-## Litasov et al. (2007), thermal pressure a89
+## Litasov et al. (2007), thermal pressure, Anderson Au scale
 
 **reproduced** · `superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89` · `BM3` · [Coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89)
 
@@ -416,7 +416,7 @@ Both fits use the same 69 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89"></a>
 
-## Litasov et al. (2007), mgd free debye a89
+## Litasov et al. (2007), MGD free theta0, Anderson Au scale
 
 **reproduced** · `superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89` · `BM3` · [Coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89)
 
@@ -493,7 +493,7 @@ Both fits use the same 69 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89"></a>
 
-## Litasov et al. (2007), mgd elastic debye a89
+## Litasov et al. (2007), MGD fixed theta0, Anderson Au scale
 
 **reproduced** · `superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89` · `BM3` · [Coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89)
 

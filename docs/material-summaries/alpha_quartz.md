@@ -159,7 +159,6 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Validity:**
     - **Pressure gpa:** \[0.0, 40.0\]
     - **Temperature k:** \[300.0, 300.0\]
-    - **Notes:** Quartz is metastable above its transition.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 3.0

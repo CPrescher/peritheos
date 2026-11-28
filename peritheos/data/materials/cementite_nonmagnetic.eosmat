@@ -144,7 +144,7 @@
       },
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Published 300 K BM3 based on the nine Table 1 states and three Li (2002) states above 25 GPa, on their original MgO and ruby/neon pressure bases (exact MgO reduction unverified). Published V0 = 9.341 Å³/atom, an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell; no thermal extrapolation or magnetic-phase diagram. Scatter exceeds some tabulated coordinate errors, and Litasov's later 298 K Vinet recalibration is a different EOS.",
+      "notes": "Published 300 K BM3 from the nine Table 1 states and three Li (2002) states above 25 GPa, on their original MgO and ruby/neon pressure bases (exact MgO reduction unverified). Published V0 = 9.341 Å³/atom, an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell; no thermal extrapolation or magnetic-phase diagram. Litasov's later 298 K Vinet recalibration is a different EOS.",
       "fit_datasets": ["cementite_sata_2010_selected_pv"],
       "reference": {
         "authors": ["Sata, N.", "Hirose, K.", "Shen, G.", "Nakajima, Y.", "Ohishi, Y.", "Hirao, N."],
@@ -198,7 +198,6 @@
         "pressure_gpa": [85.6, 245.0],
         "temperature_k": [300, 300],
         "notes": [
-          "Possible melting at higher pressures; density data do not resolve the phase state.",
           "The 300 K bounds are the precursor normalization only. Shock temperatures vary and are calculated by the source, not measured."
         ]
       },

@@ -520,7 +520,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/pal
 - **Reported pressure coverage (GPa):** \[0.0, 182.0\]
 - **Coverage provenance:** reported\_exactly
 
-Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd loadings in neon as the preferred Vinet record. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.
+Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd loadings in neon as the Frost et al. (2023) Vinet record. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.
 
 <details markdown="1">
 <summary>Source review</summary>

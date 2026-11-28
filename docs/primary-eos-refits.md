@@ -1219,7 +1219,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.
 
-**Registered source-fit note.** Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite, with V0 fixed in the Table 2 fit. Errors are one standard deviation.
+**Registered source-fit note.** Room-temperature BM3 fit for cubic CaSiO3 perovskite with K0 and K0' free and V0 fixed (the fit Table 2 calls unconstrained). Errors are one standard deviation.
 
 **Assessment and likely origin.**
 - The magnitude is similar for `K0`, `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
@@ -1431,7 +1431,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -1451,7 +1451,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -1471,7 +1471,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -1491,7 +1491,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -1511,7 +1511,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -1531,7 +1531,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -1551,7 +1551,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -1571,7 +1571,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -1591,7 +1591,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -1611,7 +1611,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -1631,7 +1631,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** Primary observations bundled with errors and calibrant values where published.
 
-**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.
+**Registered source-fit note.** Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -2423,7 +2423,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** The 17 Dewaele rows are transcribed exactly and 21 hcp square markers from the earlier Kuznetsov data are explicitly stored as a plot digitization. Marker overlap, unavailable exact Kuznetsov rows, and an unspecified merged-fit selection/weighting protocol prevent a full independent-refit claim.
 
-**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Dorogokupets-2007 ruby scale. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Dorogokupets-2007 ruby scale. The fit also includes earlier Kuznetsov et al. hcp data on the Brown NaCl scale; the paper does not state the subset, weights or scale treatment used. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.
 
 **Assessment and likely origin.**
 - The lowest checked pressure is 10.527 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
@@ -2445,7 +2445,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** The 17 Dewaele rows are transcribed exactly and 21 hcp square markers from the earlier Kuznetsov data are explicitly stored as a plot digitization. Marker overlap, unavailable exact Kuznetsov rows, and an unspecified merged-fit selection/weighting protocol prevent a full independent-refit claim.
 
-**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Mao-1986 ruby scale. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Mao-1986 ruby scale. The fit also includes earlier Kuznetsov et al. hcp data on the Brown NaCl scale; the paper does not state the subset, weights or scale treatment used. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.
 
 **Assessment and likely origin.**
 - The lowest checked pressure is 10.527 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
@@ -3050,7 +3050,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** The 14 original author-tabulated shock states are bundled for context, and the three high-pressure enstatite states later re-reduced by the same author group are bundled as the diagnostic reconstruction input. Initial density, flyer velocity, and shock velocity are observations; particle velocity, pressure, shock density, and internal energy are impedance-match reductions; theoretical Hugoniot pressures are calculated model outputs.
 
-**Registered source-fit note.** The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS; not an ambient liquid isotherm, a direct P-rho fit or a complete thermal Hugoniot. V0 is computed from the source's rho0. The source's Grüneisen, heat-capacity and transition-energy terms are not included.
+**Registered source-fit note.** The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS, not a direct P-rho fit or a complete thermal Hugoniot. K0 and K0' are isentropic (K0S, K0S'); it is typed isothermal only because the format has no isentropic type, and is not a 298.15 K liquid isotherm. V0 is from the source's rho0; its Grüneisen, heat-capacity and transition-energy terms are not included.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`. The point estimates nevertheless meet the numerical criterion.
@@ -3344,7 +3344,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters.
 
-**Registered source-fit note.** Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd loadings in neon as the preferred Vinet record. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.
+**Registered source-fit note.** Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd loadings in neon as the Frost et al. (2023) Vinet record. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.
 
 **Assessment and likely origin.**
 - The magnitude is similar for `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
@@ -3559,7 +3559,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** All 111 original Table 2 rows are bundled, 27 at 300 K and 84 heated, with paired Au volumes and printed errors. Source weighting and row exclusions are not specified.
 
-**Registered source-fit note.** Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept. The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value is stored because it fits the Table 2 rows better. Only the accepted manuscript and the publisher's abstract were seen.
+**Registered source-fit note.** Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept.
 
 **Assessment and likely origin.**
 - The point estimate exceeds the numerical limit for `alpha1`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.

@@ -89,7 +89,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[300.0, 300.0\]
 - **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Mao-1986 ruby scale. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Mao-1986 ruby scale. The fit also includes earlier Kuznetsov et al. hcp data on the Brown NaCl scale; the paper does not state the subset, weights or scale treatment used. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -171,7 +171,7 @@ Published pressure-scale alternative of [lead\_hcp\_dewaele\_2019\_mao\_vinet](#
     - **Temperature k:** \[300.0, 300.0\]
 - **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
-Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Dorogokupets-2007 ruby scale. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.
+Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Dorogokupets-2007 ruby scale. The fit also includes earlier Kuznetsov et al. hcp data on the Brown NaCl scale; the paper does not state the subset, weights or scale treatment used. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.
 
 <details markdown="1">
 <summary>Source review</summary>

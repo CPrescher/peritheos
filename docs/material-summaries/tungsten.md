@@ -97,7 +97,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Molar mass g mol:** 183.84
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 2 parameterization. The authors fix most ambient V0 and K0 values from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.
+Table 2 parameterization. The authors fix V0 and K0 from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.
 
 <details markdown="1">
 <summary>Source review</summary>

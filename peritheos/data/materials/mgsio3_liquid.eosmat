@@ -38,7 +38,7 @@
       "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS; not an ambient liquid isotherm, a direct P-rho fit or a complete thermal Hugoniot. V0 is computed from the source's rho0. The source's Grüneisen, heat-capacity and transition-energy terms are not included.",
+      "notes": "The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS, not a direct P-rho fit or a complete thermal Hugoniot. K0 and K0' are isentropic (K0S, K0S'); it is typed isothermal only because the format has no isentropic type, and is not a 298.15 K liquid isotherm. V0 is from the source's rho0; its Grüneisen, heat-capacity and transition-energy terms are not included.",
       "fit_datasets": ["mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt"],
       "reference": {
         "authors": ["Akins", "Luo", "Asimow", "Ahrens"],

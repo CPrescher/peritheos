@@ -102,6 +102,14 @@ All notable changes to Peritheos are documented here. The project follows
   parameter-scope cohort took them from an older snapshot, so
   `scripts/validate_primary_eos_refits.py --check` reported record text that
   the text tools had already replaced.
+- Correct record text after a complete read of the catalog by independent
+  reviewers: 113 records get corrected notes, validity or thermal notes, 55
+  labels spell out an internal code (the Sakai et al. pressure scales, the
+  Litasov et al. gold scales) and eight source notes are reworded. Each new
+  text was drafted from a confirmed finding, checked against the record and
+  its audit sidecar by a second reviewer and applied with the text tools;
+  originals stay in the sidecars. No coefficient, range or classification
+  changes.
 - `scripts/apply_check_text.py` also sets a bundled record's coded
   `usage_recommendation` (the source of `check.warning`), keeping replaced
   free text as `recommendation_reason` and binding the originals so every

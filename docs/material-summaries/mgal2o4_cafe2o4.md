@@ -328,7 +328,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The source contains printing errors, which the audit documents.
+Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -477,7 +477,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The source contains printing errors, which the audit documents.
+Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -610,7 +610,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Combined fit with intercalibrated earlier literature data, excluding Mao (1990). Thermal pressure is MGD with integrated gamma(V) plus A*(V/V0)^m*(T^2-300^2), and Table S2 holds only the static subset of the thermal data. With independent gamma_e = 2 and k = 1.34 this is an empirical pressure surface, not a thermodynamically consistent caloric potential, so do not infer caloric observables.",
+      "notes": "Combined fit with intercalibrated earlier literature data, excluding Mao (1990). Thermal pressure is MGD with integrated gamma(V) plus A*(V/V0)^m*(T^2-300^2); Table S2 holds only the static thermal data. With independent gamma_e = 2 (in A) and k = 1.34 (m = k - 1) this is an empirical pressure surface, not a thermodynamically consistent caloric potential; do not infer caloric observables.",
       "fit_datasets": ["iron_fei_2016_table_s1", "iron_fei_2016_table_s2"],
       "reference": {
         "authors": ["Fei", "Murphy", "Shibazaki", "Shahar", "Huang"],
@@ -626,7 +626,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p1_bm3",
-      "label": "Sakai et al. (2014), p1_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P1",
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
@@ -667,7 +667,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p1_vinet",
-      "label": "Sakai et al. (2014), p1_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P1",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -707,7 +707,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p1_v0_mao_bm3",
-      "label": "Sakai et al. (2014), p1_v0_mao_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P1, V0 fixed at Mao value",
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
@@ -748,7 +748,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p1_v0_mao_vinet",
-      "label": "Sakai et al. (2014), p1_v0_mao_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P1, V0 fixed at Mao value",
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
@@ -789,7 +789,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p1_v0_dewaele_bm3",
-      "label": "Sakai et al. (2014), p1_v0_dewaele_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P1, V0 fixed at Dewaele value",
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
@@ -830,7 +830,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p1_v0_dewaele_vinet",
-      "label": "Sakai et al. (2014), p1_v0_dewaele_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P1, V0 fixed at Dewaele value",
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
@@ -871,7 +871,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p2_bm3",
-      "label": "Sakai et al. (2014), p2_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P2",
       "check": {
         "reproduction": "untested",
         "compared": "none",
@@ -915,7 +915,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p2_vinet",
-      "label": "Sakai et al. (2014), p2_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P2",
       "check": {
         "reproduction": "untested",
         "compared": "none",
@@ -959,7 +959,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p3_bm3",
-      "label": "Sakai et al. (2014), p3_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P3",
       "check": {
         "reproduction": "untested",
         "compared": "none",
@@ -1003,7 +1003,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p3_vinet",
-      "label": "Sakai et al. (2014), p3_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P3",
       "check": {
         "reproduction": "untested",
         "compared": "none",
@@ -1047,7 +1047,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p4_bm3",
-      "label": "Sakai et al. (2014), p4_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P4",
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
@@ -1089,7 +1089,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p4_vinet",
-      "label": "Sakai et al. (2014), p4_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P4",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -1130,7 +1130,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p5_bm3",
-      "label": "Sakai et al. (2014), p5_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P5",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -1174,7 +1174,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p5_vinet",
-      "label": "Sakai et al. (2014), p5_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P5",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -1218,7 +1218,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p6_bm3",
-      "label": "Sakai et al. (2014), p6_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P6",
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
@@ -1260,7 +1260,7 @@
     },
     {
       "identifier": "iron_sakai_2014_p6_vinet",
-      "label": "Sakai et al. (2014), p6_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P6",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -1503,7 +1503,7 @@
     },
     {
       "identifier": "iron_dewaele_2006_bm3",
-      "label": "Dewaele et al. (2006), bm3",
+      "label": "Dewaele et al. (2006), BM3",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",

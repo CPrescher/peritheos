@@ -59,7 +59,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/wollastonite.md#record-wollastonite_sagatova_2021_gga_300k_vinet)
 
-**Source check:** Coefficients from the this-work GGA row of Table 2, a PBE-GGA quasi-harmonic free-energy calculation at room temperature.
+**Source check:** Coefficients from the authors' own GGA row of Table 2, a PBE-GGA quasi-harmonic free-energy calculation at room temperature.
 
 Automatic selection for equilibrium calculations.
 

@@ -413,7 +413,7 @@
       "experimental_temperature_range_k": [0.0, 760.0],
       "determination_method": "experimental",
       "default": false,
-      "notes": "Helmholtz model: a 0 K cold curve that includes zero-point energy plus a Debye-anharmonic thermal term that excludes it. temperature_ref = 70 K is the evaluation temperature, not the cold-curve reference (0 K). Use only for the solid below melting; the new data cover 7.96-50.02 K only.",
+      "notes": "Helmholtz model: a 0 K cold curve that includes zero-point energy plus a Debye-anharmonic thermal term that excludes it. temperature_ref = 70 K is the evaluation temperature, not the cold-curve reference (0 K). Use only for the solid below melting; the 0-760 K, 0-6.3 GPa envelope is that of the paper's global fit, which draws on earlier studies; its own new neutron data cover 7.96-50.02 K only.",
       "fit_datasets": ["argon_fcc_xiao_2025_table5"],
       "reference": {
         "authors": ["Xiao", "Sriskandaruban", "Maynard-Casely", "Thol", "Falloon", "Span", "May"],
@@ -784,7 +784,7 @@
       "experimental_temperature_range_k": [292.0, 294.0],
       "determination_method": "experimental",
       "default": false,
-      "notes": "Second-order Murnaghan (quadratic K(P), not BM2) static term with offset P0, plus zero-point and absolute Debye thermal terms. V0 and K0 are adopted low-temperature constraints, not room-temperature zero-pressure values of the solid. With the printed gamma1 and theta0, the printed P_z0 does not exactly cancel Equation (2) at V0; uncertainty confidence level and covariance are unspecified.",
+      "notes": "Second-order Murnaghan (quadratic K(P), not BM2) static term with offset P0, plus zero-point and absolute Debye thermal terms. V0 and K0 are adopted low-temperature constraints, not room-temperature zero-pressure values of the solid. With the stored theta0 and gamma0, the printed P0 does not exactly cancel the paper's Equation (2) at V0; uncertainty confidence level and covariance are unspecified.",
       "fit_datasets": ["argon_fcc_finger_1981_table1"],
       "reference": {
         "authors": ["Finger", "Hazen", "Zou", "Mao", "Bell"],
@@ -1843,7 +1843,7 @@
         "public_to_model_scale": 0.0150553519,
         "reference_meaning": "Characteristic volume 22.56 cm³/mol in source laws, not a zero-pressure volume."
       },
-      "notes": "The Peritheos implementation does not reproduce the paper's Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa); the cause is unresolved. The article does not specify the lattice cutoff; this record assumes squared cutoff 64 with geometric fcc shells. The source gives no DAC-confinement or fluid-reference free-energy offsets.",
+      "notes": "The article does not specify the lattice cutoff; this record assumes squared cutoff 64 with geometric fcc shells. The source gives no DAC-confinement or fluid-reference free-energy offsets.",
       "parameter_covariance": null,
       "reference": {
         "authors": ["Tage W. Maltby", "Morten Hammer", "Øivind Wilhelmsen"],

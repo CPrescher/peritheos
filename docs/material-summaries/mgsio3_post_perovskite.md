@@ -199,7 +199,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[100.0, 265.0\]
 
-BM3 (fit 1 in the paper) to laser-heated DAC data from this study and Guignot et al. Only the 300 K curve is stored, because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. The authors prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range, not extrapolated.
+BM3 (fit 1 in the paper) to laser-heated DAC data from this study and Guignot et al. Only the 300 K curve is stored, because Peritheos does not implement the Al'tshuler gamma(V) function of the published thermal fit. The authors prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range, not extrapolated.
 
 <details markdown="1">
 <summary>Source review</summary>

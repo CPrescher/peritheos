@@ -181,7 +181,7 @@
       "primary_source": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
       "reason": "The fitted coefficients and curve are published, but the numerical free-energy-volume grid is unavailable.",
       "record_identifier": "akimotoite_karki_2002_300k_bm4_2",
-      "source_notes": "Quasiharmonic LDA 300 K isotherm, not an experimental fit; do not substitute it for the experimental equilibrium default. Published volume per formula unit; stored per conventional cell (×6).",
+      "source_notes": "Quasiharmonic LDA 300 K isotherm, not an experimental fit. Published volume per formula unit; stored per conventional cell (×6).",
       "status": "not_refittable"
     },
     {
@@ -1603,7 +1603,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Dewaele et al. (2004), Al mao ruby Vinet",
+      "label": "Dewaele et al. (2004), Mao-ruby Vinet",
       "material_identifier": "aluminum",
       "model": "Vinet",
       "objective": "errors_in_variables",
@@ -2083,7 +2083,7 @@
       "selection": "complete",
       "solver_message": "dedicated Dewaele (2019) refit completed",
       "solver_success": true,
-      "source_notes": "Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The Dorogokupets-2007 record is an alternative reduction of the same data, not an independent experiment.",
+      "source_notes": "Vinet fit to the Dewaele et al. (2004) static diamond-anvil-cell X-ray data in helium or neon, with pressures on the Mao-1986 ruby scale. The 2004 Mao-ruby and revised-ruby records and the Dorogokupets-2007-scale record are reductions of the same data, not independent experiments.",
       "status": "parity",
       "weighting": "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on."
     },
@@ -3273,7 +3273,7 @@
       },
       "reproduction_status": "parameterization_reproduced",
       "rmse_gpa": 0.09412675921023864,
-      "source_notes": "Second-order Murnaghan (quadratic K(P), not BM2) static term with offset P0, plus zero-point and absolute Debye thermal terms. V0 and K0 are adopted low-temperature constraints, not room-temperature zero-pressure values of the solid. With the printed gamma1 and theta0, the printed P_z0 does not exactly cancel Equation (2) at V0; uncertainty confidence level and covariance are unspecified.",
+      "source_notes": "Second-order Murnaghan (quadratic K(P), not BM2) static term with offset P0, plus zero-point and absolute Debye thermal terms. V0 and K0 are adopted low-temperature constraints, not room-temperature zero-pressure values of the solid. With the stored theta0 and gamma0, the printed P0 does not exactly cancel the paper's Equation (2) at V0; uncertainty confidence level and covariance are unspecified.",
       "status": "parity",
       "weighting": "All 19 molar-volume rows and the full original Murnaghan/zero-point/Debye model at 293 K; other coefficients fixed."
     },
@@ -3599,7 +3599,7 @@
       "primary_source": "https://api.nva.unit.no/publication/0198cc531207-be3c0dc3-6af4-4953-97be-777a88a705a8/filelink/b4a4e90d-77d9-4854-a2cb-af09e365233e",
       "reason": "Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.",
       "record_identifier": "argon_fcc_maltby_2024_published",
-      "source_notes": "The Peritheos implementation does not reproduce the paper's Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa); the cause is unresolved. The article does not specify the lattice cutoff; this record assumes squared cutoff 64 with geometric fcc shells. The source gives no DAC-confinement or fluid-reference free-energy offsets.",
+      "source_notes": "The article does not specify the lattice cutoff; this record assumes squared cutoff 64 with geometric fcc shells. The source gives no DAC-confinement or fluid-reference free-energy offsets.",
       "status": "not_refittable"
     },
     {
@@ -3983,7 +3983,7 @@
         ]
       },
       "reproduction_status": "parameterization_reproduced",
-      "source_notes": "Helmholtz model: a 0 K cold curve that includes zero-point energy plus a Debye-anharmonic thermal term that excludes it. temperature_ref = 70 K is the evaluation temperature, not the cold-curve reference (0 K). Use only for the solid below melting; the new data cover 7.96-50.02 K only.",
+      "source_notes": "Helmholtz model: a 0 K cold curve that includes zero-point energy plus a Debye-anharmonic thermal term that excludes it. temperature_ref = 70 K is the evaluation temperature, not the cold-curve reference (0 K). Use only for the solid below melting; the 0-760 K, 0-6.3 GPa envelope is that of the paper's global fit, which draws on earlier studies; its own new neutron data cover 7.96-50.02 K only.",
       "status": "not_refittable"
     },
     {
@@ -4115,7 +4115,7 @@
       "rmse_gpa": 0.4510113341777895,
       "selection": "All nine experimental markers; fitted ambient marker excluded",
       "solver_success": true,
-      "source_notes": "BM2 fit to hcp argon only; V0 is a fitted reference volume because ambient hcp argon could not be measured. The published fit could not be independently reproduced; the published curve has a 0.772 GPa RMS residual on the nine digitized observations. Not recommended as a general argon pressure standard or for high-pressure extrapolation.",
+      "source_notes": "BM2 fit to hcp argon only; V0 is a fitted reference volume because ambient hcp argon could not be measured. Not recommended as a general argon pressure standard or for high-pressure extrapolation.",
       "status": "not_refittable",
       "usage_recommendation": "not_recommended_for_quantitative_use"
     },
@@ -7858,7 +7858,7 @@
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite, with V0 fixed in the Table 2 fit. Errors are one standard deviation.",
+      "source_notes": "Room-temperature BM3 fit for cubic CaSiO3 perovskite with K0 and K0' free and V0 fixed (the fit Table 2 calls unconstrained). Errors are one standard deviation.",
       "status": "similar"
     },
     {
@@ -9584,7 +9584,7 @@
       "selection": "phase=B1, used_in_eos_fit=yes",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Room-temperature BM3 fit for B1 CaO. Published V0 = 16.76 cm³/mol (fixed, no error); stored per four-formula-unit cell. The fit gives K0 = 1.112 Mbar; the stored 1 GPa error reflects the abstract's 1.11 Mbar, error 0.01 Mbar.",
+      "source_notes": "Room-temperature BM3 fit for B1 CaO. Published V0 = 16.76 cm³/mol (fixed, no error); stored per four-formula-unit cell. The fit gives K0 = 1.112 Mbar; the stored K0 and its 1 GPa error follow the abstract's 1.11(1) Mbar.",
       "status": "parity"
     },
     {
@@ -10922,7 +10922,7 @@
       "rmse_gpa": 1.0804053589834126,
       "selection": "All nine Sata Table 1 Fe3C rows and all three measured Li (2002) Table 1 rows with P>25 GPa; original pressures retained.",
       "solver_success": true,
-      "source_notes": "Published 300 K BM3 based on the nine Table 1 states and three Li (2002) states above 25 GPa, on their original MgO and ruby/neon pressure bases (exact MgO reduction unverified). Published V0 = 9.341 Å³/atom, an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell; no thermal extrapolation or magnetic-phase diagram. Scatter exceeds some tabulated coordinate errors, and Litasov's later 298 K Vinet recalibration is a different EOS.",
+      "source_notes": "Published 300 K BM3 from the nine Table 1 states and three Li (2002) states above 25 GPa, on their original MgO and ruby/neon pressure bases (exact MgO reduction unverified). Published V0 = 9.341 Å³/atom, an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell; no thermal extrapolation or magnetic-phase diagram. Litasov's later 298 K Vinet recalibration is a different EOS.",
       "status": "parity",
       "usage_recommendation": "qualified_use",
       "weighting": "Equal pressure weights; no source weights recovered"
@@ -11155,7 +11155,7 @@
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_error_confidence": 0.95,
-      "source_notes": "Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data, and K0 is adopted from ultrasonic data; its adopted uncertainty is not a fitted error. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.",
+      "source_notes": "Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data, and K0 is adopted from ultrasonic data, not fitted. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.",
       "status": "parity",
       "weighting": "unweighted diagnostic; source weights not specified"
     },
@@ -11227,7 +11227,7 @@
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_error_confidence": 0.95,
-      "source_notes": "Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data, and K0 is adopted from ultrasonic data; its adopted uncertainty is not a fitted error. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.",
+      "source_notes": "Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data, and K0 is adopted from ultrasonic data, not fitted. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.",
       "status": "parity",
       "weighting": "unweighted diagnostic; source weights not specified"
     },
@@ -12231,7 +12231,7 @@
       },
       "selection": "all three coesite-IV Table 10 rows; Figure 6 excluded",
       "solver_success": true,
-      "source_notes": "Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. V0 is fitted to the three calculated Table 10 states, whose pressures are printed as whole GPa and so are not exact, with K0 and K0' adopted from Supplementary Table 11. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding or systematic error budget.",
+      "source_notes": "Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. V0 is fitted to the three calculated Table 10 states, whose pressures are printed as whole GPa and so are not exact, with K0 and K0' adopted from Supplementary Table 11.",
       "status": "parity",
       "weighting": "Equal pressure weights; no source standard deviations supplied."
     },
@@ -13298,7 +13298,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "AIP Handbook Cu low-pressure Vinet m=8 refit",
+      "label": "Peritheos refit of Kennedy and Keeler (1972), Vinet",
       "material_identifier": "cu_handbook_1972_legacy",
       "model": "Vinet",
       "objective": "eighth_power_pressure_residuals",
@@ -14771,7 +14771,7 @@
       "selection": "all 49 deposited P21mn epsilon-FeOOH rows; no exclusions; volumes reduced from their measured 473.15-673.15 K states to 300 K before fitting",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "300 K BM2 reference curve from a pooled fit to 49 elevated-temperature observations, with K0' = 4 assumed and V0 from a separate G-versus-g extrapolation. It is not a temperature-dependent EOS: hot states require the documented fit-time volume reduction and must not be evaluated as 300 K observations; the paper prints no correction equation. Phase: InOOH-type with off-center hydrogen, P21mn setting in the source (P21nm here).",
+      "source_notes": "300 K BM2 reference curve from a pooled fit to 49 hot observations reduced to 300 K with the paper's goethite alpha0, a step the paper does not write out; K0' = 4 assumed, V0 from a separate G-versus-g extrapolation. Not a temperature-dependent EOS: hot states must not be evaluated as 300 K observations. Phase: InOOH-type with off-center hydrogen, P21mn setting in the source (P21nm here).",
       "status": "parity",
       "temperature_reduction": {
         "alpha0_fixed_per_k": 2.3e-05,
@@ -15136,7 +15136,7 @@
       "solver_message": "`xtol` termination condition is satisfied.",
       "solver_success": true,
       "source_error_confidence": 0.95,
-      "source_notes": "Table IV fit with V0 fixed from a separate fit to the 0-5 GPa data and K0 adopted from ultrasound; it is distinct from the later 2019 all-free-parameter recalibration. Run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.",
+      "source_notes": "Table IV fit with V0 fixed from a separate fit to the 0-5 GPa data and K0 adopted from ultrasound. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.",
       "status": "parity",
       "weighting": "unweighted diagnostic; source weights not specified"
     },
@@ -15219,7 +15219,7 @@
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_error_confidence": 0.95,
-      "source_notes": "Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data; run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.",
+      "source_notes": "Table IV fit. V0 is fixed from a separate fit to the 0-5 GPa data. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.",
       "status": "parity",
       "weighting": "unweighted diagnostic; source weights not specified"
     },
@@ -15904,7 +15904,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_bm3",
+      "label": "Sakai et al. (2014), BM3, Matsui Pt scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -15974,7 +15974,7 @@
       "rmse_gpa": 1.606401520793189,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -16004,7 +16004,7 @@
         "V0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_v0_dewaele_bm3",
+      "label": "Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -16074,7 +16074,7 @@
       "rmse_gpa": 1.7349314547623915,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -16104,7 +16104,7 @@
         "V0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_v0_dewaele_vinet",
+      "label": "Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0",
       "material_identifier": "fe09ni01_hcp",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -16174,7 +16174,7 @@
       "rmse_gpa": 1.66732485758244,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Alternative Table 4 fit with V0 fixed at the Dewaele choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -16204,7 +16204,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_v0_mao_bm3",
+      "label": "Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -16274,7 +16274,7 @@
       "rmse_gpa": 1.6199964199966193,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -16304,7 +16304,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_v0_mao_vinet",
+      "label": "Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0",
       "material_identifier": "fe09ni01_hcp",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -16374,7 +16374,7 @@
       "rmse_gpa": 1.653409509846668,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Alternative Table 4 fit with V0 fixed at the Mao choice instead of the preliminary g-G value; K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -16404,7 +16404,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_vinet",
+      "label": "Sakai et al. (2014), Vinet, Matsui Pt scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -16474,7 +16474,7 @@
       "rmse_gpa": 1.7062383521313806,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -16499,7 +16499,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), p2_bm3",
+      "label": "Sakai et al. (2014), BM3, Fei Pt scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "observations": 0,
@@ -16515,7 +16515,7 @@
       "record_identifier": "fe09ni01_hcp_sakai_2014_p2_bm3",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -16536,7 +16536,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), p2_vinet",
+      "label": "Sakai et al. (2014), Vinet, Fei Pt scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "Vinet",
       "observations": 0,
@@ -16552,7 +16552,7 @@
       "record_identifier": "fe09ni01_hcp_sakai_2014_p2_vinet",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -16573,7 +16573,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), p3_bm3",
+      "label": "Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "observations": 0,
@@ -16589,7 +16589,7 @@
       "record_identifier": "fe09ni01_hcp_sakai_2014_p3_bm3",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -16610,7 +16610,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), p3_vinet",
+      "label": "Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "Vinet",
       "observations": 0,
@@ -16626,7 +16626,7 @@
       "record_identifier": "fe09ni01_hcp_sakai_2014_p3_vinet",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -16652,7 +16652,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p4_bm3",
+      "label": "Sakai et al. (2014), BM3, Tange MgO scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -16722,7 +16722,7 @@
       "rmse_gpa": 1.667656628629867,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -16752,7 +16752,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p4_vinet",
+      "label": "Sakai et al. (2014), Vinet, Tange MgO scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -16822,7 +16822,7 @@
       "rmse_gpa": 1.7788197892068633,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -16852,7 +16852,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p5_bm3",
+      "label": "Sakai et al. (2014), BM3, Yokoo Pt scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -16922,7 +16922,7 @@
       "rmse_gpa": 1.8347163432871763,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -17015,7 +17015,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p5_vinet",
+      "label": "Sakai et al. (2014), Vinet, Yokoo Pt scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -17096,7 +17096,7 @@
       "rmse_gpa": 1.9794522014797378,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity",
       "temperature_range_k": [
         300.0,
@@ -17126,7 +17126,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p6_bm3",
+      "label": "Sakai et al. (2014), BM3, Holmes Pt scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -17196,7 +17196,7 @@
       "rmse_gpa": 1.7786202823007078,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -17226,7 +17226,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p6_vinet",
+      "label": "Sakai et al. (2014), Vinet, Holmes Pt scale",
       "material_identifier": "fe09ni01_hcp",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -17296,7 +17296,7 @@
       "rmse_gpa": 1.9135004369802666,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Low-pressure NaCl-B1 rows use Brown (1999); the other pressure-scale variants keep distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 fit with V0 from a preliminary g-G plot held fixed while K0 and K0' were fitted. Rows in the NaCl-B1 stability field use the Brown (1999) scale in every pressure-scale variant; the variants differ in their NaCl-B2 calibration.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -17335,7 +17335,7 @@
         "gamma0",
         "theta0"
       ],
-      "label": "Sakai et al. (2014), BM3 + constant-gamma thermal",
+      "label": "Sakai et al. (2014), BM3 + Type 1 constant-gamma thermal",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -17453,7 +17453,7 @@
         "beta",
         "theta0"
       ],
-      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)",
+      "label": "Sakai et al. (2014), BM3 + Type 2 thermal",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -17591,7 +17591,7 @@
         "gamma_inf",
         "theta0"
       ],
-      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_1 thermal EOS (P4 + P7)",
+      "label": "Sakai et al. (2014), BM3 + Type 4 thermal, beta fixed",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -17729,7 +17729,7 @@
         "gamma0",
         "gamma_inf"
       ],
-      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_2 thermal EOS (P4 + P7)",
+      "label": "Sakai et al. (2014), BM3 + Type 4 thermal, theta0 and beta fixed",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -17845,7 +17845,7 @@
       "free_parameters": [
         "beta"
       ],
-      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_3 thermal EOS (P4 + P7)",
+      "label": "Sakai et al. (2014), BM3 + Type 4 thermal, only beta fitted",
       "material_identifier": "fe09ni01_hcp",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -19168,7 +19168,7 @@
         "V0",
         "K0"
       ],
-      "label": "(VI) Ono 2006",
+      "label": "Ono and Kikegawa (2006), BM3",
       "material_identifier": "fes",
       "model": "BM3",
       "objective": "errors_in_variables",
@@ -20654,7 +20654,7 @@
       "rmse_gpa": 0.21282064917509597,
       "selection": "All 51 deposited observations; AD pressure, AN volume ratio, U temperature; M375006 retained.",
       "solver_success": true,
-      "source_notes": "Recommended thermal option: the full-precision coefficient vector in the author's deposited geotherm code; the rounded final Table 2 version is a separate record. This vector has no published uncertainties, and the Table 2 bootstrap errors are not assigned to it. Peritheos uses exact Debye quadrature where the author code uses a polynomial approximation.",
+      "source_notes": "Recommended thermal option: full-precision coefficients of the author's deposited geotherm code (theta0 = 760 K), without published uncertainties; Table 2 bootstrap errors are not assigned to them. The Table 2 record uses a different theta0 and rounded values. Peritheos uses exact Debye quadrature, not the code's polynomial approximation; the negative lower pressure bound is near-ambient noise.",
       "status": "parity",
       "uncertainty_reference_record": "forsterite_katsura_2022_bm3_mgd"
     },
@@ -20745,7 +20745,7 @@
       "rmse_gpa": 0.21239522341551,
       "selection": "All 51 deposited observations; AD pressure, AN volume ratio, U temperature; M375006 retained.",
       "solver_success": true,
-      "source_notes": "Final Table 2 coefficients; no 2022 geotherm or olivine Cp reproduction is claimed: the paper uses a separate empirical ambient Cp in Equation (12). The material's ambient diffraction cell is from a different sample and differs from this V0. The negative lower pressure bound is near-ambient noise in the data, not a tensile stability claim.",
+      "source_notes": "Final Table 2 coefficients, fixing theta0 = 768 K; the author's scripts use another value. No 2022 geotherm or olivine Cp reproduction is claimed; the paper uses a separate empirical ambient Cp in Equation (12). The material's ambient diffraction cell is from a different sample and differs from this V0; the negative lower pressure bound is near-ambient data noise, not a tensile stability claim.",
       "status": "parity",
       "uncertainty_reference_record": "forsterite_katsura_2022_bm3_mgd"
     },
@@ -20999,7 +20999,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Dewaele et al. (2004), Au mao ruby Vinet",
+      "label": "Dewaele et al. (2004), Mao-ruby Vinet",
       "material_identifier": "gold",
       "model": "Vinet",
       "objective": "errors_in_variables",
@@ -22401,7 +22401,7 @@
       },
       "rmse_gpa": 0.445141799111663,
       "solver_success": true,
-      "source_notes": "The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. beta0 is the printed value adjusted slightly so that K(300) = 167 GPa.",
+      "source_notes": "The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. The printed beta0 (0.005639 GPa⁻¹) is not a stored parameter: the record uses beta0 = 1/K0 with K(300) = 167 GPa, which the printed value reproduces only to rounding.",
       "status": "parity",
       "weighting": "Existing reconstructed errors retained; no source confidence convention inferred."
     },
@@ -22668,7 +22668,7 @@
       "reproduction_status": "independent_refit_reproduced",
       "rmse_gpa": 0.3964628457007681,
       "solver_success": true,
-      "source_notes": "Peritheos staged refit, not a Hirose or Fei author fit. Pressures come from the author-confirmed Speziale (2001) variable-q MgO EOS; 300 K Hirose rows fix K0', then Fei and hot Hirose rows fit the thermal coefficients with equal pressure weights. Parameter errors are unset because calibrant, fixed-anchor and inter-stage uncertainties are not propagated.",
+      "source_notes": "Peritheos staged refit, not a Hirose or Fei author fit. Pressures come from the author-confirmed Speziale (2001) variable-q MgO EOS; 300 K Hirose rows determine K0', which is then held fixed while Fei and hot Hirose rows fit the thermal coefficients with equal pressure weights. Parameter errors are unset because calibrant, fixed-anchor and inter-stage uncertainties are not propagated.",
       "status": "parity"
     },
     {
@@ -23351,7 +23351,7 @@
       "rmse_gpa": 0.8534500073171926,
       "selection": "All Table S2 rows, including its ambient row when present; Table S3 coexistence rows excluded.",
       "solver_success": true,
-      "source_notes": "Al-free sample whose water content (Table 1: Si0.954O2H0.184) is inferred from volume calibration and whose H retention at high pressure is inferred, not measured. The 28-42 GPa two-phase coexistence interval is excluded from both hydrous EOS fits. V0 = 47.191 Å³ is the fixed Table 3 value, not the Table 2 value of 47.198 or the 47.198696 Å³ implied by the cell axes.",
+      "source_notes": "Al-free sample whose water content (Table 1: Si0.954O2H0.184) is inferred from volume calibration and whose H retention at high pressure is inferred, not measured. The 28-42 GPa two-phase coexistence interval is excluded from both hydrous EOS fits. V0 = 47.191 Å³ is the fixed Table 3 value, not the Table 2 value of 47.198 Å³.",
       "status": "parity"
     },
     {
@@ -24074,7 +24074,7 @@
         "V0",
         "K0_prime"
       ],
-      "label": "Dewaele et al. (2006), bm3",
+      "label": "Dewaele et al. (2006), BM3",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -24655,7 +24655,7 @@
       "primary_source": "https://doi.org/10.1002/2016GL069456",
       "reason": "Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md).",
       "record_identifier": "iron_fei_2016_bm3_debye_quadratic",
-      "source_notes": "Combined fit with intercalibrated earlier literature data, excluding Mao (1990). Thermal pressure is MGD with integrated gamma(V) plus A*(V/V0)^m*(T^2-300^2), and Table S2 holds only the static subset of the thermal data. With independent gamma_e = 2 and k = 1.34 this is an empirical pressure surface, not a thermodynamically consistent caloric potential, so do not infer caloric observables.",
+      "source_notes": "Combined fit with intercalibrated earlier literature data, excluding Mao (1990). Thermal pressure is MGD with integrated gamma(V) plus A*(V/V0)^m*(T^2-300^2); Table S2 holds only the static thermal data. With independent gamma_e = 2 (in A) and k = 1.34 (m = k - 1) this is an empirical pressure surface, not a thermodynamically consistent caloric potential; do not infer caloric observables.",
       "status": "not_refittable"
     },
     {
@@ -25237,7 +25237,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P1",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25337,7 +25337,7 @@
         "V0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_v0_dewaele_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P1, V0 fixed at Dewaele value",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25437,7 +25437,7 @@
         "V0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_v0_dewaele_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P1, V0 fixed at Dewaele value",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25537,7 +25537,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_v0_mao_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P1, V0 fixed at Mao value",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25637,7 +25637,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_v0_mao_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P1, V0 fixed at Mao value",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25800,7 +25800,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p1_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P1",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25906,7 +25906,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), p2_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P2",
       "material_identifier": "iron",
       "model": "BM3",
       "observations": 0,
@@ -25943,7 +25943,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), p2_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P2",
       "material_identifier": "iron",
       "model": "Vinet",
       "observations": 0,
@@ -25980,7 +25980,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), p3_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P3",
       "material_identifier": "iron",
       "model": "BM3",
       "observations": 0,
@@ -26017,7 +26017,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), p3_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P3",
       "material_identifier": "iron",
       "model": "Vinet",
       "observations": 0,
@@ -26059,7 +26059,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p4_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P4",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -26222,7 +26222,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p4_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P4",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -26396,7 +26396,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p5_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P5",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -26570,7 +26570,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p5_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P5",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -26681,7 +26681,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p6_bm3",
+      "label": "Sakai et al. (2014), BM3, pressure scale P6",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -26844,7 +26844,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), p6_vinet",
+      "label": "Sakai et al. (2014), Vinet, pressure scale P6",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -30466,7 +30466,7 @@
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Dorogokupets-2007 ruby scale. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.",
+      "source_notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Dorogokupets-2007 ruby scale. The fit also includes earlier Kuznetsov et al. hcp data on the Brown NaCl scale; the paper does not state the subset, weights or scale treatment used. The Mao-1986-scale record is an alternative reduction of the same data, not an independent experiment.",
       "status": "parity_not_achieved"
     },
     {
@@ -30551,7 +30551,7 @@
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Mao-1986 ruby scale. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.",
+      "source_notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon, reduced with the Mao-1986 ruby scale. The fit also includes earlier Kuznetsov et al. hcp data on the Brown NaCl scale; the paper does not state the subset, weights or scale treatment used. The Dorogokupets-2007-scale record is an alternative reduction of the same data, not an independent experiment.",
       "status": "parity_not_achieved"
     },
     {
@@ -32479,7 +32479,7 @@
         "K0_LS",
         "omega0"
       ],
-      "label": "Solomatova et al. (2016), fei hs BM3 reference branch",
+      "label": "Solomatova et al. (2016), Fei-data HS BM3 reference branch",
       "material_identifier": "mg061fe039o",
       "model": "BM3",
       "objective": "equal-weight approximate volume residuals plus Table 2 priors",
@@ -32564,7 +32564,7 @@
         "K0_LS",
         "omega0"
       ],
-      "label": "Solomatova et al. (2016), fei ls BM3 reference branch",
+      "label": "Solomatova et al. (2016), Fei-data LS BM3 reference branch",
       "material_identifier": "mg061fe039o",
       "model": "BM3",
       "objective": "equal-weight approximate volume residuals plus Table 2 priors",
@@ -32637,7 +32637,7 @@
         "K0_LS",
         "omega0"
       ],
-      "label": "Solomatova et al. (2016), zhuravlev hs BM3 reference branch",
+      "label": "Solomatova et al. (2016), Zhuravlev-data HS BM3 reference branch",
       "material_identifier": "mg061fe039o",
       "model": "BM3",
       "objective": "equal-weight approximate volume residuals plus Table 2 priors",
@@ -32713,7 +32713,7 @@
         "K0_LS",
         "omega0"
       ],
-      "label": "Solomatova et al. (2016), zhuravlev ls BM3 reference branch",
+      "label": "Solomatova et al. (2016), Zhuravlev-data LS BM3 reference branch",
       "material_identifier": "mg061fe039o",
       "model": "BM3",
       "objective": "equal-weight approximate volume residuals plus Table 2 priors",
@@ -32893,7 +32893,7 @@
         "K0_LS",
         "omega0"
       ],
-      "label": "Solomatova et al. (2016), hs BM3 reference branch",
+      "label": "Solomatova et al. (2016), Chen-data HS BM3 reference branch",
       "material_identifier": "mg065fe035o",
       "model": "BM3",
       "objective": "equal-weight approximate volume residuals plus Table 2 priors",
@@ -32969,7 +32969,7 @@
         "K0_LS",
         "omega0"
       ],
-      "label": "Solomatova et al. (2016), ls BM3 reference branch",
+      "label": "Solomatova et al. (2016), Chen-data LS BM3 reference branch",
       "material_identifier": "mg065fe035o",
       "model": "BM3",
       "objective": "equal-weight approximate volume residuals plus Table 2 priors",
@@ -37132,7 +37132,7 @@
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The source contains printing errors, which the audit documents.",
+      "source_notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates.",
       "status": "parity"
     },
     {
@@ -37230,7 +37230,7 @@
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The source contains printing errors, which the audit documents.",
+      "source_notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates.",
       "status": "parity"
     },
     {
@@ -38693,7 +38693,7 @@
       "selection": "41 heated Table 2 rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "The authors' preferred P-V-T EOS (Table 5): 300 K BM3 reference isotherm + quasi-harmonic Mie-Grüneisen-Debye thermal pressure. The paper gives three K0' errors (0.06, 0.2 and 0.3); the stored 0.2 is the pressure-propagated value.",
+      "source_notes": "The authors' preferred P-V-T EOS (Table 5): 300 K BM3 reference isotherm + quasi-harmonic Mie-Grüneisen-Debye thermal pressure. The paper gives three K0' errors (0.06, 0.2 and 0.3); the stored 0.2 is the pressure-propagated value. K0' is fitted to the room-temperature data and then held fixed, with V0, K0, theta0 and gamma0, while q is fitted to the thermal pressure.",
       "status": "parity"
     },
     {
@@ -39814,7 +39814,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "mgo_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 are fixed (the source takes most ambient V0 and K0 values from cited primary measurements), K0' is fitted to the internally consistent compression network, and K∞' is fixed at 5/3. Parameter covariance and the confidence convention for printed errors are not reported.",
+      "source_notes": "Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 are fixed by the source, K0' is fitted to the internally consistent compression network, and K∞' is fixed at 5/3. Parameter covariance and the confidence convention for printed errors are not reported.",
       "status": "not_refittable"
     },
     {
@@ -40300,7 +40300,7 @@
       "selection": "Mosenfelder et al. (2009) Table 2 rows credited to Akins et al. (2004), with enstatite starting material and phase_state=melt",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS; not an ambient liquid isotherm, a direct P-rho fit or a complete thermal Hugoniot. V0 is computed from the source's rho0. The source's Grüneisen, heat-capacity and transition-energy terms are not included.",
+      "source_notes": "The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS, not a direct P-rho fit or a complete thermal Hugoniot. K0 and K0' are isentropic (K0S, K0S'); it is typed isothermal only because the format has no isentropic type, and is not a 298.15 K liquid isotherm. V0 is from the source's rho0; its Grüneisen, heat-capacity and transition-energy terms are not included.",
       "status": "similar"
     },
     {
@@ -41312,7 +41312,7 @@
       "selection": "all rows; reference-T rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "BM3 (fit 1 in the paper) to laser-heated DAC data from this study and Guignot et al. Only the 300 K curve is stored, because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. The authors prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range, not extrapolated.",
+      "source_notes": "BM3 (fit 1 in the paper) to laser-heated DAC data from this study and Guignot et al. Only the 300 K curve is stored, because Peritheos does not implement the Al'tshuler gamma(V) function of the published thermal fit. The authors prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range, not extrapolated.",
       "status": "parity"
     },
     {
@@ -42203,7 +42203,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "molybdenum_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 parameterization. The authors fix most ambient V0 and K0 values from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.",
+      "source_notes": "Table 2 parameterization. The authors fix V0 and K0 from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.",
       "status": "not_refittable"
     },
     {
@@ -47765,7 +47765,7 @@
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
       "source_equation_status": "reproduced",
-      "source_notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd loadings in neon as the preferred Vinet record. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.",
+      "source_notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd loadings in neon as the Frost et al. (2023) Vinet record. V0 is an extrapolated fit coefficient, below the separately reported ambient a = 3.8909(1) Å (V = 58.9047 Å³). The paper does not state the fitting objective or covariance convention, so the published fit is not fully reproduced.",
       "status": "similar",
       "usage_recommendation": "not_recommended_for_quantitative_use"
     },
@@ -48691,7 +48691,7 @@
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Static 298 K synchrotron X-ray compression fit to all Table I observations for this metal, with V0 fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical (Mao ruby) and revised ruby-scale records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
+      "source_notes": "Static 298 K synchrotron X-ray compression fit to all Table I observations for this metal, with V0 fixed from the authors' 0-5 GPa determination. The classical (Mao ruby) and revised ruby-scale records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
       "status": "parity"
     },
     {
@@ -49637,7 +49637,7 @@
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Exact 300 K reference isotherm (Table 1) of the Fei thermal EOS only, not the full thermal model. The same rounded coefficients appear in Dewaele (2004) with a 298 K reference, but this record uses Fei's 300 K convention. V0 and K0 are held fixed in the reconstruction from the Dewaele cold subset.",
+      "source_notes": "Exact 300 K reference isotherm (Table 1) of the Fei thermal EOS only, not the full thermal model. The same rounded coefficients appear in Dewaele (2004) with a 298 K reference, but this record uses Fei's 300 K convention.",
       "status": "parity",
       "weighting": "Existing reconstructed errors retained; no source confidence convention inferred."
     },
@@ -51910,7 +51910,7 @@
         },
         "thermal_record_identifier": "platinum_matsui_2009_vinet_mgd_electronic"
       },
-      "source_notes": "Matsui Vinet + integrated-q Debye thermal pressure plus the volume-independent electronic pressure of Tsuchiya-Kawamura (2002) Table I, from which P_el(300 K) = 0.04 GPa is subtracted once. Linear interpolation between the 100 K electronic-pressure nodes is an implementation choice, not specified by the authors. The 2003 erratum corrects Au only.",
+      "source_notes": "Matsui Vinet + integrated-q Debye thermal pressure plus the volume-independent electronic pressure of Tsuchiya-Kawamura (2002) Table I, from which P_el(300 K) = 0.04 GPa is subtracted once. Linear interpolation between the 100 K electronic-pressure nodes is an implementation choice, not specified by the authors. The 2003 erratum to Tsuchiya-Kawamura (2002) corrects only the Au values.",
       "status": "source_reconstruction"
     },
     {
@@ -51938,7 +51938,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "platinum_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0' to its internally consistent compression network, and fixes K_infinity' = 5/3.",
+      "source_notes": "Table 2 parameterization. The source fixes V0 and K0 (for most of its nine materials, at values from cited primary measurements), fits K0' to its internally consistent compression network, and fixes K_infinity' = 5/3.",
       "status": "not_refittable"
     },
     {
@@ -52804,7 +52804,7 @@
       "reproduction_report": "docs/data/rubidium-halides-farla-2025-follow-up.json",
       "rmse_gpa": 0.1567603609069775,
       "solver_success": true,
-      "source_notes": "The authors' preferred case 1, a combined-data fit with CsCl-based pressures. V0 is a hypothetical DAC-extrapolated zero-pressure B2 volume, not stable ambient material. V0 and its error are converted from the molar V0 used in the EoSFit7 program; the printed cell-volume error disagrees with it after conversion.",
+      "source_notes": "The authors' preferred case 1, a combined-data fit with CsCl-based pressures. V0 is a hypothetical DAC-extrapolated zero-pressure B2 volume, not stable ambient material. V0 and its error are converted from the molar V0 used in the EoSFit7 program.",
       "status": "parity"
     },
     {
@@ -53994,7 +53994,7 @@
       "record_identifier": "rhenium_zha_2004_bm3_log_thermal",
       "rmse_gpa": 0.4083849112682927,
       "solver_success": true,
-      "source_notes": "Continuous Equation (6) thermal EOS of Table III, not the authors' preferred fixed-V0 isotherms of Tables IV and V; pressures rest on the cited Anderson gold calibration. Data cover only V > Va (the source Va differs from this material's structural cell); application to 20% compression and 3000 K is a large source extrapolation. Table III gives K0' = 4.5; the text's 4.53 is 4.5 plus citation 3.",
+      "source_notes": "Continuous Equation (6) thermal EOS of Table III, not the authors' preferred fixed-V0 isotherms of Tables IV and V; pressures rest on the cited Anderson gold calibration. Data cover only V > Va (the source Va differs from this material's structural cell); application to 20% compression and 3000 K is a large source extrapolation. K0' = 4.5 (Table III); the text's 4.53 is 4.5 with citation mark 3.",
       "status": "parity"
     },
     {
@@ -54842,7 +54842,7 @@
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept. The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value is stored because it fits the Table 2 rows better. Only the accepted manuscript and the publisher's abstract were seen.",
+      "source_notes": "Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept.",
       "status": "similar"
     },
     {
@@ -56264,7 +56264,7 @@
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Published V0 = 46.51(61) Å³; the stored V0 is the more precise product of the ambient lattice parameters.",
+      "source_notes": "Published V0 = 46.51(61) Å³; the stored V0 is the product of the ambient lattice parameters and keeps the published error.",
       "status": "parity"
     },
     {
@@ -57108,7 +57108,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Litasov et al. (2007), bm3 a89",
+      "label": "Litasov et al. (2007), 300 K BM3, Anderson Au scale",
       "material_identifier": "superhydrous_phase_b_lt",
       "model": "BM3",
       "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
@@ -57216,7 +57216,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Litasov et al. (2007), bm3 t03",
+      "label": "Litasov et al. (2007), 300 K BM3, Tsuchiya Au scale",
       "material_identifier": "superhydrous_phase_b_lt",
       "model": "BM3",
       "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
@@ -57335,7 +57335,7 @@
         "alpha1",
         "dK_dT"
       ],
-      "label": "Litasov et al. (2007), htbm a89",
+      "label": "Litasov et al. (2007), high-T BM3, Anderson Au scale",
       "material_identifier": "superhydrous_phase_b_lt",
       "model": "BM3",
       "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
@@ -57490,7 +57490,7 @@
         "alpha1",
         "dK_dT"
       ],
-      "label": "Litasov et al. (2007), htbm t03",
+      "label": "Litasov et al. (2007), high-T BM3, Tsuchiya Au scale",
       "material_identifier": "superhydrous_phase_b_lt",
       "model": "BM3",
       "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
@@ -57644,7 +57644,7 @@
         "gamma0",
         "q"
       ],
-      "label": "Litasov et al. (2007), mgd elastic debye a89",
+      "label": "Litasov et al. (2007), MGD fixed theta0, Anderson Au scale",
       "material_identifier": "superhydrous_phase_b_lt",
       "model": "BM3",
       "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
@@ -57788,7 +57788,7 @@
         "q",
         "theta0"
       ],
-      "label": "Litasov et al. (2007), mgd free debye a89",
+      "label": "Litasov et al. (2007), MGD free theta0, Anderson Au scale",
       "material_identifier": "superhydrous_phase_b_lt",
       "model": "BM3",
       "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
@@ -57940,7 +57940,7 @@
         "alpha0",
         "dK_dT_V"
       ],
-      "label": "Litasov et al. (2007), thermal pressure a89",
+      "label": "Litasov et al. (2007), thermal pressure, Anderson Au scale",
       "material_identifier": "superhydrous_phase_b_lt",
       "model": "BM3",
       "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
@@ -58176,7 +58176,7 @@
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Static 298 K synchrotron X-ray compression fit to all Table I observations for this metal, with V0 fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical (Mao ruby) and revised ruby-scale records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
+      "source_notes": "Static 298 K synchrotron X-ray compression fit to all Table I observations for this metal, with V0 fixed from the authors' 0-5 GPa determination. The classical (Mao ruby) and revised ruby-scale records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
       "status": "parity"
     },
     {
@@ -58974,7 +58974,7 @@
       "rmse_gpa": 0.9595744940835326,
       "selection": "All high-T rows; no 300 K observations exist.",
       "solver_success": true,
-      "source_notes": "Fit to high-temperature data only: there are no reliable room-temperature volumes, so the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Phase coexistence and kinetic inhibition occur. For thorianite, the fixed V0 keeps its measurement error.",
+      "source_notes": "Fit to high-temperature data only: there are no reliable room-temperature volumes, so the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Phase coexistence and kinetic inhibition occur.",
       "status": "parity",
       "weighting": "Original effective P/V/T weights frozen at published coefficients, including the audit's Ar 3% cold-pressure sensitivity; diagonal and residual-scaled, with shared scale covariance unresolved."
     },
@@ -59886,7 +59886,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "tungsten_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 parameterization. The authors fix most ambient V0 and K0 values from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.",
+      "source_notes": "Table 2 parameterization. The authors fix V0 and K0 from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.",
       "status": "not_refittable"
     },
     {

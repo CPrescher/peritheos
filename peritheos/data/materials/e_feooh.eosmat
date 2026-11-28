@@ -16,7 +16,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-08",
-        "source_note": "K0 from manuscript page 7 and Figure 3b, V0 from the page 7 G-versus-g extrapolation; observations from depository Table 2. Reducing the hot volumes to 300 K with the paper's goethite alpha0 = 2.3e-5 K^-1 is a numerically recovered step.",
+        "source_note": "K0 from manuscript page 7 and Figure 3b, V0 from the page 7 G-versus-g extrapolation; observations from depository Table 2. The published K0 is recovered by reducing the hot volumes to 300 K with the paper's goethite alpha0 = 2.3e-5 K^-1.",
         "audit": "../audits/e_feooh.audit.json#e_feooh_gleason_2008_bm2_1"
       },
       "model": "BM2",
@@ -35,7 +35,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "300 K BM2 reference curve from a pooled fit to 49 elevated-temperature observations, with K0' = 4 assumed and V0 from a separate G-versus-g extrapolation. It is not a temperature-dependent EOS: hot states require the documented fit-time volume reduction and must not be evaluated as 300 K observations; the paper prints no correction equation. Phase: InOOH-type with off-center hydrogen, P21mn setting in the source (P21nm here).",
+      "notes": "300 K BM2 reference curve from a pooled fit to 49 hot observations reduced to 300 K with the paper's goethite alpha0, a step the paper does not write out; K0' = 4 assumed, V0 from a separate G-versus-g extrapolation. Not a temperature-dependent EOS: hot states must not be evaluated as 300 K observations. Phase: InOOH-type with off-center hydrogen, P21mn setting in the source (P21nm here).",
       "fit_datasets": ["epsilon_feooh_gleason_2008_deposit_table2_pvt"],
       "reference": {
         "authors": ["Gleason", "Jeanloz", "Kunz"],
