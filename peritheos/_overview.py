@@ -829,6 +829,7 @@ def record_overview(
             if record.parameter_covariance is None
             else [str(name) for name in record.covariance_parameters or ()]
         ),
+        "correlation": _correlation(record),
         "ranges": _ranges(record, metadata),
         "pressure_scale": _pressure_scale(record) if include_audit else None,
         "notes": [str(note) for note in record.notes],
@@ -891,6 +892,44 @@ def material_overview(
 
 
 # --- Text rendering ---------------------------------------------------------
+
+
+def _correlation(record: EOSRecord) -> list[list[float | None]] | None:
+    """Correlation coefficients of the stored covariance, in its parameter order.
+
+    An entry is ``None`` where a variance is not positive.
+    """
+    covariance = record.parameter_covariance
+    if covariance is None:
+        return None
+    sigma = [
+        math.sqrt(row[index]) if row[index] > 0 else None
+        for index, row in enumerate(covariance)
+    ]
+    return [
+        [
+            None if a is None or b is None else value / (a * b)
+            for value, b in zip(row, sigma)
+        ]
+        for row, a in zip(covariance, sigma)
+    ]
+
+
+def _correlation_text(
+    names: list[str], correlation: list[list[float | None]] | None
+) -> list[str]:
+    """The correlation matrix as an aligned table (two decimals)."""
+    if not correlation or len(names) != len(correlation):
+        return []
+    width = max(6, *(len(name) for name in names)) + 2
+    lines = ["    Parameter correlations (from the covariance):"]
+    lines.append("      " + " " * width + "".join(name.rjust(width) for name in names))
+    for name, row in zip(names, correlation):
+        cells = "".join(
+            ("n/a" if value is None else f"{value:.2f}").rjust(width) for value in row
+        )
+        lines.append("      " + name.ljust(width) + cells)
+    return lines
 
 
 def _line(text: Any) -> str:
@@ -1131,6 +1170,7 @@ def record_summary(overview: Mapping[str, Any]) -> str:
         ]
         names = [PARAMETER_DISPLAY_NAMES.get(name, name) for name in stripped]
         lines.append(f"    Covariance reported for: {', '.join(names)}.")
+        lines.extend(_correlation_text(names, overview["correlation"]))
     lines.extend(_ranges_text(overview["ranges"]))
     if overview["pressure_scale_variant_of"]:
         lines.append(

@@ -394,6 +394,34 @@ def test_covariance_line_uses_display_names():
     assert "rt_eos." not in text
 
 
+def test_summary_shows_the_correlation_matrix_of_a_stored_covariance():
+    record = get_eos_record(
+        "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit"
+    )
+    overview = record.overview()
+    covariance = record.parameter_covariance
+    correlation = overview["correlation"]
+    assert len(correlation) == len(overview["covariance_parameters"]) == 3
+    for i, row in enumerate(correlation):
+        assert row[i] == pytest.approx(1.0)
+        for j, value in enumerate(row):
+            assert abs(value) <= 1.0 + 1e-12
+            assert value == pytest.approx(correlation[j][i])
+            assert value == pytest.approx(
+                covariance[i][j] / (covariance[i][i] * covariance[j][j]) ** 0.5
+            )
+    lines = record.summary().splitlines()
+    start = lines.index("    Parameter correlations (from the covariance):")
+    assert lines[start + 1].split() == ["V0", "K0", "alpha_KT"]
+    assert lines[start + 2].split()[:2] == ["V0", "1.00"]
+    assert lines[start + 3].split()[0] == "K0"
+    # A record without a covariance has neither the field nor the table.
+    plain = get_eos_record("mgo_speziale_2001_bm3_2")
+    if plain.parameter_covariance is None:
+        assert plain.overview()["correlation"] is None
+        assert "Parameter correlations" not in plain.summary()
+
+
 def test_a_coefficient_without_a_value_reads_not_stated():
     text = get_eos_record("diamond_correa_2008_double_debye_log_moment_5").summary()
     assert "n/a" not in text

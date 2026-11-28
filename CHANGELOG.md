@@ -207,6 +207,9 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- A record's `summary()` and `python -m peritheos show` print the parameter
+  correlation matrix of a stored covariance, and `overview()` returns it as
+  `correlation` (optional field of the version 1 overview schema).
 - Expose the 194 author-processed pyrope fit rows and twelve grossular source/
   digitized tables through `Material.get_dataset()` and matching optional-data
   builds. Preserve source tokens, unknown errors, specimen/selection labels and

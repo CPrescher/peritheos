@@ -366,6 +366,26 @@
             }
           ]
         },
+        "correlation": {
+          "description": "Correlation coefficients computed from the stored covariance, rows in covariance_parameters order; null without a covariance. An entry is null where a variance is not positive.",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              }
+            }
+          ]
+        },
         "ranges": {
           "$ref": "#/$defs/ranges"
         },
