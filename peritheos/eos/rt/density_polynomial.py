@@ -13,7 +13,8 @@ from peritheos.eos import (
 class DensityPolynomial3(EosBase):
     """P = c0 + c1*rho + c2*rho**2 + c3*rho**3, rho=rho0*V0/V.
 
-    Pressure is in GPa and density in g/cm^3. V0 is a normalization anchor,
+    Pressure is in GPa and density in g/cm^3, so c0 is in GPa, c1 in
+    GPa cm^3/g, c2 in GPa cm^6/g^2 and c3 in GPa cm^9/g^3. V0 is a normalization anchor,
     not a zero-pressure volume. Only the stable positive-compressibility branch
     is supported. c2 must be nonnegative and c3 positive. No thermal reference
     shift or implied adiabatic/isothermal conversion is applied.

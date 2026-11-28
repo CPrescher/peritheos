@@ -237,7 +237,7 @@ def test_record_overview_fields():
     units = {row["name"]: row["unit"] for row in overview["parameters"]}
     assert units["V0"] == "angstrom^3/conventional_unit_cell"
     assert units["K0"] == "GPa" and units["K0_prime"] == "1"
-    assert units["theta0"] == "K" and units["q1"] is None
+    assert units["theta0"] == "K" and units["q1"] == "1"
     ranges = overview["ranges"]
     assert ranges["validity"]["pressure_gpa"] == [0.0, 203.0]
     assert ranges["experimental"]["pressure_gpa"] == [0.0, 52.0]
@@ -471,10 +471,9 @@ the published coefficients.
       Tr     = 300 fixed                          K
       theta0 = 773 fixed                          K
       gamma0 = 1.524 fixed (published +/- 0.025)  dimensionless
-      q0     = 1.65 fixed (published +/- 0.4)
-      q1     = 11.8 +/- 0.2
+      q0     = 1.65 fixed (published +/- 0.4)     dimensionless
+      q1     = 11.8 +/- 0.2                       dimensionless
       n      = 2 fixed                            dimensionless
-    No documented unit for: q0, q1 (see the model's equation page).
   Ranges (P in GPa, T in K):
     Validity range (enforced by check_validity=True): P 0-203, T 300-3663
     Experimental data range: P 0-52

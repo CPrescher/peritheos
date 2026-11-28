@@ -56,10 +56,12 @@ is `pending` until a curator checks it against its source.
 | `volume_basis` (record) | Amount of material that every `V` and `V0` of the record represents: `{"kind": "formula_units", "formula_units": Z, "molar_mass_g_mol": M}`. Required on Hugoniot records, where `formula_units` must equal `formula_units_per_cell` and V0, `rho0` and M must agree. Elsewhere it states the same basis and is not interpreted. |
 | `volume` (record) | Explicit volume conversion: `public_to_model_scale` (multiplies the cell volume to give the model volume), `model_unit`, `reference_value` and `reference_meaning`. Only `public_to_model_scale` changes the calculation. |
 
-Every volume in a record is Å³ per conventional cell. A molar-volume thermal
+Every `V0` and `V` in a record is Å³ per conventional cell. A molar-volume thermal
 model receives `V × N_A × 10⁻²⁵ / Z` in J bar⁻¹ mol⁻¹; the conversion, the
 meaning of `n` and worked examples are in
 [Units and reference states](units.md#atom-count-and-molar-volume-basis).
+Thermal coefficients are never converted: the double-Debye `Vp` and `Ve` are
+stored in J bar⁻¹ mol⁻¹ and `a_*` in (J bar⁻¹ mol⁻¹)⁻¹.
 
 ## Material fields
 
@@ -183,7 +185,7 @@ an object with any of these keys:
 
 | Key | Meaning |
 | --- | --- |
-| `value` | The coefficient: volumes in Å³ per conventional cell, pressures and moduli in GPa, temperatures in K, other coefficients in the units given on their model page. |
+| `value` | The coefficient: `V0` in Å³ per conventional cell, pressures and moduli in GPa, temperatures in K, other coefficients in the units given on their model page. |
 | `error` | Reported error, `≥ 0`. Absent or `null`: unknown, never zero. `0` is kept as reported and does not establish exactness. |
 | `fixed` | `true` when the parameter was held fixed in the reported fit. Independent of `error`. |
 

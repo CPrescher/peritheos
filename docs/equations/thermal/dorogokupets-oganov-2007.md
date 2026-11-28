@@ -66,6 +66,11 @@ F_{\mathrm{def}}=-\frac32nRT
 \exp\left(\frac{S}{x}-\frac{H}{Tx^2}\right).
 \]
 
+The stored `anharmonic_a` ($a$) and `electronic_e` ($e$) are in
+10⁻⁶ K⁻¹. `defect_H` ($H$, an enthalpy divided by $R$) is in K, and
+`defect_S` ($S$, an entropy divided by $R$), the multiplicities $m_i$ and the
+dispersions $d$ are dimensionless.
+
 Peritheos evaluates their analytic volume derivatives and forms the nonreference
 pressure $P_*(V,T)=P_{\mathrm{qh}}-10^{-4}\partial
 (F_{\mathrm{anh}}+F_{\mathrm{el}}+F_{\mathrm{def}})/\partial V$. The combined

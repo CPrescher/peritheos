@@ -46,7 +46,8 @@ stored `alpha0` parameters have different reference points.
 
 Here $\alpha$ is the volumetric expansion coefficient; crystallographic-axis
 expansivities are separate quantities. The stored numeric parameters are
-`Tr`, `alpha0`, `dK_dT`, and `alpha1` (zero by default). Unlike the energy-based
+`Tr` (K), `alpha0` (K⁻¹), `dK_dT` (GPa/K), and `alpha1` (K⁻², zero by
+default). Unlike the energy-based
 thermal models, this construction inherits the volume unit of its reference
 isotherm.
 
@@ -61,7 +62,10 @@ K'_0(T)=K'_0(T_r)+\mathtt{dKprime\_dT}(T-T_r)
 The linear term represents the temperature-dependent BM3 formulation described
 by Fukui et al. (2003), p. 513,
 [doi:10.1007/s00269-003-0353-z](https://doi.org/10.1007/s00269-003-0353-z).
-The optional logarithmic term retains the Hirose (2008) law. They add to each
+The optional logarithmic term retains the Hirose (2008) law;
+`kprime_log_coefficient` is in K⁻¹. With `bulk_modulus_law="reciprocal_cubic"`,
+$1/K_0(T)=1/K_0(T_r)+\beta_1(T-T_r)+\beta_2(T^2-T_r^2)+\beta_3(T^3-T_r^3)$,
+with `beta1`, `beta2` and `beta3` in GPa⁻¹ K⁻¹, GPa⁻¹ K⁻² and GPa⁻¹ K⁻³. They add to each
 other and both vanish at `Tr`; reference `K0_prime` always means its value at
 `Tr`. These shifts support BM3, Baonza, Murnaghan, Morse3, NaturalStrain3,
 SunMorse3, SunMorse4 and Vinet. Other reference families reject nonzero shifts.

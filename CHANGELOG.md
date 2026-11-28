@@ -210,6 +210,10 @@ All notable changes to Peritheos are documented here. The project follows
 - A record's `summary()` and `python -m peritheos show` print the parameter
   correlation matrix of a stored covariance, and `overview()` returns it as
   `correlation` (optional field of the version 1 overview schema).
+- `summary()`, `show` and `overview()` print a unit for every coefficient in
+  the bundled catalog, including the 10^-6 K^-1 scaling some thermal models
+  apply. The unit pages no longer say that every thermal model uses molar
+  volume, and state the double-Debye `Vp`/`Ve` units as stored.
 - Expose the 194 author-processed pyrope fit rows and twelve grossular source/
   digitized tables through `Material.get_dataset()` and matching optional-data
   builds. Preserve source tokens, unknown errors, specimen/selection labels and
