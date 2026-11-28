@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 1 |
 
-Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 9001848 Yang, Prewitt and Frost (1997), including reported occupancies, Mg1.11Si1.89H2.22O6 per cell. Retain existing reference cell. Rounded special thirds are snapped within 5e-6. No Fe site occupancy is invented: the EOS sample contains about 3.7 wt% Fe, so this is a structural surrogate. Original scientific EOS evidence, observations and applicability limits are unchanged.
+The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 9001848 Yang, Prewitt and Frost (1997), including reported occupancies, Mg1.11Si1.89H2.22O6 per cell. Rounded special thirds are snapped within 5e-6. No Fe site occupancy is invented: the EOS sample contains about 3.7 wt% Fe, so this is a structural surrogate.
 
 ## Automatic selections
 

@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 2 |
 
-The diffraction model is the revised and independently confirmed 298 K Cmcm single-crystal refinement of Nakatsuka et al. (2015), archived as COD 2241059 under CC0. The four occupied asymmetric-unit sites have multiplicities 4, 4, 4, and 8, reproducing Ca4Ir4O12 and Z=4. Its 226.75 A^3 lattice volume is distinct from the 2007 fitted EOS V0=226.38 A^3 and is not substituted for it. The Martin et al. (2007) independent room-temperature BM2 fit and its full Table 1a dataset are retained as a second source-specific record.
+The diffraction model is the revised and independently confirmed 298 K Cmcm single-crystal refinement of Nakatsuka et al. (2015), archived as COD 2241059 under CC0. The four occupied asymmetric-unit sites have multiplicities 4, 4, 4, and 8, reproducing Ca4Ir4O12 and Z=4. Its 226.75 A^3 lattice volume is distinct from the 2007 fitted EOS V0=226.38 A^3 and is not substituted for it.
 
 ## Automatic selections
 

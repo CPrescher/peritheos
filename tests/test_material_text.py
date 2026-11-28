@@ -272,7 +272,7 @@ def _refusals(root, batches, allow=()):
     [
         ("Ilmenite-type MgSiO3 with Z=7 and 123.45 GPa.", "numbers"),
         ("Ilmenite-type MgSiO3 with Z=6 from Horiuchi (1983).", "numbers"),
-        ("x" * 301, "material_notes_length"),
+        ("x" * 601, "material_notes_length"),
         ("See docs/eos-labels.md.", "forbidden_text"),
         ("LitCurate import.", "forbidden_text"),
     ],
@@ -363,14 +363,7 @@ def test_notes_rewrite_then_catalog_revision_then_undo(repo):  # noqa: F811
     assert_history(repo, [])
     _all_verifies_pass(repo)
     previous = json.loads(original[f"peritheos/data/materials/{SIDERITE}.eosmat"])
-    # The original exceeds the length limit; a revert names the override.
-    _rewrite(
-        repo,
-        SIDERITE,
-        previous["notes"],
-        "2026-11-29",
-        allow=[f"{SIDERITE}/{KEY}:material_notes_length"],
-    )
+    _rewrite(repo, SIDERITE, previous["notes"], "2026-11-29")
     assert _tree(repo) == original
 
 
@@ -388,14 +381,7 @@ def test_catalog_revision_then_notes_rewrite_then_undo(repo):  # noqa: F811
     assert_history(repo, [])
     _all_verifies_pass(repo)
     previous = json.loads(original[f"peritheos/data/materials/{SIDERITE}.eosmat"])
-    # The original exceeds the length limit; a revert names the override.
-    _rewrite(
-        repo,
-        SIDERITE,
-        previous["notes"],
-        "2026-11-29",
-        allow=[f"{SIDERITE}/{KEY}:material_notes_length"],
-    )
+    _rewrite(repo, SIDERITE, previous["notes"], "2026-11-29")
     assert _tree(repo) == original
 
 

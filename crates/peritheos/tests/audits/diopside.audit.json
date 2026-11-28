@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "diopside",
+  "superseded_material_text": {
+    "notes": "Independent source parameterizations, not a combined fit. Thompson (2008) static BM3 is the room-temperature default; Zhao (1998) thermal BM3 supplies the published high-temperature parameterization. Equation and parameter parity are established within source precision and reported errors after accounting for a graph-corroborated table error. Original observations and published coefficients are preserved; source-table discrepancies are recorded as provenance. See docs/literature-reproductions/diopside.md. Conventional Z=4 cell volumes; mechanical P-V-T models do not define caloric free energies.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "diopside_thompson_2008_bm3": {
       "pressure_calibration": {

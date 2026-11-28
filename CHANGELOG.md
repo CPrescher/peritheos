@@ -129,6 +129,13 @@ All notable changes to Peritheos are documented here. The project follows
   history or curation remarks; five become empty. Originals stay in the
   sidecars. Longer material notes, whose shortening would drop caveats, are
   unchanged.
+- Raise the material-notes limit of the record text standard from 300 to 600
+  characters, since material notes carry structure and composition caveats
+  that apply to every record. In 19 longer material notes, remove only import
+  paths and dates, card-import and curation history, catalog identifiers and
+  statements that name or justify the default record; every scientific
+  caveat stays in its original wording. Originals stay in the sidecars.
+  Notes that still exceed 600 characters are unchanged.
 - Catalog revisions of 2026-11-28, each recorded in the revision ledger:
   the 300 K isotherms of epsilon-FeOOH (Gleason et al. 2008) and
   pseudowollastonite (Sagatova et al. 2021) had a validity temperature range

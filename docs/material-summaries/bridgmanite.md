@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 24 |
 | Observation datasets | 9 |
 
-Ambient lattice: Vanpeteghem et al., Geophysical Research Letters 33, L03306 (2006), doi:10.1029/2005GL024955. Ambient fractional coordinates: Yagi et al., Physics and Chemistry of Minerals 3, 97-110 (1978), doi:10.1007/BF00308114, COD 9005757. The default mantle-range EoS is from Tange et al. (2012); the Vanpeteghem BM2 fit is retained as a low-pressure alternative. Phase-line intensities were calculated from the cited structure using independent-atom X-ray form factors.
+Ambient lattice: Vanpeteghem et al., Geophysical Research Letters 33, L03306 (2006), doi:10.1029/2005GL024955. Ambient fractional coordinates: Yagi et al., Physics and Chemistry of Minerals 3, 97-110 (1978), doi:10.1007/BF00308114, COD 9005757. Phase-line intensities were calculated from the cited structure using independent-atom X-ray form factors.
 
 ## Automatic selections
 

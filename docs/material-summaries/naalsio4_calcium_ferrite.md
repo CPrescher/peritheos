@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/NaAlSiO4 CaF phase - Copy.jcpds, JCPDS/dac\_user\_jcpds/NaAlSiO4 CaF phase.jcpds. Calcium-ferrite structure: Yamada, Matsui, and Ito, Mineralogical Magazine 47, 177-181 (1983), doi:10.1180/minmag.1983.047.343.07; corrected O4 coordinate documented by Finger and Hazen, Acta Crystallographica B47, 561-580 (1991), doi:10.1107/S0108768191004214.
+Imported from a beamline jcpds collection. Calcium-ferrite structure: Yamada, Matsui, and Ito, Mineralogical Magazine 47, 177-181 (1983), doi:10.1180/minmag.1983.047.343.07; corrected O4 coordinate documented by Finger and Hazen, Acta Crystallographica B47, 561-580 (1991), doi:10.1107/S0108768191004214.
 
 ## Automatic selections
 

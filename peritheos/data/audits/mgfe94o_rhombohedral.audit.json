@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "mgfe94o_rhombohedral",
+  "superseded_material_text": {
+    "notes": "This material is separate from mgfe94o_b1 because the article fits the rhombohedral observations with an independent extrapolated V0, K0, and K0-prime. The 300 K EOS is not a spin-resolved parameterization: SMS points lie above the diffraction range and do not supply simultaneous volume observations for high-spin, low-spin, or mixed-spin branches.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1": {
       "pressure_calibration": {

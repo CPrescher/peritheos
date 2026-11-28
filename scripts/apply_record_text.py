@@ -62,7 +62,7 @@ of these guards fails:
     the material has no EOS records, so a file loader could not find the
     sidecar that would hold the original;
 ``material_notes_length``
-    material notes over 300 characters;
+    material notes over 600 characters;
 ``label_length``
     a label over 80 characters;
 ``label_unique``
@@ -146,7 +146,7 @@ VALIDITY_MAX_NOTES = 2
 THERMAL_NOTES_MAX_CHARACTERS = 250
 LABEL_MAX_CHARACTERS = 80
 #: Material notes limit of docs/record-text-standard.md (section 2).
-MATERIAL_NOTES_MAX_CHARACTERS = 300
+MATERIAL_NOTES_MAX_CHARACTERS = 600
 #: Reserved input key, in place of a record identifier, for material notes.
 MATERIAL_KEY = "(material)"
 FORBIDDEN_TEXT = ("docs/", ".json", "scripts/", "LitCurate", "Audit 20")

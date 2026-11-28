@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 14 |
 | Observation datasets | 9 |
 
-Pure MgSiO3 Cmcm topology reacquired from CC0 COD 9009217 (AMCSD 0015437), Murakami et al., Science 304, 855-858 (2004), doi:10.1126/science.1095932. The archival record identifies ab initio fractional coordinates using the observed 121 GPa, 300 K cell (a=2.456, b=8.042, c=6.093 A); these are not experimentally refined coordinates. The source cell is isotropically expanded to 162.2 A^3 with axes rounded to 10 decimal places for compatibility with the existing diffraction reference. This is an extrapolated display/reference cell, not a measured ambient structure. All existing lattice and site numbers are reproduced exactly from the COD input. EOS records, uncertainties, observations and scientific recommendations are unchanged. Calculated diffraction intensities from this topology are model intensities.
+Pure MgSiO3 Cmcm topology from CC0 COD 9009217 (AMCSD 0015437), Murakami et al., Science 304, 855-858 (2004), doi:10.1126/science.1095932. The archival record identifies ab initio fractional coordinates using the observed 121 GPa, 300 K cell (a=2.456, b=8.042, c=6.093 A); these are not experimentally refined coordinates. The source cell is isotropically expanded to 162.2 A^3 with axes rounded to 10 decimal places. This is an extrapolated display/reference cell, not a measured ambient structure. Calculated diffraction intensities from this topology are model intensities.
 
 ## Automatic selections
 

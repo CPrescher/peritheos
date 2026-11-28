@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 2 |
 
-Average hydrogen-disordered Pn-3m single-site model from Gajda et al., IUCrJ 12, 288-294 (2025), doi:10.1107/S2052252525002581: O at 2a and half-occupied H at 8e. The paper cautions that the local disorder is more complex than this average model; it is used here for powder X-ray lines. The lattice is set to the default 300 K PVT-fit V0.
+Average hydrogen-disordered Pn-3m single-site model from Gajda et al., IUCrJ 12, 288-294 (2025), doi:10.1107/S2052252525002581: O at 2a and half-occupied H at 8e. The paper cautions that the local disorder is more complex than this average model; it is used here for powder X-ray lines. The lattice is set to the 300 K PVT-fit V0.
 
 ## Automatic selections
 

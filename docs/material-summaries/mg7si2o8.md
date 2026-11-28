@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 9006822 Kagi et al. (2000) supplies both heavy atoms and H sites, with the heavy-atom model inherited from Horiuchi et al. Reference cell remains the existing Horiuchi cell (7.8603,7.8603,9.573 A), rather than the slightly smaller CIF cell. Rounded special thirds are snapped within 5e-6 before symmetry expansion. No measured peak strengths are represented. Original scientific EOS evidence, observations and applicability limits are unchanged.
+The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 9006822 Kagi et al. (2000) supplies both heavy atoms and H sites, with the heavy-atom model inherited from Horiuchi et al. Reference cell remains the existing Horiuchi cell (7.8603,7.8603,9.573 A), rather than the slightly smaller CIF cell. Rounded special thirds are snapped within 5e-6 before symmetry expansion. No measured peak strengths are represented.
 
 ## Automatic selections
 

@@ -24,7 +24,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 9010029 Angel et al. (1989), including reported Mg/Si occupational disorder. Calculate in the CIF native origin using its explicit symmetry operations. Existing EOSMAT sites use an equivalent x+1/2 origin. Reference cell retained. Original scientific EOS evidence, observations and applicability limits are unchanged.
+The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 9010029 Angel et al. (1989), including reported Mg/Si occupational disorder. Calculate in the CIF native origin using its explicit symmetry operations. Existing EOSMAT sites use an equivalent x+1/2 origin.
 
 ## Automatic selections
 

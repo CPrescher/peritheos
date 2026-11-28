@@ -33,7 +33,7 @@ specific sidecar key (table in section 2) should also be written there.
 | `notes` (record) | What this EOS is and what a user must know that no field says | ≤ 400 characters, ≤ 3 sentences (aim ≤ 250) |
 | `validity.notes` | Record-specific facts about the stated range | ≤ 2 entries, ≤ 160 characters each |
 | `thermal.notes` | Conventions of the thermal model not expressed by `thermal` fields | ≤ 250 characters |
-| material `notes` | What the material/phase is; material-wide caveats | ≤ 300 characters |
+| material `notes` | What the material/phase is; material-wide caveats | ≤ 600 characters |
 | `check.source_note` | What was checked against the source for this record (copy of the sidecar `record_note`, else of the verbatim `finding`) | ≤ 300 characters |
 | `check.warning_reason` | Why the record's warning applies (copy of the sidecar `warning_reason`) | one clause, ≤ 140 characters |
 
@@ -93,7 +93,9 @@ to `notes`).
 **`thermal.notes`.** Which variant of the paper's thermal model, and
 integration or reference conventions. Never thermal parameters or their errors.
 
-**Material `notes`.** Never: naming the default (that is `default_records`),
+**Material `notes`.** At most 600 characters, more than a record's notes,
+because they carry the structure and composition caveats that apply to every
+record of the material. Never: naming the default (that is `default_records`),
 listing the records, or a record-level finding.
 
 **`check.source_note`.** Written per record in the sidecar field
