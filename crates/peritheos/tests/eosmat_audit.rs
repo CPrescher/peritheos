@@ -927,7 +927,9 @@ fn why_says_what_differs_in_plain_words() {
              differ by more than the agreement limit."
         )
     );
-    // Too long with values: percentages; different criteria in one clause.
+    // Too long with values: percentages. One clause per criterion, the one
+    // with most coefficients first; a coefficient already named is not
+    // repeated.
     let mixed = disagrees(json!([
         row(
             "V0",
@@ -951,8 +953,31 @@ fn why_says_what_differs_in_plain_words() {
     assert_eq!(
         why(&mixed).as_deref(),
         Some(
-            "Refit vs published: V0 (+1.1%), K0 (+25.0%) and K0' (0 vs 4) differ by \
-             more than twice the combined error or the agreement limit."
+            "Refit vs published: V0 (+1.1%) and K0 (+25.0%) differ by more than twice \
+             the combined error; K0' (0 vs 4) differs by more than the agreement limit, \
+             as does K0."
+        )
+    );
+    // A coefficient failing two criteria is named once; "also" for the second.
+    let also = disagrees(json!([
+        row(
+            "V0",
+            json!(74.7),
+            76.87,
+            &json!({"similar": true, "within_combined_2sigma": false})
+        ),
+        row(
+            "K0",
+            json!(160),
+            135.68,
+            &json!({"similar": false, "within_combined_2sigma": false})
+        ),
+    ]));
+    assert_eq!(
+        why(&also).as_deref(),
+        Some(
+            "Refit vs published: V0 (+2.9%) and K0 (-15.2%) differ by more than twice \
+             the combined error; K0 also by more than the agreement limit."
         )
     );
     // Four or more failing coefficients are all named.
@@ -969,7 +994,8 @@ fn why_says_what_differs_in_plain_words() {
              (+6.7%) differ by more than the agreement limit."
         )
     );
-    // The largest differences keep their percentage, the rest are named.
+    // More than four failing coefficients are counted; the largest keep their
+    // percentage.
     let largest: Vec<Value> = "abcdefg"
         .chars()
         .zip(0_u8..)
@@ -985,12 +1011,12 @@ fn why_says_what_differs_in_plain_words() {
     assert_eq!(
         why(&disagrees(json!(largest))).as_deref(),
         Some(
-            "Refit vs published: theta_g0 (+70.0%), theta_f0 (+60.0%), theta_e0 \
-             (+50.0%), theta_d0, theta_c0, theta_b0 and theta_a0 differ by more than \
-             the agreement limit."
+            "Refit vs published: 7 coefficients differ by more than the agreement \
+             limit; largest: theta_g0 (+70.0%), theta_f0 (+60.0%) and theta_e0 \
+             (+50.0%)."
         )
     );
-    // Even the names are too long: a count and the largest.
+    // A count and the largest, which keep their values while the line fits.
     let many: Vec<Value> = (0..12)
         .map(|index| {
             row(
@@ -1004,8 +1030,9 @@ fn why_says_what_differs_in_plain_words() {
     assert_eq!(
         why(&disagrees(json!(many))).as_deref(),
         Some(
-            "12 coefficients differ by more than the agreement limit; largest: \
-             coefficient_11, coefficient_10 and coefficient_9."
+            "Refit vs published: 12 coefficients differ by more than the agreement \
+             limit; largest: coefficient_11 (12.5 vs 1.25), coefficient_10 and \
+             coefficient_9."
         )
     );
     // Nothing failed: the coefficients without a combined-error test, and
@@ -1075,8 +1102,85 @@ fn why_says_what_differs_in_plain_words() {
     assert_eq!(
         why(&several).as_deref(),
         Some(
-            "No refit error for V0, no published or refit error for K0 and K0', so \
-             they could not be tested against twice the combined error."
+            "V0 has no refit error and K0 and K0' no published or refit error, so none \
+             could be tested against twice the combined error."
+        )
+    );
+    // With "All coefficients are within the agreement limit; " too long.
+    let two = similar(json!([
+        row("K0", json!(160), 161.0, &untested),
+        with_errors(
+            row("K0_prime", json!(4), 4.1, &untested),
+            json!(0.1),
+            json!(null)
+        ),
+        row(
+            "V0",
+            json!(74.7),
+            74.71,
+            &json!({"similar": true, "within_combined_2sigma": true})
+        ),
+    ]));
+    assert_eq!(
+        why(&two).as_deref(),
+        Some(
+            "K0 has no published or refit error and K0' no refit error, so neither \
+             could be tested against twice the combined error."
+        )
+    );
+    // A coefficient the record holds fixed is not a candidate for the test.
+    let mut fixed = similar(json!([
+        with_errors(
+            row("V0", json!(74.7), 74.71, &untested),
+            json!(0.1),
+            json!(null)
+        ),
+        with_errors(
+            row("K0", json!(160), 161.0, &untested),
+            json!(2),
+            json!(null)
+        ),
+        row("K0_prime", json!(4), 4.0, &untested),
+    ]));
+    fixed["eos_records"][0]["parameters"] = json!({
+        "V0": {"value": 74.7, "error": 0.1},
+        "K0": {"value": 160, "error": 2},
+        "K0_prime": {"value": 4, "fixed": true}
+    });
+    assert_eq!(
+        why(&fixed).as_deref(),
+        Some(
+            "All coefficients are within the agreement limit; the refit gives no \
+             error for V0 and K0, so they could not be tested against twice the \
+             combined error."
+        )
+    );
+    // Names and numbers print as the record summary prints them: dK/dT, and
+    // e-notation below 1e-4.
+    let spelling = with_thermal(
+        similar(json!([
+            row(
+                "alpha0",
+                json!(0.000_115_8),
+                9.2237e-5,
+                &json!({"similar": true, "within_combined_2sigma": false})
+            ),
+            row(
+                "dK_dT",
+                json!(-0.008),
+                -0.0123,
+                &json!({"similar": true, "within_combined_2sigma": false})
+            ),
+        ])),
+        "AlphaKT",
+        &json!({"Tr": 300.0, "alpha0": 0.000_115_8, "dK_dT": -0.008}),
+    );
+    assert_eq!(
+        derived_why(&spelling).as_deref(),
+        Some(
+            "Refit vs published: alpha0 9.224e-05 vs 0.0001158 K^-1 (-20.3%) and dK/dT \
+             -0.0123 vs -0.008 GPa/K (-53.8%) differ by more than twice the combined \
+             error."
         )
     );
     // No stored errors at all, and not every row passed the agreement limit.

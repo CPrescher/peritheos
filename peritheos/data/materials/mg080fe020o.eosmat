@@ -115,7 +115,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "Refit vs published: V0 (+2.9%) differs by more than twice the combined error; K0 (-15.2%) differs by more than twice the combined error and the agreement limit.",
+        "why": "Refit vs published: V0 (+2.9%) and K0 (-15.2%) differ by more than twice the combined error; K0 also by more than the agreement limit.",
         "warning": "Consult the source audit before quantitative use.",
         "warning_reason": "The independent check does not reach coefficient parity; Fei's row selection and weights are not published.",
         "source_check": "verified",

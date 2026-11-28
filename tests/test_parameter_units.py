@@ -145,7 +145,8 @@ def test_linear_hugoniot_slope_is_dimensionless():
 
 
 def test_rust_unit_table_is_generated_from_this_table():
-    # The Rust reader prints the same units in check.why from a generated copy.
+    # The Rust reader prints the same units and coefficient names in check.why
+    # from a generated copy.
     from scripts.generate_rust_parameter_units import TARGET, render
 
     assert TARGET.read_text(encoding="utf-8") == render()

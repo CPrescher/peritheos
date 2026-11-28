@@ -1614,7 +1614,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "Refit vs published: V0 (-1.4%), K0 (+26.6%) and K0' (-11.3%) differ by more than the agreement limit or the published error.",
+        "why": "Refit vs published: V0 (-1.4%), K0 (+26.6%) and K0' (-11.3%) differ by more than the published error; K0 and K0' also by more than the agreement limit.",
         "warning": "Never chosen automatically; select it explicitly.",
         "warning_reason": "The published fit does not reproduce the authors' supplied observations under the standard equation mapping; cause unresolved.",
         "source_check": "unresolved",

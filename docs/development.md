@@ -196,9 +196,10 @@ python scripts/apply_catalog_revision.py --verify
 python scripts/review_eos_structure_rights.py --check
 ```
 
-The Rust reader prints the same coefficient units in `check.why` from
-`crates/peritheos/src/eosmat/parameter_units.rs`, generated from the unit
-tables in `peritheos/_overview.py`. After changing those tables run
+The Rust reader prints the same coefficient units and names in `check.why`
+from `crates/peritheos/src/eosmat/parameter_units.rs`, generated from the unit
+tables and `PARAMETER_DISPLAY_NAMES` in `peritheos/_overview.py`. After changing
+those tables run
 `python scripts/generate_rust_parameter_units.py` (`--check` is read-only; the
 test suite compares the two). When a library change alters the wording of the
 generated `check.why`, refresh every bundled line with
