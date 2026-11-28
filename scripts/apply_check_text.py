@@ -100,10 +100,22 @@ others are applied and the exit status is 1. Every file and the receipt
 binding are computed and verified before anything is written, so an error
 leaves the tree untouched.
 
+``--refresh-why`` takes no input file. After the library changes how it
+words the generated ``check.why`` line (:func:`peritheos._eosmat_audit.
+reproduction_why`), it rederives the ``check`` block of every bundled record
+from its merged, unchanged evidence and writes the record files. It refuses,
+writing nothing, when any other ``check`` field or anything outside ``check``
+would change; sidecars are never written. The receipt rebinds each refreshed
+split material's ``after_record_sha256`` and confirms that its pre-split file
+still recovers exactly (``check`` is not part of it). Catalog revisions and
+the rights policy pin the pre-split reference, which does not change.
+
 Usage::
 
     python scripts/apply_check_text.py BATCH.json ... --check   # dry run
     python scripts/apply_check_text.py BATCH.json ...           # apply
+    python scripts/apply_check_text.py --refresh-why --check    # dry run
+    python scripts/apply_check_text.py --refresh-why
     python scripts/apply_check_text.py --verify
 
 Every changed record's resulting ``check.warning`` is printed, in the dry run
@@ -158,6 +170,7 @@ from scripts.split_eosmat_audits import (  # noqa: E402
     RECOMMENDATION_FIELDS,
     check_text,
     check_text_receipt,
+    generated_check_receipt,
     pre_split_bytes,
     receipt_text,
     set_check_text,
@@ -790,6 +803,92 @@ def apply_plan(plan: Plan, root: Path = ROOT) -> dict[str, dict[str, Any]]:
     return warnings
 
 
+#: The only ``check`` field ``--refresh-why`` may change.
+REFRESH_FIELDS = ("why",)
+
+
+def _without_why(document: Mapping[str, Any]) -> dict:
+    result = copy.deepcopy(dict(document))
+    for record in result["eos_records"]:
+        if isinstance(record.get("check"), dict):
+            record["check"].pop("why", None)
+    return result
+
+
+def refresh_generated_checks(
+    root: Path = ROOT,
+) -> tuple[dict[str, tuple[bytes, bytes]], dict | None, dict[str, dict]]:
+    """Rederive every bundled ``check`` block; only ``why`` may change.
+
+    Returns the new record and (unchanged) sidecar bytes of each changed
+    material, the rebound receipt (``None``: no split material changed) and
+    each changed record's ``(old, new)`` ``why`` by material. Nothing is
+    written. Raises ``ValueError`` when another ``check`` field or anything
+    outside ``check`` would change, or a pre-split file would not recover.
+    """
+    files: dict[str, tuple[bytes, bytes]] = {}
+    changes: dict[str, dict] = {}
+    failures: list[str] = []
+    for path in sorted((root / "peritheos/data/materials").glob("*.eosmat")):
+        material = path.stem
+        document, sidecar = _read(root, material)
+        before = copy.deepcopy(document)
+        merged = merge_audit(document, sidecar)
+        complete = {r["identifier"]: r for r in merged["eos_records"]}
+        changed: dict[str, tuple[Any, Any]] = {}
+        for record in document["eos_records"]:
+            old = record.get("check")
+            if not isinstance(old, dict):
+                continue
+            identifier = record["identifier"]
+            derived = check_block(
+                {k: v for k, v in complete[identifier].items() if k != "check"},
+                merged,
+                audit=old.get("audit"),
+            )
+            if derived == old:
+                continue
+            keys = sorted(
+                k for k in set(old) | set(derived) if old.get(k) != derived.get(k)
+            )
+            beyond = [k for k in keys if k not in REFRESH_FIELDS]
+            if beyond:
+                failures.append(f"{material}/{identifier}: check {beyond} would change")
+                continue
+            changed[identifier] = (old.get("why"), derived.get("why"))
+            record["check"] = derived
+        if not changed:
+            continue
+        record_text = format_eosmat(document)
+        if _without_why(json.loads(record_text)) != _without_why(before):
+            failures.append(f"{material}: the record file would change beyond why")
+            continue
+        validate_eosmat_document(json.loads(record_text))
+        validate_eosmat_document(merge_audit(json.loads(record_text), sidecar))
+        audit_path = _paths(root, material)[1]
+        files[material] = (record_text.encode("utf-8"), audit_path.read_bytes())
+        changes[material] = changed
+    if failures:
+        raise ValueError("; ".join(failures))
+    receipt = _receipt(root)
+    bound = {m: f for m, f in files.items() if m in receipt.get("materials", {})}
+    # Raises before anything is written if a pre-split file would be lost.
+    new_receipt = generated_check_receipt(receipt, bound) if bound else None
+    return files, new_receipt, changes
+
+
+def apply_refresh(root: Path = ROOT) -> dict[str, dict]:
+    """Write :func:`refresh_generated_checks`; everything is verified first."""
+    files, new_receipt, changes = refresh_generated_checks(root)
+    for material, (record_bytes, _) in files.items():
+        _paths(root, material)[0].write_bytes(record_bytes)
+    if new_receipt is not None:
+        (root / RECEIPT.relative_to(ROOT)).write_text(
+            receipt_text(new_receipt), encoding="utf-8"
+        )
+    return changes
+
+
 def verify(root: Path = ROOT) -> tuple[int, list[str]]:
     """Every ``check`` equals its derivation; curated texts recover losslessly.
 
@@ -873,8 +972,33 @@ def main(argv: list[str] | None = None) -> int:
         help=f"override one guard for one record ({', '.join(GUARDS)})",
     )
     parser.add_argument("--verify", action="store_true")
+    parser.add_argument(
+        "--refresh-why",
+        action="store_true",
+        help="rederive every bundled check block; only check.why may change",
+    )
     parser.add_argument("--report", type=Path, help="write a JSON report")
     arguments = parser.parse_args(argv)
+    if arguments.refresh_why:
+        if arguments.batches or arguments.allow or arguments.verify:
+            parser.error("--refresh-why takes no input files, --allow or --verify")
+        try:
+            changes = (
+                refresh_generated_checks()[2] if arguments.check else apply_refresh()
+            )
+        except ValueError as error:
+            print(f"FAILED {error}; nothing was written.")
+            return 1
+        tag = "WOULD-REFRESH" if arguments.check else "REFRESHED"
+        for material, records in changes.items():
+            for identifier, (old, new) in records.items():
+                print(f"{tag} {material}/{identifier}")
+                print(f"  - {json.dumps(old, ensure_ascii=False)}")
+                print(f"  + {json.dumps(new, ensure_ascii=False)}")
+        count = sum(len(records) for records in changes.values())
+        verb = "Would refresh" if arguments.check else "Refreshed"
+        print(f"{verb} check.why of {count} records in {len(changes)} materials.")
+        return 0
     if arguments.verify:
         curated, failures = verify()
         for failure in failures:

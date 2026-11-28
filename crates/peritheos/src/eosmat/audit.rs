@@ -21,6 +21,9 @@ use std::path::Path;
 
 use serde_json::{Map, Value};
 
+use super::parameter_units::{
+    COMMON_PARAMETER_UNITS, MODEL_PARAMETER_UNITS, PARAMETER_DISPLAY_NAMES,
+};
 use super::{invalid_document, EosmatError};
 
 /// Format discriminator of an EOSMAT v5 audit sidecar.
@@ -325,12 +328,86 @@ pub(super) fn compared_scope(record: &Value) -> Compared {
     }
 }
 
-fn why_unit(parameter: &str) -> &'static str {
-    match parameter {
-        "K0" => " GPa",
-        "K0_double_prime" => " GPa^-1",
-        "theta0" => " K",
-        _ => "",
+/// Units `why` prints, as the record text standard writes them. EOSMAT stores
+/// every volume per conventional cell in Å³ and every pressure in gigapascal; other
+/// coefficient units come from [`parameter_unit`].
+const WHY_VOLUME_UNIT: &str = "Å³";
+const WHY_PRESSURE_UNIT: &str = "GPa";
+/// The criterion flags of an assessment row and what a `false` one means: the
+/// refit and published values differ by more than this.
+const WHY_CRITERIA: [(&str, &str); 3] = [
+    ("within_combined_2sigma", "twice the combined error"),
+    ("similar", "the agreement limit"),
+    ("within_reported_error", "the published error"),
+];
+/// From this relative difference (in percent) on, `why` gives the refit and
+/// published values instead of a percentage.
+const WHY_LARGE_PERCENT: f64 = 99.95;
+/// The largest coefficients named when a line counts the failing ones.
+const WHY_LARGEST: usize = 3;
+/// With more failing coefficients than this, the line counts them.
+const WHY_NAMED_AT_MOST: usize = 4;
+/// A published value printed with more significant digits than this (a
+/// computed conversion) is not repeated in full; the percentage is given.
+const WHY_PRINTED_DIGITS: usize = 6;
+
+/// Documented unit of one stored coefficient, or `None` when not stated.
+///
+/// This mirrors `parameter_unit` in `peritheos/_overview.py`; the tables are
+/// generated from it (see [`parameter_units`](super::parameter_units)).
+fn parameter_unit(
+    model: &str,
+    name: &str,
+    volume_unit: &str,
+    pressure_unit: &str,
+) -> Option<String> {
+    match name {
+        "V0" => return Some(volume_unit.to_owned()),
+        "K0" | "P0" => return Some(pressure_unit.to_owned()),
+        "K0_double_prime" => return Some(format!("{pressure_unit}^-1")),
+        _ => {}
+    }
+    MODEL_PARAMETER_UNITS
+        .iter()
+        .find(|(owner, parameter, _)| *owner == model && *parameter == name)
+        .map(|(_, _, unit)| *unit)
+        .or_else(|| {
+            COMMON_PARAMETER_UNITS
+                .iter()
+                .find(|(parameter, _)| *parameter == name)
+                .map(|(_, unit)| *unit)
+        })
+        .map(str::to_owned)
+}
+
+/// The coefficient's unit with a leading space; empty when dimensionless.
+///
+/// The owning model is the reference (`rt_eos.`) model unless the record's
+/// thermal parameters hold the name. Native records name the models in
+/// `model` and `thermal.model`, v3 exports in `eos.type` and `thermal.type`.
+fn why_unit(record: &Value, parameter: &str) -> String {
+    let mut model = match record.get("eos") {
+        Some(Value::Object(eos)) => eos.get("type"),
+        _ => record.get("model"),
+    };
+    let name = parameter.strip_prefix("rt_eos.").unwrap_or(parameter);
+    if !parameter.starts_with("rt_eos.") {
+        if let Some(Value::Object(thermal)) = record.get("thermal") {
+            if let Some(Value::Object(parameters)) = thermal.get("parameters") {
+                if parameters.contains_key(name) {
+                    model = if thermal.contains_key("type") {
+                        thermal.get("type")
+                    } else {
+                        thermal.get("model")
+                    };
+                }
+            }
+        }
+    }
+    let model = model.and_then(Value::as_str).unwrap_or("");
+    match parameter_unit(model, name, WHY_VOLUME_UNIT, WHY_PRESSURE_UNIT) {
+        Some(unit) if unit != "1" => format!(" {unit}"),
+        _ => String::new(),
     }
 }
 
@@ -342,15 +419,14 @@ fn parameter_text(row: &Map<String, Value>) -> String {
     }
 }
 
+/// The coefficient as the record summary shows it (`K0'`, `dK/dT`).
 fn parameter_name(name: &str) -> String {
     let name = name.strip_prefix("rt_eos.").unwrap_or(name);
-    if let Some(base) = name.strip_suffix("_double_prime") {
-        format!("{base}''")
-    } else if let Some(base) = name.strip_suffix("_prime") {
-        format!("{base}'")
-    } else {
-        name.to_owned()
-    }
+    PARAMETER_DISPLAY_NAMES
+        .iter()
+        .find(|(stored, _)| *stored == name)
+        .map_or(name, |(_, shown)| *shown)
+        .to_owned()
 }
 
 fn number(value: Option<&Value>) -> Option<f64> {
@@ -403,15 +479,50 @@ fn printed(value: &Value) -> String {
     }
 }
 
+/// A number as the record summary prints it: Python's `format(value, ".6g")`
+/// (`format_number` in `peritheos/_overview.py`).
+fn summary_number(value: f64) -> String {
+    const SIGNIFICANT: i32 = 6;
+    if value == 0.0 {
+        return if value.is_sign_negative() { "-0" } else { "0" }.to_owned();
+    }
+    let scientific = format!("{value:.prec$e}", prec = SIGNIFICANT as usize - 1);
+    let (mantissa, exponent) = scientific.split_once('e').unwrap_or((&scientific, "0"));
+    let exponent: i32 = exponent.parse().unwrap_or_default();
+    if !(-4..SIGNIFICANT).contains(&exponent) {
+        let mantissa = mantissa.trim_end_matches('0').trim_end_matches('.');
+        return python_exponent(&format!("{mantissa}e{exponent}"));
+    }
+    let decimals = usize::try_from(SIGNIFICANT - 1 - exponent).unwrap_or_default();
+    let text = format!("{value:.decimals$}");
+    if text.contains('.') {
+        text.trim_end_matches('0').trim_end_matches('.').to_owned()
+    } else {
+        text
+    }
+}
+
+/// Significant digits of a printed number's mantissa.
+fn significant_digits(printed: &str) -> usize {
+    let lower = printed.to_lowercase();
+    let mantissa = lower.split_once('e').map_or(lower.as_str(), |(m, _)| m);
+    mantissa
+        .chars()
+        .filter(|c| *c != '-' && *c != '.')
+        .skip_while(|c| *c == '0')
+        .count()
+}
+
 /// Round to at most one digit more than the printed published value.
+///
+/// A published value in e-notation gives the refit one more significant
+/// digit. Otherwise the refit gets one more decimal, without trailing zeros,
+/// and is written in e-notation where the record summary would write it (an
+/// exponent below -4 or from 6 on; `9.224e-05`, not `0.00009224`).
 fn rounded_refit(refit: f64, published: &str) -> String {
     let lower = published.to_lowercase();
-    if let Some((mantissa, _)) = lower.split_once('e') {
-        let digits = mantissa
-            .chars()
-            .filter(|c| *c != '-' && *c != '.')
-            .skip_while(|c| *c == '0')
-            .count();
+    if lower.contains('e') {
+        let digits = significant_digits(&lower);
         return python_exponent(&format!("{refit:.digits$e}"));
     }
     let decimals = lower
@@ -423,33 +534,57 @@ fn rounded_refit(refit: f64, published: &str) -> String {
     } else {
         &text
     };
-    if text == "-0" { "0" } else { text }.to_owned()
+    if text == "0" || text == "-0" {
+        return "0".to_owned();
+    }
+    // The decimal exponent of the rounded text, read from its digits.
+    let unsigned = text.trim_start_matches('-');
+    let (whole, fraction) = unsigned.split_once('.').unwrap_or((unsigned, ""));
+    let whole = whole.trim_start_matches('0');
+    #[allow(clippy::cast_possible_truncation, clippy::cast_possible_wrap)]
+    let power = if whole.is_empty() {
+        -((fraction.len() - fraction.trim_start_matches('0').len()) as i32) - 1
+    } else {
+        whole.len() as i32 - 1
+    };
+    if (-4..6).contains(&power) {
+        return text.to_owned();
+    }
+    let digits = unsigned
+        .chars()
+        .filter(char::is_ascii_digit)
+        .collect::<String>()
+        .trim_start_matches('0')
+        .trim_end_matches('0')
+        .len();
+    let value: f64 = text.parse().unwrap_or(refit);
+    python_exponent(&format!("{value:.prec$e}", prec = digits.saturating_sub(1)))
 }
 
-/// `a`, `a and b`, `a, b and c`.
-fn join(items: &[String]) -> String {
+/// `a`, `a and b`, `a, b and c` (or another final word).
+fn join_with(items: &[String], word: &str) -> String {
     match items {
         [] => String::new(),
         [only] => only.clone(),
-        [rest @ .., last] => format!("{} and {last}", rest.join(", ")),
+        [rest @ .., last] => format!("{} {word} {last}", rest.join(", ")),
     }
 }
 
-/// Phrases for the stored criterion flags that are `false` in one row.
+fn join(items: &[String]) -> String {
+    join_with(items, "and")
+}
+
+/// What the refit exceeds, for each stored criterion flag that is `false`.
 ///
 /// `similar` is the audit's own agreement screen (the generic limits or the
-/// criterion recorded in the assessment basis), so it is reported as "beyond
-/// the agreement limit" without naming a limit.
+/// criterion recorded in the assessment basis), so it is reported as "the
+/// agreement limit" without naming a limit.
 fn failed_criteria(row: &Map<String, Value>) -> Vec<String> {
-    [
-        ("within_combined_2sigma", "outside the combined error"),
-        ("similar", "beyond the agreement limit"),
-        ("within_reported_error", "outside the published error"),
-    ]
-    .into_iter()
-    .filter(|(flag, _)| row.get(*flag) == Some(&Value::Bool(false)))
-    .map(|(_, phrase)| phrase.to_owned())
-    .collect()
+    WHY_CRITERIA
+        .into_iter()
+        .filter(|(flag, _)| row.get(*flag) == Some(&Value::Bool(false)))
+        .map(|(_, phrase)| phrase.to_owned())
+        .collect()
 }
 
 fn relative_change(row: &Map<String, Value>) -> Option<f64> {
@@ -458,101 +593,428 @@ fn relative_change(row: &Map<String, Value>) -> Option<f64> {
     (base != 0.0).then(|| (refit - base) / base.abs())
 }
 
-fn why_row(row: &Map<String, Value>, numbers: bool) -> String {
-    let parameter = parameter_text(row);
-    let name = parameter_name(&parameter);
-    let change = relative_change(row).map(|relative| format!("{:+.1}%", relative * 100.0));
-    if !numbers {
-        return change.map_or_else(|| name.clone(), |change| format!("{name} ({change})"));
-    }
-    let (Some(refit), Some(published)) = (
-        number(row.get("refit")),
-        row.get("published").filter(|value| value.is_number()),
-    ) else {
-        return name;
-    };
-    let unit = why_unit(parameter.strip_prefix("rt_eos.").unwrap_or(&parameter));
-    let published = printed(published);
-    let text = format!(
-        "{name}: refit {} vs published {published}{unit}",
-        rounded_refit(refit, &published)
-    );
-    match change {
-        Some(change) => format!("{text} ({change})"),
-        None => text,
+/// The relative difference, unless missing or too large to read as one.
+fn percent(row: &Map<String, Value>) -> Option<String> {
+    relative_change(row)
+        .filter(|relative| relative.abs() * 100.0 < WHY_LARGE_PERCENT)
+        .map(|relative| format!("{:+.1}%", relative * 100.0))
+}
+
+/// Rounded refit and published value as the summary prints it, when both
+/// are numbers.
+fn values(row: &Map<String, Value>) -> Option<(String, String)> {
+    let refit = number(row.get("refit"))?;
+    let shown = summary_number(number(row.get("published"))?);
+    Some((rounded_refit(refit, &shown), shown))
+}
+
+/// One failing coefficient in the forms `why` can print it.
+///
+/// `full` gives both values, the unit and the percentage; `short` the
+/// percentage alone, or both values when the difference is 100% or more;
+/// `name` the coefficient alone.
+struct Item {
+    name: String,
+    failed: Vec<String>,
+    size: f64,
+    full: String,
+    short: String,
+}
+
+impl Item {
+    fn new(record: &Value, row: &Map<String, Value>) -> Self {
+        let parameter = parameter_text(row);
+        let name = parameter_name(&parameter);
+        let failed = failed_criteria(row);
+        let size = relative_change(row).map_or(-1.0, f64::abs);
+        let percent = percent(row);
+        let Some((refit, published)) = values(row) else {
+            return Self {
+                full: name.clone(),
+                short: name.clone(),
+                name,
+                failed,
+                size,
+            };
+        };
+        let short = match &percent {
+            Some(percent) => format!("{name} ({percent})"),
+            None => format!("{name} ({refit} vs {published})"),
+        };
+        let stored = row
+            .get("published")
+            .map_or(0, |value| significant_digits(&printed(value)));
+        let full = match percent {
+            Some(_) if stored > WHY_PRINTED_DIGITS => short.clone(),
+            Some(percent) => format!(
+                "{name} {refit} vs {published}{} ({percent})",
+                why_unit(record, &parameter)
+            ),
+            None => format!(
+                "{name} {refit} vs {published}{}",
+                why_unit(record, &parameter)
+            ),
+        };
+        Self {
+            name,
+            failed,
+            size,
+            full,
+            short,
+        }
     }
 }
 
-/// At most this many failing coefficients are named; the rest are counted.
-const WHY_NAMED: usize = 3;
+/// Every criterion some item fails, once each, joined by "or".
+fn union_criteria(items: &[&Item]) -> String {
+    let failed: Vec<String> = WHY_CRITERIA
+        .into_iter()
+        .map(|(_, phrase)| phrase.to_owned())
+        .filter(|phrase| items.iter().any(|item| item.failed.contains(phrase)))
+        .collect();
+    join_with(&failed, "or")
+}
 
-type Failing<'a> = (&'a Map<String, Value>, Vec<String>);
+fn verb<'a>(count: usize, one: &'a str, several: &'a str) -> &'a str {
+    if count == 1 {
+        one
+    } else {
+        several
+    }
+}
 
-/// Candidate texts for the failing rows, most detailed first.
-fn failing_lines(mut failing: Vec<Failing<'_>>) -> Vec<String> {
-    let hidden = failing.len().saturating_sub(WHY_NAMED);
-    if hidden > 0 {
-        // Name the largest relative differences; rows without one come last.
-        let size = |item: &Failing<'_>| relative_change(item.0).map_or(-1.0, f64::abs);
-        failing.sort_by(|left, right| size(right).total_cmp(&size(left)));
-        failing.truncate(WHY_NAMED);
-    }
-    let mut groups: Vec<(String, Vec<&Map<String, Value>>)> = Vec::new();
-    for (row, failed) in &failing {
-        let phrase = join(failed);
-        match groups.iter_mut().find(|(key, _)| *key == phrase) {
-            Some((_, rows)) => rows.push(row),
-            None => groups.push((phrase, vec![row])),
-        }
-    }
-    let more = format!("{hidden} more");
-    let grouped = |name: &dyn Fn(&Map<String, Value>) -> String| {
-        if hidden > 0 && groups.len() == 1 {
-            let (failed, rows) = &groups[0];
-            let mut names: Vec<String> = rows.iter().map(|row| name(row)).collect();
-            names.push(more.clone());
-            return format!("{}: {failed}", join(&names));
-        }
-        let text = groups
-            .iter()
-            .map(|(failed, rows)| {
-                let names: Vec<String> = rows.iter().map(|row| name(row)).collect();
-                format!("{}: {failed}", join(&names))
-            })
-            .collect::<Vec<_>>()
-            .join("; ");
-        if hidden > 0 {
-            format!("{text}; and {more}")
-        } else {
-            text
-        }
-    };
-    let mut candidates = Vec::new();
-    if hidden == 0 {
-        candidates.push(
-            failing
+/// Join `texts` (one per item) by what each item's difference exceeds.
+///
+/// Each criterion gets one clause naming the items that fail it; criteria
+/// failed by the same items share a clause. The clause with the most items
+/// comes first (ties in order of appearance, then of the criteria). An item
+/// named in an earlier clause is not repeated: "K0 also by more than ...".
+/// With `union` every item is listed in one clause that names each failed
+/// criterion once, joined by "or".
+fn grouped(items: &[&Item], texts: &[String], union: bool) -> String {
+    let mut clauses: Vec<String> = Vec::new();
+    if union {
+        clauses.push(format!(
+            "{} {} by more than {}",
+            join(texts),
+            verb(texts.len(), "differs", "differ"),
+            union_criteria(items)
+        ));
+    } else {
+        let mut groups: Vec<(Vec<String>, Vec<usize>)> = Vec::new();
+        for (_, phrase) in WHY_CRITERIA {
+            let members: Vec<usize> = items
                 .iter()
-                .map(|(row, failed)| format!("{}, {}", why_row(row, true), join(failed)))
-                .collect::<Vec<_>>()
-                .join("; "),
-        );
+                .enumerate()
+                .filter(|(_, item)| item.failed.iter().any(|failed| failed == phrase))
+                .map(|(index, _)| index)
+                .collect();
+            if members.is_empty() {
+                continue;
+            }
+            match groups.iter_mut().find(|(_, shared)| *shared == members) {
+                Some((phrases, _)) => phrases.push(phrase.to_owned()),
+                None => groups.push((vec![phrase.to_owned()], members)),
+            }
+        }
+        // Stable, like Python's sort.
+        groups.sort_by_key(|(_, members)| (std::cmp::Reverse(members.len()), members[0]));
+        let mut named: BTreeSet<usize> = BTreeSet::new();
+        for (phrases, members) in &groups {
+            let criterion = join(phrases);
+            let fresh: Vec<String> = members
+                .iter()
+                .filter(|index| !named.contains(index))
+                .map(|index| texts[*index].clone())
+                .collect();
+            let seen: Vec<String> = members
+                .iter()
+                .filter(|index| named.contains(index))
+                .map(|index| items[*index].name.clone())
+                .collect();
+            if fresh.is_empty() {
+                clauses.push(format!("{} also by more than {criterion}", join(&seen)));
+            } else {
+                let also = if seen.is_empty() {
+                    String::new()
+                } else {
+                    format!(", as {} {}", verb(seen.len(), "does", "do"), join(&seen))
+                };
+                clauses.push(format!(
+                    "{} {} by more than {criterion}{also}",
+                    join(&fresh),
+                    verb(fresh.len(), "differs", "differ")
+                ));
+            }
+            named.extend(members.iter().copied());
+        }
     }
-    candidates.push(grouped(&|row| why_row(row, false)));
-    candidates.push(grouped(&|row| parameter_name(&parameter_text(row))));
+    let text = clauses.join("; ");
+    if items
+        .iter()
+        .zip(texts)
+        .all(|(item, text)| *text == item.name)
+    {
+        text
+    } else {
+        format!("Refit vs published: {text}")
+    }
+}
+
+/// The failing coefficients counted, with the largest named.
+///
+/// The largest keep their values or percentage while the line fits, the
+/// smaller of them first giving way to their name.
+fn counted_lines(items: &[&Item], ordered: &[&Item]) -> Vec<String> {
+    let count = format!(
+        "{} coefficients differ by more than {}",
+        items.len(),
+        union_criteria(items)
+    );
+    let largest = &ordered[..WHY_LARGEST.min(ordered.len())];
+    (0..=largest.len())
+        .rev()
+        .map(|shown| {
+            let texts: Vec<String> = largest
+                .iter()
+                .enumerate()
+                .map(|(position, item)| {
+                    if position < shown {
+                        item.short.clone()
+                    } else {
+                        item.name.clone()
+                    }
+                })
+                .collect();
+            let line = format!("{count}; largest: {}", join(&texts));
+            if largest
+                .iter()
+                .zip(&texts)
+                .all(|(item, text)| *text == item.name)
+            {
+                line
+            } else {
+                format!("Refit vs published: {line}")
+            }
+        })
+        .collect()
+}
+
+/// Candidate texts for the failing coefficients, most detailed first.
+///
+/// Up to [`WHY_NAMED_AT_MOST`] coefficients: every coefficient with both
+/// values, its unit and its percentage; every one with its percentage; when
+/// the coefficients fail different criteria, every one with its percentage in
+/// one clause; the largest differences with their percentage and the others
+/// by name; names only. More coefficients, or when even the names do not
+/// fit, are counted and the [`WHY_LARGEST`] largest named.
+fn failing_lines(items: &[Item]) -> Vec<String> {
+    let items: Vec<&Item> = items.iter().collect();
+    // Largest first, so the coefficients that keep a percentage lead.
+    let mut ordered = items.clone();
+    ordered.sort_by(|left, right| right.size.total_cmp(&left.size));
+    if items.len() > WHY_NAMED_AT_MOST {
+        return counted_lines(&items, &ordered);
+    }
+    let mixed = items
+        .iter()
+        .map(|item| join(&item.failed))
+        .collect::<BTreeSet<_>>()
+        .len()
+        > 1;
+    let full: Vec<String> = items.iter().map(|item| item.full.clone()).collect();
+    let short: Vec<String> = items.iter().map(|item| item.short.clone()).collect();
+    let mut candidates = vec![
+        grouped(&items, &full, false),
+        grouped(&items, &short, false),
+    ];
+    if mixed {
+        candidates.push(grouped(&items, &short, true));
+    }
+    for shown in (0..items.len()).rev() {
+        let texts: Vec<String> = ordered
+            .iter()
+            .enumerate()
+            .map(|(position, item)| {
+                if position < shown {
+                    item.short.clone()
+                } else {
+                    item.name.clone()
+                }
+            })
+            .collect();
+        candidates.push(grouped(&ordered, &texts, false));
+        if mixed {
+            candidates.push(grouped(&ordered, &texts, true));
+        }
+    }
+    if items.len() > WHY_LARGEST {
+        candidates.extend(counted_lines(&items, &ordered));
+    }
     candidates
 }
 
-/// One generated line saying which coefficients kept a refit from parity.
+/// Which error the row lacks: `published`, `refit`, `both` or `unknown`.
+///
+/// An error counts as missing only when the row stores it as `null`
+/// (`published_error`/`published_sigma`, `refit_error`/`refit_sigma`).
+fn missing_error(row: &Map<String, Value>) -> &'static str {
+    let missing = |side: &str| {
+        [format!("{side}_error"), format!("{side}_sigma")]
+            .iter()
+            .find_map(|key| row.get(key))
+            .is_some_and(Value::is_null)
+    };
+    match (missing("published"), missing("refit")) {
+        (true, true) => "both",
+        (true, false) => "published",
+        (false, true) => "refit",
+        (false, false) => "unknown",
+    }
+}
+
+/// Why a coefficient was not tested against the combined error, by the
+/// missing error: a sentence opening when one reason covers every such
+/// coefficient, and what the coefficient has (or lacks) to list several
+/// reasons.
+fn untested_reason(reason: &str) -> (&'static str, &'static str) {
+    match reason {
+        "published" => ("the paper gives no error for", "no published error"),
+        "refit" => ("the refit gives no error for", "no refit error"),
+        "both" => (
+            "neither the paper nor the refit gives an error for",
+            "no published or refit error",
+        ),
+        _ => (
+            "no error comparison is recorded for",
+            "no recorded error comparison",
+        ),
+    }
+}
+
+/// Candidate texts for coefficients without a combined-error result.
+///
+/// One reason: "the paper gives no error for V0 and K0, so they could not be
+/// tested ...", or shorter "no published error for V0 and K0, so ...".
+/// Several: "K0 has no published or refit error and `alpha_KT` no refit
+/// error, so neither could be tested ...".
+fn untested_lines(rows: &[&Map<String, Value>], within: bool) -> Vec<String> {
+    let mut reasons: Vec<(&str, Vec<String>)> = Vec::new();
+    for row in rows {
+        let reason = missing_error(row);
+        let name = parameter_name(&parameter_text(row));
+        match reasons.iter_mut().find(|(key, _)| *key == reason) {
+            Some((_, names)) => names.push(name),
+            None => reasons.push((reason, vec![name])),
+        }
+    }
+    let head = if within {
+        "All coefficients are within the agreement limit; "
+    } else {
+        ""
+    };
+    let (result, bodies) = if let [(reason, names)] = reasons.as_slice() {
+        let (opening, lacking) = untested_reason(reason);
+        let pronoun = if rows.len() == 1 { "it" } else { "they" };
+        (
+            format!("{pronoun} could not be tested"),
+            vec![
+                format!("{opening} {}", join(names)),
+                format!("{lacking} for {}", join(names)),
+            ],
+        )
+    } else {
+        // Starts with a coefficient name, which keeps its case.
+        let listed: Vec<String> = reasons
+            .iter()
+            .enumerate()
+            .map(|(position, (reason, names))| {
+                let has = if position == 0 {
+                    format!("{} ", verb(names.len(), "has", "have"))
+                } else {
+                    String::new()
+                };
+                format!("{} {has}{}", join(names), untested_reason(reason).1)
+            })
+            .collect();
+        let pronoun = if rows.len() == 2 { "neither" } else { "none" };
+        (format!("{pronoun} could be tested"), vec![join(&listed)])
+    };
+    let tail = format!(", so {result} against twice the combined error");
+    let mut texts: Vec<String> = bodies
+        .iter()
+        .map(|body| format!("{head}{body}{tail}"))
+        .collect();
+    if within {
+        if let Some(last) = bodies.last() {
+            texts.push(format!("{last}{tail}"));
+        }
+    }
+    if reasons.len() != 1 {
+        return texts;
+    }
+    texts
+        .into_iter()
+        .map(|text| {
+            let mut characters = text.chars();
+            characters.next().map_or_else(String::new, |first| {
+                first.to_uppercase().collect::<String>() + characters.as_str()
+            })
+        })
+        .collect()
+}
+
+/// Whether the record holds the coefficient fixed.
+///
+/// A native record marks it `"fixed": true` in `parameters` (or
+/// `thermal.parameters`), a v3 export lists it in `fixed_parameters` (or
+/// `thermal.fixed_parameters`). The reference (`rt_eos.`) model owns the
+/// name unless the record's thermal parameters hold it. This mirrors
+/// `_is_fixed` in `peritheos/_eosmat_audit.py`.
+fn is_fixed(record: &Value, parameter: &str) -> bool {
+    let name = parameter.strip_prefix("rt_eos.").unwrap_or(parameter);
+    let mut owner = record;
+    if !parameter.starts_with("rt_eos.") {
+        if let Some(thermal @ Value::Object(fields)) = record.get("thermal") {
+            if let Some(Value::Object(parameters)) = fields.get("parameters") {
+                if parameters.contains_key(name) {
+                    owner = thermal;
+                }
+            }
+        }
+    }
+    if let Some(Value::Array(listed)) = owner.get("fixed_parameters") {
+        if listed.iter().any(|item| item.as_str() == Some(name)) {
+            return true;
+        }
+    }
+    let parameters = match record.get("eos") {
+        Some(eos @ Value::Object(_)) if std::ptr::eq(owner, record) => eos.get("parameters"),
+        _ => owner.get("parameters"),
+    };
+    parameters
+        .and_then(|parameters| parameters.get(name))
+        .and_then(|entry| entry.get("fixed"))
+        == Some(&Value::Bool(true))
+}
+
+/// One generated line saying why a refit missed parity, in plain words.
 ///
 /// Only for [`Reproduction::Close`] and [`Reproduction::Disagrees`]. Built
 /// from the stored `assessment.parameters` rows and their criterion flags
-/// (`within_combined_2sigma`, `similar`, `within_reported_error`); no prose
-/// is interpreted. Published values print as stored (without a trailing
-/// `.0`); the refit is rounded to at most one digit more. More than three
-/// failing coefficients: the three largest relative differences are named
-/// and the rest counted. `None` when the table supports no statement within
-/// [`WHY_MAX_LENGTH`] characters. This mirrors `reproduction_why` in
-/// `peritheos/_eosmat_audit.py`.
+/// (`within_combined_2sigma`, `similar`, `within_reported_error`) and the
+/// stored errors; no prose is interpreted. Failing coefficients are named
+/// with their refit and published values, unit and relative difference (a
+/// difference of 100% or more by the two values alone), grouped by what the
+/// difference exceeds; a too-long line falls back to percentages, then names.
+/// More than four failing coefficients, or names that do not fit, are counted
+/// with the three largest named. Names and published values print as the
+/// record summary prints them. A close record without failing coefficients
+/// names those that could not be tested against the combined error and which
+/// error is missing; a coefficient the record holds fixed is left out. `None`
+/// when the table supports no
+/// statement within [`WHY_MAX_LENGTH`] characters. This mirrors
+/// `reproduction_why` in `peritheos/_eosmat_audit.py`.
 pub(super) fn reproduction_why(record: &Value) -> Option<String> {
     let headline = reproduction_headline(record);
     if !matches!(headline, Reproduction::Close | Reproduction::Disagrees) {
@@ -565,41 +1027,37 @@ pub(super) fn reproduction_why(record: &Value) -> Option<String> {
         .filter_map(Value::as_object)
         .filter(|row| row.contains_key("parameter"))
         .collect();
-    let failing: Vec<Failing<'_>> = rows
+    let items: Vec<Item> = rows
         .iter()
-        .map(|row| (*row, failed_criteria(row)))
-        .filter(|(_, failed)| !failed.is_empty())
+        .filter(|row| !failed_criteria(row).is_empty())
+        .map(|row| Item::new(record, row))
         .collect();
-    if !failing.is_empty() {
-        return failing_lines(failing)
-            .into_iter()
-            .find(|text| text.chars().count() < WHY_MAX_LENGTH)
-            .map(|text| text + ".");
-    }
-    if headline != Reproduction::Close {
+    let candidates = if !items.is_empty() {
+        failing_lines(&items)
+    } else if headline == Reproduction::Close {
+        let untested: Vec<&Map<String, Value>> = rows
+            .iter()
+            .copied()
+            .filter(|row| {
+                row.get("within_combined_2sigma") == Some(&Value::Null)
+                    && !is_fixed(record, &parameter_text(row))
+            })
+            .collect();
+        if untested.is_empty() {
+            return None;
+        }
+        let within = !rows.is_empty()
+            && rows
+                .iter()
+                .all(|row| row.get("similar") == Some(&Value::Bool(true)));
+        untested_lines(&untested, within)
+    } else {
         return None;
-    }
-    let untested: Vec<String> = rows
-        .iter()
-        .filter(|row| row.get("within_combined_2sigma") == Some(&Value::Null))
-        .map(|row| parameter_name(&parameter_text(row)))
-        .collect();
-    if untested.is_empty() {
-        return None;
-    }
-    let verb = if untested.len() == 1 { "has" } else { "have" };
-    let mut text = format!(
-        "{} {verb} no error to test against the combined-error rule",
-        join(&untested)
-    );
-    if rows
-        .iter()
-        .all(|row| row.get("similar") == Some(&Value::Bool(true)))
-    {
-        text.push_str("; all within the agreement limit");
-    }
-    text.push('.');
-    (text.chars().count() <= WHY_MAX_LENGTH).then_some(text)
+    };
+    candidates
+        .into_iter()
+        .find(|text| text.chars().count() < WHY_MAX_LENGTH)
+        .map(|text| text + ".")
 }
 
 fn hold_covers(hold: &Value, identifier: &str) -> bool {

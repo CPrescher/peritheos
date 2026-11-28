@@ -55,6 +55,12 @@ reference that restoring the current files gives and
 ``catalog_revision_content_sha256`` pins the latest revision's content.
 ``--verify`` walks that reference back to ``before_sha256``
 (``scripts/catalog_revisions.py``).
+
+When the wording of a generated ``check`` field changes in the library,
+``scripts/apply_check_text.py --refresh-why`` rederives every bundled check
+block from its unchanged evidence; only ``check.why`` may change. Recovery
+removes ``check``, so only ``after_record_sha256`` is rebound
+(:func:`generated_check_receipt`).
 """
 
 from __future__ import annotations
@@ -914,6 +920,34 @@ def bind_check_text_revision(revised: dict[str, list], root: Path = ROOT) -> Non
     result = check_text_receipt(receipt, revised, files)
     if result is not None:
         receipt_path.write_text(receipt_text(result), encoding="utf-8")
+
+
+GENERATED_CHECK_REFRESH = (
+    "Generated check fields refreshed after a change of their wording "
+    "(scripts/apply_check_text.py --refresh-why): each record's check block is "
+    "rederived from its unchanged evidence and only check.why may change. "
+    "Recovery removes every check block, so only after_record_sha256 is "
+    "rebound; sidecars and before_sha256 values are unchanged."
+)
+
+
+def generated_check_receipt(
+    receipt: dict, files: Mapping[str, tuple[bytes, bytes]]
+) -> dict | None:
+    """``receipt`` binding record files whose generated ``check`` was refreshed.
+
+    ``files`` maps each refreshed material to its new record and (unchanged)
+    sidecar bytes. Only the after-hashes change, and every pre-split file must
+    still be recovered exactly; ``None`` when no split material is named.
+    Computed and verified in memory; nothing is written.
+    """
+    return _revised_receipt(
+        receipt,
+        dict.fromkeys(files),
+        files,
+        lambda binding, revision: None,
+        ("generated_check_refresh", GENERATED_CHECK_REFRESH),
+    )
 
 
 def holds_inline_audit(material: str, root: Path = ROOT) -> bool:

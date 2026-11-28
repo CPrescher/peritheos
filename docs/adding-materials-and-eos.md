@@ -411,6 +411,7 @@ no longer be verified. Use the repository tool for the kind of change:
 | --- | --- |
 | `label`, `notes`, `validity.notes`, `thermal.notes`; the material's top-level `notes` | `python scripts/apply_record_text.py` ([record text standard](record-text-standard.md#6-applying-a-rewrite)) |
 | `record_note`, `warning_reason`, coded `usage_recommendation` | `python scripts/apply_check_text.py` |
+| Every generated `check.why` line, after the library changes its wording | `python scripts/apply_check_text.py --refresh-why` (only `why` may change) |
 | Add an EOS record to an existing material; set or correct the fields listed below | `python scripts/apply_catalog_revision.py` |
 
 `apply_catalog_revision.py` takes one request file per revision and records it

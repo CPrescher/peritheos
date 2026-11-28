@@ -31,7 +31,8 @@ from __future__ import annotations
 
 import copy
 import json
-from collections.abc import Callable, Mapping
+from collections.abc import Mapping
+from decimal import Decimal
 from functools import lru_cache
 from importlib import resources
 from pathlib import Path
@@ -245,16 +246,37 @@ def compared_scope(record: Mapping[str, Any]) -> str:
     return _COMPARED_BY_SCOPE.get(str(assessment.get("scope")), "none")
 
 
-_WHY_UNITS = {"K0": " GPa", "K0_double_prime": " GPa^-1", "theta0": " K"}
+#: Units ``why`` prints, as the record text standard writes them. EOSMAT stores
+#: every volume per conventional cell in Å³ and every pressure in GPa
+#: (docs/units.md); other coefficient units come from
+#: :func:`peritheos._overview.parameter_unit`.
+_WHY_VOLUME_UNIT = "Å³"
+_WHY_PRESSURE_UNIT = "GPa"
+#: The criterion flags of an assessment row and what a ``false`` one means:
+#: the refit and published values differ by more than this.
+_WHY_CRITERIA = (
+    ("within_combined_2sigma", "twice the combined error"),
+    ("similar", "the agreement limit"),
+    ("within_reported_error", "the published error"),
+)
+#: From this relative difference (in percent) on, ``why`` gives the refit and
+#: published values instead of a percentage.
+_WHY_LARGE_PERCENT = 99.95
+#: The largest coefficients named when a line counts the failing ones.
+_WHY_LARGEST = 3
+#: With more failing coefficients than this, the line counts them.
+_WHY_NAMED_AT_MOST = 4
+#: A published value printed with more significant digits than this (a
+#: computed conversion) is not repeated in full; the percentage is given.
+_WHY_PRINTED_DIGITS = 6
 
 
 def _parameter_name(name: str) -> str:
+    """The coefficient as the record summary shows it (``K0'``, ``dK/dT``)."""
+    from peritheos._overview import PARAMETER_DISPLAY_NAMES
+
     name = name.removeprefix("rt_eos.")
-    if name.endswith("_double_prime"):
-        return name.removesuffix("_double_prime") + "''"
-    if name.endswith("_prime"):
-        return name.removesuffix("_prime") + "'"
-    return name
+    return PARAMETER_DISPLAY_NAMES.get(name, name)
 
 
 def _number(value: Any) -> float | None:
@@ -271,7 +293,13 @@ def _printed(value: Any) -> str:
 
 
 def _rounded_refit(refit: float, published: str) -> str:
-    """Round to at most one digit more than the printed published value."""
+    """Round to at most one digit more than the printed published value.
+
+    A published value in e-notation gives the refit one more significant
+    digit. Otherwise the refit gets one more decimal, without trailing zeros,
+    and is written in e-notation where the record summary would write it
+    (an exponent below -4 or from 6 on; ``9.224e-05``, not ``0.00009224``).
+    """
     mantissa, _, exponent = published.lower().partition("e")
     if exponent:
         digits = len(mantissa.replace("-", "").replace(".", "").lstrip("0"))
@@ -280,29 +308,84 @@ def _rounded_refit(refit: float, published: str) -> str:
     text = f"{refit:.{decimals + 1}f}"
     if "." in text:
         text = text.rstrip("0").rstrip(".")
-    return "0" if text == "-0" else text
+    if text in ("0", "-0"):
+        return "0"
+    power = Decimal(text).adjusted()
+    if power < -4 or power >= 6:
+        digits = len(text.replace("-", "").replace(".", "").lstrip("0").rstrip("0"))
+        return f"{float(text):.{max(digits - 1, 0)}e}"
+    return text
 
 
-def _join(items: list[str]) -> str:
+def _join(items: list[str], word: str = "and") -> str:
     """``a``, ``a and b``, ``a, b and c``."""
-    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+    if len(items) == 1:
+        return items[0]
+    return ", ".join(items[:-1]) + f" {word} " + items[-1]
+
+
+def _why_unit(record: Mapping[str, Any], parameter: str) -> str:
+    """The coefficient's unit with a leading space; empty when dimensionless.
+
+    The owning model is the reference (``rt_eos.``) model unless the record's
+    thermal parameters hold the name. Native records name the models in
+    ``model`` and ``thermal.model``, v3 exports in ``eos.type`` and
+    ``thermal.type``.
+    """
+    from peritheos._overview import parameter_unit
+
+    eos = record.get("eos")
+    model = eos.get("type") if isinstance(eos, Mapping) else record.get("model")
+    thermal = record.get("thermal")
+    name = parameter.removeprefix("rt_eos.")
+    if not parameter.startswith("rt_eos.") and isinstance(thermal, Mapping):
+        parameters = thermal.get("parameters")
+        if isinstance(parameters, Mapping) and name in parameters:
+            model = thermal["type"] if "type" in thermal else thermal.get("model")
+    unit = parameter_unit(
+        model if isinstance(model, str) else "",
+        name,
+        volume_unit=_WHY_VOLUME_UNIT,
+        pressure_unit=_WHY_PRESSURE_UNIT,
+    )
+    return "" if unit is None or unit == "1" else f" {unit}"
+
+
+def _is_fixed(record: Mapping[str, Any], parameter: str) -> bool:
+    """Whether the record holds the coefficient fixed.
+
+    A native record marks it ``"fixed": true`` in ``parameters`` (or
+    ``thermal.parameters``), a v3 export lists it in ``fixed_parameters`` (or
+    ``thermal.fixed_parameters``). The reference (``rt_eos.``) model owns the
+    name unless the record's thermal parameters hold it.
+    """
+    name = parameter.removeprefix("rt_eos.")
+    owner: Any = record
+    thermal = record.get("thermal")
+    if not parameter.startswith("rt_eos.") and isinstance(thermal, Mapping):
+        parameters = thermal.get("parameters")
+        if isinstance(parameters, Mapping) and name in parameters:
+            owner = thermal
+    if not isinstance(owner, Mapping):
+        return False
+    listed = owner.get("fixed_parameters")
+    if isinstance(listed, list) and name in listed:
+        return True
+    parameters = owner.get("parameters")
+    if owner is record and isinstance(record.get("eos"), Mapping):
+        parameters = record["eos"].get("parameters")
+    entry = parameters.get(name) if isinstance(parameters, Mapping) else None
+    return isinstance(entry, Mapping) and entry.get("fixed") is True
 
 
 def _failed_criteria(row: Mapping[str, Any]) -> list[str]:
-    """Phrases for the stored criterion flags that are ``false`` in one row.
+    """What the refit exceeds, for each stored criterion flag that is ``false``.
 
     ``similar`` is the audit's own agreement screen (the generic limits or the
-    criterion recorded in the assessment basis), so it is reported as "beyond
-    the agreement limit" without naming a limit.
+    criterion recorded in the assessment basis), so it is reported as "the
+    agreement limit" without naming a limit.
     """
-    failed = []
-    if row.get("within_combined_2sigma") is False:
-        failed.append("outside the combined error")
-    if row.get("similar") is False:
-        failed.append("beyond the agreement limit")
-    if row.get("within_reported_error") is False:
-        failed.append("outside the published error")
-    return failed
+    return [phrase for flag, phrase in _WHY_CRITERIA if row.get(flag) is False]
 
 
 def _relative_change(row: Mapping[str, Any]) -> float | None:
@@ -312,75 +395,279 @@ def _relative_change(row: Mapping[str, Any]) -> float | None:
     return (refit - base) / abs(base)
 
 
-def _why_row(row: Mapping[str, Any], *, numbers: bool) -> str:
-    name = _parameter_name(str(row["parameter"]))
-    published, refit = row.get("published"), _number(row.get("refit"))
+def _percent(row: Mapping[str, Any]) -> str | None:
+    """The relative difference, unless missing or too large to read as one."""
     relative = _relative_change(row)
-    change = None if relative is None else f"{relative * 100:+.1f}%"
-    if not numbers:
-        return name if change is None else f"{name} ({change})"
+    if relative is None or abs(relative) * 100.0 >= _WHY_LARGE_PERCENT:
+        return None
+    return f"{relative * 100:+.1f}%"
+
+
+def _significant_digits(printed: str) -> int:
+    mantissa = printed.lower().partition("e")[0]
+    return len(mantissa.replace("-", "").replace(".", "").lstrip("0"))
+
+
+def _values(row: Mapping[str, Any]) -> tuple[str, str] | None:
+    """Rounded refit and published value as the summary prints it."""
+    from peritheos._overview import format_number
+
+    refit, published = _number(row.get("refit")), row.get("published")
     if refit is None or _number(published) is None:
-        return name
-    unit = _WHY_UNITS.get(str(row["parameter"]).removeprefix("rt_eos."), "")
-    printed = _printed(published)
-    text = f"{name}: refit {_rounded_refit(refit, printed)} vs published "
-    text += f"{printed}{unit}"
-    return text + (f" ({change})" if change else "")
+        return None
+    shown = format_number(published)
+    return _rounded_refit(refit, shown), shown
 
 
-#: At most this many failing coefficients are named; the rest are counted.
-_WHY_NAMED = 3
+class _Item:
+    """One failing coefficient in the forms ``why`` can print it.
+
+    ``full`` gives both values, the unit and the percentage; ``short`` the
+    percentage alone, or both values when the difference is 100% or more;
+    ``name`` the coefficient alone.
+    """
+
+    def __init__(self, record: Mapping[str, Any], row: Mapping[str, Any]) -> None:
+        parameter = str(row["parameter"])
+        self.name = _parameter_name(parameter)
+        self.failed = _failed_criteria(row)
+        relative = _relative_change(row)
+        self.size = -1.0 if relative is None else abs(relative)
+        percent, values = _percent(row), _values(row)
+        if values is None:
+            self.full = self.short = self.name
+            return
+        refit, published = values
+        if percent is None:
+            self.short = f"{self.name} ({refit} vs {published})"
+        else:
+            self.short = f"{self.name} ({percent})"
+        stored = _significant_digits(_printed(row["published"]))
+        if percent is not None and stored > _WHY_PRINTED_DIGITS:
+            self.full = self.short
+            return
+        self.full = f"{self.name} {refit} vs {published}{_why_unit(record, parameter)}"
+        if percent is not None:
+            self.full += f" ({percent})"
 
 
-def _failing_lines(failing: list[tuple[Mapping[str, Any], list[str]]]) -> list[str]:
-    """Candidate texts for the failing rows, most detailed first."""
-    hidden = max(0, len(failing) - _WHY_NAMED)
-    if hidden:
-        # Name the largest relative differences; rows without one come last.
-        def size(item: tuple[Mapping[str, Any], list[str]]) -> float:
-            change = _relative_change(item[0])
-            return -1.0 if change is None else abs(change)
+def _union_criteria(items: list[_Item]) -> str:
+    """Every criterion some item fails, once each, joined by "or"."""
+    failed = [
+        phrase
+        for _, phrase in _WHY_CRITERIA
+        if any(phrase in item.failed for item in items)
+    ]
+    return _join(failed, "or")
 
-        failing = sorted(failing, key=size, reverse=True)[:_WHY_NAMED]
-    groups: dict[str, list[Mapping[str, Any]]] = {}
-    for row, failed in failing:
-        groups.setdefault(_join(failed), []).append(row)
-    more = f"{hidden} more"
 
-    def grouped(name: Callable[[Mapping[str, Any]], str]) -> str:
-        if hidden and len(groups) == 1:
-            ((failed, group),) = groups.items()
-            return f"{_join([name(r) for r in group] + [more])}: {failed}"
-        text = "; ".join(
-            f"{_join([name(r) for r in group])}: {failed}"
-            for failed, group in groups.items()
-        )
-        return text + (f"; and {more}" if hidden else "")
+def _verb(names: list[str], one: str, several: str) -> str:
+    return one if len(names) == 1 else several
 
+
+def _grouped(items: list[_Item], texts: list[str], *, union: bool = False) -> str:
+    """Join ``texts`` (one per item) by what each item's difference exceeds.
+
+    Each criterion gets one clause naming the items that fail it; criteria
+    failed by the same items share a clause. The clause with the most items
+    comes first (ties in order of appearance, then of the criteria). An item
+    named in an earlier clause is not repeated: "K0 also by more than ...".
+    With ``union`` every item is listed in one clause that names each failed
+    criterion once, joined by "or".
+    """
+    if union:
+        clauses = [
+            f"{_join(texts)} {_verb(texts, 'differs', 'differ')} by more than "
+            f"{_union_criteria(items)}"
+        ]
+    else:
+        groups: list[tuple[list[str], list[int]]] = []
+        for _, phrase in _WHY_CRITERIA:
+            members = [i for i, item in enumerate(items) if phrase in item.failed]
+            if not members:
+                continue
+            for phrases, shared in groups:
+                if shared == members:
+                    phrases.append(phrase)
+                    break
+            else:
+                groups.append(([phrase], members))
+        groups.sort(key=lambda group: (-len(group[1]), group[1][0]))
+        named: set[int] = set()
+        clauses = []
+        for phrases, members in groups:
+            criterion = _join(phrases)
+            fresh = [texts[i] for i in members if i not in named]
+            seen = [items[i].name for i in members if i in named]
+            if not fresh:
+                clauses.append(f"{_join(seen)} also by more than {criterion}")
+            else:
+                clause = (
+                    f"{_join(fresh)} {_verb(fresh, 'differs', 'differ')} by more "
+                    f"than {criterion}"
+                )
+                if seen:
+                    clause += f", as {_verb(seen, 'does', 'do')} {_join(seen)}"
+                clauses.append(clause)
+            named.update(members)
+    text = "; ".join(clauses)
+    if all(text == item.name for item, text in zip(items, texts)):
+        return text
+    return f"Refit vs published: {text}"
+
+
+def _counted_lines(items: list[_Item], ordered: list[_Item]) -> list[str]:
+    """The failing coefficients counted, with the largest named.
+
+    The largest keep their values or percentage while the line fits, the
+    smaller of them first giving way to their name.
+    """
+    count = f"{len(items)} coefficients differ by more than {_union_criteria(items)}"
+    largest = ordered[:_WHY_LARGEST]
     candidates = []
-    if not hidden:
-        candidates.append(
-            "; ".join(
-                f"{_why_row(row, numbers=True)}, {_join(failed)}"
-                for row, failed in failing
-            )
-        )
-    candidates.append(grouped(lambda r: _why_row(r, numbers=False)))
-    candidates.append(grouped(lambda r: _parameter_name(str(r["parameter"]))))
+    for shown in range(len(largest), -1, -1):
+        texts = [
+            item.short if position < shown else item.name
+            for position, item in enumerate(largest)
+        ]
+        line = f"{count}; largest: {_join(texts)}"
+        named = all(text == item.name for item, text in zip(largest, texts))
+        candidates.append(line if named else f"Refit vs published: {line}")
     return candidates
 
 
+def _failing_lines(items: list[_Item]) -> list[str]:
+    """Candidate texts for the failing coefficients, most detailed first.
+
+    Up to :data:`_WHY_NAMED_AT_MOST` coefficients: every coefficient with
+    both values, its unit and its percentage; every one with its percentage;
+    when the coefficients fail different criteria, every one with its
+    percentage in one clause; the largest differences with their percentage
+    and the others by name; names only. More coefficients, or when even the
+    names do not fit, are counted and the :data:`_WHY_LARGEST` largest named.
+    """
+    # Largest first, so the coefficients that keep a percentage lead.
+    ordered = sorted(items, key=lambda item: item.size, reverse=True)
+    if len(items) > _WHY_NAMED_AT_MOST:
+        return _counted_lines(items, ordered)
+    mixed = len({_join(item.failed) for item in items}) > 1
+    candidates = [
+        _grouped(items, [item.full for item in items]),
+        _grouped(items, [item.short for item in items]),
+    ]
+    if mixed:
+        candidates.append(_grouped(items, [item.short for item in items], union=True))
+    for shown in range(len(items) - 1, -1, -1):
+        texts = [
+            item.short if position < shown else item.name
+            for position, item in enumerate(ordered)
+        ]
+        candidates.append(_grouped(ordered, texts))
+        if mixed:
+            candidates.append(_grouped(ordered, texts, union=True))
+    if len(items) > _WHY_LARGEST:
+        candidates.extend(_counted_lines(items, ordered))
+    return candidates
+
+
+def _missing_error(row: Mapping[str, Any]) -> str:
+    """Which error the row lacks: ``published``, ``refit``, ``both`` or ``unknown``.
+
+    An error counts as missing only when the row stores it as ``null``
+    (``published_error``/``published_sigma``, ``refit_error``/``refit_sigma``).
+    """
+
+    def missing(side: str) -> bool:
+        for key in (f"{side}_error", f"{side}_sigma"):
+            if key in row:
+                return row[key] is None
+        return False
+
+    published, refit = missing("published"), missing("refit")
+    if published and refit:
+        return "both"
+    if published:
+        return "published"
+    return "refit" if refit else "unknown"
+
+
+#: Why a coefficient was not tested against the combined error, by the missing
+#: error: a sentence opening when one reason covers every such coefficient,
+#: and what the coefficient has (or lacks) to list several reasons.
+_UNTESTED_REASONS = {
+    "published": ("the paper gives no error for", "no published error"),
+    "refit": ("the refit gives no error for", "no refit error"),
+    "both": (
+        "neither the paper nor the refit gives an error for",
+        "no published or refit error",
+    ),
+    "unknown": (
+        "no error comparison is recorded for",
+        "no recorded error comparison",
+    ),
+}
+
+
+def _untested_lines(rows: list[Mapping[str, Any]], within: bool) -> list[str]:
+    """Candidate texts for coefficients without a combined-error result.
+
+    One reason: "the paper gives no error for V0 and K0, so they could not
+    be tested ...", or shorter "no published error for V0 and K0, so ...".
+    Several: "K0 has no published or refit error and alpha_KT no refit
+    error, so neither could be tested ...".
+    """
+    reasons: dict[str, list[str]] = {}
+    for row in rows:
+        reasons.setdefault(_missing_error(row), []).append(
+            _parameter_name(str(row["parameter"]))
+        )
+    head = "All coefficients are within the agreement limit; " if within else ""
+    if len(reasons) == 1:
+        ((reason, names),) = reasons.items()
+        opening, lacking = _UNTESTED_REASONS[reason]
+        pronoun = "it" if len(rows) == 1 else "they"
+        result = f"{pronoun} could not be tested"
+        bodies = [f"{opening} {_join(names)}", f"{lacking} for {_join(names)}"]
+    else:
+        # Starts with a coefficient name, which keeps its case.
+        listed = [
+            f"{_join(names)} "
+            + (f"{_verb(names, 'has', 'have')} " if position == 0 else "")
+            + _UNTESTED_REASONS[reason][1]
+            for position, (reason, names) in enumerate(reasons.items())
+        ]
+        result = f"{'neither' if len(rows) == 2 else 'none'} could be tested"
+        bodies = [_join(listed)]
+    tail = f", so {result} against twice the combined error"
+    texts = [head + body + tail for body in bodies]
+    if head:
+        texts.append(bodies[-1] + tail)
+    if len(reasons) == 1:
+        texts = [text[0].upper() + text[1:] for text in texts]
+    return texts
+
+
 def reproduction_why(record: Mapping[str, Any]) -> str | None:
-    """One generated line saying which coefficients kept a refit from parity.
+    """One generated line saying why a refit missed parity, in plain words.
 
     Only for ``close`` and ``disagrees``. Built from the stored
     ``assessment.parameters`` rows and their criterion flags
-    (``within_combined_2sigma``, ``similar``, ``within_reported_error``);
-    no prose is interpreted. Published values print as stored (without a
-    trailing ``.0``); the refit is rounded to at most one digit more. More
-    than three failing coefficients: the three largest relative differences
-    are named and the rest counted. Returns ``None`` when the table supports
-    no statement within :data:`WHY_MAX_LENGTH` characters.
+    (``within_combined_2sigma``, ``similar``, ``within_reported_error``) and
+    the stored errors; no prose is interpreted.
+
+    With failing coefficients, each is named with its refit and published
+    value, its unit and the relative difference, grouped by what the
+    difference exceeds. A difference of 100% or more is shown by the two
+    values alone. Coefficient names and published values print as the record
+    summary prints them; the refit is rounded to at most one digit more.
+    When that is too long the line falls back to percentages, then to names
+    (the largest differences keep their percentage). More than four failing
+    coefficients, or names that do not fit, are counted with the three
+    largest named. A ``close`` record without failing coefficients names the
+    coefficients that could not be tested against the combined error and
+    which error is missing; a coefficient the record holds fixed is not a
+    candidate for that test and is left out. Returns ``None`` when the table
+    supports no statement within :data:`WHY_MAX_LENGTH` characters.
     """
     headline = reproduction_headline(record)
     if headline not in ("close", "disagrees"):
@@ -389,27 +676,27 @@ def reproduction_why(record: Mapping[str, Any]) -> str | None:
     if not isinstance(rows, list):
         return None
     rows = [r for r in rows if isinstance(r, Mapping) and "parameter" in r]
-    failing = [(row, _failed_criteria(row)) for row in rows if _failed_criteria(row)]
-    if failing:
-        for text in _failing_lines(failing):
-            if len(text) + 1 <= WHY_MAX_LENGTH:
-                return text + "."
+    items = [_Item(record, row) for row in rows if _failed_criteria(row)]
+    if items:
+        candidates = _failing_lines(items)
+    elif headline == "close":
+        untested = [
+            row
+            for row in rows
+            if "within_combined_2sigma" in row
+            and row["within_combined_2sigma"] is None
+            and not _is_fixed(record, str(row["parameter"]))
+        ]
+        if not untested:
+            return None
+        within = bool(rows) and all(row.get("similar") is True for row in rows)
+        candidates = _untested_lines(untested, within)
+    else:
         return None
-    if headline != "close":
-        return None
-    untested = [
-        _parameter_name(str(row["parameter"]))
-        for row in rows
-        if "within_combined_2sigma" in row and row["within_combined_2sigma"] is None
-    ]
-    if not untested:
-        return None
-    verb = "has" if len(untested) == 1 else "have"
-    text = f"{_join(untested)} {verb} no error to test against the combined-error rule"
-    if rows and all(row.get("similar") is True for row in rows):
-        text += "; all within the agreement limit"
-    text += "."
-    return text if len(text) <= WHY_MAX_LENGTH else None
+    for text in candidates:
+        if len(text) + 1 <= WHY_MAX_LENGTH:
+            return text + "."
+    return None
 
 
 def _hold_covers(hold: Any, identifier: str) -> bool:

@@ -13,7 +13,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "V0: refit 164.427 vs published 163.85 (+0.4%), outside the combined error.",
+        "why": "Refit vs published: V0 164.427 vs 163.85 Å³ (+0.4%) differs by more than twice the combined error.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
@@ -124,7 +124,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "V0 has no error to test against the combined-error rule; all within the agreement limit.",
+        "why": "All coefficients are within the agreement limit; the paper gives no error for V0, so it could not be tested against twice the combined error.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
@@ -171,7 +171,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "K0: refit 267.9 vs published 259 GPa (+3.4%), outside the combined error.",
+        "why": "Refit vs published: K0 267.9 vs 259 GPa (+3.4%) differs by more than twice the combined error.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",

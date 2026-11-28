@@ -35,6 +35,21 @@ All notable changes to Peritheos are documented here. The project follows
   `source_check` (`verified`, `pending`, `unresolved`, `deferred`, renaming
   `scientific_validation.status`), `source_checked_on`, `source_note` and
   `audit`. It must agree with any evidence present.
+- Word the generated `check.why` line in plain language, identically in Python
+  and Rust: each failing coefficient with refit and published value, its unit
+  (V0 in Å³, others from the overview unit table) and signed relative
+  difference, then what the difference exceeds ("twice the combined error",
+  "the agreement limit", "the published error"). A difference of 100% or more
+  is given by the two values only; every failing coefficient is named (no
+  "and N more"). A `close` record without a failed criterion says which
+  coefficients could not be tested against the combined error and whether the
+  paper, the refit or neither gives no error. Every bundled `why` line is
+  refreshed with the new repository mode `scripts/apply_check_text.py
+  --refresh-why`, which rederives every check block from unchanged evidence,
+  refuses any change other than `why` and rebinds the audit-split receipt.
+  Reproduction headlines, `compared`, warnings and sidecars are unchanged. The
+  labels page now names the square root of the summed squared errors the
+  combined error (the parity test is twice it); the test is unchanged.
 - Add two optional curated audit texts copied into `check`:
   `scientific_validation.primary_source_check.record_note` (at most 300
   characters; shown as `check.source_note` in place of the verbatim

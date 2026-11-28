@@ -811,152 +811,414 @@ fn compared_is_a_fixed_mapping_of_status_and_scope() {
     }
 }
 
+/// `row` with its stored errors set (`null`: missing).
+fn with_errors(mut row: Value, published: Value, refit: Value) -> Value {
+    row["published_error"] = published;
+    row["refit_error"] = refit;
+    row
+}
+
+/// A document whose record also has a thermal model with these parameters.
+fn with_thermal(mut document: Value, model: &str, parameters: &Value) -> Value {
+    document["eos_records"][0]["thermal"] = json!({"model": model, "parameters": parameters});
+    document
+}
+
+/// The derived `why` alone, for records the reader would not execute.
+fn derived_why(document: &Value) -> Option<String> {
+    derive_eosmat_check(&document["eos_records"][0], Some(document))["why"]
+        .as_str()
+        .map(str::to_owned)
+}
+
 #[test]
 #[allow(clippy::too_many_lines)]
-fn why_names_failed_coefficients_from_the_stored_table() {
-    // The same cases as tests/test_eosmat_v5_check_fields.py.
-    let close = assessed(
-        Some("similar"),
-        "parameter_agreement",
-        Some(json!([
-            row(
-                "V0",
-                json!(162.4),
-                162.41,
-                &json!({"similar": true, "within_combined_2sigma": true})
-            ),
-            row(
-                "K0",
-                json!(256),
-                263.7307,
-                &json!({"similar": true, "within_combined_2sigma": false})
-            ),
-        ])),
-    );
+fn why_says_what_differs_in_plain_words() {
+    // The same cases as WHY_CASES in tests/test_eosmat_v5_check_fields.py.
+    let similar = |rows: Value| assessed(Some("similar"), "parameter_agreement", Some(rows));
+    let disagrees =
+        |rows: Value| assessed(Some("not_reproduced"), "parameter_agreement", Some(rows));
+    let close = similar(json!([
+        row(
+            "V0",
+            json!(162.4),
+            162.41,
+            &json!({"similar": true, "within_combined_2sigma": true})
+        ),
+        row(
+            "K0",
+            json!(256),
+            263.7307,
+            &json!({"similar": true, "within_combined_2sigma": false})
+        ),
+    ]));
     assert_eq!(
         why(&close).as_deref(),
-        Some("K0: refit 263.7 vs published 256 GPa (+3.0%), outside the combined error.")
-    );
-    let disagrees = assessed(
-        Some("not_reproduced"),
-        "parameter_agreement",
-        Some(json!([{
-            "parameter": "rt_eos.K0_prime",
-            "published": 4.91,
-            "published_sigma": 0.12,
-            "refit": 4.183_456,
-            "refit_sigma": null,
-            "similar": false,
-            "within_combined_2sigma": false,
-            "within_reported_error": false
-        }])),
-    );
-    assert_eq!(
-        why(&disagrees).as_deref(),
         Some(
-            "K0': refit 4.183 vs published 4.91 (-14.8%), outside the combined error, \
-             beyond the agreement limit and outside the published error."
+            "Refit vs published: K0 263.7 vs 256 GPa (+3.0%) differs by more than \
+             twice the combined error."
         )
     );
-    let untested = assessed(
-        Some("similar"),
-        "parameter_agreement",
-        Some(json!([
+    // The second spelling of the table; three failed criteria in one row.
+    let three = disagrees(json!([{
+        "parameter": "rt_eos.K0_prime",
+        "published": 4.91,
+        "published_sigma": 0.12,
+        "refit": 4.183_456,
+        "refit_sigma": null,
+        "similar": false,
+        "within_combined_2sigma": false,
+        "within_reported_error": false
+    }]));
+    assert_eq!(
+        why(&three).as_deref(),
+        Some(
+            "Refit vs published: K0' 4.183 vs 4.91 (-14.8%) differs by more than \
+             twice the combined error, the agreement limit and the published error."
+        )
+    );
+    // Volume in Å³; published values print as stored, the refit with at most
+    // one more decimal.
+    let volume = similar(json!([row(
+        "V0",
+        json!(74.7),
+        75.0,
+        &json!({"similar": true, "within_combined_2sigma": false})
+    )]));
+    assert_eq!(
+        why(&volume).as_deref(),
+        Some(
+            "Refit vs published: V0 75 vs 74.7 Å³ (+0.4%) differs by more than twice \
+             the combined error."
+        )
+    );
+    // A thermal coefficient takes the thermal model's unit; exponent notation
+    // follows the stored spelling's significant digits.
+    let exponent = with_thermal(
+        similar(json!([row(
+            "alpha1",
+            json!(8.7e-9),
+            5.6123e-9,
+            &json!({"similar": false, "within_combined_2sigma": true})
+        )])),
+        "AlphaKT",
+        &json!({"Tr": 300.0, "alpha0": 3e-5, "alpha1": 8.7e-9}),
+    );
+    assert_eq!(
+        derived_why(&exponent).as_deref(),
+        Some(
+            "Refit vs published: alpha1 5.61e-09 vs 8.7e-09 K^-2 (-35.5%) differs by \
+             more than the agreement limit."
+        )
+    );
+    // A difference of 100% or more gives the two values, no percentage.
+    let large = with_thermal(
+        disagrees(json!([
+            row("theta0", json!(600.0), 766.2634, &json!({"similar": false})),
+            row("gamma0", json!(2.609), 8.0, &json!({"similar": false})),
+        ])),
+        "MieGruneisenDebye",
+        &json!({"theta0": 600.0, "gamma0": 2.609}),
+    );
+    assert_eq!(
+        derived_why(&large).as_deref(),
+        Some(
+            "Refit vs published: theta0 766.3 vs 600 K (+27.7%) and gamma0 8 vs 2.609 \
+             differ by more than the agreement limit."
+        )
+    );
+    // Too long with values: percentages. One clause per criterion, the one
+    // with most coefficients first; a coefficient already named is not
+    // repeated.
+    let mixed = disagrees(json!([
+        row(
+            "V0",
+            json!(74.7),
+            75.5,
+            &json!({"similar": true, "within_combined_2sigma": false})
+        ),
+        row(
+            "K0",
+            json!(160),
+            200.0,
+            &json!({"similar": false, "within_combined_2sigma": false})
+        ),
+        row(
+            "K0_prime",
+            json!(4),
+            0.0,
+            &json!({"similar": false, "within_combined_2sigma": true})
+        ),
+    ]));
+    assert_eq!(
+        why(&mixed).as_deref(),
+        Some(
+            "Refit vs published: V0 (+1.1%) and K0 (+25.0%) differ by more than twice \
+             the combined error; K0' (0 vs 4) differs by more than the agreement limit, \
+             as does K0."
+        )
+    );
+    // A coefficient failing two criteria is named once; "also" for the second.
+    let also = disagrees(json!([
+        row(
+            "V0",
+            json!(74.7),
+            76.87,
+            &json!({"similar": true, "within_combined_2sigma": false})
+        ),
+        row(
+            "K0",
+            json!(160),
+            135.68,
+            &json!({"similar": false, "within_combined_2sigma": false})
+        ),
+    ]));
+    assert_eq!(
+        why(&also).as_deref(),
+        Some(
+            "Refit vs published: V0 (+2.9%) and K0 (-15.2%) differ by more than twice \
+             the combined error; K0 also by more than the agreement limit."
+        )
+    );
+    // Four or more failing coefficients are all named.
+    let four = disagrees(json!([
+        row("V0", json!(74.7), 75.0, &json!({"similar": false})),
+        row("K0", json!(160), 200.0, &json!({"similar": false})),
+        row("K0_prime", json!(4), 2.0, &json!({"similar": false})),
+        row("gamma0", json!(1.5), 1.6, &json!({"similar": false})),
+    ]));
+    assert_eq!(
+        why(&four).as_deref(),
+        Some(
+            "Refit vs published: V0 (+0.4%), K0 (+25.0%), K0' (-50.0%) and gamma0 \
+             (+6.7%) differ by more than the agreement limit."
+        )
+    );
+    // More than four failing coefficients are counted; the largest keep their
+    // percentage.
+    let largest: Vec<Value> = "abcdefg"
+        .chars()
+        .zip(0_u8..)
+        .map(|(mode, index)| {
+            row(
+                &format!("theta_{mode}0"),
+                json!(1888.0),
+                1888.0 * (1.1 + 0.1 * f64::from(index)),
+                &json!({"similar": false}),
+            )
+        })
+        .collect();
+    assert_eq!(
+        why(&disagrees(json!(largest))).as_deref(),
+        Some(
+            "Refit vs published: 7 coefficients differ by more than the agreement \
+             limit; largest: theta_g0 (+70.0%), theta_f0 (+60.0%) and theta_e0 \
+             (+50.0%)."
+        )
+    );
+    // A count and the largest, which keep their values while the line fits.
+    let many: Vec<Value> = (0..12)
+        .map(|index| {
+            row(
+                &format!("coefficient_{index}"),
+                json!(1.25),
+                1.5 + f64::from(index),
+                &json!({"similar": false}),
+            )
+        })
+        .collect();
+    assert_eq!(
+        why(&disagrees(json!(many))).as_deref(),
+        Some(
+            "Refit vs published: 12 coefficients differ by more than the agreement \
+             limit; largest: coefficient_11 (12.5 vs 1.25), coefficient_10 and \
+             coefficient_9."
+        )
+    );
+    // Nothing failed: the coefficients without a combined-error test, and
+    // which error is missing.
+    let untested = json!({"similar": true, "within_combined_2sigma": null});
+    let paper = similar(json!([
+        with_errors(
+            row("K0", json!(160), 161.0, &untested),
+            json!(null),
+            json!(1.2)
+        ),
+        with_errors(
+            row("K0_prime", json!(4), 4.1, &untested),
+            json!(null),
+            json!(0.1)
+        ),
+    ]));
+    assert_eq!(
+        why(&paper).as_deref(),
+        Some(
+            "All coefficients are within the agreement limit; the paper gives no \
+             error for K0 and K0', so they could not be tested against twice the \
+             combined error."
+        )
+    );
+    let refit = similar(json!([
+        with_errors(
+            row("V0", json!(74.7), 74.71, &untested),
+            json!(0.1),
+            json!(null)
+        ),
+        with_errors(
             row(
                 "K0",
                 json!(160),
                 161.0,
-                &json!({"similar": true, "within_combined_2sigma": null})
+                &json!({"similar": true, "within_combined_2sigma": true})
             ),
-            row(
-                "K0_prime",
-                json!(4),
-                4.1,
-                &json!({"similar": true, "within_combined_2sigma": null})
-            ),
-        ])),
-    );
+            json!(2),
+            json!(1),
+        ),
+    ]));
     assert_eq!(
-        why(&untested).as_deref(),
+        why(&refit).as_deref(),
         Some(
-            "K0 and K0' have no error to test against the combined-error rule; \
-             all within the agreement limit."
+            "All coefficients are within the agreement limit; the refit gives no \
+             error for V0, so it could not be tested against twice the combined error."
         )
     );
-    let single = assessed(
-        Some("similar"),
-        "parameter_agreement",
-        Some(json!([row(
+    let neither = similar(json!([row("K0", json!(160), 161.0, &untested)]));
+    assert_eq!(
+        why(&neither).as_deref(),
+        Some(
+            "All coefficients are within the agreement limit; no published or refit \
+             error for K0, so it could not be tested against twice the combined error."
+        )
+    );
+    let several = similar(json!([
+        with_errors(
+            row("V0", json!(74.7), 74.71, &untested),
+            json!(0.1),
+            json!(null)
+        ),
+        row("K0", json!(160), 161.0, &untested),
+        row("K0_prime", json!(4), 4.1, &untested),
+    ]));
+    assert_eq!(
+        why(&several).as_deref(),
+        Some(
+            "V0 has no refit error and K0 and K0' no published or refit error, so none \
+             could be tested against twice the combined error."
+        )
+    );
+    // With "All coefficients are within the agreement limit; " too long.
+    let two = similar(json!([
+        row("K0", json!(160), 161.0, &untested),
+        with_errors(
+            row("K0_prime", json!(4), 4.1, &untested),
+            json!(0.1),
+            json!(null)
+        ),
+        row(
             "V0",
             json!(74.7),
             74.71,
-            &json!({"similar": true, "within_combined_2sigma": null})
-        )])),
-    );
+            &json!({"similar": true, "within_combined_2sigma": true})
+        ),
+    ]));
     assert_eq!(
-        why(&single).as_deref(),
+        why(&two).as_deref(),
         Some(
-            "V0 has no error to test against the combined-error rule; \
-             all within the agreement limit."
+            "K0 has no published or refit error and K0' no refit error, so neither \
+             could be tested against twice the combined error."
         )
     );
-    // Published values print as stored, without a trailing ".0".
-    let integral = assessed(
-        Some("similar"),
-        "parameter_agreement",
-        Some(json!([row(
-            "theta0",
-            json!(600.0),
-            766.2634,
-            &json!({"similar": false})
-        )])),
-    );
+    // A coefficient the record holds fixed is not a candidate for the test.
+    let mut fixed = similar(json!([
+        with_errors(
+            row("V0", json!(74.7), 74.71, &untested),
+            json!(0.1),
+            json!(null)
+        ),
+        with_errors(
+            row("K0", json!(160), 161.0, &untested),
+            json!(2),
+            json!(null)
+        ),
+        row("K0_prime", json!(4), 4.0, &untested),
+    ]));
+    fixed["eos_records"][0]["parameters"] = json!({
+        "V0": {"value": 74.7, "error": 0.1},
+        "K0": {"value": 160, "error": 2},
+        "K0_prime": {"value": 4, "fixed": true}
+    });
     assert_eq!(
-        why(&integral).as_deref(),
-        Some("theta0: refit 766.3 vs published 600 K (+27.7%), beyond the agreement limit.")
+        why(&fixed).as_deref(),
+        Some(
+            "All coefficients are within the agreement limit; the refit gives no \
+             error for V0 and K0, so they could not be tested against twice the \
+             combined error."
+        )
     );
-    // Exponent notation follows the stored spelling's significant digits.
-    let small = assessed(
-        Some("similar"),
-        "parameter_agreement",
-        Some(json!([row(
-            "alpha1",
-            json!(8.7e-9),
-            5.6123e-9,
-            &json!({"similar": false})
-        )])),
-    );
-    assert_eq!(
-        why(&small).as_deref(),
-        Some("alpha1: refit 5.61e-09 vs published 8.7e-09 (-35.5%), beyond the agreement limit.")
-    );
-    // More than three failures: the three largest relative differences are
-    // named and the rest counted.
-    let four = assessed(
-        Some("not_reproduced"),
-        "parameter_agreement",
-        Some(json!([
-            row("V0", json!(74.7), 75.0, &json!({"similar": false})),
-            row("K0", json!(160), 200.0, &json!({"similar": false})),
-            row("K0_prime", json!(4), 2.0, &json!({"similar": false})),
-            row("gamma0", json!(1.5), 1.6, &json!({"similar": false})),
+    // Names and numbers print as the record summary prints them: dK/dT, and
+    // e-notation below 1e-4.
+    let spelling = with_thermal(
+        similar(json!([
+            row(
+                "alpha0",
+                json!(0.000_115_8),
+                9.2237e-5,
+                &json!({"similar": true, "within_combined_2sigma": false})
+            ),
+            row(
+                "dK_dT",
+                json!(-0.008),
+                -0.0123,
+                &json!({"similar": true, "within_combined_2sigma": false})
+            ),
         ])),
+        "AlphaKT",
+        &json!({"Tr": 300.0, "alpha0": 0.000_115_8, "dK_dT": -0.008}),
     );
     assert_eq!(
-        why(&four).as_deref(),
-        Some("K0' (-50.0%), K0 (+25.0%), gamma0 (+6.7%) and 1 more: beyond the agreement limit.")
+        derived_why(&spelling).as_deref(),
+        Some(
+            "Refit vs published: alpha0 9.224e-05 vs 0.0001158 K^-1 (-20.3%) and dK/dT \
+             -0.0123 vs -0.008 GPa/K (-53.8%) differ by more than twice the combined \
+             error."
+        )
+    );
+    // No stored errors at all, and not every row passed the agreement limit.
+    let unknown = similar(json!([
+        {"parameter": "K0", "published": 160, "refit": 161, "within_combined_2sigma": null},
+        row(
+            "V0",
+            json!(74.7),
+            74.71,
+            &json!({"similar": true, "within_combined_2sigma": true})
+        ),
+    ]));
+    assert_eq!(
+        why(&unknown).as_deref(),
+        Some(
+            "No error comparison is recorded for K0, so it could not be tested against \
+             twice the combined error."
+        )
+    );
+    // A published value with more than six significant digits (a computed
+    // conversion) is not repeated.
+    let long = similar(json!([row(
+        "V0",
+        json!(41.480_265_898),
+        41.553_584_028_7,
+        &json!({"similar": true, "within_combined_2sigma": false})
+    )]));
+    assert_eq!(
+        why(&long).as_deref(),
+        Some("Refit vs published: V0 (+0.2%) differs by more than twice the combined error.")
     );
     // Nothing failed and nothing untested, or a parity headline: no statement.
-    let passing = assessed(
-        Some("not_reproduced"),
-        "parameter_agreement",
-        Some(json!([row(
-            "K0",
-            json!(160),
-            161.0,
-            &json!({"similar": true, "within_combined_2sigma": true})
-        )])),
-    );
+    let passing = disagrees(json!([row(
+        "K0",
+        json!(160),
+        161.0,
+        &json!({"similar": true, "within_combined_2sigma": true})
+    )]));
     assert_eq!(why(&passing), None);
     let parity = assessed(
         Some("parity"),
@@ -970,22 +1232,10 @@ fn why_names_failed_coefficients_from_the_stored_table() {
         why(&assessed(Some("similar"), "parameter_agreement", None)),
         None
     );
-    let many: Vec<Value> = (0..12)
-        .map(|index| {
-            row(
-                &format!("coefficient_{index}"),
-                json!(1.25),
-                1.5 + f64::from(index),
-                &json!({"similar": false}),
-            )
-        })
-        .collect();
-    let many = assessed(
-        Some("not_reproduced"),
-        "parameter_agreement",
-        Some(json!(many)),
-    );
-    assert!(why(&many).is_none_or(|text| text.chars().count() <= WHY_MAX_LENGTH));
+    // An untested coefficient explains a close record only.
+    let rows =
+        neither["eos_records"][0]["evidence"]["reproduction"]["assessment"]["parameters"].clone();
+    assert_eq!(why(&disagrees(rows)), None);
 }
 
 fn two_records(map: Option<Value>, first: &Value, second: &Value) -> Value {
