@@ -917,3 +917,187 @@ def test_successful_stop_conditions_preserve_source_values_and_scientific_verdic
     current["parameters"][0]["published"] = 160.000001
     with pytest.raises(ValueError):
         check_ledger_values(saved, current)
+
+
+def test_self_consistency_maxima_use_an_absolute_1e_9_tolerance():
+    for key in (
+        "native_equation_max_difference_gpa",
+        "native_max_difference_gpa",
+        "max_abs_thermal_energy_increment_error_j_per_mol",
+    ):
+        # Roundoff of an identity that is zero: 2.5e-10 against 1.4e-13.
+        check_ledger_values({key: 2.4997959258143965e-10}, {key: 1.42e-13})
+        with pytest.raises(ValueError, match=key):
+            check_ledger_values({key: 2.5e-10}, {key: 2.0e-9})
+    # The rule is tied to the named keys, not to every small number.
+    with pytest.raises(ValueError, match="calculated value"):
+        check_ledger_values({"rmse_gpa": 2.5e-10}, {"rmse_gpa": 1.42e-13})
+
+
+def test_absolute_difference_is_compared_on_the_coefficient_scale():
+    saved = {
+        "published": 3.2,
+        "fitted": 3.2012154,
+        "absolute_difference": 0.0012154,
+    }
+    current = {**saved, "fitted": 3.2012156, "absolute_difference": 0.0012156}
+    check_ledger_values(saved, current)
+    with pytest.raises(ValueError, match="absolute_difference"):
+        check_ledger_values(saved, {**current, "absolute_difference": 0.0013})
+    # Without a published sibling there is no coefficient scale.
+    with pytest.raises(ValueError, match="absolute_difference"):
+        check_ledger_values(
+            {"absolute_difference": 0.0012154}, {"absolute_difference": 0.0012156}
+        )
+
+
+def test_covariance_off_diagonals_are_compared_on_the_correlation_scale():
+    saved = {
+        "covariance": [
+            [162.87450695105198, -0.22600771727261582, 21.7196834245582],
+            [-0.22600771727265578, 0.004248750117696759, -0.0028956965481152213],
+            [21.719683424557893, -0.002895696548109457, 3.21199240724892],
+        ]
+    }
+    current = json.loads(json.dumps(saved))
+    # Campbell (2009) fcc Fe: gamma0-q covariance moves 1.2e-5 relative.
+    current["covariance"][1][2] = current["covariance"][2][1] = -0.00289566
+    check_ledger_values(saved, current)
+    # A change of 1e-4 on the correlation scale is not roundoff.
+    current["covariance"][1][2] = -0.0028956965481152213 + 0.117 * 1e-4
+    with pytest.raises(ValueError, match=r"covariance\[1\]\[2\]"):
+        check_ledger_values(saved, current)
+    # Diagonal elements keep the ordinary relative tolerance.
+    current = json.loads(json.dumps(saved))
+    current["covariance"][1][1] *= 1 + 2e-5
+    with pytest.raises(ValueError, match=r"covariance\[1\]\[1\]"):
+        check_ledger_values(saved, current)
+    # Another matrix keeps the element-wise rule.
+    with pytest.raises(ValueError, match="correlation_matrix"):
+        check_ledger_values(
+            {"correlation_matrix": [[1.0, -0.0289570], [-0.0289570, 1.0]]},
+            {"correlation_matrix": [[1.0, -0.0289566], [-0.0289566, 1.0]]},
+        )
+
+
+def test_solver_work_counts_need_not_match_when_both_fits_succeed():
+    for key in ("solver_evaluations", "effective_variance_iterations"):
+        saved = {"solver_success": True, key: 2002, "refit": 1.0}
+        check_ledger_values(saved, {**saved, key: 2004})
+        # A failed fit, or one side without success, keeps the count exact.
+        failed = {**saved, "solver_success": False}
+        unknown = {k: v for k, v in saved.items() if k != "solver_success"}
+        for base in (failed, unknown):
+            with pytest.raises(ValueError, match=key):
+                check_ledger_values(base, {**base, key: 2004})
+        # Other integers stay exact even next to a successful solver.
+        with pytest.raises(ValueError, match="observations"):
+            check_ledger_values(
+                {**saved, "observations": 40}, {**saved, "observations": 41}
+            )
+
+
+def test_jacobian_condition_number_uses_a_relative_1e_3_tolerance():
+    saved = {"solver_success": True, "jacobian_condition_number": 1.25043e8}
+    check_ledger_values(saved, {**saved, "jacobian_condition_number": 1.25045e8})
+    with pytest.raises(ValueError, match="jacobian_condition_number"):
+        check_ledger_values(saved, {**saved, "jacobian_condition_number": 1.3e8})
+    failed = {**saved, "solver_success": False}
+    with pytest.raises(ValueError, match="jacobian_condition_number"):
+        check_ledger_values(failed, {**failed, "jacobian_condition_number": 1.25045e8})
+
+
+def test_active_bound_mask_is_decided_from_the_distance_to_the_bound():
+    import inspect
+
+    import scripts.reproduce_argon_errandonea_2006 as errandonea
+    from scripts.validate_primary_eos_refits import (
+        ERRANDONEA_DIAGNOSTIC_BOUNDS,
+        active_bound_mask,
+    )
+
+    lower, upper = ERRANDONEA_DIAGNOSTIC_BOUNDS
+    # Both stopping points of the 300 A^3 V0 bound seen on different builds.
+    for v0 in (299.99999999846654, 299.99999999999994):
+        assert active_bound_mask([v0, 0.078, 14.48], lower, upper) == [1, 0, 0]
+    assert active_bound_mask([299.9, 0.01, 14.48], lower, upper) == [0, -1, 0]
+    # The bounds are those the reproduction script passes to least_squares.
+    assert "bounds=([80, 0.01, 1], [300, 50, 15])" in inspect.getsource(errandonea)
+    row = next(
+        r
+        for r in load_ledger()["records"]
+        if r["record_identifier"] == "argon_fcc_errandonea_2006_bm3"
+    )
+    refit = row["reproduction"]["diagnostic_equal_pressure_weight_refit"]
+    assert refit["active_bound_mask"] == active_bound_mask(
+        refit["parameters"], lower, upper
+    )
+
+
+def _row(identifier, material, refit):
+    return {
+        "record_identifier": identifier,
+        "material_identifier": material,
+        "parameters": [{"published": 1.0, "refit": refit}],
+    }
+
+
+def test_ledger_check_matches_rows_by_identifier_and_reports_every_row():
+    from scripts.validate_primary_eos_refits import ledger_differences
+
+    saved = {
+        "policy": {"parity": "text"},
+        "records": [_row("b", "m", 1.0), _row("a", "m", 1.0), _row("c", "n", 1.0)],
+    }
+    # Order alone is no difference.
+    current = {**saved, "records": list(reversed(saved["records"]))}
+    assert ledger_differences(saved, current) == []
+    # Every differing row is listed with its first differing leaf, and rows
+    # on only one side are named.
+    current = {
+        "policy": {"parity": "other"},
+        "records": [_row("a", "m", 1.1), _row("b", "m", 1.2), _row("d", "n", 1.0)],
+    }
+    differences = ledger_differences(saved, current)
+    assert differences[0].startswith("ledger.policy.parity")
+    assert differences[1].startswith("records[b].parameters[0].refit")
+    assert differences[2].startswith("records[a].parameters[0].refit")
+    assert differences[3:] == [
+        "c: row only in the saved ledger",
+        "d: row only in the fresh computation",
+    ]
+    duplicated = {**saved, "records": saved["records"] + [_row("a", "m", 1.0)]}
+    assert "saved ledger lists a 2 times" in ledger_differences(duplicated, saved)
+
+
+def test_rewritten_ledger_keeps_the_saved_row_order():
+    from scripts.validate_primary_eos_refits import order_like_saved
+
+    saved = [_row("b", "m", 1.0), _row("a", "m", 1.0), _row("c", "n", 1.0)]
+    fresh = [_row("a", "m", 2.0), _row("new", "m", 1.0), _row("b", "m", 2.0)]
+    ordered = order_like_saved(fresh, saved)
+    # Saved order, row "c" gone, the new row after its material's last row.
+    assert [r["record_identifier"] for r in ordered] == ["b", "a", "new"]
+    assert ordered[0]["parameters"][0]["refit"] == 2.0
+
+
+def test_recommendation_reason_is_stated_once_in_the_qualification():
+    from scripts.validate_primary_eos_refits import validate_all
+
+    material = "cementite_nonmagnetic"
+    record = next(
+        r
+        for r in get_material_document(material)["eos_records"]
+        if r["identifier"] == "cementite_nonmagnetic_sata_2010_bm3"
+    )
+    reason = record["scientific_validation"]["recommendation_reason"]
+    row = next(
+        r
+        for r in validate_all([material])["records"]
+        if r["record_identifier"] == record["identifier"]
+    )
+    assert row["qualification"].count(reason) == 1
+    assert (
+        row["recommendation_date"]
+        == record["scientific_validation"]["recommendation_date"]
+    )
