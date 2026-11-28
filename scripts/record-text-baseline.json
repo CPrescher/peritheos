@@ -1,68 +1,17 @@
 {
   "description": "Bundled records and materials whose text exceeded the limits of docs/record-text-standard.md when the check was introduced. scripts/check_record_text.py fails on any case not listed here and on a listed case that no longer occurs (remove it with --prune). Never add a case; fix the text instead.",
   "cases": {
-    "al_bearing_phase_d": [
-      "material_notes_length"
-    ],
-    "alumina_rh2o3_ii": [
-      "material_notes_length"
-    ],
-    "aragonite": [
-      "material_notes_length"
-    ],
     "b4c": [
-      "material_notes_length"
-    ],
-    "bridgmanite": [
-      "material_notes_length"
-    ],
-    "brucite": [
-      "material_notes_length"
-    ],
-    "ca0988mg0918fe0078mn0016c2o6_dolomite_iii": [
-      "material_notes_length"
-    ],
-    "ca_perovskite": [
       "material_notes_length"
     ],
     "ca_perovskite/ca_perovskite_wang_1996_preferred_bm3": [
       "validity_length"
     ],
-    "cairo3_perovskite": [
-      "material_notes_length"
-    ],
-    "cairo3_post_perovskite": [
-      "material_notes_length"
-    ],
-    "calcium_germanate_perovskite": [
-      "material_notes_length"
-    ],
-    "calcium_titanate_perovskite": [
-      "material_notes_length"
-    ],
     "cementite_nonmagnetic": [
-      "material_notes_length"
-    ],
-    "coesite_v": [
-      "material_notes_length"
-    ],
-    "diopside": [
-      "material_notes_length"
-    ],
-    "e_feooh": [
       "material_notes_length"
     ],
     "e_feooh_hc_low_spin/e_feooh_hc_low_spin_thompson_2017_bm3_1": [
       "notes_length"
-    ],
-    "fe073si027_d03": [
-      "material_notes_length"
-    ],
-    "fe084si016_d03": [
-      "material_notes_length"
-    ],
-    "fe093o_rhombohedral": [
-      "material_notes_length"
     ],
     "fe3s": [
       "material_notes_length"
@@ -73,17 +22,8 @@
     "feh2": [
       "material_notes_length"
     ],
-    "ferropericlase_fe27": [
-      "material_notes_length"
-    ],
-    "fesi_b2": [
-      "material_notes_length"
-    ],
     "gold/gold_yokoo_2009_pvt_reconstruction": [
       "notes_length"
-    ],
-    "grossular": [
-      "material_notes_length"
     ],
     "hydrous_silica_cacl2_nisr_2017": [
       "material_notes_length"
@@ -92,9 +32,6 @@
       "notes_length"
     ],
     "hydrous_stishovite_nisr_2017": [
-      "material_notes_length"
-    ],
-    "ice_vii": [
       "material_notes_length"
     ],
     "iceviii": [
@@ -109,12 +46,6 @@
     "iron/iron_miozzi_2020_tange_2009_bm3_mgd_refit": [
       "notes_length"
     ],
-    "magnesiowustite_fe56": [
-      "material_notes_length"
-    ],
-    "magnesiowustite_fe75": [
-      "material_notes_length"
-    ],
     "majorite": [
       "material_notes_length"
     ],
@@ -124,28 +55,13 @@
     "mg05fe05al05si05o3_bridgmanite": [
       "material_notes_length"
     ],
-    "mg075fe025o": [
-      "material_notes_length"
-    ],
-    "mg080fe020o": [
-      "material_notes_length"
-    ],
     "mg087fe013sio3_bridgmanite": [
       "material_notes_length"
     ],
     "mg088fe010al014si090o3_bridgmanite": [
       "material_notes_length"
     ],
-    "mg090fe009al0005ca0005sio3_bridgmanite": [
-      "material_notes_length"
-    ],
     "mg090fe009al0005ca0005sio3_post_perovskite": [
-      "material_notes_length"
-    ],
-    "mg092fe008sio3_bridgmanite": [
-      "material_notes_length"
-    ],
-    "mg09375fe00625sio3_bridgmanite": [
       "material_notes_length"
     ],
     "mg095al010si095o3_bridgmanite": [
@@ -157,28 +73,7 @@
     "mg09fe01sio3_bridgmanite": [
       "material_notes_length"
     ],
-    "mg7si2o8": [
-      "material_notes_length"
-    ],
-    "mgal2o4_cafe2o4": [
-      "material_notes_length"
-    ],
-    "mgal2o4_cati2o4": [
-      "material_notes_length"
-    ],
-    "mgfe60o": [
-      "material_notes_length"
-    ],
-    "mgfe94o_b1": [
-      "material_notes_length"
-    ],
-    "mgfe94o_rhombohedral": [
-      "material_notes_length"
-    ],
     "mggeo3_post_perovskite": [
-      "material_notes_length"
-    ],
-    "mgo": [
       "material_notes_length"
     ],
     "mgo/mgo_b1_luo_2023_vinet_thermal_5": [
@@ -193,25 +88,7 @@
     "mgo/mgo_speziale_2001_bm3_2": [
       "thermal_length"
     ],
-    "mgsio3_post_perovskite": [
-      "material_notes_length"
-    ],
-    "mgsioh6_365a_phase": [
-      "material_notes_length"
-    ],
     "na088al099fe013si094o4_calcium_ferrite": [
-      "material_notes_length"
-    ],
-    "na093al102si100o4_calcium_ferrite": [
-      "material_notes_length"
-    ],
-    "naalsio4_calcium_ferrite": [
-      "material_notes_length"
-    ],
-    "namg2al5sio12_cf": [
-      "material_notes_length"
-    ],
-    "namg2al5sio12_nal": [
       "material_notes_length"
     ],
     "neon_fcc/neon_fcc_fei_2007_bm3_1": [
@@ -219,9 +96,6 @@
     ],
     "neon_fcc/neon_fcc_fei_2007_vinet_2": [
       "notes_length"
-    ],
-    "nickel_oxide": [
-      "material_notes_length"
     ],
     "nickel_oxide_b1": [
       "material_notes_length"
@@ -232,20 +106,11 @@
     "phase_d": [
       "material_notes_length"
     ],
-    "phase_e_fe0072": [
-      "material_notes_length"
-    ],
     "phase_egg": [
       "material_notes_length"
     ],
     "platinum/platinum_yokoo_2009_pvt_reconstruction": [
       "thermal_length"
-    ],
-    "ringwoodite": [
-      "material_notes_length"
-    ],
-    "siderite_fe095mn005": [
-      "material_notes_length"
     ],
     "sno2_cubic_27gpa": [
       "material_notes_length"

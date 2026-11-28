@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-The lattice is the independently reported ambient characterization, V=86.51(1) A^3. The executable EOS instead uses the distinct 86.71(2) A^3 in situ zero-pressure row that Xu et al. fixed as V0; the source discrepancy is retained explicitly. The approximate formula is a transparent stoichiometric conversion of the reported oxide weights plus water-by-deficit estimate, not a direct site-occupancy or hydrogen analysis. This material is compositionally distinct from the Mg-rich phase\_d and Fe-bearing al-phase-D records already present.
+The lattice is the independently reported ambient characterization, V=86.51(1) A^3. The executable EOS instead uses the distinct 86.71(2) A^3 in situ zero-pressure row that Xu et al. fixed as V0. The approximate formula is a transparent stoichiometric conversion of the reported oxide weights plus water-by-deficit estimate, not a direct site-occupancy or hydrogen analysis. This material is compositionally distinct from the Mg-rich phase D and Fe-bearing Al-phase D materials.
 
 ## Automatic selections
 

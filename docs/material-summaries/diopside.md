@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 3 |
 
-Independent source parameterizations, not a combined fit. Thompson (2008) static BM3 is the room-temperature default; Zhao (1998) thermal BM3 supplies the published high-temperature parameterization. Equation and parameter parity are established within source precision and reported errors after accounting for a graph-corroborated table error. Original observations and published coefficients are preserved; source-table discrepancies are recorded as provenance. See docs/literature-reproductions/diopside.md. Conventional Z=4 cell volumes; mechanical P-V-T models do not define caloric free energies.
+Independent source parameterizations, not a combined fit. Thompson (2008) static BM3 is the room-temperature parameterization; Zhao (1998) thermal BM3 supplies the published high-temperature parameterization. Equation and parameter parity are established within source precision and reported errors after accounting for a graph-corroborated table error. Conventional Z=4 cell volumes; mechanical P-V-T models do not define caloric free energies.
 
 ## Automatic selections
 

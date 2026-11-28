@@ -24,7 +24,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 37 |
 | Observation datasets | 19 |
 
-MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 plus author-confirmed variable-q Debye model is the default. The Duffy et al. (1995) multimegabar, Luo et al. (2023) shock- and sound-velocity-constrained thermal, and Shen and Smith (2026) Cu-referenced fits remain available as alternatives. The Duffy and Ahrens (1995) record is a separate constrained principal Hugoniot path for untransformed B1 MgO, not an equilibrium P-V-T surface.
+MgO pressure calibrant. The Duffy and Ahrens (1995) record is a separate constrained principal Hugoniot path for untransformed B1 MgO, not an equilibrium P-V-T surface.
 
 ## Automatic selections
 

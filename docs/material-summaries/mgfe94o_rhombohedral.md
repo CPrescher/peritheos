@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-This material is separate from mgfe94o\_b1 because the article fits the rhombohedral observations with an independent extrapolated V0, K0, and K0-prime. The 300 K EOS is not a spin-resolved parameterization: SMS points lie above the diffraction range and do not supply simultaneous volume observations for high-spin, low-spin, or mixed-spin branches.
+This material is separate from Ferropericlase B1 Mw94 because the article fits the rhombohedral observations with an independent extrapolated V0, K0, and K0-prime. The 300 K EOS is not a spin-resolved parameterization: SMS points lie above the diffraction range and do not supply simultaneous volume observations for high-spin, low-spin, or mixed-spin branches.
 
 ## Automatic selections
 

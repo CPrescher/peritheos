@@ -37,6 +37,7 @@ from peritheos._eosmat_audit import (  # noqa: E402
 )
 from scripts.apply_record_text import (  # noqa: E402
     LABEL_MAX_CHARACTERS,
+    MATERIAL_NOTES_MAX_CHARACTERS,
     NOTES_MAX_CHARACTERS,
     NOTES_MAX_SENTENCES,
     THERMAL_NOTES_MAX_CHARACTERS,
@@ -46,7 +47,6 @@ from scripts.apply_record_text import (  # noqa: E402
 )
 
 BASELINE = ROOT / "scripts/record-text-baseline.json"
-MATERIAL_NOTES_MAX_CHARACTERS = 300
 SOURCE_NOTE_MAX_CHARACTERS = RECORD_NOTE_MAX_LENGTH
 WARNING_REASON_MAX_CHARACTERS = WARNING_REASON_MAX_LENGTH
 

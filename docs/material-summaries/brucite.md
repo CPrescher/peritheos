@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 3 |
 | Observation datasets | 3 |
 
-Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Ambient Mg(OH)2 structure from Zigan and Rothbauer (1967), CC0 COD 1000054; original structural paper not directly inspected. Source structure and EOS samples differ; no rescaling. All 102 Fukui/Xia observations preserved.
+Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Ambient Mg(OH)2 structure from Zigan and Rothbauer (1967), CC0 COD 1000054; original structural paper not directly inspected. Source structure and EOS samples differ; no rescaling.
 
 ## Automatic selections
 
