@@ -117,10 +117,9 @@ All notable changes to Peritheos are documented here. The project follows
 - Catalog revisions of 2026-11-28, each recorded in the revision ledger:
   the 300 K isotherms of epsilon-FeOOH (Gleason et al. 2008) and
   pseudowollastonite (Sagatova et al. 2021) had a validity temperature range
-  that excluded 300 K and failed every validity check; it is now 300 K. Nine
-  thermal records whose temperature range missed their reference temperature
-  by 0.5 to 7 K are extended down to it (B4C, CaSiO3 perovskite refit,
-  forsterite, ice VII, KCl-B1, nickel, NiO). Osmium (Takemura 2004) marks V0
+  that excluded 300 K and failed every validity check; it is now 300 K. The
+  validity range of the CaSiO3 perovskite refit of Wang et al. (1996) starts
+  at its 300 K reference temperature. Osmium (Takemura 2004) marks V0
   as fixed. Five Peritheos refits and derived records state their errors as
   1 sigma (B4C, iron, Mo2C, the two Dewaele-anchored diamond records) and so
   does the Finkelstein et al. (2017) helium record. No coefficient changes.

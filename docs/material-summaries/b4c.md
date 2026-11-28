@@ -90,7 +90,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1098/rsta.2022.0331
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 50.0\]
-- **Reported temperature coverage (K):** \[298.0, 2500.0\]
+- **Reported temperature coverage (K):** \[300.0, 2500.0\]
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -201,7 +201,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/b4c
     - **DOI:** 10.1098/rsta.2022.0331
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 50.0\]
-- **Reported temperature coverage (K):** \[298.0, 2500.0\]
+- **Reported temperature coverage (K):** \[300.0, 2500.0\]
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>

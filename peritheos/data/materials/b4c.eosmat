@@ -40,7 +40,7 @@
         "debye_temperature_law": "integrated_gruneisen"
       },
       "experimental_pressure_range_gpa": [0.0, 50.0],
-      "experimental_temperature_range_k": [298.0, 2500.0],
+      "experimental_temperature_range_k": [300.0, 2500.0],
       "determination_method": "experimental",
       "notes": "BM3 reference isotherm from the room-temperature quench-data fit, held fixed in the P-V-T fit of the Mie-Grüneisen-Debye thermal pressure. The thermal model uses n = 5 atoms per B4C formula unit and is the paper's generalized Tange relation with a = 1. The average disordered R-3m structure is reported stable over the experimental range.",
       "fit_datasets": ["b4c_somayazulu_2023_table4_pvt"],
@@ -86,7 +86,7 @@
         "reference_volume_law": "berman"
       },
       "experimental_pressure_range_gpa": [0.0, 50.0],
-      "experimental_temperature_range_k": [298.0, 2500.0],
+      "experimental_temperature_range_k": [300.0, 2500.0],
       "determination_method": "experimental",
       "notes": "The paper's Berman P-V-T fit, made with the EosFit7c program: V0(T) = V0*[1 + alpha0*(T-Tr) + 0.5*alpha1*(T-Tr)^2] and K0(T) = K0 + dK0/dT*(T-Tr), with the 300 K BM3 parameters fixed. The authors call this parameterization unphysical and offer it as a ready estimate of K(P, T).",
       "fit_datasets": ["b4c_somayazulu_2023_table4_pvt"],

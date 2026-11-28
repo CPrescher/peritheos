@@ -1292,9 +1292,7 @@ def test_b4c_thermal_record_is_source_reproduced_and_diffraction_ready():
     assert cell_volume == pytest.approx(record["eos"]["parameters"]["V0"], abs=0.02)
 
     assert record["fixed_parameters"] == ["V0", "K0", "K0_prime"]
-    # The lower bound was extended to the 298 K reference temperature by
-    # catalog revision 2026-11-28-b4c-somayazulu-2023-temperature-range.
-    assert record["experimental_temperature_range_k"] == [298.0, 2500.0]
+    assert record["experimental_temperature_range_k"] == [300.0, 2500.0]
     assert record["thermal"] == {
         "type": "MieGruneisenDebye",
         "model": "mie_gruneisen_debye",
