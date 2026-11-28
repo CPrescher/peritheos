@@ -1026,7 +1026,7 @@
             "source_status": "source_reconstruction",
             "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
             "fit": {
-              "fixed_parameters": [],
+              "fixed_parameters": ["K0"],
               "observations": 80,
               "reconstruction_kind": "derived_reference_isotherm_composition",
               "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt", "diamond_correa_2008_figure8_dft_md_vector_digitized"]
@@ -1125,7 +1125,7 @@
             "source_status": "source_reconstruction",
             "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
             "fit": {
-              "fixed_parameters": [],
+              "fixed_parameters": ["K0"],
               "observations": 119,
               "reconstruction_kind": "derived_reference_isotherm_composition",
               "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt", "diamond_benedict_2014_supplement_solid_dft_md"]

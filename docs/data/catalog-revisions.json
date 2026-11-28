@@ -10912,6 +10912,3564 @@
       "created_files": [],
       "previous_sha256": null,
       "content_sha256": "10aec05f7199f14e979ab9233b7ad1f73b97507af6ced65447f706ce4a888019"
+    },
+    {
+      "id": "2026-11-28-b4c-somayazulu-2023-validity",
+      "material": "b4c",
+      "kind": "set_fields",
+      "date": "2026-11-28",
+      "decided_by": "Clemens Prescher",
+      "reason": "Both Somayazulu et al. (2023) records use Tr = temperature_ref = 298 K, the supplement's calculation reference (audit reported_inconsistencies for thermal.parameters.Tr: \"Use the supplement's explicit 298 K calculation reference; 300 K is retained as the nominal lower experimental temperature.\"), while experimental_temperature_range_k, the enforced range, starts at 300 K, so the reference state is rejected. A new validity object enforces the experimental pressure range and [298, 2500] K; the experimental ranges stay the span of the data.",
+      "source": {
+        "citation": "Somayazulu, Ahart, Meng, Ciezak, Velisavlevic and Hemley (2023), P-V-T equation of state of boron carbide, Philos. Trans. R. Soc. A 381, 20220331, doi:10.1098/rsta.2022.0331",
+        "location": "Supplement T0 = 298 K versus the main article's 300 K reference isotherm, per b4c.audit.json records.b4c_somayazulu_2023_bm3_1.evidence.scientific_validation.reported_inconsistencies[3]"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-28",
+        "statement": "Creates a validity object enforcing the experimental pressure range and a temperature range from the reference temperature to the experimental upper bound; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "b4c_somayazulu_2023_bm3_1",
+          "path": [
+            "validity"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": {
+            "pressure_gpa": [
+              0.0,
+              50.0
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "record": "b4c_somayazulu_2023_bm3_1",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": [
+            298.0,
+            2500.0
+          ]
+        },
+        {
+          "op": "set",
+          "record": "b4c_somayazulu_2023_berman_2",
+          "path": [
+            "validity"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": {
+            "pressure_gpa": [
+              0.0,
+              50.0
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "record": "b4c_somayazulu_2023_berman_2",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": [
+            298.0,
+            2500.0
+          ]
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "b4c_somayazulu_2023_berman_2",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": true,
+          "before": [
+            298.0,
+            2500.0
+          ],
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "b4c_somayazulu_2023_berman_2",
+          "path": [
+            "validity"
+          ],
+          "before_present": true,
+          "before": {
+            "pressure_gpa": [
+              0.0,
+              50.0
+            ]
+          },
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "b4c_somayazulu_2023_bm3_1",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": true,
+          "before": [
+            298.0,
+            2500.0
+          ],
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "b4c_somayazulu_2023_bm3_1",
+          "path": [
+            "validity"
+          ],
+          "before_present": true,
+          "before": {
+            "pressure_gpa": [
+              0.0,
+              50.0
+            ]
+          },
+          "after_present": false,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "6852a3041cd01a9d257003d95f10da6bf26c384043e31512b3fd61a037600290",
+        "after": "d15a6ac426ba40ffcd54a8fc140391513d5ed68767688cc6baa495ec25decb78"
+      },
+      "reference_sha256": {
+        "before": "076a218ce96f073f83d708e004fcddf50a44173fc7d6f91fb048874fde40f2d4",
+        "after": "95c03e333735821cd36aad57305ef2d91f059a79525d1c596b93bb4046f82688"
+      },
+      "scientific": {
+        "records_before": "216f4493f70fb16457cd61551b2e5901808b3b89efc98d4a142439d93802851d",
+        "records_after": "216f4493f70fb16457cd61551b2e5901808b3b89efc98d4a142439d93802851d",
+        "added_records": {},
+        "catalog_before": "fde7c6dd80e0292306aa022265c9371af1657656019c8167fac2846082ac4f07",
+        "catalog_after": "fde7c6dd80e0292306aa022265c9371af1657656019c8167fac2846082ac4f07"
+      },
+      "files": {
+        "peritheos/data/materials/b4c.eosmat": {
+          "before": "680208a21a1b783ac53b5a02a189cff08bf6e8486b13d0dda084888f3bfcc00b",
+          "after": "35a060ee1a7ffcccc1a90e5e1976fb1af3c563aba0bb12ee5592fd480dcb767f"
+        },
+        "peritheos/data/audits/b4c.audit.json": {
+          "before": "ca8c5ecc2ffff9ecbb079c854dbc369c4df1e5351381fc15775fc72fc66ca202",
+          "after": "ca8c5ecc2ffff9ecbb079c854dbc369c4df1e5351381fc15775fc72fc66ca202"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "0369c88f1d6bd6b963b1a9cab636eae5d76ed987d782227008337c1d2f2ba395",
+          "catalog_revision_sha256": "076a218ce96f073f83d708e004fcddf50a44173fc7d6f91fb048874fde40f2d4",
+          "catalog_revision_content_sha256": "10aec05f7199f14e979ab9233b7ad1f73b97507af6ced65447f706ce4a888019",
+          "after_record_sha256": "680208a21a1b783ac53b5a02a189cff08bf6e8486b13d0dda084888f3bfcc00b",
+          "after_audit_sha256": "ca8c5ecc2ffff9ecbb079c854dbc369c4df1e5351381fc15775fc72fc66ca202",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "reported_inconsistencies",
+                "primary_data_check"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1,
+            2
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              2,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "076a218ce96f073f83d708e004fcddf50a44173fc7d6f91fb048874fde40f2d4",
+          "after": "95c03e333735821cd36aad57305ef2d91f059a79525d1c596b93bb4046f82688"
+        },
+        "catalog_scientific_sha256": {
+          "before": "fde7c6dd80e0292306aa022265c9371af1657656019c8167fac2846082ac4f07",
+          "after": "fde7c6dd80e0292306aa022265c9371af1657656019c8167fac2846082ac4f07"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/b4c.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": "4f3bfe01c4e66e18b35e2504f58fcd7ee7162a3162a28c497c1b9922d0ffe602",
+      "content_sha256": "5872c5165e22d12baef8aa0afca021623764c8889fe995086d3f4728f86fa4be"
+    },
+    {
+      "id": "2026-11-28-diamond-dewaele-anchored-k0-fixed",
+      "material": "diamond",
+      "kind": "set_fields",
+      "date": "2026-11-28",
+      "decided_by": "Clemens Prescher",
+      "reason": "Both anchored records adopt the reference isotherm of diamond_dewaele_2008_vinet_2 (derived_from_record), whose K0 = 444.5 GPa is flagged fixed and whose notes say \"with K0 fixed to the isothermal ultrasonic value\"; the audit gives K0 as \"Dewaele et al. (2008), Table III; 444.5 GPa\" with no error, and the source record's reproduction fit lists K0 under fixed_parameters. The bare number K0 = 444.5 gets the matching fixed flag; its value is unchanged.",
+      "source": {
+        "citation": "Dewaele, Datchi, Loubeyre and Mezouar (2008), High pressure-high temperature equations of state of neon and diamond, Phys. Rev. B 77, 094106, doi:10.1103/PhysRevB.77.094106",
+        "location": "Table III (K0 fixed to the isothermal ultrasonic value), per diamond.eosmat diamond_dewaele_2008_vinet_2 parameters.K0 and notes, and diamond.audit.json records.<both anchored records>.evidence.parameter_provenance.reference_isotherm.K0"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-28",
+        "statement": "Flags the adopted K0 as fixed, as in the source record; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "diamond_correa_2008_dewaele_anchored",
+          "path": [
+            "parameters",
+            "K0"
+          ],
+          "before_present": true,
+          "before": 444.5,
+          "after_present": true,
+          "after": {
+            "value": 444.5,
+            "fixed": true
+          }
+        },
+        {
+          "op": "set",
+          "record": "diamond_benedict_2014_dewaele_anchored",
+          "path": [
+            "parameters",
+            "K0"
+          ],
+          "before_present": true,
+          "before": 444.5,
+          "after_present": true,
+          "after": {
+            "value": 444.5,
+            "fixed": true
+          }
+        },
+        {
+          "op": "set",
+          "record": "diamond_correa_2008_dewaele_anchored",
+          "path": [
+            "evidence",
+            "reproduction",
+            "assessment"
+          ],
+          "derived": true,
+          "before_present": true,
+          "before": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 80,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_correa_2008_figure8_dft_md_vector_digitized"
+              ]
+            },
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_correa_2008_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_correa_2008_dewaele_anchored",
+            "report": "docs/data/primary-eos-refits.json"
+          },
+          "after_present": true,
+          "after": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [
+                "K0"
+              ],
+              "observations": 80,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_correa_2008_figure8_dft_md_vector_digitized"
+              ]
+            },
+            "report": "docs/data/primary-eos-refits.json",
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_correa_2008_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_correa_2008_dewaele_anchored",
+            "source_status": "source_reconstruction"
+          },
+          "reference_before": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_correa_2008_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_correa_2008_dewaele_anchored",
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 80,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_correa_2008_figure8_dft_md_vector_digitized"
+              ]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          },
+          "reference_after": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [
+                "K0"
+              ],
+              "observations": 80,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_correa_2008_figure8_dft_md_vector_digitized"
+              ]
+            },
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_correa_2008_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_correa_2008_dewaele_anchored",
+            "report": "docs/data/primary-eos-refits.json",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "record": "diamond_benedict_2014_dewaele_anchored",
+          "path": [
+            "evidence",
+            "reproduction",
+            "assessment"
+          ],
+          "derived": true,
+          "before_present": true,
+          "before": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 119,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_benedict_2014_supplement_solid_dft_md"
+              ]
+            },
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_benedict_2014_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_benedict_2014_dewaele_anchored",
+            "report": "docs/data/primary-eos-refits.json"
+          },
+          "after_present": true,
+          "after": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [
+                "K0"
+              ],
+              "observations": 119,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_benedict_2014_supplement_solid_dft_md"
+              ]
+            },
+            "report": "docs/data/primary-eos-refits.json",
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_benedict_2014_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_benedict_2014_dewaele_anchored",
+            "source_status": "source_reconstruction"
+          },
+          "reference_before": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_benedict_2014_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_benedict_2014_dewaele_anchored",
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 119,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_benedict_2014_supplement_solid_dft_md"
+              ]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          },
+          "reference_after": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [
+                "K0"
+              ],
+              "observations": 119,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_benedict_2014_supplement_solid_dft_md"
+              ]
+            },
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_benedict_2014_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_benedict_2014_dewaele_anchored",
+            "report": "docs/data/primary-eos-refits.json",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ]
+          }
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "diamond_benedict_2014_dewaele_anchored",
+          "path": [
+            "evidence",
+            "reproduction",
+            "assessment"
+          ],
+          "derived": true,
+          "before_present": true,
+          "before": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [
+                "K0"
+              ],
+              "observations": 119,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_benedict_2014_supplement_solid_dft_md"
+              ]
+            },
+            "report": "docs/data/primary-eos-refits.json",
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_benedict_2014_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_benedict_2014_dewaele_anchored",
+            "source_status": "source_reconstruction"
+          },
+          "after_present": true,
+          "after": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 119,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_benedict_2014_supplement_solid_dft_md"
+              ]
+            },
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_benedict_2014_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_benedict_2014_dewaele_anchored",
+            "report": "docs/data/primary-eos-refits.json"
+          },
+          "reference_before": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [
+                "K0"
+              ],
+              "observations": 119,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_benedict_2014_supplement_solid_dft_md"
+              ]
+            },
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_benedict_2014_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_benedict_2014_dewaele_anchored",
+            "report": "docs/data/primary-eos-refits.json",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ]
+          },
+          "reference_after": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_benedict_2014_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_benedict_2014_dewaele_anchored",
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 119,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_benedict_2014_supplement_solid_dft_md"
+              ]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        {
+          "op": "set",
+          "record": "diamond_correa_2008_dewaele_anchored",
+          "path": [
+            "evidence",
+            "reproduction",
+            "assessment"
+          ],
+          "derived": true,
+          "before_present": true,
+          "before": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [
+                "K0"
+              ],
+              "observations": 80,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_correa_2008_figure8_dft_md_vector_digitized"
+              ]
+            },
+            "report": "docs/data/primary-eos-refits.json",
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_correa_2008_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_correa_2008_dewaele_anchored",
+            "source_status": "source_reconstruction"
+          },
+          "after_present": true,
+          "after": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 80,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_correa_2008_figure8_dft_md_vector_digitized"
+              ]
+            },
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_correa_2008_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_correa_2008_dewaele_anchored",
+            "report": "docs/data/primary-eos-refits.json"
+          },
+          "reference_before": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "fit": {
+              "fixed_parameters": [
+                "K0"
+              ],
+              "observations": 80,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_correa_2008_figure8_dft_md_vector_digitized"
+              ]
+            },
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_correa_2008_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_correa_2008_dewaele_anchored",
+            "report": "docs/data/primary-eos-refits.json",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ]
+          },
+          "reference_after": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/diamond/#record-diamond_correa_2008_dewaele_anchored",
+            "report_path": "docs/reconstruction-reports/diamond.md#record-diamond_correa_2008_dewaele_anchored",
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 80,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": [
+                "diamond_dewaele_2008_table1_pvt",
+                "diamond_correa_2008_figure8_dft_md_vector_digitized"
+              ]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        {
+          "op": "set",
+          "record": "diamond_benedict_2014_dewaele_anchored",
+          "path": [
+            "parameters",
+            "K0"
+          ],
+          "before_present": true,
+          "before": {
+            "value": 444.5,
+            "fixed": true
+          },
+          "after_present": true,
+          "after": 444.5
+        },
+        {
+          "op": "set",
+          "record": "diamond_correa_2008_dewaele_anchored",
+          "path": [
+            "parameters",
+            "K0"
+          ],
+          "before_present": true,
+          "before": {
+            "value": 444.5,
+            "fixed": true
+          },
+          "after_present": true,
+          "after": 444.5
+        }
+      ],
+      "document_sha256": {
+        "before": "752804087dc9632d269aa13c4fd2a1f8e041981d37f5339f5eb46e7cdf964589",
+        "after": "b10d9bc3370865c40f714b20d6624f0948ed760dd140033f21ae94b813b5d7b2"
+      },
+      "reference_sha256": {
+        "before": "37ad7eefa413f27f5735620f2edf576de3312364b5b834b5c33161234ef9cb51",
+        "after": "7277fc32f8c41ec3bea5b6b82420db9a566c2303d3951e4926a4fdae0b82304e"
+      },
+      "scientific": {
+        "records_before": "3048208030982ca96e83aa8982e11ecea7627ae9cb102f76d928ef6cebd67548",
+        "records_after": "aeedf46a548c4b1faf0db946febd3d7de4d16a531dd042881bbb57d2946496fc",
+        "added_records": {},
+        "catalog_before": "fde7c6dd80e0292306aa022265c9371af1657656019c8167fac2846082ac4f07",
+        "catalog_after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+      },
+      "files": {
+        "peritheos/data/materials/diamond.eosmat": {
+          "before": "a8f0905d2cf62cd599a347f37c8dc678bec3f3acfb2c049fb1a83db771227f8f",
+          "after": "1178f665bcaa932153484273d9bb391e8c3bfc1a93c9e91d1d898529246393f3"
+        },
+        "peritheos/data/audits/diamond.audit.json": {
+          "before": "f8b0bbaeadd6342b4a3ae84815689ec22bb47415dd8e7bb1b1f0c78d6c20dd8c",
+          "after": "808fb51763de1a012a83c7e9ce9878ae67ae608eb4f7e2d4c0b272a783dfb0e6"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "3ce294f6cbc286a22be74205f1004ba250e20166e073426607b8d9f42b9d2b24",
+          "catalog_revision_sha256": "37ad7eefa413f27f5735620f2edf576de3312364b5b834b5c33161234ef9cb51",
+          "catalog_revision_content_sha256": "dbcc41601cc58b69f009d51abd27246d4ded0aef041cb51f469b3ef6a0f455ad",
+          "after_record_sha256": "a8f0905d2cf62cd599a347f37c8dc678bec3f3acfb2c049fb1a83db771227f8f",
+          "after_audit_sha256": "f8b0bbaeadd6342b4a3ae84815689ec22bb47415dd8e7bb1b1f0c78d6c20dd8c",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              3,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              4,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              5,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              6,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                1,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                2,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check",
+                "source_reconstruction"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                3,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                4,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "check_text": [
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              2,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              3,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              4,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              5,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              6,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "37ad7eefa413f27f5735620f2edf576de3312364b5b834b5c33161234ef9cb51",
+          "after": "7277fc32f8c41ec3bea5b6b82420db9a566c2303d3951e4926a4fdae0b82304e"
+        },
+        "catalog_scientific_sha256": {
+          "before": "fde7c6dd80e0292306aa022265c9371af1657656019c8167fac2846082ac4f07",
+          "after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+        }
+      },
+      "refit_rows": {
+        "diamond_correa_2008_dewaele_anchored": {
+          "before": {
+            "anchor_refit": {
+              "observations": 23,
+              "parameters": [
+                {
+                  "difference": 0.0029977398882152784,
+                  "parameter": "V0",
+                  "published": 45.3544,
+                  "published_error": 0.0128,
+                  "refit": 45.35739773988821,
+                  "refit_error": 0.005958461183877768,
+                  "relative_difference": 6.60959000276771e-05,
+                  "similar": true,
+                  "within_combined_2sigma": true
+                },
+                {
+                  "difference": -0.08526328357438473,
+                  "parameter": "K0_prime",
+                  "published": 4.18,
+                  "published_error": 0.15,
+                  "refit": 4.094736716425615,
+                  "refit_error": 0.0654791063011287,
+                  "relative_difference": 0.02039791473071405,
+                  "similar": true,
+                  "within_combined_2sigma": true
+                }
+              ],
+              "record_identifier": "diamond_dewaele_2008_vinet_2",
+              "rmse_gpa": 0.2312840795693689,
+              "status": "parity"
+            },
+            "complete_composite_identity": {
+              "max_abs_composition_pressure_error_gpa": 2.2737367544323206e-13,
+              "max_abs_reference_isotherm_error_gpa": 0.0,
+              "max_abs_thermal_energy_increment_error_j_per_mol": 2.6193447411060333e-09,
+              "states_checked": 57
+            },
+            "composite_coefficient_optimization_performed": false,
+            "dataset_identifiers": [
+              "diamond_dewaele_2008_table1_pvt",
+              "diamond_correa_2008_figure8_dft_md_vector_digitized"
+            ],
+            "experimental_pressure_range_gpa": null,
+            "experimental_temperature_range_k": null,
+            "fixed_parameters": [],
+            "label": "Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal",
+            "material_identifier": "diamond",
+            "model": "Vinet",
+            "observations": 80,
+            "primary_data_finding": "The experimental anchor and thermal-model checkpoints are bundled separately. This derived record is exactly reconstructible from published coefficients; the available rows do not constitute an independent fit of a composite model.",
+            "primary_data_status": "bundled",
+            "primary_source": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+            "qualification": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "reconstruction_kind": "derived_reference_isotherm_composition",
+            "record_identifier": "diamond_correa_2008_dewaele_anchored",
+            "source_notes": "P(V,T) = P_Dewaele(V, 298 K) + P_Correa(V,T) - P_Correa(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Correa's simulated logarithmic-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.",
+            "status": "source_reconstruction",
+            "thermal_model_validation": {
+              "absolute_pressure_bias_gpa": 0.007726312574195697,
+              "absolute_pressure_max_abs_residual_gpa": 5.1902427630941474,
+              "absolute_pressure_rmse_gpa": 1.7908921936844253,
+              "dataset_identifier": "diamond_correa_2008_figure8_dft_md_vector_digitized",
+              "isochores": 3,
+              "isochoric_pressure_increment_comparisons": 54,
+              "observations": 57,
+              "pressure_increment_bias_gpa": -3.595239003507663,
+              "pressure_increment_max_abs_residual_gpa": 8.325249940147046,
+              "pressure_increment_rmse_gpa": 3.9056750421996607
+            }
+          },
+          "after": {
+            "anchor_refit": {
+              "observations": 23,
+              "parameters": [
+                {
+                  "difference": 0.0029977398882152784,
+                  "parameter": "V0",
+                  "published": 45.3544,
+                  "published_error": 0.0128,
+                  "refit": 45.35739773988821,
+                  "refit_error": 0.005958461183877768,
+                  "relative_difference": 6.60959000276771e-05,
+                  "similar": true,
+                  "within_combined_2sigma": true
+                },
+                {
+                  "difference": -0.08526328357438473,
+                  "parameter": "K0_prime",
+                  "published": 4.18,
+                  "published_error": 0.15,
+                  "refit": 4.094736716425615,
+                  "refit_error": 0.0654791063011287,
+                  "relative_difference": 0.02039791473071405,
+                  "similar": true,
+                  "within_combined_2sigma": true
+                }
+              ],
+              "record_identifier": "diamond_dewaele_2008_vinet_2",
+              "rmse_gpa": 0.2312840795693689,
+              "status": "parity"
+            },
+            "complete_composite_identity": {
+              "max_abs_composition_pressure_error_gpa": 1.1368683772161603e-13,
+              "max_abs_reference_isotherm_error_gpa": 0.0,
+              "max_abs_thermal_energy_increment_error_j_per_mol": 2.3865140974521637e-09,
+              "states_checked": 57
+            },
+            "composite_coefficient_optimization_performed": false,
+            "dataset_identifiers": [
+              "diamond_dewaele_2008_table1_pvt",
+              "diamond_correa_2008_figure8_dft_md_vector_digitized"
+            ],
+            "experimental_pressure_range_gpa": null,
+            "experimental_temperature_range_k": null,
+            "fixed_parameters": [
+              "K0"
+            ],
+            "label": "Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal",
+            "material_identifier": "diamond",
+            "model": "Vinet",
+            "observations": 80,
+            "primary_data_finding": "The experimental anchor and thermal-model checkpoints are bundled separately. This derived record is exactly reconstructible from published coefficients; the available rows do not constitute an independent fit of a composite model.",
+            "primary_data_status": "bundled",
+            "primary_source": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+            "qualification": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "reconstruction_kind": "derived_reference_isotherm_composition",
+            "record_identifier": "diamond_correa_2008_dewaele_anchored",
+            "source_notes": "P(V,T) = P_Dewaele(V, 298 K) + P_Correa(V,T) - P_Correa(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Correa's simulated logarithmic-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.",
+            "status": "source_reconstruction",
+            "thermal_model_validation": {
+              "absolute_pressure_bias_gpa": 0.007726313289275934,
+              "absolute_pressure_max_abs_residual_gpa": 5.190242761775153,
+              "absolute_pressure_rmse_gpa": 1.7908921935102013,
+              "dataset_identifier": "diamond_correa_2008_figure8_dft_md_vector_digitized",
+              "isochores": 3,
+              "isochoric_pressure_increment_comparisons": 54,
+              "observations": 57,
+              "pressure_increment_bias_gpa": -3.5952390029367827,
+              "pressure_increment_max_abs_residual_gpa": 8.3252499390411,
+              "pressure_increment_rmse_gpa": 3.9056750416328234
+            }
+          }
+        },
+        "diamond_benedict_2014_dewaele_anchored": {
+          "before": {
+            "anchor_refit": {
+              "observations": 23,
+              "parameters": [
+                {
+                  "difference": 0.0029977398882152784,
+                  "parameter": "V0",
+                  "published": 45.3544,
+                  "published_error": 0.0128,
+                  "refit": 45.35739773988821,
+                  "refit_error": 0.005958461183877768,
+                  "relative_difference": 6.60959000276771e-05,
+                  "similar": true,
+                  "within_combined_2sigma": true
+                },
+                {
+                  "difference": -0.08526328357438473,
+                  "parameter": "K0_prime",
+                  "published": 4.18,
+                  "published_error": 0.15,
+                  "refit": 4.094736716425615,
+                  "refit_error": 0.0654791063011287,
+                  "relative_difference": 0.02039791473071405,
+                  "similar": true,
+                  "within_combined_2sigma": true
+                }
+              ],
+              "record_identifier": "diamond_dewaele_2008_vinet_2",
+              "rmse_gpa": 0.2312840795693689,
+              "status": "parity"
+            },
+            "complete_composite_identity": {
+              "max_abs_composition_pressure_error_gpa": 2.2737367544323206e-13,
+              "max_abs_reference_isotherm_error_gpa": 0.0,
+              "max_abs_thermal_energy_increment_error_j_per_mol": 1.7462298274040222e-10,
+              "states_checked": 96
+            },
+            "composite_coefficient_optimization_performed": false,
+            "dataset_identifiers": [
+              "diamond_dewaele_2008_table1_pvt",
+              "diamond_benedict_2014_supplement_solid_dft_md"
+            ],
+            "experimental_pressure_range_gpa": null,
+            "experimental_temperature_range_k": null,
+            "fixed_parameters": [],
+            "label": "Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal",
+            "material_identifier": "diamond",
+            "model": "Vinet",
+            "observations": 119,
+            "primary_data_finding": "The experimental anchor and thermal-model checkpoints are bundled separately. This derived record is exactly reconstructible from published coefficients; the available rows do not constitute an independent fit of a composite model.",
+            "primary_data_status": "bundled",
+            "primary_source": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+            "qualification": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "reconstruction_kind": "derived_reference_isotherm_composition",
+            "record_identifier": "diamond_benedict_2014_dewaele_anchored",
+            "source_notes": "P(V,T) = P_Dewaele(V, 298 K) + P_Benedict(V,T) - P_Benedict(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Benedict's simulated first-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.",
+            "status": "source_reconstruction",
+            "thermal_model_validation": {
+              "absolute_pressure_bias_gpa": 1.9077043064788057,
+              "absolute_pressure_max_abs_residual_gpa": 6.644920907505423,
+              "absolute_pressure_rmse_gpa": 3.177925436805747,
+              "dataset_identifier": "diamond_benedict_2014_supplement_solid_dft_md",
+              "internal_energy_increment_bias_ev_per_atom": -0.034997211580038406,
+              "internal_energy_increment_comparisons": 82,
+              "internal_energy_increment_max_abs_residual_ev_per_atom": 0.23946345171312977,
+              "internal_energy_increment_rmse_ev_per_atom": 0.061209378461660094,
+              "isochores": 14,
+              "isochoric_pressure_increment_comparisons": 82,
+              "observations": 96,
+              "pressure_increment_bias_gpa": -2.1817560679865675,
+              "pressure_increment_max_abs_residual_gpa": 9.576559628208031,
+              "pressure_increment_rmse_gpa": 3.1604155822746534,
+              "qualification": "Fixed-volume increments remove the arbitrary electronic-structure energy zero; absolute energies from different calculations are not compared."
+            }
+          },
+          "after": {
+            "anchor_refit": {
+              "observations": 23,
+              "parameters": [
+                {
+                  "difference": 0.0029977398882152784,
+                  "parameter": "V0",
+                  "published": 45.3544,
+                  "published_error": 0.0128,
+                  "refit": 45.35739773988821,
+                  "refit_error": 0.005958461183877768,
+                  "relative_difference": 6.60959000276771e-05,
+                  "similar": true,
+                  "within_combined_2sigma": true
+                },
+                {
+                  "difference": -0.08526328357438473,
+                  "parameter": "K0_prime",
+                  "published": 4.18,
+                  "published_error": 0.15,
+                  "refit": 4.094736716425615,
+                  "refit_error": 0.0654791063011287,
+                  "relative_difference": 0.02039791473071405,
+                  "similar": true,
+                  "within_combined_2sigma": true
+                }
+              ],
+              "record_identifier": "diamond_dewaele_2008_vinet_2",
+              "rmse_gpa": 0.2312840795693689,
+              "status": "parity"
+            },
+            "complete_composite_identity": {
+              "max_abs_composition_pressure_error_gpa": 1.1368683772161603e-13,
+              "max_abs_reference_isotherm_error_gpa": 0.0,
+              "max_abs_thermal_energy_increment_error_j_per_mol": 1.8189894035458565e-10,
+              "states_checked": 96
+            },
+            "composite_coefficient_optimization_performed": false,
+            "dataset_identifiers": [
+              "diamond_dewaele_2008_table1_pvt",
+              "diamond_benedict_2014_supplement_solid_dft_md"
+            ],
+            "experimental_pressure_range_gpa": null,
+            "experimental_temperature_range_k": null,
+            "fixed_parameters": [
+              "K0"
+            ],
+            "label": "Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal",
+            "material_identifier": "diamond",
+            "model": "Vinet",
+            "observations": 119,
+            "primary_data_finding": "The experimental anchor and thermal-model checkpoints are bundled separately. This derived record is exactly reconstructible from published coefficients; the available rows do not constitute an independent fit of a composite model.",
+            "primary_data_status": "bundled",
+            "primary_source": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+            "qualification": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "reconstruction_kind": "derived_reference_isotherm_composition",
+            "record_identifier": "diamond_benedict_2014_dewaele_anchored",
+            "source_notes": "P(V,T) = P_Dewaele(V, 298 K) + P_Benedict(V,T) - P_Benedict(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Benedict's simulated first-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.",
+            "status": "source_reconstruction",
+            "thermal_model_validation": {
+              "absolute_pressure_bias_gpa": 1.9077043071756208,
+              "absolute_pressure_max_abs_residual_gpa": 6.644920906457344,
+              "absolute_pressure_rmse_gpa": 3.177925437107045,
+              "dataset_identifier": "diamond_benedict_2014_supplement_solid_dft_md",
+              "internal_energy_increment_bias_ev_per_atom": -0.03499721156295954,
+              "internal_energy_increment_comparisons": 82,
+              "internal_energy_increment_max_abs_residual_ev_per_atom": 0.2394634516831431,
+              "internal_energy_increment_rmse_ev_per_atom": 0.06120937844633891,
+              "isochores": 14,
+              "isochoric_pressure_increment_comparisons": 82,
+              "observations": 96,
+              "pressure_increment_bias_gpa": -2.1817560675267504,
+              "pressure_increment_max_abs_residual_gpa": 9.576559627301947,
+              "pressure_increment_rmse_gpa": 3.160415581839436,
+              "qualification": "Fixed-volume increments remove the arbitrary electronic-structure energy zero; absolute energies from different calculations are not compared."
+            }
+          }
+        }
+      },
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/data/primary-eos-refits.json",
+        "docs/material-summaries/diamond.md",
+        "docs/primary-eos-refits.md",
+        "docs/reconstruction-reports/diamond.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": "03b588b3770f043522bca5a7f18099f90e25c61168bc26b72976f2f58601e6b8",
+      "content_sha256": "10e45eab0fba9428e6c157e50560c4f3b3522b5d97d2d822fe877fc1df9576b0"
+    },
+    {
+      "id": "2026-11-28-forsterite-katsura-2022-validity",
+      "material": "forsterite",
+      "kind": "set_fields",
+      "date": "2026-11-28",
+      "decided_by": "Clemens Prescher",
+      "reason": "Both Katsura (2022) records use Tr = temperature_ref = 300 K (audit parameter_provenance thermal.Tr: \"Section 2.2 and Equations (7)-(8): 300 K reference isotherm.\"), while experimental_temperature_range_k, the enforced range, starts at the lowest deposited observation, 304.03 K, so the reference state is rejected. A new validity object enforces the experimental pressure range and [300, 1958.09] K; the experimental ranges stay the span of the data.",
+      "source": {
+        "citation": "Katsura (2022), A Revised Adiabatic Temperature Profile for the Mantle, Journal of Geophysical Research: Solid Earth 127, e2021JB023562, doi:10.1029/2021JB023562",
+        "location": "Section 2.2 and Equations (7)-(8) (300 K reference isotherm), per forsterite.audit.json records.<both records>.evidence.parameter_provenance[\"thermal.Tr\"]"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-28",
+        "statement": "Creates a validity object enforcing the experimental pressure range and a temperature range from the reference temperature to the experimental upper bound; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "forsterite_katsura_2022_author_script_bm3_mgd",
+          "path": [
+            "validity"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": {
+            "pressure_gpa": [
+              -0.04769169043700805,
+              13.692764824786556
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "record": "forsterite_katsura_2022_author_script_bm3_mgd",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": [
+            300.0,
+            1958.0929053394116
+          ]
+        },
+        {
+          "op": "set",
+          "record": "forsterite_katsura_2022_bm3_mgd",
+          "path": [
+            "validity"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": {
+            "pressure_gpa": [
+              -0.04769169043700805,
+              13.692764824786556
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "record": "forsterite_katsura_2022_bm3_mgd",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": [
+            300.0,
+            1958.0929053394116
+          ]
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "forsterite_katsura_2022_bm3_mgd",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": true,
+          "before": [
+            300.0,
+            1958.0929053394116
+          ],
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "forsterite_katsura_2022_bm3_mgd",
+          "path": [
+            "validity"
+          ],
+          "before_present": true,
+          "before": {
+            "pressure_gpa": [
+              -0.04769169043700805,
+              13.692764824786556
+            ]
+          },
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "forsterite_katsura_2022_author_script_bm3_mgd",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": true,
+          "before": [
+            300.0,
+            1958.0929053394116
+          ],
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "forsterite_katsura_2022_author_script_bm3_mgd",
+          "path": [
+            "validity"
+          ],
+          "before_present": true,
+          "before": {
+            "pressure_gpa": [
+              -0.04769169043700805,
+              13.692764824786556
+            ]
+          },
+          "after_present": false,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "4b588cc25af8933309596e5a46f56db816000fe90394a3cafa506ad199dc58d4",
+        "after": "9d4bd366caac9dbc87e5b2ce6971b175443d7f17cdb5a2749537ee18f72be3c3"
+      },
+      "reference_sha256": {
+        "before": "b5b078d66d5fe53c50ef34c53b322431ed8e62d0ba32b7ba182a3808d6df4c6a",
+        "after": "727e409c4bda350705c9991a1ec67ad51699184b174587b4455e0c42ff68645f"
+      },
+      "scientific": {
+        "records_before": "442134076455a26fa23902ad2d4b1fbfc0cdce95ed2faf7b7ec1d7063d360f9f",
+        "records_after": "442134076455a26fa23902ad2d4b1fbfc0cdce95ed2faf7b7ec1d7063d360f9f",
+        "added_records": {},
+        "catalog_before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+        "catalog_after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+      },
+      "files": {
+        "peritheos/data/materials/forsterite.eosmat": {
+          "before": "6b833e04de20c4a02dea726541c1841bdf2518ff44f5d86936868005528a7ee4",
+          "after": "3fa37168438a493456d15aa19c1c7e645117da0758bed25ba8e383135d1219e3"
+        },
+        "peritheos/data/audits/forsterite.audit.json": {
+          "before": "d4a63e43fd2c832f903ad7df5ed2c343652c389bc04763c9f2c353d7e7372556",
+          "after": "d4a63e43fd2c832f903ad7df5ed2c343652c389bc04763c9f2c353d7e7372556"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "b5b078d66d5fe53c50ef34c53b322431ed8e62d0ba32b7ba182a3808d6df4c6a",
+          "after_record_sha256": "6b833e04de20c4a02dea726541c1841bdf2518ff44f5d86936868005528a7ee4",
+          "after_audit_sha256": "d4a63e43fd2c832f903ad7df5ed2c343652c389bc04763c9f2c353d7e7372556",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "default_flags": [
+            [
+              1,
+              {
+                "default": false
+              }
+            ],
+            [
+              2,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            }
+          ],
+          "superseded_material_text": true,
+          "superseded_record_text": [
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "b5b078d66d5fe53c50ef34c53b322431ed8e62d0ba32b7ba182a3808d6df4c6a",
+          "after": "727e409c4bda350705c9991a1ec67ad51699184b174587b4455e0c42ff68645f"
+        },
+        "catalog_scientific_sha256": {
+          "before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+          "after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "crates/peritheos/tests/data/forsterite.eosmat",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/forsterite.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "3a4d7f4b14aab17aa5c74488da4d2aac3d3d137ce00bc7a5c081a78400f01eac"
+    },
+    {
+      "id": "2026-11-28-ice-vii-bezacier-2014-validity",
+      "material": "ice_vii",
+      "kind": "set_fields",
+      "date": "2026-11-28",
+      "decided_by": "Clemens Prescher",
+      "reason": "The Bezacier et al. (2014) record uses Tr = temperature_ref = 300 K, while experimental_temperature_range_k, the enforced range, is the observation span starting at 300.5 K (audit reproduction fit observed_temperature_range_k [300.5, 451.2]), so the reference state is rejected. A new validity object enforces the experimental pressure range and [300, 451.2] K; the experimental ranges stay the span of the data.",
+      "source": {
+        "citation": "Bezacier, Journaux, Perrillat, Cardon, Hanfland and Daniel (2014), Equations of state of ice VI and ice VII at high pressure and high temperature, Journal of Chemical Physics 141, 104505, doi:10.1063/1.4894421",
+        "location": "BM2 P-V-T fit for ice VII (300 K reference), per ice_vii.eosmat ice_vii_bezacier_2014_bm2_1 temperature_ref and thermal.parameters.Tr"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-28",
+        "statement": "Creates a validity object enforcing the experimental pressure range and a temperature range from the reference temperature to the experimental upper bound; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "ice_vii_bezacier_2014_bm2_1",
+          "path": [
+            "validity"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": {
+            "pressure_gpa": [
+              2.55,
+              10.11
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "record": "ice_vii_bezacier_2014_bm2_1",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": [
+            300.0,
+            451.2
+          ]
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "ice_vii_bezacier_2014_bm2_1",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": true,
+          "before": [
+            300.0,
+            451.2
+          ],
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "ice_vii_bezacier_2014_bm2_1",
+          "path": [
+            "validity"
+          ],
+          "before_present": true,
+          "before": {
+            "pressure_gpa": [
+              2.55,
+              10.11
+            ]
+          },
+          "after_present": false,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "117dd76fbe87f9b4487884d91492657b889aa5b2670147e3cd70795a2f41877c",
+        "after": "cb76640986e05214f6bf422df95c88f4f166cf4d328df23dc72ae04142ad14f0"
+      },
+      "reference_sha256": {
+        "before": "1ced13b9457e8fe89367dbdb4501792f814a3df70aa158437a2c2cf2aa15ef55",
+        "after": "ab6510b9581d2df7c8675d28b2c75e3bbcf737a195c16f65181fadae14d591b5"
+      },
+      "scientific": {
+        "records_before": "860961df8b8b276a74d06927191f280247537cc49038a3f9853f138b82cfd0c2",
+        "records_after": "860961df8b8b276a74d06927191f280247537cc49038a3f9853f138b82cfd0c2",
+        "added_records": {},
+        "catalog_before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+        "catalog_after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+      },
+      "files": {
+        "peritheos/data/materials/ice_vii.eosmat": {
+          "before": "99f4336d970a26bf7656e4ec06e31a53f95747127b0a67b0dc5dca648a48138c",
+          "after": "06e6191ad95590e196859553e8f3d46d466ed51bca829ddc32bfc16b181b425f"
+        },
+        "peritheos/data/audits/ice_vii.audit.json": {
+          "before": "1ca5afed9724ffd2e3b21346af19c8f4e899aef7cfe92d9aae5b710bbe1e132f",
+          "after": "1ca5afed9724ffd2e3b21346af19c8f4e899aef7cfe92d9aae5b710bbe1e132f"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "1ced13b9457e8fe89367dbdb4501792f814a3df70aa158437a2c2cf2aa15ef55",
+          "after_record_sha256": "99f4336d970a26bf7656e4ec06e31a53f95747127b0a67b0dc5dca648a48138c",
+          "after_audit_sha256": "1ca5afed9724ffd2e3b21346af19c8f4e899aef7cfe92d9aae5b710bbe1e132f",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                1,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            }
+          ],
+          "superseded_material_text": true,
+          "superseded_record_text": [
+            0,
+            1
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "1ced13b9457e8fe89367dbdb4501792f814a3df70aa158437a2c2cf2aa15ef55",
+          "after": "ab6510b9581d2df7c8675d28b2c75e3bbcf737a195c16f65181fadae14d591b5"
+        },
+        "catalog_scientific_sha256": {
+          "before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+          "after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/ice_vii.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "d4c88b0e13672814e7e549fe41878ff722748094c6f52b7ae44beda14c466317"
+    },
+    {
+      "id": "2026-11-28-kcl-b1-walker-2002-validity",
+      "material": "kcl_b1",
+      "kind": "set_fields",
+      "date": "2026-11-28",
+      "decided_by": "Clemens Prescher",
+      "reason": "The Walker et al. (2002) record uses Tr = temperature_ref = 296.15 K (audit parameter_provenance.Tr: \"Table 1: reference at 23 degC, Celsius offset +273.15.\"), while experimental_temperature_range_k, the enforced range, is [303.15, 873.15] K, so the reference state is rejected. A new validity object enforces the experimental pressure range and [296.15, 873.15] K; the experimental ranges stay the span of the data.",
+      "source": {
+        "citation": "Walker, Cranswick, Verma, Clark and Buhre (2002), Thermal equations of state for B1 and B2 KCl, American Mineralogist 87, 805-812, doi:10.2138/am-2002-0701",
+        "location": "Table 1 (reference at 23 degC), per kcl_b1.audit.json records.kcl_b1_walker_2002_bm3_linear_thermal.evidence.parameter_provenance.Tr"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-28",
+        "statement": "Creates a validity object enforcing the experimental pressure range and a temperature range from the reference temperature to the experimental upper bound; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "kcl_b1_walker_2002_bm3_linear_thermal",
+          "path": [
+            "validity"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": {
+            "pressure_gpa": [
+              0,
+              1.733
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "record": "kcl_b1_walker_2002_bm3_linear_thermal",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": [
+            296.15,
+            873.15
+          ]
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "kcl_b1_walker_2002_bm3_linear_thermal",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": true,
+          "before": [
+            296.15,
+            873.15
+          ],
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "kcl_b1_walker_2002_bm3_linear_thermal",
+          "path": [
+            "validity"
+          ],
+          "before_present": true,
+          "before": {
+            "pressure_gpa": [
+              0,
+              1.733
+            ]
+          },
+          "after_present": false,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "9555a5c8d3bd367d8de9a30aea6db464321f4aa3367870e33aee443e7e9a4e40",
+        "after": "120ceba58bf084890de4b57b3fe3bb2c1d2e4fd87fb9e303319602c94f5eafb8"
+      },
+      "reference_sha256": {
+        "before": "ce55d36be4c1c0554f15a9eea3510d787c15f206bc49fdb5787c0d385557411a",
+        "after": "5e9650155a077ef329ae909400a37c2a6688fa211a6ab114f6d59d2aff27077f"
+      },
+      "scientific": {
+        "records_before": "84da5c56810d6767e6d17948ec78ce82bd53e380ca87805aa462ff3276b9a54d",
+        "records_after": "84da5c56810d6767e6d17948ec78ce82bd53e380ca87805aa462ff3276b9a54d",
+        "added_records": {},
+        "catalog_before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+        "catalog_after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+      },
+      "files": {
+        "peritheos/data/materials/kcl_b1.eosmat": {
+          "before": "c672d4eac15434f97807ac9833f465a6662b8780e87a28334e03edc6c44b6888",
+          "after": "4789c17bf4a65983563c3dd2e14922974dc151f800f71d8d0a5e567c3e92a66f"
+        },
+        "peritheos/data/audits/kcl_b1.audit.json": {
+          "before": "ab193c3ef391f714c874aeded76995a3e6d8ffad3399507413f7059f6aa51bea",
+          "after": "ab193c3ef391f714c874aeded76995a3e6d8ffad3399507413f7059f6aa51bea"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "ce55d36be4c1c0554f15a9eea3510d787c15f206bc49fdb5787c0d385557411a",
+          "after_record_sha256": "c672d4eac15434f97807ac9833f465a6662b8780e87a28334e03edc6c44b6888",
+          "after_audit_sha256": "ab193c3ef391f714c874aeded76995a3e6d8ffad3399507413f7059f6aa51bea",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "default_flags": [
+            [
+              1,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1
+          ],
+          "check_text": [
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "ce55d36be4c1c0554f15a9eea3510d787c15f206bc49fdb5787c0d385557411a",
+          "after": "5e9650155a077ef329ae909400a37c2a6688fa211a6ab114f6d59d2aff27077f"
+        },
+        "catalog_scientific_sha256": {
+          "before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+          "after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/kcl_b1.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "850ae9701174a9fca675d43942739bd2057b9a51c5f4f0e231084c2815c107f3"
+    },
+    {
+      "id": "2026-11-28-kcl-ma-2024-validity-pressure",
+      "material": "kcl",
+      "kind": "set_fields",
+      "date": "2026-11-28",
+      "decided_by": "Clemens Prescher",
+      "reason": "The validity object of kcl_b2_ma_2024_bm3_mgd holds only notes, so as the only enforced range it enforces nothing, although the record states experimental_pressure_range_gpa [3.1578608426387715, 85.0] (validity note: \"The room-temperature acoustic data extend to about 85 GPa.\"). The stated pressure range becomes the enforced pressure bound.",
+      "source": {
+        "citation": "Ma, Sumita and Murakami (2024), Primary Pressure Scale of KCl B2 Phase to the Core-Mantle Boundary, J. Geophys. Res. Solid Earth 129, e2024JB028819, doi:10.1029/2024JB028819",
+        "location": "Room-temperature acoustic data to about 85 GPa and Walker low-pressure anchors, per kcl.eosmat kcl_b2_ma_2024_bm3_mgd experimental_pressure_range_gpa and validity.notes[0]"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-28",
+        "statement": "Adds the record's stated experimental pressure range as the enforced pressure bound; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "kcl_b2_ma_2024_bm3_mgd",
+          "path": [
+            "validity",
+            "pressure_gpa"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": [
+            3.1578608426387715,
+            85.0
+          ]
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "kcl_b2_ma_2024_bm3_mgd",
+          "path": [
+            "validity",
+            "pressure_gpa"
+          ],
+          "before_present": true,
+          "before": [
+            3.1578608426387715,
+            85.0
+          ],
+          "after_present": false,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "a31224a3fc0c2e32ab8f308a143309bfb0ceacfc6ce19fc9c5e5e0ed88bd4098",
+        "after": "9f1bd94e8b7a79d5c728f3172d1edef9e6cfe682e093e7e791f8892f2e69acbe"
+      },
+      "reference_sha256": {
+        "before": "9a814225f19d94beb884591ae60e41306ffb1f92da49335b1e233c4d2cce203e",
+        "after": "5ef6b8e53736410d03804fbabfa5100aaaaed127cc1b0557470d05935ca278e5"
+      },
+      "scientific": {
+        "records_before": "8747eb2905284ad9f63a8802a67d78fcd1a3d44c3e15470e78ac15110fddf1a8",
+        "records_after": "8747eb2905284ad9f63a8802a67d78fcd1a3d44c3e15470e78ac15110fddf1a8",
+        "added_records": {},
+        "catalog_before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+        "catalog_after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+      },
+      "files": {
+        "peritheos/data/materials/kcl.eosmat": {
+          "before": "3ac55004100b3b5079979555f96767d1974919d371e899af2866e21525dbb0e0",
+          "after": "8b04b16164f295958d728b3a54732e11f81526be84bc5feedf34e096ed45ed05"
+        },
+        "peritheos/data/audits/kcl.audit.json": {
+          "before": "8c908fa101bd83888deb3cdc322d1c77bf5758cffe48719c0c475c5195b299de",
+          "after": "8c908fa101bd83888deb3cdc322d1c77bf5758cffe48719c0c475c5195b299de"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "9a814225f19d94beb884591ae60e41306ffb1f92da49335b1e233c4d2cce203e",
+          "after_record_sha256": "3ac55004100b3b5079979555f96767d1974919d371e899af2866e21525dbb0e0",
+          "after_audit_sha256": "8c908fa101bd83888deb3cdc322d1c77bf5758cffe48719c0c475c5195b299de",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              3,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              4,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              5,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ],
+            [
+              6,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ],
+            [
+              7,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ],
+            [
+              8,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ],
+            [
+              9,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              2,
+              {
+                "default": true
+              }
+            ],
+            [
+              5,
+              {
+                "default": false
+              }
+            ],
+            [
+              6,
+              {
+                "default": false
+              }
+            ],
+            [
+              7,
+              {
+                "default": false
+              }
+            ],
+            [
+              8,
+              {
+                "default": false
+              }
+            ],
+            [
+              9,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check",
+                "unresolved_issues"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                1,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "migration_source",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                2,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              2,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              3,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              4,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              5,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              6,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              7,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              8,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              9,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "9a814225f19d94beb884591ae60e41306ffb1f92da49335b1e233c4d2cce203e",
+          "after": "5ef6b8e53736410d03804fbabfa5100aaaaed127cc1b0557470d05935ca278e5"
+        },
+        "catalog_scientific_sha256": {
+          "before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+          "after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/kcl.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "cd70a5eed1310c85e9bcd7745c10a581dd0265b25745cdcf327ab46838ec57aa"
+    },
+    {
+      "id": "2026-11-28-mg09375fe00625sio3-bridgmanite-molar-mass",
+      "material": "mg09375fe00625sio3_bridgmanite",
+      "kind": "set_fields",
+      "date": "2026-11-28",
+      "decided_by": "Clemens Prescher",
+      "reason": "The material formula is Mg0.9375Fe0.0625SiO3 (each record's sample_composition is (Mg0.9375Fe0.0625)SiO3), whose formula mass with the atomic weights used across the catalog (Mg 24.305, Fe 55.845, Si 28.085, O 15.999; e.g. MgSiO3 100.387, Mg0.9Fe0.1SiO3 103.541, Mg0.9375Fe0.0625O 42.27525) is 102.35825 g/mol; the stored 103.8586 g/mol is 1.47 % higher and matches no composition in the files. The value is a convenience basis, not a published coefficient.",
+      "source": {
+        "citation": "Metsue and Tsuchiya (2012), Thermodynamic properties of (Mg,Fe2+)SiO3 perovskite at the lower-mantle pressures and temperatures: an internally consistent LSDA+U study, Geophysical Journal International 190, 310-322, doi:10.1111/j.1365-246X.2012.05511.x",
+        "location": "Material formula and record sample_composition (Methods: 80-atom (Mg0.9375Fe0.0625)SiO3 supercells), per mg09375fe00625sio3_bridgmanite.eosmat formula"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-28",
+        "statement": "Corrects a derived molar mass to the formula mass; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 103.8586,
+          "after_present": true,
+          "after": 102.35825
+        },
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 103.8586,
+          "after_present": true,
+          "after": 102.35825
+        },
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 103.8586,
+          "after_present": true,
+          "after": 102.35825
+        },
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 103.8586,
+          "after_present": true,
+          "after": 102.35825
+        },
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 103.8586,
+          "after_present": true,
+          "after": 102.35825
+        },
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 103.8586,
+          "after_present": true,
+          "after": 102.35825
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 102.35825,
+          "after_present": true,
+          "after": 103.8586
+        },
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 102.35825,
+          "after_present": true,
+          "after": 103.8586
+        },
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 102.35825,
+          "after_present": true,
+          "after": 103.8586
+        },
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 102.35825,
+          "after_present": true,
+          "after": 103.8586
+        },
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 102.35825,
+          "after_present": true,
+          "after": 103.8586
+        },
+        {
+          "op": "set",
+          "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 102.35825,
+          "after_present": true,
+          "after": 103.8586
+        }
+      ],
+      "document_sha256": {
+        "before": "d6af6e7f4ebf87e8a4216c9ec0dd656ff1cd297f1f00f63dbbd3fee6a4ef7f3a",
+        "after": "844d4ea948c0114a8249413a8b7b2688ca17ef671c9838a9021a677f5fa9f182"
+      },
+      "reference_sha256": {
+        "before": "1476bf4448461673ee32b8d0287a392f07b36d76b75fa9182cb2fab5b69d9b94",
+        "after": "002ebd8650c14dfbac57915a48bdeca8e1719089ad6058bc3e22cb41ed680b2f"
+      },
+      "scientific": {
+        "records_before": "3dc55cf80c56c2149731797bb91bce93c62ca92c2ed6cedbe66693556eb61795",
+        "records_after": "3dc55cf80c56c2149731797bb91bce93c62ca92c2ed6cedbe66693556eb61795",
+        "added_records": {},
+        "catalog_before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+        "catalog_after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+      },
+      "files": {
+        "peritheos/data/materials/mg09375fe00625sio3_bridgmanite.eosmat": {
+          "before": "b345a08a259edae2523487b695036712069dc9bf8a6a1a52a38ebbb38fe0e2ad",
+          "after": "6a0e7202e837580288026e31a46cfc751e2f6d8edc68111e429bd3b1cf152c92"
+        },
+        "peritheos/data/audits/mg09375fe00625sio3_bridgmanite.audit.json": {
+          "before": "0cbf8fce6d0c9a16bd4241f3277833097c28291794eb7e09e8a6d2d08960f4ed",
+          "after": "0cbf8fce6d0c9a16bd4241f3277833097c28291794eb7e09e8a6d2d08960f4ed"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "1476bf4448461673ee32b8d0287a392f07b36d76b75fa9182cb2fab5b69d9b94",
+          "after_record_sha256": "b345a08a259edae2523487b695036712069dc9bf8a6a1a52a38ebbb38fe0e2ad",
+          "after_audit_sha256": "0cbf8fce6d0c9a16bd4241f3277833097c28291794eb7e09e8a6d2d08960f4ed",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              3,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              4,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              5,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default_for": "equilibrium"
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              2,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              3,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              4,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              5,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "1476bf4448461673ee32b8d0287a392f07b36d76b75fa9182cb2fab5b69d9b94",
+          "after": "002ebd8650c14dfbac57915a48bdeca8e1719089ad6058bc3e22cb41ed680b2f"
+        },
+        "catalog_scientific_sha256": {
+          "before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+          "after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/mg09375fe00625sio3_bridgmanite.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "170b556d3e5d4d8a431a0817aaf43962c06a280526ddd2c846f86f9daed9aac7"
+    },
+    {
+      "id": "2026-11-28-mggeo3-post-perovskite-hirose-2005-molar-mass",
+      "material": "mggeo3_post_perovskite",
+      "kind": "set_fields",
+      "date": "2026-11-28",
+      "decided_by": "Clemens Prescher",
+      "reason": "The material formula is MgGeO3 (the material notes: occupied Cmcm sites \"contain Mg4Ge4O12 and establish Z=4\"), whose formula mass with the atomic weights used across the catalog (Mg 24.305, Ge 72.630, O 15.999; e.g. CaGeO3 160.705) is 144.932 g/mol; the stored 145.916 g/mol on both Hirose et al. (2005) records is 0.68 % higher and matches no composition in the files. The value is a convenience basis, not a published coefficient.",
+      "source": {
+        "citation": "Hirose, Kawamura, Ohishi, Tateno and Sata (2005), Stability and equation of state of MgGeO3 post-perovskite phase, American Mineralogist 90, 262-265, doi:10.2138/am.2005.1702",
+        "location": "Material formula MgGeO3 and the cell contents in mggeo3_post_perovskite.eosmat notes"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-28",
+        "statement": "Corrects a derived molar mass to the formula mass; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "mggeo3_post_perovskite_hirose_2005_bm3_fixed_1",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 145.916,
+          "after_present": true,
+          "after": 144.932
+        },
+        {
+          "op": "set",
+          "record": "mggeo3_post_perovskite_hirose_2005_bm3_free_2",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 145.916,
+          "after_present": true,
+          "after": 144.932
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "mggeo3_post_perovskite_hirose_2005_bm3_free_2",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 144.932,
+          "after_present": true,
+          "after": 145.916
+        },
+        {
+          "op": "set",
+          "record": "mggeo3_post_perovskite_hirose_2005_bm3_fixed_1",
+          "path": [
+            "volume_basis",
+            "molar_mass_g_mol"
+          ],
+          "before_present": true,
+          "before": 144.932,
+          "after_present": true,
+          "after": 145.916
+        }
+      ],
+      "document_sha256": {
+        "before": "27c92520e1d2a32845e710a5e3360950c9b46f2c9c7c8195e8b37f340e7e27b3",
+        "after": "5e818095d8855d26ff30702cc51dbb8950a5a9e7fee059ddb0a9d35e01943f29"
+      },
+      "reference_sha256": {
+        "before": "7c7a6ccb9e9b159af5f9169fd6ee065c6249a922ae447a4c568e4ca6da0ee86b",
+        "after": "46557c2f7241674a97edf59a82b818b57f3f37fa17078817a1267589335fe2b4"
+      },
+      "scientific": {
+        "records_before": "a6f43f61b366e5ae2fbe00f6ccba39efe0c2aac5132d74374fa7c2bae0445c76",
+        "records_after": "a6f43f61b366e5ae2fbe00f6ccba39efe0c2aac5132d74374fa7c2bae0445c76",
+        "added_records": {},
+        "catalog_before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+        "catalog_after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+      },
+      "files": {
+        "peritheos/data/materials/mggeo3_post_perovskite.eosmat": {
+          "before": "6535a0228a12a6fafdac415a0ba3f123da60ee3df1aaa80173acad25039785d9",
+          "after": "e6ee656fed884468558d5d42a00f2415f2202cbd37339274092a201499de9b70"
+        },
+        "peritheos/data/audits/mggeo3_post_perovskite.audit.json": {
+          "before": "d51fb217f08708b7a641782e3d6863f3674b5b6e3ff078229baa1017afccb157",
+          "after": "d51fb217f08708b7a641782e3d6863f3674b5b6e3ff078229baa1017afccb157"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "7c7a6ccb9e9b159af5f9169fd6ee065c6249a922ae447a4c568e4ca6da0ee86b",
+          "after_record_sha256": "6535a0228a12a6fafdac415a0ba3f123da60ee3df1aaa80173acad25039785d9",
+          "after_audit_sha256": "d51fb217f08708b7a641782e3d6863f3674b5b6e3ff078229baa1017afccb157",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ],
+            [
+              3,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true,
+                "default_for": "equilibrium"
+              }
+            ],
+            [
+              1,
+              {
+                "default": false
+              }
+            ],
+            [
+              2,
+              {
+                "default": false
+              }
+            ],
+            [
+              3,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                1,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                2,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                3,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              2,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              3,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "7c7a6ccb9e9b159af5f9169fd6ee065c6249a922ae447a4c568e4ca6da0ee86b",
+          "after": "46557c2f7241674a97edf59a82b818b57f3f37fa17078817a1267589335fe2b4"
+        },
+        "catalog_scientific_sha256": {
+          "before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+          "after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/mggeo3_post_perovskite.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "ea5252a4ef2bcd6b74bf248d3d6fabcc99dc2ad3778811f4b2500351b2cbe183"
+    },
+    {
+      "id": "2026-11-28-nickel-campbell-2009-validity",
+      "material": "nickel",
+      "kind": "set_fields",
+      "date": "2026-11-28",
+      "decided_by": "Clemens Prescher",
+      "reason": "The Campbell et al. (2009) record uses Tr = temperature_ref = 295 K (audit parameter_provenance thermal.Tr: \"Equation (5): 295 K reference subtraction.\"), while experimental_temperature_range_k, the enforced range, is the [298, 2457.07] K span of the fitted rows, so the reference state is rejected. The record's range_provenance.notes says \"The 295 K reference is an extrapolation.\", which is why the experimental range stays as it is; a new validity object enforces the experimental pressure range and [295, 2457.07] K.",
+      "source": {
+        "citation": "Campbell, Danielson, Righter, Seagle, Wang and Prakapenka (2009), High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers, Earth and Planetary Science Letters 286, 556-564, doi:10.1016/j.epsl.2009.07.022",
+        "location": "Equation (5) (295 K reference), per nickel.audit.json records.nickel_campbell_2009_bm3_mgd.evidence.parameter_provenance.thermal.Tr; Table S3 row span per range_provenance"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-28",
+        "statement": "Creates a validity object enforcing the experimental pressure range and a temperature range from the reference temperature to the experimental upper bound; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "nickel_campbell_2009_bm3_mgd",
+          "path": [
+            "validity"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": {
+            "pressure_gpa": [
+              2.336174779961698,
+              65.9
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "record": "nickel_campbell_2009_bm3_mgd",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": [
+            295.0,
+            2457.07
+          ]
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "nickel_campbell_2009_bm3_mgd",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": true,
+          "before": [
+            295.0,
+            2457.07
+          ],
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "nickel_campbell_2009_bm3_mgd",
+          "path": [
+            "validity"
+          ],
+          "before_present": true,
+          "before": {
+            "pressure_gpa": [
+              2.336174779961698,
+              65.9
+            ]
+          },
+          "after_present": false,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "16d2e4ebde79291c41a39d50416e9451705532d76c506cee2716c321a5d2edab",
+        "after": "d03658ce1655b459356f1d7c17c215d176740c5ec5f366e1ef7bf2b96c4e73d5"
+      },
+      "reference_sha256": {
+        "before": "f15d2b539defc411a593c5e17b66e4cca02c11d5dc81addffe4a61ecab325189",
+        "after": "1eb4fde8373f540c56f7cbad7d6d9ef450de543f35fedc6a61c2c685df449806"
+      },
+      "scientific": {
+        "records_before": "ccdde850629f686f4c2239ed85690fb49cd9d11bd0169fbc9da9f0a98689cd95",
+        "records_after": "ccdde850629f686f4c2239ed85690fb49cd9d11bd0169fbc9da9f0a98689cd95",
+        "added_records": {},
+        "catalog_before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+        "catalog_after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+      },
+      "files": {
+        "peritheos/data/materials/nickel.eosmat": {
+          "before": "88ec12a6d8a804ba6e52ff3c42e91d3512cd2f27ee4352ba5d1e2fe350012f9a",
+          "after": "5e4d68164b52a4acfe601a800a7e48f416326a89ff5073d9d88c8439eb577d8d"
+        },
+        "peritheos/data/audits/nickel.audit.json": {
+          "before": "7e01a3d5282c3ad34f723653da26c6d632c5228cbc0fee5878a6ac3c4854ff89",
+          "after": "7e01a3d5282c3ad34f723653da26c6d632c5228cbc0fee5878a6ac3c4854ff89"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "f15d2b539defc411a593c5e17b66e4cca02c11d5dc81addffe4a61ecab325189",
+          "after_record_sha256": "88ec12a6d8a804ba6e52ff3c42e91d3512cd2f27ee4352ba5d1e2fe350012f9a",
+          "after_audit_sha256": "7e01a3d5282c3ad34f723653da26c6d632c5228cbc0fee5878a6ac3c4854ff89",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              3,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              4,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              5,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "object_orders": [],
+          "superseded_material_text": true,
+          "superseded_record_text": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              2,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              3,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              4,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              5,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "f15d2b539defc411a593c5e17b66e4cca02c11d5dc81addffe4a61ecab325189",
+          "after": "1eb4fde8373f540c56f7cbad7d6d9ef450de543f35fedc6a61c2c685df449806"
+        },
+        "catalog_scientific_sha256": {
+          "before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+          "after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/nickel.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "9f3edeba524746df382bad445cbbd96443ee8cb15377e8baeff466b0bb416f80"
+    },
+    {
+      "id": "2026-11-28-nickel-oxide-b1-campbell-2009-validity",
+      "material": "nickel_oxide_b1",
+      "kind": "set_fields",
+      "date": "2026-11-28",
+      "decided_by": "Clemens Prescher",
+      "reason": "The Campbell et al. (2009) record uses Tr = temperature_ref = 295 K (audit parameter_provenance thermal.Tr: \"Equation (5): 295 K reference subtraction.\"), while experimental_temperature_range_k, the enforced range, is the [298, 2457.07] K span of the fitted rows, so the reference state is rejected. The record's range_provenance.notes says \"The 295 K reference is an extrapolation.\", which is why the experimental range stays as it is; a new validity object enforces the experimental pressure range and [295, 2457.07] K.",
+      "source": {
+        "citation": "Campbell, Danielson, Righter, Seagle, Wang and Prakapenka (2009), High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers, Earth and Planetary Science Letters 286, 556-564, doi:10.1016/j.epsl.2009.07.022",
+        "location": "Equation (5) (295 K reference), per nickel_oxide_b1.audit.json records.nickel_oxide_b1_campbell_2009_bm3_mgd.evidence.parameter_provenance.thermal.Tr; Table S3 row span per range_provenance"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-28",
+        "statement": "Creates a validity object enforcing the experimental pressure range and a temperature range from the reference temperature to the experimental upper bound; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "nickel_oxide_b1_campbell_2009_bm3_mgd",
+          "path": [
+            "validity"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": {
+            "pressure_gpa": [
+              2.336174779961698,
+              65.9
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "record": "nickel_oxide_b1_campbell_2009_bm3_mgd",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": [
+            295.0,
+            2457.07
+          ]
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "nickel_oxide_b1_campbell_2009_bm3_mgd",
+          "path": [
+            "validity",
+            "temperature_k"
+          ],
+          "before_present": true,
+          "before": [
+            295.0,
+            2457.07
+          ],
+          "after_present": false,
+          "after": null
+        },
+        {
+          "op": "set",
+          "record": "nickel_oxide_b1_campbell_2009_bm3_mgd",
+          "path": [
+            "validity"
+          ],
+          "before_present": true,
+          "before": {
+            "pressure_gpa": [
+              2.336174779961698,
+              65.9
+            ]
+          },
+          "after_present": false,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "a48057831fdfb063425661e975ce658255724ad227a81e4dd7294c73ee597236",
+        "after": "c24dfe8c98d27c8adf3ce69cb9920465ffa87f4e264482d5cfa1951c6ed166f4"
+      },
+      "reference_sha256": {
+        "before": "e7014dcb5c6f2fe165678362be33e156595e107fd0a78e8e84144ff8e6fdcd9a",
+        "after": "6b789f66780aaa97ed945a51cade8fff688b205b249815f956980967d15a866b"
+      },
+      "scientific": {
+        "records_before": "57f334b76343dec362012d23d1602bf6526e80217df26b1c8ab2e2bf7c33ef6d",
+        "records_after": "57f334b76343dec362012d23d1602bf6526e80217df26b1c8ab2e2bf7c33ef6d",
+        "added_records": {},
+        "catalog_before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+        "catalog_after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+      },
+      "files": {
+        "peritheos/data/materials/nickel_oxide_b1.eosmat": {
+          "before": "7c3be0c035a6d9fd1115fa9f1bc231aa80c3ecd1938373bf617ba2e48ec353ff",
+          "after": "81516bb9ab6c6967275bccbdae3dd33ddcc1e003f66f6b32a439e9f09d5af917"
+        },
+        "peritheos/data/audits/nickel_oxide_b1.audit.json": {
+          "before": "29a79efcc9a14275ee0ffd7175b336d14dd1f26366b01bea79d65c44b48851f3",
+          "after": "29a79efcc9a14275ee0ffd7175b336d14dd1f26366b01bea79d65c44b48851f3"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "e7014dcb5c6f2fe165678362be33e156595e107fd0a78e8e84144ff8e6fdcd9a",
+          "after_record_sha256": "7c3be0c035a6d9fd1115fa9f1bc231aa80c3ecd1938373bf617ba2e48ec353ff",
+          "after_audit_sha256": "29a79efcc9a14275ee0ffd7175b336d14dd1f26366b01bea79d65c44b48851f3",
+          "layout": "v4",
+          "added_check": [
+            0
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  0,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "e7014dcb5c6f2fe165678362be33e156595e107fd0a78e8e84144ff8e6fdcd9a",
+          "after": "6b789f66780aaa97ed945a51cade8fff688b205b249815f956980967d15a866b"
+        },
+        "catalog_scientific_sha256": {
+          "before": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c",
+          "after": "e0d0d74f8ca80c65ae98fb67030c4b75c90940ba40184dfb1146310326bbec8c"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/nickel_oxide_b1.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "cb40cc39fa0f9d29d38271a5287a2882c635f64d12190ce2f6e7c962af421c51"
     }
   ]
 }

@@ -13551,9 +13551,9 @@
         "status": "parity"
       },
       "complete_composite_identity": {
-        "max_abs_composition_pressure_error_gpa": 2.2737367544323206e-13,
+        "max_abs_composition_pressure_error_gpa": 1.1368683772161603e-13,
         "max_abs_reference_isotherm_error_gpa": 0.0,
-        "max_abs_thermal_energy_increment_error_j_per_mol": 1.7462298274040222e-10,
+        "max_abs_thermal_energy_increment_error_j_per_mol": 1.8189894035458565e-10,
         "states_checked": 96
       },
       "composite_coefficient_optimization_performed": false,
@@ -13563,7 +13563,9 @@
       ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
-      "fixed_parameters": [],
+      "fixed_parameters": [
+        "K0"
+      ],
       "label": "Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal",
       "material_identifier": "diamond",
       "model": "Vinet",
@@ -13577,20 +13579,20 @@
       "source_notes": "P(V,T) = P_Dewaele(V, 298 K) + P_Benedict(V,T) - P_Benedict(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Benedict's simulated first-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.",
       "status": "source_reconstruction",
       "thermal_model_validation": {
-        "absolute_pressure_bias_gpa": 1.9077043064788057,
-        "absolute_pressure_max_abs_residual_gpa": 6.644920907505423,
-        "absolute_pressure_rmse_gpa": 3.177925436805747,
+        "absolute_pressure_bias_gpa": 1.9077043071756208,
+        "absolute_pressure_max_abs_residual_gpa": 6.644920906457344,
+        "absolute_pressure_rmse_gpa": 3.177925437107045,
         "dataset_identifier": "diamond_benedict_2014_supplement_solid_dft_md",
-        "internal_energy_increment_bias_ev_per_atom": -0.034997211580038406,
+        "internal_energy_increment_bias_ev_per_atom": -0.03499721156295954,
         "internal_energy_increment_comparisons": 82,
-        "internal_energy_increment_max_abs_residual_ev_per_atom": 0.23946345171312977,
-        "internal_energy_increment_rmse_ev_per_atom": 0.061209378461660094,
+        "internal_energy_increment_max_abs_residual_ev_per_atom": 0.2394634516831431,
+        "internal_energy_increment_rmse_ev_per_atom": 0.06120937844633891,
         "isochores": 14,
         "isochoric_pressure_increment_comparisons": 82,
         "observations": 96,
-        "pressure_increment_bias_gpa": -2.1817560679865675,
-        "pressure_increment_max_abs_residual_gpa": 9.576559628208031,
-        "pressure_increment_rmse_gpa": 3.1604155822746534,
+        "pressure_increment_bias_gpa": -2.1817560675267504,
+        "pressure_increment_max_abs_residual_gpa": 9.576559627301947,
+        "pressure_increment_rmse_gpa": 3.160415581839436,
         "qualification": "Fixed-volume increments remove the arbitrary electronic-structure energy zero; absolute energies from different calculations are not compared."
       }
     },
@@ -13867,9 +13869,9 @@
         "status": "parity"
       },
       "complete_composite_identity": {
-        "max_abs_composition_pressure_error_gpa": 2.2737367544323206e-13,
+        "max_abs_composition_pressure_error_gpa": 1.1368683772161603e-13,
         "max_abs_reference_isotherm_error_gpa": 0.0,
-        "max_abs_thermal_energy_increment_error_j_per_mol": 2.6193447411060333e-09,
+        "max_abs_thermal_energy_increment_error_j_per_mol": 2.3865140974521637e-09,
         "states_checked": 57
       },
       "composite_coefficient_optimization_performed": false,
@@ -13879,7 +13881,9 @@
       ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
-      "fixed_parameters": [],
+      "fixed_parameters": [
+        "K0"
+      ],
       "label": "Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal",
       "material_identifier": "diamond",
       "model": "Vinet",
@@ -13893,16 +13897,16 @@
       "source_notes": "P(V,T) = P_Dewaele(V, 298 K) + P_Correa(V,T) - P_Correa(V, 298 K): exactly the experimental Dewaele Vinet isotherm at 298 K plus Correa's simulated logarithmic-moment double-Debye thermal increment. The Helmholtz energy has an arbitrary additive constant, which does not affect pressure, volume, thermal increments, heat capacities or same-phase energy differences.",
       "status": "source_reconstruction",
       "thermal_model_validation": {
-        "absolute_pressure_bias_gpa": 0.007726312574195697,
-        "absolute_pressure_max_abs_residual_gpa": 5.1902427630941474,
-        "absolute_pressure_rmse_gpa": 1.7908921936844253,
+        "absolute_pressure_bias_gpa": 0.007726313289275934,
+        "absolute_pressure_max_abs_residual_gpa": 5.190242761775153,
+        "absolute_pressure_rmse_gpa": 1.7908921935102013,
         "dataset_identifier": "diamond_correa_2008_figure8_dft_md_vector_digitized",
         "isochores": 3,
         "isochoric_pressure_increment_comparisons": 54,
         "observations": 57,
-        "pressure_increment_bias_gpa": -3.595239003507663,
-        "pressure_increment_max_abs_residual_gpa": 8.325249940147046,
-        "pressure_increment_rmse_gpa": 3.9056750421996607
+        "pressure_increment_bias_gpa": -3.5952390029367827,
+        "pressure_increment_max_abs_residual_gpa": 8.3252499390411,
+        "pressure_increment_rmse_gpa": 3.9056750416328234
       }
     },
     {

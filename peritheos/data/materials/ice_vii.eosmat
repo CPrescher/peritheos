@@ -34,6 +34,10 @@
           "Tr": {"value": 300.0, "error": null, "fixed": true}
         }
       },
+      "validity": {
+        "pressure_gpa": [2.55, 10.11],
+        "temperature_k": [300.0, 451.2]
+      },
       "experimental_pressure_range_gpa": [2.55, 10.11],
       "experimental_temperature_range_k": [300.5, 451.2],
       "determination_method": "experimental",

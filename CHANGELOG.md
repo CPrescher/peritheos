@@ -152,6 +152,16 @@ All notable changes to Peritheos are documented here. The project follows
   as fixed. Five Peritheos refits and derived records state their errors as
   1 sigma (B4C, iron, Mo2C, the two Dewaele-anchored diamond records) and so
   does the Finkelstein et al. (2017) helium record. No coefficient changes.
+- Further catalog revisions of 2026-11-28: K0 is marked fixed on the two
+  Dewaele-anchored diamond records. A validity range from the reference
+  temperature to the highest measured temperature lets the thermal records of
+  B4C, forsterite (Katsura et al. 2022), ice VII, KCl-B1, nickel and NiO be
+  evaluated at their reference temperature; their experimental ranges still
+  state the span of the data. The stated 3.158-85 GPa range of the KCl-B2
+  record of Ma et al. (2024) is enforced. The molar mass is corrected to the
+  formula mass on six Mg0.9375Fe0.0625SiO3 bridgmanite records (103.8586 to
+  102.35825 g/mol) and two MgGeO3 post-perovskite records (145.916 to
+  144.932 g/mol). No coefficient changes.
 - The snapshot history check tests catalog revisions once, on the current
   catalog; it failed for a revised material that also has an older recorded
   change.

@@ -86,6 +86,9 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 295.0
 - **Reported pressure coverage (GPa):** \[2.336174779961698, 65.9\]
 - **Reported temperature coverage (K):** \[298.0, 2457.07\]
+- **Validity:**
+    - **Pressure gpa:** \[2.336174779961698, 65.9\]
+    - **Temperature k:** \[295.0, 2457.07\]
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">

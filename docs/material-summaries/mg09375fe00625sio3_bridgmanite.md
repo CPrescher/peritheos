@@ -100,7 +100,7 @@ Automatic selection for equilibrium calculations.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
-    - **Molar mass g mol:** 103.8586
+    - **Molar mass g mol:** 102.35825
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K LSDA+U calculation. The authors prefer this configuration among the six Fe-bearing fits of Table 1 and use it for their thermodynamic calculations.
@@ -187,7 +187,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
-    - **Molar mass g mol:** 103.8586
+    - **Molar mass g mol:** 102.35825
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K calculation for an alternative supercell configuration (model 2). It shows configuration sensitivity and is not an independent composition.
@@ -272,7 +272,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
-    - **Molar mass g mol:** 103.8586
+    - **Molar mass g mol:** 102.35825
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Static 0 K calculation for an alternative supercell configuration (model 3). It shows configuration sensitivity and is not an independent composition.
@@ -357,7 +357,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
-    - **Molar mass g mol:** 103.8586
+    - **Molar mass g mol:** 102.35825
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Metastable low-spin comparison branch; do not use it as the equilibrium spin branch. The authors find low-spin Fe thermodynamically unstable through lower-mantle pressures and dynamically unstable at 0 GPa.
@@ -442,7 +442,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
-    - **Molar mass g mol:** 103.8586
+    - **Molar mass g mol:** 102.35825
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Metastable low-spin branch for an alternative supercell configuration (model 2), showing configuration sensitivity. Do not use it as the equilibrium spin branch.
@@ -527,7 +527,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4.0
-    - **Molar mass g mol:** 103.8586
+    - **Molar mass g mol:** 102.35825
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Metastable low-spin branch for an alternative supercell configuration (model 3), showing configuration sensitivity. Do not use it as the equilibrium spin branch.
