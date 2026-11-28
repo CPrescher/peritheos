@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 4 |
 | Observation datasets | 2 |
 
-The diffraction structure is the source's 87.8 GPa Rietveld refinement, not an ambient cell. Its occupied Cmcm sites contain Mg4Ge4O12 and establish Z=4 for every conventional-cell EOS volume. The same article's fixed-K0-prime=4 sensitivity fit represents parameter trade-off for the same 22 observations rather than an independent dataset. The article also reports a separate static-LDA 0 K fit (V0=178.02 A^3, K0=201.9 GPa, K0'=4.34) without the calculated energy-volume grid. Its modified axial Birch-Murnaghan fits are not volumetric EOS records.
+The diffraction structure is the source's 87.8 GPa Rietveld refinement, not an ambient cell. Its occupied Cmcm sites contain Mg4Ge4O12 and establish Z=4 for every conventional-cell EOS volume. The primary 300 K experimental record is preferred. The same article's fixed-K0-prime=4 sensitivity fit is executable but non-default because it represents parameter trade-off for the same 22 observations rather than an independent dataset. The article also reports a separate static-LDA 0 K fit (V0=178.02 A^3, K0=201.9 GPa, K0'=4.34) without the calculated energy-volume grid; that theoretical parameterization is documented here but is not promoted as an experimental record. Its modified axial Birch-Murnaghan fits are likewise not volumetric EOS records.
 
 ## Automatic selections
 

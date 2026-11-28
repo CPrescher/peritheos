@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 1566661 is the cited Besson deuterated ice VIII structure at 2.8 GPa / 296 K. These are X-ray electron-scattering intensities, not neutron intensities; D has the H form factor.
+Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 1566661 is the cited Besson deuterated ice VIII structure at 2.8 GPa / 296 K. Reference cell retained. These are X-ray electron-scattering intensities, not neutron intensities; D has the H form factor. Original scientific EOS evidence, observations and applicability limits are unchanged.
 
 ## Automatic selections
 

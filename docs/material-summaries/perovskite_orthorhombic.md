@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. Pure MgSiO3 COD 9005757 (Yagi et al. 1978) geometry used as an explicit topology proxy for nominal Mg0.88Fe0.12SiO3. Replace the Mg site by 0.88 Mg + 0.12 Fe statistically. No Fe-bearing specimen refinement or site preference determination is claimed.
+Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. Pure MgSiO3 COD 9005757 (Yagi et al. 1978) geometry used as an explicit topology proxy for nominal Mg0.88Fe0.12SiO3. Replace the Mg site by 0.88 Mg + 0.12 Fe statistically; retain the existing EOS reference cell. No Fe-bearing specimen refinement or site preference determination is claimed. Original scientific EOS evidence, observations and applicability limits are unchanged.
 
 ## Automatic selections
 

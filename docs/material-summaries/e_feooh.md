@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 2 |
 
-Imported from a beamline jcpds collection. Cell axes and hkl were permuted into the P21nm setting without changing d-spacings. The positional model is the 20 GPa static structure of Insixiengmay and Stixrude, American Mineralogist 108, 2209-2222 (2023), doi:10.2138/am-2022-8839, selected because its volume is closest to the imported high-pressure cell.
+Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/FeOOH-pmn21.jcpds. Cell axes and hkl were permuted into the P21nm setting without changing d-spacings. The positional model is the 20 GPa static structure of Insixiengmay and Stixrude, American Mineralogist 108, 2209-2222 (2023), doi:10.2138/am-2022-8839, selected because its volume is closest to the imported high-pressure cell.
 
 ## Automatic selections
 
