@@ -26,11 +26,28 @@ and whose `compared` says what that word refers to:
 | `source_equation` | The source's own equation or calculated checkpoints were rebuilt; no data were refitted. An `untested` record can therefore still have a verified equation. |
 | `none` | Nothing could be refitted or compared. |
 
-For `close` and `disagrees`, `why` names the coefficients that failed, with
-the refit and published values or their relative difference, using the terms
-*outside the combined error*, *beyond the agreement limit* and *outside the
-published error* defined [below](#what-parity-compares). It is generated from
-the audit's coefficient table and says nothing the table does not.
+For `close` and `disagrees`, `why` is one generated line saying why the refit
+missed parity. It is built from the audit's coefficient table and stored
+errors and says nothing they do not:
+
+- Each coefficient that failed a criterion is named with the refit and
+  published value, its unit (volume in Å³ per conventional cell) and the
+  signed relative difference of the refit, then what the difference exceeds:
+  *twice the combined error*, *the agreement limit* or *the published error*
+  ([defined below](#what-parity-compares)). Example: "Refit vs published: K0
+  263.7 vs 256 GPa (+3.0%) differs by more than twice the combined error."
+- A difference of 100% or more (a coefficient at a bound or with a changed
+  sign) is given by the two values only, without a percentage.
+- When the line would exceed 160 characters it keeps the percentages and drops
+  the values, then names the smaller differences without a percentage;
+  coefficients failing different criteria may share one clause ("...or the
+  agreement limit"). Every failing coefficient is named; only when even the
+  names do not fit, the line counts them and names the three largest.
+- A `close` record with no failed criterion names the coefficients that could
+  not be tested against the combined error and why: the paper gives no error,
+  the refit gives none, or neither does. Example: "All coefficients are within
+  the agreement limit; the paper gives no error for V0, so it could not be
+  tested against twice the combined error."
 
 ## Warning
 
@@ -79,8 +96,9 @@ combined-error comparison and the numerical similarity screen:
 \leq 2\sqrt{s_{\mathrm{source}}^2+s_{\mathrm{refit}}^2}.
 \]
 
-The right-hand side is the **combined error**; a coefficient whose source or
-refit error is missing cannot be tested against it. The error values are the
+The square root is the **combined error** of the two values, so the test asks
+that they differ by at most twice the combined error; a coefficient whose
+source or refit error is missing cannot be tested against it. The error values are the
 comparison quantities recorded by the audit. Source confidence convention,
 error model, covariance, weighting, fixed constraints and row selection still
 matter; the rule is not a universal 95% confidence claim.

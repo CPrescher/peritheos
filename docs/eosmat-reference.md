@@ -269,7 +269,7 @@ any other key is an error. The words are defined in [EOS labels](eos-labels.md).
 | --- | --- |
 | `reproduction` | `reproduced`, `close`, `disagrees` or `untested` |
 | `compared` | `published_fit`, `peritheos_refit`, `source_equation` or `none`; `untested` allows only `none` or `source_equation`, other headlines exclude `none` |
-| `why` | At most 160 characters, only with `close` or `disagrees`: the coefficients that failed |
+| `why` | At most 160 characters, only with `close` or `disagrees`: which coefficients differ, by how much and by more than what; for a `close` record where none failed, which coefficients could not be tested against the combined error and which error is missing ([wording](eos-labels.md#headline-reproduction)) |
 | `warning` | `null` or text: an explicit usage restriction |
 | `warning_reason` | At most 140 characters, only with a non-null `warning`: why the restriction applies, copied from `evidence.scientific_validation.warning_reason` |
 | `source_check` | `verified`, `pending`, `unresolved` or `deferred` |

@@ -25,7 +25,8 @@ MATERIALS = ROOT / "peritheos/data/materials"
 AUDITS = ROOT / "peritheos/data/audits"
 
 #: Close/disagrees records whose stored comparison table names no failed
-#: criterion (and, for close, no untested combined-error rule): no ``why``.
+#: criterion (and, for close, no coefficient without a combined-error test):
+#: no ``why``.
 RECORDS_WITHOUT_WHY = {
     "bridgmanite_dorogokupets_2015_298k_rydberg_stacey",
     "cementite_scott_2001_bm3_1",
@@ -143,82 +144,253 @@ def test_source_check_is_a_fixed_renaming_kept_out_of_the_sidecar():
             assert status in SOURCE_CHECK_VALUES
 
 
-def test_why_names_failed_coefficients_from_the_stored_table():
-    close = record(
-        "similar",
-        rows=[
-            row("V0", 162.4, 162.41, similar=True, within_combined_2sigma=True),
-            row("K0", 256, 263.7307, similar=True, within_combined_2sigma=False),
-        ],
-    )
-    assert reproduction_why(close) == (
-        "K0: refit 263.7 vs published 256 GPa (+3.0%), outside the combined error."
-    )
-    # The second spelling of the table, and two failed criteria in one row.
-    disagrees = record(
-        "not_reproduced",
-        rows=[
-            {
-                "parameter": "rt_eos.K0_prime",
-                "published": 4.91,
-                "published_sigma": 0.12,
-                "refit": 4.183456,
-                "refit_sigma": None,
-                "delta": -0.726544,
-                "relative_delta": -0.148,
-                "similar": False,
-                "within_combined_2sigma": False,
-                "within_reported_error": False,
-            }
-        ],
-    )
-    assert reproduction_why(disagrees) == (
-        "K0': refit 4.183 vs published 4.91 (-14.8%), outside the combined "
-        "error, beyond the agreement limit and outside the published error."
-    )
-    untested_rule = record(
-        "similar",
-        rows=[
-            row("K0", 160, 161, similar=True, within_combined_2sigma=None),
-            row("K0_prime", 4, 4.1, similar=True, within_combined_2sigma=None),
-        ],
-    )
-    assert reproduction_why(untested_rule) == (
-        "K0 and K0' have no error to test against the combined-error rule; "
-        "all within the agreement limit."
-    )
-    single = record(
-        "similar",
-        rows=[row("V0", 74.7, 74.71, similar=True, within_combined_2sigma=None)],
-    )
-    assert reproduction_why(single) == (
-        "V0 has no error to test against the combined-error rule; "
-        "all within the agreement limit."
-    )
-    # Published values print as stored, without a trailing ".0"; the refit
-    # gets at most one more decimal.
-    integral = record(
-        "similar",
-        rows=[row("theta0", 600.0, 766.2634, similar=False)],
-    )
-    assert reproduction_why(integral) == (
-        "theta0: refit 766.3 vs published 600 K (+27.7%), beyond the agreement limit."
-    )
-    # More than three failures: the three largest relative differences are
-    # named and the rest counted.
-    four = record(
-        "not_reproduced",
-        rows=[
-            row("V0", 74.7, 75.0, similar=False),
-            row("K0", 160, 200, similar=False),
-            row("K0_prime", 4, 2, similar=False),
-            row("gamma0", 1.5, 1.6, similar=False),
-        ],
-    )
-    assert reproduction_why(four) == (
-        "K0' (-50.0%), K0 (+25.0%), gamma0 (+6.7%) and 1 more: "
-        "beyond the agreement limit."
-    )
+def with_errors(source, published, refit):
+    return {**source, "published_error": published, "refit_error": refit}
+
+
+def thermal(model, parameters):
+    return {"thermal": {"model": model, "parameters": parameters}}
+
+
+#: One case per ``why`` template; crates/peritheos/tests/eosmat_audit.rs
+#: checks the same cases against the Rust reader.
+WHY_CASES = {
+    # Every failing coefficient with both values, unit and percentage.
+    "values": (
+        record(
+            "similar",
+            rows=[
+                row("V0", 162.4, 162.41, similar=True, within_combined_2sigma=True),
+                row("K0", 256, 263.7307, similar=True, within_combined_2sigma=False),
+            ],
+        ),
+        "Refit vs published: K0 263.7 vs 256 GPa (+3.0%) differs by more than "
+        "twice the combined error.",
+    ),
+    # The second spelling of the table; three failed criteria in one row.
+    "three_criteria": (
+        record(
+            "not_reproduced",
+            rows=[
+                {
+                    "parameter": "rt_eos.K0_prime",
+                    "published": 4.91,
+                    "published_sigma": 0.12,
+                    "refit": 4.183456,
+                    "refit_sigma": None,
+                    "similar": False,
+                    "within_combined_2sigma": False,
+                    "within_reported_error": False,
+                }
+            ],
+        ),
+        "Refit vs published: K0' 4.183 vs 4.91 (-14.8%) differs by more than "
+        "twice the combined error, the agreement limit and the published error.",
+    ),
+    # Volume in Å³; published values print as stored, the refit with at most
+    # one more decimal.
+    "volume": (
+        record(
+            "similar",
+            rows=[row("V0", 74.7, 75.0, similar=True, within_combined_2sigma=False)],
+        ),
+        "Refit vs published: V0 75 vs 74.7 Å³ (+0.4%) differs by more than twice "
+        "the combined error.",
+    ),
+    # A thermal coefficient takes the thermal model's unit; exponent notation
+    # follows the stored spelling's significant digits.
+    "exponent": (
+        record(
+            "similar",
+            rows=[
+                row(
+                    "alpha1",
+                    8.7e-9,
+                    5.6123e-9,
+                    similar=False,
+                    within_combined_2sigma=True,
+                )
+            ],
+            **thermal("AlphaKT", {"Tr": 300.0, "alpha0": 3e-5, "alpha1": 8.7e-9}),
+        ),
+        "Refit vs published: alpha1 5.61e-09 vs 8.7e-09 K^-2 (-35.5%) differs by "
+        "more than the agreement limit.",
+    ),
+    # A difference of 100% or more gives the two values, no percentage.
+    "large": (
+        record(
+            "not_reproduced",
+            rows=[
+                row("theta0", 600.0, 766.2634, similar=False),
+                row("gamma0", 2.609, 8.0, similar=False),
+            ],
+            **thermal("MieGruneisenDebye", {"theta0": 600.0, "gamma0": 2.609}),
+        ),
+        "Refit vs published: theta0 766.3 vs 600 K (+27.7%) and gamma0 8 vs 2.609 "
+        "differ by more than the agreement limit.",
+    ),
+    # Too long with values: percentages; different criteria in one clause.
+    "mixed": (
+        record(
+            "not_reproduced",
+            rows=[
+                row("V0", 74.7, 75.5, similar=True, within_combined_2sigma=False),
+                row("K0", 160, 200, similar=False, within_combined_2sigma=False),
+                row("K0_prime", 4, 0.0, similar=False, within_combined_2sigma=True),
+            ],
+        ),
+        "Refit vs published: V0 (+1.1%), K0 (+25.0%) and K0' (0 vs 4) differ by "
+        "more than twice the combined error or the agreement limit.",
+    ),
+    # Four or more failing coefficients are all named.
+    "four": (
+        record(
+            "not_reproduced",
+            rows=[
+                row("V0", 74.7, 75.0, similar=False),
+                row("K0", 160, 200, similar=False),
+                row("K0_prime", 4, 2, similar=False),
+                row("gamma0", 1.5, 1.6, similar=False),
+            ],
+        ),
+        "Refit vs published: V0 (+0.4%), K0 (+25.0%), K0' (-50.0%) and gamma0 "
+        "(+6.7%) differ by more than the agreement limit.",
+    ),
+    # The largest differences keep their percentage, the rest are named.
+    "largest": (
+        record(
+            "not_reproduced",
+            rows=[
+                row(f"theta_{m}0", 1888.0, 1888.0 * (1.1 + 0.1 * i), similar=False)
+                for i, m in enumerate("abcdefg")
+            ],
+        ),
+        "Refit vs published: theta_g0 (+70.0%), theta_f0 (+60.0%), theta_e0 "
+        "(+50.0%), theta_d0, theta_c0, theta_b0 and theta_a0 differ by more than "
+        "the agreement limit.",
+    ),
+    # Even the names are too long: a count and the largest.
+    "count": (
+        record(
+            "not_reproduced",
+            rows=[
+                row(f"coefficient_{i}", 1.25, 1.5 + i, similar=False) for i in range(12)
+            ],
+        ),
+        "12 coefficients differ by more than the agreement limit; largest: "
+        "coefficient_11, coefficient_10 and coefficient_9.",
+    ),
+    # Nothing failed: the coefficients without a combined-error test, and
+    # which error is missing.
+    "paper_gives_no_error": (
+        record(
+            "similar",
+            rows=[
+                with_errors(
+                    row("K0", 160, 161, similar=True, within_combined_2sigma=None),
+                    None,
+                    1.2,
+                ),
+                with_errors(
+                    row("K0_prime", 4, 4.1, similar=True, within_combined_2sigma=None),
+                    None,
+                    0.1,
+                ),
+            ],
+        ),
+        "All coefficients are within the agreement limit; the paper gives no "
+        "error for K0 and K0', so they could not be tested against twice the "
+        "combined error.",
+    ),
+    "refit_gives_no_error": (
+        record(
+            "similar",
+            rows=[
+                with_errors(
+                    row("V0", 74.7, 74.71, similar=True, within_combined_2sigma=None),
+                    0.1,
+                    None,
+                ),
+                with_errors(
+                    row("K0", 160, 161, similar=True, within_combined_2sigma=True),
+                    2,
+                    1,
+                ),
+            ],
+        ),
+        "All coefficients are within the agreement limit; the refit gives no "
+        "error for V0, so it could not be tested against twice the combined error.",
+    ),
+    "neither_gives_an_error": (
+        record(
+            "similar",
+            rows=[row("K0", 160, 161, similar=True, within_combined_2sigma=None)],
+        ),
+        "All coefficients are within the agreement limit; no published or refit "
+        "error for K0, so it could not be tested against twice the combined error.",
+    ),
+    "several_reasons": (
+        record(
+            "similar",
+            rows=[
+                with_errors(
+                    row("V0", 74.7, 74.71, similar=True, within_combined_2sigma=None),
+                    0.1,
+                    None,
+                ),
+                row("K0", 160, 161, similar=True, within_combined_2sigma=None),
+                row("K0_prime", 4, 4.1, similar=True, within_combined_2sigma=None),
+            ],
+        ),
+        "No refit error for V0, no published or refit error for K0 and K0', so "
+        "they could not be tested against twice the combined error.",
+    ),
+    # No stored errors at all, and not every row passed the agreement limit.
+    "unknown": (
+        record(
+            "similar",
+            rows=[
+                {
+                    "parameter": "K0",
+                    "published": 160,
+                    "refit": 161,
+                    "within_combined_2sigma": None,
+                },
+                row("V0", 74.7, 74.71, similar=True, within_combined_2sigma=True),
+            ],
+        ),
+        "No error comparison is recorded for K0, so it could not be tested against "
+        "twice the combined error.",
+    ),
+    # A published value with more than six significant digits (a computed
+    # conversion) is not repeated.
+    "long_published": (
+        record(
+            "similar",
+            rows=[
+                row(
+                    "V0",
+                    41.480265898,
+                    41.5535840287,
+                    similar=True,
+                    within_combined_2sigma=False,
+                )
+            ],
+        ),
+        "Refit vs published: V0 (+0.2%) differs by more than twice the combined error.",
+    ),
+}
+
+
+@pytest.mark.parametrize("case", sorted(WHY_CASES))
+def test_why_says_what_differs_in_plain_words(case):
+    source, expected = WHY_CASES[case]
+    assert reproduction_why(source) == expected
+    assert len(expected) <= WHY_MAX_LENGTH
+
+
+def test_why_states_nothing_the_table_does_not_support():
+    close = WHY_CASES["values"][0]
     # Nothing failed and nothing untested: no statement is invented.
     passing = record(
         "not_reproduced",
@@ -235,12 +407,10 @@ def test_why_names_failed_coefficients_from_the_stored_table():
         is None
     )
     assert reproduction_why(record("similar")) is None
-    many = record(
-        "not_reproduced",
-        rows=[row(f"coefficient_{i}", 1.25, 1.5 + i, similar=False) for i in range(12)],
-    )
-    text = reproduction_why(many)
-    assert text is None or len(text) <= WHY_MAX_LENGTH
+    # An untested coefficient explains a close record only.
+    untested = WHY_CASES["neither_gives_an_error"][0]
+    rows = untested["evidence"]["reproduction"]["assessment"]["parameters"]
+    assert reproduction_why(record("not_reproduced", rows=rows)) is None
 
 
 def printed(value):
@@ -263,9 +433,15 @@ def test_bundled_why_lines_are_short_and_rounded():
                 without.add(complete["identifier"])
                 continue
             with_why += complete["identifier"] not in added_records()
-            assert len(check["why"]) <= WHY_MAX_LENGTH
+            why = check["why"]
+            assert len(why) <= WHY_MAX_LENGTH
+            # Every coefficient is named or counted; no percentage of 100% or
+            # more is printed (the two values are given instead).
+            assert not re.search(r"and \d+ more", why)
+            assert all(abs(float(p)) < 100 for p in re.findall(r"([-+][\d.]+)%", why))
             rows = complete["evidence"]["reproduction"]["assessment"]["parameters"]
-            for match in re.finditer(r"refit (\S+) vs published (\S+)", check["why"]):
+            number = r"-?[\d.]+(?:e[-+]\d+)?"
+            for match in re.finditer(rf"({number}) vs ({number})\b", why):
                 refit, published = match.groups()
                 # Decimals of the mantissa ("6e-10" has none, "1.0e-09" one).
                 decimals = len(published.partition("e")[0].partition(".")[2])
@@ -293,9 +469,10 @@ def test_check_fields_are_derived_without_a_check_block():
         "source_note",
     ):
         assert getattr(plain, name) == getattr(stored, name), name
-    assert plain.why.startswith("K0: refit 263.7 vs published 256 GPa")
+    assert plain.why.startswith("Refit vs published: K0 263.7 vs 256 GPa")
     assert (
-        "  Check: close (refit vs published fit). K0: refit 263.7 " in plain.summary()
+        "  Check: close (refit vs published fit). Refit vs published: K0 263.7 "
+        in plain.summary()
     )
     assert (
         "  Source check: verified (2026-01-02). Table 2 values match."

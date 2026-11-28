@@ -134,7 +134,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "q: refit 0.28 vs published 0.9 (-68.7%), beyond the agreement limit.",
+        "why": "Refit vs published: q 0.28 vs 0.9 (-68.7%) differs by more than the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
@@ -206,7 +206,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "K0: refit 264.6 vs published 236 GPa (+12.1%), outside the combined error; K0': refit 2.91 vs published 3.9 (-25.4%), outside the combined error.",
+        "why": "Refit vs published: K0 264.6 vs 236 GPa (+12.1%) and K0' 2.91 vs 3.9 (-25.4%) differ by more than twice the combined error.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",
@@ -1100,7 +1100,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "gamma0: refit 2.442 vs published 1.42 (+72.0%), beyond the agreement limit; q: refit 1.839 vs published 2.65 (-30.6%), beyond the agreement limit.",
+        "why": "Refit vs published: gamma0 2.442 vs 1.42 (+72.0%) and q 1.839 vs 2.65 (-30.6%) differ by more than the agreement limit.",
         "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
         "warning_reason": "The published thermal parameters keep an unresolved high-temperature misfit to the source data; the joint fit is not reproduced.",
         "source_check": "unresolved",

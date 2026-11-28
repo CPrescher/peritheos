@@ -14,7 +14,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "K0: refit 132.1 vs published 158 GPa (-16.4%), beyond the agreement limit; K0': refit 6.67 vs published 4.4 (+51.7%), beyond the agreement limit.",
+        "why": "Refit vs published: K0 132.1 vs 158 GPa (-16.4%) and K0' 6.67 vs 4.4 (+51.7%) differ by more than the agreement limit.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
@@ -115,7 +115,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "V0 (+2.9%): outside the combined error; K0 (-15.2%): outside the combined error and beyond the agreement limit.",
+        "why": "Refit vs published: V0 (+2.9%) differs by more than twice the combined error; K0 (-15.2%) differs by more than twice the combined error and the agreement limit.",
         "warning": "Consult the source audit before quantitative use.",
         "warning_reason": "The independent check does not reach coefficient parity; Fei's row selection and weights are not published.",
         "source_check": "verified",

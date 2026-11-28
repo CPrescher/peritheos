@@ -63,7 +63,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "K0', gamma0, a and b have no error to test against the combined-error rule; all within the agreement limit.",
+        "why": "All coefficients are within the agreement limit; no refit error for K0', gamma0, a and b, so they could not be tested against twice the combined error.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-03",
@@ -196,7 +196,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "K0 and K0' have no error to test against the combined-error rule; all within the agreement limit.",
+        "why": "All coefficients are within the agreement limit; the paper gives no error for K0 and K0', so they could not be tested against twice the combined error.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
@@ -325,7 +325,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "K0': refit 3.954 vs published 4.08 (-3.1%), outside the combined error.",
+        "why": "Refit vs published: K0' 3.954 vs 4.08 (-3.1%) differs by more than twice the combined error.",
         "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
         "warning_reason": "The Table II fit is not reproduced from the published data; the published curve leaves residuals up to about +2.8 GPa.",
         "source_check": "unresolved",
@@ -885,7 +885,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "V0, K0 and K0' have no error to test against the combined-error rule; all within the agreement limit.",
+        "why": "All coefficients are within the agreement limit; the paper gives no error for V0, K0 and K0', so they could not be tested against twice the combined error.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
@@ -928,7 +928,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "V0, K0 and K0' have no error to test against the combined-error rule; all within the agreement limit.",
+        "why": "All coefficients are within the agreement limit; the paper gives no error for V0, K0 and K0', so they could not be tested against twice the combined error.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-05",
@@ -1465,7 +1465,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "V0, K0 and K0' have no error to test against the combined-error rule; all within the agreement limit.",
+        "why": "All coefficients are within the agreement limit; the paper gives no error for V0, K0 and K0', so they could not be tested against twice the combined error.",
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-01",

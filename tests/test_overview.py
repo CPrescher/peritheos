@@ -492,8 +492,8 @@ palladium_frost_2023_vinet_1
   Frost et al. (2023), Vinet
   Material: Palladium (palladium); Pd, cubic
   Model: Vinet; reference temperature 300 K
-  Check: close (refit vs published fit). K0': refit 5.6037 vs published 5.473 \
-(+2.4%), outside the combined error.
+  Check: close (refit vs published fit). Refit vs published: K0' 5.6037 vs \
+5.473 (+2.4%) differs by more than twice the combined error.
   Warning: Not recommended for quantitative use. Default selection on hold \
 pending review. Never chosen automatically; select it explicitly. The authors' \
 fitting objective and covariance convention are unstated, so the published \
@@ -511,8 +511,8 @@ mgo_shen_2026_vinet_3
   Shen and Smith (2026), Cu-referenced Vinet
   Material: Periclase B1 (mgo); MgO, B1 (periclase)
   Model: Vinet; reference temperature 300 K
-  Check: disagrees (refit vs published fit). K0': refit 3.954 vs published 4.08 \
-(-3.1%), outside the combined error.
+  Check: disagrees (refit vs published fit). Refit vs published: K0' 3.954 vs \
+4.08 (-3.1%) differs by more than twice the combined error.
   Warning: Not recommended for quantitative use. Never chosen automatically; \
 select it explicitly. The Table II fit is not reproduced from the published \
 data; the published curve leaves residuals up to about +2.8 GPa.

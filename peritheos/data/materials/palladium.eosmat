@@ -152,7 +152,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "K0': refit 5.6037 vs published 5.473 (+2.4%), outside the combined error.",
+        "why": "Refit vs published: K0' 5.6037 vs 5.473 (+2.4%) differs by more than twice the combined error.",
         "warning": "Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly.",
         "warning_reason": "The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.",
         "source_check": "unresolved",
@@ -188,7 +188,7 @@
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
-        "why": "K0': refit 5.1474 vs published 4.996 (+3.0%), outside the combined error.",
+        "why": "Refit vs published: K0' 5.1474 vs 4.996 (+3.0%) differs by more than twice the combined error.",
         "warning": "Not recommended for quantitative use. Default selection on hold pending review. Never chosen automatically; select it explicitly.",
         "warning_reason": "The authors' fitting objective and covariance convention are unstated, so the published fit is not fully reproduced.",
         "source_check": "unresolved",
@@ -224,7 +224,7 @@
       "check": {
         "reproduction": "disagrees",
         "compared": "published_fit",
-        "why": "V0 (+1.8%) and K0' (+15.1%): outside the combined error; K0 (-20.0%): outside the combined error and beyond the agreement limit.",
+        "why": "Refit vs published: V0 (+1.8%), K0 (-20.0%) and K0' (+15.1%) differ by more than twice the combined error or the agreement limit.",
         "warning": "Not recommended for quantitative use. Never chosen automatically; select it explicitly.",
         "warning_reason": "The verified Table S1 observations and source equation do not recover the published experimental BM3 fit.",
         "source_check": "unresolved",

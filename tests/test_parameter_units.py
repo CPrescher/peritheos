@@ -142,3 +142,10 @@ def test_linear_hugoniot_slope_is_dimensionless():
     assert shock == pytest.approx(hugoniot.c0 + hugoniot.s * up)
     assert _unit("LinearUsUpHugoniot", "c0") == "km/s"
     assert _unit("LinearUsUpHugoniot", "s") == "1"
+
+
+def test_rust_unit_table_is_generated_from_this_table():
+    # The Rust reader prints the same units in check.why from a generated copy.
+    from scripts.generate_rust_parameter_units import TARGET, render
+
+    assert TARGET.read_text(encoding="utf-8") == render()

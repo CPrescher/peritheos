@@ -16,13 +16,14 @@ import pytest
 
 from peritheos import save_eosmat
 from peritheos._eosmat_audit import merge_audit
-from peritheos._eosmat_format import format_audit
+from peritheos._eosmat_format import format_audit, format_eosmat
 from scripts import apply_check_text as tool
 from scripts.apply_record_text import Plan
 from scripts.check_record_text import current_cases, record_cases
 from scripts.split_eosmat_audits import (
     RECEIPT,
     check_text,
+    generated_check_receipt,
     pre_split_bytes,
     pre_split_view,
     split_added_materials,
@@ -827,3 +828,87 @@ def test_reference_lists_every_accepted_code_with_its_warning():
     rows.pop("usage_recommendation")  # the header
     assert rows == USAGE_RECOMMENDATION_WARNINGS
     assert tool.CODED_RECOMMENDATIONS == tuple(USAGE_RECOMMENDATION_WARNINGS)
+
+
+#: Unrevised split materials with a generated why line (close records).
+REFRESH_MATERIALS = {
+    "coesite": "coesite_levien_1981_bm3_1",
+    "fe3s": "fe3s_fei_2000_bm3_1",
+}
+
+
+@pytest.fixture
+def stale_root(tmp_path):
+    """Two bundled materials whose stored why lines are out of date."""
+    receipt = json.loads(RECEIPT.read_bytes())
+    receipt["materials"] = {m: receipt["materials"][m] for m in REFRESH_MATERIALS}
+    receipt.pop("superseded", None)
+    (tmp_path / "peritheos/data/materials").mkdir(parents=True)
+    (tmp_path / "peritheos/data/audits").mkdir(parents=True)
+    files = {}
+    for material, identifier in REFRESH_MATERIALS.items():
+        document = json.loads((MATERIALS / f"{material}.eosmat").read_bytes())
+        for record in document["eos_records"]:
+            if record["identifier"] == identifier:
+                record["check"]["why"] = "An older wording."
+        record_bytes = format_eosmat(document).encode("utf-8")
+        audit_bytes = (AUDITS / f"{material}.audit.json").read_bytes()
+        (tmp_path / f"peritheos/data/materials/{material}.eosmat").write_bytes(
+            record_bytes
+        )
+        (tmp_path / f"peritheos/data/audits/{material}.audit.json").write_bytes(
+            audit_bytes
+        )
+        files[material] = (record_bytes, audit_bytes)
+    receipt = generated_check_receipt(receipt, files)
+    target = tmp_path / RECEIPT.relative_to(ROOT)
+    target.parent.mkdir(parents=True)
+    target.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+    return tmp_path
+
+
+def test_refresh_why_rederives_only_why_and_rebinds_the_receipt(stale_root):
+    _, failures = tool.verify(stale_root)
+    assert sorted(failures) == [
+        f"{material}/{identifier}: check differs from its evidence in ['why']"
+        for material, identifier in sorted(REFRESH_MATERIALS.items())
+    ]
+    before = _tree(stale_root)
+    files, receipt, changes = tool.refresh_generated_checks(stale_root)
+    assert _tree(stale_root) == before  # computing writes nothing
+    assert {m: list(c) for m, c in changes.items()} == {
+        m: [identifier] for m, identifier in REFRESH_MATERIALS.items()
+    }
+    assert all(
+        old == "An older wording." for c in changes.values() for old, _ in c.values()
+    )
+    tool.apply_refresh(stale_root)
+    bundled = json.loads(RECEIPT.read_bytes())["materials"]
+    written = json.loads((stale_root / RECEIPT.relative_to(ROOT)).read_bytes())
+    assert written["generated_check_refresh"]
+    for material in REFRESH_MATERIALS:
+        record_path = f"peritheos/data/materials/{material}.eosmat"
+        audit_path = f"peritheos/data/audits/{material}.audit.json"
+        # The refreshed files are the bundled ones; sidecars are untouched.
+        assert (stale_root / record_path).read_bytes() == (
+            ROOT / record_path
+        ).read_bytes()
+        assert (stale_root / audit_path).read_bytes() == before[Path(audit_path)]
+        assert written["materials"][material] == bundled[material]
+        assert pre_split_bytes(material, root=stale_root) == pre_split_bytes(material)
+    assert tool.verify(stale_root)[1] == []
+    assert tool.refresh_generated_checks(stale_root)[2] == {}
+
+
+def test_refresh_why_refuses_any_other_change(stale_root):
+    path = stale_root / "peritheos/data/materials/fe3s.eosmat"
+    document = json.loads(path.read_bytes())
+    document["eos_records"][0]["check"]["compared"] = "none"
+    path.write_text(format_eosmat(document), encoding="utf-8")
+    before = _tree(stale_root)
+    with pytest.raises(ValueError, match=r"fe3s/.*check \['compared'\] would change"):
+        tool.apply_refresh(stale_root)
+    assert _tree(stale_root) == before
+    assert (
+        tool.main(["--refresh-why", "--check"]) == 0
+    )  # the bundled catalog is current
