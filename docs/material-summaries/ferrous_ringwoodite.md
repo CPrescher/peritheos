@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Fe endmember distinct from Mg-ringwoodite and fayalite. Derived static ambient-cell reconstruction only, valid at 296.15 K over 0–4 GPa. The qualified Armentrout–Kavner thermal candidate remains in the staged audit, outside the executable bundle.
+Fe endmember, distinct from Mg-ringwoodite and fayalite. The EOS is a static ambient-cell reconstruction at 296.15 K over 0-4 GPa; no thermal EOS is included.
 
 ## Automatic selections
 

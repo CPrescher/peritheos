@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 7 |
 | Observation datasets | 4 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/sio2-stv\_Andr.jcpds. Ambient stishovite coordinates: Baur and Khan, Acta Crystallographica B27, 2133-2139 (1971).
+Atomic coordinates of ambient stishovite from Baur and Khan, Acta Crystallographica B27, 2133-2139 (1971).
 
 ## Automatic selections
 

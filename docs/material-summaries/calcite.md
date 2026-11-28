@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Ambient 24 C structure: Markgraf and Reeder, American Mineralogist 70, 590-600 (1985), COD 9000965. The EoS is from Redfern and Angel, Contributions to Mineralogy and Petrology 134, 102-106 (1999), doi:10.1007/s004100050471. Phase-line intensities were calculated from the cited structure using independent-atom X-ray form factors.
+Ambient 24 °C structure: Markgraf and Reeder, American Mineralogist 70, 590-600 (1985), COD 9000965. Phase-line intensities were calculated from this structure using independent-atom X-ray form factors.
 
 ## Automatic selections
 

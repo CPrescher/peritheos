@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 5 |
 
-Experimental FeS-VI structure is independent of the Morard EOS. Fixed coordinates are a reference diffraction model and are not a refinement of all hot FeS polymorphs. The published common FeS EOS is accepted on parameter agreement within reported uncertainties. Its residual-envelope discrepancy is informational; the FeS-VI structure does not supply a phase-stability map.
+Experimental FeS-VI structure, independent of the Morard EOS. The fixed coordinates are a reference diffraction model, not a refinement of all hot FeS polymorphs, and the structure does not supply a phase-stability map.
 
 ## Automatic selections
 

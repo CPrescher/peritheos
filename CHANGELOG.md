@@ -110,6 +110,10 @@ All notable changes to Peritheos are documented here. The project follows
   its audit sidecar by a second reviewer and applied with the text tools;
   originals stay in the sidecars. No coefficient, range or classification
   changes.
+- Rewrite 77 short material notes that held import paths, card-import
+  history or curation remarks; five become empty. Originals stay in the
+  sidecars. Longer material notes, whose shortening would drop caveats, are
+  unchanged.
 - `scripts/apply_check_text.py` also sets a bundled record's coded
   `usage_recommendation` (the source of `check.warning`), keeping replaced
   free text as `recommendation_reason` and binding the originals so every

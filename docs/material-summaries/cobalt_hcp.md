@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 6 |
 | Observation datasets | 3 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/Co-hcp.jcpds
+Hexagonal close-packed (P63/mmc) cobalt. Structure data are from a beamline JCPDS file collection.
 
 ## Automatic selections
 

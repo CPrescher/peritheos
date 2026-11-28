@@ -24,7 +24,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 2 |
 
-Pure elemental bcc vanadium, not V oxide or a multiphase sample aggregate. The separately sourced 298.15 K diffraction cell (27.6559412875 A^3) differs from the Crichton relaxed-foil EOS reference (27.995 A^3); retain both reported conventions. Advent foil sample purity is not quantified in the EOS manuscript.
+Pure elemental bcc vanadium, not V oxide or a multiphase sample aggregate. The separately sourced 298.15 K diffraction cell (27.6559412875 Å³) differs from the Crichton relaxed-foil EOS reference volume (27.995 Å³). Purity of the Advent foil sample is not quantified in the EOS manuscript.
 
 ## Automatic selections
 

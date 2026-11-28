@@ -22,8 +22,6 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 7 |
 | Observation datasets | 3 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/ta.jcpds, JCPDS/dac\_user\_jcpds/ta.jcpds
-
 ## Automatic selections
 
 - **Equilibrium:** [tantalum\_cynn\_1999\_bm3\_1](#record-tantalum_cynn_1999_bm3_1)

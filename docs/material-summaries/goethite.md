@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/FeOOH-pbnm.jcpds. Single-crystal coordinates: Yang et al., Acta Crystallographica E62, i250-i252 (2006), doi:10.1107/S1600536806047258.
+Single-crystal coordinates: Yang et al., Acta Crystallographica E62, i250-i252 (2006), doi:10.1107/S1600536806047258.
 
 ## Automatic selections
 

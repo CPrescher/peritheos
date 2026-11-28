@@ -24,7 +24,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-The compact formula records the measured total Fe occupancy. Charge state, uncertainties, and A-site vacancies are retained explicitly in cell\_contents and record metadata; no stoichiometric FeSiO3 composition is inferred.
+The compact formula records the measured total Fe occupancy, not a stoichiometric FeSiO3 composition. The ferrous and ferric occupancies, their uncertainties and the A-site vacancies are given in the cell contents.
 
 ## Automatic selections
 

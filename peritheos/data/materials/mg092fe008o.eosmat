@@ -77,7 +77,7 @@
     {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1, "site_multiplicity": 4}
   ],
   "peaks": [],
-  "notes": "The executable record is the high-spin BM3 reference branch of a coupled spin-crossover model. The source low-spin branch is held because no independently executable low-spin V0 is reported.",
+  "notes": "Only the high-spin branch of the source's coupled spin-crossover model is stored. The low-spin branch is not, because the source reports no low-spin V0.",
   "source": {
     "structure_reference": {
       "authors": ["Yang", "Tong", "Lin", "Okuchi", "Tomioka"],

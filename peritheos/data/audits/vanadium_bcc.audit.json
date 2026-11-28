@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "vanadium_bcc",
+  "superseded_material_text": {
+    "notes": "Pure elemental bcc vanadium, not V oxide or a multiphase sample aggregate. The separately sourced 298.15 K diffraction cell (27.6559412875 A^3) differs from the Crichton relaxed-foil EOS reference (27.995 A^3); retain both reported conventions. Advent foil sample purity is not quantified in the EOS manuscript.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "vanadium_bcc_crichton_2016_bm3_thermal": {
       "pressure_calibration": {

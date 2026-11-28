@@ -127,7 +127,7 @@
     {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1, "site_multiplicity": 4}
   ],
   "peaks": [],
-  "notes": "The EOS records are paired high-spin and low-spin reference branches from coupled MINUTI spin-crossover fits. The current executable catalog does not implement the population mixer.",
+  "notes": "The EOS records are paired high-spin and low-spin end-member branches of coupled spin-crossover fits (MINUTI program). Peritheos does not compute the mixed-spin curve from these branches.",
   "datasets": [
     {
       "identifier": "mg065fe035o_chen_2012_table1_pv",

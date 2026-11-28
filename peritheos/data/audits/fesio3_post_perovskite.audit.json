@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "fesio3_post_perovskite",
+  "superseded_material_text": {
+    "notes": "The lattice and coordinates are the source's 100 GPa GGA+U structure, not an ambient cell. Table III volumes are per FeSiO3 and are multiplied by four for the executable conventional-cell EOS basis.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "fesio3_post_perovskite_cohen_lin_2014_vinet_1": {
       "pressure_calibration": {

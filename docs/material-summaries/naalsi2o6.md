@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/jadeite.jcpds. Ambient pure-jadeite coordinates: Prewitt and Burnham, American Mineralogist 51, 956-975 (1966); the imported EoS lattice is retained.
+Ambient pure-jadeite coordinates from Prewitt and Burnham, American Mineralogist 51, 956-975 (1966); the lattice is that of the original JCPDS EOS file.
 
 ## Automatic selections
 

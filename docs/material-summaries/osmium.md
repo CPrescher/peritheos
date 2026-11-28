@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Ambient hcp osmium structure; PhaseSmith calculates the reflection list.
+Ambient hcp osmium structure.
 
 ## Automatic selections
 

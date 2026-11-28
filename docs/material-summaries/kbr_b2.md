@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-The B2 CsCl-type reference cell is calculated from the fictive zero-pressure V0 used by the EoS. PhaseSmith calculates powder reflections and intensities from the ideal structure.
+The B2 CsCl-type reference cell is calculated from the fictive zero-pressure V0 used by the EOS; powder reflections and intensities are calculated from the ideal structure.
 
 ## Automatic selections
 

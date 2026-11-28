@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 3 |
 | Observation datasets | 3 |
 
-Ambient lattice and BM3 EoS: Finkelstein et al., American Mineralogist 99, 35-43 (2014), doi:10.2138/am.2014.4526. Ambient fractional coordinates: Smyth and Hazen, American Mineralogist 58, 588-593 (1973), COD 9000319. Phase-line intensities were calculated from the cited ambient structure using independent-atom X-ray form factors.
+Ambient lattice: Finkelstein et al., American Mineralogist 99, 35-43 (2014), doi:10.2138/am.2014.4526. Ambient fractional coordinates: Smyth and Hazen, American Mineralogist 58, 588-593 (1973), COD 9000319.
 
 ## Automatic selections
 

@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-The reference cell is constrained to the fitted 300 K V0 while retaining the ambient axial ratio. PhaseSmith calculates powder reflections and intensities from the ideal hcp structure.
+The reference cell is constrained to the fitted 300 K V0 while retaining the ambient axial ratio.
 
 ## Automatic selections
 

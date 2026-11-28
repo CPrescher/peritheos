@@ -24,7 +24,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-End-member ThO2 (Strem 99.99%); conventional cell contains Th4O8. Distinct phase, not a multiphase aggregate. Structure and EOS provenance are separate.
+End-member ThO2 (Strem, 99.99%); the conventional cell contains Th4O8. Distinct phase, not a multiphase aggregate. The structure and the EOS have separate provenance.
 
 ## Automatic selections
 

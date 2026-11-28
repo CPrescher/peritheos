@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 23 |
 | Observation datasets | 30 |
 
-Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) is the default.
+Gold pressure calibrant.
 
 ## Automatic selections
 

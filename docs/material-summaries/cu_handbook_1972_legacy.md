@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Phase-unresolved historical Cu isotherm retained because its 25 tabulated points and independent Peritheos refit are bundled. Sun et al. (2010) supplies only the Vinet equation and fixed-V0 fitting convention; no Sun source-author benchmark parameterization is retained.
+No Sun et al. (2010) parameterization is included; that paper supplies the Vinet equation and fixed-V0 fitting convention.
 
 ## Automatic selections
 

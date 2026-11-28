@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "lead_fcc",
+  "superseded_material_text": {
+    "notes": "The fcc cell is calculated from the 300 K reference volume of the PVT EoS. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "lead_fcc_fortes_2019_bm4_1": {
       "pressure_calibration": {

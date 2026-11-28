@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/ZrSiO4 (2).jcpds. Ambient coordinates are from Hazen and Finger, American Mineralogist 64, 196-201 (1979).
+Structure from a beamline JCPDS file; ambient coordinates are from Hazen and Finger, American Mineralogist 64, 196-201 (1979).
 
 ## Automatic selections
 

@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/GeO2-rutile.jcpds. Ambient rutile-type structure: Haines et al., Physics and Chemistry of Minerals 27, 575-582 (2000).
+Ambient rutile-type structure: Haines et al., Physics and Chemistry of Minerals 27, 575-582 (2000).
 
 ## Automatic selections
 

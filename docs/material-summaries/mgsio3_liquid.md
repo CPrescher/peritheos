@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 2 |
 
-A non-crystalline material card. The format's cell-volume unit is used as a one-formula-unit volume basis.
+Non-crystalline: the cell-volume unit is used as the volume of one MgSiO3 formula unit.
 
 ## Automatic selections
 

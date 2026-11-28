@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "silicon_v",
+  "superseded_material_text": {
+    "notes": "Simple-hexagonal Si-V. Because the high-pressure phase cannot be recovered, the reference cell is constructed from the extrapolated EoS V0 and the axial ratio measured at 17.9 GPa. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "silicon_v_anzellini_2019_vinet_1": {
       "pressure_calibration": {

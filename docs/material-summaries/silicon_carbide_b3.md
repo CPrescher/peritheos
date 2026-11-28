@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Cubic 3C-SiC (B3, zinc-blende type). The reference cell is calculated from the fixed conventional-cell V0 used in the room-temperature fit. PhaseSmith calculates powder reflections and intensities from the ideal structure.
+Cubic 3C-SiC (B3, zinc-blende type). The reference cell is calculated from the fixed conventional-cell V0 used in the room-temperature fit.
 
 ## Automatic selections
 

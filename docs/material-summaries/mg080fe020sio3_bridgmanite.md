@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Composition-specific card for the Fe20 perovskite specimen in Mao et al. (1991). No site-specific Fe valence or occupancy distribution is inferred.
+The material is the Fe20 perovskite specimen of Mao et al. (1991). No site-specific Fe valence or occupancy distribution is inferred.
 
 ## Automatic selections
 

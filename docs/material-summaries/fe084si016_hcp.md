@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 1 |
 
-P63/mmc hcp substitutional model: Fe0.84Si0.16 on 2c. Source identifies the hcp topology but does not refine chemical site occupancies; these enforce the measured bulk composition. Reference axes derive from 2014 Table S1 row 19 at 59.3958006581 GPa and 1186.915 K, not ambient conditions. The fixed structural c/a is a diffraction reference, not an EOS prediction of anisotropic compression.
+Substitutional hcp model (P63/mmc), Fe0.84Si0.16 on 2c. The source does not refine site occupancies; these enforce the measured bulk composition. The reference axes are from a high-P-T measurement; the fixed c/a is a diffraction reference, not an EOS prediction of anisotropic compression.
 
 ## Automatic selections
 

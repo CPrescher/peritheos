@@ -901,7 +901,7 @@
     {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1, "site_multiplicity": 4}
   ],
   "peaks": [],
-  "notes": "Source-owned Marquardt (2009) EPSL HS BM3 and 12 alternative constrained LS BM3 fits coexist with the distinct Solomatova (2016) coupled-fit reference branches. No population mixer is implemented; Table S1 summary rows are not additional EOS records.",
+  "notes": "The Marquardt et al. (2009) fits and the Solomatova et al. (2016) coupled spin-crossover branches are separate parameterizations. Peritheos does not compute the mixed-spin curve; the Table S1 summary rows of Marquardt et al. are not separate EOS records.",
   "datasets": [
     {
       "identifier": "mg090fe010o_marquardt_2009_table2_pv",

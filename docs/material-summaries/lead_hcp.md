@@ -23,8 +23,6 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 3 |
 | Observation datasets | 3 |
 
-Phase-specific card created for the hcp-Pb compression fits of Dewaele (2019).
-
 ## Automatic selections
 
 - **Equilibrium:** [lead\_hcp\_dewaele\_2019\_mao\_vinet](#record-lead_hcp_dewaele_2019_mao_vinet)

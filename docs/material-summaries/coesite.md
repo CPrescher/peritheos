@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 4 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/sio2-coe2.jcpds, JCPDS/current user/CVS/sio2-coe2.jcpds. Ambient coesite coordinates: Levien and Prewitt, American Mineralogist 66, 324-333 (1981).
+Ambient coordinates are from Levien and Prewitt, American Mineralogist 66, 324-333 (1981).
 
 ## Automatic selections
 

@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-High-pressure B1 (rock-salt-type) SiC. The reference cell is calculated from the extrapolated conventional-cell V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.
+High-pressure B1 (rock-salt-type) SiC. The reference cell is calculated from the extrapolated conventional-cell V0.
 
 ## Automatic selections
 

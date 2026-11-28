@@ -390,3 +390,35 @@ def test_catalog_revision_then_notes_rewrite_then_undo(repo):  # noqa: F811
         allow=[f"{SIDERITE}/{KEY}:material_notes_length"],
     )
     assert _tree(repo) == original
+
+
+def test_a_lazily_loaded_material_exports_its_superseded_material_text():
+    """The record file alone and the complete document export the same content."""
+    import json
+
+    from peritheos import Material, get_material_document
+    from peritheos._eosmat_audit import MATERIAL_AUDIT_KEY
+    from peritheos.materials import _material_from_eosmat
+
+    audits = Path(__file__).resolve().parents[1] / "peritheos/data/audits"
+    rewritten = [
+        path.name.removesuffix(".audit.json")
+        for path in sorted(audits.glob("*.audit.json"))
+        if MATERIAL_AUDIT_KEY in json.loads(path.read_bytes())
+    ]
+    assert rewritten
+    for identifier in rewritten[:5]:
+        record_file = get_material_document(
+            identifier, format_version=None, include_audit=False
+        )
+        assert MATERIAL_AUDIT_KEY not in record_file
+        lazy = _material_from_eosmat(
+            record_file, require_primary_validation=False, bundled_audit=True
+        )
+        eager = Material.from_eosmat(
+            get_material_document(identifier, format_version=5),
+            require_primary_validation=False,
+        )
+        exported = lazy.to_eosmat()
+        assert exported == eager.to_eosmat()
+        assert MATERIAL_AUDIT_KEY in lazy.to_eosmat(format_version=5)

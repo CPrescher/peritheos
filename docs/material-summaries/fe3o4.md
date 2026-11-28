@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/fe3o4.jcpds. Room-temperature inverse-spinel structure: Fleet, Acta Crystallographica B37, 917-920 (1981), doi:10.1107/S0567740881004597.
+Room-temperature inverse-spinel structure from Fleet, Acta Crystallographica B37, 917-920 (1981), doi:10.1107/S0567740881004597.
 
 ## Automatic selections
 

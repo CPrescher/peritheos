@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 21 |
 | Observation datasets | 17 |
 
-Platinum (JCPDS 4-0802, EOS from Holmes)
+Face-centered cubic platinum (JCPDS card 4-0802).
 
 ## Automatic selections
 

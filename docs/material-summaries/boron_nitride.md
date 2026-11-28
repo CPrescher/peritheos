@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 1 |
 
-The original card was imported 12.08.2026 from JCPDS/dac\_user\_jcpds/BN-cubic.jcpds. The reference lattice was updated to Datchi et al.'s measured a0=3.6152(2) A at 295 K; Section III independently confirms zinc-blende F-43m c-BN. The conventional zinc-blende Wyckoff sites give four BN formula units per cell.
+Reference lattice: Datchi et al.'s measured a0=3.6152(2) Å at 295 K; Section III confirms zinc-blende F-43m c-BN. The conventional zinc-blende Wyckoff sites give four BN formula units per cell.
 
 ## Automatic selections
 

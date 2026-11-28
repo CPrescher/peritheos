@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 1 |
 
-Ambient cell and compression are from Angel et al., Journal of Applied Crystallography 30, 461-466 (1997), doi:10.1107/S0021889897000861. Fractional coordinates are the 298 K refinement of Kihara, European Journal of Mineralogy 2, 63-77 (1990), doi:10.1127/ejm/2/1/0063, COD 9005017. Phase-line intensities were calculated from the cited structure using independent-atom X-ray form factors.
+Ambient cell and compression are from Angel et al., Journal of Applied Crystallography 30, 461-466 (1997), doi:10.1107/S0021889897000861. Fractional coordinates are the 298 K refinement of Kihara, European Journal of Mineralogy 2, 63-77 (1990), doi:10.1127/ejm/2/1/0063, COD 9005017.
 
 ## Automatic selections
 

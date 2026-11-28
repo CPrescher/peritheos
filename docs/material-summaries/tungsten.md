@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 7 |
 | Observation datasets | 4 |
 
-Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is the default, with Cu-referenced Shen and Smith and Sokolova et al. fits as alternatives. The legacy Hixson-Fritz BM3 record was removed because the cited shock paper publishes Hugoniot-derived tabular isotherms, not the migrated standalone BM3 reduction.
+Body-centered cubic tungsten, used as a pressure calibrant.
 
 ## Automatic selections
 

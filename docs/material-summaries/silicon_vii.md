@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Hexagonal-close-packed Si-VII. The reference cell uses the extrapolated EoS V0 and the axial ratio measured at 48.6 GPa. PhaseSmith calculates powder reflections and intensities from the ideal structure.
+Hexagonal-close-packed Si-VII. The reference cell uses the extrapolated EOS V0 and the axial ratio measured at 48.6 GPa.
 
 ## Automatic selections
 

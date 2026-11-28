@@ -364,7 +364,7 @@
     {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1, "site_multiplicity": 4}
   ],
   "peaks": [],
-  "notes": "Solomatova et al. (2016) records are paired MINUTI reference branches without an implemented mixer. Fei et al. (2007, GRL) records are the original separately fitted HS and LS compression EOSs; their coefficients and source ownership are distinct.",
+  "notes": "Solomatova et al. (2016) records are paired high-spin and low-spin end-member branches of coupled spin-crossover fits (MINUTI program); Peritheos does not compute the mixed-spin curve from them. Fei et al. (2007) records are the original, separately fitted high-spin and low-spin compression EOSs.",
   "datasets": [
     {
       "identifier": "mg061fe039o_fei_2007_table_s2_pv",

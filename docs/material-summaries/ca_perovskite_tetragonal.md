@@ -24,7 +24,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 6 |
 | Observation datasets | 2 |
 
-Pure tetragonal CaSiO3 perovskite. The conventional I4/mcm cell has Z=4; published Sun et al. parameters normalized to Z=1 are multiplied by four only where volume is concerned.
+Pure tetragonal CaSiO3 perovskite. The conventional I4/mcm cell has Z=4; V0 values published per formula unit (Z=1) are multiplied by four, and no other parameter is scaled.
 
 ## Automatic selections
 
