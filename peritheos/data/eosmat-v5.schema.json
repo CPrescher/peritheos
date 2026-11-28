@@ -141,6 +141,9 @@
       "additionalProperties": {
         "type": "object"
       }
+    },
+    "superseded_material_text": {
+      "$ref": "#/$defs/superseded_material_text"
     }
   },
   "allOf": [
@@ -3119,6 +3122,27 @@
           }
         },
         "thermal_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "superseded_on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "superseded_material_text": {
+      "type": "object",
+      "description": "Audit-only: the original top-level material notes replaced by a later text revision, kept verbatim so no wording is lost; null means the material had no notes. A later revision never overwrites the stored original. superseded_on is the ISO date of the revision. Bundled materials store this block at the top level of the audit sidecar.",
+      "required": [
+        "notes",
+        "superseded_on"
+      ],
+      "properties": {
+        "notes": {
           "type": [
             "string",
             "null"

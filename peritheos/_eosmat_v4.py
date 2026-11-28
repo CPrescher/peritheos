@@ -283,11 +283,14 @@ def to_v3(
         validate_check,
         validate_check_consistency,
         validate_check_text,
+        validate_superseded_material_text,
         validate_superseded_record_text,
     )
     from peritheos._eosmat_metadata import expand_metadata
 
     result = expand_metadata(_object(document, "document"))
+    if "superseded_material_text" in result:
+        validate_superseded_material_text(result["superseded_material_text"])
     native_version = result.get("format_version")
     if native_version not in (4, 5):
         raise EosmatError("Expected native EOSMAT format_version 4 or 5")

@@ -26,7 +26,10 @@ A later text revision (``scripts/apply_record_text.py``) replaces free text
 replaced original in the record's ``superseded_record_text`` sidecar block. Its
 binding lists those records under ``superseded_record_text``; recovery first
 puts the stored originals back and removes the block (:func:`restore`), then
-undoes the split as before.
+undoes the split as before. The same tool rewrites a material's top-level
+``notes`` and keeps the original in the sidecar's top-level
+``superseded_material_text`` block; the binding then holds
+``"superseded_material_text": true`` and recovery restores the notes first.
 
 The two curated ``check`` texts (``scripts/apply_check_text.py``) live in the
 sidecar evidence: ``scientific_validation.primary_source_check.record_note``
@@ -73,6 +76,7 @@ from peritheos._eosmat_audit import (  # noqa: E402
     AUDIT_RECORD_KEYS,
     GENERIC_QUALIFICATIONS,
     GENERIC_VALIDATION_NOTES,
+    MATERIAL_AUDIT_KEY,
     SUPERSEDED_TEXT_FIELDS,
     audit_is_external,
     merge_audit,
@@ -178,6 +182,24 @@ def restore_record_text(record: dict) -> None:
     for field in SUPERSEDED_TEXT_FIELDS:
         if field in block:
             set_record_text(record, field, block[field])
+
+
+def set_material_notes(document: dict, value: Any) -> None:
+    """Write a material's top-level ``notes``; ``None`` removes them.
+
+    The formatter places ``notes`` by its fixed material key order.
+    """
+    if value is None:
+        document.pop("notes", None)
+    else:
+        document["notes"] = value
+
+
+def restore_material_text(document: dict) -> None:
+    """Put a material's ``superseded_material_text`` notes back; drop the block."""
+    block = document.pop(MATERIAL_AUDIT_KEY)
+    if "notes" in block:
+        set_material_notes(document, block["notes"])
 
 
 #: Curated sidecar texts copied into ``check`` (``source_note`` and
@@ -323,9 +345,10 @@ def restore_check_text(
 def restore(document: dict, binding: dict) -> dict:
     """Undo the split changes listed in one material's receipt binding.
 
-    ``superseded_record_text`` names records whose free text was revised after
-    the split; their stored originals are restored and the block removed
-    before anything else. ``check_text`` entries ``[index, {field:
+    ``superseded_material_text`` (``true``) marks a material whose top-level
+    notes were revised after the split, and ``superseded_record_text`` names
+    records whose free text was; their stored originals are restored and the
+    blocks removed before anything else. ``check_text`` entries ``[index, {field:
     original}]`` then restore the bound check fields written after the split
     (curated check texts and a coded usage recommendation with its derived
     ``recommendation_reason`` and assessment qualifications).
@@ -340,6 +363,8 @@ def restore(document: dict, binding: dict) -> dict:
     """
     result = copy.deepcopy(document)
     records = result["eos_records"]
+    if binding.get(MATERIAL_AUDIT_KEY):
+        restore_material_text(result)
     for index in binding.get("superseded_record_text", []):
         restore_record_text(records[index])
     for index, originals in binding.get("check_text", []):
@@ -485,8 +510,8 @@ def pre_split_view(document: dict, root: Path = ROOT) -> dict:
     restores the original per-record default flags in place of
     ``default_records`` and re-inserts the generic statements recorded in the
     receipt. Text revised after the split is restored from the
-    ``superseded_record_text`` blocks and ``check_text`` originals the
-    receipt binds. Documents without a
+    ``superseded_material_text`` and ``superseded_record_text`` blocks and
+    ``check_text`` originals the receipt binds. Documents without a
     receipt binding are returned unchanged.
     """
     receipt_path = root / RECEIPT.relative_to(ROOT)
@@ -509,6 +534,8 @@ def pre_split_view(document: dict, root: Path = ROOT) -> dict:
             return None
         return record.get("evidence", record)
 
+    if binding.get(MATERIAL_AUDIT_KEY) and MATERIAL_AUDIT_KEY in result:
+        restore_material_text(result)
     for index in binding.get("superseded_record_text", []):
         record = records.get(order[index])
         if record is not None and "superseded_record_text" in record:
@@ -684,6 +711,12 @@ RECORD_TEXT_REVISION = (
     "the block first. after_record_sha256 and after_audit_sha256 bind the "
     "revised files; before_sha256 values are unchanged."
 )
+MATERIAL_TEXT_REVISION = (
+    "A material's top-level notes revised after the split keep the replaced "
+    "original verbatim in the sidecar's top-level superseded_material_text "
+    "block; its binding then holds superseded_material_text: true, and recovery "
+    "restores the notes and removes the block first."
+)
 
 
 def receipt_text(receipt: dict) -> str:
@@ -741,22 +774,70 @@ def _set_record_text_indices(binding: dict, indices: list[int]) -> None:
         binding.pop("superseded_record_text", None)
 
 
+def _set_text_revision(binding: dict, revision: tuple[list[int], bool | None]) -> None:
+    """Record indices and, unless ``None``, the material-notes flag."""
+    indices, material = revision
+    _set_record_text_indices(binding, indices)
+    if material:
+        # Directly before the record indices, so the receipt reads in order.
+        items = [(k, v) for k, v in binding.items() if k != MATERIAL_AUDIT_KEY]
+        keys = [k for k, _ in items]
+        at = next(
+            (
+                keys.index(k)
+                for k in ("superseded_record_text", "check_text")
+                if k in keys
+            ),
+            len(items),
+        )
+        items.insert(at, (MATERIAL_AUDIT_KEY, True))
+        binding.clear()
+        binding.update(items)
+    elif material is not None:
+        binding.pop(MATERIAL_AUDIT_KEY, None)
+
+
 def record_text_receipt(
     receipt: dict,
     revised: Mapping[str, list[int]],
     files: Mapping[str, tuple[bytes, bytes]],
+    material_text: Mapping[str, bool] | None = None,
 ) -> dict | None:
-    """``receipt`` binding free-text revisions of ``files`` (see below)."""
-    return _revised_receipt(
+    """``receipt`` binding free-text revisions of ``files`` (see below).
+
+    ``revised`` maps a material to its complete list of record indices;
+    ``material_text`` maps a material to whether its sidecar now holds a
+    ``superseded_material_text`` block (a material not named keeps its flag).
+    """
+    material_text = material_text or {}
+    result = _revised_receipt(
         receipt,
-        revised,
+        {
+            m: (revised.get(m, _bound_indices(receipt, m)), material_text.get(m))
+            for m in {*revised, *material_text}
+        },
         files,
-        _set_record_text_indices,
+        _set_text_revision,
         ("record_text_revision", RECORD_TEXT_REVISION),
     )
+    if result is not None:
+        if any(b.get(MATERIAL_AUDIT_KEY) for b in result["materials"].values()):
+            result.setdefault("material_text_revision", MATERIAL_TEXT_REVISION)
+        else:
+            result.pop("material_text_revision", None)
+    return result
 
 
-def bind_record_text_revision(revised: dict[str, list[int]], root: Path = ROOT) -> None:
+def _bound_indices(receipt: dict, material: str) -> list[int]:
+    binding = receipt["materials"].get(material, {})
+    return list(binding.get("superseded_record_text", []))
+
+
+def bind_record_text_revision(
+    revised: dict[str, list[int]],
+    root: Path = ROOT,
+    material_text: dict[str, bool] | None = None,
+) -> None:
     """Bind text revisions of split materials in the receipt and verify them.
 
     ``revised`` maps a material to the complete list of indices of records
@@ -767,8 +848,9 @@ def bind_record_text_revision(revised: dict[str, list[int]], root: Path = ROOT) 
     """
     receipt_path = root / RECEIPT.relative_to(ROOT)
     receipt = json.loads(receipt_path.read_bytes())
-    files = _disk_files([m for m in revised if m in receipt["materials"]], root)
-    result = record_text_receipt(receipt, revised, files)
+    named = {*revised, *(material_text or {})}
+    files = _disk_files([m for m in named if m in receipt["materials"]], root)
+    result = record_text_receipt(receipt, revised, files, material_text)
     if result is not None:
         receipt_path.write_text(receipt_text(result), encoding="utf-8")
 
@@ -966,8 +1048,10 @@ __all__ = [
     "record_text",
     "refresh_check_text",
     "restore_check_text",
+    "restore_material_text",
     "restore_record_text",
     "set_check_text",
+    "set_material_notes",
     "set_record_text",
     "split_added_materials",
     "split_material",

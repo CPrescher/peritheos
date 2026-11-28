@@ -126,6 +126,12 @@ All notable changes to Peritheos are documented here. The project follows
   audit and carry it in v3/v4 exports. Add the
   [record text standard](docs/record-text-standard.md) and the repository
   tools `scripts/apply_record_text.py` and `scripts/check_record_text.py`.
+- Add the material-level audit block `superseded_material_text`: the verbatim
+  original of a replaced material `notes`, with `superseded_on`, stored at the
+  top level of the sidecar and bound in the audit-split receipt.
+  `scripts/apply_record_text.py` rewrites material notes with the input key
+  `"(material)"`. Python validates the block and carries it in the complete
+  document and v3/v4 exports; the Rust reader ignores it.
 - Shorten bundled record labels and the notes of the reviewed palladium, MgO
   and (Mg0.9Fe0.1)O sample under that standard; every replaced original is
   kept in the sidecars. Coefficients, ranges and classifications are

@@ -36,7 +36,7 @@ from peritheos._eosmat_format import format_audit, format_eosmat
 from peritheos.eosmat import list_material_documents
 from peritheos.errors import EosmatError
 from peritheos.materials import _material_from_eosmat
-from scripts.apply_record_text import revise_record
+from scripts.apply_record_text import revise_material, revise_record
 from scripts.split_eosmat_audits import (
     CHECK_TEXT_BINDING_FIELDS,
     RECEIPT,
@@ -46,6 +46,7 @@ from scripts.split_eosmat_audits import (
     record_text,
     refresh_check_text,
     restore_check_text,
+    restore_material_text,
     restore_record_text,
     set_check_text,
     set_record_text,
@@ -210,9 +211,17 @@ def _check_text_entries(material):
     return binding.get("check_text", [])
 
 
+def _material_text_bound(material):
+    """Whether the material's notes were revised after the split (receipt)."""
+    binding = json.loads(RECEIPT.read_bytes())["materials"].get(material, {})
+    return bool(binding.get("superseded_material_text"))
+
+
 def _without_text_revision(document, material):
     """A merged document with the post-split text revisions undone."""
     result = copy.deepcopy(document)
+    if _material_text_bound(material):
+        restore_material_text(result)
     for index in _revised_indices(material):
         restore_record_text(result["eos_records"][index])
     for index, originals in _check_text_entries(material):
@@ -229,10 +238,14 @@ def _replay_text_revision(material, record_bytes, audit_bytes):
     """
     indices = _revised_indices(material)
     check_texts = _check_text_entries(material)
-    if not indices and not check_texts:
+    material_text = _material_text_bound(material)
+    if not indices and not check_texts and not material_text:
         return record_bytes, audit_bytes
     current = merged_document(material)
     document, sidecar = json.loads(record_bytes), json.loads(audit_bytes)
+    if material_text:
+        block = current["superseded_material_text"]
+        revise_material(document, sidecar, current.get("notes"), block["superseded_on"])
     for index in indices:
         revised = current["eos_records"][index]
         block = revised["superseded_record_text"]
@@ -626,6 +639,7 @@ def test_split_and_merge_round_trip_and_reject_conflicts():
 
 def test_build_staging_uses_the_same_audit_keys():
     assert peritheos_build.AUDIT_RECORD_KEYS == AUDIT_RECORD_KEYS
+    assert peritheos_build.MATERIAL_AUDIT_KEY == audit_module.MATERIAL_AUDIT_KEY
     for material in ("mgo", "larnite", "palladium"):
         assert peritheos_build.source_document(
             MATERIALS / f"{material}.eosmat"

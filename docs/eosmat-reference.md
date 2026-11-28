@@ -404,6 +404,11 @@ absent), with the revision date `superseded_on`. A later revision never
 overwrites a stored original, and the block never changes how the record is
 read.
 
+`superseded_material_text` does the same for the material's top-level `notes`
+(`{"notes": <original or null>, "superseded_on": "YYYY-MM-DD"}`). It is a
+top-level key of the sidecar, after `material`; merging makes it the last
+top-level key of the complete inline document, and a split moves it back.
+
 Two optional texts in an entry's `evidence.scientific_validation` are written
 for the reader of the record and copied into its `check` block:
 

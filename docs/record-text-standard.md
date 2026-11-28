@@ -11,7 +11,8 @@ Nothing scientific is deleted. A rewrite of `label`, `notes`, `validity.notes`
 or `thermal.notes` is applied with `scripts/apply_record_text.py` (a repository
 maintenance tool), which keeps the complete original of every changed field
 verbatim in the record's `superseded_record_text` block of the audit sidecar
-(`peritheos/data/audits/<id>.audit.json`). Content that belongs under a
+(`peritheos/data/audits/<id>.audit.json`); a rewrite of the material `notes`
+keeps its original in the sidecar's `superseded_material_text` block. Content that belongs under a
 specific sidecar key (table in section 2) should also be written there.
 
 - Never change a number, a source location a user needs, or a qualification
@@ -193,7 +194,12 @@ review it sentence by sentence.
 
 1. Write the reviewed text as a JSON file of `before`/`after` values per record
    (format in the docstring of `scripts/apply_record_text.py`), and labels as
-   rows of a CSV flagged `mechanical`.
+   rows of a CSV flagged `mechanical`. Material notes use the reserved key
+   `"(material)"` in place of a record identifier, with `notes` only; the
+   original is kept in the sidecar's top-level `superseded_material_text`
+   block, and the guards are `numbers` (against the record file and the
+   current or stored notes), `material_notes_length` (section 2) and
+   `forbidden_text`, overridden with `--allow MATERIAL/(material):GUARD`.
 2. Run `python scripts/apply_record_text.py FILE.json --labels LABELS.csv
    --check`. Every refusal is listed: a `before` text that differs from the
    file, a validity note that would create or remove the record's `validity`

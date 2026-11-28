@@ -210,6 +210,17 @@ _V5_MATERIAL_FIRST = (
     "default_records",
     "eos_records",
 )
+#: Audit-only material keys, last in a complete inline native document.
+_MATERIAL_TAIL = ("superseded_material_text",)
+#: Top-level keys of an audit sidecar; the material-level text block precedes
+#: the per-record entries.
+_AUDIT_KEYS = (
+    "format",
+    "format_version",
+    "material",
+    "superseded_material_text",
+    "records",
+)
 _CHECK_KEYS = (
     "reproduction",
     "compared",
@@ -360,6 +371,8 @@ def _format(document: Mapping[str, Any], *, audit: bool, layout: Layout) -> str:
                     "thermal",
                 )
                 priority = first + tuple(key for key in priority if key not in first)
+            if context == "audit":
+                priority = _AUDIT_KEYS
             if context == "thermal":
                 priority = _THERMAL_KEYS
             if context == "check":
@@ -374,6 +387,8 @@ def _format(document: Mapping[str, Any], *, audit: bool, layout: Layout) -> str:
                 priority = _COMPARISON_KEYS
             keys = [key for key in priority if key in value]
             tail = layout.record_tail if context == "record" and native else ()
+            if context == "material" and native:
+                tail = _MATERIAL_TAIL
             keys.extend(key for key in value if key not in priority and key not in tail)
             keys.extend(key for key in tail if key in value)
             lines = []

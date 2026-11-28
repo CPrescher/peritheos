@@ -409,7 +409,7 @@ no longer be verified. Use the repository tool for the kind of change:
 
 | Change | Tool |
 | --- | --- |
-| `label`, `notes`, `validity.notes`, `thermal.notes` | `python scripts/apply_record_text.py` ([record text standard](record-text-standard.md#6-applying-a-rewrite)) |
+| `label`, `notes`, `validity.notes`, `thermal.notes`; the material's top-level `notes` | `python scripts/apply_record_text.py` ([record text standard](record-text-standard.md#6-applying-a-rewrite)) |
 | `record_note`, `warning_reason`, coded `usage_recommendation` | `python scripts/apply_check_text.py` |
 | Add an EOS record to an existing material; set or correct the fields listed below | `python scripts/apply_catalog_revision.py` |
 
@@ -578,8 +578,8 @@ record. Do not hard-code catalog counts in prose or add sections that only say
 nothing is recorded. Prefer a short specific statement over defensive
 qualification. Labels, notes, validity notes and thermal notes follow the
 [record text standard](record-text-standard.md); rewrite existing record text
-only with `scripts/apply_record_text.py`, which keeps every replaced original
-in the sidecar.
+and material notes only with `scripts/apply_record_text.py`, which keeps every
+replaced original in the sidecar.
 
 Write the source check's complete result in
 `scientific_validation.primary_source_check.finding`. The record shows it as
@@ -665,15 +665,26 @@ uv run --group docs mkdocs build --strict
 ```
 
 Also run `uv run python scripts/validate_primary_eos_refits.py --check` when
-the change affects a bundled record or its primary dataset. Its `--check`
-compares numbers with a 1e-5 relative tolerance, except the source facts
-named in the script's `SOURCE_FACT_KEYS` (published, printed, fixed and
-observed values, their errors and ranges), which must match exactly, as must
-text, counts and classifications. It
-currently fails independent of any record: the saved ledger lacks one policy
-sentence, and some rows differ from a fresh computation by more than the
-tolerance or in an iteration count. A revision of a bundled material instead
-gets its rows from
+the change affects a bundled record or its primary dataset (repository-only
+tool). It recomputes every row and matches saved and fresh rows by
+`record_identifier`, so the order of rows in the file does not matter, and it
+lists every differing row with its first differing leaf. Numbers are compared
+with a 1e-5 relative tolerance, except the source facts named in the script's
+`SOURCE_FACT_KEYS` (published, printed, fixed and observed values, their
+errors and ranges), which must match exactly, as must text, counts and
+classifications. A few named calculated keys have their own rule, documented
+next to their key lists in the script: self-consistency maxima of an
+equation against an independent implementation (1e-9 absolute), covariance
+off-diagonals (on the correlation scale), differences from a published value
+(on the coefficient scale), and optimizer evaluation and iteration counts
+(not compared when both fits report success). It currently fails, independent
+of any record, on rows that need a maintainer decision: the two rank-deficient
+diamond double-Debye fits, whose coefficients drift on this build; the
+NaCl-B2 and neon Fei (2007) rows, whose calculated cold-stage K0 and K0'
+are stored under `fixed_parameters` and so are compared exactly; and five
+small drifts (1e-5 to 1e-4 relative) in weakly determined quantities (Morard
+2026 FeS, two Hirose 2008 gold rows, Luo 2023 MgO, Litasov 2013 siderite).
+A revision of a bundled material instead gets its rows from
 `python scripts/apply_catalog_revision.py`
 ([changing a bundled material](#changing-a-bundled-material)).
 

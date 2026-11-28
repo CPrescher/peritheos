@@ -201,6 +201,10 @@ def _restore_originals(root, materials):
             for identifier, entry in sidecar["records"].items()
             if (block := entry.get("superseded_record_text"))
         }
+        if "superseded_material_text" in sidecar:
+            changes[tool.MATERIAL_KEY] = {
+                "notes": sidecar["superseded_material_text"]["notes"]
+            }
         if changes:
             plan.changes[material] = changes
     tool.apply_plan(plan, "2026-11-16", root)
@@ -211,6 +215,7 @@ def _restore_originals(root, materials):
         assert not any(
             "superseded_record_text" in entry for entry in sidecar["records"].values()
         )
+        assert "superseded_material_text" not in sidecar
 
 
 def _record(root, material, identifier):
