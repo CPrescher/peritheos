@@ -39,6 +39,10 @@
         },
         "debye_temperature_law": "integrated_gruneisen"
       },
+      "validity": {
+        "pressure_gpa": [0.0, 50.0],
+        "temperature_k": [298.0, 2500.0]
+      },
       "experimental_pressure_range_gpa": [0.0, 50.0],
       "experimental_temperature_range_k": [300.0, 2500.0],
       "determination_method": "experimental",
@@ -84,6 +88,10 @@
         },
         "thermal_expansion_law": "linear_temperature",
         "reference_volume_law": "berman"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 50.0],
+        "temperature_k": [298.0, 2500.0]
       },
       "experimental_pressure_range_gpa": [0.0, 50.0],
       "experimental_temperature_range_k": [300.0, 2500.0],

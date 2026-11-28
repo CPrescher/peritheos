@@ -66,6 +66,10 @@
           "alpha_KT": {"value": 0.00195, "error": 5e-05}
         }
       },
+      "validity": {
+        "pressure_gpa": [0, 1.733],
+        "temperature_k": [296.15, 873.15]
+      },
       "experimental_pressure_range_gpa": [0, 1.733],
       "experimental_temperature_range_k": [303.15, 873.15],
       "determination_method": "experimental",

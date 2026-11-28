@@ -175,6 +175,11 @@ Every stated range (`validity`, `experimental_pressure_range_gpa`,
 its observations. It is not a phase-stability field and does not license
 extrapolation; records do not repeat this.
 
+One exception is stated here, once: a `validity` temperature range may start
+at the reference temperature `temperature_ref` when that lies below the lowest
+observation, so that a thermal record can be evaluated at its own reference
+state. The experimental range keeps the span of the data.
+
 ## Parameters
 
 **An error uses the same unit as its parameter value. A covariance entry uses

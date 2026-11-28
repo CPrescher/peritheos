@@ -494,6 +494,7 @@
         "debye_temperature_law": "integrated_gruneisen"
       },
       "validity": {
+        "pressure_gpa": [3.1578608426387715, 85.0],
         "notes": [
           "The room-temperature acoustic data extend to about 85 GPa.",
           "The S3 model grid (to 144.1826 GPa) and S4 thermal grid (to 4000 K) are pressure extrapolation and modeled thermal extension, not experimental coverage."

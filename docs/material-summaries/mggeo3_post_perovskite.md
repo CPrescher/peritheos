@@ -291,7 +291,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
-    - **Molar mass g mol:** 145.916
+    - **Molar mass g mol:** 144.932
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Fit with K0' fixed at 4 to all nine Table 3 decompression observations; the abstract reports this better-constrained result.
@@ -387,7 +387,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/mgg
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
-    - **Molar mass g mol:** 145.916
+    - **Molar mass g mol:** 144.932
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 Source-reported free BM3 alternative, fitted to all nine Table 3 decompression observations; a same-data sensitivity fit.

@@ -804,7 +804,7 @@ Exact source-equation reconstruction with no composite coefficient optimization:
 
 - Dewaele 298 K anchor: `parity` from 23 observations; RMSE 0.231284 GPa.
 - Theory checkpoint: 96 states; absolute pressure RMSE 3.17793 GPa and maximum absolute residual 6.64492 GPa.
-- Complete composition: maximum pressure identity error 2.27374e-13 GPa; 298 K anchor error 0 GPa.
+- Complete composition: maximum pressure identity error 1.13687e-13 GPa; 298 K anchor error 0 GPa.
 - Caloric checkpoint: fixed-volume internal-energy-increment RMSE 0.0612094 eV/atom.
 <a id="investigation-diamond_correa_2008_dewaele_anchored"></a>
 ### `diamond_correa_2008_dewaele_anchored`
@@ -813,7 +813,7 @@ Exact source-equation reconstruction with no composite coefficient optimization:
 
 - Dewaele 298 K anchor: `parity` from 23 observations; RMSE 0.231284 GPa.
 - Theory checkpoint: 57 states; absolute pressure RMSE 1.79089 GPa and maximum absolute residual 5.19024 GPa.
-- Complete composition: maximum pressure identity error 2.27374e-13 GPa; 298 K anchor error 0 GPa.
+- Complete composition: maximum pressure identity error 1.13687e-13 GPa; 298 K anchor error 0 GPa.
 
 ## Partial diagnostics for records without a full refit
 

@@ -964,6 +964,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Validity:**
+    - **Pressure gpa:** \[3.1578608426387715, 85.0\]
     - **Notes:** The room-temperature acoustic data extend to about 85 GPa.; The S3 model grid (to 144.1826 GPa) and S4 thermal grid (to 4000 K) are pressure extrapolation and modeled thermal extension, not experimental coverage.
 
 <details markdown="1">

@@ -50,8 +50,8 @@ Phase reference: diamond, JCPDS 6-0675.
 | [Sokolova et al. (2013), Holzapfel thermal (2016 workbook)](#record-diamond_sokolova_2013_holzapfel_3) | 45.35396586081546 | 441.5 | 3.9 |
 | [Correa et al. (2008), logarithmic-moment double-Debye Helmholtz](#record-diamond_correa_2008_double_debye_log_moment_5) | 46.28 | 368.2 | 4.038 |
 | [Benedict et al. (2014), Vinet double-Debye Helmholtz](#record-diamond_benedict_2014_double_debye_4) | 45.6272 | 432.4 | 3.793 |
-| [Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal](#record-diamond_correa_2008_dewaele_anchored) | 45.3544 ± 0.006530612244897959 | 444.5 | 4.18 ± 0.07653061224489796 |
-| [Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal](#record-diamond_benedict_2014_dewaele_anchored) | 45.3544 ± 0.006530612244897959 | 444.5 | 4.18 ± 0.07653061224489796 |
+| [Dewaele et al. (2008), Vinet + Correa et al. (2008) thermal](#record-diamond_correa_2008_dewaele_anchored) | 45.3544 ± 0.006530612244897959 | 444.5 (fixed) | 4.18 ± 0.07653061224489796 |
+| [Dewaele et al. (2008), Vinet + Benedict et al. (2014) thermal](#record-diamond_benedict_2014_dewaele_anchored) | 45.3544 ± 0.006530612244897959 | 444.5 (fixed) | 4.18 ± 0.07653061224489796 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -558,7 +558,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
 | Primary | V0 | 45.3544 | 0.006530612244897959 | Not listed |
-| Primary | K0 | 444.5 | Not reported | Not listed |
+| Primary | K0 | 444.5 | Not reported | Yes |
 | Primary | K0\_prime | 4.18 | 0.07653061224489796 | Not listed |
 | Thermal | Vp | 0.3354934617396 | Not reported | Not listed |
 | Thermal | theta\_a0 | 1887.8 | Not reported | Not listed |
@@ -679,7 +679,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
 | Primary | V0 | 45.3544 | 0.006530612244897959 | Not listed |
-| Primary | K0 | 444.5 | Not reported | Not listed |
+| Primary | K0 | 444.5 | Not reported | Yes |
 | Primary | K0\_prime | 4.18 | 0.07653061224489796 | Not listed |
 | Thermal | Vp | 0.3354934617396 | Not reported | Not listed |
 | Thermal | theta\_a0 | 1887.8 | Not reported | Not listed |

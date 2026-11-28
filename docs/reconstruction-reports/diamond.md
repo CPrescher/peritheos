@@ -385,6 +385,7 @@ Both fits use the same 96 recovered audit input rows. **Volume coordinate:** vol
 
 - **Dataset identifiers:** diamond\_dewaele\_2008\_table1\_pvt; diamond\_correa\_2008\_figure8\_dft\_md\_vector\_digitized
 - **Observations:** 80
+- **Fixed parameters:** K0
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
@@ -409,6 +410,7 @@ Both fits use the same 96 recovered audit input rows. **Volume coordinate:** vol
 
 - **Dataset identifiers:** diamond\_dewaele\_2008\_table1\_pvt; diamond\_benedict\_2014\_supplement\_solid\_dft\_md
 - **Observations:** 119
+- **Fixed parameters:** K0
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>

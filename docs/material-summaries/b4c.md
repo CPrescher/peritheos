@@ -91,6 +91,9 @@ Automatic selection for equilibrium calculations.
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 50.0\]
 - **Reported temperature coverage (K):** \[300.0, 2500.0\]
+- **Validity:**
+    - **Pressure gpa:** \[0.0, 50.0\]
+    - **Temperature k:** \[298.0, 2500.0\]
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
@@ -202,6 +205,9 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/b4c
 - **Reference temperature (K):** 298.0
 - **Reported pressure coverage (GPa):** \[0.0, 50.0\]
 - **Reported temperature coverage (K):** \[300.0, 2500.0\]
+- **Validity:**
+    - **Pressure gpa:** \[0.0, 50.0\]
+    - **Temperature k:** \[298.0, 2500.0\]
 
 <details markdown="1">
 <summary>Thermal equation choices</summary>
