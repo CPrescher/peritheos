@@ -1130,25 +1130,22 @@ def test_add_on_a_bundled_material_is_a_clean_refusal():
     assert "Traceback" not in result.stderr
 
 
-def test_a_record_another_receipt_pins_is_refused_first(pristine):
-    pinned = json.loads((pristine / tool.PINNED_RECORDS).read_bytes())[
-        "source_record_sha256"
-    ]
-    identifier = sorted(pinned)[0]
-    material = next(
-        p.stem
-        for p in (pristine / "peritheos/data/materials").glob("*.eosmat")
-        if identifier
-        in {r["identifier"] for r in json.loads(p.read_bytes())["eos_records"]}
+def test_a_digest_pinned_record_keeps_its_pin_after_a_revision():
+    """The pin is checked on the record as it was before any revision."""
+    from scripts.reconstruct_similar_eos_uncertainties import (
+        INPUT,
+        verify_preserved_sources,
     )
-    request = set_request(
-        "t",
-        material,
-        [change(identifier, ["parameter_error_confidence"], None, ONE_SIGMA)],
-    )
-    with pytest.raises(tool.Refused, match="pinned_record") as refusal:
-        tool.plan_revision(request, pristine, derived=False)
-    assert tool.PINNED_RECORDS in str(refusal.value)
+
+    pinned = json.loads(INPUT.read_bytes())["source_record_sha256"]
+    revised = {
+        operation["record"]
+        for revision in read_ledger(ROOT)["revisions"]
+        for operation in revision["forward"]
+        if operation["op"] == "set"
+    }
+    assert "rbcl_b2_farla_2025_bm3_mgd_cscl" in revised & set(pinned)
+    verify_preserved_sources()
 
 
 def test_a_stale_refit_row_is_refused_with_its_difference(repo):

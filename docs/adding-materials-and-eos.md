@@ -484,12 +484,13 @@ acknowledges exactly that change, for example
 revision. A changed `why` line alone needs none.
 
 Some records cannot be revised yet, and the tool says why before any other
-work: records whose whole source record
-`docs/data/uncertainty-reconstruction-inputs.json` pins by digest
-(`pinned_record`); records whose saved refit-ledger row differs from a fresh
-computation on this machine (`refit_ledger_stale`, with the largest
-difference); and records whose refit row takes its published values from a
-script rather than the record (`row_disagrees`, naming the script).
+work: records whose saved refit-ledger row differs from a fresh computation on
+this machine (`refit_ledger_stale`, with the largest difference); and records
+whose refit row takes its published values from a script rather than the
+record (`row_disagrees`, naming the script). A record that
+`docs/data/uncertainty-reconstruction-inputs.json` pins by digest can be
+revised: the pin is checked on the record as it was before any catalog
+revision, recovered through the ledger.
 
 An added record uses `"kind": "add_record"` and `"record"` instead of
 `"changes"`, with `"same_basis"` in `rights`. It is the complete record
@@ -665,8 +666,14 @@ uv run --group docs mkdocs build --strict
 
 Also run `uv run python scripts/validate_primary_eos_refits.py --check` when
 the change affects a bundled record or its primary dataset. Its `--check`
-currently fails on an older policy text in the saved ledger, independent of
-any record; a revision of a bundled material instead gets its rows from
+compares numbers with a 1e-5 relative tolerance, except the source facts
+named in the script's `SOURCE_FACT_KEYS` (published, printed, fixed and
+observed values, their errors and ranges), which must match exactly, as must
+text, counts and classifications. It
+currently fails independent of any record: the saved ledger lacks one policy
+sentence, and some rows differ from a fresh computation by more than the
+tolerance or in an iteration count. A revision of a bundled material instead
+gets its rows from
 `python scripts/apply_catalog_revision.py`
 ([changing a bundled material](#changing-a-bundled-material)).
 

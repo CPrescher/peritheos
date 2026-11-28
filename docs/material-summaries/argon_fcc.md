@@ -218,6 +218,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[4.44, 136.7\]
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
+- **Printed parameter errors:** 1 sigma
 
 Experimental 300 K Vinet fit; the paper's separate AIMD thermal extension is not included. V0 is an extrapolated fit parameter, not a measured ambient solid volume. Errors are one standard deviation.
 

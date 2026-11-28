@@ -87,6 +87,21 @@ All notable changes to Peritheos are documented here. The project follows
   now say that their 0.683 confidence level assumes a normal distribution,
   where the text said the confidence fraction is not specified. Values and
   errors are unchanged.
+- A catalog revision can change a record that
+  `docs/data/uncertainty-reconstruction-inputs.json` pins by digest: the pin
+  is checked on the record as it was before any revision. The RbCl record of
+  Farla et al. (2025) and the argon record of Ono (2020) now state their
+  errors as 1 sigma.
+- `scripts/validate_primary_eos_refits.py --check` compares every calculated
+  number with its 1e-5 relative tolerance, not only those under listed keys.
+  The source facts named in its `SOURCE_FACT_KEYS` (published, printed,
+  fixed and observed values, their errors and ranges), text, counts and
+  classifications still must match exactly.
+- A freshly computed refit-ledger row takes its label, notes and coded
+  recommendation from the current record. Rows of the reviewed
+  parameter-scope cohort took them from an older snapshot, so
+  `scripts/validate_primary_eos_refits.py --check` reported record text that
+  the text tools had already replaced.
 - `scripts/apply_check_text.py` also sets a bundled record's coded
   `usage_recommendation` (the source of `check.warning`), keeping replaced
   free text as `recommendation_reason` and binding the originals so every

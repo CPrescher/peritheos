@@ -130,9 +130,6 @@ REFITS_PAGE = "docs/primary-eos-refits.md"
 SOURCE_AUDIT = "peritheos/data/primary-source-audit.json"
 MANIFEST = "peritheos/data/materials/manifest.json"
 FIXTURES = "crates/peritheos/tests"
-#: Reconstruction inputs that pin whole source records by digest; the refit
-#: validator refuses any change to them (scripts/reconstruct_similar_eos_uncertainties.py).
-PINNED_RECORDS = "docs/data/uncertainty-reconstruction-inputs.json"
 COMMON_KEYS = (
     "id",
     "material",
@@ -721,6 +718,15 @@ def _check_bookkeeping(stage: Path) -> None:
         raise Refused("bookkeeping", f"{MANIFEST} does not count the catalog")
 
 
+def _v4_export(base: Path, material: str) -> bytes:
+    """The material's EOSMAT v4 compatibility export, as formatted text."""
+    from peritheos.eosmat import convert_eosmat
+
+    merged = merge_audit(*_read(base, material))
+    exported = convert_eosmat(merged, version=4, legacy_uncertainty_units=False)
+    return format_eosmat(exported).encode("utf-8")
+
+
 def _fixtures(stage: Path, root: Path, material: str) -> None:
     """Keep Rust fixture copies that equal the bundled files equal to them."""
     record_path, audit_path = _paths(material)
@@ -732,6 +738,12 @@ def _fixtures(stage: Path, root: Path, material: str) -> None:
             root / bundled
         ).read_bytes():
             shutil.copy2(stage / bundled, stage / fixture)
+    # A fixture may instead be the material's v4 compatibility export.
+    fixture = f"{FIXTURES}/data/{material}.eosmat"
+    if (root / fixture).is_file() and (root / fixture).read_bytes() == _v4_export(
+        root, material
+    ):
+        (stage / fixture).write_bytes(_v4_export(stage, material))
 
 
 def _generate(stage: Path) -> None:
@@ -1076,22 +1088,6 @@ def _check_record(
                 "value",
                 f"{where}: temperature_ref {reference} K is outside the stated "
                 f"temperature range {span}",
-            )
-
-
-def _check_pins(root: Path, identifiers: list[Any]) -> None:
-    """Refuse records whose whole source record another receipt pins."""
-    path = root / PINNED_RECORDS
-    if not path.exists():
-        return
-    pinned = json.loads(path.read_bytes()).get("source_record_sha256", {})
-    for identifier in identifiers:
-        if identifier in pinned:
-            raise Refused(
-                "pinned_record",
-                f"{identifier}: {PINNED_RECORDS} pins its source record by digest "
-                "for scripts/reconstruct_similar_eos_uncertainties.py, which the "
-                "refit validator runs; a revision of this record is not supported",
             )
 
 
@@ -1525,9 +1521,6 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
     validity_before = {
         r["identifier"]: _validity(r) for r in merged_before["eos_records"]
     }
-    # Records another receipt pins cannot be revised; say so before any work.
-    if kind == "set_fields":
-        _check_pins(root, [c.get("record") for c in request["changes"]])
     # The request against the files, before anything is staged.
     if kind == "add_record":
         record = _new_record(material, request["record"], document, root)

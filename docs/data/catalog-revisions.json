@@ -6344,6 +6344,560 @@
       "created_files": [],
       "previous_sha256": "be9a91cef6545954f50ed1f6ca8e2e46db9275845d01556906c629fec451ce68",
       "content_sha256": "58db8f154b2642e06a23ce91f687c2c5012350c508653c841fe2b782f7dcfea3"
+    },
+    {
+      "id": "2026-11-27-argon-fcc-ono-2020-one-sigma",
+      "material": "argon_fcc",
+      "kind": "set_fields",
+      "date": "2026-11-27",
+      "decided_by": "Clemens Prescher",
+      "reason": "The record's notes read \"Errors are one standard deviation.\" 0.6827 is the normal-equivalent level of a stated 1 sigma, not a confidence fraction stated by the source.",
+      "source": {
+        "citation": "Ono (2020), Fate of subducted argon in the deep mantle, Scientific Reports 10, 1393, doi:10.1038/s41598-020-58252-8",
+        "location": "Source one-sigma errors, as stated in the record's notes and its audit"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-27",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "argon_fcc_ono_2020_vinet",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": false,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "argon_fcc_ono_2020_vinet",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": false,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "1df46a3044211c955260a217bb6ea2335b9e48f71c58605714034a359bb45a2e",
+        "after": "a2befe5087c5b5629f43c0cc8a0a55c49c0df5f982157e848045ef28cffdf6eb"
+      },
+      "reference_sha256": {
+        "before": "1185c326c0a7bc1efdae33ee5945c6ed7ef8569dd5f52f2ec76fa003a2e5a469",
+        "after": "6341ecb1fc132c51aace7542cf308a437ef074204878aa1db3b1d56f72800d3d"
+      },
+      "scientific": {
+        "records_before": "0c9b487e470aa9c92c1cb2374c0dc7654d731dd960c9943d21f9825e70bfa4c1",
+        "records_after": "7631eb099c923c03a65c95fb1afdced8ece4aaba293ecd9745044999c44422b1",
+        "added_records": {},
+        "catalog_before": "f4f418d54e778716a97cc3cca7b4b793ca51e295dd3f625ee54c5e02529d15e6",
+        "catalog_after": "31798267fbcd5124728627782923744d7ac3ce5b9f6b2311503414b8e540bfef"
+      },
+      "files": {
+        "peritheos/data/materials/argon_fcc.eosmat": {
+          "before": "738a34aea630f199277a6268122f6d54ec8021895ab5174858094f8d191b5123",
+          "after": "475ed96de63034bb8282e9594e5fffd57c3d7438e987f632be67e5afb5d8480f"
+        },
+        "peritheos/data/audits/argon_fcc.audit.json": {
+          "before": "c5ed6ee838fa096d7476f067f1cc7d88d29c30cb96a003873064a8dc8b01cd14",
+          "after": "c5ed6ee838fa096d7476f067f1cc7d88d29c30cb96a003873064a8dc8b01cd14"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "1185c326c0a7bc1efdae33ee5945c6ed7ef8569dd5f52f2ec76fa003a2e5a469",
+          "after_record_sha256": "738a34aea630f199277a6268122f6d54ec8021895ab5174858094f8d191b5123",
+          "after_audit_sha256": "c5ed6ee838fa096d7476f067f1cc7d88d29c30cb96a003873064a8dc8b01cd14",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generic_notes": [],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              3,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              4,
+              [
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1
+                ]
+              ]
+            ],
+            [
+              5,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ],
+            [
+              6,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              7,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              8,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              9,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              10,
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              11,
+              [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            [
+              13,
+              [
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1
+                ]
+              ]
+            ]
+          ],
+          "added_default_records": true,
+          "default_flags": [
+            [
+              0,
+              {
+                "default": true
+              }
+            ],
+            [
+              11,
+              {
+                "default": false
+              }
+            ],
+            [
+              12,
+              {
+                "default": false
+              }
+            ],
+            [
+              13,
+              {
+                "default": false
+              }
+            ],
+            [
+              14,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [],
+          "superseded_record_text": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "check_text": [
+            [
+              11,
+              {
+                "warning_reason": null
+              }
+            ],
+            [
+              13,
+              {
+                "warning_reason": null
+              }
+            ],
+            [
+              14,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "1185c326c0a7bc1efdae33ee5945c6ed7ef8569dd5f52f2ec76fa003a2e5a469",
+          "after": "6341ecb1fc132c51aace7542cf308a437ef074204878aa1db3b1d56f72800d3d"
+        },
+        "catalog_scientific_sha256": {
+          "before": "f4f418d54e778716a97cc3cca7b4b793ca51e295dd3f625ee54c5e02529d15e6",
+          "after": "31798267fbcd5124728627782923744d7ac3ce5b9f6b2311503414b8e540bfef"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "crates/peritheos/tests/data/argon_fcc.eosmat",
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/argon_fcc.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "4ade54bbe766193c937b277550ba315644330af826856a84706263d50745e80a"
+    },
+    {
+      "id": "2026-11-27-rbcl-farla-2025-one-sigma",
+      "material": "rbcl",
+      "kind": "set_fields",
+      "date": "2026-11-27",
+      "decided_by": "Clemens Prescher",
+      "reason": "The record's original notes read \"Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable.\" The source states no confidence fraction; 0.6827 is the normal-equivalent level of an estimated standard deviation. V0 is fixed in the fit; its stored error is converted from the printed molar value and is not covered by a separate statement.",
+      "source": {
+        "citation": "Farla, Néri, Pöppelbaum and Glazyrin (2025), Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI, Journal of Applied Physics 137, 115901, doi:10.1063/5.0248905",
+        "location": "Table I, case 1 (printed estimated standard deviations, per the record's original notes in the audit's superseded_record_text)"
+      },
+      "rights": {
+        "reviewed_by": "Clemens Prescher",
+        "date": "2026-11-27",
+        "statement": "Sets the stated error confidence; no third-party content is added."
+      },
+      "acknowledge_check_change": {},
+      "forward": [
+        {
+          "op": "set",
+          "record": "rbcl_b2_farla_2025_bm3_mgd_cscl",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": null,
+          "after_present": true,
+          "after": 0.6826894921370859
+        }
+      ],
+      "reverse": [
+        {
+          "op": "set",
+          "record": "rbcl_b2_farla_2025_bm3_mgd_cscl",
+          "path": [
+            "parameter_error_confidence"
+          ],
+          "before_present": true,
+          "before": 0.6826894921370859,
+          "after_present": true,
+          "after": null
+        }
+      ],
+      "document_sha256": {
+        "before": "560e4400896f73dc2de513e17aeb6a0fa965f17851c53426e30782966a8a24fb",
+        "after": "6154278aab9bf4a6be5704434b36ad85b9ae0b5b7b77dac3f9ca2fbf33102232"
+      },
+      "reference_sha256": {
+        "before": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
+        "after": "2a23f135f7a092539bb8379fc531b1e794b0a1991d43b186f1d9c121cc206bc3"
+      },
+      "scientific": {
+        "records_before": "d3a1f138d46e6dcac15d7d9c31a0ceb735076cbf232cfc6e9283bf2bba772416",
+        "records_after": "918068e6229f504f5fc5780e1f946959b9b0e73c8d8b3e1a130ec35aac3b060c",
+        "added_records": {},
+        "catalog_before": "915d6051fdc146da8790c699deac6ed1a2fffb5ba20d40de937bcbeefd18c725",
+        "catalog_after": "31798267fbcd5124728627782923744d7ac3ce5b9f6b2311503414b8e540bfef"
+      },
+      "files": {
+        "peritheos/data/materials/rbcl.eosmat": {
+          "before": "7dd32ed559203ee6026bf06bd850fe6d5978e2278832648e9fcecd579ac87232",
+          "after": "7087c1a88f12df344fcd0e6af90bc658b0c36988b6e34ca23bc288c1ced8f909"
+        },
+        "peritheos/data/audits/rbcl.audit.json": {
+          "before": "3a32d48cb37751c1f94405429f8002856561b46df7c9b3ac109bd7a6c86c69ec",
+          "after": "3a32d48cb37751c1f94405429f8002856561b46df7c9b3ac109bd7a6c86c69ec"
+        }
+      },
+      "split_binding": {
+        "before": {
+          "before_sha256": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
+          "after_record_sha256": "7dd32ed559203ee6026bf06bd850fe6d5978e2278832648e9fcecd579ac87232",
+          "after_audit_sha256": "3a32d48cb37751c1f94405429f8002856561b46df7c9b3ac109bd7a6c86c69ec",
+          "layout": "v4",
+          "added_check": [
+            0,
+            1
+          ],
+          "generic_notes": [
+            [
+              0,
+              0
+            ]
+          ],
+          "generic_qualifications": [
+            [
+              0,
+              [
+                [
+                  1,
+                  0
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                [
+                  2,
+                  0
+                ]
+              ]
+            ]
+          ],
+          "default_flags": [
+            [
+              1,
+              {
+                "default": false
+              }
+            ]
+          ],
+          "object_orders": [
+            {
+              "path": [
+                "eos_records",
+                0,
+                "evidence",
+                "scientific_validation"
+              ],
+              "keys": [
+                "status",
+                "note",
+                "audit_date",
+                "verified_fields",
+                "primary_source_check",
+                "primary_data_check"
+              ]
+            },
+            {
+              "path": [
+                "eos_records",
+                1
+              ],
+              "keys": [
+                "identifier",
+                "label",
+                "model",
+                "temperature_ref",
+                "parameters",
+                "thermal",
+                "parameter_error_confidence",
+                "experimental_pressure_range_gpa",
+                "experimental_temperature_range_k",
+                "pressure_range_status",
+                "validity",
+                "determination_method",
+                "record_kind",
+                "equation_kind",
+                "default",
+                "notes",
+                "range_provenance",
+                "source_parameters",
+                "fit_datasets",
+                "fit_data_sources",
+                "parameter_covariance",
+                "reference",
+                "pressure_calibration",
+                "evidence"
+              ]
+            }
+          ],
+          "superseded_record_text": [
+            0,
+            1
+          ],
+          "check_text": [
+            [
+              0,
+              {
+                "record_note": null
+              }
+            ],
+            [
+              1,
+              {
+                "record_note": null
+              }
+            ]
+          ]
+        }
+      },
+      "policy": {
+        "material_sha256": {
+          "before": "e5f38f6df85979d0db584d925524233488294a7fb908667df514840c7266ea5a",
+          "after": "2a23f135f7a092539bb8379fc531b1e794b0a1991d43b186f1d9c121cc206bc3"
+        },
+        "catalog_scientific_sha256": {
+          "before": "915d6051fdc146da8790c699deac6ed1a2fffb5ba20d40de937bcbeefd18c725",
+          "after": "31798267fbcd5124728627782923744d7ac3ce5b9f6b2311503414b8e540bfef"
+        }
+      },
+      "refit_rows": {},
+      "written_files": [
+        "crates/peritheos/tests/data/rbcl.eosmat",
+        "docs/catalog-coverage.md",
+        "docs/data/catalog-coverage.json",
+        "docs/data/eos-structure-rights-policy.json",
+        "docs/data/license-inventory/eos-structure-review.csv",
+        "docs/material-summaries/rbcl.md",
+        "peritheos/data/eos-structure-rights-review.json"
+      ],
+      "created_files": [],
+      "previous_sha256": null,
+      "content_sha256": "690efd5398c7df0887066663d10371854e87fd83a2d4780d7547e2fd2bc1bce8"
     }
   ]
 }
