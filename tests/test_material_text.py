@@ -326,6 +326,13 @@ def test_material_input_is_checked_against_the_file(tmp_path):
     assert refusals == {(KEY, "predates_split")}
 
 
+def test_a_material_without_records_is_refused(tmp_path):
+    # coesite_v has no EOS records; a file loader finds a sidecar through them.
+    root = _catalog_copy(tmp_path, ["coesite_v"])
+    refusals, plan = _refusals(root, _change(root, "coesite_v", "Silica polymorph."))
+    assert (KEY, "no_records") in refusals and not plan.changes
+
+
 def _all_verifies_pass(root):
     assert verify_catalog(root) == len(
         json.loads((root / RECEIPT.relative_to(ROOT)).read_bytes())["materials"]
@@ -422,3 +429,14 @@ def test_a_lazily_loaded_material_exports_its_superseded_material_text():
         exported = lazy.to_eosmat()
         assert exported == eager.to_eosmat()
         assert MATERIAL_AUDIT_KEY in lazy.to_eosmat(format_version=5)
+
+
+def test_a_renamed_bundled_material_still_exports():
+    import dataclasses
+
+    from peritheos import get_material
+
+    renamed = dataclasses.replace(get_material("platinum"), identifier="my_platinum")
+    document = renamed.to_eosmat()
+    assert document["identifier"] == "my_platinum"
+    assert len(document["eos_records"]) == len(get_material("platinum").eos_records)

@@ -22403,7 +22403,7 @@
       },
       "rmse_gpa": 0.445141799111663,
       "solver_success": true,
-      "source_notes": "The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. The printed beta0 (0.005639 GPa⁻¹) is not a stored parameter: the record uses beta0 = 1/K0 with K(300) = 167 GPa, which the printed value reproduces only to rounding.",
+      "source_notes": "The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. The printed beta0 (0.005639 GPa⁻¹) is not stored: beta0 is derived so that K(300 K) = 167 GPa, and the printed value agrees with it to rounding.",
       "status": "parity",
       "weighting": "Existing reconstructed errors retained; no source confidence convention inferred."
     },
@@ -25239,7 +25239,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), BM3, pressure scale P1",
+      "label": "Sakai et al. (2014), BM3, Matsui Pt scale",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25339,7 +25339,7 @@
         "V0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), BM3, pressure scale P1, V0 fixed at Dewaele value",
+      "label": "Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25439,7 +25439,7 @@
         "V0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), Vinet, pressure scale P1, V0 fixed at Dewaele value",
+      "label": "Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25539,7 +25539,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), BM3, pressure scale P1, V0 fixed at Mao value",
+      "label": "Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25639,7 +25639,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), Vinet, pressure scale P1, V0 fixed at Mao value",
+      "label": "Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25802,7 +25802,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), Vinet, pressure scale P1",
+      "label": "Sakai et al. (2014), Vinet, Matsui Pt scale",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -25908,7 +25908,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), BM3, pressure scale P2",
+      "label": "Sakai et al. (2014), BM3, Fei Pt scale",
       "material_identifier": "iron",
       "model": "BM3",
       "observations": 0,
@@ -25945,7 +25945,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), Vinet, pressure scale P2",
+      "label": "Sakai et al. (2014), Vinet, Fei Pt scale",
       "material_identifier": "iron",
       "model": "Vinet",
       "observations": 0,
@@ -25982,7 +25982,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), BM3, pressure scale P3",
+      "label": "Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale",
       "material_identifier": "iron",
       "model": "BM3",
       "observations": 0,
@@ -26019,7 +26019,7 @@
         "V0"
       ],
       "free_parameters": [],
-      "label": "Sakai et al. (2014), Vinet, pressure scale P3",
+      "label": "Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale",
       "material_identifier": "iron",
       "model": "Vinet",
       "observations": 0,
@@ -26061,7 +26061,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), BM3, pressure scale P4",
+      "label": "Sakai et al. (2014), BM3, Tange MgO scale",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -26224,7 +26224,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), Vinet, pressure scale P4",
+      "label": "Sakai et al. (2014), Vinet, Tange MgO scale",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -26398,7 +26398,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), BM3, pressure scale P5",
+      "label": "Sakai et al. (2014), BM3, Yokoo Pt scale",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -26572,7 +26572,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), Vinet, pressure scale P5",
+      "label": "Sakai et al. (2014), Vinet, Yokoo Pt scale",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -26683,7 +26683,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), BM3, pressure scale P6",
+      "label": "Sakai et al. (2014), BM3, Holmes Pt scale",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -26846,7 +26846,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2014), Vinet, pressure scale P6",
+      "label": "Sakai et al. (2014), Vinet, Holmes Pt scale",
       "material_identifier": "iron",
       "model": "Vinet",
       "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
@@ -42205,7 +42205,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "molybdenum_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 parameterization. The authors fix V0 and K0 from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.",
+      "source_notes": "Table 2 parameterization. The source fixes V0 and K0 (for most of its nine materials, at values from cited primary measurements) and K∞' at 5/3, and fits K0' to its internally consistent compression network.",
       "status": "not_refittable"
     },
     {
@@ -59888,7 +59888,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "tungsten_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 parameterization. The authors fix V0 and K0 from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.",
+      "source_notes": "Table 2 parameterization. The source fixes V0 and K0 (for most of its nine materials, at values from cited primary measurements) and K∞' at 5/3, and fits K0' to its internally consistent compression network.",
       "status": "not_refittable"
     },
     {

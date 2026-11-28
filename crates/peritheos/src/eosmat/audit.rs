@@ -1179,6 +1179,54 @@ pub(super) fn validate_superseded_record_text(
 }
 
 /// Whether `text` is a calendar date written `YYYY-MM-DD`.
+/// Validate a material's `superseded_material_text` audit block.
+///
+/// The block keeps the original top-level `notes` of a material replaced by a
+/// text revision (`null`: absent before) and the ISO date `superseded_on`. It
+/// never changes how the material is read.
+pub(super) fn validate_superseded_material_text(
+    value: &Value,
+    location: &str,
+) -> Result<(), EosmatError> {
+    let place = format!("{location}.superseded_material_text");
+    let object = value
+        .as_object()
+        .ok_or_else(|| invalid_document(format!("{place} must be an object")))?;
+    let unknown: BTreeSet<&str> = object
+        .keys()
+        .map(String::as_str)
+        .filter(|key| *key != "superseded_on" && *key != "notes")
+        .collect();
+    if !unknown.is_empty() {
+        return Err(invalid_document(format!(
+            "{place} has unknown fields {unknown:?}"
+        )));
+    }
+    if !object.contains_key("notes") {
+        return Err(invalid_document(format!(
+            "{place} names no superseded field"
+        )));
+    }
+    if !object
+        .get("superseded_on")
+        .and_then(Value::as_str)
+        .is_some_and(is_iso_date)
+    {
+        return Err(invalid_document(format!(
+            "{place}.superseded_on must be an ISO date (YYYY-MM-DD)"
+        )));
+    }
+    if object
+        .get("notes")
+        .is_some_and(|value| !value.is_null() && !value.is_string())
+    {
+        return Err(invalid_document(format!(
+            "{place}.notes must be a string or null"
+        )));
+    }
+    Ok(())
+}
+
 fn is_iso_date(text: &str) -> bool {
     let bytes = text.as_bytes();
     if bytes.len() != 10
@@ -1298,6 +1346,9 @@ pub(super) fn validate_sidecar(sidecar: &Value, material: &str) -> Result<(), Eo
             validate_superseded_record_text(block, &format!("audit sidecar entry {identifier:?}"))?;
         }
     }
+    if let Some(block) = object.get("superseded_material_text") {
+        validate_superseded_material_text(block, &format!("audit sidecar for {material:?}"))?;
+    }
     Ok(())
 }
 
@@ -1344,6 +1395,18 @@ pub(super) fn merge(document: &Value, sidecar: &Value) -> Result<Value, EosmatEr
         return Err(invalid_document(format!(
             "audit sidecar for {material:?} names unknown records {unknown:?}"
         )));
+    }
+    // The material-level block becomes a top-level key of the complete document.
+    if let Some(block) = sidecar.get("superseded_material_text") {
+        let top = result
+            .as_object_mut()
+            .ok_or_else(|| invalid_document("an EOSMAT document must be a JSON object"))?;
+        if top.contains_key("superseded_material_text") {
+            return Err(invalid_document(format!(
+                "material {material:?} holds superseded_material_text both inline and in its audit sidecar"
+            )));
+        }
+        top.insert("superseded_material_text".into(), block.clone());
     }
     Ok(result)
 }

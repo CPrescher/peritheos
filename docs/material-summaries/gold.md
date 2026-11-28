@@ -1625,7 +1625,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. The printed beta0 (0.005639 GPa⁻¹) is not a stored parameter: the record uses beta0 = 1/K0 with K(300) = 167 GPa, which the printed value reproduces only to rounding.
+The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. The printed beta0 (0.005639 GPa⁻¹) is not stored: beta0 is derived so that K(300 K) = 167 GPa, and the printed value agrees with it to rounding.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -58,6 +58,9 @@ of these guards fails:
     a validity note over 160 characters, or more than 2 notes;
 ``thermal_length``
     thermal notes over 250 characters;
+``no_records`` (material notes only, not overridable)
+    the material has no EOS records, so a file loader could not find the
+    sidecar that would hold the original;
 ``material_notes_length``
     material notes over 300 characters;
 ``label_length``
@@ -542,6 +545,12 @@ def _plan_material(
         return None
     current = document.get("notes")
     reasons = []
+    if not document.get("eos_records"):
+        # ``load_eosmat`` finds a sidecar through its records' ``check.audit``;
+        # without records the stored original would not be merged on load.
+        reasons.append(
+            ("no_records", "a material without EOS records cannot keep an original")
+        )
     if "notes" not in entry["before"]:
         reasons.append(("before_missing", "no before value for notes"))
     elif _normal(entry["before"]["notes"]) != _normal(current):

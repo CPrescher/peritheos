@@ -47,22 +47,22 @@ stays in EOSMAT and the ledger.
 | [Fei et al. (2016), preferred fixed-density 300 K BM3](#record-iron_fei_2016_bm3) | **untested** (not refittable) |  |
 | [Fei et al. (2016), free-density 300 K BM3 alternative](#record-iron_fei_2016_free_density_bm3) | **untested** (not refittable) |  |
 | [Fei et al. (2016), preferred BM3 + Debye and electronic/anharmonic thermal pressure](#record-iron_fei_2016_bm3_debye_quadratic) | **untested** (not refittable) |  |
-| [Sakai et al. (2014), BM3, pressure scale P1](#record-iron_sakai_2014_p1_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), Vinet, pressure scale P1](#record-iron_sakai_2014_p1_vinet) | **reproduced** |  |
-| [Sakai et al. (2014), BM3, pressure scale P1, V0 fixed at Mao value](#record-iron_sakai_2014_p1_v0_mao_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), Vinet, pressure scale P1, V0 fixed at Mao value](#record-iron_sakai_2014_p1_v0_mao_vinet) | **disagrees** |  |
-| [Sakai et al. (2014), BM3, pressure scale P1, V0 fixed at Dewaele value](#record-iron_sakai_2014_p1_v0_dewaele_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), Vinet, pressure scale P1, V0 fixed at Dewaele value](#record-iron_sakai_2014_p1_v0_dewaele_vinet) | **disagrees** |  |
-| [Sakai et al. (2014), BM3, pressure scale P2](#record-iron_sakai_2014_p2_bm3) | **untested** (not refittable) |  |
-| [Sakai et al. (2014), Vinet, pressure scale P2](#record-iron_sakai_2014_p2_vinet) | **untested** (not refittable) |  |
-| [Sakai et al. (2014), BM3, pressure scale P3](#record-iron_sakai_2014_p3_bm3) | **untested** (not refittable) |  |
-| [Sakai et al. (2014), Vinet, pressure scale P3](#record-iron_sakai_2014_p3_vinet) | **untested** (not refittable) |  |
-| [Sakai et al. (2014), BM3, pressure scale P4](#record-iron_sakai_2014_p4_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), Vinet, pressure scale P4](#record-iron_sakai_2014_p4_vinet) | **reproduced** |  |
-| [Sakai et al. (2014), BM3, pressure scale P5](#record-iron_sakai_2014_p5_bm3) | **reproduced** |  |
-| [Sakai et al. (2014), Vinet, pressure scale P5](#record-iron_sakai_2014_p5_vinet) | **reproduced** |  |
-| [Sakai et al. (2014), BM3, pressure scale P6](#record-iron_sakai_2014_p6_bm3) | **disagrees** |  |
-| [Sakai et al. (2014), Vinet, pressure scale P6](#record-iron_sakai_2014_p6_vinet) | **reproduced** |  |
+| [Sakai et al. (2014), BM3, Matsui Pt scale](#record-iron_sakai_2014_p1_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale](#record-iron_sakai_2014_p1_vinet) | **reproduced** |  |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0](#record-iron_sakai_2014_p1_v0_mao_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0](#record-iron_sakai_2014_p1_v0_mao_vinet) | **disagrees** |  |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0](#record-iron_sakai_2014_p1_v0_dewaele_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0](#record-iron_sakai_2014_p1_v0_dewaele_vinet) | **disagrees** |  |
+| [Sakai et al. (2014), BM3, Fei Pt scale](#record-iron_sakai_2014_p2_bm3) | **untested** (not refittable) |  |
+| [Sakai et al. (2014), Vinet, Fei Pt scale](#record-iron_sakai_2014_p2_vinet) | **untested** (not refittable) |  |
+| [Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale](#record-iron_sakai_2014_p3_bm3) | **untested** (not refittable) |  |
+| [Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale](#record-iron_sakai_2014_p3_vinet) | **untested** (not refittable) |  |
+| [Sakai et al. (2014), BM3, Tange MgO scale](#record-iron_sakai_2014_p4_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Tange MgO scale](#record-iron_sakai_2014_p4_vinet) | **reproduced** |  |
+| [Sakai et al. (2014), BM3, Yokoo Pt scale](#record-iron_sakai_2014_p5_bm3) | **reproduced** |  |
+| [Sakai et al. (2014), Vinet, Yokoo Pt scale](#record-iron_sakai_2014_p5_vinet) | **reproduced** |  |
+| [Sakai et al. (2014), BM3, Holmes Pt scale](#record-iron_sakai_2014_p6_bm3) | **disagrees** |  |
+| [Sakai et al. (2014), Vinet, Holmes Pt scale](#record-iron_sakai_2014_p6_vinet) | **reproduced** |  |
 | [Yamazaki et al. (2012), BM3 + thermal](#record-iron_yamazaki_2012_bm3_thermal) | **disagrees** |  |
 | [Yamazaki et al. (2012), Vinet + thermal](#record-iron_yamazaki_2012_vinet_thermal) | **disagrees** |  |
 | [Dubrovinsky et al. (2000), BM3 + thermal](#record-iron_dubrovinsky_2000_bm3_thermal) | **untested** (not refittable) |  |
@@ -665,7 +665,7 @@ Both fits use the same 1313 recovered audit input rows. **Volume coordinate:** v
 
 <a id="record-iron_sakai_2014_p1_bm3"></a>
 
-## Sakai et al. (2014), BM3, pressure scale P1
+## Sakai et al. (2014), BM3, Matsui Pt scale
 
 **disagrees** · `iron_sakai_2014_p1_bm3` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p1_bm3)
 
@@ -722,7 +722,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p1_vinet"></a>
 
-## Sakai et al. (2014), Vinet, pressure scale P1
+## Sakai et al. (2014), Vinet, Matsui Pt scale
 
 **reproduced** · `iron_sakai_2014_p1_vinet` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p1_vinet)
 
@@ -808,7 +808,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p1_v0_mao_bm3"></a>
 
-## Sakai et al. (2014), BM3, pressure scale P1, V0 fixed at Mao value
+## Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0
 
 **disagrees** · `iron_sakai_2014_p1_v0_mao_bm3` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p1_v0_mao_bm3)
 
@@ -865,7 +865,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p1_v0_mao_vinet"></a>
 
-## Sakai et al. (2014), Vinet, pressure scale P1, V0 fixed at Mao value
+## Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0
 
 **disagrees** · `iron_sakai_2014_p1_v0_mao_vinet` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p1_v0_mao_vinet)
 
@@ -922,7 +922,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p1_v0_dewaele_bm3"></a>
 
-## Sakai et al. (2014), BM3, pressure scale P1, V0 fixed at Dewaele value
+## Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0
 
 **disagrees** · `iron_sakai_2014_p1_v0_dewaele_bm3` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p1_v0_dewaele_bm3)
 
@@ -979,7 +979,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p1_v0_dewaele_vinet"></a>
 
-## Sakai et al. (2014), Vinet, pressure scale P1, V0 fixed at Dewaele value
+## Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0
 
 **disagrees** · `iron_sakai_2014_p1_v0_dewaele_vinet` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p1_v0_dewaele_vinet)
 
@@ -1036,7 +1036,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p2_bm3"></a>
 
-## Sakai et al. (2014), BM3, pressure scale P2
+## Sakai et al. (2014), BM3, Fei Pt scale
 
 **untested** (not refittable) · `iron_sakai_2014_p2_bm3` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p2_bm3)
 
@@ -1062,7 +1062,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p2_vinet"></a>
 
-## Sakai et al. (2014), Vinet, pressure scale P2
+## Sakai et al. (2014), Vinet, Fei Pt scale
 
 **untested** (not refittable) · `iron_sakai_2014_p2_vinet` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p2_vinet)
 
@@ -1088,7 +1088,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p3_bm3"></a>
 
-## Sakai et al. (2014), BM3, pressure scale P3
+## Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale
 
 **untested** (not refittable) · `iron_sakai_2014_p3_bm3` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p3_bm3)
 
@@ -1114,7 +1114,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p3_vinet"></a>
 
-## Sakai et al. (2014), Vinet, pressure scale P3
+## Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale
 
 **untested** (not refittable) · `iron_sakai_2014_p3_vinet` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p3_vinet)
 
@@ -1140,7 +1140,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p4_bm3"></a>
 
-## Sakai et al. (2014), BM3, pressure scale P4
+## Sakai et al. (2014), BM3, Tange MgO scale
 
 **disagrees** · `iron_sakai_2014_p4_bm3` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p4_bm3)
 
@@ -1197,7 +1197,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p4_vinet"></a>
 
-## Sakai et al. (2014), Vinet, pressure scale P4
+## Sakai et al. (2014), Vinet, Tange MgO scale
 
 **reproduced** · `iron_sakai_2014_p4_vinet` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p4_vinet)
 
@@ -1283,7 +1283,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p5_bm3"></a>
 
-## Sakai et al. (2014), BM3, pressure scale P5
+## Sakai et al. (2014), BM3, Yokoo Pt scale
 
 **reproduced** · `iron_sakai_2014_p5_bm3` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p5_bm3)
 
@@ -1369,7 +1369,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p5_vinet"></a>
 
-## Sakai et al. (2014), Vinet, pressure scale P5
+## Sakai et al. (2014), Vinet, Yokoo Pt scale
 
 **reproduced** · `iron_sakai_2014_p5_vinet` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p5_vinet)
 
@@ -1455,7 +1455,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p6_bm3"></a>
 
-## Sakai et al. (2014), BM3, pressure scale P6
+## Sakai et al. (2014), BM3, Holmes Pt scale
 
 **disagrees** · `iron_sakai_2014_p6_bm3` · `BM3` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p6_bm3)
 
@@ -1512,7 +1512,7 @@ Both fits use the same 27 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-iron_sakai_2014_p6_vinet"></a>
 
-## Sakai et al. (2014), Vinet, pressure scale P6
+## Sakai et al. (2014), Vinet, Holmes Pt scale
 
 **reproduced** · `iron_sakai_2014_p6_vinet` · `Vinet` · [Coefficients and source](../material-summaries/iron.md#record-iron_sakai_2014_p6_vinet)
 

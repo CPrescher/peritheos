@@ -227,7 +227,8 @@ All notable changes to Peritheos are documented here. The project follows
 
 - A record's `summary()` and `python -m peritheos show` print the parameter
   correlation matrix of a stored covariance, and `overview()` returns it as
-  `correlation` (optional field of the version 1 overview schema).
+  `correlation` (a new key of the version 1 overview schema; a consumer
+  validating against an older copy of that schema must update it).
 - `summary()`, `show` and `overview()` print a unit for every coefficient in
   the bundled catalog, including the 10^-6 K^-1 scaling some thermal models
   apply. The unit pages no longer say that every thermal model uses molar

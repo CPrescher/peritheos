@@ -6876,8 +6876,9 @@ def order_like_saved(rows: list[dict], saved_rows: list[dict]) -> list[dict]:
 
     ``validate_all`` emits catalog order, while the saved file keeps the order
     in which rows were written (``apply_catalog_revision`` inserts a new row
-    after its material's last row). Keeping the saved order makes a full
-    rewrite change only the rows whose values changed.
+    after its material's last row). Keeping the saved order keeps a full
+    rewrite from moving rows; it still replaces every recomputed number with
+    this machine's roundoff, also where ``--check`` passes.
     """
     fresh = {row["record_identifier"]: row for row in rows}
     ordered = [
