@@ -1192,7 +1192,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Notes:** Digitized room-temperature data; 290 K is taken from Table I.; V0, K0 and K0' are extrapolations to zero pressure; do not extrapolate the curve beyond the fitted range.
 - **Errors from the Peritheos refit:** confidence level not stated; used as 1 sigma
 
-Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nominal error-in-variables weighting; Chen's published EOS is not reproduced. Near-coincident digitized points are not statistically independent.
+Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nominal error-in-variables weighting; Chen's published EOS is not reproduced. Near-coincident digitized points are not statistically independent. No covariance is given because the uncertainty of the digitized points is not known well enough to scale it.
 
 <details markdown="1">
 <summary>Source review</summary>

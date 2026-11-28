@@ -27,7 +27,7 @@
         "K0": {"value": 148.0, "error": 3.0},
         "K0_prime": {"value": 4.09, "error": 0.12}
       },
-      "parameter_error_confidence": null,
+      "parameter_error_confidence": 0.6826894921370859,
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 55.542],
@@ -42,7 +42,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Fit to the helium-medium cubic-cell data with an ambient V0 prior of 78.94 ± 0.1 Å³; V0 is not fixed, and K0 and K0' are free. The errors are the source's 1-sigma standard errors, not interval half-widths, so no confidence level is stored.",
+      "notes": "Fit to the helium-medium cubic-cell data with an ambient V0 prior of 78.94 ± 0.1 Å³; V0 is not fixed, and K0 and K0' are free. The errors are the source's 1-sigma standard errors.",
       "fit_datasets": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"],
       "reference": {
         "authors": ["Finkelstein", "Jackson", "Sturhahn", "Zhang", "Alp", "Toellner"],

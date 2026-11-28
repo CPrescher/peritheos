@@ -294,6 +294,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported pressure coverage (GPa):** \[9.0, 49.4\]
 - **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[1027.0, 2500.0\]
+- **Errors from the Peritheos refit:** 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 <details markdown="1">

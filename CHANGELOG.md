@@ -114,6 +114,18 @@ All notable changes to Peritheos are documented here. The project follows
   history or curation remarks; five become empty. Originals stay in the
   sidecars. Longer material notes, whose shortening would drop caveats, are
   unchanged.
+- Catalog revisions of 2026-11-28, each recorded in the revision ledger:
+  the 300 K isotherms of epsilon-FeOOH (Gleason et al. 2008) and
+  pseudowollastonite (Sagatova et al. 2021) had a validity temperature range
+  that excluded 300 K and failed every validity check; it is now 300 K. The
+  validity range of the CaSiO3 perovskite refit of Wang et al. (1996) starts
+  at its 300 K reference temperature. Osmium (Takemura 2004) marks V0
+  as fixed. Five Peritheos refits and derived records state their errors as
+  1 sigma (B4C, iron, Mo2C, the two Dewaele-anchored diamond records) and so
+  does the Finkelstein et al. (2017) helium record. No coefficient changes.
+- The snapshot history check tests catalog revisions once, on the current
+  catalog; it failed for a revised material that also has an older recorded
+  change.
 - `scripts/apply_check_text.py` also sets a bundled record's coded
   `usage_recommendation` (the source of `check.warning`), keeping replaced
   free text as `recommendation_reason` and binding the originals so every

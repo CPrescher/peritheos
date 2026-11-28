@@ -2672,7 +2672,7 @@
         ]
       },
       "reproduction_status": "independent_digitized_data_refit_reproduced",
-      "source_notes": "Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nominal error-in-variables weighting; Chen's published EOS is not reproduced. Near-coincident digitized points are not statistically independent.",
+      "source_notes": "Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nominal error-in-variables weighting; Chen's published EOS is not reproduced. Near-coincident digitized points are not statistically independent. No covariance is given because the uncertainty of the digitized points is not known well enough to scale it.",
       "status": "parity",
       "usage_recommendation": "Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed."
     },
@@ -31611,7 +31611,7 @@
       "selection": "used_in_helium_cubic_fit=1",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Fit to the helium-medium cubic-cell data with an ambient V0 prior of 78.94 ± 0.1 Å³; V0 is not fixed, and K0 and K0' are free. The errors are the source's 1-sigma standard errors, not interval half-widths, so no confidence level is stored.",
+      "source_notes": "Fit to the helium-medium cubic-cell data with an ambient V0 prior of 78.94 ± 0.1 Å³; V0 is not fixed, and K0 and K0' are free. The errors are the source's 1-sigma standard errors.",
       "status": "parity"
     },
     {
@@ -47188,7 +47188,7 @@
       "dataset_identifiers": [
         "osmium_takemura_2004_table1_compression"
       ],
-      "degrees_of_freedom": 25,
+      "degrees_of_freedom": 26,
       "experimental_pressure_range_gpa": [
         0.0,
         58.2
@@ -47198,9 +47198,10 @@
         300.0
       ],
       "fit_kind": "isothermal_pv",
-      "fixed_parameters": [],
+      "fixed_parameters": [
+        "V0"
+      ],
       "free_parameters": [
-        "V0",
         "K0",
         "K0_prime"
       ],
@@ -47220,35 +47221,24 @@
       ],
       "parameters": [
         {
-          "difference": -0.014485443477536109,
-          "parameter": "V0",
-          "published": 27.9766135265,
-          "published_error": 0.0188,
-          "refit": 27.962128083022463,
-          "refit_error": 0.0036469995269804156,
-          "relative_difference": 0.0005177697244813141,
-          "similar": true,
-          "within_combined_2sigma": true
-        },
-        {
-          "difference": 8.522258242886778,
+          "difference": -1.6841637371888396,
           "parameter": "K0",
           "published": 395.0,
           "published_error": 15.0,
-          "refit": 403.5222582428868,
-          "refit_error": 2.907943757011201,
-          "relative_difference": 0.021575337323763995,
+          "refit": 393.31583626281116,
+          "refit_error": 1.2988745875118726,
+          "relative_difference": 0.0042637056637692145,
           "similar": true,
           "within_combined_2sigma": true
         },
         {
-          "difference": -0.24698900793454026,
+          "difference": 0.1673596926740606,
           "parameter": "K0_prime",
           "published": 4.5,
           "published_error": 0.5,
-          "refit": 4.25301099206546,
-          "refit_error": 0.13222470923631685,
-          "relative_difference": 0.05488644620767561,
+          "refit": 4.667359692674061,
+          "refit_error": 0.08471820950862387,
+          "relative_difference": 0.03719104281645791,
           "similar": true,
           "within_combined_2sigma": true
         }
@@ -47258,10 +47248,10 @@
       "primary_source": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.012101/fulltext",
       "published_rmse_gpa": 0.1943870599645804,
       "record_identifier": "osmium_takemura_2004_bm3_1",
-      "reduced_chi_square": 2.5433104086575606,
-      "rmse_gpa": 0.1409971442658777,
+      "reduced_chi_square": 3.024720588443738,
+      "rmse_gpa": 0.17040108218378014,
       "selection": "all rows",
-      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_notes": null,
       "status": "parity"

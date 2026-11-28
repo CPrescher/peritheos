@@ -21,7 +21,7 @@
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {
-        "V0": {"value": 27.9766135265, "error": 0.0188},
+        "V0": {"value": 27.9766135265, "error": 0.0188, "fixed": true},
         "K0": {"value": 395.0, "error": 15.0},
         "K0_prime": {"value": 4.5, "error": 0.5}
       },

@@ -88,7 +88,7 @@ Automatic selection for equilibrium calculations.
 - **Reported temperature coverage (K):** \[473.15, 673.15\]
 - **Validity:**
     - **Pressure gpa:** \[3.81, 21.01\]
-    - **Temperature k:** \[473.15, 673.15\]
+    - **Temperature k:** \[300.0, 300.0\]
     - **Volume ratio:** \[0.9102564102564102, 0.9808446455505279\]
 
 300 K BM2 reference curve from a pooled fit to 49 hot observations reduced to 300 K with the paper's goethite alpha0, a step the paper does not write out; K0' = 4 assumed, V0 from a separate G-versus-g extrapolation. Not a temperature-dependent EOS: hot states must not be evaluated as 300 K observations. Phase: InOOH-type with off-center hydrogen, P21mn setting in the source (P21nm here).
