@@ -303,7 +303,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/sid
 
 </details>
 
-Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept. The abstract prints a0 = 3.57(9)e-5, the digits of K0'; the Table 1 value is stored because it fits the Table 2 rows better. Only the accepted manuscript and the publisher's abstract were seen.
+Published P-V-T fit (Table 1) of natural high-spin R-3c Fe0.95Mn0.05CO3 on the printed Au pressure scale, with alpha0 as the absolute-temperature intercept.
 
 <details markdown="1">
 <summary>Source review</summary>

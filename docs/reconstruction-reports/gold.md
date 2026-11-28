@@ -45,7 +45,7 @@ stays in EOSMAT and the ledger.
 | [Fratanduono et al. (2021), ramp-derived 298 K Vinet](#record-gold_fratanduono_2021_vinet_7) | **reproduced** |  |
 | [Dewaele (2019), Au MAO-scale Vinet](#record-gold_dewaele_2019_mao_vinet) | **reproduced** |  |
 | [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | **reproduced** |  |
-| [Dewaele et al. (2004), Au mao ruby Vinet](#record-gold_dewaele_2004_mao_ruby_vinet) | **reproduced** |  |
+| [Dewaele et al. (2004), Mao-ruby Vinet](#record-gold_dewaele_2004_mao_ruby_vinet) | **reproduced** |  |
 | [Dorfman et al. (2012), Au K0-fixed Vinet](#record-gold_dorfman_2012_tange_mgo_k0_fixed_vinet) | **disagrees** |  |
 | [Dorfman et al. (2012), Au K0-free Vinet](#record-gold_dorfman_2012_tange_mgo_k0_free_vinet) | **disagrees** |  |
 | [Ye et al. (2017), Au Vinet 300 K co-compression fit](#record-gold_ye_2017_vinet_300k) | **reproduced** |  |
@@ -651,7 +651,7 @@ Both fits use the same 86 recovered audit input rows. **Volume coordinate:** aud
 
 <a id="record-gold_dewaele_2004_mao_ruby_vinet"></a>
 
-## Dewaele et al. (2004), Au mao ruby Vinet
+## Dewaele et al. (2004), Mao-ruby Vinet
 
 **reproduced** · `gold_dewaele_2004_mao_ruby_vinet` · `Vinet` · [Coefficients and source](../material-summaries/gold.md#record-gold_dewaele_2004_mao_ruby_vinet)
 

@@ -2315,6 +2315,21 @@ def _material_to_eosmat(
     material: Material, *, format_version: int | None = None
 ) -> dict[str, Any]:
     document = _plain_data(material.eosmat_metadata)
+    sources = {
+        r.__dict__["_audit_source"]._material
+        for r in material.eos_records
+        if r.__dict__.get("_audit_source") is not None
+    }
+    if len(sources) == 1:
+        # Records of one bundled material loaded without its sidecar: the
+        # complete document also carries that sidecar's material-level block.
+        # The sidecar is the one the records came from; the material may have
+        # been renamed since.
+        from peritheos._eosmat_audit import MATERIAL_AUDIT_KEY, load_bundled_audit
+
+        block = load_bundled_audit(sources.pop()).get(MATERIAL_AUDIT_KEY)
+        if block is not None and MATERIAL_AUDIT_KEY not in document:
+            document[MATERIAL_AUDIT_KEY] = copy.deepcopy(block)
     native_version = (
         document.get("format_version", 5) if format_version is None else format_version
     )

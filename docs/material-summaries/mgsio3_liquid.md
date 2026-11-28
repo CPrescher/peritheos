@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 2 |
 
-A non-crystalline material card. The format's cell-volume unit is used as a one-formula-unit volume basis.
+Non-crystalline: the cell-volume unit is used as the volume of one MgSiO3 formula unit.
 
 ## Automatic selections
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
     - **Molar mass g mol:** 100.387
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS; not an ambient liquid isotherm, a direct P-rho fit or a complete thermal Hugoniot. V0 is computed from the source's rho0. The source's Grüneisen, heat-capacity and transition-energy terms are not included.
+The source's zero-pressure reference isentrope for its candidate high-pressure melt EOS, not a direct P-rho fit or a complete thermal Hugoniot. K0 and K0' are isentropic (K0S, K0S'); it is typed isothermal only because the format has no isentropic type, and is not a 298.15 K liquid isotherm. V0 is from the source's rho0; its Grüneisen, heat-capacity and transition-energy terms are not included.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -87,7 +87,7 @@ Automatic selection for equilibrium calculations.
     - **Pressure gpa:** \[-10.12671283, 224.53920714\]
     - **Temperature k:** \[0, 0\]
     - **Volume ratio:** \[0.65, 1.05\]
-    - **Notes:** The bounds come from the source's energy grid, about 65-105% of V0, which reaches just above 200 GPa.
+    - **Notes:** Pressure bounds are this BM3 at 65% and 105% of V0, the approximate source energy-grid limits; the paper puts the high-pressure end just above 200 GPa.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4

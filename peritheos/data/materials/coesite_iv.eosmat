@@ -41,7 +41,7 @@
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "refit",
-      "notes": "Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. V0 is fitted to the three calculated Table 10 states, whose pressures are printed as whole GPa and so are not exact, with K0 and K0' adopted from Supplementary Table 11. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding or systematic error budget.",
+      "notes": "Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. V0 is fitted to the three calculated Table 10 states, whose pressures are printed as whole GPa and so are not exact, with K0 and K0' adopted from Supplementary Table 11.",
       "fit_datasets": ["coesite_iv_bykova_2018_table10_calc_pv"],
       "reference": {
         "authors": [
@@ -162,7 +162,7 @@
   "space_group_number": 2,
   "atom_sites": [],
   "peaks": [],
-  "notes": "Metastable high-pressure silica polymorph containing tetra-, penta-, and hexa-coordinated Si. The conditional Peritheos static AM05 refit and the published room-temperature joint coesite-IV/V empirical curve are separate records. The joint curve uses an explicit 32.7 GPa pressure reference, is not a pure-phase EOS and is not an automatic default; see each record's qualifications.",
+  "notes": "Metastable high-pressure silica polymorph containing tetra-, penta- and hexa-coordinated Si.",
   "datasets": [
     {
       "identifier": "coesite_iv_bykova_2018_table10_calc_pv",

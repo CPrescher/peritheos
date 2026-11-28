@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-The zinc-blende cell is calculated from the fixed experimental V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.
+The zinc-blende cell is calculated from the fixed experimental V0.
 
 ## Automatic selections
 

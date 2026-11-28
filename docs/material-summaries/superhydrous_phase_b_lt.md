@@ -33,25 +33,25 @@ Nominal Mg10Si3O14(OH)4, 35 atoms/formula unit and Z=2. Litasov et al. (2007) in
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Litasov et al. (2007), bm3 a89](#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Litasov et al. (2007), bm3 t03](#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
-| [Litasov et al. (2007), htbm a89](#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89) | BM3 + AlphaKT | 300.0 | reproduced |  | primary source validated | Executable |
-| [Litasov et al. (2007), htbm t03](#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03) | BM3 + AlphaKT | 300.0 | reproduced |  | primary source validated | Executable |
-| [Litasov et al. (2007), thermal pressure a89](#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89) | BM3 + LogVolumeThermalPressure | 300.0 | reproduced |  | primary source validated | Executable |
-| [Litasov et al. (2007), mgd free debye a89](#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
-| [Litasov et al. (2007), mgd elastic debye a89](#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Litasov et al. (2007), 300 K BM3, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Litasov et al. (2007), 300 K BM3, Tsuchiya Au scale](#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03) | BM3 | 300.0 | reproduced |  | primary source validated | Executable |
+| [Litasov et al. (2007), high-T BM3, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89) | BM3 + AlphaKT | 300.0 | reproduced |  | primary source validated | Executable |
+| [Litasov et al. (2007), high-T BM3, Tsuchiya Au scale](#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03) | BM3 + AlphaKT | 300.0 | reproduced |  | primary source validated | Executable |
+| [Litasov et al. (2007), thermal pressure, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89) | BM3 + LogVolumeThermalPressure | 300.0 | reproduced |  | primary source validated | Executable |
+| [Litasov et al. (2007), MGD free theta0, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
+| [Litasov et al. (2007), MGD fixed theta0, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89) | BM3 + MieGruneisenDebye | 300.0 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Litasov et al. (2007), bm3 a89](#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89) | 623.38 ± 0.39 | 138.7 ± 3 | 4.9 ± 0.3 |
-| [Litasov et al. (2007), bm3 t03](#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03) | 623.34 ± 0.04 | 134.7 ± 1.8 | 6 ± 0.3 |
-| [Litasov et al. (2007), htbm a89](#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89) | 623.47 ± 0.37 | 135.8 ± 2.6 | 5.3 ± 0.2 |
-| [Litasov et al. (2007), htbm t03](#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03) | 623.34 ± 0.04 | 132.7 ± 1.5 | 6.2 ± 0.2 |
-| [Litasov et al. (2007), thermal pressure a89](#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89) | 623.5 ± 0.36 | 135.3 ± 2.3 | 5.3 ± 0.2 |
-| [Litasov et al. (2007), mgd free debye a89](#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89) | 623.53 ± 0.35 | 135.5 ± 2.3 | 5.3 ± 0.2 |
-| [Litasov et al. (2007), mgd elastic debye a89](#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89) | 623.53 ± 0.35 | 135.5 ± 2.3 | 5.3 ± 0.2 |
+| [Litasov et al. (2007), 300 K BM3, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89) | 623.38 ± 0.39 | 138.7 ± 3 | 4.9 ± 0.3 |
+| [Litasov et al. (2007), 300 K BM3, Tsuchiya Au scale](#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03) | 623.34 ± 0.04 | 134.7 ± 1.8 | 6 ± 0.3 |
+| [Litasov et al. (2007), high-T BM3, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89) | 623.47 ± 0.37 | 135.8 ± 2.6 | 5.3 ± 0.2 |
+| [Litasov et al. (2007), high-T BM3, Tsuchiya Au scale](#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03) | 623.34 ± 0.04 | 132.7 ± 1.5 | 6.2 ± 0.2 |
+| [Litasov et al. (2007), thermal pressure, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89) | 623.5 ± 0.36 | 135.3 ± 2.3 | 5.3 ± 0.2 |
+| [Litasov et al. (2007), MGD free theta0, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89) | 623.53 ± 0.35 | 135.5 ± 2.3 | 5.3 ± 0.2 |
+| [Litasov et al. (2007), MGD fixed theta0, Anderson Au scale](#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89) | 623.53 ± 0.35 | 135.5 ± 2.3 | 5.3 ± 0.2 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -63,7 +63,7 @@ extrapolation.
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_bm3_a89"></a>
 
-## Litasov et al. (2007), bm3 a89
+## Litasov et al. (2007), 300 K BM3, Anderson Au scale
 
 `superhydrous_phase_b_lt_litasov_2007_bm3_a89` · Executable
 
@@ -147,7 +147,7 @@ Published experimental fit to nominally pure Mg superhydrous phase B. Fitted to 
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_bm3_t03"></a>
 
-## Litasov et al. (2007), bm3 t03
+## Litasov et al. (2007), 300 K BM3, Tsuchiya Au scale
 
 `superhydrous_phase_b_lt_litasov_2007_bm3_t03` · Executable
 
@@ -230,7 +230,7 @@ Published experimental fit to nominally pure Mg superhydrous phase B. Fitted to 
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_htbm_a89"></a>
 
-## Litasov et al. (2007), htbm a89
+## Litasov et al. (2007), high-T BM3, Anderson Au scale
 
 `superhydrous_phase_b_lt_litasov_2007_htbm_a89` · Executable
 
@@ -329,7 +329,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_htbm_t03"></a>
 
-## Litasov et al. (2007), htbm t03
+## Litasov et al. (2007), high-T BM3, Tsuchiya Au scale
 
 `superhydrous_phase_b_lt_litasov_2007_htbm_t03` · Executable
 
@@ -425,7 +425,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89"></a>
 
-## Litasov et al. (2007), thermal pressure a89
+## Litasov et al. (2007), thermal pressure, Anderson Au scale
 
 `superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89` · Executable
 
@@ -516,7 +516,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89"></a>
 
-## Litasov et al. (2007), mgd free debye a89
+## Litasov et al. (2007), MGD free theta0, Anderson Au scale
 
 `superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89` · Executable
 
@@ -614,7 +614,7 @@ Published experimental P-V-T fit to nominally pure Mg superhydrous phase B. Thre
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89"></a>
 
-## Litasov et al. (2007), mgd elastic debye a89
+## Litasov et al. (2007), MGD fixed theta0, Anderson Au scale
 
 `superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89` · Executable
 

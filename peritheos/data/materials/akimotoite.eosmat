@@ -83,7 +83,7 @@
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
       "record_kind": "published",
-      "notes": "Quasiharmonic LDA 300 K isotherm, not an experimental fit; do not substitute it for the experimental equilibrium default. Published volume per formula unit; stored per conventional cell (×6).",
+      "notes": "Quasiharmonic LDA 300 K isotherm, not an experimental fit. Published volume per formula unit; stored per conventional cell (×6).",
       "reference": {
         "authors": ["Karki", "Wentzcovitch"],
         "year": 2002,
@@ -305,7 +305,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-06",
-        "source_note": "Coefficients from Table 1 (V0 = 26.35 cm³/mol, stored per Z = 6 cell). Equation (2) is a generalized Rydberg form with k = 5, i.e. Rydberg-Stacey with K_infinity_prime = 5/3, not the Birch-Murnaghan form listed in the discovery compilation.",
+        "source_note": "Coefficients from Table 1 (V0 = 26.35 cm³/mol, stored per Z = 6 cell). Equation (2) is a generalized Rydberg form with k = 5, i.e. Rydberg-Stacey with K_infinity_prime = 5/3.",
         "audit": "../audits/akimotoite.audit.json#akimotoite_dorogokupets_2015_298k_rydberg_stacey"
       },
       "model": "RydbergStacey",
@@ -320,7 +320,8 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 130.0],
-        "temperature_k": [298.15, 298.15]
+        "temperature_k": [298.15, 298.15],
+        "notes": ["The 130 GPa bound is the study's Mg2SiO4-system calculation envelope, not the range of the akimotoite data."]
       },
       "experimental_pressure_range_gpa": [0.0, 130.0],
       "experimental_temperature_range_k": [298.15, 298.15],

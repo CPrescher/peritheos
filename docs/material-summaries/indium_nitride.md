@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 0 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/InN\_hex.jcpds. Structure coordinates: Paszkowicz et al., Powder Diffraction 18, 114-121 (2003), doi:10.1154/1.1566957.
+Structure coordinates: Paszkowicz et al., Powder Diffraction 18, 114-121 (2003), doi:10.1154/1.1566957.
 
 ## Automatic selections
 

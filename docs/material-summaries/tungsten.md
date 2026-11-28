@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 7 |
 | Observation datasets | 4 |
 
-Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is the default, with Cu-referenced Shen and Smith and Sokolova et al. fits as alternatives. The legacy Hixson-Fritz BM3 record was removed because the cited shock paper publishes Hugoniot-derived tabular isotherms, not the migrated standalone BM3 reduction.
+Body-centered cubic tungsten, used as a pressure calibrant.
 
 ## Automatic selections
 
@@ -97,7 +97,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Molar mass g mol:** 183.84
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 2 parameterization. The authors fix most ambient V0 and K0 values from cited primary measurements and K∞' at 5/3, and fit K0' to their internally consistent compression network.
+Table 2 parameterization. The source fixes V0 and K0 (for most of its nine materials, at values from cited primary measurements) and K∞' at 5/3, and fits K0' to its internally consistent compression network.
 
 <details markdown="1">
 <summary>Source review</summary>

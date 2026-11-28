@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "tungsten",
+  "superseded_material_text": {
+    "notes": "Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is the default, with Cu-referenced Shen and Smith and Sokolova et al. fits as alternatives. The legacy Hixson-Fritz BM3 record was removed because the cited shock paper publishes Hugoniot-derived tabular isotherms, not the migrated standalone BM3 reduction.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "tungsten_sakai_2025_rydberg_stacey_1": {
       "network_reconstruction_audit": {

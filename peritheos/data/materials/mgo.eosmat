@@ -17,7 +17,7 @@
         "warning": null,
         "source_check": "verified",
         "source_checked_on": "2026-09-03",
-        "source_note": "Stored parameters match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).",
+        "source_note": "Coefficients from Table 2; the P-V curve computed from them reproduces every corresponding value of the official 26-row Table S9 compression grid (derived output, not measurements).",
         "audit": "../audits/mgo.audit.json#mgo_sakai_2025_rydberg_stacey_1"
       },
       "model": "RydbergStacey",
@@ -32,7 +32,7 @@
       "experimental_pressure_range_gpa": [0, 314],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 are fixed (the source takes most ambient V0 and K0 values from cited primary measurements), K0' is fitted to the internally consistent compression network, and K∞' is fixed at 5/3. Parameter covariance and the confidence convention for printed errors are not reported.",
+      "notes": "Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 are fixed by the source, K0' is fitted to the internally consistent compression network, and K∞' is fixed at 5/3. Parameter covariance and the confidence convention for printed errors are not reported.",
       "fit_datasets": ["mgo_sakai_2025_table_s7_measured_pairs"],
       "reference": {
         "authors": [
@@ -511,7 +511,7 @@
       "experimental_pressure_range_gpa": [0.0, 53.0],
       "experimental_temperature_range_k": [300.0, 2474.0],
       "determination_method": "experimental",
-      "notes": "The authors' preferred P-V-T EOS (Table 5): 300 K BM3 reference isotherm + quasi-harmonic Mie-Grüneisen-Debye thermal pressure. The paper gives three K0' errors (0.06, 0.2 and 0.3); the stored 0.2 is the pressure-propagated value.",
+      "notes": "The authors' preferred P-V-T EOS (Table 5): 300 K BM3 reference isotherm + quasi-harmonic Mie-Grüneisen-Debye thermal pressure. The paper gives three K0' errors (0.06, 0.2 and 0.3); the stored 0.2 is the pressure-propagated value. K0' is fitted to the room-temperature data and then held fixed, with V0, K0, theta0 and gamma0, while q is fitted to the thermal pressure.",
       "fit_datasets": ["mgo_dewaele_2000_table2_pvt"],
       "reference": {
         "authors": ["Dewaele", "Fiquet", "Andrault", "Hausermann"],

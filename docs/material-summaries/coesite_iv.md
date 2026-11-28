@@ -24,7 +24,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 3 |
 
-Metastable high-pressure silica polymorph containing tetra-, penta-, and hexa-coordinated Si. The conditional Peritheos static AM05 refit and the published room-temperature joint coesite-IV/V empirical curve are separate records. The joint curve uses an explicit 32.7 GPa pressure reference, is not a pure-phase EOS and is not an automatic default; see each record's qualifications.
+Metastable high-pressure silica polymorph containing tetra-, penta- and hexa-coordinated Si.
 
 ## Automatic selections
 
@@ -96,7 +96,7 @@ Automatic selection for equilibrium calculations.
     - **Molar mass g mol:** 60.083
 - **Errors from the Peritheos refit:** confidence level not stated; used as 1 sigma
 
-Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. V0 is fitted to the three calculated Table 10 states, whose pressures are printed as whole GPa and so are not exact, with K0 and K0' adopted from Supplementary Table 11. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding or systematic error budget.
+Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. V0 is fitted to the three calculated Table 10 states, whose pressures are printed as whole GPa and so are not exact, with K0 and K0' adopted from Supplementary Table 11.
 
 <details markdown="1">
 <summary>Source review</summary>

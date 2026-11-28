@@ -155,6 +155,7 @@ Record overview keys, in order:
 | `check` | `reproduction`, `compared`, `why`, `warning`, `warning_reason`, `source_check`, `source_checked_on`, `source_note` as stored, plus `display`: a short `compared` phrase and a one-sentence `explanation` of the headline from fixed tables consistent with [EOS labels](eos-labels.md) |
 | `parameters` | In model order: `component` (`model` or `thermal_model`), `name`, `display_name` (`K0'`), stored `value` and `error` (parameter units), `fixed` (`None` for records built in Python), `unit` (see below) |
 | `error_confidence`, `covariance_parameters` | Stated error confidence, else `None`; the covariance parameter order, else `None` |
+| `correlation` | Correlation coefficients computed from the stored covariance, as rows in `covariance_parameters` order, else `None` |
 | `ranges` | `validity` and `experimental` (with its `status`) as stored, and `effective`: what `check_validity=True` enforces (`source` names which stored range that is; open bounds are `None`), plus a Hugoniot's always-enforced `particle_velocity_km_s` branch domain |
 | `pressure_scale` | With `include_audit=True`: the audit's `pressure_calibration` `status` and `methods` (`kind`, `material`, `reference_eos_record`, `reference_calibration_record`, `citation`, `scope`); otherwise `None` |
 | `notes`, `thermal_notes`, `validity_notes` | Stored text, unmodified |

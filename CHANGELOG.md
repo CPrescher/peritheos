@@ -102,6 +102,18 @@ All notable changes to Peritheos are documented here. The project follows
   parameter-scope cohort took them from an older snapshot, so
   `scripts/validate_primary_eos_refits.py --check` reported record text that
   the text tools had already replaced.
+- Correct record text after a complete read of the catalog by independent
+  reviewers: 113 records get corrected notes, validity or thermal notes, 55
+  labels spell out an internal code (the Sakai et al. pressure scales, the
+  Litasov et al. gold scales) and eight source notes are reworded. Each new
+  text was drafted from a confirmed finding, checked against the record and
+  its audit sidecar by a second reviewer and applied with the text tools;
+  originals stay in the sidecars. No coefficient, range or classification
+  changes.
+- Rewrite 77 short material notes that held import paths, card-import
+  history or curation remarks; five become empty. Originals stay in the
+  sidecars. Longer material notes, whose shortening would drop caveats, are
+  unchanged.
 - `scripts/apply_check_text.py` also sets a bundled record's coded
   `usage_recommendation` (the source of `check.warning`), keeping replaced
   free text as `recommendation_reason` and binding the originals so every
@@ -118,6 +130,12 @@ All notable changes to Peritheos are documented here. The project follows
   audit and carry it in v3/v4 exports. Add the
   [record text standard](docs/record-text-standard.md) and the repository
   tools `scripts/apply_record_text.py` and `scripts/check_record_text.py`.
+- Add the material-level audit block `superseded_material_text`: the verbatim
+  original of a replaced material `notes`, with `superseded_on`, stored at the
+  top level of the sidecar and bound in the audit-split receipt.
+  `scripts/apply_record_text.py` rewrites material notes with the input key
+  `"(material)"`. Python validates the block and carries it in the complete
+  document and v3/v4 exports; the Rust reader ignores it.
 - Shorten bundled record labels and the notes of the reviewed palladium, MgO
   and (Mg0.9Fe0.1)O sample under that standard; every replaced original is
   kept in the sidecars. Coefficients, ranges and classifications are
@@ -207,6 +225,14 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- A record's `summary()` and `python -m peritheos show` print the parameter
+  correlation matrix of a stored covariance, and `overview()` returns it as
+  `correlation` (a new key of the version 1 overview schema; a consumer
+  validating against an older copy of that schema must update it).
+- `summary()`, `show` and `overview()` print a unit for every coefficient in
+  the bundled catalog, including the 10^-6 K^-1 scaling some thermal models
+  apply. The unit pages no longer say that every thermal model uses molar
+  volume, and state the double-Debye `Vp`/`Ve` units as stored.
 - Expose the 194 author-processed pyrope fit rows and twelve grossular source/
   digitized tables through `Material.get_dataset()` and matching optional-data
   builds. Preserve source tokens, unknown errors, specimen/selection labels and

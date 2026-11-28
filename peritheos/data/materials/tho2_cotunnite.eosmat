@@ -39,7 +39,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Fit to high-temperature data only: there are no reliable room-temperature volumes, so the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Phase coexistence and kinetic inhibition occur. For thorianite, the fixed V0 keeps its measurement error.",
+      "notes": "Fit to high-temperature data only: there are no reliable room-temperature volumes, so the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Phase coexistence and kinetic inhibition occur.",
       "fit_datasets": ["tho2_cotunnite_chidester_2018_table_s2"],
       "reference": {
         "authors": ["Chidester", "Pardo", "Fischer", "Thompson", "Heinz", "Prescher", "Prakapenka", "Campbell"],
@@ -62,7 +62,7 @@
     {"element": "O", "wyckoff": "4c", "x": 0.12, "y": 0.75, "z": 0.27, "occupancy": 1.0}
   ],
   "peaks": [],
-  "notes": "End-member ThO2 (Strem 99.99%); conventional cell contains Th4O8. Distinct phase, not a multiphase aggregate. Structure and EOS provenance are separate.",
+  "notes": "End-member ThO2 (Strem, 99.99%); the conventional cell contains Th4O8. Distinct phase, not a multiphase aggregate. The structure and the EOS have separate provenance.",
   "datasets": [
     {
       "identifier": "tho2_cotunnite_chidester_2018_table_s2",

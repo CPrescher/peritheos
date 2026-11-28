@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 21 |
 | Observation datasets | 17 |
 
-Platinum (JCPDS 4-0802, EOS from Holmes)
+Face-centered cubic platinum (JCPDS card 4-0802).
 
 ## Automatic selections
 
@@ -127,7 +127,7 @@ Automatic selection for equilibrium calculations.
     - **Molar mass g mol:** 195.084
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Table 2 parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0' to its internally consistent compression network, and fixes K\_infinity' = 5/3.
+Table 2 parameterization. The source fixes V0 and K0 (for most of its nine materials, at values from cited primary measurements), fits K0' to its internally consistent compression network, and fixes K\_infinity' = 5/3.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -798,7 +798,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Temperature k:** \[298.0, 298.0\]
 - **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
-Static 298 K synchrotron X-ray compression fit to all Table I observations for this metal, with V0 fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical (Mao ruby) and revised ruby-scale records are alternative pressure reductions of the same diffraction observations, not independent experiments.
+Static 298 K synchrotron X-ray compression fit to all Table I observations for this metal, with V0 fixed from the authors' 0-5 GPa determination. The classical (Mao ruby) and revised ruby-scale records are alternative pressure reductions of the same diffraction observations, not independent experiments.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1389,7 +1389,6 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[0.0, 28.24\]
     - **Temperature k:** \[300.0, 1873.0\]
-    - **Notes:** Au also constrained by upstream shock data not deposited here.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 4
@@ -1714,7 +1713,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
 
 </details>
 
-Matsui Vinet + integrated-q Debye thermal pressure plus the volume-independent electronic pressure of Tsuchiya-Kawamura (2002) Table I, from which P\_el(300 K) = 0.04 GPa is subtracted once. Linear interpolation between the 100 K electronic-pressure nodes is an implementation choice, not specified by the authors. The 2003 erratum corrects Au only.
+Matsui Vinet + integrated-q Debye thermal pressure plus the volume-independent electronic pressure of Tsuchiya-Kawamura (2002) Table I, from which P\_el(300 K) = 0.04 GPa is subtracted once. Linear interpolation between the 100 K electronic-pressure nodes is an implementation choice, not specified by the authors. The 2003 erratum to Tsuchiya-Kawamura (2002) corrects only the Au values.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1817,7 +1816,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Molar mass g mol:** 195.084
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Exact 300 K reference isotherm (Table 1) of the Fei thermal EOS only, not the full thermal model. The same rounded coefficients appear in Dewaele (2004) with a 298 K reference, but this record uses Fei's 300 K convention. V0 and K0 are held fixed in the reconstruction from the Dewaele cold subset.
+Exact 300 K reference isotherm (Table 1) of the Fei thermal EOS only, not the full thermal model. The same rounded coefficients appear in Dewaele (2004) with a 298 K reference, but this record uses Fei's 300 K convention.
 
 <details markdown="1">
 <summary>Source review</summary>

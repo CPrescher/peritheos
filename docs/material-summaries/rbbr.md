@@ -103,7 +103,7 @@ Automatic selection for equilibrium calculations.
 
 </details>
 
-The authors' preferred case 1, a combined-data fit with CsCl-based pressures. V0 is a hypothetical DAC-extrapolated zero-pressure B2 volume, not stable ambient material. V0 and its error are converted from the molar V0 used in the EoSFit7 program; the printed cell-volume error disagrees with it after conversion.
+The authors' preferred case 1, a combined-data fit with CsCl-based pressures. V0 is a hypothetical DAC-extrapolated zero-pressure B2 volume, not stable ambient material. V0 and its error are converted from the molar V0 used in the EoSFit7 program.
 
 <details markdown="1">
 <summary>Source review</summary>

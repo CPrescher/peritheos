@@ -1,12 +1,15 @@
 """Repository maintenance: apply a reviewed rewrite of bundled record text.
 
 Free text in bundled records (``label``, ``notes``, ``validity.notes`` and
-``thermal.notes``) follows ``docs/record-text-standard.md``. This tool writes a
-reviewed rewrite into ``peritheos/data/materials/<id>.eosmat`` and keeps the
-complete original of every replaced field verbatim in the record's
-``superseded_record_text`` block of ``peritheos/data/audits/<id>.audit.json``,
-so no wording is lost. A later rewrite of the same field keeps the first
-original. Nothing else in either file changes; both are written through the
+``thermal.notes``) and a material's top-level ``notes`` follow
+``docs/record-text-standard.md``. This tool writes a reviewed rewrite into
+``peritheos/data/materials/<id>.eosmat`` and keeps the complete original of
+every replaced field verbatim in ``peritheos/data/audits/<id>.audit.json``: in
+the record's ``superseded_record_text`` block, or for material notes in the
+sidecar's top-level ``superseded_material_text`` block, so no wording is lost.
+A later rewrite of the same field keeps the first original; rewriting a field
+back to its stored original removes that original. Nothing else in either
+file changes; both are written through the
 repository formatter, and the audit-split receipt binds the revised files
 (``scripts/split_eosmat_audits.py --verify`` still recovers every pre-split
 file byte for byte). The registered refit ledger
@@ -21,6 +24,12 @@ Input files (JSON), any number::
                    "thermal_notes": str|null},
         "after": {same keys},
         ...other keys are ignored}}}
+
+The reserved key ``"(material)"`` in place of a record identifier rewrites the
+material's top-level notes (no other field)::
+
+    {"<material>": {"(material)": {"before": {"notes": str|null},
+                                   "after": {"notes": str|null}}}}
 
 ``null`` (or an empty list) in ``after`` removes the field; a ``validity``
 object left empty is removed. Labels come only from ``--labels`` (CSV columns
@@ -41,12 +50,19 @@ of these guards fails:
     integers of two or more digits; sign, mantissa and exponent read as one
     number) that does not equal, sign included, a number in the record's
     current text fields or its structured fields (a rewrite rounds nothing);
+    for material notes: a number in the record file (material fields and its
+    records) or the current or stored original notes;
 ``notes_length``
     notes over 400 characters or 3 sentences;
 ``validity_length``
     a validity note over 160 characters, or more than 2 notes;
 ``thermal_length``
     thermal notes over 250 characters;
+``no_records`` (material notes only, not overridable)
+    the material has no EOS records, so a file loader could not find the
+    sidecar that would hold the original;
+``material_notes_length``
+    material notes over 300 characters;
 ``label_length``
     a label over 80 characters;
 ``label_unique``
@@ -55,8 +71,9 @@ of these guards fails:
     a repository path (``docs/``, ``.json``, ``scripts/``) or the words
     ``LitCurate`` or ``Audit 20`` in an after text.
 
-``--allow RECORD:GUARD`` overrides one guard for one named record; every
-override is listed in the output. A refused record is left unchanged; the
+``--allow RECORD:GUARD`` overrides one guard for one named record
+(``MATERIAL/(material):GUARD`` for material notes); every override is listed
+in the output. A refused record is left unchanged; the
 others are applied and the exit status is 1. Every file, the receipt binding
 and the ledger are computed and verified before anything is written, so an
 error leaves the tree untouched.
@@ -71,8 +88,9 @@ Usage::
 block, that restoring the stored originals gives the record's text at the
 revision (for a record added later by ``scripts/apply_catalog_revision.py``:
 the text it was added with), that no other record's text differs from that
-revision, and that
-the ledger's copies equal the catalog. This is not an installed-package tool.
+revision, the same for every material's notes and its
+``superseded_material_text`` block (bound in the audit-split receipt), and
+that the ledger's copies equal the catalog. This is not an installed-package tool.
 """
 
 from __future__ import annotations
@@ -97,8 +115,10 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from peritheos._eosmat_audit import (  # noqa: E402
+    MATERIAL_AUDIT_KEY,
     SUPERSEDED_TEXT_FIELDS,
     merge_audit,
+    validate_superseded_material_text,
     validate_superseded_record_text,
 )
 from peritheos._eosmat_format import format_audit, format_eosmat  # noqa: E402
@@ -109,6 +129,7 @@ from scripts.split_eosmat_audits import (  # noqa: E402
     record_text,
     record_text_receipt,
     restore_record_text,
+    set_material_notes,
     set_record_text,
 )
 
@@ -124,12 +145,17 @@ VALIDITY_NOTE_MAX_CHARACTERS = 160
 VALIDITY_MAX_NOTES = 2
 THERMAL_NOTES_MAX_CHARACTERS = 250
 LABEL_MAX_CHARACTERS = 80
+#: Material notes limit of docs/record-text-standard.md (section 2).
+MATERIAL_NOTES_MAX_CHARACTERS = 300
+#: Reserved input key, in place of a record identifier, for material notes.
+MATERIAL_KEY = "(material)"
 FORBIDDEN_TEXT = ("docs/", ".json", "scripts/", "LitCurate", "Audit 20")
 GUARDS = (
     "numbers",
     "notes_length",
     "validity_length",
     "thermal_length",
+    "material_notes_length",
     "label_length",
     "label_unique",
     "forbidden_text",
@@ -348,6 +374,12 @@ def read_batches(paths: Iterable[Path], plan: Plan) -> dict[str, dict[str, dict]
                     raise ValueError(f"{path}: {material}/{record} needs before/after")
                 if not isinstance(entry.get("after"), dict):
                     raise ValueError(f"{path}: {material}/{record} needs before/after")
+                if record == MATERIAL_KEY and (
+                    set(entry["before"]) | set(entry["after"])
+                ) - {"notes"}:
+                    raise ValueError(
+                        f"{path}: {material}/{MATERIAL_KEY} rewrites notes only"
+                    )
                 if "label" in entry["after"] or "label" in entry["before"]:
                     plan.notices.append(
                         f"{material}/{record}: label in {path.name} ignored; labels "
@@ -472,6 +504,87 @@ def _guards(
     return failed
 
 
+def material_numbers(
+    document: Mapping[str, Any], stored: Mapping[str, Any] | None = None
+) -> set[float]:
+    """Numbers in a record file (material fields, records) and stored notes."""
+    fields = {k: v for k, v in document.items() if k != MATERIAL_AUDIT_KEY}
+    return set(_values(fields)) | set(_values((stored or {}).get("notes")))
+
+
+def _material_guards(
+    document: Mapping[str, Any], notes: Any, stored: Mapping[str, Any] | None
+) -> list[tuple[str, str]]:
+    """Failed guards (name, detail) for new material notes."""
+    if _absent(notes):
+        return []
+    failed: list[tuple[str, str]] = []
+    allowed = material_numbers(document, stored)
+    unknown = sorted({t for t in text_numbers(notes) if not known_number(t, allowed)})
+    if unknown:
+        failed.append(("numbers", f"not in the material: {', '.join(unknown)}"))
+    if len(notes) > MATERIAL_NOTES_MAX_CHARACTERS:
+        failed.append(("material_notes_length", f"{len(notes)} characters"))
+    found = sorted(word for word in FORBIDDEN_TEXT if word in notes)
+    if found:
+        failed.append(("forbidden_text", ", ".join(repr(word) for word in found)))
+    return failed
+
+
+def _plan_material(
+    material: str,
+    document: dict,
+    sidecar: dict,
+    entry: Mapping[str, dict],
+    binding: Mapping[str, Any] | None,
+    overrides: set[str],
+    plan: Plan,
+) -> dict[str, Any] | None:
+    """The checked material-notes change, or ``None`` (refused or no change)."""
+    if "notes" not in entry["after"]:
+        return None
+    current = document.get("notes")
+    reasons = []
+    if not document.get("eos_records"):
+        # ``load_eosmat`` finds a sidecar through its records' ``check.audit``;
+        # without records the stored original would not be merged on load.
+        reasons.append(
+            ("no_records", "a material without EOS records cannot keep an original")
+        )
+    if "notes" not in entry["before"]:
+        reasons.append(("before_missing", "no before value for notes"))
+    elif _normal(entry["before"]["notes"]) != _normal(current):
+        reasons.append(("before_mismatch", "notes differ from the file"))
+    new = _normal(entry["after"]["notes"])
+    if reasons or new == _normal(current):
+        for reason, detail in reasons:
+            plan.refusals.append(Refusal(material, MATERIAL_KEY, reason, detail))
+        return None
+    stored = sidecar.get(MATERIAL_AUDIT_KEY)
+    if (
+        stored is not None
+        and binding is not None
+        and not binding.get(MATERIAL_AUDIT_KEY)
+    ):
+        plan.refusals.append(
+            Refusal(
+                material,
+                MATERIAL_KEY,
+                "predates_split",
+                "the stored original is not bound in the audit-split receipt",
+            )
+        )
+        return None
+    refused = False
+    for guard, detail in _material_guards(document, new, stored):
+        if f"{material}/{MATERIAL_KEY}:{guard}" in overrides:
+            plan.allowed.append(f"{material}/{MATERIAL_KEY}:{guard} ({detail})")
+            continue
+        plan.refusals.append(Refusal(material, MATERIAL_KEY, guard, detail, True))
+        refused = True
+    return None if refused else {"notes": new}
+
+
 def plan_changes(
     batches: Mapping[str, Mapping[str, dict]],
     labels: Mapping[str, Mapping[str, tuple[str, str]]],
@@ -509,7 +622,21 @@ def plan_changes(
         order = [r["identifier"] for r in document["eos_records"]]
         bound = set(bindings.get(material, {}).get("superseded_record_text", []))
         proposals: dict[str, dict[str, Any]] = {}
+        if MATERIAL_KEY in requested:
+            change = _plan_material(
+                material,
+                document,
+                sidecar,
+                batches[material][MATERIAL_KEY],
+                bindings.get(material),
+                overrides,
+                plan,
+            )
+            if change is not None:
+                proposals[MATERIAL_KEY] = change
         for identifier in sorted(requested):
+            if identifier == MATERIAL_KEY:
+                continue
             record = records.get(identifier)
             if record is None:
                 plan.refusals.append(
@@ -626,7 +753,9 @@ def plan_changes(
             if "label" in change and list(final.values()).count(change["label"]) > 1:
                 plan.allowed.append(f"{material}/{identifier}:label_unique")
         if proposals:
-            plan.changes[material] = {i: proposals[i] for i in order if i in proposals}
+            plan.changes[material] = {
+                i: proposals[i] for i in (MATERIAL_KEY, *order) if i in proposals
+            }
     return plan
 
 
@@ -658,6 +787,29 @@ def revise_record(record: dict, entry: dict, new: Mapping[str, Any], date: str) 
         entry["superseded_record_text"] = ordered
 
 
+def revise_material(document: dict, sidecar: dict, notes: Any, date: str) -> None:
+    """Write new material ``notes``; keep the replaced original in ``sidecar``.
+
+    The same rules as :func:`revise_record`: a stored original is never
+    overwritten, and notes rewritten back to it drop the block.
+    """
+    block = dict(sidecar.get(MATERIAL_AUDIT_KEY, {}))
+    added = False
+    if "notes" not in block:
+        block["notes"] = document.get("notes")
+        added = True
+    elif _normal(block["notes"]) == _normal(notes):
+        del block["notes"]
+    set_material_notes(document, notes)
+    if added or "superseded_on" not in block:
+        block["superseded_on"] = date
+    sidecar.pop(MATERIAL_AUDIT_KEY, None)
+    if "notes" in block:
+        ordered = {"notes": block["notes"], "superseded_on": block["superseded_on"]}
+        validate_superseded_material_text(ordered, str(document.get("identifier")))
+        sidecar[MATERIAL_AUDIT_KEY] = ordered
+
+
 def apply_plan(plan: Plan, date: str, root: Path = ROOT) -> None:
     """Write the planned changes, bind them in the receipt and verify.
 
@@ -666,6 +818,7 @@ def apply_plan(plan: Plan, date: str, root: Path = ROOT) -> None:
     whole plan is valid, so a failure leaves the tree untouched.
     """
     revised: dict[str, list[int]] = {}
+    material_text: dict[str, bool] = {}
     copies: dict[str, dict[str, Any]] = {}
     files: dict[str, tuple[bytes, bytes]] = {}
     receipt = _receipt(root)
@@ -674,6 +827,9 @@ def apply_plan(plan: Plan, date: str, root: Path = ROOT) -> None:
         document, sidecar = _read(root, material)
         order = [r["identifier"] for r in document["eos_records"]]
         entries = sidecar["records"]
+        if MATERIAL_KEY in changes:
+            revise_material(document, sidecar, changes[MATERIAL_KEY]["notes"], date)
+            material_text[material] = MATERIAL_AUDIT_KEY in sidecar
         for record in document["eos_records"]:
             identifier = record["identifier"]
             if identifier not in changes:
@@ -691,6 +847,8 @@ def apply_plan(plan: Plan, date: str, root: Path = ROOT) -> None:
         files[material] = (record_bytes.encode("utf-8"), audit_bytes.encode("utf-8"))
         bound = set(bindings.get(material, {}).get("superseded_record_text", []))
         for identifier in changes:
+            if identifier == MATERIAL_KEY:
+                continue
             index = order.index(identifier)
             if "superseded_record_text" in sidecar["records"].get(identifier, {}):
                 bound.add(index)
@@ -704,7 +862,11 @@ def apply_plan(plan: Plan, date: str, root: Path = ROOT) -> None:
                     "source_notes": record.get("notes"),
                 }
     # Raises before anything is written if a pre-split file would be lost.
-    new_receipt = record_text_receipt(receipt, revised, files) if bindings else None
+    new_receipt = (
+        record_text_receipt(receipt, revised, files, material_text)
+        if bindings
+        else None
+    )
     ledger = ledger_files(copies, root)
     for material, (record_bytes, audit_bytes) in files.items():
         (root / f"peritheos/data/materials/{material}.eosmat").write_bytes(record_bytes)
@@ -767,10 +929,12 @@ def verify(
 ) -> tuple[int, list[str]]:
     """Restore stored originals and compare the text with ``revision``.
 
-    Returns the number of records with a ``superseded_record_text`` block and
-    the failures. A record present at the revision without a block must have
-    unchanged text. ``read`` returns a repository file at the revision
-    (default: ``git show``).
+    Returns the number of records with a ``superseded_record_text`` block plus
+    materials with a ``superseded_material_text`` block, and the failures. A
+    record or material present at the revision without a block must have
+    unchanged text; a material's block must be bound in the audit-split
+    receipt. ``read`` returns a repository file at the revision (default:
+    ``git show``).
     """
     if read is None:
 
@@ -781,6 +945,7 @@ def verify(
 
     failures: list[str] = check_bindings(root)
     checked = 0
+    bindings = _receipt(root).get("materials", {})
     ledger_path = root / LEDGER
     ledger = (
         {
@@ -802,6 +967,20 @@ def verify(
             if old_bytes is None
             else {r["identifier"]: r for r in json.loads(old_bytes)["eos_records"]}
         )
+        material_block = sidecar.get(MATERIAL_AUDIT_KEY)
+        notes = current.get("notes")
+        if material_block is not None:
+            checked += 1
+            validate_superseded_material_text(material_block, material)
+            notes = material_block["notes"]
+            if material in bindings and not bindings[material].get(MATERIAL_AUDIT_KEY):
+                failures.append(f"{material}: {MATERIAL_AUDIT_KEY} is not bound")
+        if old_bytes is None:
+            if material_block is not None:
+                failures.append(f"{material}: not in {revision}")
+        elif notes != json.loads(old_bytes).get("notes"):
+            what = "restored" if material_block is not None else "unrecorded change of"
+            failures.append(f"{material}: {what} material notes differ from {revision}")
         for record in current["eos_records"]:
             identifier = record["identifier"]
             block = sidecar["records"].get(identifier, {}).get("superseded_record_text")
@@ -881,7 +1060,8 @@ def main(argv: list[str] | None = None) -> int:
         for failure in failures:
             print(f"FAILED {failure}")
         print(
-            f"Verified {checked} records with superseded_record_text against "
+            f"Verified {checked} records and materials with stored originals "
+            f"(superseded_record_text, superseded_material_text) against "
             f"{arguments.revision}: {'ok' if not failures else f'{len(failures)} failures'}."
         )
         return 1 if failures else 0
@@ -904,6 +1084,7 @@ def main(argv: list[str] | None = None) -> int:
             (ROOT / f"peritheos/data/materials/{material}.eosmat").read_bytes()
         )
         records = {r["identifier"]: r for r in document["eos_records"]}
+        records[MATERIAL_KEY] = document
         for identifier, new in changes.items():
             lines.append(_describe(material, identifier, new, records[identifier]))
     if not arguments.check:
@@ -915,8 +1096,10 @@ def main(argv: list[str] | None = None) -> int:
     for refusal in plan.refusals:
         print(refusal.line())
     fields = sum(len(c) for m in plan.changes.values() for c in m.values())
+    notes = sum(MATERIAL_KEY in m for m in plan.changes.values())
     print(
-        f"{verb} {sum(len(m) for m in plan.changes.values())} records ({fields} fields) "
+        f"{verb} {sum(len(m) for m in plan.changes.values()) - notes} records and "
+        f"{notes} material notes ({fields} fields) "
         f"in {len(plan.changes)} materials; {len(plan.refusals)} refusals; "
         f"{len(plan.allowed)} overrides."
         + (f" Label CSV flags: {counts}." if counts else "")

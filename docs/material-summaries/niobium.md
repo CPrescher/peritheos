@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 1 |
 
-Body-centered-cubic niobium. The reference cell is calculated from the published atomic V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.
+Body-centered-cubic niobium. The reference cell is calculated from the published atomic V0.
 
 ## Automatic selections
 

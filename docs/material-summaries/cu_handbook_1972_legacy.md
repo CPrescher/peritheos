@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Phase-unresolved historical Cu isotherm retained because its 25 tabulated points and independent Peritheos refit are bundled. Sun et al. (2010) supplies only the Vinet equation and fixed-V0 fitting convention; no Sun source-author benchmark parameterization is retained.
+No Sun et al. (2010) parameterization is included; that paper supplies the Vinet equation and fixed-V0 fitting convention.
 
 ## Automatic selections
 
@@ -33,13 +33,13 @@ Phase-unresolved historical Cu isotherm retained because its 25 tabulated points
 
 | Record | Model | Reference temperature (K) | Reproduction | Warning | Source status | Availability |
 | --- | --- | --- | --- | --- | --- | --- |
-| [AIP Handbook Cu low-pressure Vinet m=8 refit](#record-cu_sun_2010_low_vn_refit) | Vinet | 298.15 | reproduced |  | primary source validated | Executable |
+| [Peritheos refit of Kennedy and Keeler (1972), Vinet](#record-cu_sun_2010_low_vn_refit) | Vinet | 298.15 | reproduced |  | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [AIP Handbook Cu low-pressure Vinet m=8 refit](#record-cu_sun_2010_low_vn_refit) | 11.81473546294192 (fixed) | 139.23431084 | 5.00112704 |
+| [Peritheos refit of Kennedy and Keeler (1972), Vinet](#record-cu_sun_2010_low_vn_refit) | 11.81473546294192 (fixed) | 139.23431084 | 5.00112704 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -51,7 +51,7 @@ extrapolation.
 
 <a id="record-cu_sun_2010_low_vn_refit"></a>
 
-## AIP Handbook Cu low-pressure Vinet m=8 refit
+## Peritheos refit of Kennedy and Keeler (1972), Vinet
 
 `cu_sun_2010_low_vn_refit` · Executable
 

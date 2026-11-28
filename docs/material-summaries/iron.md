@@ -45,26 +45,26 @@ iron
 | [Fei et al. (2016), preferred fixed-density 300 K BM3](#record-iron_fei_2016_bm3) | BM3 | 300 | untested |  | primary source validated | Executable |
 | [Fei et al. (2016), free-density 300 K BM3 alternative](#record-iron_fei_2016_free_density_bm3) | BM3 | 300 | untested |  | primary source validated | Executable |
 | [Fei et al. (2016), preferred BM3 + Debye and electronic/anharmonic thermal pressure](#record-iron_fei_2016_bm3_debye_quadratic) | BM3 + DebyeQuadraticThermalPressure | 300 | untested |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_bm3](#record-iron_sakai_2014_p1_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_vinet](#record-iron_sakai_2014_p1_vinet) | Vinet | 300 | reproduced |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_v0\_mao\_bm3](#record-iron_sakai_2014_p1_v0_mao_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_v0\_mao\_vinet](#record-iron_sakai_2014_p1_v0_mao_vinet) | Vinet | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_v0\_dewaele\_bm3](#record-iron_sakai_2014_p1_v0_dewaele_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p1\_v0\_dewaele\_vinet](#record-iron_sakai_2014_p1_v0_dewaele_vinet) | Vinet | 300 | disagrees |  | primary source validated | Executable |
-| [Sakai et al. (2014), p2\_bm3](#record-iron_sakai_2014_p2_bm3) | BM3 | 300 | untested |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p2\_vinet](#record-iron_sakai_2014_p2_vinet) | Vinet | 300 | untested |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p3\_bm3](#record-iron_sakai_2014_p3_bm3) | BM3 | 300 | untested |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p3\_vinet](#record-iron_sakai_2014_p3_vinet) | Vinet | 300 | untested |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p4\_bm3](#record-iron_sakai_2014_p4_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p4\_vinet](#record-iron_sakai_2014_p4_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p5\_bm3](#record-iron_sakai_2014_p5_bm3) | BM3 | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p5\_vinet](#record-iron_sakai_2014_p5_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p6\_bm3](#record-iron_sakai_2014_p6_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
-| [Sakai et al. (2014), p6\_vinet](#record-iron_sakai_2014_p6_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), BM3, Matsui Pt scale](#record-iron_sakai_2014_p1_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale](#record-iron_sakai_2014_p1_vinet) | Vinet | 300 | reproduced |  | primary source validated | Executable |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0](#record-iron_sakai_2014_p1_v0_mao_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0](#record-iron_sakai_2014_p1_v0_mao_vinet) | Vinet | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0](#record-iron_sakai_2014_p1_v0_dewaele_bm3) | BM3 | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0](#record-iron_sakai_2014_p1_v0_dewaele_vinet) | Vinet | 300 | disagrees |  | primary source validated | Executable |
+| [Sakai et al. (2014), BM3, Fei Pt scale](#record-iron_sakai_2014_p2_bm3) | BM3 | 300 | untested |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), Vinet, Fei Pt scale](#record-iron_sakai_2014_p2_vinet) | Vinet | 300 | untested |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale](#record-iron_sakai_2014_p3_bm3) | BM3 | 300 | untested |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale](#record-iron_sakai_2014_p3_vinet) | Vinet | 300 | untested |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), BM3, Tange MgO scale](#record-iron_sakai_2014_p4_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), Vinet, Tange MgO scale](#record-iron_sakai_2014_p4_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), BM3, Yokoo Pt scale](#record-iron_sakai_2014_p5_bm3) | BM3 | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), Vinet, Yokoo Pt scale](#record-iron_sakai_2014_p5_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), BM3, Holmes Pt scale](#record-iron_sakai_2014_p6_bm3) | BM3 | 300 | disagrees |  | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), Vinet, Holmes Pt scale](#record-iron_sakai_2014_p6_vinet) | Vinet | 300 | reproduced |  | primary source validated | Pressure-scale reference variant |
 | [Yamazaki et al. (2012), BM3 + thermal](#record-iron_yamazaki_2012_bm3_thermal) | BM3 + Dewaele2006 | 300 | disagrees |  | primary source validated | Executable |
 | [Yamazaki et al. (2012), Vinet + thermal](#record-iron_yamazaki_2012_vinet_thermal) | Vinet + Dewaele2006 | 300 | disagrees |  | primary source validated | Executable |
 | [Dubrovinsky et al. (2000), BM3 + thermal](#record-iron_dubrovinsky_2000_bm3_thermal) | BM3 + AlphaKT | 300 | untested |  | primary source validated | Executable |
-| [Dewaele et al. (2006), bm3](#record-iron_dewaele_2006_bm3) | BM3 | 300 | reproduced |  | primary source validated | Executable |
+| [Dewaele et al. (2006), BM3](#record-iron_dewaele_2006_bm3) | BM3 | 300 | reproduced |  | primary source validated | Executable |
 | [Brown et al. (2000), nominal-iron steel linear Hugoniot, solid subset](#record-iron_brown_2000_linear_hugoniot) | LinearUsUpHugoniot | 300 | reproduced |  | primary source validated | Executable |
 | [Miozzi et al. (2020), 300 K BM3 (not reproduced)](#record-iron_miozzi_2020_bm3) | BM3 | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
 | [Miozzi et al. (2020), 300 K Vinet (not reproduced)](#record-iron_miozzi_2020_vinet) | Vinet | 300 | disagrees | **Yes** | not reproduced | Explicit diagnostic selection; not recommended |
@@ -88,26 +88,26 @@ iron
 | [Fei et al. (2016), preferred fixed-density 300 K BM3](#record-iron_fei_2016_bm3) | 22.427668953702995 (fixed) | 172.7 ± 1.4 | 4.79 ± 0.05 |
 | [Fei et al. (2016), free-density 300 K BM3 alternative](#record-iron_fei_2016_free_density_bm3) | 22.184350662980183 ± 0.06395096420872974 | 191.44 ± 5.3 | 4.52 ± 0.08 |
 | [Fei et al. (2016), preferred BM3 + Debye and electronic/anharmonic thermal pressure](#record-iron_fei_2016_bm3_debye_quadratic) | 22.427668953702995 (fixed) | 172.7 ± 1.4 | 4.79 ± 0.05 |
-| [Sakai et al. (2014), p1\_bm3](#record-iron_sakai_2014_p1_bm3) | 22.18 ± 0.2 (fixed) | 179.6 ± 2.2 | 4.91 ± 0.12 |
-| [Sakai et al. (2014), p1\_vinet](#record-iron_sakai_2014_p1_vinet) | 22.18 ± 0.2 (fixed) | 174.7 ± 2.2 | 5.37 ± 0.12 |
-| [Sakai et al. (2014), p1\_v0\_mao\_bm3](#record-iron_sakai_2014_p1_v0_mao_bm3) | 22.35 (fixed) | 164.8 ± 2.2 | 5.18 ± 0.13 |
-| [Sakai et al. (2014), p1\_v0\_mao\_vinet](#record-iron_sakai_2014_p1_v0_mao_vinet) | 22.35 (fixed) | 160.1 ± 2.1 | 5.65 ± 0.12 |
-| [Sakai et al. (2014), p1\_v0\_dewaele\_bm3](#record-iron_sakai_2014_p1_v0_dewaele_bm3) | 22.468 (fixed) | 155.3 ± 2.2 | 5.37 ± 0.14 |
-| [Sakai et al. (2014), p1\_v0\_dewaele\_vinet](#record-iron_sakai_2014_p1_v0_dewaele_vinet) | 22.468 (fixed) | 150.8 ± 2.0 | 5.84 ± 0.12 |
-| [Sakai et al. (2014), p2\_bm3](#record-iron_sakai_2014_p2_bm3) | 22.16 ± 0.19 (fixed) | 184.2 ± 2.2 | 4.78 ± 0.12 |
-| [Sakai et al. (2014), p2\_vinet](#record-iron_sakai_2014_p2_vinet) | 22.16 ± 0.19 (fixed) | 179.2 ± 2.2 | 5.24 ± 0.12 |
-| [Sakai et al. (2014), p3\_bm3](#record-iron_sakai_2014_p3_bm3) | 22.14 ± 0.19 (fixed) | 185.0 ± 2.3 | 4.94 ± 0.12 |
-| [Sakai et al. (2014), p3\_vinet](#record-iron_sakai_2014_p3_vinet) | 22.14 ± 0.19 (fixed) | 180.0 ± 2.3 | 5.4 ± 0.13 |
-| [Sakai et al. (2014), p4\_bm3](#record-iron_sakai_2014_p4_bm3) | 22.07 ± 0.2 (fixed) | 195.1 ± 2.4 | 4.93 ± 0.12 |
-| [Sakai et al. (2014), p4\_vinet](#record-iron_sakai_2014_p4_vinet) | 22.07 ± 0.2 (fixed) | 189.9 ± 2.4 | 5.39 ± 0.13 |
-| [Sakai et al. (2014), p5\_bm3](#record-iron_sakai_2014_p5_bm3) | 22.1 ± 0.17 (fixed) | 196.0 ± 2.5 | 4.93 ± 0.13 |
-| [Sakai et al. (2014), p5\_vinet](#record-iron_sakai_2014_p5_vinet) | 22.1 ± 0.17 (fixed) | 190.8 ± 2.4 | 5.39 ± 0.13 |
-| [Sakai et al. (2014), p6\_bm3](#record-iron_sakai_2014_p6_bm3) | 22.21 ± 0.23 (fixed) | 171.7 ± 2.4 | 5.49 ± 0.15 |
-| [Sakai et al. (2014), p6\_vinet](#record-iron_sakai_2014_p6_vinet) | 22.21 ± 0.23 (fixed) | 167.2 ± 2.2 | 5.93 ± 0.13 |
+| [Sakai et al. (2014), BM3, Matsui Pt scale](#record-iron_sakai_2014_p1_bm3) | 22.18 ± 0.2 (fixed) | 179.6 ± 2.2 | 4.91 ± 0.12 |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale](#record-iron_sakai_2014_p1_vinet) | 22.18 ± 0.2 (fixed) | 174.7 ± 2.2 | 5.37 ± 0.12 |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0](#record-iron_sakai_2014_p1_v0_mao_bm3) | 22.35 (fixed) | 164.8 ± 2.2 | 5.18 ± 0.13 |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0](#record-iron_sakai_2014_p1_v0_mao_vinet) | 22.35 (fixed) | 160.1 ± 2.1 | 5.65 ± 0.12 |
+| [Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0](#record-iron_sakai_2014_p1_v0_dewaele_bm3) | 22.468 (fixed) | 155.3 ± 2.2 | 5.37 ± 0.14 |
+| [Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0](#record-iron_sakai_2014_p1_v0_dewaele_vinet) | 22.468 (fixed) | 150.8 ± 2.0 | 5.84 ± 0.12 |
+| [Sakai et al. (2014), BM3, Fei Pt scale](#record-iron_sakai_2014_p2_bm3) | 22.16 ± 0.19 (fixed) | 184.2 ± 2.2 | 4.78 ± 0.12 |
+| [Sakai et al. (2014), Vinet, Fei Pt scale](#record-iron_sakai_2014_p2_vinet) | 22.16 ± 0.19 (fixed) | 179.2 ± 2.2 | 5.24 ± 0.12 |
+| [Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale](#record-iron_sakai_2014_p3_bm3) | 22.14 ± 0.19 (fixed) | 185.0 ± 2.3 | 4.94 ± 0.12 |
+| [Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale](#record-iron_sakai_2014_p3_vinet) | 22.14 ± 0.19 (fixed) | 180.0 ± 2.3 | 5.4 ± 0.13 |
+| [Sakai et al. (2014), BM3, Tange MgO scale](#record-iron_sakai_2014_p4_bm3) | 22.07 ± 0.2 (fixed) | 195.1 ± 2.4 | 4.93 ± 0.12 |
+| [Sakai et al. (2014), Vinet, Tange MgO scale](#record-iron_sakai_2014_p4_vinet) | 22.07 ± 0.2 (fixed) | 189.9 ± 2.4 | 5.39 ± 0.13 |
+| [Sakai et al. (2014), BM3, Yokoo Pt scale](#record-iron_sakai_2014_p5_bm3) | 22.1 ± 0.17 (fixed) | 196.0 ± 2.5 | 4.93 ± 0.13 |
+| [Sakai et al. (2014), Vinet, Yokoo Pt scale](#record-iron_sakai_2014_p5_vinet) | 22.1 ± 0.17 (fixed) | 190.8 ± 2.4 | 5.39 ± 0.13 |
+| [Sakai et al. (2014), BM3, Holmes Pt scale](#record-iron_sakai_2014_p6_bm3) | 22.21 ± 0.23 (fixed) | 171.7 ± 2.4 | 5.49 ± 0.15 |
+| [Sakai et al. (2014), Vinet, Holmes Pt scale](#record-iron_sakai_2014_p6_vinet) | 22.21 ± 0.23 (fixed) | 167.2 ± 2.2 | 5.93 ± 0.13 |
 | [Yamazaki et al. (2012), BM3 + thermal](#record-iron_yamazaki_2012_bm3_thermal) | 22.15 ± 0.05 | 202 ± 7 | 4.5 ± 0.2 |
 | [Yamazaki et al. (2012), Vinet + thermal](#record-iron_yamazaki_2012_vinet_thermal) | 22.17 ± 0.06 | 196 ± 8 | 4.8 ± 0.2 |
 | [Dubrovinsky et al. (2000), BM3 + thermal](#record-iron_dubrovinsky_2000_bm3_thermal) | 22.35085584415998 ± 0.033210781343476936 | 155.55970381432394 | 5.81 ± 0.06 |
-| [Dewaele et al. (2006), bm3](#record-iron_dewaele_2006_bm3) | 22.468 ± 0.024 | 165.0 (fixed) | 4.97 ± 0.04 |
+| [Dewaele et al. (2006), BM3](#record-iron_dewaele_2006_bm3) | 22.468 ± 0.024 | 165.0 (fixed) | 4.97 ± 0.04 |
 | [Brown et al. (2000), nominal-iron steel linear Hugoniot, solid subset](#record-iron_brown_2000_linear_hugoniot) | 23.62619215447732 (fixed) | — | — |
 | [Miozzi et al. (2020), 300 K BM3 (not reproduced)](#record-iron_miozzi_2020_bm3) | 22.8 ± 0.02 | 129 ± 6 | 6.2 ± 0.2 |
 | [Miozzi et al. (2020), 300 K Vinet (not reproduced)](#record-iron_miozzi_2020_vinet) | 22.81 | 125 ± 5 | 6.5 ± 0.2 |
@@ -1315,7 +1315,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Molar mass g mol:** 55.845
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Combined fit with intercalibrated earlier literature data, excluding Mao (1990). Thermal pressure is MGD with integrated gamma(V) plus A\*(V/V0)^m\*(T^2-300^2), and Table S2 holds only the static subset of the thermal data. With independent gamma\_e = 2 and k = 1.34 this is an empirical pressure surface, not a thermodynamically consistent caloric potential, so do not infer caloric observables.
+Combined fit with intercalibrated earlier literature data, excluding Mao (1990). Thermal pressure is MGD with integrated gamma(V) plus A\*(V/V0)^m\*(T^2-300^2); Table S2 holds only the static thermal data. With independent gamma\_e = 2 (in A) and k = 1.34 (m = k - 1) this is an empirical pressure surface, not a thermodynamically consistent caloric potential; do not infer caloric observables.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1384,7 +1384,7 @@ Combined fit with intercalibrated earlier literature data, excluding Mao (1990).
 
 <a id="record-iron_sakai_2014_p1_bm3"></a>
 
-## Sakai et al. (2014), p1\_bm3
+## Sakai et al. (2014), BM3, Matsui Pt scale
 
 `iron_sakai_2014_p1_bm3` · Executable
 
@@ -1475,7 +1475,7 @@ Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p1_vinet"></a>
 
-## Sakai et al. (2014), p1\_vinet
+## Sakai et al. (2014), Vinet, Matsui Pt scale
 
 `iron_sakai_2014_p1_vinet` · Executable
 
@@ -1566,7 +1566,7 @@ Table 3 fit on pressure scale P1. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p1_v0_mao_bm3"></a>
 
-## Sakai et al. (2014), p1\_v0\_mao\_bm3
+## Sakai et al. (2014), BM3, Matsui Pt scale, Mao V0
 
 `iron_sakai_2014_p1_v0_mao_bm3` · Executable
 
@@ -1657,7 +1657,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value ins
 
 <a id="record-iron_sakai_2014_p1_v0_mao_vinet"></a>
 
-## Sakai et al. (2014), p1\_v0\_mao\_vinet
+## Sakai et al. (2014), Vinet, Matsui Pt scale, Mao V0
 
 `iron_sakai_2014_p1_v0_mao_vinet` · Executable
 
@@ -1748,7 +1748,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Mao value ins
 
 <a id="record-iron_sakai_2014_p1_v0_dewaele_bm3"></a>
 
-## Sakai et al. (2014), p1\_v0\_dewaele\_bm3
+## Sakai et al. (2014), BM3, Matsui Pt scale, Dewaele V0
 
 `iron_sakai_2014_p1_v0_dewaele_bm3` · Executable
 
@@ -1839,7 +1839,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value
 
 <a id="record-iron_sakai_2014_p1_v0_dewaele_vinet"></a>
 
-## Sakai et al. (2014), p1\_v0\_dewaele\_vinet
+## Sakai et al. (2014), Vinet, Matsui Pt scale, Dewaele V0
 
 `iron_sakai_2014_p1_v0_dewaele_vinet` · Executable
 
@@ -1930,7 +1930,7 @@ Table 3 alternative fit on pressure scale P1, with V0 fixed at the Dewaele value
 
 <a id="record-iron_sakai_2014_p2_bm3"></a>
 
-## Sakai et al. (2014), p2\_bm3
+## Sakai et al. (2014), BM3, Fei Pt scale
 
 `iron_sakai_2014_p2_bm3` · Pressure-scale reference variant
 
@@ -2024,7 +2024,7 @@ Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p2_vinet"></a>
 
-## Sakai et al. (2014), p2\_vinet
+## Sakai et al. (2014), Vinet, Fei Pt scale
 
 `iron_sakai_2014_p2_vinet` · Pressure-scale reference variant
 
@@ -2118,7 +2118,7 @@ Table 3 fit on pressure scale P2. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p3_bm3"></a>
 
-## Sakai et al. (2014), p3\_bm3
+## Sakai et al. (2014), BM3, Dorogokupets-Oganov Pt scale
 
 `iron_sakai_2014_p3_bm3` · Pressure-scale reference variant
 
@@ -2212,7 +2212,7 @@ Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p3_vinet"></a>
 
-## Sakai et al. (2014), p3\_vinet
+## Sakai et al. (2014), Vinet, Dorogokupets-Oganov Pt scale
 
 `iron_sakai_2014_p3_vinet` · Pressure-scale reference variant
 
@@ -2306,7 +2306,7 @@ Table 3 fit on pressure scale P3. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p4_bm3"></a>
 
-## Sakai et al. (2014), p4\_bm3
+## Sakai et al. (2014), BM3, Tange MgO scale
 
 `iron_sakai_2014_p4_bm3` · Pressure-scale reference variant
 
@@ -2399,7 +2399,7 @@ Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p4_vinet"></a>
 
-## Sakai et al. (2014), p4\_vinet
+## Sakai et al. (2014), Vinet, Tange MgO scale
 
 `iron_sakai_2014_p4_vinet` · Pressure-scale reference variant
 
@@ -2492,7 +2492,7 @@ Table 3 fit on pressure scale P4. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p5_bm3"></a>
 
-## Sakai et al. (2014), p5\_bm3
+## Sakai et al. (2014), BM3, Yokoo Pt scale
 
 `iron_sakai_2014_p5_bm3` · Pressure-scale reference variant
 
@@ -2586,7 +2586,7 @@ Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p5_vinet"></a>
 
-## Sakai et al. (2014), p5\_vinet
+## Sakai et al. (2014), Vinet, Yokoo Pt scale
 
 `iron_sakai_2014_p5_vinet` · Pressure-scale reference variant
 
@@ -2680,7 +2680,7 @@ Table 3 fit on pressure scale P5. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p6_bm3"></a>
 
-## Sakai et al. (2014), p6\_bm3
+## Sakai et al. (2014), BM3, Holmes Pt scale
 
 `iron_sakai_2014_p6_bm3` · Pressure-scale reference variant
 
@@ -2773,7 +2773,7 @@ Table 3 fit on pressure scale P6. V0 comes from a preliminary g-G plot and is he
 
 <a id="record-iron_sakai_2014_p6_vinet"></a>
 
-## Sakai et al. (2014), p6\_vinet
+## Sakai et al. (2014), Vinet, Holmes Pt scale
 
 `iron_sakai_2014_p6_vinet` · Pressure-scale reference variant
 
@@ -3219,7 +3219,7 @@ K0 is computed from the published compressibility coefficients as 1/(b1 + b2\*30
 
 <a id="record-iron_dewaele_2006_bm3"></a>
 
-## Dewaele et al. (2006), bm3
+## Dewaele et al. (2006), BM3
 
 `iron_dewaele_2006_bm3` · Executable
 

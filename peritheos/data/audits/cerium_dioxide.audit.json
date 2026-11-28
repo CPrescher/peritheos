@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "cerium_dioxide",
+  "superseded_material_text": {
+    "notes": "The ambient fluorite cell is the value measured in the EoS study. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "cerium_dioxide_gerward_2005_bm3_1": {
       "pressure_calibration": {

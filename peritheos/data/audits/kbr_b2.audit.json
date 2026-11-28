@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "kbr_b2",
+  "superseded_material_text": {
+    "notes": "The B2 CsCl-type reference cell is calculated from the fictive zero-pressure V0 used by the EoS. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "kbr_b2_dewaele_2012_vinet_1": {
       "pressure_calibration": {

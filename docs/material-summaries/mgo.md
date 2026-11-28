@@ -131,7 +131,7 @@ extrapolation.
 
 Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/mgo.md#record-mgo_sakai_2025_rydberg_stacey_1)
 
-**Source check:** Stored parameters match every corresponding value in the official 26-row Table S9 compression grid (derived output, not measurements).
+**Source check:** Coefficients from Table 2; the P-V curve computed from them reproduces every corresponding value of the official 26-row Table S9 compression grid (derived output, not measurements).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -159,7 +159,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Molar mass g mol:** 40.304
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 are fixed (the source takes most ambient V0 and K0 values from cited primary measurements), K0' is fitted to the internally consistent compression network, and K∞' is fixed at 5/3. Parameter covariance and the confidence convention for printed errors are not reported.
+Generalized Rydberg-Stacey pressure scale from Table 2 of the paper. V0 and K0 are fixed by the source, K0' is fitted to the internally consistent compression network, and K∞' is fixed at 5/3. Parameter covariance and the confidence convention for printed errors are not reported.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -1281,7 +1281,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-The authors' preferred P-V-T EOS (Table 5): 300 K BM3 reference isotherm + quasi-harmonic Mie-Grüneisen-Debye thermal pressure. The paper gives three K0' errors (0.06, 0.2 and 0.3); the stored 0.2 is the pressure-propagated value.
+The authors' preferred P-V-T EOS (Table 5): 300 K BM3 reference isotherm + quasi-harmonic Mie-Grüneisen-Debye thermal pressure. The paper gives three K0' errors (0.06, 0.2 and 0.3); the stored 0.2 is the pressure-propagated value. K0' is fitted to the room-temperature data and then held fixed, with V0, K0, theta0 and gamma0, while q is fitted to the thermal pressure.
 
 <details markdown="1">
 <summary>Source review</summary>

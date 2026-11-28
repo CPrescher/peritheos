@@ -23,8 +23,6 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 14 |
 | Observation datasets | 7 |
 
-CsCl-type B2 phase, cubic Pm-3m. Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/nacl-b2.jcpds, JCPDS/current user/jcpds/certified data base/nacl-b2.jcpds, JCPDS/current user/jcpds/ver3/naclb2.jcpds
-
 ## Automatic selections
 
 - **Equilibrium:** [nacl\_b2\_sakai\_2025\_rydberg\_stacey\_1](#record-nacl_b2_sakai_2025_rydberg_stacey_1)

@@ -26,7 +26,7 @@
       },
       "experimental_pressure_range_gpa": [0.0, 53.0],
       "determination_method": "experimental",
-      "notes": "Published V0 = 46.51(61) Å³; the stored V0 is the more precise product of the ambient lattice parameters.",
+      "notes": "Published V0 = 46.51(61) Å³; the stored V0 is the product of the ambient lattice parameters and keeps the published error.",
       "reference": {
         "authors": ["Andrault", "Angel", "Mosenfelder", "Le Bihan"],
         "year": 2003,
@@ -304,7 +304,7 @@
     {"element": "O", "wyckoff": "4f", "x": 0.3062, "y": 0.3062, "z": 0.0, "occupancy": 1.0}
   ],
   "peaks": [],
-  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/sio2-stv_Andr.jcpds. Ambient stishovite coordinates: Baur and Khan, Acta Crystallographica B27, 2133-2139 (1971).",
+  "notes": "Atomic coordinates of ambient stishovite from Baur and Khan, Acta Crystallographica B27, 2133-2139 (1971).",
   "datasets": [
     {
       "identifier": "stishovite_andrault_2003_tables1_2_compression",

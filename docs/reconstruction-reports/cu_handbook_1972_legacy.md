@@ -35,11 +35,11 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [AIP Handbook Cu low-pressure Vinet m=8 refit](#record-cu_sun_2010_low_vn_refit) | **reproduced** |  |
+| [Peritheos refit of Kennedy and Keeler (1972), Vinet](#record-cu_sun_2010_low_vn_refit) | **reproduced** |  |
 
 <a id="record-cu_sun_2010_low_vn_refit"></a>
 
-## AIP Handbook Cu low-pressure Vinet m=8 refit
+## Peritheos refit of Kennedy and Keeler (1972), Vinet
 
 **reproduced** · `cu_sun_2010_low_vn_refit` · `Vinet` · [Coefficients and source](../material-summaries/cu_handbook_1972_legacy.md#record-cu_sun_2010_low_vn_refit)
 

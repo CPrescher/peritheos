@@ -7,7 +7,7 @@
 | Pressure and bulk modulus | GPa |
 | Temperature | K |
 | Isothermal volume | Any internally consistent unit |
-| Thermal molar volume | J bar^-1 mol^-1 |
+| Thermal molar volume (energy-based thermal models) | J bar^-1 mol^-1 |
 | Heat capacity and entropy | J mol^-1 K^-1 |
 | Thermodynamic energy contributions | J mol^-1 |
 

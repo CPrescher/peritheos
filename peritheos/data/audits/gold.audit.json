@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "gold",
+  "superseded_material_text": {
+    "notes": "Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) is the default.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "gold_sakai_2025_rydberg_stacey_1": {
       "network_reconstruction_audit": {
@@ -1599,9 +1603,10 @@
         ]
       },
       "superseded_record_text": {
+        "label": "Dewaele et al. (2004), Au mao ruby Vinet",
         "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
         "validity_notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."],
-        "superseded_on": "2026-11-16"
+        "superseded_on": "2026-11-28"
       }
     },
     "gold_dorfman_2012_tange_mgo_k0_fixed_vinet": {

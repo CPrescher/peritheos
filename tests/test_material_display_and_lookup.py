@@ -184,7 +184,10 @@ def test_record_summary_shows_coefficients_reference_and_finding():
         for line in lines
     )
     assert any(line.split() == ["K0", "=", "160.2", "fixed", "GPa"] for line in lines)
-    assert any(line.split() == ["q1", "=", "11.8", "+/-", "0.2"] for line in lines)
+    assert any(
+        line.split() == ["q1", "=", "11.8", "+/-", "0.2", "dimensionless"]
+        for line in lines
+    )
     # A fixed coefficient's published error is not shown as a fit error.
     assert "gamma0 = 1.524 fixed (published +/- 0.025)" in text
     assert "confidence level not stated" in text
@@ -211,7 +214,7 @@ def test_record_summary_shows_coefficients_reference_and_finding():
     ]
     assert finding.startswith("Published final BM3 + variable-q Debye model")
     assert "Author reply confirms integration of the defining theta" in finding
-    assert "No documented unit for: q0, q1" in text
+    assert "No documented unit" not in text
     assert "parameter_covariance" not in text
 
 

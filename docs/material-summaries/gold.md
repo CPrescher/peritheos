@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 23 |
 | Observation datasets | 30 |
 
-Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) is the default.
+Gold pressure calibrant.
 
 ## Automatic selections
 
@@ -43,7 +43,7 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Fratanduono et al. (2021), ramp-derived 298 K Vinet](#record-gold_fratanduono_2021_vinet_7) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Au MAO-scale Vinet](#record-gold_dewaele_2019_mao_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
 | [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | Vinet | 300.0 | reproduced |  | primary source validated | Pressure-scale reference variant |
-| [Dewaele et al. (2004), Au mao ruby Vinet](#record-gold_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
+| [Dewaele et al. (2004), Mao-ruby Vinet](#record-gold_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | reproduced |  | primary source validated | Executable |
 | [Dorfman et al. (2012), Au K0-fixed Vinet](#record-gold_dorfman_2012_tange_mgo_k0_fixed_vinet) | Vinet | 300.0 | disagrees |  | primary source validated | Executable |
 | [Dorfman et al. (2012), Au K0-free Vinet](#record-gold_dorfman_2012_tange_mgo_k0_free_vinet) | Vinet | 300.0 | disagrees |  | primary source validated | Executable |
 | [Ye et al. (2017), Au Vinet 300 K co-compression fit](#record-gold_ye_2017_vinet_300k) | Vinet | 300.0 | reproduced |  | primary source validated | Executable |
@@ -71,7 +71,7 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Fratanduono et al. (2021), ramp-derived 298 K Vinet](#record-gold_fratanduono_2021_vinet_7) | 67.716 (fixed) | 170.9 ± 0.24 | 5.88 ± 0.005 |
 | [Dewaele (2019), Au MAO-scale Vinet](#record-gold_dewaele_2019_mao_vinet) | 67.932 ± 0.08 | 166.4 ± 2.0 | 5.47 ± 0.06 |
 | [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | 67.944 ± 0.08 | 163.4 ± 2.0 | 6.04 ± 0.06 |
-| [Dewaele et al. (2004), Au mao ruby Vinet](#record-gold_dewaele_2004_mao_ruby_vinet) | 67.848 (fixed) | 172.5 ± 1.4 | 5.4 ± 0.08 |
+| [Dewaele et al. (2004), Mao-ruby Vinet](#record-gold_dewaele_2004_mao_ruby_vinet) | 67.848 (fixed) | 172.5 ± 1.4 | 5.4 ± 0.08 |
 | [Dorfman et al. (2012), Au K0-fixed Vinet](#record-gold_dorfman_2012_tange_mgo_k0_fixed_vinet) | 67.85 (fixed) | 167.0 (fixed) | 5.88 ± 0.02 |
 | [Dorfman et al. (2012), Au K0-free Vinet](#record-gold_dorfman_2012_tange_mgo_k0_free_vinet) | 67.85 (fixed) | 167.0 ± 3.0 | 5.84 ± 0.02 |
 | [Ye et al. (2017), Au Vinet 300 K co-compression fit](#record-gold_ye_2017_vinet_300k) | 67.85 (fixed) | 167.0 (fixed) | 5.897 ± 0.022 |
@@ -1065,7 +1065,7 @@ Vinet fit to static diamond-anvil-cell X-ray data in helium or neon, with pressu
 
 <a id="record-gold_dewaele_2004_mao_ruby_vinet"></a>
 
-## Dewaele et al. (2004), Au mao ruby Vinet
+## Dewaele et al. (2004), Mao-ruby Vinet
 
 `gold_dewaele_2004_mao_ruby_vinet` · Executable
 
@@ -1625,7 +1625,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. beta0 is the printed value adjusted slightly so that K(300) = 167 GPa.
+The authors' preferred fit #2 (Table 2). alpha1 is held fixed in the EOS regression; its error comes from the separately fitted expansivity relation on page 153. The printed beta0 (0.005639 GPa⁻¹) is not stored: beta0 is derived so that K(300 K) = 167 GPa, and the printed value agrees with it to rounding.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -2388,7 +2388,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 
 </details>
 
-Peritheos staged refit, not a Hirose or Fei author fit. Pressures come from the author-confirmed Speziale (2001) variable-q MgO EOS; 300 K Hirose rows fix K0', then Fei and hot Hirose rows fit the thermal coefficients with equal pressure weights. Parameter errors are unset because calibrant, fixed-anchor and inter-stage uncertainties are not propagated.
+Peritheos staged refit, not a Hirose or Fei author fit. Pressures come from the author-confirmed Speziale (2001) variable-q MgO EOS; 300 K Hirose rows determine K0', which is then held fixed while Fei and hot Hirose rows fit the thermal coefficients with equal pressure weights. Parameter errors are unset because calibrant, fixed-anchor and inter-stage uncertainties are not propagated.
 
 <details markdown="1">
 <summary>Source review</summary>

@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-AA-prime stacked hexagonal boron nitride. The ambient axial ratio is scaled to the fitted 300 K V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.
+AA-prime stacked hexagonal boron nitride. The ambient axial ratio is scaled to the fitted 300 K V0.
 
 ## Automatic selections
 

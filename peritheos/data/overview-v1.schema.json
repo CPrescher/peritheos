@@ -208,6 +208,7 @@
         "parameters",
         "error_confidence",
         "covariance_parameters",
+        "correlation",
         "ranges",
         "pressure_scale",
         "notes",
@@ -362,6 +363,26 @@
               "type": "array",
               "items": {
                 "type": "string"
+              }
+            }
+          ]
+        },
+        "correlation": {
+          "description": "Correlation coefficients computed from the stored covariance, rows in covariance_parameters order; null without a covariance. An entry is null where a variance is not positive.",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
               }
             }
           ]

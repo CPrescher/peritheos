@@ -25,7 +25,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 0 |
 
-The lattice and coordinates are the source's 100 GPa GGA+U structure, not an ambient cell. Table III volumes are per FeSiO3 and are multiplied by four for the executable conventional-cell EOS basis.
+The lattice and coordinates are the source's 100 GPa GGA+U structure, not an ambient cell. Table III volumes are per FeSiO3; the EOS stores them per conventional cell (Z = 4).
 
 ## Automatic selections
 

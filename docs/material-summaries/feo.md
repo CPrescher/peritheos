@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 5 |
 | Observation datasets | 7 |
 
-B1 FeO conventional cubic structural card. Campbell (2009) and Fischer (2011) thermal EOS describe iron-saturated, approximately stoichiometric FeO at high P-T; starting-powder nonstoichiometry is not the equilibrated EOS composition. Other historical records retain their own source-specific qualifications.
+B1 FeO, conventional cubic cell. The Campbell (2009) and Fischer (2011) thermal EOS describe iron-saturated, approximately stoichiometric FeO at high P-T, not the nonstoichiometric starting powder; other records carry their own source-specific qualifications.
 
 ## Automatic selections
 

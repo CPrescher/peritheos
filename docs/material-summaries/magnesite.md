@@ -24,7 +24,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 3 |
 | Observation datasets | 3 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/mgco3.jcpds. Ambient structure coordinates: Markgraf and Reeder, American Mineralogist 70, 590-600 (1985).
+Ambient structure coordinates are from Markgraf and Reeder, American Mineralogist 70, 590-600 (1985).
 
 ## Automatic selections
 

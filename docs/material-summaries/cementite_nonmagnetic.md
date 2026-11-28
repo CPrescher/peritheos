@@ -337,7 +337,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **Notes:** Below 49.87 GPa the range rests only on the three Li (2002) points; Sata's nine new states span 49.87-186.60 GPa.; Minor Fe7C3 and Re peaks occur at the highest pressure; Fe3C peaks were refined separately.
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Published 300 K BM3 based on the nine Table 1 states and three Li (2002) states above 25 GPa, on their original MgO and ruby/neon pressure bases (exact MgO reduction unverified). Published V0 = 9.341 Å³/atom, an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell; no thermal extrapolation or magnetic-phase diagram. Scatter exceeds some tabulated coordinate errors, and Litasov's later 298 K Vinet recalibration is a different EOS.
+Published 300 K BM3 from the nine Table 1 states and three Li (2002) states above 25 GPa, on their original MgO and ruby/neon pressure bases (exact MgO reduction unverified). Published V0 = 9.341 Å³/atom, an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell; no thermal extrapolation or magnetic-phase diagram. Litasov's later 298 K Vinet recalibration is a different EOS.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -582,7 +582,7 @@ Automatic selection for hugoniot calculations.
 - **Validity:**
     - **Pressure gpa:** \[85.6, 245.0\]
     - **Temperature k:** \[300, 300\]
-    - **Notes:** Possible melting at higher pressures; density data do not resolve the phase state.; The 300 K bounds are the precursor normalization only. Shock temperatures vary and are calculated by the source, not measured.
+    - **Notes:** The 300 K bounds are the precursor normalization only. Shock temperatures vary and are calculated by the source, not measured.
 - **Loading path:** principal
 - **Branch kind:** transformed
 - **Initial state:**

@@ -9,7 +9,7 @@
   "eos_records": [
     {
       "identifier": "mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1",
-      "label": "Solomatova et al. (2016), fei hs BM3 reference branch",
+      "label": "Solomatova et al. (2016), Fei-data HS BM3 reference branch",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -30,7 +30,8 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300]
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region around the 56.6 GPa transition midpoint (20-80% width 17.2 GPa)."]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
@@ -57,7 +58,7 @@
     },
     {
       "identifier": "mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2",
-      "label": "Solomatova et al. (2016), fei ls BM3 reference branch",
+      "label": "Solomatova et al. (2016), Fei-data LS BM3 reference branch",
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
@@ -79,7 +80,8 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300]
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region around the 56.6 GPa transition midpoint (20-80% width 17.2 GPa)."]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
@@ -106,7 +108,7 @@
     },
     {
       "identifier": "mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3",
-      "label": "Solomatova et al. (2016), zhuravlev hs BM3 reference branch",
+      "label": "Solomatova et al. (2016), Zhuravlev-data HS BM3 reference branch",
       "check": {
         "reproduction": "close",
         "compared": "published_fit",
@@ -128,7 +130,8 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300]
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region around the 73.5 GPa transition midpoint (20-80% width 10.3 GPa)."]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
@@ -155,7 +158,7 @@
     },
     {
       "identifier": "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4",
-      "label": "Solomatova et al. (2016), zhuravlev ls BM3 reference branch",
+      "label": "Solomatova et al. (2016), Zhuravlev-data LS BM3 reference branch",
       "check": {
         "reproduction": "reproduced",
         "compared": "published_fit",
@@ -176,7 +179,8 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300]
+        "temperature_k": [300, 300],
+        "notes": ["Not for the mixed-spin region around the 73.5 GPa transition midpoint (20-80% width 10.3 GPa)."]
       },
       "experimental_temperature_range_k": [300, 300],
       "determination_method": "experimental",
@@ -360,7 +364,7 @@
     {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1, "site_multiplicity": 4}
   ],
   "peaks": [],
-  "notes": "Solomatova et al. (2016) records are paired MINUTI reference branches without an implemented mixer. Fei et al. (2007, GRL) records are the original separately fitted HS and LS compression EOSs; their coefficients and source ownership are distinct.",
+  "notes": "Solomatova et al. (2016) records are paired high-spin and low-spin end-member branches of coupled spin-crossover fits (MINUTI program); Peritheos does not compute the mixed-spin curve from them. Fei et al. (2007) records are the original, separately fitted high-spin and low-spin compression EOSs.",
   "datasets": [
     {
       "identifier": "mg061fe039o_fei_2007_table_s2_pv",

@@ -2094,6 +2094,30 @@ def _luo_2023_bounded_partial_outcome(
     }
 
 
+#: Bounds of the Errandonea (2006) diagnostic refit (V0 A^3, K0 GPa, K0'), as
+#: passed to ``least_squares`` in ``scripts/reproduce_argon_errandonea_2006.py``.
+ERRANDONEA_DIAGNOSTIC_BOUNDS = ((80.0, 0.01, 1.0), (300.0, 50.0, 15.0))
+
+
+def active_bound_mask(parameters, lower, upper, *, rel_tol: float = 1e-8) -> list[int]:
+    """Which bound each parameter sits at: -1 lower, 1 upper, 0 neither.
+
+    Follows SciPy's ``active_mask`` convention, but decides from the distance
+    to the bound with a relative tolerance. SciPy's own flag depends on where
+    the optimizer stops: V0 = 300 - 1.5e-9 and V0 = 300 - 6e-14 against the
+    300 A^3 bound gave different flags on different numerical builds.
+    """
+    mask = []
+    for value, low, high in zip(parameters, lower, upper, strict=True):
+        if math.isclose(value, high, rel_tol=rel_tol):
+            mask.append(1)
+        elif math.isclose(value, low, rel_tol=rel_tol):
+            mask.append(-1)
+        else:
+            mask.append(0)
+    return mask
+
+
 def _argon_batch_outcome(record: dict[str, Any]) -> dict[str, Any]:
     """Keep independent equation checks separate from incomplete source refits."""
     from scripts.reproduce_argon_errandonea_2006 import reproduce as errandonea
@@ -2123,6 +2147,11 @@ def _argon_batch_outcome(record: dict[str, Any]) -> dict[str, Any]:
     reproduce, count, datasets, reason = studies[record["identifier"]]
     is_finger = record["identifier"] == "argon_fcc_finger_1981_murnaghan2_debye"
     result = reproduce()
+    if record["identifier"] == "argon_fcc_errandonea_2006_bm3":
+        refit = result["diagnostic_equal_pressure_weight_refit"]
+        refit["active_bound_mask"] = active_bound_mask(
+            refit["parameters"], *ERRANDONEA_DIAGNOSTIC_BOUNDS
+        )
     outcome = {
         "status": "similar" if is_finger else "not_refittable",
         "reproduction_status": "parameterization_reproduced",
@@ -5828,11 +5857,12 @@ def validate_all(materials: list[str] | None = None) -> dict[str, Any]:
                         "dataset_identifiers": identifiers,
                         "reason": f"{type(error).__name__}: {error}",
                     }
-            if record["scientific_validation"].get("recommendation_reason"):
+            reason = record["scientific_validation"].get("recommendation_reason")
+            # Some ledger outcomes (Sata 2010 cementite) already end their
+            # qualification with the recommendation reason; state it once.
+            if reason and reason not in outcome.get("qualification", ""):
                 outcome["qualification"] = (
-                    outcome.get("qualification", "")
-                    + " "
-                    + record["scientific_validation"]["recommendation_reason"]
+                    outcome.get("qualification", "") + " " + reason
                 ).strip()
             from scripts.reconstruct_similar_eos_uncertainties import augment_outcome
             from scripts.review_similar_parameter_scope import (
@@ -6589,6 +6619,73 @@ CALCULATED_KEYS = frozenset(
         "coefficient_tradeoff_diagnostic",
     }
 )
+#: Maximum |difference| between two evaluations of the same equation: the
+#: native model against an independent implementation of it. The true value
+#: is zero; the stored number is roundoff of order 1e-13 to 1e-10 that depends
+#: on the numerical build, so the relative tolerance means nothing for it.
+#: Each producer was checked to compute exactly such a difference:
+#: ``native_equation_max_difference_gpa`` (reproduce_fei_2004_pressure_scales,
+#: reproduce_hirose_2008_gold, refit_hirose_fei_gold_speziale,
+#: audit_gold_speziale_reduction, audit_fei_2007_thermal_parts),
+#: ``native_max_difference_gpa`` (reproduce_kcl_variants, which itself asserts
+#: < 1e-9; reproduce_argon_errandonea_2006, reproduce_fei_2007_nacl_b2,
+#: reproduce_chidester_2018_tho2, reproduce_sakai_2025_network,
+#: brucite_mgd_comparison), ``source_equation_maximum_difference_gpa``
+#: (audit_garnet_angel_2022: native against independent quadrature) and the
+#: three ``max_abs_*`` composite identities of
+#: reproduce_diamond_thermal_composites. They are compared with an absolute
+#: tolerance of 1e-9 in their own unit (GPa or J/mol).
+SELF_CONSISTENCY_KEYS = frozenset(
+    {
+        "native_equation_max_difference_gpa",
+        "native_max_difference_gpa",
+        "source_equation_maximum_difference_gpa",
+        "max_abs_composition_pressure_error_gpa",
+        "max_abs_reference_isotherm_error_gpa",
+        "max_abs_thermal_energy_increment_error_j_per_mol",
+    }
+)
+SELF_CONSISTENCY_TOLERANCE = 1e-9
+#: Fit covariance matrices. An off-diagonal element of a weakly correlated
+#: pair is a small difference of larger terms, so its relative roundoff is
+#: amplified (Campbell 2009 fcc Fe: correlation -0.025, element changes 1.2e-5
+#: relative). Off-diagonal elements are therefore compared on the correlation
+#: scale: absolute tolerance 1e-5 * sqrt(C_ii * C_jj). Diagonal elements keep
+#: the ordinary rule.
+COVARIANCE_KEYS = frozenset(
+    {
+        "covariance",
+        "parameter_covariance",
+        "diagnostic_covariance",
+        "conditional_covariance",
+    }
+)
+#: Optimizer work counts. Two numerical builds that both report success can
+#: stop after a different number of evaluations or reweighting iterations
+#: (fesio3 Sun 2019 sensitivity fits: nfev 2002/2004; Takahashi 2019 IRLS:
+#: 5/6 iterations). They are not compared when both sides report
+#: ``solver_success``; the fitted numbers still are.
+SOLVER_WORK_KEYS = frozenset({"solver_evaluations", "effective_variance_iterations"})
+#: Jacobian condition numbers of a successful fit near 1e8 inherit the
+#: roundoff of the stopping point; compared with a 1e-3 relative tolerance
+#: when both sides report ``solver_success``.
+SOLVER_CONDITION_KEYS = frozenset({"jacobian_condition_number"})
+
+
+def _square_matrix(value) -> bool:
+    return (
+        isinstance(value, list)
+        and bool(value)
+        and all(
+            isinstance(row, list)
+            and len(row) == len(value)
+            and all(
+                isinstance(item, (int, float)) and not isinstance(item, bool)
+                for item in row
+            )
+            for row in value
+        )
+    )
 
 
 def check_ledger_values(
@@ -6600,7 +6697,11 @@ def check_ledger_values(
     (coefficient-scaled for differences), except under the source-fact keys
     of ``SOURCE_FACT_KEYS``, which must match exactly. Source strings, row
     counts and other integers, booleans, classifications and dictionary/list
-    structure must match exactly everywhere.
+    structure must match exactly everywhere. Named exceptions:
+    ``SELF_CONSISTENCY_KEYS`` (1e-9 absolute), ``COVARIANCE_KEYS``
+    (off-diagonals on the correlation scale), ``SOLVER_WORK_KEYS`` (not
+    compared after solver success) and ``SOLVER_CONDITION_KEYS`` (1e-3
+    relative after solver success).
     """
     if isinstance(current, dict):
         if not isinstance(saved, dict) or saved.keys() != current.keys():
@@ -6618,6 +6719,19 @@ def check_ledger_values(
                 )
             ):
                 continue
+            succeeded = (
+                saved.get("solver_success") is True
+                and current.get("solver_success") is True
+            )
+            if (
+                key in SOLVER_WORK_KEYS
+                and succeeded
+                and all(
+                    isinstance(count, int) and not isinstance(count, bool)
+                    for count in (saved[key], value)
+                )
+            ):
+                continue
             derived = (
                 calculated
                 or key in CALCULATED_KEYS
@@ -6626,15 +6740,54 @@ def check_ledger_values(
             )
             if key in SOURCE_FACT_KEYS:
                 derived = False
+            if (
+                key in SOLVER_CONDITION_KEYS
+                and succeeded
+                and derived
+                and all(isinstance(number, float) for number in (saved[key], value))
+            ):
+                if not math.isclose(saved[key], value, rel_tol=1e-3):
+                    raise ValueError(
+                        f"{path}.{key}: calculated value differs "
+                        f"({saved[key]!r}, {value!r})"
+                    )
+                continue
+            if (
+                key in COVARIANCE_KEYS
+                and derived
+                and _square_matrix(value)
+                and _square_matrix(saved[key])
+                and len(saved[key]) == len(value)
+            ):
+                for i, row in enumerate(value):
+                    for j, element in enumerate(row):
+                        scale = (
+                            math.sqrt(abs(value[i][i] * value[j][j])) * 1e-5
+                            if i != j
+                            else 0.0
+                        )
+                        check_ledger_values(
+                            saved[key][i][j],
+                            element,
+                            path=f"{path}.{key}[{i}][{j}]",
+                            calculated=True,
+                            absolute_tolerance=max(absolute_tolerance, scale),
+                        )
+                continue
             tolerance = absolute_tolerance
             # Subtracting nearly equal coefficients amplifies relative roundoff
             # in the difference. Compare it on the original coefficient scale.
-            if key == "difference" and isinstance(
-                current.get("published"), (int, float)
+            # ``absolute_difference`` (fitted - published) is the same quantity.
+            if (
+                key in ("difference", "absolute_difference")
+                and isinstance(current.get("published"), (int, float))
+                and not isinstance(current.get("published"), bool)
             ):
                 tolerance = max(tolerance, abs(current["published"]) * 1e-5)
             elif key == "relative_difference":
                 tolerance = max(tolerance, 1e-5)
+            elif key in SELF_CONSISTENCY_KEYS:
+                tolerance = max(tolerance, SELF_CONSISTENCY_TOLERANCE)
             check_ledger_values(
                 saved[key],
                 value,
@@ -6675,6 +6828,93 @@ def check_ledger_values(
         )
 
 
+def ledger_differences(saved: dict, current: dict) -> list[str]:
+    """Every row of ``saved`` that differs from ``current``, plus ledger fields.
+
+    Rows are matched by ``record_identifier``, not by list position, so the
+    order of the saved file has no meaning for the check. Each differing row
+    is reported once, with its first differing leaf; rows present on only one
+    side and any differing top-level field (policy, summary) are reported too.
+    """
+    differences = []
+    try:
+        check_ledger_values(
+            {key: value for key, value in saved.items() if key != "records"},
+            {key: value for key, value in current.items() if key != "records"},
+        )
+    except (ValueError, TypeError) as error:
+        differences.append(str(error))
+    rows = {}
+    for side, ledger in (("saved", saved), ("current", current)):
+        identifiers = [row["record_identifier"] for row in ledger.get("records", [])]
+        for identifier, count in Counter(identifiers).items():
+            if count > 1:
+                differences.append(f"{side} ledger lists {identifier} {count} times")
+        rows[side] = {
+            row["record_identifier"]: row for row in ledger.get("records", [])
+        }
+    for identifier in rows["saved"]:
+        if identifier not in rows["current"]:
+            differences.append(f"{identifier}: row only in the saved ledger")
+            continue
+        try:
+            check_ledger_values(
+                rows["saved"][identifier],
+                rows["current"][identifier],
+                path=f"records[{identifier}]",
+            )
+        except (ValueError, TypeError) as error:
+            differences.append(str(error))
+    for identifier in rows["current"]:
+        if identifier not in rows["saved"]:
+            differences.append(f"{identifier}: row only in the fresh computation")
+    return differences
+
+
+def order_like_saved(rows: list[dict], saved_rows: list[dict]) -> list[dict]:
+    """Fresh rows in the saved file's order; a new row follows its material.
+
+    ``validate_all`` emits catalog order, while the saved file keeps the order
+    in which rows were written (``apply_catalog_revision`` inserts a new row
+    after its material's last row). Keeping the saved order keeps a full
+    rewrite from moving rows; it still replaces every recomputed number with
+    this machine's roundoff, also where ``--check`` passes.
+    """
+    fresh = {row["record_identifier"]: row for row in rows}
+    ordered = [
+        fresh[row["record_identifier"]]
+        for row in saved_rows
+        if row["record_identifier"] in fresh
+    ]
+    placed = {row["record_identifier"] for row in ordered}
+    for row in rows:
+        if row["record_identifier"] in placed:
+            continue
+        positions = [
+            index
+            for index, item in enumerate(ordered)
+            if item["material_identifier"] == row["material_identifier"]
+        ]
+        ordered.insert(positions[-1] + 1 if positions else len(ordered), row)
+        placed.add(row["record_identifier"])
+    return ordered
+
+
+def ledger_json(ledger: dict) -> str:
+    """The saved layout: two-space indent, sorted keys, UTF-8 text unescaped.
+
+    ``apply_catalog_revision`` and the text tools rewrite the file with
+    ``ensure_ascii=False`` and keep its key order, so a file written here
+    round-trips through them unchanged.
+    """
+    return (
+        json.dumps(
+            ledger, indent=2, sort_keys=True, ensure_ascii=False, allow_nan=False
+        )
+        + "\n"
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="fail if outputs differ")
@@ -6682,27 +6922,38 @@ def main() -> int:
     parser.add_argument("--markdown", type=Path, default=DEFAULT_MARKDOWN)
     args = parser.parse_args()
     ledger = validate_all()
-    json_text = json.dumps(ledger, indent=2, sort_keys=True, allow_nan=False) + "\n"
-    markdown_text = render_markdown(ledger)
+    current_json = args.json.read_text(encoding="utf-8") if args.json.exists() else ""
     if args.check:
-        current_json = (
-            args.json.read_text(encoding="utf-8") if args.json.exists() else ""
-        )
         current_markdown = (
             args.markdown.read_text(encoding="utf-8") if args.markdown.exists() else ""
         )
         try:
             saved_ledger = json.loads(current_json)
-            check_ledger_values(saved_ledger, json.loads(json_text))
-            # Check the document against the retained numerical ledger. The
-            # fresh fit has already passed the bounded roundoff comparison;
-            # rendering its last digits would defeat that portability policy.
-            if current_markdown != render_markdown(saved_ledger):
-                raise ValueError("rendered Markdown differs")
-        except (ValueError, TypeError) as error:
-            print(f"primary EOS refit documentation is stale: {error}", file=sys.stderr)
+        except ValueError as error:
+            print(f"primary EOS refit ledger is unreadable: {error}", file=sys.stderr)
+            return 1
+        differences = ledger_differences(saved_ledger, ledger)
+        # Check the document against the retained numerical ledger. The
+        # fresh fit has already passed the bounded roundoff comparison;
+        # rendering its last digits would defeat that portability policy.
+        if current_markdown != render_markdown(saved_ledger):
+            differences.append(f"{args.markdown}: rendered Markdown differs")
+        if differences:
+            print(
+                f"primary EOS refit documentation is stale: {len(differences)} "
+                "difference(s)",
+                file=sys.stderr,
+            )
+            for difference in differences:
+                print(f"- {difference}", file=sys.stderr)
             return 1
         return 0
+    if current_json:
+        ledger["records"] = order_like_saved(
+            ledger["records"], json.loads(current_json)["records"]
+        )
+    json_text = ledger_json(ledger)
+    markdown_text = render_markdown(ledger)
     args.json.parent.mkdir(parents=True, exist_ok=True)
     args.json.write_text(json_text, encoding="utf-8")
     args.markdown.write_text(markdown_text, encoding="utf-8")

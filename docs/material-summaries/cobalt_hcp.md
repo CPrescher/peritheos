@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 6 |
 | Observation datasets | 3 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/Co-hcp.jcpds
+Hexagonal close-packed (P63/mmc) cobalt. Structure data are from a beamline JCPDS file collection.
 
 ## Automatic selections
 
@@ -406,7 +406,7 @@ Published Table IV fit, distinct from the later 2019 all-free-parameter recalibr
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cobalt_hcp.md#record-cobalt_hcp_dewaele_2008_table4_us_k0_184_vinet)
 
-**Source check:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source check:** Coefficients from Table IV, fourth column (p. 104102-5), for Equation (1), with K0 fixed at the ultrasonic value 184 GPa; the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -430,7 +430,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
-Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data, and K0 is adopted from ultrasonic data; its adopted uncertainty is not a fitted error. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.
+Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data, and K0 is adopted from ultrasonic data, not fitted. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -443,6 +443,7 @@ Published Table IV fit, distinct from the later 2019 all-free-parameter recalibr
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, fourth column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** cobalt\_hcp\_dewaele\_2008\_source\_table
@@ -483,7 +484,7 @@ Published Table IV fit, distinct from the later 2019 all-free-parameter recalibr
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/cobalt_hcp.md#record-cobalt_hcp_dewaele_2008_table4_us_k0_190_vinet)
 
-**Source check:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+**Source check:** Coefficients from Table IV, fourth column (p. 104102-5), for Equation (1), with K0 fixed at the ultrasonic value 190 GPa; the printed per-atom V0 is stored per two-atom cell (Z = 2).
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -507,7 +508,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
-Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data, and K0 is adopted from ultrasonic data; its adopted uncertainty is not a fitted error. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.
+Published Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data, and K0 is adopted from ultrasonic data, not fitted. The input pressure scale is not the paper's new 2008 ruby calibration, which is an output of its later cross-calibration.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -520,6 +521,7 @@ Published Table IV fit, distinct from the later 2019 all-free-parameter recalibr
     - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
     - **Locations:** Equation (1); Table IV, fourth column, p. 104102-5
     - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** cobalt\_hcp\_dewaele\_2008\_source\_table

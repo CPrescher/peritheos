@@ -1498,3 +1498,61 @@ fn curated_texts_trim_white_space_and_count_characters() {
     plain["eos_records"][0]["check"]["warning_reason"] = json!(longer);
     assert!(invalid_reason(&plain).contains("check.warning_reason must be at most 140"));
 }
+
+#[test]
+fn superseded_material_text_is_validated_and_merged_like_python() {
+    let block = json!({
+        "notes": "Original material note, kept verbatim.",
+        "superseded_on": "2026-11-28"
+    });
+    let (record_file, mut sidecar) = split_example();
+    sidecar["superseded_material_text"] = block.clone();
+    let merged =
+        load_eosmat_str_with_audit(&record_file.to_string(), &sidecar.to_string()).unwrap();
+    assert_eq!(merged.document["superseded_material_text"], block);
+    let complete = merge_eosmat_audit(&record_file, &sidecar).unwrap();
+    assert_eq!(complete["superseded_material_text"], block);
+    // Compatibility exports carry it, like Python's.
+    let legacy = export_eosmat_v3(&merged.document).unwrap();
+    assert_eq!(legacy["superseded_material_text"], block);
+    let mut both = record_file.clone();
+    both["superseded_material_text"] = block.clone();
+    assert!(merge_eosmat_audit(&both, &sidecar)
+        .unwrap_err()
+        .to_string()
+        .contains("both inline and in its audit sidecar"));
+    for (invalid, message) in [
+        (json!({"notes": "x"}), "superseded_on must be an ISO date"),
+        (
+            json!({"note": "x", "superseded_on": "2026-11-28"}),
+            "unknown fields",
+        ),
+        (
+            json!({"superseded_on": "2026-11-28"}),
+            "names no superseded field",
+        ),
+        (
+            json!({"notes": 3, "superseded_on": "2026-11-28"}),
+            "notes must be a string or null",
+        ),
+    ] {
+        let mut wrong = sidecar.clone();
+        wrong["superseded_material_text"] = invalid.clone();
+        assert!(
+            merge_eosmat_audit(&record_file, &wrong)
+                .unwrap_err()
+                .to_string()
+                .contains(message),
+            "{invalid}"
+        );
+        let mut inline = record_file.clone();
+        inline["superseded_material_text"] = invalid.clone();
+        assert!(
+            load_eosmat_str(&inline.to_string())
+                .unwrap_err()
+                .to_string()
+                .contains(message),
+            "{invalid}"
+        );
+    }
+}

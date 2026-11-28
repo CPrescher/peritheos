@@ -35,11 +35,11 @@ stays in EOSMAT and the ledger.
 
 | EOS record | Reproduction | Warning |
 | --- | --- | --- |
-| [(VI) Ono 2006](#record-fes_ono_2006_bm3_1) | **reproduced** |  |
+| [Ono and Kikegawa (2006), BM3](#record-fes_ono_2006_bm3_1) | **reproduced** |  |
 
 <a id="record-fes_ono_2006_bm3_1"></a>
 
-## (VI) Ono 2006
+## Ono and Kikegawa (2006), BM3
 
 **reproduced** · `fes_ono_2006_bm3_1` · `BM3` · [Coefficients and source](../material-summaries/fes.md#record-fes_ono_2006_bm3_1)
 

@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "mg065fe035o",
+  "superseded_material_text": {
+    "notes": "The EOS records are paired high-spin and low-spin reference branches from coupled MINUTI spin-crossover fits. The current executable catalog does not implement the population mixer.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "mg065fe035o_solomatova_2016_hs_bm3_reference_1": {
       "pressure_calibration": {
@@ -102,12 +106,13 @@
         }
       },
       "superseded_record_text": {
+        "label": "Solomatova et al. (2016), hs BM3 reference branch",
         "notes": null,
         "validity_notes": [
           "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 63.7 GPa; reported 20-80% crossover width 13.3 GPa."
         ],
-        "superseded_on": "2026-11-16"
+        "superseded_on": "2026-11-28"
       }
     },
     "mg065fe035o_solomatova_2016_ls_bm3_reference_2": {
@@ -221,12 +226,13 @@
         }
       },
       "superseded_record_text": {
+        "label": "Solomatova et al. (2016), ls BM3 reference branch",
         "notes": null,
         "validity_notes": [
           "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 63.7 GPa; reported 20-80% crossover width 13.3 GPa."
         ],
-        "superseded_on": "2026-11-16"
+        "superseded_on": "2026-11-28"
       }
     }
   }

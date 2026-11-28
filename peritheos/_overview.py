@@ -135,10 +135,12 @@ CHECK_EXPLANATIONS = {
     ),
 }
 
-# Units of coefficients other than volumes and pressures, only where the
-# documentation states them (docs/units.md, the equation pages and the model
-# docstrings). "1" marks a documented dimensionless coefficient. Anything not
-# listed has an unknown unit (None).
+# Units of coefficients other than volumes and pressures, as the implementation
+# uses the stored value (docs/units.md, the equation pages and the model
+# docstrings and equations). "1" marks a dimensionless coefficient. A source
+# scaling the code applies is part of the unit ("10^-6 K^-1"). Thermal
+# coefficients are never converted: molar thermal models use J bar^-1 mol^-1,
+# the others the record volume. Anything not listed has an unknown unit (None).
 _KELVIN = "K"
 _DIMENSIONLESS = "1"
 _MOLAR_VOLUME = "J bar^-1 mol^-1"
@@ -165,37 +167,123 @@ _DOUBLE_DEBYE = {
     **{name: _KELVIN for name in ("theta_a0", "theta_b0", "theta_1_0", "theta_0_0")},
     **{f"a_{mode}": f"({_MOLAR_VOLUME})^-1" for mode in ("a", "b", "1", "0")},
 }
+#: Dimensionless exponent and shape coefficients of the double-Debye
+#: temperature laws (V/Vp)^-b and of the anharmonic term (V/Ve)^kappa.
+_DOUBLE_DEBYE_EXPONENTS = {
+    name: _DIMENSIONLESS for name in ("b_a", "b_b", "b_1", "b_0", "kappa")
+}
+#: gamma = gamma0 [1 + a((V/V0)^b - 1)] (Tange et al. 2009).
+_ASYMPTOTIC_GAMMA = {
+    "theta0": _KELVIN,
+    **_ATOMS,
+    "a": _DIMENSIONLESS,
+    "b": _DIMENSIONLESS,
+}
+#: Sokolova et al. (2016) multi-oscillator model; the code divides a_0 and e_0
+#: by 10^6 (eos/thermal/multi_oscillator.py).
+_MULTI_OSCILLATOR = {
+    **_ATOMS,
+    "QE1o": _KELVIN,
+    "QE2o": _KELVIN,
+    **{name: _DIMENSIONLESS for name in ("mE1", "mE2", "delta", "t", "m", "g")},
+    "a_0": "10^-6 K^-1",
+    "e_0": "10^-6 K^-1",
+}
+#: AlphaKT: alpha0 + alpha1 T in K^-1, K0(T) = K0 + dK_dT (T - Tr) or
+#: 1/K0(T) = 1/K0 + beta1 dT + beta2 d(T^2) + beta3 d(T^3), and K0' changed by
+#: kprime_log_coefficient (T - Tr) ln(T/Tr) (eos/thermal/linear.py).
+_THERMAL_REFERENCE_STATE = {
+    "alpha0": "K^-1",
+    "alpha1": "K^-2",
+    "dK_dT": "GPa/K",
+    "beta1": "GPa^-1 K^-1",
+    "beta2": "GPa^-1 K^-2",
+    "beta3": "GPa^-1 K^-3",
+    "kprime_log_coefficient": "K^-1",
+    "dKprime_dT": "K^-1",
+}
 MODEL_PARAMETER_UNITS: Mapping[str, Mapping[str, str]] = {
     "Holzapfel": {"n": _DIMENSIONLESS, "Z": _DIMENSIONLESS},
     "OddInversePower": {name: "GPa" for name in ("C3", "C5", "C7", "C9")},
-    "DensityPolynomial3": {"rho0": "g/cm^3"},
-    "LinearUsUpHugoniot": {"rho0": "g/cm^3", "c0": "km/s"},
+    # P in GPa and rho in g/cm^3 (eos/rt/density_polynomial.py).
+    "DensityPolynomial3": {
+        "rho0": "g/cm^3",
+        "c0": "GPa",
+        "c1": "GPa cm^3/g",
+        "c2": "GPa cm^6/g^2",
+        "c3": "GPa cm^9/g^3",
+    },
+    "Vinet3": {name: _DIMENSIONLESS for name in ("eta", "beta", "psi")},
+    # Us = c0 + s up with Us and up in km/s.
+    "LinearUsUpHugoniot": {"rho0": "g/cm^3", "c0": "km/s", "s": _DIMENSIONLESS},
+    # (r_cut/r_NN)^2, an integer (eos/experimental/maltby_2024.py).
+    "Maltby2024": {"shell_cutoff_squared": _DIMENSIONLESS},
     "MieGruneisenDebye": {**_MGD, "Cvmax": "J mol^-1 K^-1"},
     "MieGruneisenEinstein": _MGD,
     "DebyeTabulatedThermalPressure": _MGD,
     "DebyeQuadraticThermalPressure": {**_MGD, "A": "GPa/K^2", "m": _DIMENSIONLESS},
-    "VariableQMieGruneisenDebye": _DEBYE,
+    "VariableQMieGruneisenDebye": {
+        **_DEBYE,
+        "q0": _DIMENSIONLESS,
+        "q1": _DIMENSIONLESS,
+    },
     "QCompromiseDebye": _DEBYE,
-    "Tange2009Debye": {"theta0": _KELVIN, **_ATOMS},
-    "AsymptoticPowerLawMieGruneisenDebye": {"theta0": _KELVIN, **_ATOMS},
+    "Tange2009Debye": _ASYMPTOTIC_GAMMA,
+    "AsymptoticPowerLawMieGruneisenDebye": _ASYMPTOTIC_GAMMA,
     "AsymptoticPowerLawMieGruneisenDebyeExcess": {
-        **_ATOMS,
-        "theta0": _KELVIN,
+        **_ASYMPTOTIC_GAMMA,
         "beta0": "J mol^-1 K^-2",
         "m": _DIMENSIONLESS,
     },
-    "AsymptoticDebyeTabulatedPressure": {"theta0": _KELVIN, **_ATOMS},
-    "DebyeAnharmonicHelmholtz": {"theta0": _KELVIN, **_ATOMS},
+    "AsymptoticDebyeTabulatedPressure": {
+        **_ASYMPTOTIC_GAMMA,
+        "cold_volume_ratio": _DIMENSIONLESS,
+    },
+    "DebyeAnharmonicHelmholtz": {
+        "theta0": _KELVIN,
+        **_ATOMS,
+        **{name: _DIMENSIONLESS for name in ("q", "b1", "b2", "b3")},
+    },
     "Dewaele2006": {
         **_ATOMS,
         "theta0": _KELVIN,
         "anharmonic_a": "K^-1",
         "electronic_e": "K^-1",
+        **{
+            name: _DIMENSIONLESS
+            for name in ("gamma_inf", "beta", "anharmonic_m", "electronic_g")
+        },
     },
-    "DoubleDebyeHelmholtz": _DOUBLE_DEBYE,
-    "DoubleDebyeLogMomentHelmholtz": _DOUBLE_DEBYE,
-    "HollandPowellThermalPressure": _ATOMS,
-    "ThermalModifiedTait": _ATOMS,
+    # The code multiplies anharmonic_a and electronic_e by 10^-6
+    # (eos/thermal/dorogokupets_oganov.py); defect_H and defect_S are H/R and
+    # S/R in exp(S/x - H/(T x^2)).
+    "DorogokupetsOganov2007": {
+        **_ATOMS,
+        **{f"theta_{mode}": _KELVIN for mode in ("B1", "B2", "E1", "E2")},
+        **{f"m_{mode}": _DIMENSIONLESS for mode in ("B1", "B2", "E1", "E2")},
+        "d_B1": _DIMENSIONLESS,
+        "d_B2": _DIMENSIONLESS,
+        **{
+            name: _DIMENSIONLESS
+            for name in ("gamma_inf", "beta", "anharmonic_m", "electronic_g")
+        },
+        "anharmonic_a": "10^-6 K^-1",
+        "electronic_e": "10^-6 K^-1",
+        "defect_H": _KELVIN,
+        "defect_S": _DIMENSIONLESS,
+    },
+    "DoubleDebyeHelmholtz": {
+        **_DOUBLE_DEBYE,
+        **_DOUBLE_DEBYE_EXPONENTS,
+        "alpha0": "K^-1",
+    },
+    "DoubleDebyeLogMomentHelmholtz": {
+        **_DOUBLE_DEBYE,
+        **_DOUBLE_DEBYE_EXPONENTS,
+        "anharmonic_a": "K^-1",
+    },
+    "HollandPowellThermalPressure": {**_ATOMS, "theta": _KELVIN, "alpha0": "K^-1"},
+    "ThermalModifiedTait": {**_ATOMS, "theta": _KELVIN, "alpha0": "K^-1"},
     "LinearThermalPressure": {"alpha_KT": "GPa/K"},
     "LogVolumeThermalPressure": {"alpha_KT_ref": "GPa/K", "dK_dT_V": "GPa/K"},
     "SecondOrderTaylorThermalPressure": {
@@ -205,9 +293,13 @@ MODEL_PARAMETER_UNITS: Mapping[str, Mapping[str, str]] = {
         "c2": "GPa/K",
         "c5": "GPa/K",
         "c4": "GPa/K^2",
+        "eta0": _DIMENSIONLESS,
     },
-    "AlphaKT": {"dKprime_dT": "K^-1"},
-    "ThermalReferenceStateEOS": {"dKprime_dT": "K^-1"},
+    "Sokolova2016": _MULTI_OSCILLATOR,
+    "MultiOscillatorGruneisen": _MULTI_OSCILLATOR,
+    "MultiOscillatorGruneisenThermalEOS": _MULTI_OSCILLATOR,
+    "AlphaKT": _THERMAL_REFERENCE_STATE,
+    "ThermalReferenceStateEOS": _THERMAL_REFERENCE_STATE,
 }
 
 
@@ -829,6 +921,7 @@ def record_overview(
             if record.parameter_covariance is None
             else [str(name) for name in record.covariance_parameters or ()]
         ),
+        "correlation": _correlation(record),
         "ranges": _ranges(record, metadata),
         "pressure_scale": _pressure_scale(record) if include_audit else None,
         "notes": [str(note) for note in record.notes],
@@ -891,6 +984,44 @@ def material_overview(
 
 
 # --- Text rendering ---------------------------------------------------------
+
+
+def _correlation(record: EOSRecord) -> list[list[float | None]] | None:
+    """Correlation coefficients of the stored covariance, in its parameter order.
+
+    An entry is ``None`` where a variance is not positive.
+    """
+    covariance = record.parameter_covariance
+    if covariance is None:
+        return None
+    sigma = [
+        math.sqrt(row[index]) if row[index] > 0 else None
+        for index, row in enumerate(covariance)
+    ]
+    return [
+        [
+            None if a is None or b is None else value / (a * b)
+            for value, b in zip(row, sigma)
+        ]
+        for row, a in zip(covariance, sigma)
+    ]
+
+
+def _correlation_text(
+    names: list[str], correlation: list[list[float | None]] | None
+) -> list[str]:
+    """The correlation matrix as an aligned table (two decimals)."""
+    if not correlation or len(names) != len(correlation):
+        return []
+    width = max(6, *(len(name) for name in names)) + 2
+    lines = ["    Parameter correlations (from the covariance):"]
+    lines.append("      " + " " * width + "".join(name.rjust(width) for name in names))
+    for name, row in zip(names, correlation):
+        cells = "".join(
+            ("n/a" if value is None else f"{value:.2f}").rjust(width) for value in row
+        )
+        lines.append("      " + name.ljust(width) + cells)
+    return lines
 
 
 def _line(text: Any) -> str:
@@ -1131,6 +1262,7 @@ def record_summary(overview: Mapping[str, Any]) -> str:
         ]
         names = [PARAMETER_DISPLAY_NAMES.get(name, name) for name in stripped]
         lines.append(f"    Covariance reported for: {', '.join(names)}.")
+        lines.extend(_correlation_text(names, overview["correlation"]))
     lines.extend(_ranges_text(overview["ranges"]))
     if overview["pressure_scale_variant_of"]:
         lines.append(

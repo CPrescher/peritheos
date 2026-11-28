@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Rocksalt CoO structure. The ambient cubic lattice parameter a0=4.258 A is from Clendenen and Drickamer (1966), Table II; the atom sites and space-group metadata are retained from the Dioptas/JCPDS interchange record.
+Rocksalt CoO structure. The ambient cubic lattice parameter a0 = 4.258 Å is from Clendenen and Drickamer (1966), Table II; the atom sites and space group are from a JCPDS file.
 
 ## Automatic selections
 

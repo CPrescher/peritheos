@@ -30,7 +30,11 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300]
+        "temperature_k": [300, 300],
+        "notes": [
+          "Not for the mixed-spin region around the 68.8 GPa transition midpoint (20-80% width 18.4 GPa).",
+          "The measured data cover 0-82.9 GPa only."
+        ]
       },
       "experimental_pressure_range_gpa": [0, 82.9],
       "experimental_temperature_range_k": [300, 300],
@@ -81,7 +85,11 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300]
+        "temperature_k": [300, 300],
+        "notes": [
+          "Not for the mixed-spin region around the 68.8 GPa transition midpoint (20-80% width 18.4 GPa).",
+          "The measured data cover 0-82.9 GPa only."
+        ]
       },
       "experimental_pressure_range_gpa": [0, 82.9],
       "experimental_temperature_range_k": [300, 300],
@@ -131,7 +139,7 @@
     {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1, "site_multiplicity": 4}
   ],
   "peaks": [],
-  "notes": "The EOS records are paired high-spin and low-spin reference branches from coupled MINUTI spin-crossover fits. The current executable catalog does not implement the population mixer.",
+  "notes": "The EOS records are paired high-spin and low-spin end-member branches of coupled spin-crossover fits (MINUTI program). Peritheos does not compute the mixed-spin curve from these branches.",
   "datasets": [
     {
       "identifier": "mg0490fe0483ti0027o_solomatova_2016_table1_pv",

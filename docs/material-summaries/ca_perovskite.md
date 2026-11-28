@@ -646,7 +646,7 @@ Automatic selection for equilibrium calculations.
 - **Reported pressure coverage (GPa):** \[0.0, 108.0\]
 - **Printed parameter errors:** 1 sigma
 
-Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite, with V0 fixed in the Table 2 fit. Errors are one standard deviation.
+Room-temperature BM3 fit for cubic CaSiO3 perovskite with K0 and K0' free and V0 fixed (the fit Table 2 calls unconstrained). Errors are one standard deviation.
 
 <details markdown="1">
 <summary>Source review</summary>

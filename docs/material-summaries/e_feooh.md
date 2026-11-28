@@ -62,7 +62,7 @@ extrapolation.
 
 Reproduction: **reproduced** · [Reconstruction report](../reconstruction-reports/e_feooh.md#record-e_feooh_gleason_2008_bm2_1)
 
-**Source check:** K0 from manuscript page 7 and Figure 3b, V0 from the page 7 G-versus-g extrapolation; observations from depository Table 2. Reducing the hot volumes to 300 K with the paper's goethite alpha0 = 2.3e-5 K^-1 is a numerically recovered step.
+**Source check:** K0 from manuscript page 7 and Figure 3b, V0 from the page 7 G-versus-g extrapolation; observations from depository Table 2. The published K0 is recovered by reducing the hot volumes to 300 K with the paper's goethite alpha0 = 2.3e-5 K^-1.
 
 Automatic selection for equilibrium calculations.
 
@@ -91,7 +91,7 @@ Automatic selection for equilibrium calculations.
     - **Temperature k:** \[473.15, 673.15\]
     - **Volume ratio:** \[0.9102564102564102, 0.9808446455505279\]
 
-300 K BM2 reference curve from a pooled fit to 49 elevated-temperature observations, with K0' = 4 assumed and V0 from a separate G-versus-g extrapolation. It is not a temperature-dependent EOS: hot states require the documented fit-time volume reduction and must not be evaluated as 300 K observations; the paper prints no correction equation. Phase: InOOH-type with off-center hydrogen, P21mn setting in the source (P21nm here).
+300 K BM2 reference curve from a pooled fit to 49 hot observations reduced to 300 K with the paper's goethite alpha0, a step the paper does not write out; K0' = 4 assumed, V0 from a separate G-versus-g extrapolation. Not a temperature-dependent EOS: hot states must not be evaluated as 300 K observations. Phase: InOOH-type with off-center hydrogen, P21mn setting in the source (P21nm here).
 
 <details markdown="1">
 <summary>Source review</summary>

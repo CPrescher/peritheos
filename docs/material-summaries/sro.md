@@ -24,8 +24,6 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/SrO.jcpds
-
 ## Automatic selections
 
 - **Equilibrium:** [sro\_liu\_1973\_bm3\_1](#record-sro_liu_1973_bm3_1)

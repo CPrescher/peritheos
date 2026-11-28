@@ -72,7 +72,8 @@ increase implied by the energy jump condition,
 \left(\frac{1}{\rho_0}-\frac{1}{\rho}\right).
 \]
 
-Use density in g/cm³, velocities in km/s, and pressure in GPa. These units make
+Use density in g/cm³, velocities in km/s, and pressure in GPa; the slope `s`
+is dimensionless. These units make
 $\rho_0U_su_p$ numerically equal to GPa. `V0` and `V` may use any mutually
 consistent volume unit. A material `HugoniotRecord` makes that consistency
 enforceable with a formula-unit volume basis: `V0`, `rho0`, the number of
@@ -87,7 +88,7 @@ hugoniot = LinearUsUpHugoniot(
     V0=60.4,  # angstrom^3/conventional cell
     rho0=21.45,  # g/cm^3
     c0=3.6,  # km/s
-    s=1.55,
+    s=1.55,  # dimensionless
     P0=0.0,  # GPa
 )
 

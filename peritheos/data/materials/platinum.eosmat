@@ -30,7 +30,7 @@
       "experimental_pressure_range_gpa": [0, 394],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Table 2 parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0' to its internally consistent compression network, and fixes K_infinity' = 5/3.",
+      "notes": "Table 2 parameterization. The source fixes V0 and K0 (for most of its nine materials, at values from cited primary measurements), fits K0' to its internally consistent compression network, and fixes K_infinity' = 5/3.",
       "fit_datasets": ["platinum_sakai_2025_table_s2_measured_pairs"],
       "reference": {
         "authors": [
@@ -371,7 +371,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Static 298 K synchrotron X-ray compression fit to all Table I observations for this metal, with V0 fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical (Mao ruby) and revised ruby-scale records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
+      "notes": "Static 298 K synchrotron X-ray compression fit to all Table I observations for this metal, with V0 fixed from the authors' 0-5 GPa determination. The classical (Mao ruby) and revised ruby-scale records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
       "reference": {
         "authors": ["Dewaele", "Loubeyre", "Mezouar"],
         "year": 2004,
@@ -647,8 +647,7 @@
       "parameter_covariance": null,
       "validity": {
         "pressure_gpa": [0.0, 28.24],
-        "temperature_k": [300.0, 1873.0],
-        "notes": ["Au also constrained by upstream shock data not deposited here."]
+        "temperature_k": [300.0, 1873.0]
       },
       "experimental_pressure_range_gpa": [3.7, 28.24],
       "experimental_temperature_range_k": [300.0, 1873.0],
@@ -920,7 +919,7 @@
       "pressure_range_status": "reference_parameterization",
       "determination_method": "hybrid",
       "record_kind": "published",
-      "notes": "Matsui Vinet + integrated-q Debye thermal pressure plus the volume-independent electronic pressure of Tsuchiya-Kawamura (2002) Table I, from which P_el(300 K) = 0.04 GPa is subtracted once. Linear interpolation between the 100 K electronic-pressure nodes is an implementation choice, not specified by the authors. The 2003 erratum corrects Au only.",
+      "notes": "Matsui Vinet + integrated-q Debye thermal pressure plus the volume-independent electronic pressure of Tsuchiya-Kawamura (2002) Table I, from which P_el(300 K) = 0.04 GPa is subtracted once. Linear interpolation between the 100 K electronic-pressure nodes is an implementation choice, not specified by the authors. The 2003 erratum to Tsuchiya-Kawamura (2002) corrects only the Au values.",
       "reference": {
         "authors": ["Matsui", "Ito", "Katsura", "Yamazaki", "Yoshino", "Yokoyama", "Funakoshi"],
         "year": 2009,
@@ -964,7 +963,7 @@
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "record_kind": "published",
-      "notes": "Exact 300 K reference isotherm (Table 1) of the Fei thermal EOS only, not the full thermal model. The same rounded coefficients appear in Dewaele (2004) with a 298 K reference, but this record uses Fei's 300 K convention. V0 and K0 are held fixed in the reconstruction from the Dewaele cold subset.",
+      "notes": "Exact 300 K reference isotherm (Table 1) of the Fei thermal EOS only, not the full thermal model. The same rounded coefficients appear in Dewaele (2004) with a 298 K reference, but this record uses Fei's 300 K convention.",
       "fit_datasets": ["platinum_dewaele_2004_table1_compression"],
       "reference": {
         "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
@@ -1335,7 +1334,7 @@
     {"element": "Pt", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
   ],
   "peaks": [],
-  "notes": "Platinum (JCPDS 4-0802, EOS from Holmes)",
+  "notes": "Face-centered cubic platinum (JCPDS card 4-0802).",
   "datasets": [
     {
       "identifier": "platinum_sakai_2025_table_s9_rs_eos_grid",

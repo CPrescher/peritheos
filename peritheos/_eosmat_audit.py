@@ -9,7 +9,8 @@ A bundled material is stored as two files:
 ``peritheos/data/audits/<id>.audit.json``
     The audit trail of every record, keyed by record identifier: ``evidence``,
     the detailed ``pressure_calibration`` and the other audit-only blocks
-    listed in :data:`AUDIT_RECORD_KEYS`.
+    listed in :data:`AUDIT_RECORD_KEYS`, and the material-level
+    ``superseded_material_text`` block (:data:`MATERIAL_AUDIT_KEY`).
 
 :func:`merge_audit` restores the complete inline v5 document. Standalone files
 may keep all of this inline; a sidecar is never required for authoring.
@@ -63,6 +64,13 @@ AUDIT_RECORD_KEYS = (
 #: ``validity_notes`` (``validity.notes``) and ``thermal_notes``
 #: (``thermal.notes``). ``null`` means the field was absent before.
 SUPERSEDED_TEXT_FIELDS = ("label", "notes", "validity_notes", "thermal_notes")
+
+#: The material-level audit block: the replaced original of the material's
+#: top-level ``notes`` (``null``: absent before) and ``superseded_on``. It sits
+#: at the top level of a sidecar (after ``material``) and of a complete
+#: inline document.
+MATERIAL_AUDIT_KEY = "superseded_material_text"
+SUPERSEDED_MATERIAL_TEXT_FIELDS = ("notes",)
 
 #: Fixed mapping from ``evidence.reproduction.assessment.status``.
 REPRODUCTION_HEADLINES = {
@@ -626,16 +634,43 @@ def validate_superseded_record_text(value: Any, location: str) -> None:
     text revision (see :data:`SUPERSEDED_TEXT_FIELDS`) and the ISO date
     ``superseded_on``. It never changes how the record is read.
     """
+    where = f"{location}.superseded_record_text"
+    _validate_superseded_block(value, where, SUPERSEDED_TEXT_FIELDS)
+    for key in ("label", "notes", "thermal_notes"):
+        if key in value and value[key] is not None and not isinstance(value[key], str):
+            raise EosmatError(f"{where}.{key} must be a string or null")
+    notes = value.get("validity_notes")
+    if notes is not None and (
+        not isinstance(notes, list) or not all(isinstance(n, str) for n in notes)
+    ):
+        raise EosmatError(f"{where}.validity_notes must be an array of strings or null")
+
+
+def validate_superseded_material_text(value: Any, location: str = "material") -> None:
+    """Validate a material's ``superseded_material_text`` audit block.
+
+    The block keeps the original top-level ``notes`` of a material replaced by
+    a text revision (``null``: absent before) and the ISO date
+    ``superseded_on``. It never changes how the material is read.
+    """
+    where = f"{location}.{MATERIAL_AUDIT_KEY}"
+    _validate_superseded_block(value, where, SUPERSEDED_MATERIAL_TEXT_FIELDS)
+    notes = value.get("notes")
+    if notes is not None and not isinstance(notes, str):
+        raise EosmatError(f"{where}.notes must be a string or null")
+
+
+def _validate_superseded_block(value: Any, where: str, fields: tuple[str, ...]) -> None:
+    """Keys and ``superseded_on`` of a ``superseded_*_text`` block."""
     import datetime
     import re
 
-    where = f"{location}.superseded_record_text"
     if not isinstance(value, Mapping):
         raise EosmatError(f"{where} must be an object")
-    unknown = set(value) - {*SUPERSEDED_TEXT_FIELDS, "superseded_on"}
+    unknown = set(value) - {*fields, "superseded_on"}
     if unknown:
         raise EosmatError(f"{where} has unknown fields {sorted(unknown)}")
-    if not any(key in value for key in SUPERSEDED_TEXT_FIELDS):
+    if not any(key in value for key in fields):
         raise EosmatError(f"{where} names no superseded field")
     date = value.get("superseded_on")
     try:
@@ -648,14 +683,6 @@ def validate_superseded_record_text(value: Any, location: str) -> None:
         valid_date = False
     if not valid_date:
         raise EosmatError(f"{where}.superseded_on must be an ISO date (YYYY-MM-DD)")
-    for key in ("label", "notes", "thermal_notes"):
-        if key in value and value[key] is not None and not isinstance(value[key], str):
-            raise EosmatError(f"{where}.{key} must be a string or null")
-    notes = value.get("validity_notes")
-    if notes is not None and (
-        not isinstance(notes, list) or not all(isinstance(n, str) for n in notes)
-    ):
-        raise EosmatError(f"{where}.validity_notes must be an array of strings or null")
 
 
 def validate_check_consistency(record: Mapping[str, Any], location: str) -> None:
@@ -828,6 +855,7 @@ def split_document(
     Each record gets a ``check`` block derived from its evidence (an existing
     block is replaced only by the identical derivation plus the audit link).
     Per-record default flags become the material ``default_records`` map.
+    A material-level ``superseded_material_text`` block moves to the sidecar.
     """
     from peritheos._eosmat_v4 import collect_default_records
 
@@ -840,8 +868,10 @@ def split_document(
         "format": AUDIT_FORMAT,
         "format_version": 5,
         "material": material,
-        "records": {},
     }
+    if MATERIAL_AUDIT_KEY in records_document:
+        sidecar[MATERIAL_AUDIT_KEY] = records_document.pop(MATERIAL_AUDIT_KEY)
+    sidecar["records"] = {}
     for record in records_document["eos_records"]:
         identifier = str(record["identifier"])
         if add_check:
@@ -893,16 +923,31 @@ def validate_sidecar(sidecar: Any, material: str) -> None:
             validate_superseded_record_text(
                 entry["superseded_record_text"], f"audit sidecar entry {identifier!r}"
             )
+    if MATERIAL_AUDIT_KEY in sidecar:
+        validate_superseded_material_text(
+            sidecar[MATERIAL_AUDIT_KEY], f"audit sidecar for {material!r}"
+        )
 
 
 def merge_audit(
     document: Mapping[str, Any], sidecar: Mapping[str, Any]
 ) -> dict[str, Any]:
-    """Return the complete inline document: record file plus sidecar entries."""
+    """Return the complete inline document: record file plus sidecar entries.
+
+    A sidecar's ``superseded_material_text`` block becomes a top-level key of
+    the document.
+    """
     material = str(document.get("identifier"))
     validate_sidecar(sidecar, material)
     entries = sidecar["records"]
     result = copy.deepcopy(dict(document))
+    if MATERIAL_AUDIT_KEY in sidecar:
+        if MATERIAL_AUDIT_KEY in result:
+            raise EosmatError(
+                f"Material {material!r} holds {MATERIAL_AUDIT_KEY} both inline and "
+                "in its audit sidecar"
+            )
+        result[MATERIAL_AUDIT_KEY] = copy.deepcopy(sidecar[MATERIAL_AUDIT_KEY])
     records = result.get("eos_records")
     if not isinstance(records, list):
         raise EosmatError("eos_records must be an array")
@@ -1004,8 +1049,10 @@ __all__ = [
     "SOURCE_CHECK_VALUES",
     "GENERIC_QUALIFICATIONS",
     "GENERIC_VALIDATION_NOTES",
+    "MATERIAL_AUDIT_KEY",
     "RECORD_NOTE_MAX_LENGTH",
     "REPRODUCTION_HEADLINES",
+    "SUPERSEDED_MATERIAL_TEXT_FIELDS",
     "SUPERSEDED_TEXT_FIELDS",
     "audit_entry",
     "check_block",
@@ -1019,6 +1066,7 @@ __all__ = [
     "split_document",
     "usage_warning",
     "validate_check_text",
+    "validate_superseded_material_text",
     "validate_superseded_record_text",
     "WARNING_REASON_MAX_LENGTH",
     "warning_reason",

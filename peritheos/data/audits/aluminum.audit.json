@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "aluminum",
+  "superseded_material_text": {
+    "notes": "The lattice parameter is calculated from the fitted 298 K atomic reference volume. PhaseSmith calculates powder reflections and intensities from the ideal fcc structure.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "aluminum_dewaele_2004_vinet_1": {
       "pressure_calibration": {
@@ -715,9 +719,10 @@
         ]
       },
       "superseded_record_text": {
+        "label": "Dewaele et al. (2004), Al mao ruby Vinet",
         "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
         "validity_notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."],
-        "superseded_on": "2026-11-16"
+        "superseded_on": "2026-11-28"
       }
     }
   }

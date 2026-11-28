@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Simple-hexagonal Si-V. Because the high-pressure phase cannot be recovered, the reference cell is constructed from the extrapolated EoS V0 and the axial ratio measured at 17.9 GPa. PhaseSmith calculates powder reflections and intensities from the ideal structure.
+Simple-hexagonal Si-V. Because the high-pressure phase cannot be recovered, the reference cell is constructed from the extrapolated EOS V0 and the axial ratio measured at 17.9 GPa.
 
 ## Automatic selections
 

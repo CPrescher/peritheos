@@ -170,7 +170,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
-Table IV fit, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed from a separate fit to the 0-5 GPa data; run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
+Table IV fit. V0 is fixed from a separate fit to the 0-5 GPa data. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -248,7 +248,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Coverage provenance:** reported\_qualitatively
 - **Printed parameter errors:** 95% half-widths (1.96 sigma)
 
-Table IV fit with V0 fixed from a separate fit to the 0-5 GPa data and K0 adopted from ultrasound; it is distinct from the later 2019 all-free-parameter recalibration. Run-2 Ag/Mo rows above 100 GPa (revised pressure) are excluded, as stated in Section III. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
+Table IV fit with V0 fixed from a separate fit to the 0-5 GPa data and K0 adopted from ultrasound. The new 2008 ruby scale is an output of the paper's later cross-calibration, not the pressure scale of this fit.
 
 <details markdown="1">
 <summary>Source review</summary>

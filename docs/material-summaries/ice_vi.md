@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Average hydrogen-disordered P42/nmc H2O structure from the 293 K Hirshfeld-atom refinement of Chodkiewicz et al., IUCrJ 9, 573-579 (2022), doi:10.1107/S2052252522006662. Fractional coordinates and the measured c/a ratio are retained; the lattice is isotropically scaled to the 300 K PVT-fit V0 so its volume is consistent with the stored EoS.
+Average hydrogen-disordered P42/nmc H2O structure from the 293 K Hirshfeld-atom refinement of Chodkiewicz et al., IUCrJ 9, 573-579 (2022), doi:10.1107/S2052252522006662, keeping its fractional coordinates and c/a ratio; the lattice is scaled isotropically to the 300 K EOS V0.
 
 ## Automatic selections
 

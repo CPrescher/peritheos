@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "boron_nitride",
+  "superseded_material_text": {
+    "notes": "The original card was imported 12.08.2026 from JCPDS/dac_user_jcpds/BN-cubic.jcpds. The reference lattice was updated to Datchi et al.'s measured a0=3.6152(2) A at 295 K; Section III independently confirms zinc-blende F-43m c-BN. The conventional zinc-blende Wyckoff sites give four BN formula units per cell.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "boron_nitride_datchi_2007_vinet_1": {
       "pressure_calibration": {

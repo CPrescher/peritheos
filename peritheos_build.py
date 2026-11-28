@@ -69,6 +69,8 @@ AUDIT_RECORD_KEYS = (
     "author_input_followup",
     "superseded_record_text",
 )
+# Mirrors peritheos._eosmat_audit.MATERIAL_AUDIT_KEY.
+MATERIAL_AUDIT_KEY = "superseded_material_text"
 _REPORT_LINKS = {
     "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/{material}/#record-{record}",
     "report_path": "docs/reconstruction-reports/{material}.md#record-{record}",
@@ -95,6 +97,8 @@ def source_document(path, root=ROOT):
                     key, template.format(material=material, record=record["identifier"])
                 )
         record.update(entry)
+    if MATERIAL_AUDIT_KEY in sidecar:
+        document[MATERIAL_AUDIT_KEY] = copy.deepcopy(sidecar[MATERIAL_AUDIT_KEY])
     return document
 
 
@@ -105,8 +109,10 @@ def split_runtime_document(document):
         "format": "peritheos.eosmat-audit",
         "format_version": 5,
         "material": records["identifier"],
-        "records": {},
     }
+    if MATERIAL_AUDIT_KEY in records:
+        sidecar[MATERIAL_AUDIT_KEY] = records.pop(MATERIAL_AUDIT_KEY)
+    sidecar["records"] = {}
     for record in records["eos_records"]:
         entry = {key: record.pop(key) for key in AUDIT_RECORD_KEYS if key in record}
         if entry:

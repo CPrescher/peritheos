@@ -200,7 +200,7 @@ Reproduction: **untested** · [Reconstruction report](../reconstruction-reports/
     - **Molar mass g mol:** 100.387
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
-Quasiharmonic LDA 300 K isotherm, not an experimental fit; do not substitute it for the experimental equilibrium default. Published volume per formula unit; stored per conventional cell (×6).
+Quasiharmonic LDA 300 K isotherm, not an experimental fit. Published volume per formula unit; stored per conventional cell (×6).
 
 <details markdown="1">
 <summary>Source review</summary>
@@ -689,7 +689,7 @@ Automatic selection for equilibrium calculations.
 
 Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports/akimotoite.md#record-akimotoite_dorogokupets_2015_298k_rydberg_stacey)
 
-**Source check:** Coefficients from Table 1 (V0 = 26.35 cm³/mol, stored per Z = 6 cell). Equation (2) is a generalized Rydberg form with k = 5, i.e. Rydberg-Stacey with K\_infinity\_prime = 5/3, not the Birch-Murnaghan form listed in the discovery compilation.
+**Source check:** Coefficients from Table 1 (V0 = 26.35 cm³/mol, stored per Z = 6 cell). Equation (2) is a generalized Rydberg form with k = 5, i.e. Rydberg-Stacey with K\_infinity\_prime = 5/3.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
@@ -716,6 +716,7 @@ Reproduction: **disagrees** · [Reconstruction report](../reconstruction-reports
 - **Validity:**
     - **Pressure gpa:** \[0.0, 130.0\]
     - **Temperature k:** \[298.15, 298.15\]
+    - **Notes:** The 130 GPa bound is the study's Mg2SiO4-system calculation envelope, not the range of the akimotoite data.
 - **Volume basis:**
     - **Kind:** formula\_units
     - **Formula units:** 6.0

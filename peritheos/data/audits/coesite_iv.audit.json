@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "coesite_iv",
+  "superseded_material_text": {
+    "notes": "Metastable high-pressure silica polymorph containing tetra-, penta-, and hexa-coordinated Si. The conditional Peritheos static AM05 refit and the published room-temperature joint coesite-IV/V empirical curve are separate records. The joint curve uses an explicit 32.7 GPa pressure reference, is not a pure-phase EOS and is not an automatic default; see each record's qualifications.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "coesite_iv_bykova_2018_am05_static_bm3_refit": {
       "pressure_calibration": {

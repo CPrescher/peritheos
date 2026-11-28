@@ -248,6 +248,9 @@ pub(super) fn expand(document: &Value) -> Result<Value, EosmatError> {
     let parameter_units = document["format_version"].as_u64() == Some(5);
     let expanded_metadata = shared_metadata::expand(document)?;
     let mut result = object(&expanded_metadata, "document")?;
+    if let Some(block) = result.get("superseded_material_text") {
+        audit::validate_superseded_material_text(block, "material")?;
+    }
     if result.contains_key("default_records") && !parameter_units {
         return Err(invalid_document(
             "default_records requires EOSMAT format_version 5",

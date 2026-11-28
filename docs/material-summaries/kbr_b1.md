@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-The B1 rocksalt cell is calculated from the published 298 K V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.
+The B1 rocksalt cell is calculated from the published 298 K V0; powder reflections and intensities are calculated from the ideal structure.
 
 ## Automatic selections
 

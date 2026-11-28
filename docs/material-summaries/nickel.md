@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 6 |
 | Observation datasets | 6 |
 
-The lattice parameter is calculated from the fitted 300 K atomic reference volume. PhaseSmith calculates powder reflections and intensities from the ideal fcc structure.
+Face-centered cubic (fcc) nickel. The lattice parameter is calculated from the fitted 300 K atomic reference volume.
 
 ## Automatic selections
 

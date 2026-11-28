@@ -22,7 +22,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/sno2\_cassit.jcpds. Cassiterite coordinates matching the ambient card cell: Baur, Acta Crystallographica 9, 515-520 (1956).
+Cassiterite. Atomic coordinates, matching the stored ambient cell, from Baur, Acta Crystallographica 9, 515-520 (1956).
 
 ## Automatic selections
 

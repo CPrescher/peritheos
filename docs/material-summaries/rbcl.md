@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 3 |
 
-High-pressure CsCl-type B2 RbCl. The phase is not quenchable to zero pressure. The lattice is therefore the hypothetical zero-pressure reference implied by Campbell and Heinz's rho02=3.3068(10) Mg/m^3, not a directly observed ambient cell.
+High-pressure CsCl-type B2 RbCl. The phase is not quenchable to zero pressure. The lattice is therefore the hypothetical zero-pressure reference implied by Campbell and Heinz's zero-pressure density, rho0 = 3.3068(10) Mg/m³, not a directly observed ambient cell.
 
 ## Automatic selections
 

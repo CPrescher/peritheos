@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/NiS\_alpha.jcpds
+The structure data are from a beamline JCPDS card.
 
 ## Automatic selections
 

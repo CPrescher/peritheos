@@ -53,8 +53,11 @@ GPa. Every model requires $V>0$, with additional domains noted below.
 
 [Compare thermal models and parameters](models/thermal.md).
 
-Thermal models use $V$ in `J bar^-1 mol^-1`, $T$ in K, energy in
-`J mol^-1`, and pressure in GPa. Their total pressure is
+Thermal models use $T$ in K, energy in `J mol^-1`, and pressure in GPa. The
+energy-based models use $V$ in `J bar^-1 mol^-1`; the temperature-dependent
+reference state and the linear, log-volume and second-order Taylor
+thermal-pressure models keep the volume unit of their reference isotherm.
+Their total pressure is
 
 \[
 P(V,T)=P_{\mathrm{ref}}(V)+\Delta P_{\mathrm{th}}(V,T),

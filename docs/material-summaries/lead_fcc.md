@@ -23,7 +23,7 @@ assessments, defined in [EOS labels](../eos-labels.md).
 | Stored EOS records | 2 |
 | Observation datasets | 1 |
 
-The fcc cell is calculated from the 300 K reference volume of the PVT EoS. PhaseSmith calculates powder reflections and intensities from the ideal structure.
+The fcc cell is calculated from the 300 K reference volume of the PVT EOS; powder reflections and intensities are calculated from the ideal structure.
 
 ## Automatic selections
 

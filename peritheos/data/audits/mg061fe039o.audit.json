@@ -2,6 +2,10 @@
   "format": "peritheos.eosmat-audit",
   "format_version": 5,
   "material": "mg061fe039o",
+  "superseded_material_text": {
+    "notes": "Solomatova et al. (2016) records are paired MINUTI reference branches without an implemented mixer. Fei et al. (2007, GRL) records are the original separately fitted HS and LS compression EOSs; their coefficients and source ownership are distinct.",
+    "superseded_on": "2026-11-28"
+  },
   "records": {
     "mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1": {
       "pressure_calibration": {
@@ -113,12 +117,13 @@
         }
       },
       "superseded_record_text": {
+        "label": "Solomatova et al. (2016), fei hs BM3 reference branch",
         "notes": null,
         "validity_notes": [
           "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
         ],
-        "superseded_on": "2026-11-16"
+        "superseded_on": "2026-11-28"
       }
     },
     "mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2": {
@@ -220,12 +225,13 @@
         }
       },
       "superseded_record_text": {
+        "label": "Solomatova et al. (2016), fei ls BM3 reference branch",
         "notes": null,
         "validity_notes": [
           "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
         ],
-        "superseded_on": "2026-11-16"
+        "superseded_on": "2026-11-28"
       }
     },
     "mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3": {
@@ -327,12 +333,13 @@
         }
       },
       "superseded_record_text": {
+        "label": "Solomatova et al. (2016), zhuravlev hs BM3 reference branch",
         "notes": null,
         "validity_notes": [
           "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
         ],
-        "superseded_on": "2026-11-16"
+        "superseded_on": "2026-11-28"
       }
     },
     "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4": {
@@ -446,12 +453,13 @@
         }
       },
       "superseded_record_text": {
+        "label": "Solomatova et al. (2016), zhuravlev ls BM3 reference branch",
         "notes": null,
         "validity_notes": [
           "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
         ],
-        "superseded_on": "2026-11-16"
+        "superseded_on": "2026-11-28"
       }
     },
     "mg061fe039o_zhuravlev_2010_high_spin_bm2_5": {
