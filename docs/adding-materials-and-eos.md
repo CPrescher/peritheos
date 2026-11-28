@@ -465,7 +465,10 @@ A parameter stored as a bare number (`"K0": 444.5`) takes an `error` or
 `fixed` flag like any other: the revision writes the object form with the same
 value (`"K0": {"value": 444.5, "fixed": true}`), and removing its last field or
 undoing the revision writes the bare number again. Its `value` stays
-untouchable.
+untouchable. A bare number already means no error and not fixed, so
+`"error": null` or `"fixed": false` on it is refused as `no_change`. An added
+or re-added field takes its usual place in the object (`value`, `error`,
+`fixed`), which keeps every removal exactly undoable.
 
 A `validity` object, when present, is the only enforced range (the
 experimental ranges are then not enforced). A revision may add a missing bound
@@ -473,13 +476,17 @@ to an existing object (`"expected_absent": true`), for example to enforce a
 stated pressure range on a record whose object holds only notes. It may also
 create the object on a record that has none: the same request must then set
 `pressure_gpa` if the record states `experimental_pressure_range_gpa` and
-`temperature_k` if it states `experimental_temperature_range_k`, each
-containing that range, so nothing silently becomes unbounded; `volume_ratio`
-is optional. This is how a record gets an enforced range slightly wider than
-its data (for example down to its reference temperature) while the
-experimental ranges keep describing the data behind the fit. A bound cannot
-be removed by a request, and an existing object cannot be removed or emptied;
-undo removes what the revision added.
+`temperature_k` if it states `experimental_temperature_range_k`;
+`volume_ratio` is optional. An added bound, in a new or an existing object,
+must contain the matching experimental range where the record states one
+(refused as `validity_narrower` otherwise), so adding a bound never silently
+leaves data outside the enforced range. This is how a record gets an enforced
+range slightly wider than its data (for example down to its reference
+temperature) while the experimental ranges keep describing the data behind
+the fit. Changing an existing bound is how a wrong bound is corrected, so it
+is not refused; the dry run says when the changed bound no longer contains the
+experimental range. A bound cannot be removed by a request, and an existing
+object cannot be removed or emptied; undo removes what the revision added.
 
 `volume_basis.molar_mass_g_mol` is a convenience value stating the amount of
 material behind each volume, not a published coefficient: it is not

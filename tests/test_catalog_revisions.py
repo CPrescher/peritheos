@@ -757,6 +757,245 @@ def test_molar_mass_is_settable_only_where_a_record_carries_it(pristine):
         tool.plan_revision(request, pristine, derived=False)
 
 
+PARAMETER_ORDER = catalog_revisions.PARAMETER_ORDER
+VALIDITY_ORDER = catalog_revisions.VALIDITY_ORDER
+
+
+def _is_in_order(keys: list[str], order: tuple[str, ...]) -> bool:
+    return all(k in order for k in keys) and keys == sorted(keys, key=order.index)
+
+
+def test_bundled_parameter_and_validity_objects_keep_the_canonical_key_order():
+    # A field added or re-added by a revision (or its undo) is inserted at its
+    # canonical place, which restores the stored order only if every stored
+    # object already follows it.
+    for path in sorted((ROOT / "peritheos/data/materials").glob("*.eosmat")):
+        for record in json.loads(path.read_bytes())["eos_records"]:
+            thermal = record.get("thermal")
+            for parameters in (
+                record.get("parameters") or {},
+                (thermal.get("parameters") if isinstance(thermal, dict) else None)
+                or {},
+            ):
+                for name, item in parameters.items():
+                    if isinstance(item, dict):
+                        where = (path.stem, record["identifier"], name, list(item))
+                        assert _is_in_order(list(item), PARAMETER_ORDER), where
+            validity = record.get("validity")
+            if isinstance(validity, dict):
+                where = (path.stem, record["identifier"], list(validity))
+                assert _is_in_order(list(validity), VALIDITY_ORDER), where
+
+
+def _removal(identifier, path, expected) -> dict:
+    return {"record": identifier, "path": path, "expected": expected, "remove": True}
+
+
+def test_a_field_removed_from_the_middle_of_a_parameter_undoes_exactly(repo):
+    # Three revisions on the bare diamond K0, each undone in order back to the
+    # exact tree it started from.
+    identifier = DIAMOND_ANCHORED[0]
+    path = ["parameters", "K0"]
+    steps = [
+        ("t-k0-fixed", change(identifier, [*path, "fixed"], ABSENT, True)),
+        ("t-k0-error", change(identifier, [*path, "error"], ABSENT, 0.5)),
+        ("t-k0-unfix", _removal(identifier, [*path, "fixed"], True)),
+    ]
+    expected = [
+        {"value": 444.5, "fixed": True},
+        {"value": 444.5, "error": 0.5, "fixed": True},
+        {"value": 444.5, "error": 0.5},
+    ]
+    trees = []
+    for (revision, step), item in zip(steps, expected):
+        trees.append(_tree(repo))
+        apply(repo, set_request(revision, "diamond", [step]))
+        stored = _record(repo, "diamond", identifier)["parameters"]["K0"]
+        assert stored == item and list(stored) == list(item)
+    assert_history(repo, ["diamond"])
+    for (revision, _), tree in zip(reversed(steps), reversed(trees)):
+        undo(repo, revision)
+        assert _tree(repo) == tree
+
+
+def test_a_middle_field_removed_and_re_added_restores_the_file(repo):
+    # A native {"value", "error", "fixed"} parameter: removing the error and
+    # adding it again gives the original record file byte for byte.
+    material, identifier = "aluminum", "aluminum_dewaele_2004_vinet_1"
+    path = ["parameters", "V0", "error"]
+    record_path = repo / f"peritheos/data/materials/{material}.eosmat"
+    original = record_path.read_bytes()
+    item = _record(repo, material, identifier)["parameters"]["V0"]
+    assert list(item) == ["value", "error", "fixed"] and item["error"] is None
+    trees = [_tree(repo)]
+    apply(repo, set_request("t-v0-drop", material, [_removal(identifier, path, None)]))
+    assert list(_record(repo, material, identifier)["parameters"]["V0"]) == [
+        "value",
+        "fixed",
+    ]
+    trees.append(_tree(repo))
+    apply(
+        repo,
+        set_request("t-v0-readd", material, [change(identifier, path, ABSENT, None)]),
+    )
+    assert record_path.read_bytes() == original
+    assert_history(repo, [material])
+    undo(repo, "t-v0-readd")
+    assert _tree(repo) == trees[1]
+    undo(repo, "t-v0-drop")
+    assert _tree(repo) == trees[0]
+
+
+def test_an_order_losing_reverse_is_refused_in_memory(pristine, monkeypatch):
+    # With fields appended instead of placed, removing a middle field could not
+    # be undone exactly; the order-sensitive check refuses it before staging.
+    def appended(path, keys):
+        return list(keys) if path[-1] in keys else [*keys, path[-1]]
+
+    monkeypatch.setattr(catalog_revisions, "ordered_keys", appended)
+    request = set_request(
+        "t",
+        "aluminum",
+        [
+            _removal(
+                "aluminum_dewaele_2004_vinet_1", ["parameters", "V0", "error"], None
+            )
+        ],
+    )
+    with pytest.raises(tool.Refused, match="not_reversible"):
+        tool.plan_revision(request, pristine, derived=False)
+
+
+def test_thermal_and_native_v5_bare_parameters_undo_exactly(repo):
+    # bridgmanite: a bare thermal parameter (v4-layout reference); niobium: a
+    # bare parameter of a material whose reference has the native v5 layout.
+    receipt = json.loads((repo / RECEIPT_PATH).read_bytes())["materials"]
+    assert receipt["bridgmanite"].get("layout") == "v4"
+    assert receipt["niobium"].get("layout") is None
+    cases = [
+        (
+            "bridgmanite",
+            "bridgmanite_tange_2012_bm3_1",
+            ["thermal", "parameters", "Tr"],
+        ),
+        ("niobium", "niobium_sokolova_2013_holzapfel_2", ["parameters", "n"]),
+    ]
+    before = _tree(repo)
+    for number, (material, identifier, path) in enumerate(cases):
+        value = catalog_revisions.read_path(_record(repo, material, identifier), path)
+        assert _number_only(value)
+        apply(
+            repo,
+            set_request(
+                f"t-bare-{number}",
+                material,
+                [change(identifier, [*path, "fixed"], ABSENT, True)],
+            ),
+        )
+        reference = json.loads(pre_split_bytes(material, root=repo))
+        for document in ({"eos_records": _records(repo, material)}, reference):
+            record = next(
+                r for r in document["eos_records"] if r["identifier"] == identifier
+            )
+            assert catalog_revisions.read_path(record, path) == {
+                "value": value,
+                "fixed": True,
+            }
+    assert tool.verify(repo) == []
+    assert_history(repo, [material for material, _, _ in cases])
+    for number in reversed(range(len(cases))):
+        undo(repo, f"t-bare-{number}")
+    assert _tree(repo) == before
+
+
+@pytest.mark.parametrize(
+    "changes",
+    [
+        [("error", None)],
+        [("fixed", False)],
+        [("error", None), ("fixed", False)],
+    ],
+)
+def test_a_no_op_on_a_bare_number_is_refused(pristine, changes):
+    identifier = DIAMOND_ANCHORED[0]
+    request = set_request(
+        "t",
+        "diamond",
+        [
+            change(identifier, ["parameters", "K0", field], ABSENT, value)
+            for field, value in changes
+        ],
+    )
+    with pytest.raises(tool.Refused, match="no_change"):
+        tool.plan_revision(request, pristine, derived=False)
+
+
+def test_an_added_bound_must_contain_the_stated_range(pristine):
+    request = kcl_bound_request(pristine)
+    low, high = request["changes"][0]["value"]
+    for value in ([10.0, 20.0], [low + 1.0, high], [low, high - 1.0]):
+        narrower = copy.deepcopy(request)
+        narrower["changes"][0]["value"] = value
+        with pytest.raises(tool.Refused, match="validity_narrower"):
+            tool.plan_revision(narrower, pristine, derived=False)
+    # A bound with no matching stated range is accepted.
+    ratio = set_request(
+        "t", "kcl", [change(KCL, ["validity", "volume_ratio"], ABSENT, [0.6, 1.0])]
+    )
+    plan = tool.plan_revision(ratio, pristine, derived=False)
+    assert any("V/V0 [0.6, 1.0]" in line for line in plan.shown)
+
+
+def test_a_changed_bound_that_leaves_data_outside_is_shown(pristine):
+    material, identifier = "akimotoite", "akimotoite_zhou_2014_300k_bm3"
+    record = _record(pristine, material, identifier)
+    bound = record["validity"]["pressure_gpa"]
+    span = record["experimental_pressure_range_gpa"]
+    assert bound[0] <= span[0] and span[1] <= bound[1]
+    request = set_request(
+        "t",
+        material,
+        [
+            change(
+                identifier,
+                ["validity", "pressure_gpa"],
+                bound,
+                [bound[0], span[1] - 5.0],
+            )
+        ],
+    )
+    plan = tool.plan_revision(request, pristine, derived=False)
+    assert any(
+        line.startswith("  NOTE validity.pressure_gpa")
+        and "no longer contains experimental_pressure_range_gpa" in line
+        for line in plan.shown
+    )
+
+
+def test_a_created_validity_object_takes_a_volume_ratio(pristine):
+    request = forsterite_validity_request(pristine)
+    request["changes"].append(
+        change(FORSTERITE, ["validity", "volume_ratio"], ABSENT, [0.8, 1.0])
+    )
+    plan = tool.plan_revision(request, pristine, derived=False)
+    content = plan.files["peritheos/data/materials/forsterite.eosmat"]
+    record = next(
+        r for r in json.loads(content)["eos_records"] if r["identifier"] == FORSTERITE
+    )
+    assert list(record["validity"]) == ["pressure_gpa", "temperature_k", "volume_ratio"]
+    assert record["validity"]["volume_ratio"] == [0.8, 1.0]
+    assert any("V/V0 [0.8, 1.0]" in line for line in plan.shown)
+    assert plan.revision["reverse"][-1] == {
+        "op": "set",
+        "record": FORSTERITE,
+        "path": ["validity"],
+        "before_present": True,
+        "before": {"pressure_gpa": request["changes"][0]["value"]},
+        "after_present": False,
+        "after": None,
+    }
+
+
 # Text revisions and undo ----------------------------------------------------
 
 

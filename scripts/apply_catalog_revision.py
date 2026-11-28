@@ -186,8 +186,9 @@ ALLOW_LIST = (
     "temperature_ref; "
     "experimental_pressure_range_gpa, experimental_temperature_range_k, "
     "pressure_range_status; validity.pressure_gpa|temperature_k|volume_ratio "
-    "(set or add a bound of an existing validity object, or create the object "
-    "with a bound containing each stated experimental range); "
+    "(change a bound of an existing validity object, add a bound to it or "
+    "create the object; an added bound contains the matching stated "
+    "experimental range); "
     "volume_basis.molar_mass_g_mol (where the record carries it)"
 )
 TEXT_FIELDS = ("label", "notes", "validity.notes", "thermal.notes")
@@ -1138,6 +1139,33 @@ NEW_VALIDITY_BOUNDS = {
 }
 
 
+#: What a parameter stored as a bare number already means for each field: no
+#: error and not fixed. Setting either on a bare number changes nothing.
+BARE_MEANS = {"error": None, "fixed": False}
+
+
+def _uncontained(
+    record: Mapping[str, Any], bound: str, verb: str = "does not contain"
+) -> str | None:
+    """Why ``validity.<bound>`` fails to contain the matching stated range."""
+    stated = {b: s for s, b in NEW_VALIDITY_BOUNDS.items()}.get(bound)
+    span = record.get(stated) if stated else None
+    validity = record.get("validity")
+    value = validity.get(bound) if isinstance(validity, dict) else None
+    if not (isinstance(span, list) and len(span) == 2 and isinstance(value, list)):
+        return None
+    if value[0] <= span[0] and span[1] <= value[1]:
+        return None
+    return f"validity.{bound} {value} {verb} {stated} {span}"
+
+
+def _check_contains(record: Mapping[str, Any], bound: str, where: str) -> None:
+    """A bound added to a validity object contains the stated range it enforces."""
+    reason = _uncontained(record, bound)
+    if reason is not None:
+        raise Refused("validity_narrower", f"{where}: {reason}")
+
+
 def _check_new_validity(record: Mapping[str, Any], where: str) -> None:
     """A created validity object bounds every stated range and contains it."""
     validity = record["validity"]
@@ -1152,13 +1180,7 @@ def _check_new_validity(record: Mapping[str, Any], where: str) -> None:
                 f"same revision, since {stated} {span} would otherwise no longer "
                 "be enforced",
             )
-        low, high = validity[bound]
-        if not (low <= span[0] and span[1] <= high):
-            raise Refused(
-                "validity_narrower",
-                f"{where}: validity.{bound} {validity[bound]} does not contain "
-                f"{stated} {span}",
-            )
+        _check_contains(record, bound, where)
 
 
 def _parameter_split(path: list[str]) -> int | None:
@@ -1185,6 +1207,7 @@ def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
     forward: list[dict] = []
     requested: list[tuple[str, list[str]]] = []
     created: list[str] = []
+    added_bounds: list[tuple[str, str]] = []
     for change in changes:
         identifier = change.get("record")
         if identifier not in records:
@@ -1222,6 +1245,20 @@ def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
         after_present = "value" in change
         if _same(current, change["value"] if after_present else ABSENT):
             raise Refused("no_change", f"{identifier}/{'.'.join(path)} already has it")
+        if bare and after_present and _same(change["value"], BARE_MEANS[path[-1]]):
+            # A bare number already reads as no error and not fixed.
+            raise Refused(
+                "no_change",
+                f"{identifier}/{'.'.join(path)}: {json.dumps(change['value'])} is "
+                f"what the bare number {json.dumps(item)} already means",
+            )
+        if (
+            path[0] == "validity"
+            and not create
+            and current is ABSENT
+            and identifier not in created
+        ):
+            added_bounds.append((identifier, path[-1]))
         operation = {
             "op": "set",
             "record": identifier,
@@ -1265,6 +1302,8 @@ def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
         forward.append(operation)
     for identifier in created:
         _check_new_validity(records[identifier], identifier)
+    for identifier, bound in added_bounds:
+        _check_contains(records[identifier], bound, identifier)
     for identifier in dict.fromkeys(o["record"] for o in forward):
         paths = [o["path"] for o in forward if o["record"] == identifier]
         _check_record(
@@ -1802,6 +1841,17 @@ def plan_revision(request: dict, root: Path = ROOT, *, derived: bool = True) -> 
         reference_after = format_eosmat(reference_document, layout=layout).encode(
             "utf-8"
         )
+        # The undo walks the reference back byte for byte (prior_revision_bytes).
+        reference_back = json.loads(reference_after)
+        apply_operations(reference_back["eos_records"], reverse, "reference")
+        if format_eosmat(reference_back, layout=layout).encode("utf-8") != (
+            reference_before
+        ):
+            raise Refused(
+                "not_reversible",
+                "the reverse operations do not restore the pre-split reference "
+                "exactly (values or key order)",
+            )
         revision: dict[str, Any] = {
             **{key: copy.deepcopy(request[key]) for key in COMMON_KEYS},
             ACKNOWLEDGE: copy.deepcopy(request.get(ACKNOWLEDGE, {})),
@@ -2044,25 +2094,33 @@ def _check_declared(
     reverse: list[dict],
     touched: list[str],
 ) -> None:
-    """The operations turn ``before`` into ``after`` and back, ``check`` aside."""
+    """The operations turn ``before`` into ``after`` and back, ``check`` aside.
+
+    Both comparisons are of the formatted text, so they see the key order the
+    formatter keeps (parameter objects, validity objects): a reverse operation
+    that restores every value but not the order is refused here, before the
+    pre-split reference would fail to hash to the revision's ``before``.
+    """
     names = set(touched)
 
-    def without_checks(document: dict) -> dict:
+    def text(document: dict) -> str:
         result = copy.deepcopy(document)
         for record in result["eos_records"]:
             if record["identifier"] in names:
                 record.pop("check", None)
-        return result
+        return format_eosmat(result)
 
     trial = copy.deepcopy(before)
     apply_operations(trial["eos_records"], forward, "document")
-    if fingerprint(without_checks(trial)) != fingerprint(without_checks(after)):
+    if text(trial) != text(after):
         raise Refused("undeclared_change", "the files differ beyond the operations")
     back = copy.deepcopy(after)
     apply_operations(back["eos_records"], reverse, "document")
-    if fingerprint(without_checks(back)) != fingerprint(without_checks(before)):
+    if text(back) != text(before):
         raise Refused(
-            "not_reversible", "the reverse operations do not restore the file"
+            "not_reversible",
+            "the reverse operations do not restore the file exactly (values or "
+            "key order)",
         )
     for old, new in zip(before["eos_records"], after["eos_records"]):
         if old["identifier"] not in names and old != new:
@@ -2189,6 +2247,26 @@ def _show(
                     else "absent"
                 )
                 lines.append(f"  {'.'.join(operation['path'])}: {was} -> {now}")
+                path = operation["path"]
+                if (
+                    len(path) == 2
+                    and path[0] == "validity"
+                    and operation["before_present"]
+                    and operation["after_present"]
+                ):
+                    # A changed bound may correct a wrong one, so it is shown,
+                    # not refused, when it leaves part of the data outside.
+                    still = _uncontained(old[identifier], path[1]) is not None
+                    reason = _uncontained(
+                        record,
+                        path[1],
+                        "still does not contain" if still else "no longer contains",
+                    )
+                    if reason is not None:
+                        lines.append(
+                            f"  NOTE {reason}: part of the data lies outside the "
+                            "enforced range"
+                        )
             before_check = old[identifier].get("check", {})
             for key in (*HEADLINE_FIELDS, "why"):
                 if before_check.get(key) != record["check"].get(key):

@@ -277,22 +277,41 @@ def read_path(record: dict, path: list[str]) -> Any:
 #: Key order of a ``validity`` object. A bound added to an existing object is
 #: inserted at its place in this order (before ``notes``), not appended.
 VALIDITY_ORDER = ("pressure_gpa", "temperature_k", "volume_ratio", "notes")
+#: Key order of a parameter object (``parameters.<name>`` and
+#: ``thermal.parameters.<name>``). Every bundled parameter object stores its
+#: keys in this order (tests/test_catalog_revisions.py asserts it), so a field
+#: removed and later re-added, or re-added by an undo, returns to the position
+#: it had: the operations stay exactly reversible without recording positions.
+PARAMETER_ORDER = ("value", "error", "fixed")
+
+
+def _key_order(path: list[str]) -> tuple[str, ...]:
+    """The canonical key order of the object holding ``path[-1]``, if any."""
+    if len(path) == 2 and path[0] == "validity":
+        return VALIDITY_ORDER
+    if (len(path) == 3 and path[0] == "parameters") or (
+        len(path) == 4 and path[:2] == ["thermal", "parameters"]
+    ):
+        return PARAMETER_ORDER
+    return ()
 
 
 def ordered_keys(path: list[str], keys: list[str]) -> list[str]:
     """``keys`` of the object at ``path[:-1]`` with ``path[-1]`` added in place.
 
-    A validity bound goes before the first key that follows it in
-    :data:`VALIDITY_ORDER`; any other key is appended.
+    A validity bound or a parameter field goes before the first key that
+    follows it in :data:`VALIDITY_ORDER` or :data:`PARAMETER_ORDER`; any other
+    key is appended.
     """
     key = path[-1]
     if key in keys:
         return list(keys)
     result = list(keys)
-    if len(path) == 2 and path[0] == "validity" and key in VALIDITY_ORDER:
-        rank = VALIDITY_ORDER.index(key)
+    order = _key_order(path)
+    if key in order:
+        rank = order.index(key)
         for position, other in enumerate(result):
-            if other in VALIDITY_ORDER and VALIDITY_ORDER.index(other) > rank:
+            if other in order and order.index(other) > rank:
                 result.insert(position, key)
                 return result
     result.append(key)
@@ -866,6 +885,7 @@ __all__ = [
     "fingerprint",
     "material_revisions",
     "ordered_keys",
+    "PARAMETER_ORDER",
     "prior_revision_bytes",
     "prior_revision_snapshot",
     "read_ledger",
