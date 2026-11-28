@@ -446,7 +446,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/nic
     - **DOI:** 10.1016/j.epsl.2009.07.022
 - **Reference temperature (K):** 295.0
 - **Reported pressure coverage (GPa):** \[2.336174779961698, 65.9\]
-- **Reported temperature coverage (K):** \[298.0, 2457.07\]
+- **Reported temperature coverage (K):** \[295.0, 2457.07\]
 - **Printed parameter errors:** confidence level not stated; used as 1 sigma
 
 <details markdown="1">

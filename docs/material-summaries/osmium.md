@@ -39,7 +39,7 @@ Ambient hcp osmium structure.
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Takemura (2004), BM3](#record-osmium_takemura_2004_bm3_1) | 27.9766135265 ± 0.0188 | 395.0 ± 15.0 | 4.5 ± 0.5 |
+| [Takemura (2004), BM3](#record-osmium_takemura_2004_bm3_1) | 27.9766135265 ± 0.0188 (fixed) | 395.0 ± 15.0 | 4.5 ± 0.5 |
 
 Values use each model's parameter units; primary `V0` uses the volume unit
 above. Errors keep their reported meaning and appear only when supplied: a
@@ -63,7 +63,7 @@ Automatic selection for equilibrium calculations.
 
 | Component | Parameter | Value | Reported error | Fixed |
 | --- | --- | --- | --- | --- |
-| Primary | V0 | 27.9766135265 | 0.0188 | Not listed |
+| Primary | V0 | 27.9766135265 | 0.0188 | Yes |
 | Primary | K0 | 395.0 | 15.0 | Not listed |
 | Primary | K0\_prime | 4.5 | 0.5 | Not listed |
 

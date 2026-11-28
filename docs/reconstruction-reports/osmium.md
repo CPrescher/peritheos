@@ -53,8 +53,8 @@ stays in EOSMAT and the ledger.
 - **Selection:** all rows
 - **Objective:** errors\_in\_variables
 - **Absolute sigma:** True
-- **Free parameters:** V0; K0; K0\_prime
-- **Fixed parameters:** None declared
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
 
 ### Curves and residuals
 
@@ -64,7 +64,7 @@ stays in EOSMAT and the ledger.
 | Fit | Pressure RMS error (GPa) |
 | --- | ---: |
 | Original / source fit | 0.194 |
-| Reconstruction / refit | 0.17 |
+| Reconstruction / refit | 0.202 |
 
 Both fits use the same 28 recovered audit input rows. **Volume coordinate:** volume\_ratio. **Row selection:** all rows.
 
@@ -75,9 +75,8 @@ Both fits use the same 28 recovered audit input rows. **Volume coordinate:** vol
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 27.977 | 0.019 | 27.962 | 0.004 | Free |
-| K0 | 395 | 15 | 403.5 | 2.9 | Free |
-| K0\_prime | 4.5 | 0.5 | 4.25 | 0.13 | Free |
+| K0 | 395 | 15 | 393.3 | 1.3 | Free |
+| K0\_prime | 4.5 | 0.5 | 4.67 | 0.08 | Free |
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
@@ -89,11 +88,11 @@ Both fits use the same 28 recovered audit input rows. **Volume coordinate:** vol
 - **Observed pressure range gpa:** 1.2; 58.2
 - **Observed temperature range k:** Not specified
 - **Observed volume range:** 24.9635; 27.8815
-- **Degrees of freedom:** 25
+- **Degrees of freedom:** 26
 - **Solver success:** True
-- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.140997
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.170401
 - **Published rmse gpa:** 0.194387
-- **Reduced chi square:** 2.54331
+- **Reduced chi square:** 3.02472
 
 </details>

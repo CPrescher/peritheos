@@ -86,7 +86,7 @@ Automatic selection for equilibrium calculations.
 - **Reported temperature coverage (K):** \[300.0, 300.0\]
 - **Validity:**
     - **Pressure gpa:** \[0.0, 4.0\]
-    - **Temperature k:** \[1250.0, 2500.0\]
+    - **Temperature k:** \[300.0, 300.0\]
     - **Notes:** The 300 K coefficients define a reference isotherm; pseudowollastonite is the source's high-temperature low-pressure polymorph.
 - **Volume basis:**
     - **Kind:** formula\_units

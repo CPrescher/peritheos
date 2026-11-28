@@ -82,7 +82,7 @@ Automatic selection for equilibrium calculations.
     - **DOI:** 10.1063/1.4894421
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[2.55, 10.11\]
-- **Reported temperature coverage (K):** \[300.5, 451.2\]
+- **Reported temperature coverage (K):** \[300.0, 451.2\]
 
 Joint P-V-T fit for pure H2O ice VII. Published molar V0 = 12.49(1) cm³/mol; stored per unit cell (Z = 2). dK/dT was fixed to zero because no temperature dependence was detectable.
 

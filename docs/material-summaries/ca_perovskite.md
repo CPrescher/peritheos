@@ -2980,7 +2980,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
 - **Reported temperature coverage (K):** \[301.0, 1594.0\]
 - **Validity:**
     - **Pressure gpa:** \[2.66, 12.25\]
-    - **Temperature k:** \[301.0, 1594.0\]
+    - **Temperature k:** \[300.0, 1594.0\]
     - **Notes:** P-T coverage is uneven. P = 0 at the fitted V0 and 300 K is an extrapolated reference, not an observed ambient stable phase.
 - **Volume basis:**
     - **Kind:** formula\_units

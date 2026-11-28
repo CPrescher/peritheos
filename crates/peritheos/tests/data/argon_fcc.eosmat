@@ -1630,7 +1630,7 @@
       "determination_method": "experimental",
       "record_kind": "refit",
       "default": false,
-      "notes": "Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nominal error-in-variables weighting; Chen's published EOS is not reproduced. Near-coincident digitized points are not statistically independent.",
+      "notes": "Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nominal error-in-variables weighting; Chen's published EOS is not reproduced. Near-coincident digitized points are not statistically independent. No covariance is given because the uncertainty of the digitized points is not known well enough to scale it.",
       "fit_datasets": ["argon_fcc_chen_2010_figure5_brillouin"],
       "parameter_covariance": null,
       "reference": {

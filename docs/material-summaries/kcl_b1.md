@@ -161,7 +161,7 @@ Reproduction: **close** · [Reconstruction report](../reconstruction-reports/kcl
     - **DOI:** 10.2138/am-2002-0701
 - **Reference temperature (K):** 296.15
 - **Reported pressure coverage (GPa):** \[0, 1.733\]
-- **Reported temperature coverage (K):** \[303.15, 873.15\]
+- **Reported temperature coverage (K):** \[296.15, 873.15\]
 
 V0 is the B1 reference volume 37.50 cm³/mol selected in Figure 1, stored per Z = 4 cell; Tables 1 and 3 instead print 249.53 Å³ (37.57 cm³/mol). Table 3 gives K0 = 177 kbar and the thermal coefficient as the directly reported alpha0\*K0 = 0.0195(5) kbar/K, not the rounded product. Tr is 23 °C (296.15 K).
 

@@ -90,7 +90,7 @@ Both fits use the same 92 recovered audit input rows. **Volume coordinate:** aud
 - **Rmse gpa:** 1.24113
 - **Published rmse gpa:** 1.30857
 - **Reduced chi square:** 1.59232
-- **Covariance:** \[\["63.3499", "-2.958", "-0.399724"\], \["-2.958", "0.143694", "0.0170671"\], \["-0.399724", "0.0170671", "0.00346962"\]\]
+- **Covariance:** \[\["63.35", "-2.958", "-0.399724"\], \["-2.958", "0.143694", "0.0170671"\], \["-0.399724", "0.0170671", "0.00346962"\]\]
 - **Covariance convention:** Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.
 
 </details>

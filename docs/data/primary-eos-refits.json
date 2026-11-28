@@ -2672,7 +2672,7 @@
         ]
       },
       "reproduction_status": "independent_digitized_data_refit_reproduced",
-      "source_notes": "Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nominal error-in-variables weighting; Chen's published EOS is not reproduced. Near-coincident digitized points are not statistically independent.",
+      "source_notes": "Peritheos BM3 refit of Brillouin densities digitized from Chen (2010), with nominal error-in-variables weighting; Chen's published EOS is not reproduced. Near-coincident digitized points are not statistically independent. No covariance is given because the uncertainty of the digitized points is not known well enough to scale it.",
       "status": "parity",
       "usage_recommendation": "Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed."
     },
@@ -4305,7 +4305,7 @@
         50.0
       ],
       "experimental_temperature_range_k": [
-        300.0,
+        298.0,
         2500.0
       ],
       "fit_kind": "joint_pvt",
@@ -4340,13 +4340,13 @@
       ],
       "parameters": [
         {
-          "difference": -1.0500929141230222,
+          "difference": -1.0500929214969847,
           "parameter": "q",
           "published": 2.1,
           "published_error": null,
-          "refit": 1.049907085876978,
-          "refit_error": 0.519450728953149,
-          "relative_difference": 0.5000442448204867,
+          "refit": 1.0499070785030153,
+          "refit_error": 0.5194507561954079,
+          "relative_difference": 0.5000442483318974,
           "similar": false,
           "within_combined_2sigma": null
         }
@@ -4354,10 +4354,10 @@
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
-      "published_rmse_gpa": 1.3869131808668502,
+      "published_rmse_gpa": 1.3869131808292443,
       "record_identifier": "b4c_somayazulu_2023_bm3_1",
-      "reduced_chi_square": 0.7670211979012587,
-      "rmse_gpa": 1.1759335107150188,
+      "reduced_chi_square": 0.7670211978890028,
+      "rmse_gpa": 1.1759335102901163,
       "selection": "41 heated rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
@@ -20578,7 +20578,7 @@
         13.692764824786556
       ],
       "experimental_temperature_range_k": [
-        304.03104831760197,
+        300.0,
         1958.0929053394116
       ],
       "fit_kind": "reconstructed_input_conditional_bm3_mgd",
@@ -20669,7 +20669,7 @@
         13.692764824786556
       ],
       "experimental_temperature_range_k": [
-        304.03104831760197,
+        300.0,
         1958.0929053394116
       ],
       "fit_kind": "reconstructed_input_conditional_bm3_mgd",
@@ -20695,39 +20695,39 @@
       "parameters": [
         {
           "comparison_error_width": 0.4,
-          "difference": 0.05457730595330901,
+          "difference": 0.054577741271390146,
           "parameter": "K0_prime",
           "published": 4.2,
           "published_error": 0.4,
-          "refit": 4.254577305953309,
+          "refit": 4.25457774127139,
           "refit_error": null,
-          "relative_difference": 0.012994596655549763,
+          "relative_difference": 0.012994700302711939,
           "similar": true,
           "within_combined_2sigma": null,
           "within_reported_error": true
         },
         {
           "comparison_error_width": 0.02,
-          "difference": 0.0005027491131543993,
+          "difference": 0.0005027533114163596,
           "parameter": "gamma0",
           "published": 1.0,
           "published_error": 0.02,
-          "refit": 1.0005027491131544,
+          "refit": 1.0005027533114164,
           "refit_error": null,
-          "relative_difference": 0.0005027491131543993,
+          "relative_difference": 0.0005027533114163596,
           "similar": true,
           "within_combined_2sigma": null,
           "within_reported_error": true
         },
         {
           "comparison_error_width": 0.5,
-          "difference": 0.07034607001342152,
+          "difference": 0.07034676142899388,
           "parameter": "q",
           "published": 2.4,
           "published_error": 0.5,
-          "refit": 2.4703460700134214,
+          "refit": 2.470346761428994,
           "refit_error": null,
-          "relative_difference": 0.029310862505592304,
+          "relative_difference": 0.029311150595414115,
           "similar": true,
           "within_combined_2sigma": null,
           "within_reported_error": true
@@ -20737,14 +20737,14 @@
       "primary_data_finding": "All 51 rows and all 41 source columns recovered, including raw MgO ratios/brackets, original and corrected temperatures, both pressure assignments, author-saved error/spread columns, and sample volume ratios. Full workbook and formula/cached-value evidence retained. The original 2009 Table 1 has now been recovered separately: 52 rows, 50 matched to this workbook plus two ambient references. M375006 is absent from the printed table. The original author-specific fitting export remains unavailable.",
       "primary_data_status": "bundled",
       "primary_source": "https://epub.uni-bayreuth.de/id/eprint/6715/",
-      "published_rmse_gpa": 0.21249940044126006,
+      "published_rmse_gpa": 0.2124994004409408,
       "qualification": "Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit.",
       "reason": "Printed Table 2 alternative, theta0=768 K. Conditional numerical parity within reported error widths; exact bootstrap reproduction unverified. See [the source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).",
       "recommended": false,
       "recommended_thermal_record": "forsterite_katsura_2022_author_script_bm3_mgd",
       "record_identifier": "forsterite_katsura_2022_bm3_mgd",
       "reproduction_report": "docs/data/forsterite-katsura-2022-reproduction.json",
-      "rmse_gpa": 0.21239522341551,
+      "rmse_gpa": 0.21239522341552494,
       "selection": "All 51 deposited observations; AD pressure, AN volume ratio, U temperature; M375006 retained.",
       "solver_success": true,
       "source_notes": "Final Table 2 coefficients, fixing theta0 = 768 K; the author's scripts use another value. No 2022 geotherm or olivine Cp reproduction is claimed; the paper uses a separate empirical ambient Cp in Equation (12). The material's ambient diffraction cell is from a different sample and differs from this V0; the negative lower pressure bound is near-ambient data noise, not a tensile stability claim.",
@@ -31611,7 +31611,7 @@
       "selection": "used_in_helium_cubic_fit=1",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Fit to the helium-medium cubic-cell data with an ambient V0 prior of 78.94 ± 0.1 Å³; V0 is not fixed, and K0 and K0' are free. The errors are the source's 1-sigma standard errors, not interval half-widths, so no confidence level is stored.",
+      "source_notes": "Fit to the helium-medium cubic-cell data with an ambient V0 prior of 78.94 ± 0.1 Å³; V0 is not fixed, and K0 and K0' are free. The errors are the source's 1-sigma standard errors.",
       "status": "parity"
     },
     {
@@ -46785,19 +46785,19 @@
       "chi_square": 141.7169222375273,
       "covariance": [
         [
-          63.34994876377254,
-          -2.9579974380690417,
-          -0.3997238519706632
+          63.34995531176319,
+          -2.9579976820838896,
+          -0.39972388742024295
         ],
         [
-          -2.957997438069198,
-          0.14369425717031795,
-          0.01706708438955018
+          -2.9579976820839917,
+          0.14369426562625998,
+          0.017067085657524232
         ],
         [
-          -0.3997238519706057,
-          0.01706708438954651,
-          0.0034696237877041946
+          -0.39972388742020204,
+          0.017067085657521675,
+          0.0034696239751733633
         ]
       ],
       "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
@@ -46810,7 +46810,7 @@
         65.9
       ],
       "experimental_temperature_range_k": [
-        298.0,
+        295.0,
         2457.07
       ],
       "fit_kind": "conditional_bm3_mgd_variable_exponent",
@@ -46842,35 +46842,35 @@
       ],
       "parameters": [
         {
-          "difference": 19.234912851083834,
+          "difference": 19.234914067291214,
           "parameter": "rt_eos.K0",
           "published": 190.0,
           "published_error": 3.0,
-          "refit": 209.23491285108383,
-          "refit_error": 7.959268104780271,
-          "relative_difference": 0.10123638342675702,
+          "refit": 209.23491406729121,
+          "refit_error": 7.959268516124028,
+          "relative_difference": 0.1012363898278485,
           "similar": true,
           "within_combined_2sigma": false
         },
         {
-          "difference": -1.083874487727316,
+          "difference": -1.0838745394399298,
           "parameter": "rt_eos.K0_prime",
           "published": 5.4,
           "published_error": 0.2,
-          "refit": 4.316125512272684,
-          "refit_error": 0.3790702536078477,
-          "relative_difference": 0.20071749772728076,
+          "refit": 4.3161254605600705,
+          "refit_error": 0.37907026476137634,
+          "relative_difference": 0.2007175073036907,
           "similar": false,
           "within_combined_2sigma": false
         },
         {
-          "difference": -0.13366329940090083,
+          "difference": -0.13366331001001575,
           "parameter": "gamma0",
           "published": 1.8,
           "published_error": 0.04,
-          "refit": 1.6663367005990992,
-          "refit_error": 0.05890351252433249,
-          "relative_difference": 0.07425738855605601,
+          "refit": 1.6663366899899843,
+          "refit_error": 0.05890351411565666,
+          "relative_difference": 0.07425739445000874,
           "similar": true,
           "within_combined_2sigma": true
         }
@@ -46878,7 +46878,7 @@
       "primary_data_finding": "All 101 Table S3 observations and NaCl calibrant readings are bundled. The main diagnostic fits 92 heated/MAP rows; all-row and weighting sensitivity results are separately reported. Exact source weights and mask are unpublished.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1016/j.epsl.2009.07.022",
-      "published_rmse_gpa": 1.308570029842643,
+      "published_rmse_gpa": 1.308570029875968,
       "qualification": "Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.",
       "record_identifier": "nickel_oxide_b1_campbell_2009_bm3_mgd",
       "reduced_chi_square": 1.592324968960981,
@@ -46889,9 +46889,9 @@
       "solver_success": true,
       "source_notes": "295 K BM3 + Mie-Grüneisen-Debye (Equation (5)), no electronic or anharmonic pressure; molar V0 stored per Z = 4 cell. One cubic-average B1 volume model, also fitted to low-temperature points; it cannot predict magnetic ordering, rhombohedral splitting or the pressure-dependent Néel boundary (523 K at ambient pressure). Use the rhombohedral NiO material for resolved low-temperature diffraction.",
       "standard_errors": {
-        "gamma0": 0.05890351252433249,
-        "rt_eos.K0": 7.959268104780271,
-        "rt_eos.K0_prime": 0.3790702536078477
+        "gamma0": 0.05890351411565666,
+        "rt_eos.K0": 7.959268516124028,
+        "rt_eos.K0_prime": 0.37907026476137634
       },
       "status": "parity_not_achieved",
       "weighting": "unweighted",
@@ -47188,7 +47188,7 @@
       "dataset_identifiers": [
         "osmium_takemura_2004_table1_compression"
       ],
-      "degrees_of_freedom": 25,
+      "degrees_of_freedom": 26,
       "experimental_pressure_range_gpa": [
         0.0,
         58.2
@@ -47198,9 +47198,10 @@
         300.0
       ],
       "fit_kind": "isothermal_pv",
-      "fixed_parameters": [],
+      "fixed_parameters": [
+        "V0"
+      ],
       "free_parameters": [
-        "V0",
         "K0",
         "K0_prime"
       ],
@@ -47220,35 +47221,24 @@
       ],
       "parameters": [
         {
-          "difference": -0.014485443477536109,
-          "parameter": "V0",
-          "published": 27.9766135265,
-          "published_error": 0.0188,
-          "refit": 27.962128083022463,
-          "refit_error": 0.0036469995269804156,
-          "relative_difference": 0.0005177697244813141,
-          "similar": true,
-          "within_combined_2sigma": true
-        },
-        {
-          "difference": 8.522258242886778,
+          "difference": -1.6841637371888396,
           "parameter": "K0",
           "published": 395.0,
           "published_error": 15.0,
-          "refit": 403.5222582428868,
-          "refit_error": 2.907943757011201,
-          "relative_difference": 0.021575337323763995,
+          "refit": 393.31583626281116,
+          "refit_error": 1.2988745875118726,
+          "relative_difference": 0.0042637056637692145,
           "similar": true,
           "within_combined_2sigma": true
         },
         {
-          "difference": -0.24698900793454026,
+          "difference": 0.1673596926740606,
           "parameter": "K0_prime",
           "published": 4.5,
           "published_error": 0.5,
-          "refit": 4.25301099206546,
-          "refit_error": 0.13222470923631685,
-          "relative_difference": 0.05488644620767561,
+          "refit": 4.667359692674061,
+          "refit_error": 0.08471820950862387,
+          "relative_difference": 0.03719104281645791,
           "similar": true,
           "within_combined_2sigma": true
         }
@@ -47258,10 +47248,10 @@
       "primary_source": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.012101/fulltext",
       "published_rmse_gpa": 0.1943870599645804,
       "record_identifier": "osmium_takemura_2004_bm3_1",
-      "reduced_chi_square": 2.5433104086575606,
-      "rmse_gpa": 0.1409971442658777,
+      "reduced_chi_square": 3.024720588443738,
+      "rmse_gpa": 0.17040108218378014,
       "selection": "all rows",
-      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_notes": null,
       "status": "parity"

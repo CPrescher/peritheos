@@ -53,10 +53,10 @@
                 "parameter": "rt_eos.K0",
                 "published": 190.0,
                 "published_error": 3.0,
-                "refit": 209.23491285108383,
-                "refit_error": 7.959268104780271,
-                "difference": 19.234912851083834,
-                "relative_difference": 0.10123638342675702,
+                "refit": 209.23491406729121,
+                "refit_error": 7.959268516124028,
+                "difference": 19.234914067291214,
+                "relative_difference": 0.1012363898278485,
                 "similar": true,
                 "within_combined_2sigma": false
               },
@@ -64,10 +64,10 @@
                 "parameter": "rt_eos.K0_prime",
                 "published": 5.4,
                 "published_error": 0.2,
-                "refit": 4.316125512272684,
-                "refit_error": 0.3790702536078477,
-                "difference": -1.083874487727316,
-                "relative_difference": 0.20071749772728076,
+                "refit": 4.3161254605600705,
+                "refit_error": 0.37907026476137634,
+                "difference": -1.0838745394399298,
+                "relative_difference": 0.2007175073036907,
                 "similar": false,
                 "within_combined_2sigma": false
               },
@@ -75,10 +75,10 @@
                 "parameter": "gamma0",
                 "published": 1.8,
                 "published_error": 0.04,
-                "refit": 1.6663367005990992,
-                "refit_error": 0.05890351252433249,
-                "difference": -0.13366329940090083,
-                "relative_difference": 0.07425738855605601,
+                "refit": 1.6663366899899843,
+                "refit_error": 0.05890351411565666,
+                "difference": -0.13366331001001575,
+                "relative_difference": 0.07425739445000874,
                 "similar": true,
                 "within_combined_2sigma": true
               }
@@ -97,12 +97,12 @@
               "solver_success": true,
               "solver_message": "`ftol` termination condition is satisfied.",
               "rmse_gpa": 1.2411290539942956,
-              "published_rmse_gpa": 1.308570029842643,
+              "published_rmse_gpa": 1.308570029875968,
               "reduced_chi_square": 1.592324968960981,
               "covariance": [
-                [63.34994876377254, -2.9579974380690417, -0.3997238519706632],
-                [-2.957997438069198, 0.14369425717031795, 0.01706708438955018],
-                [-0.3997238519706057, 0.01706708438954651, 0.0034696237877041946]
+                [63.34995531176319, -2.9579976820838896, -0.39972388742024295],
+                [-2.9579976820839917, 0.14369426562625998, 0.017067085657524232],
+                [-0.39972388742020204, 0.017067085657521675, 0.0034696239751733633]
               ],
               "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
               "dataset_identifiers": ["ni_nio_campbell_2009_table_s3_pvt"]

@@ -155,6 +155,7 @@ Reproduction: **reproduced** · [Reconstruction report](../reconstruction-report
     - **DOI:** 10.1088/0953-8984/13/11/303
 - **Reference temperature (K):** 300.0
 - **Reported pressure coverage (GPa):** \[0.0, 45.499\]
+- **Errors from the Peritheos refit:** 1 sigma
 - **Parameter covariance:** supplied in the EOSMAT source
 
 Peritheos BM3 refit of the points digitized from Figure 2 of Haines et al. (2001), not a published parameter set. V0 is fixed at the measured ambient volume used for the source's V/V0 data; K0 and K0' are fitted with errors in both digitized pressure and relative volume.

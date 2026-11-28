@@ -126,7 +126,9 @@ if __name__ == "__main__":
     print(scientific_sha256())
 
 
-def assert_snapshot_lineage(snapshot: dict, historical_sha256: str) -> None:
+def assert_snapshot_lineage(
+    snapshot: dict, historical_sha256: str, *, _revisions_checked: bool = False
+) -> None:
     """Verify history across the explicitly authorized powder-pattern replacement.
 
     Original peak arrays remain private. Public receipts bind their digests,
@@ -146,17 +148,19 @@ def assert_snapshot_lineage(snapshot: dict, historical_sha256: str) -> None:
         return
     # Catalog revisions are the newest step; each is reversed only where its
     # recorded fingerprints match exactly (scripts/catalog_revisions.py).
+    # The ledger describes the current catalog only: the check runs once, on
+    # the snapshot as it is now, not again on an older projection of it.
     from scripts.catalog_revisions import prior_revision_snapshot
 
-    previous = prior_revision_snapshot(snapshot)
+    previous = None if _revisions_checked else prior_revision_snapshot(snapshot)
     if previous is not None:
-        assert_snapshot_lineage(previous, historical_sha256)
+        assert_snapshot_lineage(previous, historical_sha256, _revisions_checked=True)
         return
     from scripts.garnet_dataset_bindings import prior_dataset_snapshot
 
     previous = prior_dataset_snapshot(snapshot, ROOT)
     if previous is not None:
-        assert_snapshot_lineage(previous, historical_sha256)
+        assert_snapshot_lineage(previous, historical_sha256, _revisions_checked=True)
         return
     migration_path = ROOT / "docs/data/eosmat-v5-migration.json"
     if migration_path.exists():
@@ -172,7 +176,9 @@ def assert_snapshot_lineage(snapshot: dict, historical_sha256: str) -> None:
                     seen.add(identifier)
         if seen:
             assert seen == set(changes)
-            assert_snapshot_lineage(projected, historical_sha256)
+            assert_snapshot_lineage(
+                projected, historical_sha256, _revisions_checked=True
+            )
             return
     # A later curation may append exact, separately audited records/materials.
     # Verify their complete scientific projections before removing them to test
@@ -214,7 +220,9 @@ def assert_snapshot_lineage(snapshot: dict, historical_sha256: str) -> None:
             # must validate that projected state instead of the latest baseline.
             if historical_sha256 == additions["before_scientific_sha256"]:
                 assert fingerprint(projected) == additions["before_scientific_sha256"]
-            assert_snapshot_lineage(projected, historical_sha256)
+            assert_snapshot_lineage(
+                projected, historical_sha256, _revisions_checked=True
+            )
             return
     proof = json.loads(
         (ROOT / "docs/data/calculated-pattern-replacement.json").read_bytes()
