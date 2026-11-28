@@ -104,6 +104,7 @@ from scripts.catalog_revisions import (  # noqa: E402
     content_sha256,
     fingerprint,
     ledger_text,
+    ordered_keys,
     prior_revision_snapshot,
     read_ledger,
     read_path,
@@ -172,16 +173,22 @@ PRESSURE_RANGE_STATUSES = (
     "theoretical",
     "reference_parameterization",
 )
+#: Upper end of a settable ``volume_basis.molar_mass_g_mol``, g/mol: a type
+#: and range check against typos, not a chemistry check.
+MOLAR_MASS_MAX_G_MOL = 10000.0
 #: The only paths a ``set_fields`` revision may set, in words.
 ALLOW_LIST = (
     "parameters.<name>.error|fixed and "
-    "thermal.parameters.<name>.error|fixed (existing parameters); "
+    "thermal.parameters.<name>.error|fixed (existing parameters; a parameter "
+    "stored as a bare number takes the object form with the same value); "
     "parameter_error_confidence; parameter_covariance; "
     "parameter_uncertainty_convention (where the record carries it); "
     "temperature_ref; "
     "experimental_pressure_range_gpa, experimental_temperature_range_k, "
     "pressure_range_status; validity.pressure_gpa|temperature_k|volume_ratio "
-    "(existing bounds of an existing validity object)"
+    "(set or add a bound of an existing validity object, or create the object "
+    "with a bound containing each stated experimental range); "
+    "volume_basis.molar_mass_g_mol (where the record carries it)"
 )
 TEXT_FIELDS = ("label", "notes", "validity.notes", "thermal.notes")
 #: Blocks a bundled record must carry (see docs/adding-materials-and-eos.md).
@@ -872,11 +879,16 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
     parameters = record.get("parameters")
     thermal = record.get("thermal")
     kind = None
+
+    def parameter(item: Any) -> bool:
+        # The object form or a bare published number (see _set_fields).
+        return isinstance(item, dict) or _number(item)
+
     if (
         len(path) == 3
         and path[0] == "parameters"
         and isinstance(parameters, dict)
-        and isinstance(parameters.get(path[1]), dict)
+        and parameter(parameters.get(path[1]))
         and path[2] in PARAMETER_FIELDS
     ):
         kind = path[2]
@@ -885,7 +897,7 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
         and path[:2] == ["thermal", "parameters"]
         and isinstance(thermal, dict)
         and isinstance(thermal.get("parameters"), dict)
-        and isinstance(thermal["parameters"].get(path[2]), dict)
+        and parameter(thermal["parameters"].get(path[2]))
         and path[3] in PARAMETER_FIELDS
     ):
         kind = path[3]
@@ -905,9 +917,27 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
         and path[0] == "validity"
         and isinstance(record.get("validity"), dict)
         and path[1] in VALIDITY_BOUNDS
-        and path[1] in record["validity"]
     ):
+        # An existing bound, or a new bound of an existing validity object
+        # (which then becomes the enforced range). The object itself is
+        # never removed or emptied.
         kind = "bound"
+    elif len(path) == 2 and path[0] == "validity" and "validity" not in record:
+        # A new validity object; _check_new_validity requires a bound for
+        # every stated experimental range, each containing it.
+        if path[1] not in VALIDITY_BOUNDS:
+            raise Refused(
+                "protected_field",
+                f"{joined}: a new validity object takes only the bounds "
+                f"{list(VALIDITY_BOUNDS)}",
+            )
+        kind = "bound"
+    elif (
+        path == ["volume_basis", "molar_mass_g_mol"]
+        and isinstance(record.get("volume_basis"), dict)
+        and path[1] in record["volume_basis"]
+    ):
+        kind = "molar_mass"
     if kind is None:
         raise Refused(
             "protected_field",
@@ -931,6 +961,14 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
         return
     if kind == "parameter_covariance":
         return  # checked on the record after all changes (_check_record)
+    if kind == "molar_mass" and not (
+        _number(value) and 0 < value <= MOLAR_MASS_MAX_G_MOL
+    ):
+        raise Refused(
+            "value",
+            f"{joined}: {json.dumps(value)} is not a finite number in "
+            f"(0, {MOLAR_MASS_MAX_G_MOL}] g/mol",
+        )
     valid = {
         "error": value is None or (_number(value) and value >= 0),
         "fixed": isinstance(value, bool),
@@ -943,6 +981,7 @@ def _allowed(record: dict, path: list[str], change: Mapping[str, Any]) -> None:
         "experimental_temperature_range_k": pair(value),
         "pressure_range_status": _text(value),
         "bound": pair(value),
+        "molar_mass": _number(value) and 0 < value <= MOLAR_MASS_MAX_G_MOL,
     }[kind]
     if not valid:
         raise Refused("value", f"{joined}: {json.dumps(value)} is not a valid value")
@@ -1091,10 +1130,61 @@ def _check_record(
             )
 
 
+#: Validity bounds a new validity object needs, by the experimental range
+#: the record states: a validity object is then the only enforced range.
+NEW_VALIDITY_BOUNDS = {
+    "experimental_pressure_range_gpa": "pressure_gpa",
+    "experimental_temperature_range_k": "temperature_k",
+}
+
+
+def _check_new_validity(record: Mapping[str, Any], where: str) -> None:
+    """A created validity object bounds every stated range and contains it."""
+    validity = record["validity"]
+    for stated, bound in NEW_VALIDITY_BOUNDS.items():
+        span = record.get(stated)
+        if span is None:
+            continue
+        if bound not in validity:
+            raise Refused(
+                "validity_incomplete",
+                f"{where}: a new validity object must set validity.{bound} in the "
+                f"same revision, since {stated} {span} would otherwise no longer "
+                "be enforced",
+            )
+        low, high = validity[bound]
+        if not (low <= span[0] and span[1] <= high):
+            raise Refused(
+                "validity_narrower",
+                f"{where}: validity.{bound} {validity[bound]} does not contain "
+                f"{stated} {span}",
+            )
+
+
+def _parameter_split(path: list[str]) -> int | None:
+    """Length of the parameter's own path in a parameter-field path, else None."""
+    if len(path) == 3 and path[0] == "parameters":
+        return 2
+    if len(path) == 4 and path[:2] == ["thermal", "parameters"]:
+        return 3
+    return None
+
+
+def _parameter_name(path: list[str]) -> str | None:
+    """The parameter a ``set`` operation path addresses (field or whole)."""
+    if len(path) >= 2 and path[0] == "parameters":
+        return path[1]
+    if len(path) >= 3 and path[:2] == ["thermal", "parameters"]:
+        return path[2]
+    return None
+
+
 def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
     """Apply declared field changes to the record file; return the operations."""
     records = {r["identifier"]: r for r in document["eos_records"]}
     forward: list[dict] = []
+    requested: list[tuple[str, list[str]]] = []
+    created: list[str] = []
     for change in changes:
         identifier = change.get("record")
         if identifier not in records:
@@ -1111,14 +1201,17 @@ def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
         if ("value" in change) == bool(change.get("remove")):
             raise Refused("value", "give exactly one of value or remove")
         _allowed(records[identifier], path, change)
-        for other in forward:
-            shorter = min(len(other["path"]), len(path))
-            if (
-                other["record"] == identifier
-                and other["path"][:shorter] == path[:shorter]
-            ):
+        for other in requested:
+            shorter = min(len(other[1]), len(path))
+            if other[0] == identifier and other[1][:shorter] == path[:shorter]:
                 raise Refused("overlapping_paths", f"{identifier}/{'.'.join(path)}")
-        current = read_path(records[identifier], path)
+        requested.append((identifier, list(path)))
+        # A parameter stored as a bare number has no error or fixed field.
+        split = _parameter_split(path)
+        item = read_path(records[identifier], path[:split]) if split else ABSENT
+        bare = _number(item)
+        create = path[0] == "validity" and "validity" not in records[identifier]
+        current = ABSENT if bare or create else read_path(records[identifier], path)
         expected = ABSENT if change.get("expected_absent") else change["expected"]
         if not _same(current, expected):
             raise Refused(
@@ -1138,8 +1231,40 @@ def _set_fields(document: dict, changes: list[dict]) -> list[dict]:
             "after_present": after_present,
             "after": copy.deepcopy(change["value"]) if after_present else None,
         }
+        if create:
+            # The record's first validity bound creates the object; later
+            # bounds of the same request are added to it. The reverse
+            # removes the object again.
+            operation.update(
+                path=["validity"],
+                after={path[-1]: copy.deepcopy(change["value"])},
+            )
+            created.append(identifier)
+        elif bare:
+            # The object form with the same value plus the field; the
+            # operation replaces the whole parameter, so its reverse puts
+            # the bare number back exactly.
+            operation.update(
+                path=list(path[:split]),
+                before_present=True,
+                before=item,
+                after={"value": item, path[-1]: copy.deepcopy(change["value"])},
+            )
+        elif split and not after_present:
+            rest = {k: v for k, v in item.items() if k != path[-1]}
+            if list(rest) == ["value"]:
+                # Removing the last field leaves the bare number.
+                operation.update(
+                    path=list(path[:split]),
+                    before_present=True,
+                    before=item,
+                    after_present=True,
+                    after=rest["value"],
+                )
         apply_operations(document["eos_records"], [operation], "document")
         forward.append(operation)
+    for identifier in created:
+        _check_new_validity(records[identifier], identifier)
     for identifier in dict.fromkeys(o["record"] for o in forward):
         paths = [o["path"] for o in forward if o["record"] == identifier]
         _check_record(
@@ -1229,19 +1354,23 @@ def _validity(record: Mapping[str, Any]) -> Any:
 
 
 def _parameter_items(record: Mapping[str, Any]) -> dict[str, dict]:
-    """A record's reference-isotherm and thermal parameters by name."""
+    """A record's reference-isotherm and thermal parameters by name.
+
+    A parameter stored as a bare number reads as ``{"value": number}``: the
+    loader takes both forms alike (a free parameter without an error).
+    """
+
+    def items(parameters: Any) -> dict[str, dict]:
+        return {
+            k: v if isinstance(v, dict) else {"value": v}
+            for k, v in (parameters or {}).items()
+            if isinstance(v, dict) or _number(v)
+        }
+
     thermal = record.get("thermal") if isinstance(record.get("thermal"), dict) else {}
     return {
-        **{
-            k: v
-            for k, v in (thermal.get("parameters") or {}).items()
-            if isinstance(v, dict)
-        },
-        **{
-            k: v
-            for k, v in (record.get("parameters") or {}).items()
-            if isinstance(v, dict)
-        },
+        **items(thermal.get("parameters")),
+        **items(record.get("parameters")),
     }
 
 
@@ -1302,11 +1431,11 @@ def _check_rows(
         names = None
         if kind == "set_fields":
             names = {
-                o["path"][-2]
+                _parameter_name(o["path"])
                 for o in forward
                 if o["op"] == "set"
                 and o["record"] == identifier
-                and o["path"][0] in ("parameters", "thermal")
+                and _parameter_name(o["path"]) is not None
             }
             if not names:
                 continue
@@ -1432,7 +1561,10 @@ def _revised_binding(
                 if ordering["path"] == parent:
                     key = operation["path"][-1]
                     if operation["after_present"]:
-                        ordering["keys"].append(key)
+                        # Where _write inserts it (a validity bound in place).
+                        ordering["keys"] = ordered_keys(
+                            operation["path"], ordering["keys"]
+                        )
                     else:
                         ordering["keys"].remove(key)
     ordered: dict[str, Any] = {}
@@ -1996,6 +2128,8 @@ def _values(record: Mapping[str, Any]) -> list[str]:
         ("thermal ", (record.get("thermal") or {}).get("parameters") or {}),
     ):
         for name, item in parameters.items():
+            if _number(item):
+                item = {"value": item}
             if not isinstance(item, dict):
                 continue
             error = item.get("error")
@@ -2005,6 +2139,23 @@ def _values(record: Mapping[str, Any]) -> list[str]:
                 text += ", fixed"
             lines.append(f"    {text}")
     return lines
+
+
+def _range_text(validity: Any) -> str:
+    """An enforced range in words; an open side reads ``unbounded``."""
+
+    def span(pair: tuple[float, float], unit: str, floor: float) -> str:
+        low = "unbounded" if pair[0] <= floor else repr(pair[0])
+        high = "unbounded" if not math.isfinite(pair[1]) else repr(pair[1])
+        return f"[{low}, {high}] {unit}".rstrip()
+
+    text = (
+        f"pressure {span(validity.pressure_gpa, 'GPa', -math.inf)}, "
+        f"temperature {span(validity.temperature_k, 'K', math.ulp(0.0))}"
+    )
+    if validity.volume_ratio is not None:
+        text += f", V/V0 {span(validity.volume_ratio, '', -math.inf)}"
+    return text
 
 
 def _show(
@@ -2064,11 +2215,12 @@ def _show(
             )
         was, now = validity.get(identifier, (None, None))
         if was is not None and was != now:
-            lines.append(f"  enforced range: {was} -> {now}")
+            lines.append(f"  enforced range: {_range_text(was)}")
+            lines.append(f"               -> {_range_text(now)}")
+        elif was is not None:
+            lines.append(f"  enforced range: {_range_text(now)} (unchanged)")
         elif now is not None:
-            lines.append(
-                f"  enforced range: {now.pressure_gpa} GPa, {now.temperature_k} K"
-            )
+            lines.append(f"  enforced range: {_range_text(now)}")
         lines.append("  check block (record file):")
         lines += [
             "    " + line

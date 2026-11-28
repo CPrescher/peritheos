@@ -97,6 +97,12 @@ All notable changes to Peritheos are documented here. The project follows
   a0; the Table 1 value is stored by maintainer decision and the record's
   note states the conflict. It is not a default; the 300 K record remains the
   default.
+- `scripts/apply_catalog_revision.py` can flag or give an error to a
+  parameter stored as a bare number (it takes the object form with the same
+  value), add a bound to an existing `validity` object, create a `validity`
+  object that bounds and contains every stated experimental range, and correct
+  `volume_basis.molar_mass_g_mol`; each undoes byte for byte. A material's
+  `default_records` is still not settable.
 - `scripts/apply_catalog_revision.py` can set `parameter_uncertainty_convention`
   on a record that already carries it. The three Nisr et al. (2017) records
   now say that their 0.683 confidence level assumes a normal distribution,

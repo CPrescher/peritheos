@@ -500,6 +500,263 @@ def test_a_row_that_does_not_take_the_stored_values_is_refused(pristine):
     assert "pinned in scripts/" in str(refusal.value)
 
 
+# Bare parameters, validity bounds and objects, molar mass -------------------
+
+DIAMOND_ANCHORED = (
+    "diamond_correa_2008_dewaele_anchored",
+    "diamond_benedict_2014_dewaele_anchored",
+)
+KCL = "kcl_b2_ma_2024_bm3_mgd"
+FORSTERITE = "forsterite_katsura_2022_bm3_mgd"
+ABSENT = catalog_revisions.ABSENT
+
+
+def _number_only(value) -> bool:
+    return isinstance(value, (int, float)) and not isinstance(value, bool)
+
+
+def _record(root: Path, material: str, identifier: str) -> dict:
+    return next(r for r in _records(root, material) if r["identifier"] == identifier)
+
+
+def _volume_basis_record(root: Path) -> tuple[str, dict]:
+    """A non-Hugoniot record with a molar mass (picked at run time)."""
+    for path in sorted((root / "peritheos/data/materials").glob("*.eosmat")):
+        for record in json.loads(path.read_bytes())["eos_records"]:
+            basis = record.get("volume_basis")
+            if (
+                isinstance(basis, dict)
+                and "molar_mass_g_mol" in basis
+                and "initial_state" not in record
+            ):
+                return path.stem, record
+    raise AssertionError("no record with volume_basis.molar_mass_g_mol")
+
+
+def k0_fixed_request(root: Path, revision: str = "t-bare") -> dict:
+    changes = []
+    for identifier in DIAMOND_ANCHORED:
+        assert _number_only(_record(root, "diamond", identifier)["parameters"]["K0"])
+        changes.append(change(identifier, ["parameters", "K0", "fixed"], ABSENT, True))
+    return set_request(revision, "diamond", changes)
+
+
+def kcl_bound_request(root: Path, revision: str = "t-bound") -> dict:
+    record = _record(root, "kcl", KCL)
+    assert "pressure_gpa" not in record["validity"]
+    span = record["experimental_pressure_range_gpa"]
+    return set_request(
+        revision, "kcl", [change(KCL, ["validity", "pressure_gpa"], ABSENT, span)]
+    )
+
+
+def forsterite_validity_request(root: Path, revision: str = "t-validity") -> dict:
+    record = _record(root, "forsterite", FORSTERITE)
+    assert "validity" not in record
+    pressure = record["experimental_pressure_range_gpa"]
+    temperature = record["experimental_temperature_range_k"]
+    return set_request(
+        revision,
+        "forsterite",
+        [
+            change(FORSTERITE, ["validity", "pressure_gpa"], ABSENT, pressure),
+            change(
+                FORSTERITE,
+                ["validity", "temperature_k"],
+                ABSENT,
+                [temperature[0] - 10.0, temperature[1]],
+            ),
+        ],
+    )
+
+
+def molar_mass_request(root: Path, revision: str = "t-molar") -> dict:
+    material, record = _volume_basis_record(root)
+    mass = record["volume_basis"]["molar_mass_g_mol"]
+    return set_request(
+        revision,
+        material,
+        [
+            change(
+                record["identifier"],
+                ["volume_basis", "molar_mass_g_mol"],
+                mass,
+                mass + 0.001,
+            )
+        ],
+    )
+
+
+def test_bare_parameters_validity_and_molar_mass_undo_exactly(repo):
+    before = _tree(repo)
+    bare = k0_fixed_request(repo)
+    bound = kcl_bound_request(repo)
+    created = forsterite_validity_request(repo)
+    molar = molar_mass_request(repo)
+    plans = [apply(repo, request) for request in (bare, bound, created, molar)]
+    assert_history(repo, sorted({"diamond", "kcl", "forsterite", molar["material"]}))
+    # A bare number takes the object form with the same value, also in the
+    # pre-split reference; the published value is unchanged.
+    reference = json.loads(pre_split_bytes("diamond", root=repo))
+    for identifier in DIAMOND_ANCHORED:
+        for document in (
+            {"eos_records": _records(repo, "diamond")},
+            reference,
+        ):
+            record = next(
+                r for r in document["eos_records"] if r["identifier"] == identifier
+            )
+            assert record["parameters"]["K0"] == {"value": 444.5, "fixed": True}
+    operation = plans[0].revision["forward"][0]
+    assert operation["path"] == ["parameters", "K0"]
+    assert operation["before"] == 444.5
+    # The bound is inserted before the notes and becomes the enforced range.
+    validity = _record(repo, "kcl", KCL)["validity"]
+    assert list(validity) == ["pressure_gpa", "notes"]
+    assert any("-> pressure [" in line for line in plans[1].shown)
+    # A new validity object holds the bounds in their order.
+    validity = _record(repo, "forsterite", FORSTERITE)["validity"]
+    assert list(validity) == ["pressure_gpa", "temperature_k"]
+    assert plans[2].revision["forward"][0]["path"] == ["validity"]
+    assert plans[2].revision["forward"][0]["before_present"] is False
+    for request in reversed((bare, bound, created, molar)):
+        undo(repo, request["id"])
+    assert _tree(repo) == before
+
+
+def test_removing_the_last_field_returns_the_bare_number(repo):
+    before = _tree(repo)
+    original = (repo / "peritheos/data/materials/diamond.eosmat").read_bytes()
+    apply(repo, k0_fixed_request(repo))
+    removal = set_request(
+        "t-bare-remove",
+        "diamond",
+        [
+            {
+                "record": identifier,
+                "path": ["parameters", "K0", "fixed"],
+                "expected": True,
+                "remove": True,
+            }
+            for identifier in DIAMOND_ANCHORED
+        ],
+    )
+    apply(repo, removal)
+    assert (repo / "peritheos/data/materials/diamond.eosmat").read_bytes() == original
+    assert_history(repo, ["diamond"])
+    undo(repo, "t-bare-remove")
+    undo(repo, "t-bare")
+    assert _tree(repo) == before
+
+
+@pytest.mark.parametrize(
+    ("path", "expected", "value", "reason"),
+    [
+        (["parameters", "K0", "value"], 444.5, 445.0, "published_value"),
+        (["parameters", "K0"], 444.5, {"value": 444.5}, "protected_field"),
+        (["parameters", "K0", "fixed"], 444.5, True, "expected_mismatch"),
+        (["parameters", "K0", "error"], ABSENT, -1.0, "value"),
+        (["parameters", "K0", "frobnicate"], ABSENT, 1, "protected_field"),
+    ],
+)
+def test_a_bare_parameter_keeps_its_published_value(
+    pristine, path, expected, value, reason
+):
+    identifier = DIAMOND_ANCHORED[0]
+    request = set_request("t", "diamond", [change(identifier, path, expected, value)])
+    with pytest.raises(tool.Refused, match=reason):
+        tool.plan_revision(request, pristine, derived=False)
+    removal = set_request(
+        "t",
+        "diamond",
+        [
+            {
+                "record": identifier,
+                "path": ["parameters", "K0", "fixed"],
+                "expected_absent": True,
+                "remove": True,
+            }
+        ],
+    )
+    with pytest.raises(tool.Refused, match="no_change"):
+        tool.plan_revision(removal, pristine, derived=False)
+
+
+def test_a_new_validity_object_bounds_and_contains_every_stated_range(pristine):
+    request = forsterite_validity_request(pristine)
+    only_pressure = copy.deepcopy(request)
+    del only_pressure["changes"][1]
+    with pytest.raises(tool.Refused, match="validity_incomplete"):
+        tool.plan_revision(only_pressure, pristine, derived=False)
+    narrower = copy.deepcopy(request)
+    low, high = narrower["changes"][1]["value"]
+    narrower["changes"][1]["value"] = [low + 20.0, high]
+    with pytest.raises(tool.Refused, match="validity_narrower"):
+        tool.plan_revision(narrower, pristine, derived=False)
+    other = copy.deepcopy(request)
+    other["changes"][1]["path"] = ["validity", "notes"]
+    with pytest.raises(tool.Refused, match="protected_field"):
+        tool.plan_revision(other, pristine, derived=False)
+    # A bound of an existing object cannot be removed by a request.
+    record = _record(pristine, "diamond", DIAMOND_ANCHORED[0])
+    removal = set_request(
+        "t",
+        "diamond",
+        [
+            {
+                "record": DIAMOND_ANCHORED[0],
+                "path": ["validity", "pressure_gpa"],
+                "expected": record["validity"]["pressure_gpa"],
+                "remove": True,
+            }
+        ],
+    )
+    with pytest.raises(tool.Refused, match="cannot be removed"):
+        tool.plan_revision(removal, pristine, derived=False)
+
+
+def test_a_new_validity_object_shows_the_widened_range(pristine, tmp_path, capsys):
+    path = tmp_path / "request.json"
+    path.write_text(json.dumps(forsterite_validity_request(pristine)))
+    assert tool.main([str(path), "--check"], root=pristine, derived=False) == 0
+    output = capsys.readouterr().out
+    assert "validity: absent -> {" in output
+    assert "validity.temperature_k: absent -> [" in output
+    record = _record(pristine, "forsterite", FORSTERITE)
+    low, high = record["experimental_temperature_range_k"]
+    assert f"temperature [{low!r}, {high!r}] K" in output
+    assert f"temperature [{low - 10.0!r}, {high!r}] K" in output
+
+
+@pytest.mark.parametrize(
+    ("value", "reason"),
+    [(-1.0, "value"), (0.0, "value"), (float("nan"), "value"), (2e4, "value")],
+)
+def test_molar_mass_is_a_positive_finite_number(pristine, value, reason):
+    request = molar_mass_request(pristine)
+    request["changes"][0]["value"] = value
+    with pytest.raises(tool.Refused, match=reason):
+        tool.plan_revision(request, pristine, derived=False)
+
+
+def test_molar_mass_is_settable_only_where_a_record_carries_it(pristine):
+    record = next(r for r in _records(pristine, "qandilite") if "volume_basis" not in r)
+    request = set_request(
+        "t",
+        "qandilite",
+        [
+            change(
+                record["identifier"],
+                ["volume_basis", "molar_mass_g_mol"],
+                ABSENT,
+                100.0,
+            )
+        ],
+    )
+    with pytest.raises(tool.Refused, match="protected_field"):
+        tool.plan_revision(request, pristine, derived=False)
+
+
 # Text revisions and undo ----------------------------------------------------
 
 
